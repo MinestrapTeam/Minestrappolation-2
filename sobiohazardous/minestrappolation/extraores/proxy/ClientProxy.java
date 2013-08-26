@@ -12,7 +12,7 @@ import sobiohazardous.minestrappolation.extraores.entity.EntityNukePrimed;
 import sobiohazardous.minestrappolation.extraores.entity.EntityInstantExplosion;
 import sobiohazardous.minestrappolation.extraores.handler.RenderingHandler;
 import sobiohazardous.minestrappolation.extraores.lib.EOBlockRegister;
-
+import sobiohazardous.minestrappolation.extraores.lib.EOItemManager;
 import net.minecraft.src.ModLoader;
 import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.MinecraftForge;
@@ -41,9 +41,9 @@ public class ClientProxy extends CommonProxy
 		RenderingRegistry.registerBlockHandler(new RenderingHandler());
 				
 		RenderingRegistry.registerEntityRenderingHandler(EntityNukePrimed.class, new RenderNukePrimed());
-		RenderingRegistry.registerEntityRenderingHandler(EntityGrenade.class, new RenderGrenade(ExtraOres.grenade));
-		RenderingRegistry.registerEntityRenderingHandler(EntityGrenadeImpact.class, new RenderGrenade(ExtraOres.grenadeImpact));
-		RenderingRegistry.registerEntityRenderingHandler(EntityGrenadeSticky.class, new RenderGrenade(ExtraOres.grenadeSticky));
+		RenderingRegistry.registerEntityRenderingHandler(EntityGrenade.class, new RenderGrenade(EOItemManager.grenade));
+		RenderingRegistry.registerEntityRenderingHandler(EntityGrenadeImpact.class, new RenderGrenade(EOItemManager.grenadeImpact));
+		RenderingRegistry.registerEntityRenderingHandler(EntityGrenadeSticky.class, new RenderGrenade(EOItemManager.grenadeSticky));
 
 
     }

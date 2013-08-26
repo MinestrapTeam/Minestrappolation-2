@@ -5,6 +5,7 @@ import java.util.Random;
 import sobiohazardous.minestrappolation.extraores.ExtraOres;
 
 
+import sobiohazardous.minestrappolation.extraores.lib.EOBlockManager;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -36,7 +37,7 @@ public class BlockPlate extends Block
 	 public static final boolean isRailBlockAt(World par0World, int par1, int par2, int par3)
 	    {
 	        int i = par0World.getBlockId(par1, par2, par3);
-	        return i == ExtraOres.TinPlate.blockID || i == ExtraOres.BronzePlate.blockID || i == ExtraOres.SteelPlate.blockID;
+	        return i == EOBlockManager.TinPlate.blockID || i == EOBlockManager.BronzePlate.blockID || i == EOBlockManager.SteelPlate.blockID;
 	        //Done. Simple as one OR statement! You're welcome. :)
 	    }
 	 

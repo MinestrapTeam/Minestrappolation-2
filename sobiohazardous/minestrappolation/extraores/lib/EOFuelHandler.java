@@ -10,11 +10,11 @@ public class EOFuelHandler implements IFuelHandler
 	@Override
 	public int getBurnTime(ItemStack fuel) 
 	{
-		if(fuel.itemID == ExtraOres.Plutonium.itemID)
+		if(fuel.itemID == EOItemManager.Plutonium.itemID)
 		{
 			return 35000;
 		}
-		if(fuel.itemID == ExtraOres.Uranium.itemID)
+		if(fuel.itemID == EOItemManager.Uranium.itemID)
 		{
 			return 30000;
 		}

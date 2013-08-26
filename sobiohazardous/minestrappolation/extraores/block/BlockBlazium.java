@@ -2,9 +2,9 @@ package sobiohazardous.minestrappolation.extraores.block;
 
 import java.util.Random;
 
-import sobiohazardous.minestrappolation.extraores.ExtraOres;
 
 
+import sobiohazardous.minestrappolation.extraores.lib.EOBlockManager;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -121,6 +121,6 @@ public class BlockBlazium extends Block
 }
     public boolean isBeaconBase(World worldObj, int x, int y, int z, int beaconX, int beaconY, int beaconZ)
     {
-        return (blockID == blockEmerald.blockID || blockID == blockGold.blockID || blockID == blockDiamond.blockID || blockID == ExtraOres.SteelBlock.blockID || blockID == ExtraOres.BronzeBlock.blockID || blockID == ExtraOres.meuroditeBlock.blockID || blockID == ExtraOres.ToriteBlock.blockID || blockID == ExtraOres.SteelBlock.blockID || blockID == ExtraOres.TitaniumBlock.blockID || blockID == ExtraOres.BlaziumBlock.blockID);
+        return (blockID == blockEmerald.blockID || blockID == blockGold.blockID || blockID == blockDiamond.blockID || blockID == EOBlockManager.SteelBlock.blockID || blockID == EOBlockManager.BronzeBlock.blockID || blockID == EOBlockManager.meuroditeBlock.blockID || blockID == EOBlockManager.ToriteBlock.blockID || blockID == EOBlockManager.SteelBlock.blockID || blockID == EOBlockManager.TitaniumBlock.blockID || blockID == EOBlockManager.BlaziumBlock.blockID);
     }
 }

@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.Random;
 
 import sobiohazardous.minestrappolation.extraores.ExtraOres;
+import sobiohazardous.minestrappolation.extraores.lib.EOBlockManager;
 import sobiohazardous.minestrappolation.extraores.tileentity.TileEntityMelter;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -58,7 +58,7 @@ public class BlockMelter extends BlockContainer
      */
     public int idDropped(int par1, Random par2Random, int par3)
     {
-        return ExtraOres.melterIdle.blockID;
+        return EOBlockManager.melterIdle.blockID;
     }
 
     /**
@@ -163,11 +163,11 @@ public class BlockMelter extends BlockContainer
 
         if (par0)
         {
-            par1World.setBlock(par2, par3, par4, ExtraOres.melterBurning.blockID);
+            par1World.setBlock(par2, par3, par4, EOBlockManager.melterBurning.blockID);
         }
         else
         {
-            par1World.setBlock(par2, par3, par4, ExtraOres.melterIdle.blockID);
+            par1World.setBlock(par2, par3, par4, EOBlockManager.melterIdle.blockID);
         }
 
         keepFurnaceInventory = false;

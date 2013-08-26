@@ -150,10 +150,19 @@ public class MCustomBiomeDecorator extends BiomeDecorator
 
     /** True if decorator should generate surface lava & water */
     public boolean generateLakes;
+    
+    
+    public int biomeStoneId;
+    protected WorldGenerator biomeSpecficStonePocket;
+    
+    
+    
+    public boolean BiomeStonePocket;
 
     public MCustomBiomeDecorator(BiomeGenBase par1BiomeGenBase)
     {
     	super(par1BiomeGenBase);
+    	this.biomeSpecficStonePocket = new WorldGenMinable(this.biomeStoneId, 50);
         this.sandGen = new WorldGenSand(7, Block.sand.blockID);
         this.gravelAsSandGen = new WorldGenSand(6, Block.gravel.blockID);
         this.dirtGen = new WorldGenMinable(Block.dirt.blockID, 32);
@@ -292,6 +301,10 @@ public class MCustomBiomeDecorator extends BiomeDecorator
             i1 = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
             WorldGenerator worldgenerator1 = this.biome.getRandomWorldGenForGrass(this.randomGenerator);
             worldgenerator1.generate(this.currentWorld, this.randomGenerator, k, l, i1);
+        }
+        
+        if(this.BiomeStonePocket){
+        	this.genStandardOre1(30, this.biomeSpecficStonePocket, 35, 100);
         }
 
         doGen = TerrainGen.decorate(currentWorld, randomGenerator, chunk_X, chunk_Z, DEAD_BUSH);

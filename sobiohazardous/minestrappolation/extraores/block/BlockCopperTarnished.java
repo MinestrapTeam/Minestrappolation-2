@@ -4,10 +4,11 @@ import java.util.Random;
 
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
-
 import sobiohazardous.minestrappolation.extraores.ExtraOres;
 
 
+import sobiohazardous.minestrappolation.extraores.lib.EOBlockManager;
+import sobiohazardous.minestrappolation.extraores.lib.EOItemManager;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -27,7 +28,7 @@ public class BlockCopperTarnished extends Block
 	public BlockCopperTarnished(int par1)
     {
         super(par1, Material.iron);
-        this.setCreativeTab(ExtraOres.tabOresBlocks);
+        this.setCreativeTab(EOBlockManager.tabOresBlocks);
     }
 
 	public void registerIcons(IconRegister iconRegister)
@@ -76,7 +77,7 @@ public class BlockCopperTarnished extends Block
         {
         	if (par5EntityPlayer.getCurrentEquippedItem() != null && (par5EntityPlayer.getCurrentEquippedItem().itemID == grease.itemID || par5EntityPlayer.getCurrentEquippedItem().itemID == Item.fireballCharge.itemID))
             {
-            	par1World.setBlock(par2, par3, par4, ExtraOres.CopperBlock.blockID);   
+            	par1World.setBlock(par2, par3, par4, EOBlockManager.CopperBlock.blockID);   
             	
             }
         	return true;

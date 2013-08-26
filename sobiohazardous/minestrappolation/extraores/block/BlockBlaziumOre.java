@@ -5,6 +5,7 @@ import java.util.Random;
 import sobiohazardous.minestrappolation.extraores.ExtraOres;
 
 
+import sobiohazardous.minestrappolation.extraores.lib.EOBlockManager;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -17,7 +18,7 @@ public class BlockBlaziumOre extends Block
     public BlockBlaziumOre(int par1)
     {
         super(par1, Material.rock);
-        this.setCreativeTab(ExtraOres.tabOresBlocks);
+        this.setCreativeTab(EOBlockManager.tabOresBlocks);
     }
     
     public void registerIcons(IconRegister iconRegister)
