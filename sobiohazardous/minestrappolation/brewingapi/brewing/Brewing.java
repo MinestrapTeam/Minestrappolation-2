@@ -3,7 +3,7 @@ package sobiohazardous.minestrappolation.brewingapi.brewing;
 import java.util.*;
 
 import sobiohazardous.minestrappolation.api.Minestrappolation;
-import sobiohazardous.minestrappolation.brewingapi.api.IIngredientHandler;
+import sobiohazardous.minestrappolation.brewingapi.IIngredientHandler;
 import sobiohazardous.minestrappolation.brewingapi.item.ItemPotion2;
 
 

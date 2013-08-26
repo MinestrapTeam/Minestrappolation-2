@@ -27,8 +27,8 @@ import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 import sobiohazardous.minestrappolation.api.proxy.CommonProxy;
-import sobiohazardous.minestrappolation.brewingapi.api.IIngredientHandler;
-import sobiohazardous.minestrappolation.brewingapi.api.IPotionEffectHandler;
+import sobiohazardous.minestrappolation.brewingapi.IIngredientHandler;
+import sobiohazardous.minestrappolation.brewingapi.IPotionEffectHandler;
 import sobiohazardous.minestrappolation.brewingapi.block.BlockBrewingStand2;
 import sobiohazardous.minestrappolation.brewingapi.brewing.Brewing;
 import sobiohazardous.minestrappolation.brewingapi.brewing.BrewingList;
@@ -40,7 +40,7 @@ import sobiohazardous.minestrappolation.brewingapi.lib.BAPICreativeTabs;
 import sobiohazardous.minestrappolation.brewingapi.lib.DispenserBehaviorPotion2;
 import sobiohazardous.minestrappolation.brewingapi.tileentity.TileEntityBrewingStand2;
 
-@Mod(modid = "Minestrappolation", name = "Minestrappolation API", version = "B1.0")
+@Mod(modid = "Minestrappolation", name = "Minestrappolation API", version = "B1.0", dependencies = "required-before:ExtraOres;required-before:ExtraDecor;required-before:ExtraMobDrops")
 public class Minestrappolation 
 {
 	@SidedProxy(clientSide = "sobiohazardous.minestrappolation.api.proxy.ClientProxy", serverSide = "sobiohazardous.minestrappolation.api.proxy.ServerSide")

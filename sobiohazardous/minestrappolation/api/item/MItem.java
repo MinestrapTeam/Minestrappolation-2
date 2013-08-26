@@ -12,6 +12,6 @@ public class MItem extends Item
 	
 	public void registerIcons(IconRegister r)
 	{
-		itemIcon = r.registerIcon("minestrappolation" + this.getUnlocalizedName().substring(5));
+		itemIcon = r.registerIcon("Minestrappolation:" + this.getUnlocalizedName().substring(5));
 	}
 }
