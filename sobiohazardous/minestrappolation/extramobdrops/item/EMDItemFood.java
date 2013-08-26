@@ -6,11 +6,9 @@ import net.minecraft.item.ItemFood;
 
 public class EMDItemFood extends ItemFood
 {
-	private String texture;
-	public EMDItemFood(int id, int healAmt, float sat, String texture)
+	public EMDItemFood(int id, int healAmt, float sat)
 	{
 		super(id, healAmt, sat, false);
-		this.texture = texture;
 		this.setCreativeTab(ExtraMobDrops.tabItems);
 	}
 	

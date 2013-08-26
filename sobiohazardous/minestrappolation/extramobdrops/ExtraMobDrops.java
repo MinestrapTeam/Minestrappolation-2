@@ -163,17 +163,17 @@ public class ExtraMobDrops
 		
 		config.save();
 
-		snout = new MItemFood(snoutId, 3, 0.2F).setPotionEffect(Potion.hunger.id, 10 * 20, 1, 0.25F).setUnlocalizedName("snout");
+		snout = new EMDItemFood(snoutId, 3, 0.2F).setPotionEffect(Potion.hunger.id, 10 * 20, 1, 0.25F).setUnlocalizedName("snout");
 		pigHoof = new MItem(pigHoofId).setUnlocalizedName("pig_hoof");
-		fat = new MItemFood(fatId, 8, 0.2F).setPotionEffect(Potion.hunger.id, 25 * 20, 1, 1.0F).setUnlocalizedName("fat");
+		fat = new EMDItemFood(fatId, 8, 0.2F).setPotionEffect(Potion.hunger.id, 25 * 20, 1, 1.0F).setUnlocalizedName("fat");
 		grease = new MItem(greaseId).setUnlocalizedName("grease");
 		
-		friedApple = new MItemFood(friedAppleId, 8, 0.3F, "grease_apple").setPotionEffect(Potion.hunger.id, 15 * 20, 1, 0.4F).setUnlocalizedName("friedApple");
-		friedBeef = new MItemFood(friedBeefId, 16, 0.8F, "grease_beef").setPotionEffect(Potion.hunger.id, 15 * 20, 1, 0.4F).setUnlocalizedName("friedBeef");
-		friedBread = new MItemFood(friedBreadId, 10, 0.6F, "grease_bread").setPotionEffect(Potion.hunger.id, 15 * 20, 1, 0.4F).setUnlocalizedName("friedBread");
-		friedCarrot = new MItemFood(friedCarrotId, 8, 0.6F, "grease_carrot").setPotionEffect(Potion.hunger.id, 15 * 20, 1, 0.4F).setUnlocalizedName("friedCarrot");
-		friedCookie = new MItemFood(friedCookieId, 8, 0.6F, "grease_cookie").setPotionEffect(Potion.hunger.id, 15 * 20, 1, 0.4F).setUnlocalizedName("friedCookie");
-		friedFlesh = new MItemFood(friedFleshId, 8, 0.6F, "grease_flesh").setPotionEffect(Potion.hunger.id, 15 * 20, 1, 0.4F).setUnlocalizedName("friedFlesh");
+		friedApple = new EMDItemFood(friedAppleId, 8, 0.3F, "grease_apple").setPotionEffect(Potion.hunger.id, 15 * 20, 1, 0.4F).setUnlocalizedName("friedApple");
+		friedBeef = new EMDItemFood(friedBeefId, 16, 0.8F, "grease_beef").setPotionEffect(Potion.hunger.id, 15 * 20, 1, 0.4F).setUnlocalizedName("friedBeef");
+		friedBread = new EMDItemFood(friedBreadId, 10, 0.6F, "grease_bread").setPotionEffect(Potion.hunger.id, 15 * 20, 1, 0.4F).setUnlocalizedName("friedBread");
+		friedCarrot = new EMDItemFood(friedCarrotId, 8, 0.6F, "grease_carrot").setPotionEffect(Potion.hunger.id, 15 * 20, 1, 0.4F).setUnlocalizedName("friedCarrot");
+		friedCookie = new EMDItemFood(friedCookieId, 8, 0.6F, "grease_cookie").setPotionEffect(Potion.hunger.id, 15 * 20, 1, 0.4F).setUnlocalizedName("friedCookie");
+		friedFlesh = new EMDItemFood(friedFleshId, 8, 0.6F, "grease_flesh").setPotionEffect(Potion.hunger.id, 15 * 20, 1, 0.4F).setUnlocalizedName("friedFlesh");
 		
 		animalBones = new MItem(animalBonesId, "animal_bones").setUnlocalizedName("animalBones");
 		cowHoof = new MItem(cowHoofId, "cow_hoof").setUnlocalizedName("cowHoof");
