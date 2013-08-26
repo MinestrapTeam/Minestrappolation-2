@@ -1,27 +1,16 @@
 package sobiohazardous.minestrappolation.extraores.block;
 
-import java.util.Iterator;
-import java.util.List;
 import java.util.Random;
-
-import sobiohazardous.minestrappolation.extraores.ExtraOres;
-
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
-import net.minecraft.src.*;
-import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.Icon;
 import net.minecraft.world.World;
+import sobiohazardous.minestrappolation.extraores.lib.EOBlockManager;
+import sobiohazardous.minestrappolation.extraores.lib.EOItemManager;
 
 public class EOBlock extends Block
 {
@@ -44,7 +33,7 @@ public class EOBlock extends Block
      */
     public int idDropped(int par1, Random par2Random, int par3)
     {
-        return this.blockID == ExtraOres.RadiantQuartzOre.blockID ? ExtraOres.RadiantQuartz.itemID : this.blockID == ExtraOres.BlaziumOre.blockID ? Item.blazePowder.itemID : (this.blockID == ExtraOres.SunstoneOre.blockID ? ExtraOres.SunstoneDust.itemID : (this.blockID == ExtraOres.SoulOre.blockID ? ExtraOres.SoulGem.itemID : (this.blockID == ExtraOres.PlutoniumOre.blockID ? ExtraOres.Plutonium.itemID : (this.blockID == ExtraOres.UraniumOre.blockID ? ExtraOres.Uranium.itemID : (this.blockID == ExtraOres.Quartzite.blockID ? ExtraOres.PinkQuartz.itemID : this.blockID == ExtraOres.meuroditeOre.blockID ? ExtraOres.meuroditeIngot.itemID : this.blockID)))));
+        return this.blockID == EOBlockManager.RadiantQuartzOre.blockID ? EOBlockManager.RadiantQuartz.itemID : this.blockID == EOBlockManager.BlaziumOre.blockID ? Item.blazePowder.itemID : (this.blockID == EOBlockManager.SunstoneOre.blockID ? EOItemManager.SunstoneDust.itemID : (this.blockID == EOBlockManager.SoulOre.blockID ? EOBlockManager.SoulGem.itemID : (this.blockID == EOBlockManager.PlutoniumOre.blockID ? EOItemManager.Plutonium.itemID : (this.blockID == EOBlockManager.UraniumOre.blockID ? EOItemManager.Uranium.itemID : (this.blockID == EOBlockManager.Quartzite.blockID ? EOItemManager.PinkQuartz.itemID : this.blockID == EOBlockManager.meuroditeOre.blockID ? EOItemManager.meuroditeIngot.itemID : this.blockID)))));
     }
 
     /**
@@ -52,7 +41,7 @@ public class EOBlock extends Block
      */
     public int quantityDropped(Random par1Random)
     {
-    	return this.blockID == ExtraOres.RadiantQuartzOre.blockID ? 1 : this.blockID == ExtraOres.BlaziumOre.blockID ? 1 + par1Random.nextInt(3) : (this.blockID == ExtraOres.SunstoneOre.blockID ? 2 + par1Random.nextInt(4) : (this.blockID == ExtraOres.SoulOre.blockID ? 2 + par1Random.nextInt(3) : (this.blockID == ExtraOres.PlutoniumOre.blockID ? 1 + par1Random.nextInt(2) : (this.blockID == ExtraOres.UraniumOre.blockID ? 1 + par1Random.nextInt(2) : (this.blockID == ExtraOres.Quartzite.blockID ? 2 + par1Random.nextInt(3) : 1)))));
+    	return this.blockID == EOBlockManager.RadiantQuartzOre.blockID ? 1 : this.blockID == EOBlockManager.BlaziumOre.blockID ? 1 + par1Random.nextInt(3) : (this.blockID == EOBlockManager.SunstoneOre.blockID ? 2 + par1Random.nextInt(4) : (this.blockID == EOBlockManager.SoulOre.blockID ? 2 + par1Random.nextInt(3) : (this.blockID == EOBlockManager.PlutoniumOre.blockID ? 1 + par1Random.nextInt(2) : (this.blockID == EOBlockManager.UraniumOre.blockID ? 1 + par1Random.nextInt(2) : (this.blockID == EOBlockManager.Quartzite.blockID ? 2 + par1Random.nextInt(3) : 1)))));
     }
 
     public int quantityDroppedWithBonus(int par1, Random par2Random)
@@ -84,7 +73,7 @@ public class EOBlock extends Block
     //code for Soul Ore slow effect
     public void onEntityCollidedWithBlock(World par1World, int par2, int par3, int par4, Entity par5Entity)
     {
-        if(blockID == ExtraOres.SoulOre.blockID)
+        if(blockID == EOBlockManager.SoulOre.blockID)
         {
         	par5Entity.motionX *= 0.4D;
             par5Entity.motionZ *= 0.4D;
@@ -103,7 +92,7 @@ public class EOBlock extends Block
     //Allows for "Ingot Blocks" to be used in Beacon base.
     public boolean isBeaconBase(World worldObj, int x, int y, int z, int beaconX, int beaconY, int beaconZ)
     {
-        return (blockID == blockEmerald.blockID || blockID == blockGold.blockID || blockID == blockDiamond.blockID || blockID == ExtraOres.SteelBlock.blockID || blockID == ExtraOres.BronzeBlock.blockID || blockID == ExtraOres.meuroditeBlock.blockID || blockID == ExtraOres.ToriteBlock.blockID || blockID == ExtraOres.SteelBlock.blockID || blockID == ExtraOres.TitaniumBlock.blockID || blockID == ExtraOres.BlaziumBlock.blockID);
+        return (blockID == blockEmerald.blockID || blockID == blockGold.blockID || blockID == blockDiamond.blockID || blockID == EOBlockManager.SteelBlock.blockID || blockID == EOBlockManager.BronzeBlock.blockID || blockID == EOBlockManager.meuroditeBlock.blockID || blockID == EOBlockManager.ToriteBlock.blockID || blockID == EOBlockManager.SteelBlock.blockID || blockID == EOBlockManager.TitaniumBlock.blockID || blockID == EOBlockManager.BlaziumBlock.blockID);
     }
     //code for Soul Ore's "sink" effect.
     

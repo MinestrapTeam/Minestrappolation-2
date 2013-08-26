@@ -3,9 +3,6 @@ package sobiohazardous.minestrappolation.extraores.block;
 import java.util.List;
 import java.util.Random;
 
-import sobiohazardous.minestrappolation.extraores.ExtraOres;
-
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockHalfSlab;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -13,6 +10,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import sobiohazardous.minestrappolation.extraores.lib.EOBlockManager;
 
 public class TinPlatedStoneBrickSlab extends BlockHalfSlab
 {
@@ -32,26 +30,26 @@ public class TinPlatedStoneBrickSlab extends BlockHalfSlab
 
 	public int idDropped(int par1, Random par2Random, int par3)
 	{
-		return ExtraOres.tinPlatedStoneBrickSingleSlab.blockID;
+		return EOBlockManager.tinPlatedStoneBrickSingleSlab.blockID;
 	}
 
 	public void onBlockPlacedBy(World par1World, int par2, int par3, int par4, EntityLiving par5EntityLiving)
 	{
-		if(par1World.getBlockId(par2, par3 - 1, par4) == ExtraOres.tinPlatedStoneBrickSingleSlab.blockID)
+		if(par1World.getBlockId(par2, par3 - 1, par4) == EOBlockManager.tinPlatedStoneBrickSingleSlab.blockID)
 		{
 			par1World.setBlock(par2, par3, par4, 0);
-			par1World.setBlock(par2, par3 - 1, par4, ExtraOres.tinPlatedStoneBrickDoubleSlab.blockID);
+			par1World.setBlock(par2, par3 - 1, par4, EOBlockManager.tinPlatedStoneBrickDoubleSlab.blockID);
 		}
-		if(par1World.getBlockId(par2, par3 + 1, par4) == ExtraOres.tinPlatedStoneBrickSingleSlab.blockID)
+		if(par1World.getBlockId(par2, par3 + 1, par4) == EOBlockManager.tinPlatedStoneBrickSingleSlab.blockID)
 		{
 			par1World.setBlock(par2, par3, par4, 0);
-			par1World.setBlock(par2, par3 + 1, par4, ExtraOres.tinPlatedStoneBrickDoubleSlab.blockID);
+			par1World.setBlock(par2, par3 + 1, par4, EOBlockManager.tinPlatedStoneBrickDoubleSlab.blockID);
 		}
 	}
 
 	protected ItemStack createStackedBlock(int par1)
 	{
-		return new ItemStack(ExtraOres.tinPlatedStoneBrickSingleSlab.blockID, 2, par1 & 7);
+		return new ItemStack(EOBlockManager.tinPlatedStoneBrickSingleSlab.blockID, 2, par1 & 7);
 	}
 
 	public String getFullSlabName(int par1)
@@ -66,7 +64,7 @@ public class TinPlatedStoneBrickSlab extends BlockHalfSlab
 
 	public void getSubBlocks(int par1, CreativeTabs par2CreativeTabs, List par3List)
 	{
-         if (par1 != ExtraOres.tinPlatedStoneBrickDoubleSlab.blockID)
+         if (par1 != EOBlockManager.tinPlatedStoneBrickDoubleSlab.blockID)
          {
          par3List.add(new ItemStack(par1, 1, 0));
          }
@@ -74,12 +72,12 @@ public class TinPlatedStoneBrickSlab extends BlockHalfSlab
 	
 	 private static boolean isBlockSingleSlab(int par0)
 	    {
-	        return par0 == ExtraOres.tinPlatedStoneBrickSingleSlab.blockID;
+	        return par0 == EOBlockManager.tinPlatedStoneBrickSingleSlab.blockID;
 	    }
 	 
 	 public int idPicked(World par1World, int par2, int par3, int par4)
 	    {
-		 	return ExtraOres.tinPlatedStoneBrickSingleSlab.blockID;
+		 	return EOBlockManager.tinPlatedStoneBrickSingleSlab.blockID;
 	    }
 
 }

@@ -5,6 +5,7 @@ import java.util.Random;
 import sobiohazardous.minestrappolation.extraores.ExtraOres;
 
 
+import sobiohazardous.minestrappolation.extraores.lib.EOItemManager;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -46,6 +47,6 @@ public class BlockSunstone extends Block
      */
     public int idDropped(int par1, Random par2Random, int par3)
     {
-        return ExtraOres.SunstoneDust.itemID;
+        return EOItemManager.SunstoneDust.itemID;
     }
 }

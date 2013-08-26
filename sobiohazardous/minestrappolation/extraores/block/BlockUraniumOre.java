@@ -3,7 +3,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-import sobiohazardous.minestrappolation.extraores.ExtraOres;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -11,12 +10,12 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.src.ModLoader;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
+import sobiohazardous.minestrappolation.extraores.lib.EOBlockManager;
+import sobiohazardous.minestrappolation.extraores.lib.EOItemManager;
 public class BlockUraniumOre extends Block
 {
 public BlockUraniumOre instance;
@@ -40,7 +39,7 @@ public BlockUraniumOre(int par1, Material par3Material)
          */
         public int idDropped(int par1, Random par2Random, int par3)
         {
-                return ExtraOres.Uranium.itemID;
+                return EOItemManager.Uranium.itemID;
         }
         /**
          * Returns the quantity of items to drop on block destruction.
@@ -72,7 +71,7 @@ public BlockUraniumOre(int par1, Material par3Material)
    
         public boolean isTraversable(int i)
         {
-                        if(Block.blocksList[i] == Block.lavaStill || Block.blocksList[i] == Block.lavaMoving || Block.blocksList[i] == Block.mobSpawner || Block.blocksList[i] != null && Block.blocksList[i].blockID == ExtraOres.UraniumOre.blockID)
+                        if(Block.blocksList[i] == Block.lavaStill || Block.blocksList[i] == Block.lavaMoving || Block.blocksList[i] == Block.mobSpawner || Block.blocksList[i] != null && Block.blocksList[i].blockID == EOBlockManager.UraniumOre.blockID)
                         {
                                         return true;
                         }

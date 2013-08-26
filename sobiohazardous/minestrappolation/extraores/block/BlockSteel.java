@@ -2,9 +2,11 @@ package sobiohazardous.minestrappolation.extraores.block;
 
 import java.util.Random;
 
-import sobiohazardous.minestrappolation.extraores.ExtraOres;
 
 
+
+import sobiohazardous.minestrappolation.extraores.lib.EOBlockManager;
+import sobiohazardous.minestrappolation.extraores.lib.EOItemManager;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -24,7 +26,7 @@ public class BlockSteel extends Block
 	public BlockSteel(int par1)
     {
         super(par1, Material.iron);
-        this.setCreativeTab(ExtraOres.tabOresBlocks);
+        this.setCreativeTab(EOBlockManager.tabOresBlocks);
     }
 
 	public void registerIcons(IconRegister iconRegister)
@@ -39,7 +41,7 @@ public class BlockSteel extends Block
      */
     public int idDropped(int par1, Random par2Random, int par3)
     {
-        return this.blockID == ExtraOres.BlaziumOre.blockID ? Item.blazePowder.itemID : (this.blockID == ExtraOres.SunstoneOre.blockID ? ExtraOres.SunstoneDust.itemID : (this.blockID == ExtraOres.SoulOre.blockID ? ExtraOres.SoulGem.itemID : (this.blockID == ExtraOres.PlutoniumOre.blockID ? ExtraOres.Plutonium.itemID : (this.blockID == ExtraOres.UraniumOre.blockID ? ExtraOres.Uranium.itemID : this.blockID))));
+        return this.blockID == EOBlockManager.BlaziumOre.blockID ? Item.blazePowder.itemID : (this.blockID == EOBlockManager.SunstoneOre.blockID ? EOItemManager.SunstoneDust.itemID : (this.blockID == EOBlockManager.SoulOre.blockID ? EOBlockManager.SoulGem.itemID : (this.blockID == EOBlockManager.PlutoniumOre.blockID ? EOItemManager.Plutonium.itemID : (this.blockID == EOBlockManager.UraniumOre.blockID ? EOItemManager.Uranium.itemID : this.blockID))));
     }
 
     /**
@@ -47,7 +49,7 @@ public class BlockSteel extends Block
      */
     public int quantityDropped(Random par1Random)
     {
-    	return this.blockID == ExtraOres.BlaziumOre.blockID ? 2 + par1Random.nextInt(3) : (this.blockID == ExtraOres.SunstoneOre.blockID ? 2 + par1Random.nextInt(4) : (this.blockID == ExtraOres.SoulOre.blockID ? 2 + par1Random.nextInt(3) : (this.blockID == ExtraOres.PlutoniumOre.blockID ? 1 + par1Random.nextInt(2) : (this.blockID == ExtraOres.UraniumOre.blockID ? 1 + par1Random.nextInt(2) : 1))));
+    	return this.blockID == EOBlockManager.BlaziumOre.blockID ? 2 + par1Random.nextInt(3) : (this.blockID == EOBlockManager.SunstoneOre.blockID ? 2 + par1Random.nextInt(4) : (this.blockID == EOBlockManager.SoulOre.blockID ? 2 + par1Random.nextInt(3) : (this.blockID == EOBlockManager.PlutoniumOre.blockID ? 1 + par1Random.nextInt(2) : (this.blockID == EOBlockManager.UraniumOre.blockID ? 1 + par1Random.nextInt(2) : 1))));
     }
 
     public int quantityDroppedWithBonus(int par1, Random par2Random)
@@ -109,7 +111,7 @@ public class BlockSteel extends Block
     
     public boolean isBeaconBase(World worldObj, int x, int y, int z, int beaconX, int beaconY, int beaconZ)
     {
-        return (blockID == blockEmerald.blockID || blockID == blockGold.blockID || blockID == blockDiamond.blockID || blockID == ExtraOres.SteelBlock.blockID || blockID == ExtraOres.BronzeBlock.blockID || blockID == ExtraOres.meuroditeBlock.blockID || blockID == ExtraOres.ToriteBlock.blockID || blockID == ExtraOres.SteelBlock.blockID || blockID == ExtraOres.TitaniumBlock.blockID || blockID == ExtraOres.BlaziumBlock.blockID);
+        return (blockID == blockEmerald.blockID || blockID == blockGold.blockID || blockID == blockDiamond.blockID || blockID == EOBlockManager.SteelBlock.blockID || blockID == EOBlockManager.BronzeBlock.blockID || blockID == EOBlockManager.meuroditeBlock.blockID || blockID == EOBlockManager.ToriteBlock.blockID || blockID == EOBlockManager.SteelBlock.blockID || blockID == EOBlockManager.TitaniumBlock.blockID || blockID == EOBlockManager.BlaziumBlock.blockID);
     }
     
 }

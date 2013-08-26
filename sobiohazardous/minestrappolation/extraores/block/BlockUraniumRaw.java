@@ -3,9 +3,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-import sobiohazardous.minestrappolation.api.util.BlockFunctions;
-import sobiohazardous.minestrappolation.extraores.ExtraOres;
-import sobiohazardous.minestrappolation.extraores.entity.EntityInstantExplosion;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -18,6 +15,9 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
+import sobiohazardous.minestrappolation.api.util.BlockFunctions;
+import sobiohazardous.minestrappolation.extraores.entity.EntityInstantExplosion;
+import sobiohazardous.minestrappolation.extraores.lib.EOBlockManager;
 public class BlockUraniumRaw extends Block
 {
 public BlockUraniumRaw instance;
@@ -76,7 +76,7 @@ public BlockUraniumRaw(int par1, Material par3Material)
    
         public boolean isTraversable(int i)
         {
-                        if(Block.blocksList[i] == Block.lavaStill || Block.blocksList[i] == Block.lavaMoving || Block.blocksList[i] == Block.mobSpawner || Block.blocksList[i] != null && Block.blocksList[i].blockID == ExtraOres.UraniumOre.blockID)
+                        if(Block.blocksList[i] == Block.lavaStill || Block.blocksList[i] == Block.lavaMoving || Block.blocksList[i] == Block.mobSpawner || Block.blocksList[i] != null && Block.blocksList[i].blockID == EOBlockManager.UraniumOre.blockID)
                         {
                                         return true;
                         }

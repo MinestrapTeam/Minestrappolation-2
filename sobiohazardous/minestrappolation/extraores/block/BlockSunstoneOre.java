@@ -2,20 +2,19 @@ package sobiohazardous.minestrappolation.extraores.block;
 
 import java.util.Random;
 
-import sobiohazardous.minestrappolation.extraores.ExtraOres;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.src.*;
 import net.minecraft.util.MathHelper;
+import sobiohazardous.minestrappolation.extraores.lib.EOBlockManager;
+import sobiohazardous.minestrappolation.extraores.lib.EOItemManager;
 
 public class BlockSunstoneOre extends Block
 {
     public BlockSunstoneOre(int par1)
     {
         super(par1, Material.rock);
-        this.setCreativeTab(ExtraOres.tabOresBlocks);
+        this.setCreativeTab(EOBlockManager.tabOresBlocks);
     }
     
     public void registerIcons(IconRegister iconRegister)
@@ -44,6 +43,6 @@ public class BlockSunstoneOre extends Block
      */
     public int idDropped(int par1, Random par2Random, int par3)
     {
-        return ExtraOres.SunstoneDust.itemID;
+        return EOItemManager.SunstoneDust.itemID;
     }
 }
