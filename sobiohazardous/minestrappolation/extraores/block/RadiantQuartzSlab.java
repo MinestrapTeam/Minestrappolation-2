@@ -27,7 +27,7 @@ public class RadiantQuartzSlab extends BlockHalfSlab
 
 	public void registerIcons(IconRegister par1IconRegister)
 	{
-		this.blockIcon = par1IconRegister.registerIcon("extraores:block_SmoothRadiantQuartz");
+		this.blockIcon = par1IconRegister.registerIcon("Minestrappolation:block_SmoothRadiantQuartz");
 	}
 
 	public int idDropped(int par1, Random par2Random, int par3)

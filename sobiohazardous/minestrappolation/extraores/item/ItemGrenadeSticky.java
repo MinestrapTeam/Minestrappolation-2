@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 
 public class ItemGrenadeSticky extends Item
 {
-    public static String texture = "extraores:item_NukeGrenade";
+    public static String texture = "Minestrappolation:item_NukeGrenade";
 	public ItemGrenadeSticky(int par1)
     {
         super(par1);

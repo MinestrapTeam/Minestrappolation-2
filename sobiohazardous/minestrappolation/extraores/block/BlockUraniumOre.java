@@ -32,7 +32,7 @@ public BlockUraniumOre(int par1, Material par3Material)
    
 		public void registerIcons(IconRegister iconRegister)
 			{
-				blockIcon = iconRegister.registerIcon("extraores:block_UraniumOre");
+				blockIcon = iconRegister.registerIcon("Minestrappolation:block_UraniumOre");
 			}
 
         /**

@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 
 public class ItemGrenade extends Item
 {
-    public static String texture = "extraores:item_NukeGrenade";
+    public static String texture = "Minestrappolation:item_NukeGrenade";
 	public ItemGrenade(int par1)
     {
         super(par1);

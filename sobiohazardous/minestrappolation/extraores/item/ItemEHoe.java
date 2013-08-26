@@ -23,7 +23,7 @@ public class ItemEHoe extends ItemHoe
 	public ItemEHoe(int par1, String texture, EnumToolMaterial par2EnumToolMaterial)
 	{
         super(par1, par2EnumToolMaterial);
-        this.texture = "extraores:" + texture;
+        this.texture = "Minestrappolation:" + texture;
         this.setCreativeTab(null);
     }
 	

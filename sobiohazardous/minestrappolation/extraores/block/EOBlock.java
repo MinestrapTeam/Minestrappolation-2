@@ -31,7 +31,7 @@ public class EOBlock extends Block
     {
         super(par1, par3Material);
         this.setCreativeTab(CreativeTabs.tabBlock);
-        this.blockTexture = "ExtraOres:" + texture;
+        this.blockTexture = "Minestrappolation:" + texture;
     }
 	
 	public void registerIcons(IconRegister iconRegister)

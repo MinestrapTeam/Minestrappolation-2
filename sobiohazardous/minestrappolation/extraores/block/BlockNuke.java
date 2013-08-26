@@ -40,9 +40,9 @@ public class BlockNuke extends Block
 
     public void registerIcons(IconRegister iconRegister)
 	{
-	         blockIcon = iconRegister.registerIcon("extraores:block_NukeSide");
-	         this.top = iconRegister.registerIcon("extraores:block_NukeTop");
-	         this.bottom = iconRegister.registerIcon("extraores:block_NukeBottom");
+	         blockIcon = iconRegister.registerIcon("Minestrappolation:block_NukeSide");
+	         this.top = iconRegister.registerIcon("Minestrappolation:block_NukeTop");
+	         this.bottom = iconRegister.registerIcon("Minestrappolation:block_NukeBottom");
 	}
     
     public Icon getIcon(int i, int j)

@@ -58,6 +58,6 @@ public class BlockCopper extends BlockContainer
      */
     public void registerIcons(IconRegister par1IconRegister)
     {
-        blockIcon = par1IconRegister.registerIcon("extraores:block_Copper");
+        blockIcon = par1IconRegister.registerIcon("Minestrappolation:block_Copper");
     }    
 }

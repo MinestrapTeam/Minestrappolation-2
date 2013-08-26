@@ -34,7 +34,7 @@ public BlockPlutoniumOre(int par1, Material par3Material)
    
 		public void registerIcons(IconRegister iconRegister)
 		{
-         blockIcon = iconRegister.registerIcon("extraores:block_PlutoniumOre");
+         blockIcon = iconRegister.registerIcon("Minestrappolation:block_PlutoniumOre");
 		}
         /**
          * Returns the ID of the items to drop on destruction.

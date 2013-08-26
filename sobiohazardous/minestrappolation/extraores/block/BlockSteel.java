@@ -29,9 +29,9 @@ public class BlockSteel extends Block
 
 	public void registerIcons(IconRegister iconRegister)
 	{
-	         blockIcon = iconRegister.registerIcon("extraores:block_SteelSide");
-	         this.top = iconRegister.registerIcon("extraores:block_SteelTop");
-	         this.bottom = iconRegister.registerIcon("extraores:block_SteelBottom");
+	         blockIcon = iconRegister.registerIcon("Minestrappolation:block_SteelSide");
+	         this.top = iconRegister.registerIcon("Minestrappolation:block_SteelTop");
+	         this.bottom = iconRegister.registerIcon("Minestrappolation:block_SteelBottom");
 	}
 
     /**

@@ -13,7 +13,7 @@ public class ItemExtracraftPants extends ItemArmor
 	public ItemExtracraftPants(int par1, String texture, EnumArmorMaterial par2EnumArmorMaterial, int par3, int par4) 
 	{
 		super(par1, par2EnumArmorMaterial, par3, par4);
-		this.texture = "ExtraOres:" + texture;
+		this.texture = "Minestrappolation:" + texture;
 		this.setCreativeTab(null);
 	}
 	

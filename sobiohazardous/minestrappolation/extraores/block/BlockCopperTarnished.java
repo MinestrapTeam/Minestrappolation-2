@@ -32,8 +32,8 @@ public class BlockCopperTarnished extends Block
 
 	public void registerIcons(IconRegister iconRegister)
 	{
-	         blockIcon = iconRegister.registerIcon("extraores:block_TarnishedCopperSide");
-	         this.top = iconRegister.registerIcon("extraores:block_TarnishedCopperTop");
+	         blockIcon = iconRegister.registerIcon("Minestrappolation:block_TarnishedCopperSide");
+	         this.top = iconRegister.registerIcon("Minestrappolation:block_TarnishedCopperTop");
 	}
     
     //Args: side, metadata

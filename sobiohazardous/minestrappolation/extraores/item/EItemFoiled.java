@@ -15,7 +15,7 @@ public class EItemFoiled extends Item
         {
                 super(i);
                 this.setCreativeTab(ExtraOres.tabOresItems);
-                this.itemTexture = "extraores:" + texture;
+                this.itemTexture = "Minestrappolation:" + texture;
         }
 
         public void registerIcons(IconRegister iconRegister)

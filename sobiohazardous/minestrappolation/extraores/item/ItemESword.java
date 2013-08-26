@@ -15,7 +15,7 @@ public class ItemESword extends ItemSword
 	public ItemESword(int par1, String texture, EnumToolMaterial par2EnumToolMaterial) 
 	{
 		super(par1, par2EnumToolMaterial);
-		this.texture = "extraores:" + texture;
+		this.texture = "Minestrappolation:" + texture;
         this.toolMaterial = par2EnumToolMaterial;
         this.setCreativeTab(ExtraOres.tabOresItems);
         this.setCreativeTab(null);

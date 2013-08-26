@@ -24,7 +24,7 @@ public class BlockPlate extends Block
 	public BlockPlate(int par1, String Filetexture)
 	    {
 	        super(par1, Material.circuits);
-	        this.texture = "extraores:" + Filetexture;
+	        this.texture = "Minestrappolation:" + Filetexture;
 	        setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);
 	    }
     

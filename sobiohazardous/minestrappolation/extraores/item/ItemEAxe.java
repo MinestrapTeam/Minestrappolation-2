@@ -15,7 +15,7 @@ public class ItemEAxe extends ItemExtracraftTool
     public ItemEAxe(int par1, String texture, EnumToolMaterial par2EnumToolMaterial)
     {
         super(par1, 3, par2EnumToolMaterial, blocksEffectiveAgainst);
-        this.texture = "extraores:" + texture;
+        this.texture = "Minestrappolation:" + texture;
         this.setCreativeTab(null);
     }
     

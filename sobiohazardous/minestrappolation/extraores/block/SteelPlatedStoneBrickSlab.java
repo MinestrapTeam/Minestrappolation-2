@@ -27,7 +27,7 @@ public class SteelPlatedStoneBrickSlab extends BlockHalfSlab
 
 	public void registerIcons(IconRegister par1IconRegister)
 	{
-		this.blockIcon = par1IconRegister.registerIcon("extraores:block_SteelStoneBrick");
+		this.blockIcon = par1IconRegister.registerIcon("Minestrappolation:block_SteelStoneBrick");
 	}
 
 	public int idDropped(int par1, Random par2Random, int par3)

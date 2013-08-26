@@ -20,7 +20,7 @@ public class BlockSunstoneOre extends Block
     
     public void registerIcons(IconRegister iconRegister)
     {
-             blockIcon = iconRegister.registerIcon("extraores:block_SunstoneOre");
+             blockIcon = iconRegister.registerIcon("Minestrappolation:block_SunstoneOre");
     }
     
     /**

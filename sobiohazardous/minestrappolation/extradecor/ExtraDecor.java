@@ -1,5 +1,6 @@
 package sobiohazardous.minestrappolation.extradecor;
 
+import sobiohazardous.minestrappolation.brewingapi.item.ItemPotion2;
 import sobiohazardous.minestrappolation.extradecor.block.*;
 import sobiohazardous.minestrappolation.extradecor.gen.EDOreGenerator;
 import sobiohazardous.minestrappolation.extradecor.handler.ClientPacketHandler;
@@ -42,6 +43,8 @@ public class ExtraDecor
 	
 	@Instance("ExtraDecor")
 	public static ExtraDecor instance;
+	
+	public static ItemPotion2 potion;
 	
 	public static int paneRenderId = RenderingRegistry.getNextAvailableRenderId();
 	public static int ropeRenderId = RenderingRegistry.getNextAvailableRenderId();

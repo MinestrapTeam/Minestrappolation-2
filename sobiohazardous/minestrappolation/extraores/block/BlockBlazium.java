@@ -27,7 +27,7 @@ public class BlockBlazium extends Block
     
 	public void registerIcons(IconRegister iconRegister)
 	{
-	         blockIcon = iconRegister.registerIcon("extraores:block_Blazium");
+	         blockIcon = iconRegister.registerIcon("Minestrappolation:block_Blazium");
 	}
 
     /**

@@ -23,7 +23,7 @@ public class ItemSoulBottle extends Item
 
         public void registerIcons(IconRegister iconRegister)
     	{
-    	         itemIcon = iconRegister.registerIcon("extraores:item_SoulBottle");
+    	         itemIcon = iconRegister.registerIcon("Minestrappolation:item_SoulBottle");
     	}
         public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par2EntityPlayer)
         {

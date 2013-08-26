@@ -27,8 +27,8 @@ public class BlockPinkChiseled extends Block
 
 	public void registerIcons(IconRegister iconRegister)
 	{
-	         blockIcon = iconRegister.registerIcon("extraores:block_PinkQuartzChiseledSide");
-	         this.top = iconRegister.registerIcon("extraores:block_PinkQuartzChiseledTop");
+	         blockIcon = iconRegister.registerIcon("Minestrappolation:block_PinkQuartzChiseledSide");
+	         this.top = iconRegister.registerIcon("Minestrappolation:block_PinkQuartzChiseledTop");
 	}
 	
     /**

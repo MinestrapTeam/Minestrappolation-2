@@ -42,7 +42,7 @@ public BlockPlutoniumRaw(int par1, Material par3Material)
         }
 		public void registerIcons(IconRegister iconRegister)
 		{
-				blockIcon = iconRegister.registerIcon("extraores:block_PlutoniumRaw");
+				blockIcon = iconRegister.registerIcon("Minestrappolation:block_PlutoniumRaw");
 		}
         
 		/**

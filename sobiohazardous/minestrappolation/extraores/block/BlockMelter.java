@@ -125,9 +125,9 @@ public class BlockMelter extends BlockContainer
      */
     public void registerIcons(IconRegister par1IconRegister)
     {
-        this.blockIcon = par1IconRegister.registerIcon("extraores:block_MelterSide");
-        this.field_94459_cP = par1IconRegister.registerIcon(this.isActive ? "extraores:block_MelterFrontActive" : "extraores:block_MelterFrontInactive");
-        this.field_94458_cO = par1IconRegister.registerIcon("extraores:block_MelterTop");
+        this.blockIcon = par1IconRegister.registerIcon("Minestrappolation:block_MelterSide");
+        this.field_94459_cP = par1IconRegister.registerIcon(this.isActive ? "Minestrappolation:block_MelterFrontActive" : "extraores:block_MelterFrontInactive");
+        this.field_94458_cO = par1IconRegister.registerIcon("Minestrappolation:block_MelterTop");
     }
 
     /**

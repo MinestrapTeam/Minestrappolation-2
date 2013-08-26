@@ -27,7 +27,7 @@ public class PinkQuartzSlab extends BlockHalfSlab
 
 	public void registerIcons(IconRegister par1IconRegister)
 	{
-		this.blockIcon = par1IconRegister.registerIcon("extraores:block_PinkQuartzSmooth");
+		this.blockIcon = par1IconRegister.registerIcon("Minestrappolation:block_PinkQuartzSmooth");
 	}
 
 	public int idDropped(int par1, Random par2Random, int par3)

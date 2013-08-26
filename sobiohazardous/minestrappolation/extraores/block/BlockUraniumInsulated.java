@@ -45,7 +45,7 @@ public class BlockUraniumInsulated extends Block
 
 		public void registerIcons(IconRegister iconRegister)
 		{
-				blockIcon = iconRegister.registerIcon("extraores:block_UraniumInsulatedSide");
+				blockIcon = iconRegister.registerIcon("Minestrappolation:block_UraniumInsulatedSide");
 				topbottom = iconRegister.registerIcon("iron_block");
 		}
 		

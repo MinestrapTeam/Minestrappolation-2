@@ -25,8 +25,8 @@ public class BlockRadiantPillar extends Block
 
 	public void registerIcons(IconRegister iconRegister)
 	{
-	         blockIcon = iconRegister.registerIcon("ExtraOres:block_PillarRadiantQuartz");
-	         this.top = iconRegister.registerIcon("ExtraOres:block_SmoothRadiantQuartz");    
+	         blockIcon = iconRegister.registerIcon("Minestrappolation:block_PillarRadiantQuartz");
+	         this.top = iconRegister.registerIcon("Minestrappolation:block_SmoothRadiantQuartz");    
 	}
 
     /**

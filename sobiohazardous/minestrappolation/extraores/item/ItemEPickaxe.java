@@ -18,7 +18,7 @@ public class ItemEPickaxe extends ItemExtracraftTool
     public ItemEPickaxe(int par1, String texture, EnumToolMaterial par2EnumToolMaterial)
     {
         super(par1, 2, par2EnumToolMaterial, blocksEffectiveAgainst);
-        this.texture = "extraores:" + texture;     
+        this.texture = "Minestrappolation:" + texture;     
         this.setCreativeTab(null);
     }
     

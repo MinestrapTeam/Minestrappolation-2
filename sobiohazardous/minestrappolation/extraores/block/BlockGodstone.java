@@ -38,7 +38,7 @@ public BlockGodstone(int par1, Material par3Material)
    
 		public void registerIcons(IconRegister iconRegister)
 		{
-				blockIcon = iconRegister.registerIcon("extraores:block_Godstone");
+				blockIcon = iconRegister.registerIcon("Minestrappolation:block_Godstone");
 		}
         /**
          * Returns the ID of the items to drop on destruction.

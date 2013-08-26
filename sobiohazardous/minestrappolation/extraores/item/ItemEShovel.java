@@ -19,7 +19,7 @@ public class ItemEShovel extends ItemExtracraftTool
     public ItemEShovel(int par1, String texture, EnumToolMaterial par2EnumToolMaterial)
     {
         super(par1, 1, par2EnumToolMaterial, blocksEffectiveAgainst);
-        this.texture = "extraores:" + texture;
+        this.texture = "Minestrappolation:" + texture;
         this.setCreativeTab(null);
 
     }
