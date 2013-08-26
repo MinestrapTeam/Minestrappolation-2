@@ -1,5 +1,7 @@
 package sobiohazardous.minestrappolation.api.item;
 
+import java.util.List;
+
 import com.google.common.collect.Multimap;
 
 import net.minecraft.block.Block;
@@ -15,6 +17,7 @@ import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTool;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
 
@@ -54,6 +57,7 @@ public class MItemTool extends ItemTool
         return 1.0F;
     }
     
+    
     public int getMaxItemUseDuration(ItemStack par1ItemStack)
     {
         return 0x11940;
@@ -63,4 +67,9 @@ public class MItemTool extends ItemTool
 	{
 		itemIcon = r.registerIcon("minestrappolation:" + this.getUnlocalizedName().substring(5));
 	}
+	
+	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)
+    {
+     par3List.add(Integer.toString(getMaxDamage()-par1ItemStack.getItemDamage())+"/"+Integer.toString(getMaxDamage()));
+    }
 }

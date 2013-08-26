@@ -1,7 +1,10 @@
 package sobiohazardous.minestrappolation.api.item;
 
+import java.util.List;
+
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
@@ -36,6 +39,11 @@ public class MItemSword extends ItemSword
     	}
         par1ItemStack.damageItem(1, par3EntityLivingBase);
         return true;
+    }
+    
+    public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)
+    {
+     par3List.add(Integer.toString(getMaxDamage()-par1ItemStack.getItemDamage())+"/"+Integer.toString(getMaxDamage()));
     }
 
 }

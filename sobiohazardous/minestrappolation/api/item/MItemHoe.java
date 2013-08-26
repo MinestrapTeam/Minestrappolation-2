@@ -1,5 +1,7 @@
 package sobiohazardous.minestrappolation.api.item;
 
+import java.util.List;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -27,4 +29,9 @@ public class MItemHoe extends ItemHoe
 	{
 		itemIcon = r.registerIcon("minestrappolation:" + this.getUnlocalizedName().substring(5));
 	}
+	
+	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)
+    {
+     par3List.add(Integer.toString(getMaxDamage()-par1ItemStack.getItemDamage())+"/"+Integer.toString(getMaxDamage()));
+    }
 }
