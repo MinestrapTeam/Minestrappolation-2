@@ -8,23 +8,16 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class ItemBlockPlacer extends Item
+public class MItemBlockPlacer extends MItem
 {
     /** The ID of the block the reed will spawn when used from inventory bar. */
     private int spawnID;
-    private String texture;
 
-    public ItemBlockPlacer(int par1, String texture, Block par2Block)
+    public MItemBlockPlacer(int par1, Block par2Block)
     {
         super(par1);
         this.spawnID = par2Block.blockID;
-        this.texture = "ExtraDecor:" + texture;
     }
-    
-    public void registerIcons(IconRegister iconRegister)
-	{
-	         itemIcon = iconRegister.registerIcon(texture);
-	}
 
     /**
      * Callback for item usage. If the item does something special on right clicking, he will have one of those. Return

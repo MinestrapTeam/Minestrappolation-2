@@ -1,15 +1,13 @@
-package sobiohazardous.minestrappolation.extramobdrops.item;
+package sobiohazardous.minestrappolation.api.item;
 
-import sobiohazardous.minestrappolation.extramobdrops.ExtraMobDrops;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.ItemFood;
 
-public class EMDItemFood extends ItemFood
+public class MItemFood extends ItemFood
 {
-	public EMDItemFood(int id, int healAmt, float sat)
+	public MItemFood(int id, int healAmt, float sat)
 	{
 		super(id, healAmt, sat, false);
-		this.setCreativeTab(ExtraMobDrops.tabItems);
 	}
 	
 	public void registerIcons(IconRegister r)
