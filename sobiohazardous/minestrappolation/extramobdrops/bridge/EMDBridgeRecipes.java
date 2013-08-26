@@ -14,39 +14,39 @@ public class EMDBridgeRecipes
 		{
 			GameRegistry.addShapelessRecipe(new ItemStack(ExtraMobDrops.hornSandstone), new Object[]
 					{
-				ExtraMobDrops.horn, ExtraMobDrops.horn, sobiohazardous.minestrappolation.extraores.ExtraOres.SandstoneSword
+				ExtraMobDrops.horn, ExtraMobDrops.horn, sobiohazardous.minestrappolation.extraores.lib.EOItemManager.SandstoneSword
 					});
 			GameRegistry.addShapelessRecipe(new ItemStack(ExtraMobDrops.hornGranite), new Object[]
 					{
-				ExtraMobDrops.horn, ExtraMobDrops.horn, sobiohazardous.minestrappolation.extraores.ExtraOres.GraniteSword
+				ExtraMobDrops.horn, ExtraMobDrops.horn, sobiohazardous.minestrappolation.extraores.lib.EOItemManager.GraniteSword
 					});
 			GameRegistry.addShapelessRecipe(new ItemStack(ExtraMobDrops.hornCopper), new Object[]
 					{
-				ExtraMobDrops.horn, ExtraMobDrops.horn, sobiohazardous.minestrappolation.extraores.ExtraOres.CopperSword
+				ExtraMobDrops.horn, ExtraMobDrops.horn, sobiohazardous.minestrappolation.extraores.lib.EOItemManager.CopperSword
 					});
 			GameRegistry.addShapelessRecipe(new ItemStack(ExtraMobDrops.hornSteel), new Object[]
 					{
-				ExtraMobDrops.horn, ExtraMobDrops.horn, sobiohazardous.minestrappolation.extraores.ExtraOres.SteelSword
+				ExtraMobDrops.horn, ExtraMobDrops.horn, sobiohazardous.minestrappolation.extraores.lib.EOItemManager.SteelSword
 					});
 			GameRegistry.addShapelessRecipe(new ItemStack(ExtraMobDrops.hornBronze), new Object[]
 					{
-				ExtraMobDrops.horn, ExtraMobDrops.horn, sobiohazardous.minestrappolation.extraores.ExtraOres.BronzeSword
+				ExtraMobDrops.horn, ExtraMobDrops.horn, sobiohazardous.minestrappolation.extraores.lib.EOItemManager.BronzeSword
 					});
 			GameRegistry.addShapelessRecipe(new ItemStack(ExtraMobDrops.hornMeurodite), new Object[]
 					{
-				ExtraMobDrops.horn, ExtraMobDrops.horn, sobiohazardous.minestrappolation.extraores.ExtraOres.meuroditeSword
+				ExtraMobDrops.horn, ExtraMobDrops.horn, sobiohazardous.minestrappolation.extraores.lib.EOItemManager.meuroditeSword
 					});
 			GameRegistry.addShapelessRecipe(new ItemStack(ExtraMobDrops.hornTorite), new Object[]
 					{
-				ExtraMobDrops.horn, ExtraMobDrops.horn, sobiohazardous.minestrappolation.extraores.ExtraOres.ToriteSword
+				ExtraMobDrops.horn, ExtraMobDrops.horn, sobiohazardous.minestrappolation.extraores.lib.EOItemManager.ToriteSword
 					});
 			GameRegistry.addShapelessRecipe(new ItemStack(ExtraMobDrops.hornBlazium), new Object[]
 					{
-				ExtraMobDrops.horn, ExtraMobDrops.horn, sobiohazardous.minestrappolation.extraores.ExtraOres.BlaziumSword
+				ExtraMobDrops.horn, ExtraMobDrops.horn, sobiohazardous.minestrappolation.extraores.lib.EOItemManager.BlaziumSword
 					});
 			GameRegistry.addShapelessRecipe(new ItemStack(ExtraMobDrops.hornTitanium), new Object[]
 					{
-				ExtraMobDrops.horn, ExtraMobDrops.horn, sobiohazardous.minestrappolation.extraores.ExtraOres.TitaniumSword
+				ExtraMobDrops.horn, ExtraMobDrops.horn, sobiohazardous.minestrappolation.extraores.lib.EOItemManager.TitaniumSword
 					});
 		}
 	}
