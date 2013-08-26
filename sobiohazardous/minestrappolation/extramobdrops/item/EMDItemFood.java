@@ -14,8 +14,8 @@ public class EMDItemFood extends ItemFood
 		this.setCreativeTab(ExtraMobDrops.tabItems);
 	}
 	
-	public void registerIcons(IconRegister reg)
+	public void registerIcons(IconRegister r)
 	{
-		itemIcon = reg.registerIcon("extramobdrops:" + texture);
+		itemIcon = r.registerIcon("Minestrappolation:" + this.getUnlocalizedName().substring(5));
 	}
 }

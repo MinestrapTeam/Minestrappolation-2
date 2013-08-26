@@ -11,15 +11,15 @@ public final class CreativeTabExtraMobDropsPotions extends CreativeTabs
         public CreativeTabExtraMobDropsPotions(int par1, String par2Str)
         {
                 super(par1, par2Str);
-        }
+        }    
         
-        
+        /* 
         @SideOnly(Side.CLIENT)
         public int getTabIconItemIndex()
         {
                 return ExtraMobDrops.potion.itemID;
         }
-       
+       */
    
         public String getTranslatedTabLabel()
         {

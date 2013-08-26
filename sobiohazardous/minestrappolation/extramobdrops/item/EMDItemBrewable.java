@@ -1,10 +1,12 @@
 package sobiohazardous.minestrappolation.extramobdrops.item;
 
-public class EMDItemBrewable extends EMDItem
+import sobiohazardous.minestrappolation.api.item.MItem;
+
+public class EMDItemBrewable extends MItem
 {
-	public EMDItemBrewable(int id, String texture)
+	public EMDItemBrewable(int id)
 	{
-		super(id, texture);
+		super(id);
 	}
 	
 	public boolean isPotionIngredient()

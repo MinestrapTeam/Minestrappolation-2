@@ -1,5 +1,6 @@
 package sobiohazardous.minestrappolation.extramobdrops.item;
 
+import sobiohazardous.minestrappolation.api.item.MItem;
 import sobiohazardous.minestrappolation.extramobdrops.ExtraMobDrops;
 
 import com.google.common.collect.Multimap;
@@ -19,13 +20,12 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class ItemHornSword extends Item
+public class ItemHornSword extends MItem
 {
     private float weaponDamage;
     private final EnumHornSwordMaterial toolMaterial;
-    private String texture;
 
-    public ItemHornSword(int par1, String texture, EnumHornSwordMaterial par2EnumToolMaterial)
+    public ItemHornSword(int par1, EnumHornSwordMaterial par2EnumToolMaterial)
     {
         super(par1);
         this.toolMaterial = par2EnumToolMaterial;
@@ -33,13 +33,7 @@ public class ItemHornSword extends Item
         this.setMaxDamage(par2EnumToolMaterial.getMaxUses());
         this.setCreativeTab(ExtraMobDrops.tabItems);
         this.weaponDamage = 4.0F + par2EnumToolMaterial.getDamageVsEntity();
-        this.texture = texture;
     }
-    
-    public void registerIcons(IconRegister reg)
-	{
-		itemIcon = reg.registerIcon("extramobdrops:" + texture);
-	}
 
     public float func_82803_g()
     {

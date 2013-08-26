@@ -3,7 +3,6 @@ package sobiohazardous.minestrappolation.extramobdrops.handler;
 import java.util.Collection;
 
 import sobiohazardous.minestrappolation.extramobdrops.ExtraMobDrops;
-import sobiohazardous.minestrappolation.extramobdrops.potion.PotionManager;
 import net.minecraft.entity.monster.*;
 import net.minecraft.entity.passive.*;
 import net.minecraft.potion.Potion;
@@ -184,11 +183,5 @@ public class EMDEventHandler
 				}
 			}
 		}
-	}
-	
-	@ForgeSubscribe
-	public void onEntityUpdate(LivingUpdateEvent event) 
-	{
-		PotionManager.definePotionEffects(event);		
 	}
 }

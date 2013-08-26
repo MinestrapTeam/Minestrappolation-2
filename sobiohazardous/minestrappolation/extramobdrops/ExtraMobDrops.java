@@ -2,16 +2,12 @@ package sobiohazardous.minestrappolation.extramobdrops;
 
 import java.util.EnumSet;
 
+import sobiohazardous.minestrappolation.api.item.MItem;
 import sobiohazardous.minestrappolation.extramobdrops.bridge.EMDBridgeRecipes;
 import sobiohazardous.minestrappolation.extramobdrops.handler.ClientPacketHandler;
 import sobiohazardous.minestrappolation.extramobdrops.handler.EMDEventHandler;
-import sobiohazardous.minestrappolation.extramobdrops.handler.OverallTickHandler;
+import sobiohazardous.minestrappolation.extramobdrops.handler.PlayerTickHandler;
 import sobiohazardous.minestrappolation.extramobdrops.handler.ServerPacketHandler;
-import sobiohazardous.minestrappolation.extramobdrops.potion.EMDEntityPotion;
-import sobiohazardous.minestrappolation.extramobdrops.potion.EMDItemPotion;
-import sobiohazardous.minestrappolation.extramobdrops.potion.EMDPotionEffect;
-import sobiohazardous.minestrappolation.extramobdrops.potion.EMDPotionHelper;
-import sobiohazardous.minestrappolation.extramobdrops.potion.PotionManager;
 import sobiohazardous.minestrappolation.extramobdrops.proxy.CommonProxy;
 import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.creativetab.CreativeTabs;
@@ -126,8 +122,6 @@ public class ExtraMobDrops
 	
 	public static Item beakChicken;
 	
-	public static EMDItemPotion potion;
-	
 	public static Item footChicken;
 		
 	@Mod.EventHandler
@@ -168,26 +162,23 @@ public class ExtraMobDrops
 		footChickenId = config.getItem("Chicken Foot", 4028).getInt();
 		
 		config.save();
-		
-		PotionManager.expandPotionEffectArray();
-		PotionManager.loadPotionEffects();
 
-		snout = new EMDItemFood(snoutId, 3, 0.2F, "snout").setPotionEffect(Potion.hunger.id, 10 * 20, 1, 0.25F).setUnlocalizedName("snout");
-		pigHoof = new EMDItem(pigHoofId, "pig_foot").setUnlocalizedName("pigHoof");
-		fat = new EMDItemFood(fatId, 8, 0.2F, "fat").setPotionEffect(Potion.hunger.id, 25 * 20, 1, 1.0F).setUnlocalizedName("fat");
-		grease = new EMDItem(greaseId, "grease").setPotionEffect(EMDPotionHelper.greaseEffect).setUnlocalizedName("grease");
+		snout = new MItemFood(snoutId, 3, 0.2F).setPotionEffect(Potion.hunger.id, 10 * 20, 1, 0.25F).setUnlocalizedName("snout");
+		pigHoof = new MItem(pigHoofId).setUnlocalizedName("pig_hoof");
+		fat = new MItemFood(fatId, 8, 0.2F).setPotionEffect(Potion.hunger.id, 25 * 20, 1, 1.0F).setUnlocalizedName("fat");
+		grease = new MItem(greaseId).setUnlocalizedName("grease");
 		
-		friedApple = new EMDItemFood(friedAppleId, 8, 0.3F, "grease_apple").setPotionEffect(Potion.hunger.id, 15 * 20, 1, 0.4F).setUnlocalizedName("friedApple");
-		friedBeef = new EMDItemFood(friedBeefId, 16, 0.8F, "grease_beef").setPotionEffect(Potion.hunger.id, 15 * 20, 1, 0.4F).setUnlocalizedName("friedBeef");
-		friedBread = new EMDItemFood(friedBreadId, 10, 0.6F, "grease_bread").setPotionEffect(Potion.hunger.id, 15 * 20, 1, 0.4F).setUnlocalizedName("friedBread");
-		friedCarrot = new EMDItemFood(friedCarrotId, 8, 0.6F, "grease_carrot").setPotionEffect(Potion.hunger.id, 15 * 20, 1, 0.4F).setUnlocalizedName("friedCarrot");
-		friedCookie = new EMDItemFood(friedCookieId, 8, 0.6F, "grease_cookie").setPotionEffect(Potion.hunger.id, 15 * 20, 1, 0.4F).setUnlocalizedName("friedCookie");
-		friedFlesh = new EMDItemFood(friedFleshId, 8, 0.6F, "grease_flesh").setPotionEffect(Potion.hunger.id, 15 * 20, 1, 0.4F).setUnlocalizedName("friedFlesh");
+		friedApple = new MItemFood(friedAppleId, 8, 0.3F, "grease_apple").setPotionEffect(Potion.hunger.id, 15 * 20, 1, 0.4F).setUnlocalizedName("friedApple");
+		friedBeef = new MItemFood(friedBeefId, 16, 0.8F, "grease_beef").setPotionEffect(Potion.hunger.id, 15 * 20, 1, 0.4F).setUnlocalizedName("friedBeef");
+		friedBread = new MItemFood(friedBreadId, 10, 0.6F, "grease_bread").setPotionEffect(Potion.hunger.id, 15 * 20, 1, 0.4F).setUnlocalizedName("friedBread");
+		friedCarrot = new MItemFood(friedCarrotId, 8, 0.6F, "grease_carrot").setPotionEffect(Potion.hunger.id, 15 * 20, 1, 0.4F).setUnlocalizedName("friedCarrot");
+		friedCookie = new MItemFood(friedCookieId, 8, 0.6F, "grease_cookie").setPotionEffect(Potion.hunger.id, 15 * 20, 1, 0.4F).setUnlocalizedName("friedCookie");
+		friedFlesh = new MItemFood(friedFleshId, 8, 0.6F, "grease_flesh").setPotionEffect(Potion.hunger.id, 15 * 20, 1, 0.4F).setUnlocalizedName("friedFlesh");
 		
-		animalBones = new EMDItem(animalBonesId, "animal_bones").setUnlocalizedName("animalBones");
-		cowHoof = new EMDItem(cowHoofId, "cow_hoof").setUnlocalizedName("cowHoof");
+		animalBones = new MItem(animalBonesId, "animal_bones").setUnlocalizedName("animalBones");
+		cowHoof = new MItem(cowHoofId, "cow_hoof").setUnlocalizedName("cowHoof");
 		
-		horn = new EMDItem(hornId, "horn").setUnlocalizedName("horn");
+		horn = new MItem(hornId).setUnlocalizedName("horn");
 		
 		hornSwordWood = new ItemHornSword(hornSwordWoodId, "horned_wood_sword", EnumHornSwordMaterial.WOODH).setUnlocalizedName("hornedSwordWood");
 		hornSwordStone = new ItemHornSword(hornSwordStoneId, "horned_stone_sword", EnumHornSwordMaterial.STONEH).setUnlocalizedName("hornedSwordStone");
@@ -205,15 +196,10 @@ public class ExtraMobDrops
 		hornBlazium= new ItemHornSword(hornBlaziumId, "horned_fire_sword", EnumHornSwordMaterial.BLAZIUMH).setUnlocalizedName("hornedSwordBlazium");
 		hornTitanium= new ItemHornSword(hornTitaniumId, "horned_titanium_sword", EnumHornSwordMaterial.TITANIUMH).setUnlocalizedName("hornedSwordTitanium");
 		
-		beakChicken = new EMDItem(beakChickenId, "chicken_beak").setUnlocalizedName("beakChicken");
-	
-		potion = (EMDItemPotion)new EMDItemPotion(potionId).setUnlocalizedName("emdPotion").func_111206_d("potion");
+		beakChicken = new MItem(beakChickenId, "chicken_beak").setUnlocalizedName("beakChicken");
+			
+		footChicken = new MItem(footChickenId, "chicken_foot").setUnlocalizedName("footChicken");
 		
-		footChicken = new EMDItem(footChickenId, "chicken_foot").setUnlocalizedName("footChicken");
-		
-		EntityRegistry.registerModEntity(EMDEntityPotion.class, "EMDPotion", ModLoader.getUniqueEntityId(), this, 400, 400, true);
-
-		PotionManager.loadPotionNames();
 		EMDNameManager.loadNames();
 		EMDRecipeManager.loadRecipes();			
 	}
@@ -222,7 +208,7 @@ public class ExtraMobDrops
 	public void load(FMLInitializationEvent e)
 	{
 		proxy.registerRenderThings();
-		TickRegistry.registerTickHandler(new OverallTickHandler(EnumSet.of(TickType.PLAYER)), Side.SERVER);
+		TickRegistry.registerTickHandler(new PlayerTickHandler(EnumSet.of(TickType.PLAYER)), Side.SERVER);
 		MinecraftForge.EVENT_BUS.register(new EMDEventHandler());
 	}
 

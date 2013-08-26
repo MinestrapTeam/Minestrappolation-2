@@ -7,14 +7,14 @@ import net.minecraft.world.World;
 import cpw.mods.fml.common.ITickHandler;
 import cpw.mods.fml.common.TickType;
 
-public class OverallTickHandler implements ITickHandler
+public class PlayerTickHandler implements ITickHandler
 {
     private final EnumSet<TickType> ticksToGet;
     
     /*
      * This Tick Handler will fire for whatever TickType's you construct and register it with.
      */
-    public OverallTickHandler(EnumSet<TickType> ticksToGet)
+    public PlayerTickHandler(EnumSet<TickType> ticksToGet)
     {
         this.ticksToGet = ticksToGet;
     }
