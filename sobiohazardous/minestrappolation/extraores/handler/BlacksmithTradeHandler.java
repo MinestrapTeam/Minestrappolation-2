@@ -3,7 +3,7 @@ package sobiohazardous.minestrappolation.extraores.handler;
 import java.util.Random;
 
 import sobiohazardous.minestrappolation.extraores.ExtraOres;
-
+import sobiohazardous.minestrappolation.extraores.lib.EOItemManager;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -16,108 +16,108 @@ public class BlacksmithTradeHandler implements IVillageTradeHandler
 	public void manipulateTradesForVillager(EntityVillager villager, MerchantRecipeList recipes, Random random) 
 	{
 		recipes.add(new MerchantRecipe(
-        new ItemStack(ExtraOres.CopperIngot, 10),
+        new ItemStack(EOItemManager.CopperIngot, 10),
         new ItemStack(Item.emerald, 1)));
 		
 		recipes.add(new MerchantRecipe(
-		        new ItemStack(ExtraOres.TinIngot, 10),
+		        new ItemStack(EOItemManager.TinIngot, 10),
 		        new ItemStack(Item.emerald, 1)));
 		
 		recipes.add(new MerchantRecipe(
-		        new ItemStack(ExtraOres.SteelIngot, 6),
+		        new ItemStack(EOItemManager.SteelIngot, 6),
 		        new ItemStack(Item.emerald, 1)));
 		
 		recipes.add(new MerchantRecipe(
-		        new ItemStack(ExtraOres.BronzeIngot, 6),
+		        new ItemStack(EOItemManager.BronzeIngot, 6),
 		        new ItemStack(Item.emerald, 1)));
 		
 		recipes.add(new MerchantRecipe(
-		        new ItemStack(ExtraOres.meuroditeIngot, 5),
+		        new ItemStack(EOItemManager.meuroditeIngot, 5),
 		        new ItemStack(Item.emerald, 1)));
 		
 		recipes.add(new MerchantRecipe(
-		        new ItemStack(ExtraOres.TitaniumIngot, 1),
+		        new ItemStack(EOItemManager.TitaniumIngot, 1),
 		        new ItemStack(Item.emerald, 1)));
 		
 		recipes.add(new MerchantRecipe(
-		        new ItemStack(ExtraOres.Uranium, 7),
+		        new ItemStack(EOItemManager.Uranium, 7),
 		        new ItemStack(Item.emerald, 1)));
 		
 		recipes.add(new MerchantRecipe(
-		        new ItemStack(ExtraOres.Plutonium, 7),
+		        new ItemStack(EOItemManager.Plutonium, 7),
 		        new ItemStack(Item.emerald, 1)));
 		
 		recipes.add(new MerchantRecipe(
 		        new ItemStack(Item.emerald, 5),
-		        new ItemStack(ExtraOres.BronzeHelmet, 1)));
+		        new ItemStack(EOItemManager.BronzeHelmet, 1)));
 		
 		recipes.add(new MerchantRecipe(
 		        new ItemStack(Item.emerald, 13),
-		        new ItemStack(ExtraOres.BronzeChest, 1)));
+		        new ItemStack(EOItemManager.BronzeChest, 1)));
 		
 		recipes.add(new MerchantRecipe(
 		        new ItemStack(Item.emerald, 9),
-		        new ItemStack(ExtraOres.BronzePants, 1)));
+		        new ItemStack(EOItemManager.BronzePants, 1)));
 
 		recipes.add(new MerchantRecipe(
 		        new ItemStack(Item.emerald, 5),
-		        new ItemStack(ExtraOres.BronzeBoots, 1)));
+		        new ItemStack(EOItemManager.BronzeBoots, 1)));
 		
 		recipes.add(new MerchantRecipe(
 		        new ItemStack(Item.emerald, 11),
-		        new ItemStack(ExtraOres.BronzeSword, 1)));
+		        new ItemStack(EOItemManager.BronzeSword, 1)));
 		
 		recipes.add(new MerchantRecipe(
 		        new ItemStack(Item.emerald, 8),
-		        new ItemStack(ExtraOres.BronzePickaxe, 1)));
+		        new ItemStack(EOItemManager.BronzePickaxe, 1)));
 		
 		recipes.add(new MerchantRecipe(
 		        new ItemStack(Item.emerald, 7),
-		        new ItemStack(ExtraOres.BronzeAxe, 1)));
+		        new ItemStack(EOItemManager.BronzeAxe, 1)));
 		
 		recipes.add(new MerchantRecipe(
 		        new ItemStack(Item.emerald, 5),
-		        new ItemStack(ExtraOres.BronzeShovel, 1)));
+		        new ItemStack(EOItemManager.BronzeShovel, 1)));
 		
 		recipes.add(new MerchantRecipe(
 		        new ItemStack(Item.emerald, 5),
-		        new ItemStack(ExtraOres.BronzeHoe, 1)));
+		        new ItemStack(EOItemManager.BronzeHoe, 1)));
 		
 		recipes.add(new MerchantRecipe(
 		        new ItemStack(Item.emerald, 5),
-		        new ItemStack(ExtraOres.SteelHelmet, 1)));
+		        new ItemStack(EOItemManager.SteelHelmet, 1)));
 		
 		recipes.add(new MerchantRecipe(
 		        new ItemStack(Item.emerald, 13),
-		        new ItemStack(ExtraOres.SteelChest, 1)));
+		        new ItemStack(EOItemManager.SteelChest, 1)));
 		
 		recipes.add(new MerchantRecipe(
 		        new ItemStack(Item.emerald, 9),
-		        new ItemStack(ExtraOres.SteelPants, 1)));
+		        new ItemStack(EOItemManager.SteelPants, 1)));
 
 		recipes.add(new MerchantRecipe(
 		        new ItemStack(Item.emerald, 5),
-		        new ItemStack(ExtraOres.SteelBoots, 1)));
+		        new ItemStack(EOItemManager.SteelBoots, 1)));
 		
 		recipes.add(new MerchantRecipe(
 		        new ItemStack(Item.emerald, 11),
-		        new ItemStack(ExtraOres.SteelSword, 1)));
+		        new ItemStack(EOItemManager.SteelSword, 1)));
 		
 		recipes.add(new MerchantRecipe(
 		        new ItemStack(Item.emerald, 8),
-		        new ItemStack(ExtraOres.SteelPickaxe, 1)));
+		        new ItemStack(EOItemManager.SteelPickaxe, 1)));
 		
 		recipes.add(new MerchantRecipe(
 		        new ItemStack(Item.emerald, 7),
-		        new ItemStack(ExtraOres.SteelAxe, 1)));
+		        new ItemStack(EOItemManager.SteelAxe, 1)));
 		
 		recipes.add(new MerchantRecipe(
 		        new ItemStack(Item.emerald, 5),
-		        new ItemStack(ExtraOres.SteelShovel, 1)));
+		        new ItemStack(EOItemManager.SteelShovel, 1)));
 		
 		recipes.add(new MerchantRecipe(
 		        new ItemStack(Item.emerald, 5),
-		        new ItemStack(ExtraOres.SteelHoe, 1)));
+		        new ItemStack(EOItemManager.SteelHoe, 1)));
 
 	}
 }

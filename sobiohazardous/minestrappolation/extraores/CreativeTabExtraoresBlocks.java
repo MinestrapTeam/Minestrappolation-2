@@ -1,6 +1,7 @@
 package sobiohazardous.minestrappolation.extraores;
 
 import sobiohazardous.minestrappolation.extraores.*;
+import sobiohazardous.minestrappolation.extraores.lib.EOBlockManager;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.creativetab.CreativeTabs;
@@ -17,7 +18,7 @@ public final class CreativeTabExtraoresBlocks extends CreativeTabs
         @SideOnly(Side.CLIENT)
         public int getTabIconItemIndex()
         {
-                return ExtraOres.CopperOre.blockID;
+                return EOBlockManager.CopperOre.blockID;
         }
    
         public String getTranslatedTabLabel()

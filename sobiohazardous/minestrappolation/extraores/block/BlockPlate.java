@@ -6,6 +6,7 @@ import sobiohazardous.minestrappolation.extraores.ExtraOres;
 
 
 import sobiohazardous.minestrappolation.extraores.lib.EOBlockManager;
+import sobiohazardous.minestrappolation.extraores.lib.EOItemManager;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -156,7 +157,7 @@ public class BlockPlate extends Block
     
     public int idDropped(int par1, Random par2Random, int par3)
     {
-        return this.blockID == ExtraOres.TinPlate.blockID ? ExtraOres.TinPlateItem.itemID : (this.blockID == ExtraOres.BronzePlate.blockID ? ExtraOres.BronzePlateItem.itemID : (this.blockID == ExtraOres.SteelPlate.blockID ? ExtraOres.SteelPlateItem.itemID : this.blockID));
+        return this.blockID == EOBlockManager.TinPlate.blockID ? EOItemManager.TinPlateItem.itemID : (this.blockID == EOBlockManager.BronzePlate.blockID ? EOItemManager.BronzePlateItem.itemID : (this.blockID == EOBlockManager.SteelPlate.blockID ? EOItemManager.SteelPlateItem.itemID : this.blockID));
     }
     
     public int quantityDropped(Random par1Random)
