@@ -46,7 +46,6 @@ public class Minestrappolation
 	@SidedProxy(clientSide = "sobiohazardous.minestrappolation.api.proxy.ClientProxy", serverSide = "sobiohazardous.minestrappolation.api.proxy.ServerSide")
 	
 	public static CommonProxy proxy;
-	
 	@Instance("Minestrappolation")
 	public static Minestrappolation instance;
 	public static boolean			multiPotions			= false;

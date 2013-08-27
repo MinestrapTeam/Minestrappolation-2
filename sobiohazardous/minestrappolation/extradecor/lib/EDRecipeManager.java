@@ -11,6 +11,18 @@ public class EDRecipeManager
 
 	public static void loadAllRecipes()
 	{
+		
+		GameRegistry.addRecipe(new ItemStack(EDBlockManager.infertileDirt, 8), new Object[]
+				{
+			"DDD","DBD", "DDD", Character.valueOf('D'), Block.dirt,Character.valueOf('B'), Item.bucketEmpty.setContainerItem(Item.bucketWater)
+				});
+		
+		GameRegistry.addRecipe(new ItemStack(Block.dirt, 8), new Object[]
+				{
+			"DDD","DBD", "DDD", Character.valueOf('D'), EDBlockManager.infertileDirt,Character.valueOf('B'), Item.bucketWater.setContainerItem(Item.bucketEmpty)
+				});
+		
+		
 		GameRegistry.addRecipe(new ItemStack(EDBlockManager.stoneBlockRefined, 9), new Object[]
 				{
 			"SSS", "SSS", "SSS", Character.valueOf('S'), Block.stone

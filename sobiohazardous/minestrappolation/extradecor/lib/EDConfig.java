@@ -55,6 +55,7 @@ public class EDConfig {
 	woodBoardsDoubleSlabId,
 	checkerTileStairsId,
 	stainedBrickId,
+	infertiledirtId,
 	cobbledRoadId;
 	
 	public static void initilize(FMLPreInitializationEvent event)
@@ -114,6 +115,7 @@ public class EDConfig {
 		checkerTileStairsId = config.getBlock("Checker Tile Stairs", 745).getInt();
 		stainedBrickId = config.getBlock("Stained Bricks", 746).getInt();
 		cobbledRoadId = config.getBlock("Cobbled Road", 747).getInt();
+		infertiledirtId = config.getBlock("Infertile Dirt", 748).getInt();
 		
 		config.save();		
 		

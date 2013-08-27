@@ -13,7 +13,7 @@ import net.minecraft.util.StatCollector;
 
 public class GuiCrate extends GuiContainer
 {
-	public static ResourceLocation crategui = new ResourceLocation("Minestrappolation","gui/crate.png");
+	public static ResourceLocation crategui = new ResourceLocation("minestrappolation","gui/crate.png");
 
 	public GuiCrate(InventoryPlayer player_inventory, TileEntityCrate tile_entity)
 	{

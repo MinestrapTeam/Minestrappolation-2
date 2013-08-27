@@ -111,6 +111,8 @@ public class EDBlockManager {
 	
 	public static Block checkerTile;
 	
+	public static Block infertileDirt;
+	
 	public static Block woodBoardsStairsOak;
 	public static Block woodBoardsStairsBirch;
 	public static Block woodBoardsStairsSpruce;
@@ -207,6 +209,7 @@ public class EDBlockManager {
 	stainedBrick = (new BlockStainedBrick(EDConfig.stainedBrickId)).setHardness(2F).setResistance(10F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("stainedBrick");
 	
 	cobbledRoad = (new BlockCobbledRoad(EDConfig.cobbledRoadId)).setHardness(1).setResistance(5F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("cobbledRoad");
+	infertileDirt = new MBlock(EDConfig.infertiledirtId,Material.grass).setCreativeTab(tabDecorBlocks).setUnlocalizedName("infertile_dirt").setStepSound(Block.soundGrassFootstep);
 	}
 	
 	public static void registerBlocks()
@@ -258,10 +261,12 @@ public class EDBlockManager {
 		GameRegistry.registerBlock(checkerTileStairs, "checkerTileStairs");
 		GameRegistry.registerBlock(stainedBrick, "stainedBrick");
 		GameRegistry.registerBlock(cobbledRoad, "cobbledRoad");
+		GameRegistry.registerBlock(infertileDirt,"Infertile Dirt");
 	}
 	
 	public static void addNames()
 	{
+		LanguageRegistry.addName(infertileDirt, "Infertile Dirt");
 		LanguageRegistry.addName(stoneBlockRefined, "Refined Stone Block");
 		LanguageRegistry.addName(stonePillar, "Stone Pillar");
 		LanguageRegistry.addName(stoneTile, "Stone Tile");

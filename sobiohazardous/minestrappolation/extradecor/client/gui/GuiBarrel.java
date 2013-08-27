@@ -35,7 +35,7 @@ public class GuiBarrel extends GuiContainer
 	protected void drawGuiContainerBackgroundLayer(float f, int i, int j)
 	{
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		ResourceLocation gui = new ResourceLocation("Minestrappolation","gui/barrel.png");
+		ResourceLocation gui = new ResourceLocation("minestrappolation","gui/barrel.png");
 		this.mc.renderEngine.func_110577_a(gui);		
 		int x = (width - xSize) / 2;
 		int y = (height - ySize) / 2;
