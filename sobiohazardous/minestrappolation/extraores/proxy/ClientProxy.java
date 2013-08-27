@@ -27,9 +27,7 @@ public class ClientProxy extends CommonProxy
      * Anything you've put in CommonProxy, you can override here to implement it differently on Clients.
      * Obvious applications include Rendering and Sound effects
      * Hint: Client has access to Classes and Methods a Server doesn't know
-     */
-	ExtraOres mod;
-    
+     */ 
     
     @Override
     public void registerRenderThings()
@@ -44,8 +42,6 @@ public class ClientProxy extends CommonProxy
 		RenderingRegistry.registerEntityRenderingHandler(EntityGrenade.class, new RenderGrenade(EOItemManager.grenade));
 		RenderingRegistry.registerEntityRenderingHandler(EntityGrenadeImpact.class, new RenderGrenade(EOItemManager.grenadeImpact));
 		RenderingRegistry.registerEntityRenderingHandler(EntityGrenadeSticky.class, new RenderGrenade(EOItemManager.grenadeSticky));
-
-
     }
     
    public static int addArmor(String armor)

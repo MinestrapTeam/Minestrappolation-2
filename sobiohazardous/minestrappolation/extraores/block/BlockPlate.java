@@ -2,6 +2,7 @@ package sobiohazardous.minestrappolation.extraores.block;
 
 import java.util.Random;
 
+import sobiohazardous.minestrappolation.api.block.MBlock;
 import sobiohazardous.minestrappolation.extraores.ExtraOres;
 
 
@@ -18,22 +19,15 @@ import net.minecraft.util.Vec3;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockPlate extends Block
+public class BlockPlate extends MBlock
 {
 	 
 	protected static BlockPlate plate;
-	public String texture;
-	public BlockPlate(int par1, String Filetexture)
+	public BlockPlate(int par1)
 	    {
 	        super(par1, Material.circuits);
-	        this.texture = "Minestrappolation:" + Filetexture;
 	        setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);
 	    }
-    
-	public void registerIcons(IconRegister par1IconRegister)
-	{
-	         this.blockIcon = par1IconRegister.registerIcon(texture);
-	}
 	 
 	 public static final boolean isRailBlockAt(World par0World, int par1, int par2, int par3)
 	    {

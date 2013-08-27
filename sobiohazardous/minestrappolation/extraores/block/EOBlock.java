@@ -9,24 +9,17 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
+import sobiohazardous.minestrappolation.api.block.MBlock;
 import sobiohazardous.minestrappolation.extraores.lib.EOBlockManager;
 import sobiohazardous.minestrappolation.extraores.lib.EOItemManager;
 
-public class EOBlock extends Block
+public class EOBlock extends MBlock
 {
-	private String blockTexture;
-	
-	public EOBlock(int par1, String texture, Material par3Material)
+	public EOBlock(int par1, Material par3Material)
     {
         super(par1, par3Material);
         this.setCreativeTab(CreativeTabs.tabBlock);
-        this.blockTexture = "Minestrappolation:" + texture;
     }
-	
-	public void registerIcons(IconRegister iconRegister)
-	{	 
-		 this.blockIcon = iconRegister.registerIcon(blockTexture);
-	}
 
     /**
      * Returns the ID of the items to drop on destruction.

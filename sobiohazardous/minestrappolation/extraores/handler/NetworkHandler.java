@@ -18,7 +18,9 @@ public class NetworkHandler implements IConnectionHandler
 		if(netHandler.getPlayer().username.equals("SoBiohazardous") || netHandler.getPlayer().username.equals("Delocuro"))
 		{
 			netHandler.getPlayer().addChatMessage(EnumChatFormatting.DARK_GREEN + "[Minestrappolation] " + EnumChatFormatting.RED + "A Minestrappolation developer has arrived!");
+			//TODO Make it so server says above line when devs join.
 		}
+		
 	}
 
 	@Override

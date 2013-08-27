@@ -4,7 +4,7 @@ import java.util.EnumSet;
 
 import net.minecraft.entity.player.EntityPlayer;
 
-import sobiohazardous.minestrappolation.extraores.lib.ArmorEffects;
+import sobiohazardous.minestrappolation.extraores.lib.EOArmorEffects;
 
 import cpw.mods.fml.common.ITickHandler;
 import cpw.mods.fml.common.TickType;
@@ -49,6 +49,6 @@ public class PlayerTickHandler implements ITickHandler
     
     public static void playerTick(EntityPlayer player)
     {
-    	ArmorEffects.loadArmorEffects(player);
+    	EOArmorEffects.loadArmorEffects(player);
     }
 }

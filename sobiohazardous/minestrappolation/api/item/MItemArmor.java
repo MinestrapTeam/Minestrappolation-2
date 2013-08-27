@@ -1,5 +1,6 @@
 package sobiohazardous.minestrappolation.api.item;
 
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.ItemArmor;
 
@@ -10,4 +11,8 @@ public class MItemArmor extends ItemArmor
 		super(par1, par2EnumArmorMaterial, par3, par4);
 	}
 
+	public void registerIcons(IconRegister r)
+	{
+		itemIcon = r.registerIcon("Minestrappolation:" + this.getUnlocalizedName().substring(5));
+	}
 }
