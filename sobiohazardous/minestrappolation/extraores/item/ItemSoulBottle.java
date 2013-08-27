@@ -2,22 +2,21 @@ package sobiohazardous.minestrappolation.extraores.item;
 
 import java.util.List;
 
-import sobiohazardous.minestrappolation.extraores.ExtraOres;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.src.*;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
+import sobiohazardous.minestrappolation.extraores.lib.EOBlockManager;
+import sobiohazardous.minestrappolation.extraores.lib.EOItemManager;
 
 public class ItemSoulBottle extends Item
 {
         public ItemSoulBottle(int i)
         {
                 super(i);
-                this.setCreativeTab(ExtraOres.tabOresItems);
+                this.setCreativeTab(EOItemManager.tabOresItems);
                 this.setMaxStackSize(1);
         }
 
@@ -37,7 +36,7 @@ public class ItemSoulBottle extends Item
         	}
         	else
         	{
-        		return par1ItemStack.stackSize <= 0 ? new ItemStack(ExtraOres.SoulBottle) : par1ItemStack;
+        		return par1ItemStack.stackSize <= 0 ? new ItemStack(EOBlockManager.SoulBottle) : par1ItemStack;
         	}
             
         }

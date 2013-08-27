@@ -1,10 +1,9 @@
 package sobiohazardous.minestrappolation.extraores.item;
 
-import sobiohazardous.minestrappolation.extraores.ExtraOres;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.EnumToolMaterial;
-import net.minecraft.src.*;
+import sobiohazardous.minestrappolation.extraores.lib.EOBlockManager;
 
 public class ItemEShovel extends ItemExtracraftTool
 {
@@ -41,7 +40,7 @@ public class ItemEShovel extends ItemExtracraftTool
     {
         blocksEffectiveAgainst = (new Block[]
                 {
-                    Block.grass, Block.dirt, Block.sand, Block.gravel, Block.snow, Block.blockSnow, Block.blockClay, Block.tilledField, Block.slowSand, Block.mycelium, ExtraOres.SoulOre
+                    Block.grass, Block.dirt, Block.sand, Block.gravel, Block.snow, Block.blockSnow, Block.blockClay, Block.tilledField, Block.slowSand, Block.mycelium, EOBlockManager.SoulOre
                 });
     }
 }

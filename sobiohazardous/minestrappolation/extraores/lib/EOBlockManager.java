@@ -206,7 +206,7 @@ public class EOBlockManager {
 	public static Block plutoniumInsulated;
 	public static Block uraniumInsulated;
 	
-	public void addBlocks(){
+	public static void addBlocks(){
 
 		meuroditeOre = (new EOBlock(EOConfig.meuroditeOreId, "block_MeuroditeOre", Material.rock)).setHardness(5F).setCreativeTab(tabOresBlocks).setResistance(10F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("MeuroditeOre");
 		meuroditeBlock = (new EOBlock(EOConfig.meuroditeBlockId, "block_Meurodite", Material.iron)).setHardness(5F).setCreativeTab(tabOresBlocks).setResistance(10F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("MeuroditeBlock");
@@ -344,15 +344,15 @@ public class EOBlockManager {
 		bronzePlatedStoneBrickSingleSlab = (BlockHalfSlab) new BronzePlatedStoneBrickSlab(EOConfig.bronzePlatedStoneBrickSingleSlabId, false).setUnlocalizedName("bronzePlatedStoneBrickSingleSlab").setCreativeTab(tabOresBlocks);
 		bronzePlatedStoneBrickDoubleSlab = (BlockHalfSlab) new BronzePlatedStoneBrickSlab(EOConfig.bronzePlatedStoneBrickDoubleSlabId, true).setUnlocalizedName("bronzePlatedStoneBrickDoubleSlab");
 		
-		tinPlatedGraniteBrickStairs = new EOBlockStairs(EOConfig.tinPlatedGraniteBrickStairsId, this.TinPlatedGranite, 0).setUnlocalizedName("tinPlatedGraniteBrickStairs");
+		tinPlatedGraniteBrickStairs = new EOBlockStairs(EOConfig.tinPlatedGraniteBrickStairsId, TinPlatedGranite, 0).setUnlocalizedName("tinPlatedGraniteBrickStairs");
 		tinPlatedGraniteBrickSingleSlab = (BlockHalfSlab) new TinPlatedGraniteBrickSlab(EOConfig.tinPlatedGraniteBrickSingleSlabId, false).setUnlocalizedName("tinPlatedGraniteBrickSingleSlab").setCreativeTab(tabOresBlocks);
 		tinPlatedGraniteBrickDoubleSlab = (BlockHalfSlab) new TinPlatedGraniteBrickSlab(EOConfig.tinPlatedGraniteBrickDoubleSlabId, true).setUnlocalizedName("tinPlatedGraniteBrickDoubleSlab");
 		
-		steelPlatedGraniteBrickStairs = new EOBlockStairs(EOConfig.steelPlatedGraniteBrickStairsId, this.SteelPlatedGranite, 0).setUnlocalizedName("steelPlatedGraniteBrickStairs");
+		steelPlatedGraniteBrickStairs = new EOBlockStairs(EOConfig.steelPlatedGraniteBrickStairsId, SteelPlatedGranite, 0).setUnlocalizedName("steelPlatedGraniteBrickStairs");
 		steelPlatedGraniteBrickSingleSlab = (BlockHalfSlab) new SteelPlatedGraniteBrickSlab(EOConfig.steelPlatedGraniteBrickSingleSlabId, false).setUnlocalizedName("steelPlatedGraniteBrickSingleSlab").setCreativeTab(tabOresBlocks);
 		steelPlatedGraniteBrickDoubleSlab = (BlockHalfSlab) new SteelPlatedGraniteBrickSlab(EOConfig.steelPlatedGraniteBrickDoubleSlabId, true).setUnlocalizedName("steelPlatedGraniteBrickDoubleSlab");
 		
-		bronzePlatedGraniteBrickStairs = new EOBlockStairs(EOConfig.bronzePlatedGraniteBrickStairsId, this.BronzePlatedGranite, 0).setUnlocalizedName("bronzePlatedGraniteBrickStairs");
+		bronzePlatedGraniteBrickStairs = new EOBlockStairs(EOConfig.bronzePlatedGraniteBrickStairsId, BronzePlatedGranite, 0).setUnlocalizedName("bronzePlatedGraniteBrickStairs");
 		bronzePlatedGraniteBrickSingleSlab = (BlockHalfSlab) new BronzePlatedGraniteBrickSlab(EOConfig.bronzePlatedGraniteBrickSingleSlabId, false).setUnlocalizedName("bronzePlatedGraniteBrickSingleSlab").setCreativeTab(tabOresBlocks);
 		bronzePlatedGraniteBrickDoubleSlab = (BlockHalfSlab) new BronzePlatedGraniteBrickSlab(EOConfig.bronzePlatedGraniteBrickDoubleSlabId, true).setUnlocalizedName("bronzePlatedGraniteBrickDoubleSlab");
 		

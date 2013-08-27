@@ -1,22 +1,14 @@
 package sobiohazardous.minestrappolation.extraores.item;
 
-import com.google.common.collect.Multimap;
-
-import sobiohazardous.minestrappolation.extraores.ExtraOres;
 import net.minecraft.block.Block;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.EnumToolMaterial;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTool;
 import net.minecraft.world.World;
-import net.minecraftforge.common.ForgeHooks;
+import sobiohazardous.minestrappolation.extraores.lib.EOItemManager;
 
 public class ItemExtracraftTool extends ItemTool
 {
@@ -61,7 +53,7 @@ public class ItemExtracraftTool extends ItemTool
      */
     public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase par2EntityLiving, EntityLivingBase par3EntityLiving)
     {
-        if(toolMaterial == ExtraOres.toolMaterialTorite || toolMaterial == ExtraOres.toolMaterialBPTorite)
+        if(toolMaterial == EOItemManager.toolMaterialTorite || toolMaterial == EOItemManager.toolMaterialBPTorite)
         	{
         	par1ItemStack.damageItem(1, par3EntityLiving);
         	return true;
@@ -84,7 +76,7 @@ public class ItemExtracraftTool extends ItemTool
         }
         else
         {
-        	if(toolMaterial == ExtraOres.toolMaterialTitanium || toolMaterial == ExtraOres.toolMaterialBedrock || toolMaterial == ExtraOres.toolMaterialBPTitanium || toolMaterial == ExtraOres.toolMaterialBPBedrock)
+        	if(toolMaterial == EOItemManager.toolMaterialTitanium || toolMaterial == EOItemManager.toolMaterialBedrock || toolMaterial == EOItemManager.toolMaterialBPTitanium || toolMaterial == EOItemManager.toolMaterialBPBedrock)
         	{
         	    par1ItemStack.damageItem(4000, par7EntityLiving);
         	}
@@ -98,7 +90,7 @@ public class ItemExtracraftTool extends ItemTool
     
     public boolean onItemUse(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, World par3World, int par4, int par5, int par6, int par7, float par8, float par9, float par10)
     {
-    	if (toolMaterial == ExtraOres.toolMaterialBlazium || toolMaterial == ExtraOres.toolMaterialBPBlazium)
+    	if (toolMaterial == EOItemManager.toolMaterialBlazium || toolMaterial == EOItemManager.toolMaterialBPBlazium)
     	{
     		if (par7 == 0)
     		{
@@ -164,7 +156,7 @@ public class ItemExtracraftTool extends ItemTool
     
     public EnumAction getItemUseAction(ItemStack par1ItemStack)
     {
-    	if(toolMaterial == ExtraOres.toolMaterialTorite || toolMaterial == ExtraOres.toolMaterialBPTorite)
+    	if(toolMaterial == EOItemManager.toolMaterialTorite || toolMaterial == EOItemManager.toolMaterialBPTorite)
     	{
     		return EnumAction.block;
     	}
@@ -174,7 +166,7 @@ public class ItemExtracraftTool extends ItemTool
     
     public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
     {
-    	if(toolMaterial == ExtraOres.toolMaterialTorite || toolMaterial == ExtraOres.toolMaterialBPTorite)
+    	if(toolMaterial == EOItemManager.toolMaterialTorite || toolMaterial == EOItemManager.toolMaterialBPTorite)
     	{
     		par3EntityPlayer.setItemInUse(par1ItemStack, getMaxItemUseDuration(par1ItemStack));
     	}

@@ -5,7 +5,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
-import sobiohazardous.minestrappolation.extraores.ExtraOres;
+import sobiohazardous.minestrappolation.extraores.lib.EOItemManager;
 
 public class ItemESword extends ItemSword
 {
@@ -17,7 +17,7 @@ public class ItemESword extends ItemSword
 		super(par1, par2EnumToolMaterial);
 		this.texture = "Minestrappolation:" + texture;
         this.toolMaterial = par2EnumToolMaterial;
-        this.setCreativeTab(ExtraOres.tabOresItems);
+        this.setCreativeTab(EOItemManager.tabOresItems);
         this.setCreativeTab(null);
 	}
 	
@@ -32,7 +32,7 @@ public class ItemESword extends ItemSword
      */
     public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase par2EntityLivingBase, EntityLivingBase par3EntityLivingBase)
     {
-    	if(this.toolMaterial == ExtraOres.toolMaterialBlazium)
+    	if(this.toolMaterial == EOItemManager.toolMaterialBlazium)
     	{
     		par2EntityLivingBase.setFire(10);
     	}

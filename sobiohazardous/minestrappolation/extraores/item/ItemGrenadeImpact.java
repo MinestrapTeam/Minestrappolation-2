@@ -2,17 +2,14 @@ package sobiohazardous.minestrappolation.extraores.item;
 
 import java.util.List;
 
-import sobiohazardous.minestrappolation.extraores.ExtraOres;
-import sobiohazardous.minestrappolation.extraores.entity.EntityGrenade;
-import sobiohazardous.minestrappolation.extraores.entity.EntityGrenadeImpact;
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntitySnowball;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
+import sobiohazardous.minestrappolation.extraores.entity.EntityGrenadeImpact;
+import sobiohazardous.minestrappolation.extraores.lib.EOItemManager;
 
 public class ItemGrenadeImpact extends Item
 {
@@ -21,7 +18,7 @@ public class ItemGrenadeImpact extends Item
     {
         super(par1);
         this.maxStackSize = 16;
-        this.setCreativeTab(ExtraOres.tabOresItems);
+        this.setCreativeTab(EOItemManager.tabOresItems);
     }
 
     /**

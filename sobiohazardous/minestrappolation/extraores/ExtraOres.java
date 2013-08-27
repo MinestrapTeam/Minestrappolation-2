@@ -142,6 +142,7 @@ public class ExtraOres
 		EntityRegistry.registerModEntity(EntityNukePrimed.class, "NukePrimed", 3, this, 350, 5, false);
 		EntityRegistry.registerModEntity(EntityGrenadeImpact.class, "GrenadeImpact", 4, this, 40, 3, true);
 		EntityRegistry.registerModEntity(EntityGrenadeSticky.class, "GrenadeSticky", 5, this, 40, 3, true);
+		EOBlockManager.addBlocks();
 		EOItemManager.addItems();
 		EOItemManager.setHarvestLevels();
         EONameManager.loadNames();

@@ -1,12 +1,11 @@
 package sobiohazardous.minestrappolation.extraores.item;
 
-import sobiohazardous.minestrappolation.extraores.ExtraOres;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.src.*;
+import sobiohazardous.minestrappolation.extraores.lib.EOItemManager;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class EItemFoiled extends Item
 {
@@ -14,7 +13,7 @@ public class EItemFoiled extends Item
 		public EItemFoiled(int i, String texture)
         {
                 super(i);
-                this.setCreativeTab(ExtraOres.tabOresItems);
+                this.setCreativeTab(EOItemManager.tabOresItems);
                 this.itemTexture = "Minestrappolation:" + texture;
         }
 
