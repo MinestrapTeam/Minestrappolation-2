@@ -41,6 +41,25 @@ public class BlockFunctions
         return false;
     }
 	
+	public static boolean isLavaNearby(World par1World, int par2, int par3, int par4)
+    {
+        for (int l = par2 - 4; l <= par2 + 4; ++l)//x
+        {
+            for (int i1 = par3; i1 <= par3 + 1; ++i1)//y
+            {
+                for (int j1 = par4 - 4; j1 <= par4 + 4; ++j1)//z
+                {
+                    if (par1World.getBlockMaterial(l, i1, j1) == Material.lava)
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return false;
+    }
+	
 	/**
 	 * This checks and returns if the current block is touching the right the block ID specified
 	 * @param The world
@@ -115,6 +134,25 @@ public class BlockFunctions
                 for (int j1 = z - 1; j1 <= z + 1; ++j1)//z
                 {
                 	 if (par1World.getBlockMaterial(i, i1, j1) == Material.water)
+                     {
+                         return true;
+                     }
+                }
+            }
+		}
+		
+		return false;
+	}
+	
+	public static boolean isLavaTouchingAllSides(World par1World, int x, int y, int z)
+	{
+		for (int i = x - 1; i <= x + 1; ++ i)//x
+		{
+			for (int i1 = y; i1 <= y + 0; ++i1)//y
+            {
+                for (int j1 = z - 1; j1 <= z + 1; ++j1)//z
+                {
+                	 if (par1World.getBlockMaterial(i, i1, j1) == Material.lava)
                      {
                          return true;
                      }
@@ -216,5 +254,7 @@ public class BlockFunctions
 		
 		return false;
 	}
+	
+
 	
 }
