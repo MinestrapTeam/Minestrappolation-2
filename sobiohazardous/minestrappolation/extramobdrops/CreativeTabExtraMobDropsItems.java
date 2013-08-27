@@ -1,5 +1,6 @@
 package sobiohazardous.minestrappolation.extramobdrops;
 
+import sobiohazardous.minestrappolation.extramobdrops.lib.EMDItemManager;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.creativetab.CreativeTabs;
@@ -17,7 +18,7 @@ public final class CreativeTabExtraMobDropsItems extends CreativeTabs
         @SideOnly(Side.CLIENT)
         public int getTabIconItemIndex()
         {
-                return ExtraMobDrops.pigHoof.itemID;
+                return EMDItemManager.pigHoof.itemID;
         }
        
    

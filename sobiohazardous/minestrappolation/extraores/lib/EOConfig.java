@@ -1,4 +1,4 @@
-package sobiohazardous.minestrappolation.extraores;
+package sobiohazardous.minestrappolation.extraores.lib;
 
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.common.Configuration;

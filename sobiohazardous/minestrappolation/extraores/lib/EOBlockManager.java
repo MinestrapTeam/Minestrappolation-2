@@ -1,7 +1,6 @@
 package sobiohazardous.minestrappolation.extraores.lib;
 
 import sobiohazardous.minestrappolation.extraores.CreativeTabExtraoresBlocks;
-import sobiohazardous.minestrappolation.extraores.EOConfig;
 import sobiohazardous.minestrappolation.extraores.ExtraOres;
 import sobiohazardous.minestrappolation.extraores.block.BlockBlazium;
 import sobiohazardous.minestrappolation.extraores.block.BlockCopper;

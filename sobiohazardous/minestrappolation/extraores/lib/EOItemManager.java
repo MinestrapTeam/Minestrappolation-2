@@ -8,7 +8,6 @@ import sobiohazardous.minestrappolation.api.item.MItemPickaxe;
 import sobiohazardous.minestrappolation.api.item.MItemShovel;
 import sobiohazardous.minestrappolation.api.item.MItemSword;
 import sobiohazardous.minestrappolation.extraores.CreativeTabExtraoresItems;
-import sobiohazardous.minestrappolation.extraores.EOConfig;
 import sobiohazardous.minestrappolation.extraores.ExtraOres;
 import sobiohazardous.minestrappolation.extraores.item.EOItem;
 import sobiohazardous.minestrappolation.extraores.item.ItemGrenade;

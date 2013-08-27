@@ -16,6 +16,7 @@ import sobiohazardous.minestrappolation.extraores.handler.ServerPacketHandler;
 import sobiohazardous.minestrappolation.extraores.handler.PlayerTickHandler;
 import sobiohazardous.minestrappolation.extraores.lib.EOBlockManager;
 import sobiohazardous.minestrappolation.extraores.lib.EOBlockRegister;
+import sobiohazardous.minestrappolation.extraores.lib.EOConfig;
 import sobiohazardous.minestrappolation.extraores.lib.EOFuelHandler;
 import sobiohazardous.minestrappolation.extraores.lib.EOItemManager;
 import sobiohazardous.minestrappolation.extraores.lib.EONameManager;

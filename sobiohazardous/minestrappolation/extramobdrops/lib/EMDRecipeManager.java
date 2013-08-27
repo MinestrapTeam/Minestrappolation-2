@@ -2,61 +2,60 @@ package sobiohazardous.minestrappolation.extramobdrops.lib;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import sobiohazardous.minestrappolation.extramobdrops.ExtraMobDrops;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class EMDRecipeManager 
 {
 	public static void loadRecipes()
 	{
-		GameRegistry.addSmelting(ExtraMobDrops.fat.itemID, new ItemStack(ExtraMobDrops.grease, 1), 0.7F);
-		GameRegistry.addShapelessRecipe(new ItemStack(ExtraMobDrops.friedApple, 2), new Object[]
+		GameRegistry.addSmelting(EMDItemManager.fat.itemID, new ItemStack(EMDItemManager.grease, 1), 0.7F);
+		GameRegistry.addShapelessRecipe(new ItemStack(EMDItemManager.friedApple, 2), new Object[]
 				{
-			ExtraMobDrops.fat, Item.appleRed,ExtraMobDrops.fat
+			EMDItemManager.fat, Item.appleRed,EMDItemManager.fat
 				});
-		GameRegistry.addShapelessRecipe(new ItemStack(ExtraMobDrops.friedBeef, 2), new Object[]
+		GameRegistry.addShapelessRecipe(new ItemStack(EMDItemManager.friedBeef, 2), new Object[]
 				{
-			ExtraMobDrops.fat, Item.beefCooked,ExtraMobDrops.fat
+			EMDItemManager.fat, Item.beefCooked,EMDItemManager.fat
 				});
-		GameRegistry.addShapelessRecipe(new ItemStack(ExtraMobDrops.friedBread, 2), new Object[]
+		GameRegistry.addShapelessRecipe(new ItemStack(EMDItemManager.friedBread, 2), new Object[]
 				{
-			ExtraMobDrops.fat, Item.bread,ExtraMobDrops.fat
+			EMDItemManager.fat, Item.bread,EMDItemManager.fat
 				});
-		GameRegistry.addShapelessRecipe(new ItemStack(ExtraMobDrops.friedCarrot, 2), new Object[]
+		GameRegistry.addShapelessRecipe(new ItemStack(EMDItemManager.friedCarrot, 2), new Object[]
 				{
-			ExtraMobDrops.fat, Item.carrot,ExtraMobDrops.fat
+			EMDItemManager.fat, Item.carrot,EMDItemManager.fat
 				});
-		GameRegistry.addShapelessRecipe(new ItemStack(ExtraMobDrops.friedCookie, 2), new Object[]
+		GameRegistry.addShapelessRecipe(new ItemStack(EMDItemManager.friedCookie, 2), new Object[]
 				{
-			ExtraMobDrops.fat, Item.cookie,ExtraMobDrops.fat
+			EMDItemManager.fat, Item.cookie,EMDItemManager.fat
 				});
-		GameRegistry.addShapelessRecipe(new ItemStack(ExtraMobDrops.friedFlesh, 2), new Object[]
+		GameRegistry.addShapelessRecipe(new ItemStack(EMDItemManager.friedFlesh, 2), new Object[]
 				{
-			ExtraMobDrops.fat, Item.rottenFlesh,ExtraMobDrops.fat
+			EMDItemManager.fat, Item.rottenFlesh,EMDItemManager.fat
 				});
 		GameRegistry.addRecipe(new ItemStack(Item.dyePowder, 1, 16), new Object []
 				{
-			"AA", "AA", Character.valueOf('A'), ExtraMobDrops.animalBones
+			"AA", "AA", Character.valueOf('A'), EMDItemManager.animalBones
 				});
-		GameRegistry.addShapelessRecipe(new ItemStack(ExtraMobDrops.hornSwordWood), new Object[]
+		GameRegistry.addShapelessRecipe(new ItemStack(EMDItemManager.hornSwordWood), new Object[]
 				{
-			ExtraMobDrops.horn, ExtraMobDrops.horn, Item.swordWood
+			EMDItemManager.horn, EMDItemManager.horn, Item.swordWood
 				});
-		GameRegistry.addShapelessRecipe(new ItemStack(ExtraMobDrops.hornSwordStone), new Object[]
+		GameRegistry.addShapelessRecipe(new ItemStack(EMDItemManager.hornSwordStone), new Object[]
 				{
-			ExtraMobDrops.horn, ExtraMobDrops.horn, Item.swordStone
+			EMDItemManager.horn, EMDItemManager.horn, Item.swordStone
 				});
-		GameRegistry.addShapelessRecipe(new ItemStack(ExtraMobDrops.hornSwordIron), new Object[]
+		GameRegistry.addShapelessRecipe(new ItemStack(EMDItemManager.hornSwordIron), new Object[]
 				{
-			ExtraMobDrops.horn, ExtraMobDrops.horn, Item.swordIron
+			EMDItemManager.horn, EMDItemManager.horn, Item.swordIron
 				});
-		GameRegistry.addShapelessRecipe(new ItemStack(ExtraMobDrops.hornSwordDiamond), new Object[]
+		GameRegistry.addShapelessRecipe(new ItemStack(EMDItemManager.hornSwordDiamond), new Object[]
 				{
-			ExtraMobDrops.horn, ExtraMobDrops.horn, Item.swordDiamond
+			EMDItemManager.horn, EMDItemManager.horn, Item.swordDiamond
 				});
-		GameRegistry.addShapelessRecipe(new ItemStack(ExtraMobDrops.hornSwordGold), new Object[]
+		GameRegistry.addShapelessRecipe(new ItemStack(EMDItemManager.hornSwordGold), new Object[]
 				{
-			ExtraMobDrops.horn, ExtraMobDrops.horn, Item.swordGold
+			EMDItemManager.horn, EMDItemManager.horn, Item.swordGold
 				});
 	}
 }
