@@ -319,23 +319,23 @@ public class TileEntityMelter extends TileEntity implements IInventory
 		  
         if (needBucket == true && hasBucket == true)
         {
-       	 System.out.println("true: needsBucket hasBucket");
+       	//System.out.println("true: needsBucket hasBucket");
        	 return true; 	         	
         }
         
         if (needBucket == false && hasBucket == false)
         {
-       	 System.out.println("true: Doesn't need bucket does not have bucket");
+       	 //System.out.println("true: Doesn't need bucket does not have bucket");
        	 return true;
         }
         
         if(needBucket == true && hasBucket == false){
-       	 System.out.println("false: needs bucket does not have bukket");
+       	 //System.out.println("false: needs bucket does not have bukket");
        	 return false;
         }
         
         if(needBucket == false && hasBucket == true){
-       	 System.out.println("true: does not need bucket has bucket");
+       	 //System.out.println("true: does not need bucket has bucket");
        	 return true;
         }
         
