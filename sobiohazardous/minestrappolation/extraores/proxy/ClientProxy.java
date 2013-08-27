@@ -23,7 +23,6 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class ClientProxy extends CommonProxy
 {
-	public static String armorPrefix;
     /*
      * Anything you've put in CommonProxy, you can override here to implement it differently on Clients.
      * Obvious applications include Rendering and Sound effects
@@ -46,8 +45,7 @@ public class ClientProxy extends CommonProxy
     }
     
    public static int addArmor(String armor)
-    {   
-	   armorPrefix = armor;
-	   return RenderingRegistry.addNewArmourRendererPrefix(armor);   
+    {
+        return RenderingRegistry.addNewArmourRendererPrefix(armor);
     }
 }

@@ -14,7 +14,6 @@ import cpw.mods.fml.common.registry.EntityRegistry;
 
 public class CommonProxy
 {
-	public static String armorPrefix;
     /*
      * Anything you put in here can be implemented DIFFERENTLY on client/server. Serverside is here obviously, clientside is at ClientProxy
      * Hint: Client has access to Classes and Methods a Server doesn't know
@@ -27,9 +26,5 @@ public class CommonProxy
     }
     
     public void registerRenders(){};
-    public static int addArmor(String armor) 
-    {
-    	armorPrefix = armor;
-    	return 0; 
-    }
+    public static int addArmor(String armor) { return 0; }
 }
