@@ -12,6 +12,7 @@ import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemHoe;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.Event.Result;
@@ -32,6 +33,6 @@ public class MItemHoe extends ItemHoe
 	
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)
     {
-     par3List.add(Integer.toString(getMaxDamage()-par1ItemStack.getItemDamage())+"/"+Integer.toString(getMaxDamage()));
+		  par3List.add(EnumChatFormatting.GREEN+"Durability: "+Integer.toString(getMaxDamage()-par1ItemStack.getItemDamage()+1)+"/"+Integer.toString(getMaxDamage()+1));
     }
 }

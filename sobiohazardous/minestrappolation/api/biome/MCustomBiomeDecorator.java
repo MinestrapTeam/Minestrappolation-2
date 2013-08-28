@@ -153,7 +153,10 @@ public class MCustomBiomeDecorator extends BiomeDecorator
     
     
     public int biomeStoneId;
+    public int stonePocketSize;
     protected WorldGenerator biomeSpecficStonePocket;
+    
+    
     
     
     
@@ -162,7 +165,8 @@ public class MCustomBiomeDecorator extends BiomeDecorator
     public MCustomBiomeDecorator(BiomeGenBase par1BiomeGenBase)
     {
     	super(par1BiomeGenBase);
-    	this.biomeSpecficStonePocket = new WorldGenMinable(this.biomeStoneId, 50);
+    	this.stonePocketSize = 50;
+    	this.biomeSpecficStonePocket = new WorldGenMinable(this.biomeStoneId, this.stonePocketSize);
         this.sandGen = new WorldGenSand(7, Block.sand.blockID);
         this.gravelAsSandGen = new WorldGenSand(6, Block.gravel.blockID);
         this.dirtGen = new WorldGenMinable(Block.dirt.blockID, 32);
@@ -186,7 +190,7 @@ public class MCustomBiomeDecorator extends BiomeDecorator
         this.sandPerChunk = 1;
         this.sandPerChunk2 = 3;
         this.clayPerChunk = 1;
-        this.generateLakes = true;
+        this.generateLakes = false;
         this.biome = par1BiomeGenBase;
     }
 
