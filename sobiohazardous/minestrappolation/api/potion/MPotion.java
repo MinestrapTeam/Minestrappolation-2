@@ -1,5 +1,6 @@
 package sobiohazardous.minestrappolation.api.potion;
 
+import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -67,5 +68,18 @@ public class MPotion extends Potion
 		}
 		System.out.println("Free potion id found: " + id);
 		return id;
+	}
+	
+	/**
+	 * Sets the potion in-game name to parameter value. 
+	 * @param ingameName
+	 * @return itself (for chain methoding)
+	 */
+	public MPotion setInGamePotionName(String ingameName)
+	{
+		LanguageRegistry.instance().addStringLocalization(this.getName(), ingameName);
+		//TODO: fix this.getName to get the actual unlocalized name.
+		//FIXME read above.
+		return this;
 	}
 }

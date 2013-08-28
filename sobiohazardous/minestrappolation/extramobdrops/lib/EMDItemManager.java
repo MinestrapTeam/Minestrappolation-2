@@ -6,6 +6,7 @@ import sobiohazardous.minestrappolation.api.item.MItemFood;
 import sobiohazardous.minestrappolation.api.item.MItemSword;
 import sobiohazardous.minestrappolation.extramobdrops.CreativeTabExtraMobDropsItems;
 import sobiohazardous.minestrappolation.extramobdrops.EMDConfig;
+import sobiohazardous.minestrappolation.extramobdrops.item.*;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
@@ -49,6 +50,17 @@ public class EMDItemManager
 	public static Item beakChicken;
 	
 	public static Item footChicken;
+	
+	public static Item chickenWingRaw;
+	public static Item chickenWingCooked;
+	
+	public static Item lambchopRaw;
+	public static Item lambchopCooked;
+	
+	public static Item sheepHoof;
+	
+	public static Item squidTentacle;	
+	public static Item calimari;
 	
 	public static EnumToolMaterial toolMaterialWoodH = EnumHelper.addToolMaterial("ToolWoodH", 0, 59, 2.0F, 2.0F, 15);
 	public static EnumToolMaterial toolMaterialStoneH = EnumHelper.addToolMaterial("ToolStoneH", 1, 131, 4.0F, 3.0F, 5);
@@ -106,6 +118,17 @@ public class EMDItemManager
 		beakChicken = new MItem(EMDConfig.beakChickenId).setUnlocalizedName("chicken_beak").setCreativeTab(tabItems);
 			
 		footChicken = new MItem(EMDConfig.footChickenId).setUnlocalizedName("chicken_foot").setCreativeTab(tabItems);
+	
+		chickenWingRaw = new MItemFood(EMDConfig.chickenWingRawId, 1, 0.1F).setPotionEffect(Potion.hunger.id, 10 * 20, 1, 0.3F).setUnlocalizedName("raw_chicken_wing").setCreativeTab(tabItems);
+		chickenWingCooked = new MItemFood(EMDConfig.chickenWingCookedId, 4, 0.65F).setUnlocalizedName("cooked_chicken_wing").setCreativeTab(tabItems);
+	
+		lambchopRaw = new MItemFood(EMDConfig.lambchopRawId, 3, 0.2F).setUnlocalizedName("raw_lamb_chop").setCreativeTab(tabItems);
+		lambchopCooked = new ItemCookedLambchop(EMDConfig.lambchopCookedId, 6, 0.8F).setUnlocalizedName("cooked_lamb_chop").setCreativeTab(tabItems);
+		
+		sheepHoof = new MItem(EMDConfig.sheepHoofId).setUnlocalizedName("sheep_hoof").setCreativeTab(tabItems);
+	
+		squidTentacle = new MItemFood(EMDConfig.squidTentacleId, 2, 0.1F).setPotionEffect(Potion.hunger.id, 8 * 20, 1, 1F).setUnlocalizedName("tentacle").setCreativeTab(tabItems);
+		//TODO add calimari
 	}
 	
 	public static void loadNames()
@@ -139,5 +162,11 @@ public class EMDItemManager
 		LanguageRegistry.addName( hornTitanium, "Horned Titanium Sword");
 		LanguageRegistry.addName( beakChicken, "Chicken Beak");
 		LanguageRegistry.addName( footChicken, "Chicken Foot");
+		LanguageRegistry.addName(chickenWingRaw, "Raw Chicken Wing");
+		LanguageRegistry.addName(chickenWingCooked, "Cooked Chicken Wing");
+		LanguageRegistry.addName(lambchopRaw, "Raw Lamb Chop");
+		LanguageRegistry.addName(lambchopCooked, "Cooked Lamb Chop");
+		LanguageRegistry.addName(sheepHoof, "Sheep Hoof");
+		LanguageRegistry.addName(squidTentacle, "Squid Tentacle");
 	}
 }

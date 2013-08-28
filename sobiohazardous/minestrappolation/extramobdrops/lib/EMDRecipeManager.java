@@ -57,5 +57,8 @@ public class EMDRecipeManager
 				{
 			EMDItemManager.horn, EMDItemManager.horn, Item.swordGold
 				});
+		GameRegistry.addSmelting(EMDItemManager.chickenWingRaw.itemID, new ItemStack(EMDItemManager.chickenWingCooked, 1), 0.7F);
+		GameRegistry.addSmelting(EMDItemManager.lambchopRaw.itemID, new ItemStack(EMDItemManager.lambchopCooked, 1), 0.7F);
+
 	}
 }

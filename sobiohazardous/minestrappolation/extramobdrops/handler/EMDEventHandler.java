@@ -150,6 +150,15 @@ public class EMDEventHandler
 				{
 					event.entityLiving.dropItem(EMDItemManager.animalBones.itemID, 4);
 				}
+				
+				if(rand2 < 0.9D)
+				{
+					event.entityLiving.dropItem(EMDItemManager.lambchopRaw.itemID, 3);
+				}
+				if(rand3 < 0.25D)
+				{
+					event.entityLiving.dropItem(EMDItemManager.sheepHoof.itemID, 3);
+				}
 			}
 			
 			if(event.entityLiving instanceof EntityChicken)
@@ -166,6 +175,10 @@ public class EMDEventHandler
 				{
 					event.entityLiving.dropItem(EMDItemManager.footChicken.itemID, 2);
 				}
+				if(rand4 < 0.5D)
+				{
+					event.entityLiving.dropItem(EMDItemManager.chickenWingRaw.itemID, 2);
+				}
 			}
 			
 			if(event.entityLiving instanceof EntitySpider)
@@ -181,6 +194,13 @@ public class EMDEventHandler
 				if (rand < 0.05D) //Makes drop 100% drop chance. Example: (0.25D = 25%, 1D = 100%, etc.)
 				{
 					event.entityLiving.dropItem(EMDItemManager.footChicken.itemID, 1);
+				}
+			}
+			if(event.entityLiving instanceof EntitySquid)
+			{
+				if(rand < 0.4D)
+				{
+					event.entityLiving.dropItem(EMDItemManager.squidTentacle.itemID, 4);
 				}
 			}
 		}

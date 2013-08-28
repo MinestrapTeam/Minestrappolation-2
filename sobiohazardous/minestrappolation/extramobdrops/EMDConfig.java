@@ -34,7 +34,14 @@ public class EMDConfig
 	hornTitaniumId,
 	beakChickenId,
 	potionId,
-	footChickenId;
+	footChickenId,
+	chickenWingRawId,
+	chickenWingCookedId,
+	lambchopRawId,
+	lambchopCookedId,
+	sheepHoofId,
+	squidTentacleId,
+	calimariId;
 	
 	public static void initConfig(FMLPreInitializationEvent e)
 	{
@@ -71,6 +78,13 @@ public class EMDConfig
 		beakChickenId = config.getItem("Chicken Beak", 4026).getInt();
 		potionId = config.getItem("Potion", 4027).getInt();
 		footChickenId = config.getItem("Chicken Foot", 4028).getInt();
+		chickenWingRawId = config.getItem("Raw Chicken Wing", 4029).getInt();
+		chickenWingCookedId = config.getItem("Cooked Chicken Wing", 4030).getInt();
+		lambchopRawId = config.getItem("Raw Lamb Chop", 4031).getInt();
+		lambchopCookedId = config.getItem("Cooked Lamb Chop", 4032).getInt();
+		sheepHoofId = config.getItem("sheepHoof", 4033).getInt();
+		squidTentacleId = config.getItem("Squid Tentacle", 4034).getInt();
+		calimariId= config.getItem("Calimari", 4035).getInt();
 		
 		config.save();
 	}
