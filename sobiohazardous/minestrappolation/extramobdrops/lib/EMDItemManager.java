@@ -62,6 +62,8 @@ public class EMDItemManager
 	public static Item squidTentacle;	
 	public static Item calimari;
 	
+	public static Item infectiousFungus;
+	
 	public static EnumToolMaterial toolMaterialWoodH = EnumHelper.addToolMaterial("ToolWoodH", 0, 59, 2.0F, 2.0F, 15);
 	public static EnumToolMaterial toolMaterialStoneH = EnumHelper.addToolMaterial("ToolStoneH", 1, 131, 4.0F, 3.0F, 5);
 	public static EnumToolMaterial toolMaterialIronH = EnumHelper.addToolMaterial("ToolIronH", 2, 250, 6.0F, 4.0F, 14);
@@ -128,7 +130,9 @@ public class EMDItemManager
 		sheepHoof = new MItem(EMDConfig.sheepHoofId).setUnlocalizedName("sheep_hoof").setCreativeTab(tabItems);
 	
 		squidTentacle = new MItemFood(EMDConfig.squidTentacleId, 2, 0.1F).setPotionEffect(Potion.hunger.id, 8 * 20, 1, 1F).setUnlocalizedName("tentacle").setCreativeTab(tabItems);
-		//TODO add calimari
+		calimari = new ItemCalimari(EMDConfig.calimariId, 2, 0.6F).setUnlocalizedName("calamari");
+	
+		infectiousFungus = new InfectiousFungus(EMDConfig.infectiousFungusId, 0, 0F).setUnlocalizedName("infectious_fungus");
 	}
 	
 	public static void loadNames()
@@ -168,5 +172,7 @@ public class EMDItemManager
 		LanguageRegistry.addName(lambchopCooked, "Cooked Lamb Chop");
 		LanguageRegistry.addName(sheepHoof, "Sheep Hoof");
 		LanguageRegistry.addName(squidTentacle, "Squid Tentacle");
+		LanguageRegistry.addName(calimari, "Calamari");
+		LanguageRegistry.addName(infectiousFungus, "Infectious Fungus");
 	}
 }

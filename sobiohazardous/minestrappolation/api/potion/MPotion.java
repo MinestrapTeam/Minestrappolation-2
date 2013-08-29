@@ -14,10 +14,12 @@ public class MPotion extends Potion
 	private boolean	instant;
 	private int	customColor;
 	private boolean	bad;
+	private String name;
 
 	public MPotion(String unlocalizedName, boolean isBad, int color, boolean instant, String iconFile, int iconX, int iconY)
 	{
 		this(unlocalizedName, isBad, color, instant, iconFile, iconX, iconY, -1);
+		this.name = unlocalizedName;
 	}
 
 	public MPotion(String name, boolean bad, int color, boolean instant, String iconFile, int iconX, int iconY, int customColor)
@@ -77,9 +79,7 @@ public class MPotion extends Potion
 	 */
 	public MPotion setInGamePotionName(String ingameName)
 	{
-		LanguageRegistry.instance().addStringLocalization(this.getName(), ingameName);
-		//TODO: fix this.getName to get the actual unlocalized name.
-		//FIXME read above.
+		LanguageRegistry.instance().addStringLocalization(name, ingameName);
 		return this;
 	}
 }

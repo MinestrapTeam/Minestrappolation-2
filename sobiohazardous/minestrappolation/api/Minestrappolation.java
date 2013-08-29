@@ -73,6 +73,8 @@ public class Minestrappolation
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
+		expandPotionList();
+
 		Configuration config = new Configuration(event.getSuggestedConfigurationFile());
 		config.load();
 		
@@ -126,7 +128,6 @@ public class Minestrappolation
 	{
 		if (!hasLoaded)
 		{
-			expandPotionList();
 			BrewingList.initializeBrewings();
 			BrewingList.registerBrewings();
 			hasLoaded = true;

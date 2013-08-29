@@ -21,6 +21,7 @@ import cpw.mods.fml.common.network.NetworkMod.SidedPacketHandler;
 import cpw.mods.fml.common.registry.TickRegistry;
 import cpw.mods.fml.relauncher.Side;
 import sobiohazardous.minestrappolation.extramobdrops.lib.EMDItemManager;
+import sobiohazardous.minestrappolation.extramobdrops.lib.EMDPotionEffectManager;
 import sobiohazardous.minestrappolation.extramobdrops.lib.EMDRecipeManager;
 
 /**
@@ -47,6 +48,7 @@ public class ExtraMobDrops
 		EMDConfig.initConfig(e);
 		EMDItemManager.loadItems();		
 		EMDItemManager.loadNames();
+		EMDPotionEffectManager.loadPotions();
 		EMDRecipeManager.loadRecipes();			
 	}
 	

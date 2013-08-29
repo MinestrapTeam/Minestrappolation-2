@@ -59,6 +59,7 @@ public class EMDRecipeManager
 				});
 		GameRegistry.addSmelting(EMDItemManager.chickenWingRaw.itemID, new ItemStack(EMDItemManager.chickenWingCooked, 1), 0.7F);
 		GameRegistry.addSmelting(EMDItemManager.lambchopRaw.itemID, new ItemStack(EMDItemManager.lambchopCooked, 1), 0.7F);
+		GameRegistry.addSmelting(EMDItemManager.squidTentacle.itemID, new ItemStack(EMDItemManager.calimari, 1), 0.7F);
 
 	}
 }

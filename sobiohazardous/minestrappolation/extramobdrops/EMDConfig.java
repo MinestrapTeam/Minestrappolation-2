@@ -41,7 +41,8 @@ public class EMDConfig
 	lambchopCookedId,
 	sheepHoofId,
 	squidTentacleId,
-	calimariId;
+	calimariId,
+	infectiousFungusId;
 	
 	public static void initConfig(FMLPreInitializationEvent e)
 	{
@@ -85,6 +86,7 @@ public class EMDConfig
 		sheepHoofId = config.getItem("sheepHoof", 4033).getInt();
 		squidTentacleId = config.getItem("Squid Tentacle", 4034).getInt();
 		calimariId= config.getItem("Calimari", 4035).getInt();
+		infectiousFungusId= config.getItem("Infectious Fungus", 4036).getInt();
 		
 		config.save();
 	}
