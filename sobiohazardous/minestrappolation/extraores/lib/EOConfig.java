@@ -313,6 +313,7 @@ public class EOConfig {
 	bronzePlatedGraniteBrickSingleSlabId,
 	bronzePlatedGraniteBrickDoubleSlabId,
 	plutoniumInsulatedId,
+	glowGlassID,
 	uraniumInsulatedId;
 	
 	public static void initilize(FMLPreInitializationEvent event){
@@ -627,6 +628,7 @@ public class EOConfig {
 	    bronzePlatedGraniteBrickDoubleSlabId = config.getBlock("Bronze Plated Granite Brick Double Slab", 3093).getInt();
 	    plutoniumInsulatedId = config.getBlock("Insulated Plutonium Block", 3094).getInt();
 	    uraniumInsulatedId = config.getBlock("Insulated Uranium Block", 3095).getInt();
+	    glowGlassID = config.getBlock("Glow Glass", 3096).getInt();
 		config.save();
 	}
 

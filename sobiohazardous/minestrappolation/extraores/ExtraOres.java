@@ -1,6 +1,8 @@
 package sobiohazardous.minestrappolation.extraores;
 
 import java.util.EnumSet;
+
+import sobiohazardous.minestrappolation.extraores.bridge.EOBridgeRecipes;
 import sobiohazardous.minestrappolation.extraores.entity.EntityGrenade;
 import sobiohazardous.minestrappolation.extraores.entity.EntityGrenadeImpact;
 import sobiohazardous.minestrappolation.extraores.entity.EntityGrenadeSticky;
@@ -77,6 +79,12 @@ public class ExtraOres
 		EOItemManager.setHarvestLevels();
         EONameManager.loadNames();
 		EORecipeManager.loadRecipes();
+		try {
+			loadBridgedRecipesAndBlocks();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		EOBlockRegister.registerBlocks();
 		
 		EntityRegistry.registerModEntity(EntityInstantExplosion.class, "Plutonium", 4, this, 350, 5, false);
@@ -115,5 +123,10 @@ public class ExtraOres
     {
 		EOBlockManager.addSlabs();
     }
+	
+	public void loadBridgedRecipesAndBlocks() throws Exception{
+		EOBlockManager.loadBridgedBlocks();
+		EOBridgeRecipes.loadBridgedRecipes();
+	}
 
 }

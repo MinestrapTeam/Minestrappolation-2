@@ -1,10 +1,15 @@
 package sobiohazardous.minestrappolation.extraores.lib;
 
+import cpw.mods.fml.common.Loader;
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.common.registry.LanguageRegistry;
+import sobiohazardous.minestrappolation.api.block.MBlock;
 import sobiohazardous.minestrappolation.extraores.CreativeTabExtraoresBlocks;
 import sobiohazardous.minestrappolation.extraores.ExtraOres;
 import sobiohazardous.minestrappolation.extraores.block.BlockBlazium;
 import sobiohazardous.minestrappolation.extraores.block.BlockCopper;
 import sobiohazardous.minestrappolation.extraores.block.BlockCopperTarnished;
+import sobiohazardous.minestrappolation.extraores.block.BlockGlowGlass;
 import sobiohazardous.minestrappolation.extraores.block.BlockGodstone;
 import sobiohazardous.minestrappolation.extraores.block.BlockMelter;
 import sobiohazardous.minestrappolation.extraores.block.BlockNuke;
@@ -44,6 +49,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemSlab;
 
 public class EOBlockManager {
+	
+	//Bridged Blocks
+	public static Block glowGlass;
 	
 	public static CreativeTabs tabOresBlocks = new CreativeTabExtraoresBlocks(CreativeTabs.getNextID(),"Extrappolated Ores - Blocks");
 	public static Block meuroditeOre;
@@ -259,7 +267,7 @@ public class EOBlockManager {
 		BronzePlatedChiseled = (new EOBlock(EOConfig.bronzePlatedChiseledId, Material.rock)).setHardness(1.5F).setResistance(30.0F).setCreativeTab(tabOresBlocks).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("block_BronzeChiseled");
 		BronzePlatedGranite = (new EOBlock(EOConfig.bronzePlatedGraniteId, Material.rock)).setHardness(6F).setResistance(30.0F).setCreativeTab(tabOresBlocks).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("block_BronzeGraniteBrick");
 		
-		Invincium = (new EOBlock(EOConfig.invinciumId, Material.rock)).setBlockUnbreakable().setResistance(12000000.0F).setCreativeTab(tabOresBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("block_Invincium");
+		Invincium = (new BlockInvincium(EOConfig.invinciumId, Material.rock)).setBlockUnbreakable().setResistance(12000000.0F).setCreativeTab(tabOresBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("block_Invincium");
 		
 		SteelPlatedCobble = (new EOBlock(EOConfig.steelPlatedCobbleId, Material.rock)).setHardness(2.0F).setResistance(20.0F).setCreativeTab(tabOresBlocks).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("block_SteelCobble");
 		SteelPlatedMossy = (new EOBlock(EOConfig.steelPlatedMossyId, Material.rock)).setHardness(2.0F).setResistance(20.0F).setCreativeTab(tabOresBlocks).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("block_SteelMossy");
@@ -349,6 +357,15 @@ public class EOBlockManager {
 		Item.itemsList[tinPlatedGraniteBrickSingleSlab.blockID] = (new ItemSlab(tinPlatedGraniteBrickSingleSlab.blockID - 256, (BlockHalfSlab)tinPlatedGraniteBrickSingleSlab, (BlockHalfSlab)tinPlatedGraniteBrickDoubleSlab, false));
 		Item.itemsList[steelPlatedGraniteBrickSingleSlab.blockID] = (new ItemSlab(steelPlatedGraniteBrickSingleSlab.blockID - 256, (BlockHalfSlab)steelPlatedGraniteBrickSingleSlab, (BlockHalfSlab)steelPlatedGraniteBrickDoubleSlab, false));
 		Item.itemsList[bronzePlatedGraniteBrickSingleSlab.blockID] = (new ItemSlab(bronzePlatedGraniteBrickSingleSlab.blockID - 256, (BlockHalfSlab)bronzePlatedGraniteBrickSingleSlab, (BlockHalfSlab)bronzePlatedGraniteBrickDoubleSlab, false));
+	}
+	
+	public static void loadBridgedBlocks() throws Exception{
+		if(Loader.isModLoaded("ExtraDecor")){
+			glowGlass = new BlockGlowGlass(EOConfig.glowGlassID,Material.glass,true).setUnlocalizedName("block_GlowGlass").setLightValue(0.7F);
+			GameRegistry.registerBlock(glowGlass,"block_GlowGlass");
+			LanguageRegistry.addName(glowGlass, "Glow Glass");
+		}
+	
 	}
 
 }
