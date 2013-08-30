@@ -2,6 +2,8 @@ package sobiohazardous.minestrappolation.api.item;
 
 import java.util.List;
 
+import sobiohazardous.minestrappolation.extradecor.lib.EDConfig;
+
 import com.google.common.collect.Multimap;
 
 import net.minecraft.block.Block;
@@ -38,6 +40,7 @@ public class MItemTool extends ItemTool
         this.efficiencyOnProperMaterial = par3ExtracraftToolMaterial.getEfficiencyOnProperMaterial();
         this.damageVsEntity = par2 + par3ExtracraftToolMaterial.getDamageVsEntity();
         this.setCreativeTab(null);
+       
     }
 
     /**
@@ -70,6 +73,10 @@ public class MItemTool extends ItemTool
 	
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)
     {
-		  par3List.add(EnumChatFormatting.GREEN+"Durability: "+EnumChatFormatting.RED+Integer.toString(getMaxDamage()-par1ItemStack.getItemDamage()+1)+"/"+Integer.toString(getMaxDamage()+1));
+		if(EDConfig.showDur == true){
+			 par3List.add(EnumChatFormatting.GREEN+"Durability: "+EnumChatFormatting.RED+Integer.toString(getMaxDamage()-par1ItemStack.getItemDamage()+1)+"/"+Integer.toString(getMaxDamage()+1));
+		}
+		 
+		
     }
 }

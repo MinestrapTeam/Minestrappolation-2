@@ -60,6 +60,8 @@ public class EDConfig {
 	infertiledirtId,
 	cobbledRoadId;
 	
+	public static boolean showDur; 
+	
 	public static void initilize(FMLPreInitializationEvent event)
 	{
 		Configuration config = new Configuration(event.getSuggestedConfigurationFile());
@@ -120,7 +122,7 @@ public class EDConfig {
 		infertiledirtId = config.getBlock("Infertile Dirt", 748).getInt();
 		bedrockBrickID = config.getBlock("Bedrock Brick", 749).getInt();
 		refinedRoadID = config.getBlock("Refined Road", 750).getInt();
-		
+		showDur = config.get("Misc", "Show Durability", true).getBoolean(true);
 		config.save();		
 		
 	}

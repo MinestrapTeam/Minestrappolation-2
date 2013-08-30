@@ -10,6 +10,7 @@ import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemTool;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.src.ModLoader;
@@ -25,7 +26,6 @@ import cpw.mods.fml.common.event.*;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
-
 import sobiohazardous.minestrappolation.api.proxy.CommonProxy;
 import sobiohazardous.minestrappolation.brewingapi.IIngredientHandler;
 import sobiohazardous.minestrappolation.brewingapi.IPotionEffectHandler;
@@ -122,6 +122,8 @@ public class Minestrappolation
 		
 		if (multiPotions)
 			potions.setIconItemStack(BrewingList.damageBoost.addBrewingToItemStack(new ItemStack(Minestrappolation.potion2, 0, 1)));
+		
+		
 	}
 	
 	public static void load()

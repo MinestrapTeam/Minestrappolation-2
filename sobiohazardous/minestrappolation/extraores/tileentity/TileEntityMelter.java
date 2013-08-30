@@ -319,13 +319,21 @@ public class TileEntityMelter extends TileEntity implements IInventory
 		  
        
         
-        if (hasBucket == true)
-        {
-       	 //System.out.println("true: Doesn't need bucket does not have bucket");
-       	 return true;
-        }
+       
         
          if (goldItemStacks[0] == null)
+         {
+       
+                 return false;
+         }
+         
+         if (hasBucket == true)
+         {
+        	 //System.out.println("true: Doesn't need bucket does not have bucket");
+        	 return true;
+         }
+         
+         if (goldItemStacks[0] == null && goldItemStacks[3].getItem() == Item.bucketEmpty)
          {
        
                  return false;
@@ -357,6 +365,8 @@ public class TileEntityMelter extends TileEntity implements IInventory
         	
                  return true;
          }
+         
+        
        
       
 
@@ -384,8 +394,10 @@ public class TileEntityMelter extends TileEntity implements IInventory
                  {
                          Item var2 = this.goldItemStacks[0].getItem().getContainerItem();
                          this.goldItemStacks[0] = var2 == null ? null : new ItemStack(var2);
-                         this.goldItemStacks[3] = null;
+                         
                  }
+                 --this.goldItemStacks[3].stackSize;
+                
          }
 	}
 

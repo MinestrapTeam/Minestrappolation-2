@@ -45,9 +45,9 @@ public class BlockRefinedRoad extends Block
      */
     public void registerIcons(IconRegister par1IconRegister)
     {
-        this.blockIcon = par1IconRegister.registerIcon("Minestrappolation:block_CobbledRoadSide");
-        this.top = par1IconRegister.registerIcon("Minestrappolation:block_CobbledRoadTop");
-        this.bottom = par1IconRegister.registerIcon("Minestrappolation:block_CobbledRoadBottom");
+        this.blockIcon = par1IconRegister.registerIcon("Minestrappolation:block_RefinedRoadSide");
+        this.top = par1IconRegister.registerIcon("Minestrappolation:block_RefinedRoadTop");
+        this.bottom = par1IconRegister.registerIcon("Minestrappolation:block_RefinedRoadBottom");
     }
     
     public Icon getIcon(int i, int j)
@@ -81,6 +81,6 @@ public class BlockRefinedRoad extends Block
     public void onEntityWalking(World par1World, int par2, int par3, int par4, Entity par5Entity)
     {
     	living = (EntityLivingBase)par5Entity;
-        living.addPotionEffect(new PotionEffect(Potion.moveSpeed.getId(), 20, 2, true));
+        living.addPotionEffect(new PotionEffect(Potion.moveSpeed.getId(), 20, 1, true));
     }
 }
