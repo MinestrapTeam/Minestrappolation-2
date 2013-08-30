@@ -3,7 +3,7 @@ package sobiohazardous.minestrappolation.extramobdrops.handler;
 import java.util.Collection;
 
 import sobiohazardous.minestrappolation.extramobdrops.lib.EMDItemManager;
-import sobiohazardous.minestrappolation.extramobdrops.lib.EMDPotionEffectManager;
+import sobiohazardous.minestrappolation.extramobdrops.lib.EMDPotionManager;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.monster.*;
@@ -18,13 +18,13 @@ public class EMDEventHandler
 	@ForgeSubscribe
 	public void onMobDrops(LivingDropsEvent event)
 	{		
-		EMDPotionEffectManager.loadPotionEffect(event);
 		if (event.source.getDamageType().equals("player")) 
 		{
 			double rand = Math.random();
 			double rand2 = Math.random();
 			double rand3 = Math.random();
 			double rand4 = Math.random();
+			double rand5 = Math.random();
 			
 			if (event.entityLiving instanceof EntityPig)
 			{
@@ -100,6 +100,10 @@ public class EMDEventHandler
 				if(rand4 < 0.05D)
 				{
 					event.entityLiving.dropItem(EMDItemManager.horn.itemID, 2);
+				}
+				if(rand5 < 0.1D)
+				{
+					event.entityLiving.dropItem(EMDItemManager.infectiousFungus.itemID, 3);
 				}
 			}
 			
@@ -199,11 +203,17 @@ public class EMDEventHandler
 					event.entityLiving.dropItem(EMDItemManager.footChicken.itemID, 1);
 				}
 			}
+			
 			if(event.entityLiving instanceof EntitySquid)
 			{
 				if(rand < 0.4D)
 				{
 					event.entityLiving.dropItem(EMDItemManager.squidTentacle.itemID, 4);
+				}
+				
+				if(rand < 0.2D)
+				{
+					event.entityLiving.dropItem(EMDItemManager.airSack.itemID, 1);
 				}
 			}
 		}
@@ -212,6 +222,6 @@ public class EMDEventHandler
 	@ForgeSubscribe
 	public void livingUpdate(LivingUpdateEvent event)
 	{
-		EMDPotionEffectManager.loadPotionEffect(event);
+		EMDPotionManager.loadPotionEffect(event);
 	}
 }

@@ -6,11 +6,11 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 import sobiohazardous.minestrappolation.api.item.MItemFood;
-import sobiohazardous.minestrappolation.extramobdrops.lib.EMDPotionEffectManager;
+import sobiohazardous.minestrappolation.extramobdrops.lib.EMDPotionManager;
 
-public class InfectiousFungus extends MItemFood
+public class ItemInfectiousFungus extends MItemFood
 {
-	public InfectiousFungus(int id, int healAmt, float sat) 
+	public ItemInfectiousFungus(int id, int healAmt, float sat) 
 	{
 		super(id, healAmt, sat);
 	}
@@ -20,7 +20,7 @@ public class InfectiousFungus extends MItemFood
 		super.onFoodEaten(itemStack, world, entityPlayer);
 	        
 	    entityPlayer.addPotionEffect(new PotionEffect(Potion.confusion.id, 30 * 20, 1));
-	    entityPlayer.addPotionEffect(new PotionEffect(EMDPotionEffectManager.infectious.id, 30 * 20, 1));
+	    entityPlayer.addPotionEffect(new PotionEffect(EMDPotionManager.infectious.id, 30 * 20, 1));
 	}
 
 }

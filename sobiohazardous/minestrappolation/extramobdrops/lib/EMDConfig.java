@@ -1,4 +1,4 @@
-package sobiohazardous.minestrappolation.extramobdrops;
+package sobiohazardous.minestrappolation.extramobdrops.lib;
 
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.common.Configuration;
@@ -42,7 +42,8 @@ public class EMDConfig
 	sheepHoofId,
 	squidTentacleId,
 	calimariId,
-	infectiousFungusId;
+	infectiousFungusId,
+	airSackId;
 	
 	public static void initConfig(FMLPreInitializationEvent e)
 	{
@@ -87,6 +88,7 @@ public class EMDConfig
 		squidTentacleId = config.getItem("Squid Tentacle", 4034).getInt();
 		calimariId= config.getItem("Calimari", 4035).getInt();
 		infectiousFungusId= config.getItem("Infectious Fungus", 4036).getInt();
+		airSackId = config.getItem("Air Sack", 4037).getInt();
 		
 		config.save();
 	}

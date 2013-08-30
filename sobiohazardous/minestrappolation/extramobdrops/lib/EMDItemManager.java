@@ -5,7 +5,6 @@ import sobiohazardous.minestrappolation.api.item.MItem;
 import sobiohazardous.minestrappolation.api.item.MItemFood;
 import sobiohazardous.minestrappolation.api.item.MItemSword;
 import sobiohazardous.minestrappolation.extramobdrops.CreativeTabExtraMobDropsItems;
-import sobiohazardous.minestrappolation.extramobdrops.EMDConfig;
 import sobiohazardous.minestrappolation.extramobdrops.item.*;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.EnumToolMaterial;
@@ -63,6 +62,8 @@ public class EMDItemManager
 	public static Item calimari;
 	
 	public static Item infectiousFungus;
+	
+	public static Item airSack;
 	
 	public static EnumToolMaterial toolMaterialWoodH = EnumHelper.addToolMaterial("ToolWoodH", 0, 59, 2.0F, 2.0F, 15);
 	public static EnumToolMaterial toolMaterialStoneH = EnumHelper.addToolMaterial("ToolStoneH", 1, 131, 4.0F, 3.0F, 5);
@@ -130,9 +131,11 @@ public class EMDItemManager
 		sheepHoof = new MItem(EMDConfig.sheepHoofId).setUnlocalizedName("sheep_hoof").setCreativeTab(tabItems);
 	
 		squidTentacle = new MItemFood(EMDConfig.squidTentacleId, 2, 0.1F).setPotionEffect(Potion.hunger.id, 8 * 20, 1, 1F).setUnlocalizedName("tentacle").setCreativeTab(tabItems);
-		calimari = new ItemCalimari(EMDConfig.calimariId, 2, 0.6F).setUnlocalizedName("calamari");
+		calimari = new ItemCalimari(EMDConfig.calimariId, 2, 0.6F).setUnlocalizedName("calamari").setCreativeTab(tabItems);
 	
-		infectiousFungus = new InfectiousFungus(EMDConfig.infectiousFungusId, 0, 0F).setUnlocalizedName("infectious_fungus");
+		infectiousFungus = new ItemInfectiousFungus(EMDConfig.infectiousFungusId, 0, 0F).setUnlocalizedName("infectious_fungus").setCreativeTab(tabItems);
+		
+		airSack = new ItemAirSack(EMDConfig.airSackId).setUnlocalizedName("air_sack").setCreativeTab(tabItems);
 	}
 	
 	public static void loadNames()
@@ -174,5 +177,6 @@ public class EMDItemManager
 		LanguageRegistry.addName(squidTentacle, "Squid Tentacle");
 		LanguageRegistry.addName(calimari, "Calamari");
 		LanguageRegistry.addName(infectiousFungus, "Infectious Fungus");
+		LanguageRegistry.addName(airSack, "Air Sack");
 	}
 }
