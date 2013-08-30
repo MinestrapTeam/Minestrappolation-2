@@ -28,28 +28,19 @@ private Map melterExperience = new HashMap();
 
 	private MelterRecipes()
 	{
-		addSmelting(Block.sand.blockID, new ItemStack(Block.dirt.blockID, 1, 0), 0.7F, false);
+		addSmelting(Block.sand.blockID, new ItemStack(Block.dirt.blockID, 1, 0), 0.7F);
 	//	addSmelting(Block.cobblestone.blockID, new ItemStack(Block.dirt, 1, 0), 0.7F, true);
-		addSmelting(Block.cobblestone.blockID, new ItemStack(Item.bucketLava, 1, 0), 0.7F, true);
+		addSmelting(Block.cobblestone.blockID, new ItemStack(Item.bucketLava, 1, 0), 0.7F);
 	}	
 
 /**
 * Adds a smelting recipe.
 */
-	public void addSmelting(int id, ItemStack itemStack, float experience, boolean needBucket)
+	public void addSmelting(int id, ItemStack itemStack, float experience)
 	{
-		if (needBucket)
-		{
-			melterList.put(Integer.valueOf(id), itemStack);
+		melterList.put(Integer.valueOf(id), itemStack);
 			this.melterExperience.put(Integer.valueOf(itemStack.itemID), Float.valueOf(experience));
-			TileEntityMelter.needBucket = true;
-		}
-		else
-		{
-			melterList.put(Integer.valueOf(id), itemStack);
-			this.melterExperience.put(Integer.valueOf(itemStack.itemID), Float.valueOf(experience));
-			TileEntityMelter.needBucket = false;
-		}
+		
 		
 		
 	}

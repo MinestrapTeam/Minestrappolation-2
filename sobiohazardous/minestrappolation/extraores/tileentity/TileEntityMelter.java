@@ -32,7 +32,7 @@ public class TileEntityMelter extends TileEntity implements IInventory
 	public int front;
 	
 	public static boolean hasBucket;
-	public static boolean needBucket;
+
 
 	public TileEntityMelter()
 	{
@@ -248,7 +248,7 @@ public class TileEntityMelter extends TileEntity implements IInventory
     		 //System.out.println("Has Bucket = "+hasBucket);
     	 }
     	 
-    	 if(goldItemStacks[3] != null && goldItemStacks[3].getItemDamage() == ((new ItemStack(Item.bucketEmpty, 0).getItemDamage())))
+    	 if(goldItemStacks[3] != null && goldItemStacks[3].getItem() == Item.bucketEmpty)
     	 {
     		// System.out.println("Bucket found");
     		 hasBucket = true;
@@ -317,25 +317,11 @@ public class TileEntityMelter extends TileEntity implements IInventory
 	private boolean canSmelt()
 	{
 		  
-        if (needBucket == true && hasBucket == true)
-        {
-       	//System.out.println("true: needsBucket hasBucket");
-       	 return true; 	         	
-        }
+       
         
-        if (needBucket == false && hasBucket == false)
+        if (hasBucket == true)
         {
        	 //System.out.println("true: Doesn't need bucket does not have bucket");
-       	 return true;
-        }
-        
-        if(needBucket == true && hasBucket == false){
-       	 //System.out.println("false: needs bucket does not have bukket");
-       	 return false;
-        }
-        
-        if(needBucket == false && hasBucket == true){
-       	 //System.out.println("true: does not need bucket has bucket");
        	 return true;
         }
         
@@ -366,7 +352,7 @@ public class TileEntityMelter extends TileEntity implements IInventory
                  return false;
          }
 
-         if (goldItemStacks[2].stackSize < getInventoryStackLimit() && goldItemStacks[2].stackSize < goldItemStacks[2].getMaxStackSize())
+         if (goldItemStacks[2].stackSize < getInventoryStackLimit() && goldItemStacks[2].stackSize < goldItemStacks[2].getMaxStackSize() && hasBucket == true)
          {
         	
                  return true;
