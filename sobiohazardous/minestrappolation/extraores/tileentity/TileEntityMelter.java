@@ -325,52 +325,21 @@ public class TileEntityMelter extends TileEntity implements IInventory
          {
        
                  return false;
-         }
-         
-         if (hasBucket == true)
-         {
-        	 //System.out.println("true: Doesn't need bucket does not have bucket");
-        	 return true;
-         }
-         
-         if (goldItemStacks[0] == null && goldItemStacks[3].getItem() == Item.bucketEmpty)
-         {
-       
-                 return false;
-         }
-
-         ItemStack itemstack = MelterRecipes.smelting().getSmeltingResult(goldItemStacks[0].getItem().itemID);
-
-         if (itemstack == null)
-         {
+         }else{
+        	  ItemStack itemstack = MelterRecipes.smelting().getSmeltingResult(goldItemStacks[0].getItem().itemID);
+        	  if(itemstack == null) return false;
+        	  if(!this.goldItemStacks[2].isItemEqual(itemstack)) return false;
+        	  if(hasBucket == true) return true;
+        	  if (goldItemStacks[0] == null && goldItemStacks[3].getItem() == Item.bucketEmpty) return false;
+        	  if (goldItemStacks[2].stackSize < getInventoryStackLimit() && goldItemStacks[2].stackSize < goldItemStacks[2].getMaxStackSize() && hasBucket == true) return true;
+        	  return goldItemStacks[2].stackSize < itemstack.getMaxStackSize();
         	 
-                 return false;
-         }
-
-         if (goldItemStacks[2] == null)
-         {
-        	
-             
-                 return false;
-         }
-
-         if (!goldItemStacks[2].isItemEqual(itemstack))
-         {
-        	
-                 return false;
-         }
-
-         if (goldItemStacks[2].stackSize < getInventoryStackLimit() && goldItemStacks[2].stackSize < goldItemStacks[2].getMaxStackSize() && hasBucket == true)
-         {
-        	
-                 return true;
          }
          
-        
        
       
 
-         return goldItemStacks[2].stackSize < itemstack.getMaxStackSize();
+       
 	}
 
 /**
@@ -396,7 +365,12 @@ public class TileEntityMelter extends TileEntity implements IInventory
                          this.goldItemStacks[0] = var2 == null ? null : new ItemStack(var2);
                          
                  }
-                 --this.goldItemStacks[3].stackSize;
+                 if(this.goldItemStacks[3].stackSize <= 1){
+                	 goldItemStacks[3] = null;
+                 }else{
+                	 --this.goldItemStacks[3].stackSize; 
+                 }
+                 
                 
          }
 	}
