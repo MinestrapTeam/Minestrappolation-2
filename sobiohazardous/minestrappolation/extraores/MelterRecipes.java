@@ -28,9 +28,13 @@ private Map melterExperience = new HashMap();
 
 	private MelterRecipes()
 	{
-		addSmelting(Block.sand.blockID, new ItemStack(Block.dirt.blockID, 1, 0), 0.7F);
-	//	addSmelting(Block.cobblestone.blockID, new ItemStack(Block.dirt, 1, 0), 0.7F, true);
 		addSmelting(Block.cobblestone.blockID, new ItemStack(Item.bucketLava, 1, 0), 0.7F);
+		addSmelting(Block.cobblestoneMossy.blockID, new ItemStack(Item.bucketLava, 1, 0), 0.7F);
+		addSmelting(Block.gravel.blockID, new ItemStack(Item.bucketLava, 1, 0), 0.7F);
+		addSmelting(Block.stone.blockID, new ItemStack(Item.bucketLava, 1, 0), 0.7F);
+		addSmelting(Block.stoneBrick.blockID, new ItemStack(Item.bucketLava, 1, 0), 0.7F);
+		addSmelting(Block.snow.blockID, new ItemStack(Item.bucketWater,1,0), 0.7F);
+		addSmelting(Block.ice.blockID, new ItemStack(Item.bucketWater,1,0), 0.7F);
 	}	
 
 /**
