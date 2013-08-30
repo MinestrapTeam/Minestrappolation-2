@@ -5,6 +5,8 @@ import net.minecraftforge.common.Configuration;
 
 public class EDConfig {
 	public static int
+	refinedRoadID,
+	bedrockBrickID,
 	stoneBlockRefinedId,
 	stonePillarId,
 	stoneTileId,
@@ -116,6 +118,8 @@ public class EDConfig {
 		stainedBrickId = config.getBlock("Stained Bricks", 746).getInt();
 		cobbledRoadId = config.getBlock("Cobbled Road", 747).getInt();
 		infertiledirtId = config.getBlock("Infertile Dirt", 748).getInt();
+		bedrockBrickID = config.getBlock("Bedrock Brick", 749).getInt();
+		refinedRoadID = config.getBlock("Refined Road", 750).getInt();
 		
 		config.save();		
 		

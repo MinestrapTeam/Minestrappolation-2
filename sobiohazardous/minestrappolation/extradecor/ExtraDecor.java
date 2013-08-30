@@ -68,6 +68,12 @@ public class ExtraDecor
 		
 		MinecraftForge.setToolClass(Item.shears, "shears", 0);
 		//Load Libs
+		try {
+			EDBlockManager.loadBridgedBlocks();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		EDItemManager.addItems();
 		EDItemManager.addItemNames();
 		EDItemManager.setHarvestLevels();

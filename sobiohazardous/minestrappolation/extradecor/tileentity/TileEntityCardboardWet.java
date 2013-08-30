@@ -3,7 +3,6 @@ package sobiohazardous.minestrappolation.extradecor.tileentity;
 import sobiohazardous.minestrappolation.api.util.BlockFunctions;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
 import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
-import sobiohazardous.minestrappolation.extraores.block.BlockCopper;
 import net.minecraft.block.Block;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;

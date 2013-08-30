@@ -28,6 +28,11 @@ public class EDBridgeRecipes
 					{
 				"SSS", "SGS", "SSS", Character.valueOf('S'), EDBlockManager.stoneBlockRefined, Character.valueOf('G'), EOBlockManager.Sunstone
 					});
+			
+			GameRegistry.addRecipe(new ItemStack(EDBlockManager.bedrockBrick, 4), new Object[]
+					{
+				"SS", "SS", Character.valueOf('S'), Block.bedrock
+					});
 		}
 	}
 	

@@ -1,5 +1,6 @@
 package sobiohazardous.minestrappolation.extradecor.lib;
 
+import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import sobiohazardous.minestrappolation.api.block.BlockPillar;
@@ -21,6 +22,7 @@ import sobiohazardous.minestrappolation.extradecor.block.BlockGlassRefined;
 import sobiohazardous.minestrappolation.extradecor.block.BlockGunpowderBlock;
 import sobiohazardous.minestrappolation.extradecor.block.BlockMeatBlock;
 import sobiohazardous.minestrappolation.extradecor.block.BlockOoze;
+import sobiohazardous.minestrappolation.extradecor.block.BlockRefinedRoad;
 import sobiohazardous.minestrappolation.extradecor.block.BlockRope;
 import sobiohazardous.minestrappolation.extradecor.block.BlockRopeCoil;
 import sobiohazardous.minestrappolation.extradecor.block.BlockSandstoneBrick;
@@ -44,7 +46,8 @@ import net.minecraft.item.Item;
 public class EDBlockManager {
 	
 	public static final Material materialOoze = new MaterialOoze(MapColor.foliageColor);
-	
+	//bridged blocks
+	public static Block bedrockBrick;
 	public static Block stoneBlockRefined;
 	public static Block stonePillar;
 	public static Block stoneTile;
@@ -125,11 +128,12 @@ public class EDBlockManager {
 	public static Block stainedBrick;
 	
 	public static Block cobbledRoad;
+	public static Block refinedRoad;
 	
 	public static CreativeTabs tabDecorBlocks = new CreativeTabExtraDecorBlocks(CreativeTabs.getNextID(),"Extrappolated Decor");
 	public static void createBlocks()
 	{
-		
+	refinedRoad = (new BlockRefinedRoad(EDConfig.refinedRoadID)).setResistance(1F).setHardness(5F).setUnlocalizedName("block_RefinedRoad").setStepSound(Block.soundStoneFootstep).setCreativeTab(tabDecorBlocks);
 	stoneBlockRefined = (new MBlock(EDConfig.stoneBlockRefinedId, Material.rock)).setHardness(1.5F).setResistance(10F).setStepSound(Block.soundStoneFootstep).setCreativeTab(tabDecorBlocks).setUnlocalizedName("block_StoneRefined");
 	stonePillar = (new BlockPillar(EDConfig.stonePillarId, "block_StonePillar", "block_StoneRefined")).setHardness(1.5F).setResistance(10F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("stonePillar");
 	stoneTile = (new MBlock(EDConfig.stoneTileId, Material.rock)).setHardness(1.5F).setResistance(10F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("block_StoneTile");
@@ -214,6 +218,7 @@ public class EDBlockManager {
 	
 	public static void registerBlocks()
 	{
+		GameRegistry.registerBlock(refinedRoad,"Refined Road");
 		GameRegistry.registerBlock(stoneBlockRefined, "refinedStoneBrick");
 		GameRegistry.registerBlock(stonePillar, "stonePillar");
 		GameRegistry.registerBlock(stoneTile, "stoneTile");
@@ -266,6 +271,7 @@ public class EDBlockManager {
 	
 	public static void addNames()
 	{
+		LanguageRegistry.addName(refinedRoad, "Refined Road");
 		LanguageRegistry.addName(infertileDirt, "Infertile Dirt");
 		LanguageRegistry.addName(stoneBlockRefined, "Refined Stone Block");
 		LanguageRegistry.addName(stonePillar, "Stone Pillar");
@@ -345,5 +351,14 @@ public class EDBlockManager {
 		LanguageRegistry.instance().addStringLocalization("tile.stainedBrick.purple.name", "Purple Stained Bricks");
 		LanguageRegistry.instance().addStringLocalization("tile.stainedBrick.magenta.name", "Magenta Stained Bricks");
 		LanguageRegistry.addName(cobbledRoad, "Cobbled Road");
+	}
+	
+	public static void loadBridgedBlocks() throws Exception{
+		if(Loader.isModLoaded("ExtraOres")){
+			bedrockBrick = new MBlock(EDConfig.bedrockBrickID,Material.rock).setUnlocalizedName("block_BedrockBrick").setStepSound(Block.soundStoneFootstep).setResistance(100000000F).setHardness(80F);
+			GameRegistry.registerBlock(bedrockBrick,"block_BedrockBrick");
+			LanguageRegistry.addName(bedrockBrick, "Bedrock Brick");
+		}
+	
 	}
 }
