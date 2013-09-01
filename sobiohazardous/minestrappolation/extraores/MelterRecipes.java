@@ -28,12 +28,12 @@ private Map melterExperience = new HashMap();
 
 	private MelterRecipes()
 	{
-		addSmelting(Block.cobblestone.blockID, new ItemStack(Item.bucketLava, 1, 0), 0.7F);
-		addSmelting(Block.cobblestoneMossy.blockID, new ItemStack(Item.bucketLava, 1, 0), 0.7F);
-		addSmelting(Block.gravel.blockID, new ItemStack(Item.bucketLava, 1, 0), 0.7F);
-		addSmelting(Block.stone.blockID, new ItemStack(Item.bucketLava, 1, 0), 0.7F);
-		addSmelting(Block.stoneBrick.blockID, new ItemStack(Item.bucketLava, 1, 0), 0.7F);
-		addSmelting(Block.snow.blockID, new ItemStack(Item.bucketWater,1,0), 0.7F);
+		addSmelting(Block.cobblestone.blockID, new ItemStack(Item.bucketLava, 1, 0), 0.4F);
+		addSmelting(Block.cobblestoneMossy.blockID, new ItemStack(Item.bucketLava, 1, 0), 0.6F);
+		addSmelting(Block.gravel.blockID, new ItemStack(Item.bucketLava, 1, 0), 0.2F);
+		addSmelting(Block.stone.blockID, new ItemStack(Item.bucketLava, 1, 0), 0.5F);
+		addSmelting(Block.stoneBrick.blockID, new ItemStack(Item.bucketLava, 1, 0), 0.8F);
+		addSmelting(Block.snow.blockID, new ItemStack(Item.bucketWater,1,0), 0.6F);
 		addSmelting(Block.ice.blockID, new ItemStack(Item.bucketWater,1,0), 0.7F);
 	}	
 
