@@ -10,7 +10,6 @@ import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemTool;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.src.ModLoader;
@@ -43,11 +42,12 @@ import sobiohazardous.minestrappolation.brewingapi.tileentity.TileEntityBrewingS
 @Mod(modid = "Minestrappolation", name = "Minestrappolation API", version = "B1.0", dependencies = "required-before:ExtraOres;required-before:ExtraDecor;required-before:ExtraMobDrops")
 public class Minestrappolation 
 {
-	@SidedProxy(clientSide = "sobiohazardous.minestrappolation.api.proxy.ClientProxy", serverSide = "sobiohazardous.minestrappolation.api.proxy.ServerSide")
-	
+	@SidedProxy(modId = "Minestrappolation", clientSide = "sobiohazardous.minestrappolation.api.proxy.ClientProxy", serverSide = "sobiohazardous.minestrappolation.api.proxy.CommonProxy")
 	public static CommonProxy proxy;
+	
 	@Instance("Minestrappolation")
 	public static Minestrappolation instance;
+	
 	public static boolean			multiPotions			= false;
 	public static boolean			advancedPotionInfo		= false;
 	public static boolean			animatedPotionLiquid	= true;

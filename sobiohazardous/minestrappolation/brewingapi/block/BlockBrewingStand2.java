@@ -114,7 +114,7 @@ public class BlockBrewingStand2 extends BlockBrewingStand
             }
 
             return true;
-        }
+        }      
     }
 
     @SideOnly(Side.CLIENT)
