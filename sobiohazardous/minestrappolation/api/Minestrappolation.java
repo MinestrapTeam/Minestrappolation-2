@@ -6,6 +6,30 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
+import sobiohazardous.minestrappolation.api.brewing.api.IIngredientHandler;
+import sobiohazardous.minestrappolation.api.brewing.api.IPotionEffectHandler;
+import sobiohazardous.minestrappolation.api.brewing.block.BlockBrewingStand2;
+import sobiohazardous.minestrappolation.api.brewing.brewing.Brewing;
+import sobiohazardous.minestrappolation.api.brewing.brewing.BrewingList;
+import sobiohazardous.minestrappolation.api.brewing.entity.EntityPotion2;
+import sobiohazardous.minestrappolation.api.brewing.item.ItemBrewingStand2;
+import sobiohazardous.minestrappolation.api.brewing.item.ItemGlassBottle2;
+import sobiohazardous.minestrappolation.api.brewing.item.ItemPotion2;
+import sobiohazardous.minestrappolation.api.brewing.lib.BAPICreativeTabs;
+import sobiohazardous.minestrappolation.api.brewing.lib.DispenserBehaviorPotion2;
+import sobiohazardous.minestrappolation.api.brewing.tileentity.TileEntityBrewingStand2;
+
+import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.SidedProxy;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.registry.EntityRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
+
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -17,36 +41,16 @@ import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
-import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.EventHandler;
-import cpw.mods.fml.common.Mod.Instance;
-import cpw.mods.fml.common.SidedProxy;
-import cpw.mods.fml.common.event.*;
-import cpw.mods.fml.common.network.NetworkRegistry;
-import cpw.mods.fml.common.registry.EntityRegistry;
-import cpw.mods.fml.common.registry.GameRegistry;
-import sobiohazardous.minestrappolation.api.proxy.CommonProxy;
-import sobiohazardous.minestrappolation.brewingapi.IIngredientHandler;
-import sobiohazardous.minestrappolation.brewingapi.IPotionEffectHandler;
-import sobiohazardous.minestrappolation.brewingapi.block.BlockBrewingStand2;
-import sobiohazardous.minestrappolation.brewingapi.brewing.Brewing;
-import sobiohazardous.minestrappolation.brewingapi.brewing.BrewingList;
-import sobiohazardous.minestrappolation.brewingapi.entity.EntityPotion2;
-import sobiohazardous.minestrappolation.brewingapi.item.ItemBrewingStand2;
-import sobiohazardous.minestrappolation.brewingapi.item.ItemGlassBottle2;
-import sobiohazardous.minestrappolation.brewingapi.item.ItemPotion2;
-import sobiohazardous.minestrappolation.brewingapi.lib.BAPICreativeTabs;
-import sobiohazardous.minestrappolation.brewingapi.lib.DispenserBehaviorPotion2;
-import sobiohazardous.minestrappolation.brewingapi.tileentity.TileEntityBrewingStand2;
 
-@Mod(modid = "Minestrappolation", name = "Minestrappolation API", version = "B1.0", dependencies = "required-before:ExtraOres;required-before:ExtraDecor;required-before:ExtraMobDrops")
-public class Minestrappolation 
+@Mod(modid = "Minestrappolation", name = "Minestrappolation API", version = "1.6.2")
+@NetworkMod(clientSideRequired = true, serverSideRequired = false)
+public class Minestrappolation
 {
-	@SidedProxy(modId = "Minestrappolation", clientSide = "sobiohazardous.minestrappolation.api.proxy.ClientProxy", serverSide = "sobiohazardous.minestrappolation.api.proxy.CommonProxy")
-	public static CommonProxy proxy;
-	
 	@Instance("Minestrappolation")
-	public static Minestrappolation instance;
+	public static Minestrappolation		instance;
+	
+	@SidedProxy(modId = "Minestrappolation", clientSide = "sobiohazardous.minestrappolation.api.ClientProxy", serverSide = "sobiohazardous.minestrappolation.api.CommonProxy")
+	public static CommonProxy		proxy;
 	
 	public static boolean			multiPotions			= false;
 	public static boolean			advancedPotionInfo		= false;
@@ -118,12 +122,11 @@ public class Minestrappolation
 		
 		MinecraftForge.EVENT_BUS.register(this);
 		ModLoader.addDispenserBehavior(potion2, new DispenserBehaviorPotion2());
-		proxy.registerRenderThings();
+		proxy.registerRenderInformation();
+		proxy.registerRenderers();
 		
 		if (multiPotions)
 			potions.setIconItemStack(BrewingList.damageBoost.addBrewingToItemStack(new ItemStack(Minestrappolation.potion2, 0, 1)));
-		
-		
 	}
 	
 	public static void load()
@@ -133,6 +136,34 @@ public class Minestrappolation
 			BrewingList.initializeBrewings();
 			BrewingList.registerBrewings();
 			hasLoaded = true;
+		}
+	}
+	
+	// API Stuff
+	
+	public static boolean MORE_POTIONS_MOD()
+	{
+		try
+		{
+			Class.forName("clashsoft.mods.morepotions.MorePotionsMod");
+			return true;
+		}
+		catch (ClassNotFoundException e)
+		{
+			return false;
+		}
+	}
+	
+	public static boolean CLASHSOFT_API()
+	{
+		try
+		{
+			Class.forName("clashsoft.clashsoftapi.ClashsoftMod");
+			return true;
+		}
+		catch (ClassNotFoundException e)
+		{
+			return false;
 		}
 	}
 	
@@ -229,5 +260,4 @@ public class Minestrappolation
 			}
 		}
 	}
-	
 }

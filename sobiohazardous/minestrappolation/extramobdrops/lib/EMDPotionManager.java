@@ -3,9 +3,9 @@ package sobiohazardous.minestrappolation.extramobdrops.lib;
 import java.util.Iterator;
 import java.util.List;
 
+import sobiohazardous.minestrappolation.api.brewing.brewing.Brewing;
+import sobiohazardous.minestrappolation.api.brewing.brewing.BrewingList;
 import sobiohazardous.minestrappolation.api.potion.MPotion;
-import sobiohazardous.minestrappolation.brewingapi.brewing.Brewing;
-import sobiohazardous.minestrappolation.brewingapi.brewing.BrewingList;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
@@ -57,6 +57,5 @@ public class EMDPotionManager
 	{
 		waterBreathing = new Brewing(new PotionEffect(Potion.waterBreathing.id, 120 * 20, 0), 2, 0, new ItemStack(EMDItemManager.airSack), BrewingList.awkward);
 		waterBreathing.register();
-		//TODO Fix brewing stand gui
 	}
 }
