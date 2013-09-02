@@ -160,8 +160,8 @@ public class EOOreGenerator implements IWorldGenerator
 			int i4 = chunkx +rand.nextInt(16);
 			int j4 = rand.nextInt(256); 
 			int k4 = chunkz + rand.nextInt(16);
-		
-		(new WorldGenMinable(EOBlockManager.RadiantQuartzOre.blockID, 5)).generate(world, rand, i4, j4, k4);
+		 System.out.println("Spire Gen");
+		(new WorldGenRadiantSpire()).generate(world, rand, i4, j4, k4);
 		}
 	}
 	public void generateNether(World world, Random rand, int chunkx, int chunkz)
