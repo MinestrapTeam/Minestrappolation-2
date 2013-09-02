@@ -77,8 +77,8 @@ public class BlockCopperTarnished extends Block
         
         	if (par5EntityPlayer.getCurrentEquippedItem() != null && (par5EntityPlayer.getCurrentEquippedItem().itemID == EMDItemManager.grease.itemID || par5EntityPlayer.getCurrentEquippedItem().itemID == Item.fireballCharge.itemID))
             {
+        		
             	par1World.setBlock(par2, par3, par4, EOBlockManager.CopperBlock.blockID);   
-            	
             }
         	return true;
             

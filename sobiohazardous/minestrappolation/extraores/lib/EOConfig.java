@@ -316,6 +316,8 @@ public class EOConfig {
 	glowGlassID,
 	uraniumInsulatedId;
 	
+	public static int daysUntilTarnish;
+	
 	public static void initilize(FMLPreInitializationEvent event){
 		Configuration config = new Configuration(event.getSuggestedConfigurationFile());
 		config.load();
@@ -629,6 +631,7 @@ public class EOConfig {
 	    plutoniumInsulatedId = config.getBlock("Insulated Plutonium Block", 3094).getInt();
 	    uraniumInsulatedId = config.getBlock("Insulated Uranium Block", 3095).getInt();
 	    glowGlassID = config.getBlock("Glow Glass", 3096).getInt();
+	    daysUntilTarnish = config.get("Misc", "Days until copper tarnish", 3).getInt();
 		config.save();
 	}
 
