@@ -108,9 +108,11 @@ public class BlockBrewingStand2 extends BlockBrewingStand
         }
         else
         {
-            if (par1World.getBlockTileEntity(par2, par3, par4) != null)
+        	TileEntityBrewingStand2 tileentitybrewingstand = (TileEntityBrewingStand2)par1World.getBlockTileEntity(par2, par3, par4);
+            if (tileentitybrewingstand != null)
             {
-                FMLNetworkHandler.openGui(par5EntityPlayer, Minestrappolation.instance, Minestrappolation.BrewingStand2_TEID, par1World, par2, par3, par4);
+            	
+                par5EntityPlayer.displayGUIBrewingStand(tileentitybrewingstand);
             }
 
             return true;
