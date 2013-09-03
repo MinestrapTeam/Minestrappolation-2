@@ -119,13 +119,13 @@ public class EOOreGenerator implements IWorldGenerator
 		(new WorldGenMinable(EOBlockManager.Granite.blockID, 20)).generate(world, rand, i5, j5, k5);
 		}
 		//quartzite
-		for(int h = 0; h<16; h++)
+		for(int h = 0; h<12; h++)
 		{
 			int i5 = chunkx +rand.nextInt(16);
 			int j5 = rand.nextInt(8 + 100); 
 			int k5 = chunkz + rand.nextInt(16);
 		
-		(new WorldGenDesert(EOBlockManager.Quartzite.blockID, 10)).generate(world, rand, i5, j5, k5);
+		(new WorldGenDesertQuartzSpire()).generate(world, rand, i5, j5, k5);
 		}
 		//copper ore
 		for(int h = 0; h<13; h++)
@@ -161,7 +161,7 @@ public class EOOreGenerator implements IWorldGenerator
 			int j4 = rand.nextInt(256); 
 			int k4 = chunkz + rand.nextInt(16);
 		
-		(new WorldGenRadiantSpire()).generate(world, rand, i4, j4, k4);
+		(new WorldGenMinable(EOBlockManager.RadiantQuartzOre.blockID , 3)).generate(world, rand, i4, j4, k4);
 		}
 	}
 	public void generateNether(World world, Random rand, int chunkx, int chunkz)

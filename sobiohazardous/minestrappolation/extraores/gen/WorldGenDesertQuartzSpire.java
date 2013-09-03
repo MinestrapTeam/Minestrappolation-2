@@ -8,7 +8,7 @@ import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-public class WorldGenRadiantSpire extends WorldGenerator{
+public class WorldGenDesertQuartzSpire extends WorldGenerator{
 
 	Random rand = new Random();
 	@Override
@@ -29,25 +29,25 @@ public class WorldGenRadiantSpire extends WorldGenerator{
 		a = rand.nextInt(6);
 		b = rand.nextInt(3);
 		    for(int z = 0; z <a+2; z++){
-		    	world.setBlock(i, j-z, k, EOBlockManager.RadiantQuartzOre.blockID);
-				world.setBlock(i+1, j-z, k, EOBlockManager.RadiantQuartzOre.blockID);
-				world.setBlock(i-1, j-z, k, EOBlockManager.RadiantQuartzOre.blockID);
-				world.setBlock(i, j-z, k+1, EOBlockManager.RadiantQuartzOre.blockID);
-				world.setBlock(i, j-z, k-1, EOBlockManager.RadiantQuartzOre.blockID);
+		    	world.setBlock(i, j-z, k, EOBlockManager.Quartzite.blockID);
+				world.setBlock(i+1, j-z, k, EOBlockManager.Quartzite.blockID);
+				world.setBlock(i-1, j-z, k, EOBlockManager.Quartzite.blockID);
+				world.setBlock(i, j-z, k+1, EOBlockManager.Quartzite.blockID);
+				world.setBlock(i, j-z, k-1, EOBlockManager.Quartzite.blockID);
 				
 		    }
 		
-			world.setBlock(i, j, k, EOBlockManager.RadiantQuartzOre.blockID);
-			world.setBlock(i+1, j, k, EOBlockManager.RadiantQuartzOre.blockID);
-			world.setBlock(i-1, j, k, EOBlockManager.RadiantQuartzOre.blockID);
-			world.setBlock(i, j, k+1, EOBlockManager.RadiantQuartzOre.blockID);
-			world.setBlock(i, j, k-1, EOBlockManager.RadiantQuartzOre.blockID);
+			world.setBlock(i, j, k, EOBlockManager.Quartzite.blockID);
+			world.setBlock(i+1, j, k, EOBlockManager.Quartzite.blockID);
+			world.setBlock(i-1, j, k, EOBlockManager.Quartzite.blockID);
+			world.setBlock(i, j, k+1, EOBlockManager.Quartzite.blockID);
+			world.setBlock(i, j, k-1, EOBlockManager.Quartzite.blockID);
 			
 			for(int height = 0; height < b; height++){
-				world.setBlock(i, j+b, k, EOBlockManager.RadiantQuartzOre.blockID);	
+				world.setBlock(i, j+b, k, EOBlockManager.Quartzite.blockID);	
 			}
 			
-			world.setBlock(i, j+1, k, EOBlockManager.RadiantQuartzOre.blockID);	
+			world.setBlock(i, j+1, k, EOBlockManager.Quartzite.blockID);	
 									
 		System.out.println("Spire at: x"+ i +"y,"+j+",z"+k);
 		return true;

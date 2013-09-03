@@ -187,8 +187,6 @@ public class TileEntityMelter extends TileEntity implements IInventory
          }
 
          par1NBTTagCompound.setTag("Items", nbttaglist);
-         System.out.println("write:" + front);
-         System.out.println("burn:" + goldBurnTime);
 	}
 
 /**
