@@ -43,7 +43,8 @@ public class EMDConfig
 	squidTentacleId,
 	calimariId,
 	infectiousFungusId,
-	airSackId;
+	airSackId,
+	whiskerId;
 	
 	public static void initConfig(FMLPreInitializationEvent e)
 	{
@@ -89,6 +90,7 @@ public class EMDConfig
 		calimariId= config.getItem("Calimari", 4035).getInt();
 		infectiousFungusId= config.getItem("Infectious Fungus", 4036).getInt();
 		airSackId = config.getItem("Air Sack", 4037).getInt();
+		whiskerId = config.getItem("Whisker", 4038).getInt();
 		
 		config.save();
 	}

@@ -65,6 +65,8 @@ public class EMDItemManager
 	
 	public static Item airSack;
 	
+	public static Item whisker;
+	
 	public static EnumToolMaterial toolMaterialWoodH = EnumHelper.addToolMaterial("ToolWoodH", 0, 59, 2.0F, 2.0F, 15);
 	public static EnumToolMaterial toolMaterialStoneH = EnumHelper.addToolMaterial("ToolStoneH", 1, 131, 4.0F, 3.0F, 5);
 	public static EnumToolMaterial toolMaterialIronH = EnumHelper.addToolMaterial("ToolIronH", 2, 250, 6.0F, 4.0F, 14);
@@ -136,6 +138,8 @@ public class EMDItemManager
 		infectiousFungus = new ItemInfectiousFungus(EMDConfig.infectiousFungusId, 0, 0F).setUnlocalizedName("infectious_fungus").setCreativeTab(tabItems);
 		
 		airSack = new ItemAirSack(EMDConfig.airSackId).setUnlocalizedName("air_sack").setCreativeTab(tabItems);
+	
+		whisker = new MItem(EMDConfig.whiskerId).setUnlocalizedName("whisker").setCreativeTab(tabItems);
 	}
 	
 	public static void loadNames()

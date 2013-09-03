@@ -428,9 +428,7 @@ public class EDRecipeManager
 		GameRegistry.addRecipe(new ItemStack(EDBlockManager.stainedBrick, 4, 15), new Object[]
 				{
 			"BB", "BB", Character.valueOf('B'), new ItemStack(Block.field_111039_cA, 1, 2)
-				});
-		
-		
+				});	
 		
 		GameRegistry.addRecipe(new ItemStack(EDBlockManager.cobbledRoad, 1), new Object[]
 				{

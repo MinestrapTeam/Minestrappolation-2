@@ -202,6 +202,11 @@ public class EMDEventHandler
 				{
 					event.entityLiving.dropItem(EMDItemManager.footChicken.itemID, 1);
 				}
+				
+				if(rand2 < 0.15D)
+				{
+					event.entityLiving.dropItem(EMDItemManager.whisker.itemID, 4);
+				}
 			}
 			
 			if(event.entityLiving instanceof EntitySquid)

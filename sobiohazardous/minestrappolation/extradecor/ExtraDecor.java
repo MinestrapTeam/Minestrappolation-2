@@ -42,18 +42,15 @@ public class ExtraDecor
 	
 	@Instance("ExtraDecor")
 	public static ExtraDecor instance;
-	
-	
+		
 	public static int paneRenderId = RenderingRegistry.getNextAvailableRenderId();
 	public static int ropeRenderId = RenderingRegistry.getNextAvailableRenderId();
-	
-	
+		
 	@Mod.EventHandler
 	public void preLoad(FMLPreInitializationEvent event)
 	{
 		EDConfig.initilize(event);		
-	}
-	
+	}	
 	
 	@Mod.EventHandler
 	public void load(FMLInitializationEvent event)
@@ -66,12 +63,7 @@ public class ExtraDecor
 		
 		MinecraftForge.setToolClass(Item.shears, "shears", 0);
 		//Load Libs
-		try {
-			EDBlockManager.loadBridgedBlocks();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 		EDItemManager.addItems();
 		EDItemManager.addItemNames();
 		EDItemManager.setHarvestLevels();
@@ -89,6 +81,14 @@ public class ExtraDecor
     public void postLoad(FMLPostInitializationEvent evt)
 	{
 		EDItemManager.addItemsToItemList();
+		
+		try 
+		{
+			EDBlockManager.loadBridgedBlocks();
+		} catch (Exception e) 
+		{
+			e.printStackTrace();
+		}
 	}
 	
 	
