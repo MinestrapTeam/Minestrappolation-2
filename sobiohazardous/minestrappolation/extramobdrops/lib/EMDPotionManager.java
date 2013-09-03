@@ -36,18 +36,19 @@ public class EMDPotionManager
 		if (event.entityLiving.isPotionActive(EMDPotionManager.infectious)) 
 		{
 			//check if grass is below, then place mycellium below
-			if(event.entityLiving.worldObj.getBlockId((int)event.entityLiving.posX, (int)event.entityLiving.posY - 2, (int)event.entityLiving.posZ) == Block.grass.blockID)
+			if(event.entityLiving.worldObj.getBlockId((int)event.entityLiving.posX-1, (int)event.entityLiving.posY - 2, (int)event.entityLiving.posZ-1) == Block.grass.blockID)
 			{
-				event.entityLiving.worldObj.setBlock((int)event.entityLiving.posX, (int)event.entityLiving.posY - 2, (int)event.entityLiving.posZ, Block.mycelium.blockID);		
+				event.entityLiving.worldObj.setBlock((int)event.entityLiving.posX-1, (int)event.entityLiving.posY - 2, (int)event.entityLiving.posZ-1, Block.mycelium.blockID);		
 			}
 			
 			//check if mycellium is below, then add potion of regen.
-			if(event.entityLiving.worldObj.getBlockId((int)event.entityLiving.posX, (int)event.entityLiving.posY - 2, (int)event.entityLiving.posZ) == Block.mycelium.blockID)
+			if(event.entityLiving.worldObj.getBlockId((int)event.entityLiving.posX-1, (int)event.entityLiving.posY - 2, (int)event.entityLiving.posZ-1) == Block.mycelium.blockID)
 			{
 				event.entityLiving.addPotionEffect(new PotionEffect(Potion.regeneration.id, 2 * 20, 1));
 			}
 			//TODO poison all mobs touched
-		}	
+		} 
+		checkInactive(event);
 	}
 	
 	/**
@@ -57,5 +58,11 @@ public class EMDPotionManager
 	{
 		waterBreathing = new Brewing(new PotionEffect(Potion.waterBreathing.id, 120 * 20, 0), 2, 1, new ItemStack(EMDItemManager.airSack), BrewingList.awkward);
 		waterBreathing.register();
+	}
+	
+	public static void checkInactive(LivingUpdateEvent event){
+		if(event.entityLiving.isPotionActive(EMDPotionManager.infectious) == false){
+			event.entityLiving.removePotionEffect(Potion.regeneration.id);
+		}
 	}
 }
