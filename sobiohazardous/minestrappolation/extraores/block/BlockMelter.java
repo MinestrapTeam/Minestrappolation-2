@@ -172,6 +172,7 @@ public class BlockMelter extends BlockContainer
 
             if (tileentityfurnace != null)
             {
+            	System.out.println(this.isActive());
             	par5EntityPlayer.openGui(ExtraOres.instance, 0, par1World, par2, par3, par4);
             }
 
@@ -190,10 +191,12 @@ public class BlockMelter extends BlockContainer
 
         if (par0)
         {
+        	System.out.println("is active");
             par1World.setBlock(par2, par3, par4, EOBlockManager.melterBurning.blockID);
         }
         else
         {
+        	System.out.println("inactive");
             par1World.setBlock(par2, par3, par4, EOBlockManager.melterIdle.blockID);
         }
 
@@ -343,5 +346,9 @@ public class BlockMelter extends BlockContainer
     public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) 
     {
     	par3List.add(EnumChatFormatting.RED + "WIP");
+    }
+    
+    public boolean isActive(){
+    	return this.isActive;
     }
 }

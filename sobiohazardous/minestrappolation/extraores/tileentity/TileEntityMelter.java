@@ -1,6 +1,7 @@
 package sobiohazardous.minestrappolation.extraores.tileentity;
 
 import sobiohazardous.minestrappolation.extraores.MelterRecipes;
+import sobiohazardous.minestrappolation.extraores.block.BlockMelter;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
@@ -19,7 +20,7 @@ public class TileEntityMelter extends TileEntity implements IInventory
 	/** The number of ticks that the furnace will keep burning */
 	public int goldBurnTime;
 
-	private boolean isActive;
+	public static boolean isActive;
 
 		/**
          * The number of ticks that a fresh copy of the currently-burning item would keep the furnace burning for
@@ -294,6 +295,7 @@ public class TileEntityMelter extends TileEntity implements IInventory
                  {
                          var2 = true;
                          this.validate();
+                         BlockMelter.updateFurnaceBlockState(this.goldBurnTime > 0, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
                  }
          }
          boolean check = isActive;
