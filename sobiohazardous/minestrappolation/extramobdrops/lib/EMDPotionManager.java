@@ -55,7 +55,7 @@ public class EMDPotionManager
 	 */
 	public static void loadBrewingRecipes()
 	{
-		waterBreathing = new Brewing(new PotionEffect(Potion.waterBreathing.id, 120 * 20, 0), 2, 0, new ItemStack(EMDItemManager.airSack), BrewingList.awkward);
+		waterBreathing = new Brewing(new PotionEffect(Potion.waterBreathing.id, 120 * 20, 0), 2, 1, new ItemStack(EMDItemManager.airSack), BrewingList.awkward);
 		waterBreathing.register();
 	}
 }

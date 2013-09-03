@@ -18,11 +18,13 @@ import net.minecraftforge.common.MinecraftForge;
 public class EDItemManager {
 
 	public static Item cardboardItem;	
-	public static void addItems(){
+	public static void addItems()
+	{
 		cardboardItem = new MItem(3500).setCreativeTab(EDBlockManager.tabDecorBlocks).setUnlocalizedName("item_Cardboard");
 	}
 	
-	public static void addItemNames(){
+	public static void addItemNames()
+	{
 		LanguageRegistry.addName(cardboardItem, "CardBoard Piece");
 	}
 	
@@ -41,7 +43,8 @@ public class EDItemManager {
 		MinecraftForge.setBlockHarvestLevel(EDBlockManager.bedrockBrick, "pickaxe", 3);
 	}
 	
-	public static void addItemsToItemList(){
+	public static void addItemsToItemList()
+	{
 		Item.itemsList[EDBlockManager.stoneLamp.blockID] = (new ItemMultiTextureTile(EDBlockManager.stoneLamp.blockID - 256, EDBlockManager.stoneLamp, BlockStoneLamp.lampType)).setUnlocalizedName("stoneLamp");
 		Item.itemsList[EDBlockManager.woodPanel.blockID] = (new ItemMultiTextureTile(EDBlockManager.woodPanel.blockID - 256, EDBlockManager.woodPanel, BlockWoodPanel.woodType)).setUnlocalizedName("woodPanel");
 		Item.itemsList[EDBlockManager.woodBeveled.blockID] = (new ItemMultiTextureTile(EDBlockManager.woodBeveled.blockID - 256, EDBlockManager.woodBeveled, BlockWoodBeveled.woodType)).setUnlocalizedName("woodBeveled");
