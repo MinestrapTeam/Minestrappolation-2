@@ -67,6 +67,12 @@ public class EMDItemManager
 	
 	public static Item whisker;
 	
+	public static Item catEye;
+	
+	public static Item wolfHide;
+	
+	public static Item flesh;
+	
 	public static EnumToolMaterial toolMaterialWoodH = EnumHelper.addToolMaterial("ToolWoodH", 0, 59, 2.0F, 2.0F, 15);
 	public static EnumToolMaterial toolMaterialStoneH = EnumHelper.addToolMaterial("ToolStoneH", 1, 131, 4.0F, 3.0F, 5);
 	public static EnumToolMaterial toolMaterialIronH = EnumHelper.addToolMaterial("ToolIronH", 2, 250, 6.0F, 4.0F, 14);
@@ -140,6 +146,12 @@ public class EMDItemManager
 		airSack = new ItemAirSack(EMDConfig.airSackId).setUnlocalizedName("air_sack").setCreativeTab(tabItems);
 	
 		whisker = new MItem(EMDConfig.whiskerId).setUnlocalizedName("whisker").setCreativeTab(tabItems);
+		
+		catEye = new ItemCatEye(EMDConfig.catEyeId, 0, 0.0F).setUnlocalizedName("cat_eye").setCreativeTab(tabItems);
+	
+		wolfHide = new MItem(EMDConfig.wolfHideId).setUnlocalizedName("wolf_hide").setCreativeTab(tabItems);
+	
+		flesh = new MItemFood(EMDConfig.fleshId, 4, 0.35F).setPotionEffect(Potion.hunger.id, 20, 0, 0.05F).setUnlocalizedName("flesh").setCreativeTab(tabItems);
 	}
 	
 	public static void loadNames()
@@ -182,5 +194,9 @@ public class EMDItemManager
 		LanguageRegistry.addName(calimari, "Calamari");
 		LanguageRegistry.addName(infectiousFungus, "Infectious Fungus");
 		LanguageRegistry.addName(airSack, "Air Sack");
+		LanguageRegistry.addName(whisker, "Whisker");
+		LanguageRegistry.addName(catEye, "Cat Eye");
+		LanguageRegistry.addName(wolfHide, "Wolf Hide");
+		LanguageRegistry.addName(flesh, "Flesh");
 	}
 }

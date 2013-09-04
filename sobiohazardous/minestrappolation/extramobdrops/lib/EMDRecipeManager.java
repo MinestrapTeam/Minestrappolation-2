@@ -62,7 +62,7 @@ public class EMDRecipeManager
 		GameRegistry.addSmelting(EMDItemManager.squidTentacle.itemID, new ItemStack(EMDItemManager.calimari, 1), 0.7F);
 		GameRegistry.addRecipe(new ItemStack(Item.silk), new Object[]
 				{
-			"WW", "WW", EMDItemManager.whisker
+			"WW", "WW", Character.valueOf('W'), EMDItemManager.whisker
 				});
 	}
 }

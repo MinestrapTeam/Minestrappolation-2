@@ -44,7 +44,10 @@ public class EMDConfig
 	calimariId,
 	infectiousFungusId,
 	airSackId,
-	whiskerId;
+	whiskerId,
+	catEyeId,
+	wolfHideId,
+	fleshId;
 	
 	public static void initConfig(FMLPreInitializationEvent e)
 	{
@@ -91,6 +94,9 @@ public class EMDConfig
 		infectiousFungusId= config.getItem("Infectious Fungus", 4036).getInt();
 		airSackId = config.getItem("Air Sack", 4037).getInt();
 		whiskerId = config.getItem("Whisker", 4038).getInt();
+		catEyeId = config.getItem("Cat Eye", 4039).getInt();
+		wolfHideId = config.getItem("Wolf Hide", 4040).getInt();
+		fleshId = config.getItem("Flesh", 4041).getInt();
 		
 		config.save();
 	}

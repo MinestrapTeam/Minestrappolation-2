@@ -126,6 +126,10 @@ public class EMDEventHandler
 				{
 					event.entityLiving.dropItem(EMDItemManager.snout.itemID, 1);
 				}
+				if(rand2 < 0.4D)
+				{
+					event.entityLiving.dropItem(EMDItemManager.wolfHide.itemID, 4);
+				}
 			}
 			
 			if(event.entityLiving instanceof EntityPigZombie)
@@ -207,6 +211,10 @@ public class EMDEventHandler
 				{
 					event.entityLiving.dropItem(EMDItemManager.whisker.itemID, 4);
 				}
+				if(rand3 < 0.1D)
+				{
+					event.entityLiving.dropItem(EMDItemManager.catEye.itemID, 2);
+				}
 			}
 			
 			if(event.entityLiving instanceof EntitySquid)
@@ -216,9 +224,17 @@ public class EMDEventHandler
 					event.entityLiving.dropItem(EMDItemManager.squidTentacle.itemID, 4);
 				}
 				
-				if(rand < 0.2D)
+				if(rand2 < 0.2D)
 				{
 					event.entityLiving.dropItem(EMDItemManager.airSack.itemID, 1);
+				}
+			}
+			
+			if(event.entityLiving instanceof EntityVillager)
+			{
+				if(rand < 0.2D)
+				{
+					event.entityLiving.dropItem(EMDItemManager.flesh.itemID, 3);
 				}
 			}
 		}
