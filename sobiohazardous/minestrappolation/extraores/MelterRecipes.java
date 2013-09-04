@@ -3,6 +3,7 @@ package sobiohazardous.minestrappolation.extraores;
 import java.util.HashMap;
 import java.util.Map;
 
+import sobiohazardous.minestrappolation.extradecor.lib.ModdedMelterRecipeLoader;
 import sobiohazardous.minestrappolation.extraores.client.gui.ContainerMelter;
 import sobiohazardous.minestrappolation.extraores.tileentity.TileEntityMelter;
 import net.minecraft.block.Block;
@@ -18,6 +19,8 @@ private static final MelterRecipes melterBase = new MelterRecipes();
 private Map melterList = new HashMap();
 private Map melterExperience = new HashMap();
 
+ModdedMelterRecipeLoader meltr = new ModdedMelterRecipeLoader();
+
 	/**
 	 * Used to call methods addSmelting and getSmeltingResult.
 	 */
@@ -28,13 +31,24 @@ private Map melterExperience = new HashMap();
 
 	private MelterRecipes()
 	{
+		meltr.loadModdedMelter();
 		addSmelting(Block.cobblestone.blockID, new ItemStack(Item.bucketLava, 1, 0), 0.4F);
 		addSmelting(Block.cobblestoneMossy.blockID, new ItemStack(Item.bucketLava, 1, 0), 0.6F);
 		addSmelting(Block.gravel.blockID, new ItemStack(Item.bucketLava, 1, 0), 0.2F);
 		addSmelting(Block.stone.blockID, new ItemStack(Item.bucketLava, 1, 0), 0.5F);
 		addSmelting(Block.stoneBrick.blockID, new ItemStack(Item.bucketLava, 1, 0), 0.8F);
 		addSmelting(Block.snow.blockID, new ItemStack(Item.bucketWater,1,0), 0.6F);
-		addSmelting(Block.ice.blockID, new ItemStack(Item.bucketWater,1,0), 0.7F);
+		addSmelting(Block.ice.blockID, new ItemStack(Item.bucketWater.itemID,1,0), 0.7F);
+		
+		for(int a = 0; a < meltr.ids.length;a++){
+			if(meltr.ids[a] == 0 && meltr.itemids[a] == 0){
+				break;
+			}else{
+				System.out.println("BlockID added: " +  meltr.ids[a]+" ItemID added: "+meltr.itemids[a]);
+				addSmelting(meltr.ids[a], new ItemStack(meltr.itemids[a],1,0), 0.5F);
+				
+			}
+		}
 	}	
 
 /**
