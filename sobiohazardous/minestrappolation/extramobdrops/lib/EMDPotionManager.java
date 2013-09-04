@@ -48,7 +48,7 @@ public class EMDPotionManager
 			}
 			//TODO poison all mobs touched
 		} 
-		checkInfectiousInactive(event);
+
 	}
 	
 	/**
@@ -60,11 +60,4 @@ public class EMDPotionManager
 		waterBreathing.register();
 	}
 	
-	public static void checkInfectiousInactive(LivingUpdateEvent event)
-	{
-		if(event.entityLiving.isPotionActive(EMDPotionManager.infectious) == false)
-		{
-			event.entityLiving.removePotionEffect(Potion.regeneration.id);
-		}
-	}
 }
