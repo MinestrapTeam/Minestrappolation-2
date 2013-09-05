@@ -19,6 +19,7 @@ public class ModdedMelterRecipeLoader
 	public static int[] ids = new int[maxCustomRecipes];
 	public static int[] itemids = new int[maxCustomRecipes];
 	public static int[] amountids = new int[maxCustomRecipes];
+	public static float[] xpids = new float[maxCustomRecipes];
 	
 	public  void loadModdedMelter()
 	{
@@ -28,9 +29,11 @@ public class ModdedMelterRecipeLoader
 		String input = "";
 		String output = "";
 		String amount = ""; 
+		String xp = ""; 
 		int aarrayID = 0;
 		int arrayID = 0;
 		int iarrayID = 0;
+		int xarrayID = 0;
 		int recipesUsed = 0;
 		try 
 		{
@@ -82,20 +85,36 @@ public class ModdedMelterRecipeLoader
 					amount = "1";
 					System.out.println("amount not found defaulting");
 				}
+				
+				if(line.contains("xp=")){
+					if(line.contains("xp=")){
+						xp = line.substring(line.indexOf("xp=")+3,line.lastIndexOf(";", line.indexOf("xp=")+8));
+					}
+					
+					
+				}else if(line.contains("experience=")){
+					xp = line.substring(line.indexOf("experience=")+11,line.lastIndexOf(";", line.indexOf("experience=")+12));
+				}
+				else	if(line.contains("xp=") == false && line.contains("experience=") == false &&line.isEmpty() == false){
+					xp = ".5";
+					System.out.println("xp not found defaulting");
+				}
 		 		
 		 		
 		 		if(line.isEmpty() == false){
 					ids[arrayID] = Integer.parseInt(input);
 					itemids[iarrayID] = Integer.parseInt(output);
 					amountids[aarrayID] = Integer.parseInt(amount);
+					xpids[xarrayID] = Float.parseFloat(xp);
 					arrayID++;
 					iarrayID++;
 					aarrayID++;
+					xarrayID++;
 					recipesUsed++;
 				}
 		 	}
 		 	
-		 	bw.write("To make a new melter recipe you add input=BLOCKIDHERE; output=ITEMORBLOCKIDHERE; amount=AMOUNTHERE each recipe must have its own line;");
+		 	bw.write("To make a new melter recipe you add input=BLOCKIDHERE; output=ITEMORBLOCKIDHERE; amount=AMOUNTHERE; xp=AMOUNTHERE; each recipe must have its own line *XP AND AMOUNT ARE NOT REQUIRED*");
 		 	bw.newLine();
 		 	bw.write(recipesUsed+"/"+maxCustomRecipes+" recipes used");
 		 	bw.close();

@@ -42,11 +42,11 @@ ModdedMelterRecipeLoader meltr = new ModdedMelterRecipeLoader();
 		
 		
 		for(int a = 0; a < meltr.ids.length;a++){
-			if(meltr.ids[a] == 0 && meltr.itemids[a] == 0 && meltr.amountids[a] ==0){
+			if(meltr.ids[a] == 0 && meltr.itemids[a] == 0 && meltr.amountids[a] ==0 && meltr.xpids[a] == 0){
 				break;
 			}else{
-				System.out.println("BlockID added: " +  meltr.ids[a]+" ItemID added: "+meltr.itemids[a]);
-				addSmelting(meltr.ids[a], new ItemStack(meltr.itemids[a],meltr.amountids[a],0), 0.5F);
+				System.out.println("BlockID added: " +  meltr.ids[a]+" ItemID added: "+meltr.itemids[a]+" Amount: "+meltr.amountids[a]+" XP: "+meltr.xpids[a]);
+				addSmelting(meltr.ids[a], new ItemStack(meltr.itemids[a],meltr.amountids[a],0), (float)meltr.xpids[a]);
 				
 			}
 		}
