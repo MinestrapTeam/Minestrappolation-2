@@ -1,7 +1,7 @@
 package sobiohazardous.minestrappolation.extraores.tileentity;
 
-import sobiohazardous.minestrappolation.extraores.MelterRecipes;
 import sobiohazardous.minestrappolation.extraores.block.BlockMelter;
+import sobiohazardous.minestrappolation.extraores.lib.MelterRecipes;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;

@@ -1,9 +1,8 @@
-package sobiohazardous.minestrappolation.extraores;
+package sobiohazardous.minestrappolation.extraores.lib;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import sobiohazardous.minestrappolation.extradecor.lib.ModdedMelterRecipeLoader;
 import sobiohazardous.minestrappolation.extraores.client.gui.ContainerMelter;
 import sobiohazardous.minestrappolation.extraores.tileentity.TileEntityMelter;
 import net.minecraft.block.Block;
@@ -57,26 +56,23 @@ ModdedMelterRecipeLoader meltr = new ModdedMelterRecipeLoader();
 	public void addSmelting(int id, ItemStack itemStack, float experience)
 	{
 		melterList.put(Integer.valueOf(id), itemStack);
-			this.melterExperience.put(Integer.valueOf(itemStack.itemID), Float.valueOf(experience));
-		
-		
-		
+			this.melterExperience.put(Integer.valueOf(itemStack.itemID), Float.valueOf(experience));	
 	}
 
-/**
-* Returns the smelting result of an item.
-*/
-public ItemStack getSmeltingResult(int id)
-{
-return (ItemStack)melterList.get(Integer.valueOf(id));
-}
+	/**
+	 * Returns the smelting result of an item.
+	 */
+	public ItemStack getSmeltingResult(int id)
+	{
+		return (ItemStack)melterList.get(Integer.valueOf(id));
+	}
 
-public Map getSmeltingList()
-{
-return melterList;
-}
-public float getExperience(int par1)
-{
-return this.melterExperience.containsKey(Integer.valueOf(par1)) ? ((Float)this.melterExperience.get(Integer.valueOf(par1))).floatValue() : 0.0F;
-}
+	public Map getSmeltingList()
+	{
+		return melterList;
+	}
+	public float getExperience(int par1)
+	{
+		return this.melterExperience.containsKey(Integer.valueOf(par1)) ? ((Float)this.melterExperience.get(Integer.valueOf(par1))).floatValue() : 0.0F;
+	}
 }

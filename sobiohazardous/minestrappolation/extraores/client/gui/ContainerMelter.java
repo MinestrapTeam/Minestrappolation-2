@@ -3,7 +3,7 @@ package sobiohazardous.minestrappolation.extraores.client.gui;
 import java.util.Iterator;
 import java.util.List;
 
-import sobiohazardous.minestrappolation.extraores.MelterRecipes;
+import sobiohazardous.minestrappolation.extraores.lib.MelterRecipes;
 import sobiohazardous.minestrappolation.extraores.tileentity.TileEntityMelter;
 
 import net.minecraft.entity.player.EntityPlayer;

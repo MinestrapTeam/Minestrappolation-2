@@ -1,6 +1,6 @@
 package sobiohazardous.minestrappolation.extraores.client.gui;
 
-import sobiohazardous.minestrappolation.extraores.MelterRecipes;
+import sobiohazardous.minestrappolation.extraores.lib.MelterRecipes;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
