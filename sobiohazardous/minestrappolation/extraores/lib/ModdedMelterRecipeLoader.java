@@ -1,10 +1,12 @@
 package sobiohazardous.minestrappolation.extraores.lib;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.Array;
@@ -19,6 +21,7 @@ public class ModdedMelterRecipeLoader
 	public  void loadModdedMelter()
 	{
 		File file = new File("config/MelterCanMelt.txt");
+		File file2 = new File("config/MelterCanMeltExplantion.txt");
 		String line;
 		String num = "";
 		String num2 = "";
@@ -29,11 +32,21 @@ public class ModdedMelterRecipeLoader
 			if(!file.exists())
 			{
 				file.createNewFile();
+				file2.createNewFile();
 			}
-		
+			
+			FileWriter fw = new FileWriter(file2.getAbsoluteFile(),true);
+			BufferedWriter bw = new BufferedWriter(fw);
+			FileInputStream fstream = new FileInputStream(file2);
+			// Get the object of DataInputStream
+			DataInputStream in2 = new DataInputStream(fstream);
+			
 			FileInputStream stream = new FileInputStream(file);
 		 	DataInputStream in = new DataInputStream(stream);
 		 	BufferedReader br = new BufferedReader(new InputStreamReader(in));
+		 	
+		 	bw.write("To make a new melter recipe you put blockTOMeltID,itemToMeltToID Ex 14,353");
+		 	bw.close();
 		
 		 	while((line = br.readLine()) !=null)
 		 	{
