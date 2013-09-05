@@ -37,7 +37,7 @@ public class ModdedMelterRecipeLoader
 				
 			}
 			
-			FileWriter fw = new FileWriter(file2.getAbsoluteFile(),true);
+			FileWriter fw = new FileWriter(file2.getAbsoluteFile(),false);
 			BufferedWriter bw = new BufferedWriter(fw);
 			FileInputStream fstream = new FileInputStream(file2);
 			// Get the object of DataInputStream
@@ -46,7 +46,12 @@ public class ModdedMelterRecipeLoader
 			FileInputStream stream = new FileInputStream(file);
 		 	DataInputStream in = new DataInputStream(stream);
 		 	BufferedReader br = new BufferedReader(new InputStreamReader(in));
+		 	if(file2.exists()){
+		 		file2.delete();
+		 	}
+		 	
 		 	file2.createNewFile();
+		 	
 		 	
 		
 		 	while((line = br.readLine()) !=null)
