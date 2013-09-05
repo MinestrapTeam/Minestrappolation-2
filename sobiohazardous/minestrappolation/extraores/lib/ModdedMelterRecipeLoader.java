@@ -18,14 +18,17 @@ public class ModdedMelterRecipeLoader
 	public static int maxCustomRecipes = 2000;
 	public static int[] ids = new int[maxCustomRecipes];
 	public static int[] itemids = new int[maxCustomRecipes];
+	public static int[] amountids = new int[maxCustomRecipes];
 	
 	public  void loadModdedMelter()
 	{
 		File file = new File("config/MelterCanMelt.txt");
 		File file2 = new File("config/MelterCanMeltInfo.txt");
 		String line;
-		String num = "";
-		String num2 = "";
+		String input = "";
+		String output = "";
+		String amount = ""; 
+		int aarrayID = 0;
 		int arrayID = 0;
 		int iarrayID = 0;
 		int recipesUsed = 0;
@@ -56,16 +59,43 @@ public class ModdedMelterRecipeLoader
 		
 		 	while((line = br.readLine()) !=null)
 		 	{
-			 	num = line.substring(0, line.indexOf(','));
-			 	num2 = line.substring(line.indexOf(',')+1);
-			 	ids[arrayID] = Integer.parseInt(num);
-			 	itemids[iarrayID] = Integer.parseInt(num2);
-			 	arrayID++;
-			 	iarrayID++;
-			 	recipesUsed++;
+		 		if(line.contains("input=")){
+					input = line.substring(line.indexOf("input=")+6,line.lastIndexOf(";", line.indexOf("input=")+11));
+				}else
+				if(line.contains("input=") == false && line.isEmpty() == false){
+					input = "1";
+					System.out.println("input not found defaulting");
+				}
+				
+				if(line.contains("output=")){
+					output = line.substring(line.indexOf("output=")+7,line.lastIndexOf(";", line.indexOf("output=")+11));
+				}else
+				if(line.contains("output=") == false &&line.isEmpty() == false){
+					output = "353";
+					System.out.println("output not found defaulting");
+				}
+				
+				if(line.contains("amount=")){
+					amount = line.substring(line.indexOf("amount=")+7,line.lastIndexOf(";", line.indexOf("amount=")+11));
+				}else
+				if(line.contains("amount=") == false &&line.isEmpty() == false){
+					amount = "1";
+					System.out.println("amount not found defaulting");
+				}
+		 		
+		 		
+		 		if(line.isEmpty() == false){
+					ids[arrayID] = Integer.parseInt(input);
+					itemids[iarrayID] = Integer.parseInt(output);
+					amountids[aarrayID] = Integer.parseInt(amount);
+					arrayID++;
+					iarrayID++;
+					aarrayID++;
+					recipesUsed++;
+				}
 		 	}
 		 	
-		 	bw.write("To make a new melter recipe you put blockTOMeltID,itemToMeltToID Ex 14,353");
+		 	bw.write("To make a new melter recipe you add input=BLOCKIDHERE; output=ITEMORBLOCKIDHERE; amount=AMOUNTHERE each recipe must have its own line;");
 		 	bw.newLine();
 		 	bw.write(recipesUsed+"/"+maxCustomRecipes+" recipes used");
 		 	bw.close();
