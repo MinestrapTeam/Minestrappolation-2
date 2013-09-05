@@ -1,9 +1,10 @@
-package sobiohazardous.minestrappolation.extraores.lib;
+package sobiohazardous.minestrappolation.extraores;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import sobiohazardous.minestrappolation.extraores.client.gui.ContainerMelter;
+import sobiohazardous.minestrappolation.extraores.lib.ModdedMelterRecipeLoader;
 import sobiohazardous.minestrappolation.extraores.tileentity.TileEntityMelter;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -39,6 +40,7 @@ ModdedMelterRecipeLoader meltr = new ModdedMelterRecipeLoader();
 		addSmelting(Block.snow.blockID, new ItemStack(Item.bucketWater,1,0), 0.6F);
 		addSmelting(Block.ice.blockID, new ItemStack(Item.bucketWater.itemID,1,0), 0.7F);
 		
+		
 		for(int a = 0; a < meltr.ids.length;a++){
 			if(meltr.ids[a] == 0 && meltr.itemids[a] == 0){
 				break;
@@ -56,23 +58,26 @@ ModdedMelterRecipeLoader meltr = new ModdedMelterRecipeLoader();
 	public void addSmelting(int id, ItemStack itemStack, float experience)
 	{
 		melterList.put(Integer.valueOf(id), itemStack);
-			this.melterExperience.put(Integer.valueOf(itemStack.itemID), Float.valueOf(experience));	
+			this.melterExperience.put(Integer.valueOf(itemStack.itemID), Float.valueOf(experience));
+		
+		
+		
 	}
 
-	/**
-	 * Returns the smelting result of an item.
-	 */
-	public ItemStack getSmeltingResult(int id)
-	{
-		return (ItemStack)melterList.get(Integer.valueOf(id));
-	}
+/**
+* Returns the smelting result of an item.
+*/
+public ItemStack getSmeltingResult(int id)
+{
+return (ItemStack)melterList.get(Integer.valueOf(id));
+}
 
-	public Map getSmeltingList()
-	{
-		return melterList;
-	}
-	public float getExperience(int par1)
-	{
-		return this.melterExperience.containsKey(Integer.valueOf(par1)) ? ((Float)this.melterExperience.get(Integer.valueOf(par1))).floatValue() : 0.0F;
-	}
+public Map getSmeltingList()
+{
+return melterList;
+}
+public float getExperience(int par1)
+{
+return this.melterExperience.containsKey(Integer.valueOf(par1)) ? ((Float)this.melterExperience.get(Integer.valueOf(par1))).floatValue() : 0.0F;
+}
 }

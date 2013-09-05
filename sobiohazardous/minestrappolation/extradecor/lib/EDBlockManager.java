@@ -215,8 +215,7 @@ public class EDBlockManager {
 		cobbledRoad = (new BlockCobbledRoad(EDConfig.cobbledRoadId)).setHardness(1).setResistance(5F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("cobbledRoad");
 		infertileDirt = new MBlock(EDConfig.infertiledirtId,Material.grass).setCreativeTab(tabDecorBlocks).setUnlocalizedName("block_InfertileSoil").setStepSound(Block.soundGrassFootstep);
 		refinedRoad = (new BlockRefinedRoad(EDConfig.refinedRoadID)).setResistance(1F).setHardness(5F).setUnlocalizedName("block_RefinedRoad").setStepSound(Block.soundStoneFootstep).setCreativeTab(tabDecorBlocks);
-		
-		bedrockBrick = new MBlock(EDConfig.bedrockBrickID,Material.rock).setUnlocalizedName("block_BedrockBrick").setStepSound(Block.soundStoneFootstep).setResistance(100000000F).setHardness(80F).setCreativeTab(tabDecorBlocks);
+
 	}
 	
 	public static void registerBlocks()
@@ -270,8 +269,6 @@ public class EDBlockManager {
 		GameRegistry.registerBlock(stainedBrick, "stainedBrick");
 		GameRegistry.registerBlock(cobbledRoad, "cobbledRoad");
 		GameRegistry.registerBlock(infertileDirt,"Infertile Dirt");
-		GameRegistry.registerBlock(bedrockBrick,"block_BedrockBrick");
-
 	}
 	
 	public static void addNames()
@@ -356,14 +353,15 @@ public class EDBlockManager {
 		LanguageRegistry.instance().addStringLocalization("tile.stainedBrick.purple.name", "Purple Stained Bricks");
 		LanguageRegistry.instance().addStringLocalization("tile.stainedBrick.magenta.name", "Magenta Stained Bricks");
 		LanguageRegistry.addName(cobbledRoad, "Cobbled Road");
-		LanguageRegistry.addName(bedrockBrick, "Bedrock Brick");
 	}
 	
 	public static void loadBridgedBlocks() throws Exception
 	{
 		if(Loader.isModLoaded("ExtraOres"))
 		{
-			
+			bedrockBrick = new MBlock(EDConfig.bedrockBrickID,Material.rock).setUnlocalizedName("block_BedrockBrick").setStepSound(Block.soundStoneFootstep).setResistance(100000000F).setHardness(80F).setCreativeTab(tabDecorBlocks);
+			GameRegistry.registerBlock(bedrockBrick,"block_BedrockBrick");
+			LanguageRegistry.addName(bedrockBrick, "Bedrock Brick");
 		}
 	
 	}

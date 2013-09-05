@@ -15,24 +15,26 @@ import net.minecraft.client.Minecraft;
 
 public class ModdedMelterRecipeLoader 
 {
-	public static int[] ids = new int[2000];
-	public static int[] itemids = new int[2000];
+	public static int maxCustomRecipes = 2000;
+	public static int[] ids = new int[maxCustomRecipes];
+	public static int[] itemids = new int[maxCustomRecipes];
 	
 	public  void loadModdedMelter()
 	{
 		File file = new File("config/MelterCanMelt.txt");
-		File file2 = new File("config/MelterCanMeltExplantion.txt");
+		File file2 = new File("config/MelterCanMeltInfo.txt");
 		String line;
 		String num = "";
 		String num2 = "";
 		int arrayID = 0;
 		int iarrayID = 0;
+		int recipesUsed = 0;
 		try 
 		{
 			if(!file.exists())
 			{
 				file.createNewFile();
-				file2.createNewFile();
+				
 			}
 			
 			FileWriter fw = new FileWriter(file2.getAbsoluteFile(),true);
@@ -44,9 +46,8 @@ public class ModdedMelterRecipeLoader
 			FileInputStream stream = new FileInputStream(file);
 		 	DataInputStream in = new DataInputStream(stream);
 		 	BufferedReader br = new BufferedReader(new InputStreamReader(in));
+		 	file2.createNewFile();
 		 	
-		 	bw.write("To make a new melter recipe you put blockTOMeltID,itemToMeltToID Ex 14,353");
-		 	bw.close();
 		
 		 	while((line = br.readLine()) !=null)
 		 	{
@@ -56,7 +57,13 @@ public class ModdedMelterRecipeLoader
 			 	itemids[iarrayID] = Integer.parseInt(num2);
 			 	arrayID++;
 			 	iarrayID++;
+			 	recipesUsed++;
 		 	}
+		 	
+		 	bw.write("To make a new melter recipe you put blockTOMeltID,itemToMeltToID Ex 14,353");
+		 	bw.newLine();
+		 	bw.write(recipesUsed+"/"+maxCustomRecipes+" recipes used");
+		 	bw.close();
 		} 
 		
 		catch (FileNotFoundException e) 
