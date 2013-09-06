@@ -20,7 +20,6 @@ private static final MelterRecipes melterBase = new MelterRecipes();
 private Map melterList = new HashMap();
 private Map melterExperience = new HashMap();
 
-
 ModdedMelterRecipeLoader meltr = new ModdedMelterRecipeLoader();
 
 	/**
@@ -52,7 +51,6 @@ ModdedMelterRecipeLoader meltr = new ModdedMelterRecipeLoader();
 				
 			}
 		}
-			
 		
 	}	
 

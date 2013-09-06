@@ -62,6 +62,7 @@ public class ModdedMelterRecipeLoader
 		
 		 	while((line = br.readLine()) !=null)
 		 	{
+		 		line = line.toLowerCase().replaceAll(" ", "");
 		 		if(line.contains("input=")){
 					input = line.substring(line.indexOf("input=")+6,line.lastIndexOf(";", line.indexOf("input=")+11));
 				}else
