@@ -9,6 +9,7 @@ import sobiohazardous.minestrappolation.extraores.tileentity.TileEntityMelter;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.src.ModLoader;
 import net.minecraft.tileentity.TileEntity;
 
 public class MelterRecipes
@@ -18,6 +19,7 @@ private static final MelterRecipes melterBase = new MelterRecipes();
 /** The list of smelting results. */
 private Map melterList = new HashMap();
 private Map melterExperience = new HashMap();
+
 
 ModdedMelterRecipeLoader meltr = new ModdedMelterRecipeLoader();
 
@@ -50,6 +52,7 @@ ModdedMelterRecipeLoader meltr = new ModdedMelterRecipeLoader();
 				
 			}
 		}
+			
 		
 	}	
 

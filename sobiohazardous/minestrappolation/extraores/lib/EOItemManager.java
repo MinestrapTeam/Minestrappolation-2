@@ -669,11 +669,11 @@ public class EOItemManager
 		MinecraftForge.setBlockHarvestLevel(EOBlockManager.TinPlatedChiseled, "pickaxe", 1);
 		MinecraftForge.setBlockHarvestLevel(EOBlockManager.TinPlatedGranite, "pickaxe", 1);
 		MinecraftForge.setBlockHarvestLevel(EOBlockManager.BronzeBlock, "pickaxe", 1);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.BronzePlatedCobble, "pickaxe", 1);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.BronzePlatedMossy, "pickaxe", 1);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.BronzePlatedStoneBrick, "pickaxe", 1);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.BronzePlatedChiseled, "pickaxe", 1);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.BronzePlatedGranite, "pickaxe", 1);
+		MinecraftForge.setBlockHarvestLevel(EOBlockManager.BronzePlatedCobble, "pickaxe", 2);
+		MinecraftForge.setBlockHarvestLevel(EOBlockManager.BronzePlatedMossy, "pickaxe", 2);
+		MinecraftForge.setBlockHarvestLevel(EOBlockManager.BronzePlatedStoneBrick, "pickaxe", 2);
+		MinecraftForge.setBlockHarvestLevel(EOBlockManager.BronzePlatedChiseled, "pickaxe", 2);
+		MinecraftForge.setBlockHarvestLevel(EOBlockManager.BronzePlatedGranite, "pickaxe", 2);
 		MinecraftForge.setBlockHarvestLevel(EOBlockManager.SteelPlatedCobble, "pickaxe", 1);
 		MinecraftForge.setBlockHarvestLevel(EOBlockManager.SteelPlatedMossy, "pickaxe", 1);
 		MinecraftForge.setBlockHarvestLevel(EOBlockManager.SteelPlatedStoneBrick, "pickaxe", 1);

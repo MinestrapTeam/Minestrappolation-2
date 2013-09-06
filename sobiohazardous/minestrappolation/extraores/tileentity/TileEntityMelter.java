@@ -239,7 +239,6 @@ public class TileEntityMelter extends TileEntity implements IInventory
 		//System.out.println(needBucket);
          boolean var1 = this.goldBurnTime > 0;
          boolean var2 = false;
-         
          if(goldItemStacks[3]==null)
     	 {
         	 //System.out.println("no bucket");
@@ -271,8 +270,7 @@ public class TileEntityMelter extends TileEntity implements IInventory
                                          --this.goldItemStacks[1].stackSize;
                                          if (this.goldItemStacks[1].stackSize == 0)
                                          {
-                                                 Item var3 = this.goldItemStacks[1].getItem().getContainerItem();
-                                                 this.goldItemStacks[1] = var3 == null ? null : new ItemStack(var3);
+                                                 this.goldItemStacks[1] = this.goldItemStacks[1].getItem().getContainerItemStack(goldItemStacks[1]);
                                          }
                                  }
                          }
@@ -325,16 +323,18 @@ public class TileEntityMelter extends TileEntity implements IInventory
          {
        
                  return false;
+         }if(!hasBucket){
+        	 return false;
          }else{
-        	  ItemStack itemstack = MelterRecipes.smelting().getSmeltingResult(goldItemStacks[0].getItem().itemID);
-        	  if(itemstack == null) return false; 
-        	  if(hasBucket == true) return true; 
-        	  if(!hasBucket) return false;       	        	  
+        	// if(hasBucket == true) return true; 
+        	  ItemStack itemstack = MelterRecipes.smelting().getSmeltingResult(goldItemStacks[0].getItem().itemID);      	
+        	  if(itemstack == null) return false;       	     
         	  if(this.goldItemStacks[2] == null) return true;
         	  if(!this.goldItemStacks[2].isItemEqual(itemstack)) return false;
         	  if (goldItemStacks[0] == null && goldItemStacks[3].getItem() == Item.bucketEmpty) return false;
-        	  if (goldItemStacks[2].stackSize < getInventoryStackLimit() && goldItemStacks[2].stackSize < goldItemStacks[2].getMaxStackSize()) return true;
-        	  return goldItemStacks[2].stackSize < itemstack.getMaxStackSize();
+        	  if(goldItemStacks[2].stackSize == goldItemStacks[2].getMaxStackSize()) return false;
+        	  int result = goldItemStacks[2].stackSize + itemstack.stackSize;
+        	  return (result <= getInventoryStackLimit() && result <= itemstack.getMaxStackSize());
         	 
          }
          
@@ -351,23 +351,28 @@ public class TileEntityMelter extends TileEntity implements IInventory
 	{
          if (this.canSmelt() == true)
          {
-                 ItemStack var1 = MelterRecipes.smelting().getSmeltingResult(this.goldItemStacks[0].getItem().itemID);
+                 ItemStack itemstack = MelterRecipes.smelting().getSmeltingResult(this.goldItemStacks[0].getItem().itemID);
                  if (this.goldItemStacks[2] == null)
                  {
-                         this.goldItemStacks[2] = var1.copy();
+                     this.goldItemStacks[2] = itemstack.copy();
                  }
-                 else if (this.goldItemStacks[2].itemID == var1.itemID)
+                 else if (this.goldItemStacks[2].isItemEqual(itemstack))
                  {
-                         ++this.goldItemStacks[2].stackSize;
+                     goldItemStacks[2].stackSize += itemstack.stackSize;
                  }
+
                  --this.goldItemStacks[0].stackSize;
-                 if (this.goldItemStacks[0].stackSize == 0)
+
+                 if (this.goldItemStacks[0].stackSize <= 0)
                  {
-                         Item var2 = this.goldItemStacks[0].getItem().getContainerItem();
-                         this.goldItemStacks[0] = var2 == null ? null : new ItemStack(var2);
-                         this.goldItemStacks[0] = null;
-                         
+                     this.goldItemStacks[0] = null;
                  }
+                 
+                 
+                 
+                 
+                 
+                 
                  if(this.goldItemStacks[3].stackSize <= 1){
                 	 goldItemStacks[3] = null;
                  }else{
