@@ -16,9 +16,12 @@ public class TileEntityCopper extends TileEntity
      */
     public void updateEntity()
     {
-    	if(worldObj.getWorldTime() == 12520)
+    	System.out.println(worldObj.getWorldTime());
+    	if(worldObj.getWorldTime() == 12521)
         {
         	this.daysPassed += 1;
+        	System.out.println(this.daysPassed+"/"+EOConfig.daysUntilTarnish);
+   
         }
     	
     	if(this.daysPassed >= EOConfig.daysUntilTarnish)

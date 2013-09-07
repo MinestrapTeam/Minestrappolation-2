@@ -1,9 +1,12 @@
 package sobiohazardous.minestrappolation.api.item;
 
+import sobiohazardous.minestrappolation.extraores.lib.EOBlockManager;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.*;
+import net.minecraft.world.World;
 
 public class MItemAxe extends MItemTool
 {
@@ -24,4 +27,6 @@ public class MItemAxe extends MItemTool
     {
         return par2Block != null && (par2Block.blockMaterial == Material.wood || par2Block.blockMaterial == Material.plants || par2Block.blockMaterial == Material.vine) ? this.efficiencyOnProperMaterial : super.getStrVsBlock(par1ItemStack, par2Block);
     }   
+    
+    
 }

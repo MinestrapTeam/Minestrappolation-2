@@ -137,7 +137,7 @@ public class EONameManager
 		LanguageRegistry.addName(EOItemManager.TinPants, "Tin Leggings");
 		LanguageRegistry.addName(EOItemManager.TinBoots, "Tin Boots");
 		
-		LanguageRegistry.addName(EOBlockManager.TinPlate, "Block of Tin(Minestrappolation)");
+		LanguageRegistry.addName(EOBlockManager.TinPlate, "Block of Tin (Minestrappolation)");
 		LanguageRegistry.addName(EOBlockManager.BronzePlate, "Bronze Plate Block");
 		LanguageRegistry.addName(EOBlockManager.SteelPlate, "Steel Plate Block");
 		LanguageRegistry.addName(EOItemManager.TinPlateItem, "Tin Plate");

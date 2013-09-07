@@ -9,6 +9,11 @@ import sobiohazardous.minestrappolation.api.item.MItemShovel;
 import sobiohazardous.minestrappolation.api.item.MItemSword;
 import sobiohazardous.minestrappolation.extraores.CreativeTabExtraoresItems;
 import sobiohazardous.minestrappolation.extraores.ExtraOres;
+import sobiohazardous.minestrappolation.extraores.item.BlaziumToolAxe;
+import sobiohazardous.minestrappolation.extraores.item.BlaziumToolHoe;
+import sobiohazardous.minestrappolation.extraores.item.BlaziumToolPickaxe;
+import sobiohazardous.minestrappolation.extraores.item.BlaziumToolShovel;
+import sobiohazardous.minestrappolation.extraores.item.BlaziumToolSword;
 import sobiohazardous.minestrappolation.extraores.item.EOItem;
 import sobiohazardous.minestrappolation.extraores.item.ItemGrenade;
 import sobiohazardous.minestrappolation.extraores.item.ItemGrenadeImpact;
@@ -47,23 +52,23 @@ public class EOItemManager
 	static EnumArmorMaterial MaterialBPDiamond = EnumHelper.addArmorMaterial("BPDiamond", 66, new int[]{3, 8, 6, 3}, 10);
 	
 	public static EnumToolMaterial toolMaterialMeurodite = EnumHelper.addToolMaterial("ToolMeurodite", 2, 805, 7.0F, 2, 15);
-	public static EnumToolMaterial toolMaterialTitanium = EnumHelper.addToolMaterial("ToolTitanium", 4, 2999, 10.0F, 5, 11);
+	public static EnumToolMaterial toolMaterialTitanium = EnumHelper.addToolMaterial("ToolTitanium", 3, 2999, 10.0F, 5, 11);
 	public static EnumToolMaterial toolMaterialTorite = EnumHelper.addToolMaterial("ToolTorite", 2, 699, 6.0F, 3, 20);
 	public static EnumToolMaterial toolMaterialBlazium = EnumHelper.addToolMaterial("ToolBlazium", 2, 799, 8.0F, 3, 18);
 	public static EnumToolMaterial toolMaterialCopper = EnumHelper.addToolMaterial("ToolCopper", 1, 139, 5.0F, 2, 10);
 	public static EnumToolMaterial toolMaterialSandstone = EnumHelper.addToolMaterial("ToolSandstone", 1, 111, 4.5F, 2, 6);
 	public static EnumToolMaterial toolMaterialBronze = EnumHelper.addToolMaterial("ToolBronze", 2, 1501, 6.5F, 2, 8);
 	public static EnumToolMaterial toolMaterialSteel = EnumHelper.addToolMaterial("ToolSteel", 2, 300, 7.5F, 3, 15);
-	public static EnumToolMaterial toolMaterialBedrock = EnumHelper.addToolMaterial("ToolBedrock", 4, 6247, 7F, 2, 5);
+	public static EnumToolMaterial toolMaterialBedrock = EnumHelper.addToolMaterial("ToolBedrock", 3, 6247, 7F, 2, 5);
 	public static EnumToolMaterial toolMaterialGranite = EnumHelper.addToolMaterial("ToolGranite", 1, 199, 4.3F, 2, 4);
 	public static EnumToolMaterial toolMaterialBPMeurodite = EnumHelper.addToolMaterial("ToolBPMeurodite", 2, 1610, 7.0F, 2, 15);
-	public static EnumToolMaterial toolMaterialBPTitanium = EnumHelper.addToolMaterial("ToolBPTitanium", 4, 5998, 10.0F, 5, 11);
+	public static EnumToolMaterial toolMaterialBPTitanium = EnumHelper.addToolMaterial("ToolBPTitanium", 3, 5998, 10.0F, 5, 11);
 	public static EnumToolMaterial toolMaterialBPTorite = EnumHelper.addToolMaterial("ToolBPTorite", 2, 1398, 6.0F, 3, 20);
 	public static EnumToolMaterial toolMaterialBPBlazium = EnumHelper.addToolMaterial("ToolBPBlazium", 2, 1598, 8.0F, 3, 18);
 	public static EnumToolMaterial toolMaterialBPCopper = EnumHelper.addToolMaterial("ToolBPCopper", 1, 278, 5.0F, 2, 10);
 	public static EnumToolMaterial toolMaterialBPSandstone = EnumHelper.addToolMaterial("ToolBPSandstone", 1, 222, 4.5F, 2, 6);
 	public static EnumToolMaterial toolMaterialBPSteel = EnumHelper.addToolMaterial("ToolBPSteel", 2, 600, 7.5F, 3, 15);
-	public static EnumToolMaterial toolMaterialBPBedrock = EnumHelper.addToolMaterial("ToolBPBedrock", 4, 12494, 7F, 2, 5);
+	public static EnumToolMaterial toolMaterialBPBedrock = EnumHelper.addToolMaterial("ToolBPBedrock", 3, 12494, 7F, 2, 5);
 	public static EnumToolMaterial toolMaterialBPGranite = EnumHelper.addToolMaterial("ToolBPGranite", 1, 398, 4.3F, 2, 4);
 	public static EnumToolMaterial toolMaterialBPWood = EnumHelper.addToolMaterial("ToolBPWood", 0, 118, 2.0F, 0, 15);
 	public static EnumToolMaterial toolMaterialBPStone = EnumHelper.addToolMaterial("ToolBPStone", 1, 262, 4.0F, 1, 5);
@@ -345,11 +350,11 @@ public class EOItemManager
 		BlaziumIngot = (new EOItem(EOConfig.blaziumIngotId)).setCreativeTab(tabOresItems).setUnlocalizedName("item_BlaziumIngot");
 		BlazeShard = (new EOItem(EOConfig.blaziumShardId)).setCreativeTab(tabOresItems).setUnlocalizedName("item_BlazeShard");
 	
-		BlaziumSword = (new MItemSword(EOConfig.blaziumSwordId, toolMaterialBlazium, true)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireSword");
-		BlaziumPickaxe = (new MItemPickaxe(EOConfig.blaziumPickaxeId, toolMaterialBlazium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FirePickaxe");
-		BlaziumShovel = (new MItemShovel(EOConfig.blaziumShovelId,toolMaterialBlazium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireShovel");
-		BlaziumHoe = (new MItemHoe(EOConfig.blaziumHoeId,toolMaterialBlazium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireHoe");
-		BlaziumAxe = (new MItemAxe(EOConfig.blaziumAxeId,toolMaterialBlazium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireAxe");
+		BlaziumSword = (new BlaziumToolSword(EOConfig.blaziumSwordId, toolMaterialBlazium, true)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireSword");
+		BlaziumPickaxe = (new BlaziumToolPickaxe(EOConfig.blaziumPickaxeId, toolMaterialBlazium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FirePickaxe");
+		BlaziumShovel = (new BlaziumToolShovel(EOConfig.blaziumShovelId,toolMaterialBlazium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireShovel");
+		BlaziumHoe = (new BlaziumToolHoe(EOConfig.blaziumHoeId,toolMaterialBlazium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireHoe");
+		BlaziumAxe = (new BlaziumToolAxe(EOConfig.blaziumAxeId,toolMaterialBlazium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireAxe");
 		
 		BlaziumHelmet = (new MItemArmor(EOConfig.blaziumHelmetId, MaterialBlazium, ExtraOres.proxy.addArmor("fire"), 0, "fire_1", "fire_2")).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireHelmet");
 		BlaziumChest = (new MItemArmor(EOConfig.blaziumChestId,MaterialBlazium, ExtraOres.proxy.addArmor("fire"), 1, "fire_1", "fire_2")).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireChestplate");
@@ -449,11 +454,11 @@ public class EOItemManager
 		BPToritePants = (new MItemArmor(EOConfig.BPToritePantsId,MaterialBPTorite, ExtraOres.proxy.addArmor("BPtorite"),2, "torite_plated_1", "torite_plated_2")).setUnlocalizedName("item_BronzePlatedToriteLeggings");
 		BPToriteBoots = (new MItemArmor(EOConfig.BPToriteBootsId,MaterialBPTorite, ExtraOres.proxy.addArmor("BPtorite"),3, "torite_plated_1", "torite_plated_2")).setUnlocalizedName("item_BronzePlatedToriteBoots");
 		
-		BPBlaziumSword = (new MItemSword(EOConfig.BPBlaziumSwordId, toolMaterialBPBlazium, true)).setUnlocalizedName("item_BronzePlatedFireSword");
-		BPBlaziumPickaxe = (new MItemPickaxe(EOConfig.BPBlaziumPickaxeId, toolMaterialBPBlazium)).setUnlocalizedName("item_BronzePlatedFirePickaxe");
-		BPBlaziumShovel = (new MItemShovel(EOConfig.BPBlaziumShovelId,toolMaterialBPBlazium)).setUnlocalizedName("item_BronzePlatedFireShovel");
-		BPBlaziumHoe = (new MItemHoe(EOConfig.BPBlaziumHoeId,toolMaterialBPBlazium)).setUnlocalizedName("item_BronzePlatedFireHoe");
-		BPBlaziumAxe = (new MItemAxe(EOConfig.BPBlaziumAxeId,toolMaterialBPBlazium)).setUnlocalizedName("item_BronzePlatedFireAxe");
+		BPBlaziumSword = (new BlaziumToolSword(EOConfig.BPBlaziumSwordId, toolMaterialBPBlazium, true)).setUnlocalizedName("item_BronzePlatedFireSword");
+		BPBlaziumPickaxe = (new BlaziumToolPickaxe(EOConfig.BPBlaziumPickaxeId, toolMaterialBPBlazium)).setUnlocalizedName("item_BronzePlatedFirePickaxe");
+		BPBlaziumShovel = (new BlaziumToolShovel(EOConfig.BPBlaziumShovelId,toolMaterialBPBlazium)).setUnlocalizedName("item_BronzePlatedFireShovel");
+		BPBlaziumHoe = (new BlaziumToolHoe(EOConfig.BPBlaziumHoeId,toolMaterialBPBlazium)).setUnlocalizedName("item_BronzePlatedFireHoe");
+		BPBlaziumAxe = (new BlaziumToolAxe(EOConfig.BPBlaziumAxeId,toolMaterialBPBlazium)).setUnlocalizedName("item_BronzePlatedFireAxe");
 		
 		BPBlaziumHelmet = (new MItemArmor(EOConfig.BPBlaziumHelmetId, MaterialBPBlazium, ExtraOres.proxy.addArmor("BPfire"), 0, "fire_plated_1", "fire_plated_2")).setUnlocalizedName("item_BronzePlatedFireHelmet");
 		BPBlaziumChest = (new MItemArmor(EOConfig.BPBlaziumChestId,MaterialBPBlazium, ExtraOres.proxy.addArmor("BPfire"), 1, "fire_plated_1", "fire_plated_2")).setUnlocalizedName("item_BronzePlatedFireChestplate");
