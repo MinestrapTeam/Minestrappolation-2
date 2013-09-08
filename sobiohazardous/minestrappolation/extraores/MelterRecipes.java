@@ -38,7 +38,7 @@ ModdedMelterRecipeLoader meltr = new ModdedMelterRecipeLoader();
 		addSmelting(Block.gravel.blockID, new ItemStack(Item.bucketLava, 1, 0), 0.2F);
 		addSmelting(Block.stone.blockID, new ItemStack(Item.bucketLava, 1, 0), 0.5F);
 		addSmelting(Block.stoneBrick.blockID, new ItemStack(Item.bucketLava, 1, 0), 0.8F);
-		addSmelting(Block.snow.blockID, new ItemStack(Item.bucketWater,1,0), 0.6F);
+		addSmelting(80, new ItemStack(Item.bucketWater,1,0), 0.6F);
 		addSmelting(Block.ice.blockID, new ItemStack(Item.bucketWater.itemID,1,0), 0.7F);
 		addSmelting(Block.cobblestoneWall.blockID, new ItemStack(Item.bucketLava.itemID,1,0), 0.7F);
 		
