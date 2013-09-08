@@ -32,7 +32,7 @@ public class BlockPlate extends MBlock
 	 public static final boolean isRailBlockAt(World par0World, int par1, int par2, int par3)
 	    {
 	        int i = par0World.getBlockId(par1, par2, par3);
-	        return i == EOBlockManager.TinPlate.blockID || i == EOBlockManager.BronzePlate.blockID || i == EOBlockManager.SteelPlate.blockID;
+	        return i == EOBlockManager.TinPlate.blockID || i == EOBlockManager.BronzePlate.blockID || i == EOBlockManager.SteelPlate.blockID || i == EOBlockManager.meuroditePlate.blockID;
 	        //Done. Simple as one OR statement! You're welcome. :)
 	    }
 	 
