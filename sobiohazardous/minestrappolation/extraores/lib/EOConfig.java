@@ -84,6 +84,7 @@ public class EOConfig {
 	tinPantsId,
 	tinBootsId,
 	tinPlateId,
+	meuroditePlateID,
 	bronzePlateId,
 	steelPlateId,
 	tinPlateItemId,
@@ -314,7 +315,8 @@ public class EOConfig {
 	bronzePlatedGraniteBrickDoubleSlabId,
 	plutoniumInsulatedId,
 	glowGlassID,
-	uraniumInsulatedId;
+	uraniumInsulatedId,
+	meuroditePlateItemID;
 	
 	public static int daysUntilTarnish;
 	
@@ -402,9 +404,10 @@ public class EOConfig {
 		tinPlateId = config.getBlock("Tin Plate Block", 3023).getInt();
 		bronzePlateId = config.getBlock("Bronze Plate Block", 3024).getInt();
 		steelPlateId = config.getBlock("Steel Plate Block", 3025).getInt();
+		meuroditePlateID = config.getBlock("Meurodite Plate Block", 3140).getInt();
 		tinPlateItemId = config.getItem("Tin Plate Item", 1055).getInt();
 		bronzePlateItemId = config.getItem("Bronze Plate Item", 1056).getInt();
-		steelPlateItemId = config.getItem("Steel Plate Item", 1057).getInt();
+		steelPlateItemId = config.getItem("Steel Plate Item", 1057).getInt();	
 		coalIronIngotId = config.getItem("Coal Iron Ingot", 1058).getInt();
 		steelIngotId = config.getItem("Steel Ingot", 1059).getInt();
 		steelPickaxeId = config.getItem("Steel Pickaxe", 1060).getInt();
@@ -632,6 +635,7 @@ public class EOConfig {
 	    uraniumInsulatedId = config.getBlock("Insulated Uranium Block", 3095).getInt();
 	    glowGlassID = config.getBlock("Glow Glass", 3096).getInt();
 	    daysUntilTarnish = config.get("Misc", "Days until copper tarnish", 3).getInt();
+	    meuroditePlateItemID = config.getItem("Meurodite Plate Item", 1075).getInt();
 		config.save();
 	}
 

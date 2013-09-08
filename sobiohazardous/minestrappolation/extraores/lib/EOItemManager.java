@@ -336,6 +336,8 @@ public class EOItemManager
 	public static Item BPDiamondPants;
 	public static Item BPDiamondBoots;
 	
+	public static Item meuroditePlateItem;
+	
 	public static void addItems()
 	{
 		meuroditeIngot = (new EOItem(EOConfig.meuroditeIngotId)).setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditeIngot");
@@ -346,6 +348,7 @@ public class EOItemManager
 		meuroditeAxe = (new MItemAxe(EOConfig.meuroditeAxeId, toolMaterialMeurodite)).setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditeAxe");
 
 		TinPlateItem = (new MItemBlockPlacer(EOConfig.tinPlateItemId, EOBlockManager.TinPlate)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TinPlate");
+		meuroditePlateItem = (new MItemBlockPlacer(EOConfig.meuroditePlateItemID, EOBlockManager.meuroditePlate)).setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditePlate");
 		BronzePlateItem = (new MItemBlockPlacer(EOConfig.bronzePlateItemId, EOBlockManager.BronzePlate)).setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzePlate");
 		SteelPlateItem = (new MItemBlockPlacer(EOConfig.steelPlateItemId, EOBlockManager.SteelPlate)).setCreativeTab(tabOresItems).setUnlocalizedName("item_SteelPlate");
 		CopperSword = (new MItemSword(EOConfig.copperSwordId,toolMaterialCopper, false)).setCreativeTab(tabOresItems).setUnlocalizedName("item_CopperSword");

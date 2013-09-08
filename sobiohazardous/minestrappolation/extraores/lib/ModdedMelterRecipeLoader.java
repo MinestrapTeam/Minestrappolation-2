@@ -40,7 +40,7 @@ public class ModdedMelterRecipeLoader
 			if(!file.exists())
 			{
 				file.createNewFile();
-				
+				System.out.println("Custom melter file created!");
 			}
 			
 			FileWriter fw = new FileWriter(file2.getAbsoluteFile(),false);
@@ -115,9 +115,13 @@ public class ModdedMelterRecipeLoader
 				}
 		 	}
 		 	
-		 	bw.write("To make a new melter recipe you add input=BLOCKIDHERE; output=ITEMORBLOCKIDHERE; amount=AMOUNTHERE; xp=AMOUNTHERE; each recipe must have its own line *XP AND AMOUNT ARE NOT REQUIRED*");
+		 	bw.write("To make a new melter recipe you add input=BLOCKIDHERE; output=ITEMORBLOCKIDHERE; amount=AMOUNTHERE; xp=AMOUNTHERE; or experience=AMOUNTHERE;. Each recipe must have its own line *XP AND AMOUNT ARE NOT REQUIRED*");
+		 	bw.newLine();
 		 	bw.newLine();
 		 	bw.write(recipesUsed+"/"+maxCustomRecipes+" recipes used");
+		 	bw.newLine();
+		 	bw.newLine();
+		 	bw.write("**If any issues are found with this please message one of the Minestappolation team**");
 		 	bw.close();
 		} 
 		

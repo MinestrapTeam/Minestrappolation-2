@@ -196,6 +196,8 @@ public class EOBlockManager {
 	public static Block plutoniumInsulated;
 	public static Block uraniumInsulated;
 	
+	public static Block meuroditePlate;
+	
 	public static void addBlocks()
 	{
 		meuroditeOre = (new EOBlock(EOConfig.meuroditeOreId, Material.rock)).setHardness(5F).setCreativeTab(tabOresBlocks).setResistance(10F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("block_MeuroditeOre");
@@ -247,6 +249,7 @@ public class EOBlockManager {
 		TinPlate = (new BlockPlate(EOConfig.tinPlateId)).setHardness(0.7F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("block_Tin");
 		BronzePlate = (new BlockPlate(EOConfig.bronzePlateId)).setHardness(0.7F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("block_Bronze");
 		SteelPlate = (new BlockPlate(EOConfig.steelPlateId)).setHardness(0.7F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("block_SteelSide");
+		meuroditePlate = (new BlockPlate(EOConfig.meuroditePlateID)).setHardness(0.7F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("block_Meurodite");
 		
 		SteelBlock = (new BlockSteel(EOConfig.steelBlockId)).setHardness(6F).setResistance(10F).setStepSound(Block.soundMetalFootstep).setCreativeTab(tabOresBlocks).setUnlocalizedName("SteelBlock");
 		
@@ -341,6 +344,8 @@ public class EOBlockManager {
 		
 		plutoniumInsulated = (new BlockPlutoniumInsulated(EOConfig.plutoniumInsulatedId, Material.iron)).setHardness(6F).setResistance(9F).setCreativeTab(tabOresBlocks).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("plutoniumInsulated");
 		uraniumInsulated = (new BlockUraniumInsulated(EOConfig.uraniumInsulatedId, Material.iron)).setHardness(6F).setResistance(9F).setCreativeTab(tabOresBlocks).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("uraniumInsulated");      
+	
+		
 	}
 	
 	public static void addSlabs()

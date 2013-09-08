@@ -105,6 +105,7 @@ public class EOBlockRegister
 		ModLoader.registerBlock(EOBlockManager.bronzePlatedGraniteBrickDoubleSlab);
 		ModLoader.registerBlock(EOBlockManager.plutoniumInsulated);
 		ModLoader.registerBlock(EOBlockManager.uraniumInsulated);
+		ModLoader.registerBlock(EOBlockManager.meuroditePlate);
 	}
 	
 }
