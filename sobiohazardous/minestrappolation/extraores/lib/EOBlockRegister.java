@@ -2,6 +2,8 @@ package sobiohazardous.minestrappolation.extraores.lib;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import sobiohazardous.minestrappolation.extraores.ExtraOres;
+import sobiohazardous.minestrappolation.extraores.tileentity.TileEntityCopper;
+import net.minecraft.block.Block;
 import net.minecraft.src.ModLoader;
 
 public class EOBlockRegister 
@@ -9,6 +11,7 @@ public class EOBlockRegister
 
 	public static void registerBlocks()
 	{
+		Block.bedrock.setHardness(2000);
     	//Extra Ores
     	GameRegistry.registerBlock(EOBlockManager.meuroditeOre, "meuroditeOre");
 		ModLoader.registerBlock(EOBlockManager.meuroditeBlock);
@@ -106,6 +109,7 @@ public class EOBlockRegister
 		ModLoader.registerBlock(EOBlockManager.plutoniumInsulated);
 		ModLoader.registerBlock(EOBlockManager.uraniumInsulated);
 		ModLoader.registerBlock(EOBlockManager.meuroditePlate);
+		GameRegistry.registerTileEntity(TileEntityCopper.class, "tileentitycopper");
 	}
 	
 }

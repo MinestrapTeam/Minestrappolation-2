@@ -1233,6 +1233,10 @@ public class EORecipeManager
         		{
         	"SSS", "GPG", "SSS", Character.valueOf('S'), EOItemManager.SteelIngot, Character.valueOf('G'), Block.thinGlass, Character.valueOf('P'), EOBlockManager.RawUraniumBlock
         		});
+        GameRegistry.addRecipe(new ItemStack(EOBlockManager.melterIdle, 1), new Object[]
+				{
+			"ZZZ", "ZFZ", "ZZZ", Character.valueOf('Z'), EOItemManager.meuroditePlateItem, Character.valueOf('F'), Block.furnaceIdle
+				});
 	}
 	
 }

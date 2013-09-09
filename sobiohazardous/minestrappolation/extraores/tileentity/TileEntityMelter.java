@@ -2,6 +2,8 @@ package sobiohazardous.minestrappolation.extraores.tileentity;
 
 import sobiohazardous.minestrappolation.extraores.MelterRecipes;
 import sobiohazardous.minestrappolation.extraores.block.BlockMelter;
+import sobiohazardous.minestrappolation.extraores.lib.EOItemManager;
+import sobiohazardous.minestrappolation.extraores.lib.ModdedMelterRecipeLoader;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
@@ -21,6 +23,8 @@ public class TileEntityMelter extends TileEntity implements IInventory
 	public int goldBurnTime;
 
 	public static boolean isActive;
+	
+	ModdedMelterRecipeLoader meltr = new ModdedMelterRecipeLoader();
 
 		/**
          * The number of ticks that a fresh copy of the currently-burning item would keep the furnace burning for
@@ -432,10 +436,6 @@ public class TileEntityMelter extends TileEntity implements IInventory
          if (i == Item.blazeRod.itemID)
          {
                  return 2400;
-         }
-         if (i == Block.dirt.blockID)
-         {
-                 return 200;
          }
          else
          {

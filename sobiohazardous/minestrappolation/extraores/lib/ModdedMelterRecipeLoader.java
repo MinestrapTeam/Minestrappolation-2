@@ -21,10 +21,14 @@ public class ModdedMelterRecipeLoader
 	public static int[] amountids = new int[maxCustomRecipes];
 	public static float[] xpids = new float[maxCustomRecipes];
 	
+	public String melterinfomessage = "To make a new melter recipe you add input=BLOCKIDHERE; output=ITEMORBLOCKIDHERE; amount=AMOUNTHERE; xp=AMOUNTHERE; or experience=AMOUNTHERE;. Each recipe must have its own line *XP AND AMOUNT ARE NOT REQUIRED*";
+	public String customRecipeFileName = "MelterCanMelt.txt";
+	public String melterInfoFileName = "MelterCanMeltInfo.txt";
+	
 	public  void loadModdedMelter()
 	{
-		File file = new File("config/MelterCanMelt.txt");
-		File file2 = new File("config/MelterCanMeltInfo.txt");
+		File file = new File("config/"+customRecipeFileName);
+		File file2 = new File("config/"+melterInfoFileName);
 		String line;
 		String input = "";
 		String output = "";
@@ -94,7 +98,7 @@ public class ModdedMelterRecipeLoader
 					
 					
 				}else if(line.contains("experience=")){
-					xp = line.substring(line.indexOf("experience=")+11,line.lastIndexOf(";", line.indexOf("experience=")+12));
+					xp = line.substring(line.indexOf("experience=")+11,line.lastIndexOf(";", line.indexOf("experience=")+13));
 				}
 				else	if(line.contains("xp=") == false && line.contains("experience=") == false &&line.isEmpty() == false){
 					xp = ".5";
@@ -115,7 +119,7 @@ public class ModdedMelterRecipeLoader
 				}
 		 	}
 		 	
-		 	bw.write("To make a new melter recipe you add input=BLOCKIDHERE; output=ITEMORBLOCKIDHERE; amount=AMOUNTHERE; xp=AMOUNTHERE; or experience=AMOUNTHERE;. Each recipe must have its own line *XP AND AMOUNT ARE NOT REQUIRED*");
+		 	bw.write(melterinfomessage);
 		 	bw.newLine();
 		 	bw.newLine();
 		 	bw.write(recipesUsed+"/"+maxCustomRecipes+" recipes used");
