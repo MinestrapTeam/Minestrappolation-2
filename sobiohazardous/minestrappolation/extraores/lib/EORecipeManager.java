@@ -1237,6 +1237,11 @@ public class EORecipeManager
 				{
 			"ZZZ", "ZFZ", "ZZZ", Character.valueOf('Z'), EOItemManager.meuroditePlateItem, Character.valueOf('F'), Block.furnaceIdle
 				});
+        
+        GameRegistry.addRecipe(new ItemStack(EOItemManager.meuroditePlateItem, 4), new Object[]
+				{
+			"ZZZ", "ZZZ", Character.valueOf('Z'), EOItemManager.meuroditeIngot, Character.valueOf('F')
+				});
 	}
 	
 }

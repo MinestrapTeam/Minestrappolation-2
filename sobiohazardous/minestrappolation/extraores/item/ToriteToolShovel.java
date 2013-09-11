@@ -1,6 +1,7 @@
 package sobiohazardous.minestrappolation.extraores.item;
 
 import net.minecraft.block.Block;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.EnumToolMaterial;
@@ -39,6 +40,12 @@ public class ToriteToolShovel extends MItemTool
                 });
     }
     
+    
+    public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase par2EntityLivingBase, EntityLivingBase par3EntityLivingBase)
+    {
+        par1ItemStack.damageItem(1, par3EntityLivingBase);
+        return true;
+    }
     /**
      * returns the action that specifies what animation to play when the items is being used
      */

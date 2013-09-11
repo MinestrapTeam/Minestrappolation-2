@@ -35,7 +35,7 @@ public class EONameManager
 		LanguageRegistry.addName(EOItemManager.meuroditeChest, "Meurodite Chestplate");
 		LanguageRegistry.addName(EOItemManager.meuroditePants, "Meurodite Leggings");
 		LanguageRegistry.addName(EOItemManager.meuroditeBoots, "Meurodite Boots");
-		LanguageRegistry.addName(EOBlockManager.meuroditePlate, "Meurodite Plate Block");
+		LanguageRegistry.addName(EOBlockManager.meuroditePlate, "Block of Meurodite");
 		LanguageRegistry.addName(EOItemManager.meuroditePlateItem, "Meurodite Plate");
 		
 

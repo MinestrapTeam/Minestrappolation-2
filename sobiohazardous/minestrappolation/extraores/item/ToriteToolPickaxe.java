@@ -4,6 +4,7 @@ import sobiohazardous.minestrappolation.api.item.MItemTool;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.EnumToolMaterial;
@@ -45,6 +46,12 @@ public class ToriteToolPickaxe extends MItemTool
         return EnumAction.block;
     }
 
+    
+    public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase par2EntityLivingBase, EntityLivingBase par3EntityLivingBase)
+    {
+        par1ItemStack.damageItem(1, par3EntityLivingBase);
+        return true;
+    }
 
     /**
      * Called whenever this item is equipped and the right mouse button is pressed. Args: itemStack, world, entityPlayer

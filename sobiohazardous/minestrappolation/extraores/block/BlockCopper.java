@@ -29,7 +29,10 @@ public class BlockCopper extends BlockContainer
     /**
      * Ticks the block if it's been scheduled
      */
-    public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random) {}
+    public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random) {
+    	
+    	
+    }
 
     /**
      * Lets the block know when one of its neighbor changes. Doesn't know which neighbor changed (coordinates passed are

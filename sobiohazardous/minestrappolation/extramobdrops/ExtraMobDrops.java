@@ -2,7 +2,6 @@ package sobiohazardous.minestrappolation.extramobdrops;
 
 import java.util.EnumSet;
 
-import sobiohazardous.minestrappolation.api.Minestrappolation;
 import sobiohazardous.minestrappolation.extramobdrops.bridge.EMDBridgeRecipes;
 import sobiohazardous.minestrappolation.extramobdrops.handler.ClientPacketHandler;
 import sobiohazardous.minestrappolation.extramobdrops.handler.EMDEventHandler;

@@ -47,8 +47,7 @@ public class EMDConfig
 	whiskerId,
 	catEyeId,
 	wolfHideId,
-	fleshId,
-	marrowId;
+	fleshId;
 	
 	public static void initConfig(FMLPreInitializationEvent e)
 	{
@@ -98,7 +97,6 @@ public class EMDConfig
 		catEyeId = config.getItem("Cat Eye", 4039).getInt();
 		wolfHideId = config.getItem("Wolf Hide", 4040).getInt();
 		fleshId = config.getItem("Flesh", 4041).getInt();
-		marrowId = config.getItem("Zombie Arm", 4042).getInt();
 		
 		config.save();
 	}

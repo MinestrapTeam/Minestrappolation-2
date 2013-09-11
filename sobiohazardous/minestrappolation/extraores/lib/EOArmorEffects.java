@@ -27,37 +27,21 @@ public class EOArmorEffects
 			  {	
 				  player.addPotionEffect(new PotionEffect(Potion.fireResistance.id, 80, 1,true));
 			  }
+			  if (helmet.getItem() == EOItemManager.BPMeuroditeHelmet && chest.getItem() == EOItemManager.BPMeuroditeChest && pants.getItem() == EOItemManager.BPMeuroditePants && boots.getItem() == EOItemManager.BPMeuroditeBoots) 
+			  {	
+				  player.addPotionEffect(new PotionEffect(Potion.fireResistance.id, 80, 1,true));
+			  }
 			  if (helmet.getItem() == EOItemManager.ToriteHelmet && chest.getItem() == EOItemManager.ToriteChest && pants.getItem() == EOItemManager.ToritePants && boots.getItem() == EOItemManager.ToriteBoots) 
 			  {	
-				  player.addPotionEffect(new PotionEffect(Potion.regeneration.id, 80, 1));
+				  player.addPotionEffect(new PotionEffect(Potion.regeneration.id, 80, 1,true));
 			  }
 			  
 			  if (helmet.getItem() == EOItemManager.TitaniumHelmet && chest.getItem() == EOItemManager.TitaniumChest && pants.getItem() == EOItemManager.TitaniumPants && boots.getItem() == EOItemManager.TitaniumBoots) 
 			  {	
-				  player.addPotionEffect(new PotionEffect(Potion.resistance.id, 80, 1));
+				  player.addPotionEffect(new PotionEffect(Potion.resistance.id, 80, 1,true));
 			  }			  
 		  }
 		
-		if(player.getCurrentItemOrArmor(4) != null){
-			if(helmet.getItem() == EOItemManager.meuroditeHelmet){
-				  player.addPotionEffect(new PotionEffect(Potion.fireResistance.id, 80, 0,true));
-			  }
-		}
-		if(player.getCurrentItemOrArmor(3) != null){
-			if(chest.getItem() == EOItemManager.meuroditeChest){
-				 player.addPotionEffect(new PotionEffect(Potion.fireResistance.id, 80, 0,true));
-			  }
-		}
-		if(player.getCurrentItemOrArmor(2) != null){
-			if(pants.getItem() == EOItemManager.meuroditePants){
-				 player.addPotionEffect(new PotionEffect(Potion.fireResistance.id, 80, 0,true));
-			  }
-		}
-		if(player.getCurrentItemOrArmor(1) != null){
-			if(boots.getItem() == EOItemManager.meuroditeBoots){
-				 player.addPotionEffect(new PotionEffect(Potion.fireResistance.id, 80, 0,true));
-			  }
-		}
 		
 		  
 	}

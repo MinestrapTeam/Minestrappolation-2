@@ -153,11 +153,6 @@ public class EMDEventHandler
 				{
 					event.entityLiving.dropItem(EMDItemManager.animalBones.itemID, 2);
 				}
-				
-				if(rand < 0.1D)
-				{
-					event.entityLiving.dropItem(EMDItemManager.marrow.itemID, 3);
-				}
 			}
 			
 			if(event.entityLiving instanceof EntitySheep)
@@ -240,14 +235,6 @@ public class EMDEventHandler
 				if(rand < 0.2D)
 				{
 					event.entityLiving.dropItem(EMDItemManager.flesh.itemID, 3);
-				}
-			}
-			
-			if(event.entityLiving instanceof EntitySkeleton)
-			{
-				if(rand < 0.15D)
-				{
-					event.entityLiving.dropItem(EMDItemManager.marrow.itemID, 3);
 				}
 			}
 		}

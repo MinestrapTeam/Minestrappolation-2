@@ -427,6 +427,17 @@ public class TileEntityMelter extends TileEntity implements IInventory
          {
                  return 20000;
          }
+         
+         if (i == EOItemManager.Uranium.itemID)
+         {
+                 return 150000;
+         }
+         
+         if (i == EOItemManager.Plutonium.itemID)
+         {
+                 return 200000;
+         }
+
 
          if (i == Block.sapling.blockID)
          {
