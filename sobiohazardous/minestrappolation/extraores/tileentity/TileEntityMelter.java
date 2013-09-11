@@ -329,10 +329,12 @@ public class TileEntityMelter extends TileEntity implements IInventory
                  return false;
          }if(!hasBucket){
         	 return false;
+         }if(hasBucket == true){
+        	 return true;
          }else{
         	// if(hasBucket == true) return true; 
         	  ItemStack itemstack = MelterRecipes.smelting().getSmeltingResult(goldItemStacks[0].getItem().itemID);      	
-        	  if(itemstack == null) return false;       	     
+        	  if(itemstack == null) return false;      
         	  if(this.goldItemStacks[2] == null) return true;
         	  if(!this.goldItemStacks[2].isItemEqual(itemstack)) return false;
         	  if (goldItemStacks[0] == null && goldItemStacks[3].getItem() == Item.bucketEmpty) return false;

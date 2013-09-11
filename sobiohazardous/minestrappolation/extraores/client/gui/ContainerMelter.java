@@ -114,35 +114,43 @@ public ItemStack transferStackInSlot(EntityPlayer player, int slotnumber)
                  ItemStack itemstack1 = slot.getStack();
                  itemstack = itemstack1.copy();
 
-                 if (slotnumber == 2)
+                 if (slotnumber == 1 || slotnumber == 0)
                  {
-                         if (!mergeItemStack(itemstack1, 3, 39, true))
+                         if (!mergeItemStack(itemstack1, 3, 30, true))
                          {
                                  return null;
                          }
 
                          slot.onSlotChange(itemstack1, itemstack);
                  }
+        
                  else if (slotnumber == 1 || slotnumber == 0)
                  {
-                         if (!mergeItemStack(itemstack1, 3, 39, false))
+                         if (!mergeItemStack(itemstack1, 3, 30, false))
                          {
                                  return null;
                          }
                  }
                  else if (MelterRecipes.smelting().getSmeltingResult(itemstack1.getItem().itemID) != null)
                  {
-                         if (!mergeItemStack(itemstack1, 0, 1, false))
+                         if (!mergeItemStack(itemstack1, 1, 2, false))
                          {
                                  return null;
                          }
                  }
                  else if (TileEntityMelter.isItemFuel(itemstack1))
                  {
-                         if (!mergeItemStack(itemstack1, 1, 2, false))
+                         if (!mergeItemStack(itemstack1, 0, 1, false))
                          {
                                  return null;
                          }
+                 }
+                 
+                 else if(slotnumber == 2 || slotnumber == 1 || slotnumber == 0){
+                	 if (!mergeItemStack(itemstack1, 3, 39, false))
+                     {
+                             return null;
+                     }
                  }
                  else if (slotnumber >= 3 && slotnumber < 30)
                  {
