@@ -24,12 +24,14 @@ public BlockUraniumRaw instance;
 public EntityPlayer player;
 public EntityLivingBase living;
 public EntityZombie zombie;
+Random rand = new Random();
 
 public BlockUraniumRaw(int par1, Material par3Material)
         {
                 super(par1, par3Material);
                 this.setCreativeTab(CreativeTabs.tabBlock);
         }
+ 
    
 		@Override
 		public void registerIcons(IconRegister iconRegister)
@@ -252,10 +254,12 @@ public BlockUraniumRaw(int par1, Material par3Material)
             {
             	 if (!par1World.isRemote)
                  {                    
-   
-            		 EntityInstantExplosion entitytntprimed = new EntityInstantExplosion(par1World, par2 + 0.5F, par3 + 0.5F, par4 + 0.5F, player);
+            		 if(rand.nextInt(4) == 1){
+            			 EntityInstantExplosion entitytntprimed = new EntityInstantExplosion(par1World, par2 + 0.5F, par3 + 0.5F, par4 + 0.5F, player);
                          par1World.spawnEntityInWorld(entitytntprimed);
                          par1World.playSoundAtEntity(entitytntprimed, "random.fuse", 1.0F, 1.0F);
+            		 }
+
                  }
             	 
             }

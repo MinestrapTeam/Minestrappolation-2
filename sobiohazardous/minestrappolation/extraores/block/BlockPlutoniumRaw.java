@@ -35,6 +35,7 @@ public EntityLivingBase living;
 public EntitySkeleton skeleton;
 public EntityZombie zombie;
 public World world;
+Random rand = new Random();
 
 public BlockPlutoniumRaw(int par1, Material par3Material)
         {
@@ -257,9 +258,12 @@ public BlockPlutoniumRaw(int par1, Material par3Material)
             	 if (!par1World.isRemote)
                  {                    
   
-            		 EntityInstantExplosion entitytntprimed = new EntityInstantExplosion(par1World, (double)((float)par2 + 0.5F), (double)((float)par3 + 0.5F), (double)((float)par4 + 0.5F), player);
+            		 if(rand.nextInt(4) == 1){
+            			 EntityInstantExplosion entitytntprimed = new EntityInstantExplosion(par1World, (double)((float)par2 + 0.5F), (double)((float)par3 + 0.5F), (double)((float)par4 + 0.5F), player);
                          par1World.spawnEntityInWorld(entitytntprimed);
                          par1World.playSoundAtEntity(entitytntprimed, "random.fuse", 1.0F, 1.0F);
+            		 }
+            		 
                  }
             	 
             }
