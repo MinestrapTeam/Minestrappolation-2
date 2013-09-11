@@ -29,6 +29,7 @@ import sobiohazardous.minestrappolation.extraores.item.EOItem;
 import sobiohazardous.minestrappolation.extraores.item.ItemGrenade;
 import sobiohazardous.minestrappolation.extraores.item.ItemGrenadeImpact;
 import sobiohazardous.minestrappolation.extraores.item.ItemGrenadeSticky;
+import sobiohazardous.minestrappolation.extraores.item.ItemTitaniumPickaxe;
 import sobiohazardous.minestrappolation.extraores.item.ToriteToolAxe;
 import sobiohazardous.minestrappolation.extraores.item.ToriteToolHoe;
 import sobiohazardous.minestrappolation.extraores.item.ToriteToolPickaxe;
@@ -59,7 +60,7 @@ public class EOItemManager
 	static EnumArmorMaterial MaterialBPDiamond = EnumHelper.addArmorMaterial("BPDiamond", 66, new int[]{3, 8, 6, 3}, 10);
 	
 	public static EnumToolMaterial toolMaterialMeurodite = EnumHelper.addToolMaterial("ToolMeurodite", 2, 805, 7.0F, 2, 15);
-	public static EnumToolMaterial toolMaterialTitanium = EnumHelper.addToolMaterial("ToolTitanium", 3, 2999, 10.0F, 5, 11);
+	public static EnumToolMaterial toolMaterialTitanium = EnumHelper.addToolMaterial("ToolTitanium", 4, 2999, 10.0F, 5, 11);
 	public static EnumToolMaterial toolMaterialTorite = EnumHelper.addToolMaterial("ToolTorite", 2, 699, 6.0F, 3, 20);
 	public static EnumToolMaterial toolMaterialBlazium = EnumHelper.addToolMaterial("ToolBlazium", 2, 799, 8.0F, 3, 18);
 	public static EnumToolMaterial toolMaterialCopper = EnumHelper.addToolMaterial("ToolCopper", 1, 139, 5.0F, 2, 10);
@@ -384,7 +385,7 @@ public class EOItemManager
 		TitaniumIngot = (new EOItem(EOConfig.titaniumIngotId)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumIngot");
 		
 		TitaniumSword = (new MItemSword(EOConfig.titaniumSwordId, toolMaterialTitanium, false)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumSword");
-		TitaniumPickaxe = (new MItemPickaxe(EOConfig.titaniumPickaxeId, toolMaterialTitanium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumPickaxe");
+		TitaniumPickaxe = (new ItemTitaniumPickaxe(EOConfig.titaniumPickaxeId, toolMaterialTitanium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumPickaxe");
 		TitaniumShovel = (new MItemShovel(EOConfig.titaniumShovelId, toolMaterialTitanium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumShovel");
 		TitaniumHoe = (new MItemHoe(EOConfig.titaniumHoeId,toolMaterialTitanium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumHoe");
 		TitaniumAxe = (new MItemAxe(EOConfig.titaniumAxeId,toolMaterialTitanium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumAxe");
@@ -700,5 +701,6 @@ public class EOItemManager
 		MinecraftForge.setBlockHarvestLevel(EOBlockManager.ChiseledRadiantQuartz, "pickaxe", 3);
 		MinecraftForge.setBlockHarvestLevel(EOBlockManager.RadiantQuartzOre, "pickaxe", 3);
 		MinecraftForge.setBlockHarvestLevel(EOBlockManager.Godstone, "pickaxe", 2);
+		MinecraftForge.setBlockHarvestLevel(Block.bedrock, "pickaxe", 4);
 	}
 }

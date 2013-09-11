@@ -69,10 +69,10 @@ public class ExtraOres
 	@Mod.EventHandler
     public void myNewPreLoadMethod(FMLPreInitializationEvent evt)	
 	{    
-		EOConfig.initilize(evt);
-	    
 	    Block.bedrock.setHardness(80F);
-	    
+
+		EOConfig.initilize(evt);
+	    	    
 		//Lib adding
 		EOBlockManager.addBlocks();
 		EOItemManager.addItems();

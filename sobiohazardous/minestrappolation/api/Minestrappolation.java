@@ -76,7 +76,10 @@ public class Minestrappolation
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
-	{
+	{	
+		//For making bedrock mineable. Bound to change location
+	    Block.bedrock.setHardness(80F);
+	    
 		expandPotionList();
 
 		Configuration config = new Configuration(event.getSuggestedConfigurationFile());
