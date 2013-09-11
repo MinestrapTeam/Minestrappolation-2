@@ -1240,7 +1240,7 @@ public class EORecipeManager
         
         GameRegistry.addRecipe(new ItemStack(EOItemManager.meuroditePlateItem, 4), new Object[]
 				{
-			"ZZZ", "ZZZ", Character.valueOf('Z'), EOItemManager.meuroditeIngot, Character.valueOf('F')
+			"MMM", "MMM", Character.valueOf('M'), EOItemManager.meuroditeIngot,
 				});
 	}
 	
