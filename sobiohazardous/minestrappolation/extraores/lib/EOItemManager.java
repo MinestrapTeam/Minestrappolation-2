@@ -361,10 +361,10 @@ public class EOItemManager
 		BlaziumIngot = (new EOItem(EOConfig.blaziumIngotId)).setCreativeTab(tabOresItems).setUnlocalizedName("item_BlaziumIngot");
 		BlazeShard = (new EOItem(EOConfig.blaziumShardId)).setCreativeTab(tabOresItems).setUnlocalizedName("item_BlazeShard");
 	
-		BlaziumSword = (new BlaziumToolSword(EOConfig.blaziumSwordId, toolMaterialBlazium, true)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireSword");
+		BlaziumSword = (new MItemSword(EOConfig.blaziumSwordId, toolMaterialBlazium, true)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireSword");
 		BlaziumPickaxe = (new BlaziumToolPickaxe(EOConfig.blaziumPickaxeId, toolMaterialBlazium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FirePickaxe");
 		BlaziumShovel = (new BlaziumToolShovel(EOConfig.blaziumShovelId,toolMaterialBlazium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireShovel");
-		BlaziumHoe = (new BlaziumToolHoe(EOConfig.blaziumHoeId,toolMaterialBlazium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireHoe");
+		BlaziumHoe = (new MItemHoe(EOConfig.blaziumHoeId,toolMaterialBlazium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireHoe");
 		BlaziumAxe = (new BlaziumToolAxe(EOConfig.blaziumAxeId,toolMaterialBlazium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireAxe");
 		
 		BlaziumHelmet = (new MItemArmor(EOConfig.blaziumHelmetId, MaterialBlazium, ExtraOres.proxy.addArmor("fire"), 0, "fire_1", "fire_2")).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireHelmet");
@@ -465,10 +465,10 @@ public class EOItemManager
 		BPToritePants = (new MItemArmor(EOConfig.BPToritePantsId,MaterialBPTorite, ExtraOres.proxy.addArmor("BPtorite"),2, "torite_plated_1", "torite_plated_2")).setUnlocalizedName("item_BronzePlatedToriteLeggings");
 		BPToriteBoots = (new MItemArmor(EOConfig.BPToriteBootsId,MaterialBPTorite, ExtraOres.proxy.addArmor("BPtorite"),3, "torite_plated_1", "torite_plated_2")).setUnlocalizedName("item_BronzePlatedToriteBoots");
 		
-		BPBlaziumSword = (new BlaziumToolSword(EOConfig.BPBlaziumSwordId, toolMaterialBPBlazium, true)).setUnlocalizedName("item_BronzePlatedFireSword");
+		BPBlaziumSword = (new MItemSword(EOConfig.BPBlaziumSwordId, toolMaterialBPBlazium, true)).setUnlocalizedName("item_BronzePlatedFireSword");
 		BPBlaziumPickaxe = (new BlaziumToolPickaxe(EOConfig.BPBlaziumPickaxeId, toolMaterialBPBlazium)).setUnlocalizedName("item_BronzePlatedFirePickaxe");
 		BPBlaziumShovel = (new BlaziumToolShovel(EOConfig.BPBlaziumShovelId,toolMaterialBPBlazium)).setUnlocalizedName("item_BronzePlatedFireShovel");
-		BPBlaziumHoe = (new BlaziumToolHoe(EOConfig.BPBlaziumHoeId,toolMaterialBPBlazium)).setUnlocalizedName("item_BronzePlatedFireHoe");
+		BPBlaziumHoe = (new MItemHoe(EOConfig.BPBlaziumHoeId,toolMaterialBPBlazium)).setUnlocalizedName("item_BronzePlatedFireHoe");
 		BPBlaziumAxe = (new BlaziumToolAxe(EOConfig.BPBlaziumAxeId,toolMaterialBPBlazium)).setUnlocalizedName("item_BronzePlatedFireAxe");
 		
 		BPBlaziumHelmet = (new MItemArmor(EOConfig.BPBlaziumHelmetId, MaterialBPBlazium, ExtraOres.proxy.addArmor("BPfire"), 0, "fire_plated_1", "fire_plated_2")).setUnlocalizedName("item_BronzePlatedFireHelmet");

@@ -71,6 +71,7 @@ public class BlaziumToolAxe extends MItemTool
                 par3World.playSoundEffect((double)par4 + 0.5D, (double)par5 + 0.5D, (double)par6 + 0.5D, "fire.ignite", 1.0F, itemRand.nextFloat() * 0.4F + 0.8F);
                 par3World.setBlock(par4, par5, par6, Block.fire.blockID);
             }
+            par1ItemStack.damageItem(4, par2EntityPlayer);
             return true;
         }
     }
