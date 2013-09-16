@@ -21,6 +21,7 @@ public class EMDPotionManager
 	public static Potion infectious;
 	
 	public static Brewing waterBreathing;
+	public static Brewing resistance;
 	
 	public static void loadPotions()
 	{
@@ -58,6 +59,8 @@ public class EMDPotionManager
 	{
 		waterBreathing = new Brewing(new PotionEffect(Potion.waterBreathing.id, 120 * 20, 0), 2, 1, new ItemStack(EMDItemManager.airSack), BrewingList.awkward);
 		waterBreathing.register();
+		resistance = new Brewing(new PotionEffect(Potion.resistance.id, 180 * 20), 2, 2, new ItemStack(EMDItemManager.marrow), BrewingList.awkward);
+		resistance.register();
 	}
 	
 }

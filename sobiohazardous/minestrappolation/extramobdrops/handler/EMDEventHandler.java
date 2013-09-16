@@ -153,6 +153,11 @@ public class EMDEventHandler
 				{
 					event.entityLiving.dropItem(EMDItemManager.animalBones.itemID, 2);
 				}
+				
+				if(rand5 < 0.1D)
+				{
+					event.entityLiving.dropItem(EMDItemManager.marrow.itemID, 3);
+				}
 			}
 			
 			if(event.entityLiving instanceof EntitySheep)
@@ -198,6 +203,10 @@ public class EMDEventHandler
 				{
 					event.entityLiving.dropItem(EMDItemManager.animalBones.itemID, 1);
 				}
+				if(rand2 < 0.15D)
+				{
+					event.entityLiving.dropItem(EMDItemManager.legSpider.itemID, 4);
+				}
 			}
 			
 			if(event.entityLiving instanceof EntityOcelot)
@@ -235,6 +244,13 @@ public class EMDEventHandler
 				if(rand < 0.2D)
 				{
 					event.entityLiving.dropItem(EMDItemManager.flesh.itemID, 3);
+				}
+			}
+			if(event.entityLiving instanceof EntitySkeleton)
+			{
+				if(rand < 0.15D)
+				{
+					event.entityLiving.dropItem(EMDItemManager.marrow.itemID, 3);
 				}
 			}
 		}
