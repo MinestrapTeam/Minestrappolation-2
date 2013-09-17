@@ -8,6 +8,7 @@ import sobiohazardous.minestrappolation.extraores.entity.EntityGrenadeImpact;
 import sobiohazardous.minestrappolation.extraores.entity.EntityGrenadeSticky;
 import sobiohazardous.minestrappolation.extraores.entity.EntityNukePrimed;
 import sobiohazardous.minestrappolation.extraores.entity.EntityInstantExplosion;
+import sobiohazardous.minestrappolation.extraores.fluids.EOFluids;
 import sobiohazardous.minestrappolation.extraores.gen.EOOreGenerator;
 import sobiohazardous.minestrappolation.extraores.handler.ClientPacketHandler;
 import sobiohazardous.minestrappolation.extraores.handler.ClientTickHandler;
@@ -26,6 +27,10 @@ import sobiohazardous.minestrappolation.extraores.lib.EORecipeManager;
 import sobiohazardous.minestrappolation.extraores.proxy.CommonProxy;
 import sobiohazardous.minestrappolation.extraores.tileentity.TileEntityMelter;
 import net.minecraft.block.Block;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidContainerRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Instance;
@@ -66,10 +71,13 @@ public class ExtraOres
 	
 	private GuiHandler guiHandler = new GuiHandler();
 	
+	public static Fluid eoFluid;
+	
 	@Mod.EventHandler
     public void myNewPreLoadMethod(FMLPreInitializationEvent evt)	
 	{    
 	    Block.bedrock.setHardness(80F);
+        eoFluid = new EOFluids("EO Fluid");
 
 		EOConfig.initilize(evt);
 	    	    
@@ -99,9 +107,10 @@ public class ExtraOres
 	@Mod.EventHandler
     public void loadNew(FMLInitializationEvent event)
     {		
-		
         proxy.registerRenderThings(); //this allows seperate renderings for server and client
         
+		FluidContainerRegistry.registerFluidContainer(eoFluid, new ItemStack(EOItemManager.bucketMagma), new ItemStack(Item.bucketEmpty));
+		
         TickRegistry.registerTickHandler(new ClientTickHandler(EnumSet.of(TickType.CLIENT)), Side.CLIENT);
         TickRegistry.registerTickHandler(new PlayerTickHandler(EnumSet.of(TickType.PLAYER)), Side.SERVER);
 

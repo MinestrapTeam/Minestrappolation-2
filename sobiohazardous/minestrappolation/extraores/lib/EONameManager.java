@@ -436,6 +436,8 @@ public class EONameManager
 		
 		LanguageRegistry.addName(EOBlockManager.plutoniumInsulated, "Insulated Plutonium Block");
 		LanguageRegistry.addName(EOBlockManager.uraniumInsulated, "Insulated Uranium Block");
+		LanguageRegistry.addName(EOBlockManager.magma, "Magma");
+		LanguageRegistry.addName(EOItemManager.bucketMagma, "Bucket of Magma");
 	}
 	
 }

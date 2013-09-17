@@ -316,7 +316,9 @@ public class EOConfig {
 	plutoniumInsulatedId,
 	glowGlassID,
 	uraniumInsulatedId,
-	meuroditePlateItemID;
+	meuroditePlateItemID,
+	magmaId,
+	bucketMagmaId;
 	
 	public static int daysUntilTarnish;
 	
@@ -636,6 +638,8 @@ public class EOConfig {
 	    glowGlassID = config.getBlock("Glow Glass", 3096).getInt();
 	    daysUntilTarnish = config.get("Misc", "Days until copper tarnish", 3).getInt();
 	    meuroditePlateItemID = config.getItem("Meurodite Plate Item", 1075).getInt();
+	    magmaId = config.getBlock("Magma", 3097).getInt();
+	    bucketMagmaId = config.getItem("Bucket of Magma", 1076).getInt();
 		config.save();
 	}
 

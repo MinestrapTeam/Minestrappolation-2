@@ -26,6 +26,7 @@ import sobiohazardous.minestrappolation.extraores.item.BlaziumToolPickaxe;
 import sobiohazardous.minestrappolation.extraores.item.BlaziumToolShovel;
 import sobiohazardous.minestrappolation.extraores.item.BlaziumToolSword;
 import sobiohazardous.minestrappolation.extraores.item.EOItem;
+import sobiohazardous.minestrappolation.extraores.item.EOItemBucket;
 import sobiohazardous.minestrappolation.extraores.item.ItemGrenade;
 import sobiohazardous.minestrappolation.extraores.item.ItemGrenadeImpact;
 import sobiohazardous.minestrappolation.extraores.item.ItemGrenadeSticky;
@@ -339,6 +340,8 @@ public class EOItemManager
 	
 	public static Item meuroditePlateItem;
 	
+	public static Item bucketMagma;
+	
 	public static void addItems()
 	{
 		meuroditeIngot = (new EOItem(EOConfig.meuroditeIngotId)).setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditeIngot");
@@ -591,6 +594,8 @@ public class EOItemManager
 		BPDiamondChest = (new MItemArmor(EOConfig.BPDiamondChestId,MaterialBPDiamond, ExtraOres.proxy.addArmor("BPdiamond"), 1, "diamond_plated_1", "diamond_plated_2")).setUnlocalizedName("item_BronzePlatedDiamondChestplate");
 		BPDiamondPants = (new MItemArmor(EOConfig.BPDiamondPantsId,MaterialBPDiamond, ExtraOres.proxy.addArmor("BPdiamond"), 2, "diamond_plated_1", "diamond_plated_2")).setUnlocalizedName("item_BronzePlatedDiamondLeggings");
 		BPDiamondBoots = (new MItemArmor(EOConfig.BPDiamondBootsId,MaterialBPDiamond, ExtraOres.proxy.addArmor("BPdiamond"), 3, "diamond_plated_1", "diamond_plated_2")).setUnlocalizedName("item_BronzePlatedDiamondBoots");		
+		
+		bucketMagma = new EOItemBucket(EOConfig.bucketMagmaId, ExtraOres.eoFluid.getBlockID()).setUnlocalizedName("item_MagmaBucket");
 	}
 	
 	public void addItemsToChests()

@@ -11,6 +11,7 @@ import sobiohazardous.minestrappolation.extraores.block.BlockCopper;
 import sobiohazardous.minestrappolation.extraores.block.BlockCopperTarnished;
 import sobiohazardous.minestrappolation.extraores.block.BlockGlowGlass;
 import sobiohazardous.minestrappolation.extraores.block.BlockGodstone;
+import sobiohazardous.minestrappolation.extraores.block.BlockMagma;
 import sobiohazardous.minestrappolation.extraores.block.BlockMelter;
 import sobiohazardous.minestrappolation.extraores.block.BlockNuke;
 import sobiohazardous.minestrappolation.extraores.block.BlockPinkChiseled;
@@ -198,6 +199,8 @@ public class EOBlockManager {
 	
 	public static Block meuroditePlate;
 	
+	public static Block magma;
+	
 	public static void addBlocks()
 	{
 		meuroditeOre = (new EOBlock(EOConfig.meuroditeOreId, Material.rock)).setHardness(5F).setCreativeTab(tabOresBlocks).setResistance(10F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("block_MeuroditeOre");
@@ -345,7 +348,7 @@ public class EOBlockManager {
 		plutoniumInsulated = (new BlockPlutoniumInsulated(EOConfig.plutoniumInsulatedId, Material.iron)).setHardness(6F).setResistance(9F).setCreativeTab(tabOresBlocks).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("plutoniumInsulated");
 		uraniumInsulated = (new BlockUraniumInsulated(EOConfig.uraniumInsulatedId, Material.iron)).setHardness(6F).setResistance(9F).setCreativeTab(tabOresBlocks).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("uraniumInsulated");      
 	
-		
+		magma = new BlockMagma(EOConfig.magmaId, Material.lava).setHardness(100.0F).setLightOpacity(3).setUnlocalizedName("magma");
 	}
 	
 	public static void addSlabs()
@@ -364,8 +367,10 @@ public class EOBlockManager {
 		Item.itemsList[bronzePlatedGraniteBrickSingleSlab.blockID] = (new ItemSlab(bronzePlatedGraniteBrickSingleSlab.blockID - 256, (BlockHalfSlab)bronzePlatedGraniteBrickSingleSlab, (BlockHalfSlab)bronzePlatedGraniteBrickDoubleSlab, false));
 	}
 	
-	public static void loadBridgedBlocks() throws Exception{
-		if(Loader.isModLoaded("ExtraDecor")){
+	public static void loadBridgedBlocks() throws Exception
+	{
+		if(Loader.isModLoaded("ExtraDecor"))
+		{
 			glowGlass = new BlockGlowGlass(EOConfig.glowGlassID,Material.glass,true).setUnlocalizedName("block_GlowGlass").setLightValue(0.7F).setStepSound(Block.soundGlassFootstep);
 			GameRegistry.registerBlock(glowGlass,"block_GlowGlass");
 			LanguageRegistry.addName(glowGlass, "Glow Glass");
