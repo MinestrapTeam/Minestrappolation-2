@@ -72,13 +72,11 @@ public class ExtraOres
 	private GuiHandler guiHandler = new GuiHandler();
 	
 	public static Fluid eoFluid;
-	
 	@Mod.EventHandler
     public void myNewPreLoadMethod(FMLPreInitializationEvent evt)	
 	{    
 	    Block.bedrock.setHardness(80F);
-        eoFluid = new EOFluids("EO Fluid");
-
+	    eoFluid = new EOFluids("EO Fluid");
 		EOConfig.initilize(evt);
 	    	    
 		//Lib adding
@@ -107,10 +105,9 @@ public class ExtraOres
 	@Mod.EventHandler
     public void loadNew(FMLInitializationEvent event)
     {		
-        proxy.registerRenderThings(); //this allows seperate renderings for server and client
-        
-		FluidContainerRegistry.registerFluidContainer(eoFluid, new ItemStack(EOItemManager.bucketMagma), new ItemStack(Item.bucketEmpty));
 		
+        proxy.registerRenderThings(); //this allows seperate renderings for server and client
+        FluidContainerRegistry.registerFluidContainer(eoFluid, new ItemStack(EOItemManager.bucketMagma), new ItemStack(Item.bucketEmpty));
         TickRegistry.registerTickHandler(new ClientTickHandler(EnumSet.of(TickType.CLIENT)), Side.CLIENT);
         TickRegistry.registerTickHandler(new PlayerTickHandler(EnumSet.of(TickType.PLAYER)), Side.SERVER);
 

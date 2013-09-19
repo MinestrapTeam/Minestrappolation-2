@@ -295,7 +295,7 @@ public class EOBlockManager {
 		Godstone = (new BlockGodstone(EOConfig.godstoneId, Material.rock)).setHardness(6F).setResistance(9F).setCreativeTab(tabOresBlocks).setStepSound(Block.soundMetalFootstep).setLightValue(1F).setUnlocalizedName("Godstone");
 		
 		melterIdle = (new BlockMelter(EOConfig.melterIdleId, false)).setHardness(6F).setResistance(8.0F).setCreativeTab(tabOresBlocks).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("melter");
-		melterBurning = (new BlockMelter(EOConfig.melterBurningId, true)).setHardness(6F).setResistance(8.0F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("melter");
+		melterBurning = (new BlockMelter(EOConfig.melterBurningId, true)).setHardness(6F).setResistance(8.0F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("melter").setLightValue(1F);
 	
 		RadiantQuartzStairs = new EOBlockStairs(EOConfig.radiantQuartzStairsId, SmoothRadiantQuartz, 0).setUnlocalizedName("RadiantQuartzStairs");
 		RadiantQuartzSingleSlab = (BlockHalfSlab) new RadiantQuartzSlab(EOConfig.radiantQuartzSingleSlabId, false).setUnlocalizedName("RadiantQuartzSingleSlab").setCreativeTab(tabOresBlocks);
@@ -367,10 +367,8 @@ public class EOBlockManager {
 		Item.itemsList[bronzePlatedGraniteBrickSingleSlab.blockID] = (new ItemSlab(bronzePlatedGraniteBrickSingleSlab.blockID - 256, (BlockHalfSlab)bronzePlatedGraniteBrickSingleSlab, (BlockHalfSlab)bronzePlatedGraniteBrickDoubleSlab, false));
 	}
 	
-	public static void loadBridgedBlocks() throws Exception
-	{
-		if(Loader.isModLoaded("ExtraDecor"))
-		{
+	public static void loadBridgedBlocks() throws Exception{
+		if(Loader.isModLoaded("ExtraDecor")){
 			glowGlass = new BlockGlowGlass(EOConfig.glowGlassID,Material.glass,true).setUnlocalizedName("block_GlowGlass").setLightValue(0.7F).setStepSound(Block.soundGlassFootstep);
 			GameRegistry.registerBlock(glowGlass,"block_GlowGlass");
 			LanguageRegistry.addName(glowGlass, "Glow Glass");

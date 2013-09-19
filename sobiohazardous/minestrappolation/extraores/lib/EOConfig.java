@@ -319,6 +319,7 @@ public class EOConfig {
 	meuroditePlateItemID,
 	magmaId,
 	bucketMagmaId;
+
 	
 	public static int daysUntilTarnish;
 	
