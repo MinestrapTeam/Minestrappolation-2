@@ -82,7 +82,6 @@ public class ExtraOres
 		//Lib adding
 		EOBlockManager.addBlocks();
 		EOItemManager.addItems();
-		EOItemManager.setHarvestLevels();
         EONameManager.loadNames();
 		EORecipeManager.loadRecipes();
 		try {
@@ -92,7 +91,7 @@ public class ExtraOres
 			e.printStackTrace();
 		}
 		EOBlockRegister.registerBlocks();
-		
+		EOItemManager.setHarvestLevels();
 		EntityRegistry.registerModEntity(EntityInstantExplosion.class, "Plutonium", 4, this, 350, 5, false);
 		EntityRegistry.registerModEntity(EntityGrenade.class, "Grenade", 2, this, 40, 3, true);
 		EntityRegistry.registerModEntity(EntityNukePrimed.class, "NukePrimed", 3, this, 350, 5, false);

@@ -656,9 +656,35 @@ public class EOItemManager
 		ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH).addItem(new WeightedRandomChestContent(new ItemStack(this.CoalIronIngot),1,5,17));
 		ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH).addItem(new WeightedRandomChestContent(new ItemStack(this.SteelIngot),1,5,17));
 	}
-	
+
 	public static void setHarvestLevels()
 	{
+		MinecraftForge.setToolClass(BPGoldPickaxe, "pickaxe", 0);
+		MinecraftForge.setToolClass(BPIronPickaxe, "pickaxe", 2);
+		MinecraftForge.setToolClass(BPDiamondPickaxe, "pickaxe", 3);
+		MinecraftForge.setToolClass(BPWoodPickaxe, "pickaxe", 0);
+		MinecraftForge.setToolClass(BPStonePickaxe, "pickaxe", 1);
+		MinecraftForge.setToolClass(GranitePickaxe, "pickaxe", 1);
+		MinecraftForge.setToolClass(BPGranitePickaxe, "pickaxe", 1);
+		MinecraftForge.setToolClass(meuroditePickaxe, "pickaxe", 2);
+		MinecraftForge.setToolClass(BPMeuroditePickaxe, "pickaxe", 2);
+		MinecraftForge.setToolClass(BedrockPickaxe, "pickaxe", 3);
+		MinecraftForge.setToolClass(BPBedrockPickaxe, "pickaxe", 3);
+		MinecraftForge.setToolClass(BronzePickaxe, "pickaxe", 2);
+		MinecraftForge.setToolClass(SteelPickaxe, "pickaxe", 2);
+		MinecraftForge.setToolClass(BPSteelPickaxe, "pickaxe", 2);
+		MinecraftForge.setToolClass(CopperPickaxe, "pickaxe", 1);
+		MinecraftForge.setToolClass(BPCopperPickaxe, "pickaxe", 1);
+		MinecraftForge.setToolClass(BlaziumPickaxe, "pickaxe", 2);
+		MinecraftForge.setToolClass(BPBlaziumPickaxe, "pickaxe", 2);
+		MinecraftForge.setToolClass(ToritePickaxe, "pickaxe", 2);
+		MinecraftForge.setToolClass(BPToritePickaxe, "pickaxe", 2);
+		MinecraftForge.setToolClass(TitaniumPickaxe, "pickaxe", 4);
+		MinecraftForge.setToolClass(BPTitaniumPickaxe, "pickaxe", 4);
+		MinecraftForge.setToolClass(meuroditePickaxe, "pickaxe", 2);
+		MinecraftForge.setToolClass(BPMeuroditePickaxe, "pickaxe", 2);
+		MinecraftForge.setToolClass(SandstonePickaxe, "pickaxe", 1);
+		MinecraftForge.setToolClass(BPSandstonePickaxe, "pickaxe", 1);
 		MinecraftForge.setBlockHarvestLevel(EOBlockManager.CopperOre, "pickaxe", 0);
 		MinecraftForge.setBlockHarvestLevel(EOBlockManager.CopperBlock, "pickaxe", 0);
 		MinecraftForge.setBlockHarvestLevel(EOBlockManager.TinOre, "pickaxe", 1);
