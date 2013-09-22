@@ -261,4 +261,9 @@ public class EDBlockPane extends Block
     	else
     		return 0;
     }
+    
+    public boolean canPaneConnectTo(IBlockAccess access, int x, int y, int z, ForgeDirection dir)
+    {
+        return canThisPaneConnectToThisBlockID(access.getBlockId(x+dir.offsetX, y+dir.offsetY, z+dir.offsetZ)) || access.isBlockSolidOnSide(x+dir.offsetX, y+dir.offsetY, z+dir.offsetZ, dir.getOpposite(), false);
+    }
 }

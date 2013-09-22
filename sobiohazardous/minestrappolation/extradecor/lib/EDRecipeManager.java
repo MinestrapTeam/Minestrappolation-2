@@ -367,67 +367,67 @@ public class EDRecipeManager
 		
 		GameRegistry.addRecipe(new ItemStack(EDBlockManager.stainedBrick, 4, 0), new Object[]
 				{
-			"BB", "BB", Character.valueOf('B'), new ItemStack(Block.field_111039_cA, 1, 0)
+			"BB", "BB", Character.valueOf('B'), new ItemStack(Block.hardenedClay, 1, 0)
 				});
 		GameRegistry.addRecipe(new ItemStack(EDBlockManager.stainedBrick, 4, 1), new Object[]
 				{
-			"BB", "BB", Character.valueOf('B'), new ItemStack(Block.field_111039_cA, 1, 8)
+			"BB", "BB", Character.valueOf('B'), new ItemStack(Block.hardenedClay, 1, 8)
 				});
 		GameRegistry.addRecipe(new ItemStack(EDBlockManager.stainedBrick, 4, 2), new Object[]
 				{
-			"BB", "BB", Character.valueOf('B'), new ItemStack(Block.field_111039_cA, 1, 7)
+			"BB", "BB", Character.valueOf('B'), new ItemStack(Block.hardenedClay, 1, 7)
 				});
 		GameRegistry.addRecipe(new ItemStack(EDBlockManager.stainedBrick, 4, 3), new Object[]
 				{
-			"BB", "BB", Character.valueOf('B'), new ItemStack(Block.field_111039_cA, 1, 15)
+			"BB", "BB", Character.valueOf('B'), new ItemStack(Block.hardenedClay, 1, 15)
 				});
 		GameRegistry.addRecipe(new ItemStack(EDBlockManager.stainedBrick, 4, 4), new Object[]
 				{
-			"BB", "BB", Character.valueOf('B'), new ItemStack(Block.field_111039_cA, 1, 12)
+			"BB", "BB", Character.valueOf('B'), new ItemStack(Block.hardenedClay, 1, 12)
 				});
 		GameRegistry.addRecipe(new ItemStack(EDBlockManager.stainedBrick, 4, 5), new Object[]
 				{
-			"BB", "BB", Character.valueOf('B'), new ItemStack(Block.field_111039_cA, 1, 6)
+			"BB", "BB", Character.valueOf('B'), new ItemStack(Block.hardenedClay, 1, 6)
 				});
 		GameRegistry.addRecipe(new ItemStack(EDBlockManager.stainedBrick, 4, 6), new Object[]
 				{
-			"BB", "BB", Character.valueOf('B'), new ItemStack(Block.field_111039_cA, 1, 14)
+			"BB", "BB", Character.valueOf('B'), new ItemStack(Block.hardenedClay, 1, 14)
 				});
 		GameRegistry.addRecipe(new ItemStack(EDBlockManager.stainedBrick, 4, 7), new Object[]
 				{
-			"BB", "BB", Character.valueOf('B'), new ItemStack(Block.field_111039_cA, 1, 1)
+			"BB", "BB", Character.valueOf('B'), new ItemStack(Block.hardenedClay, 1, 1)
 				});
 		GameRegistry.addRecipe(new ItemStack(EDBlockManager.stainedBrick, 4, 8), new Object[]
 				{
-			"BB", "BB", Character.valueOf('B'), new ItemStack(Block.field_111039_cA, 1, 4)
+			"BB", "BB", Character.valueOf('B'), new ItemStack(Block.hardenedClay, 1, 4)
 				});
 		GameRegistry.addRecipe(new ItemStack(EDBlockManager.stainedBrick, 4, 9), new Object[]
 				{
-			"BB", "BB", Character.valueOf('B'), new ItemStack(Block.field_111039_cA, 1, 5)
+			"BB", "BB", Character.valueOf('B'), new ItemStack(Block.hardenedClay, 1, 5)
 				});
 		GameRegistry.addRecipe(new ItemStack(EDBlockManager.stainedBrick, 4, 10), new Object[]
 				{
-			"BB", "BB", Character.valueOf('B'), new ItemStack(Block.field_111039_cA, 1, 13)
+			"BB", "BB", Character.valueOf('B'), new ItemStack(Block.hardenedClay, 1, 13)
 				});
 		GameRegistry.addRecipe(new ItemStack(EDBlockManager.stainedBrick, 4, 11), new Object[]
 				{
-			"BB", "BB", Character.valueOf('B'), new ItemStack(Block.field_111039_cA, 1, 9)
+			"BB", "BB", Character.valueOf('B'), new ItemStack(Block.hardenedClay, 1, 9)
 				});
 		GameRegistry.addRecipe(new ItemStack(EDBlockManager.stainedBrick, 4, 12), new Object[]
 				{
-			"BB", "BB", Character.valueOf('B'), new ItemStack(Block.field_111039_cA, 1, 3)
+			"BB", "BB", Character.valueOf('B'), new ItemStack(Block.hardenedClay, 1, 3)
 				});
 		GameRegistry.addRecipe(new ItemStack(EDBlockManager.stainedBrick, 4, 13), new Object[]
 				{
-			"BB", "BB", Character.valueOf('B'), new ItemStack(Block.field_111039_cA, 1, 11)
+			"BB", "BB", Character.valueOf('B'), new ItemStack(Block.hardenedClay, 1, 11)
 				});
 		GameRegistry.addRecipe(new ItemStack(EDBlockManager.stainedBrick, 4, 14), new Object[]
 				{
-			"BB", "BB", Character.valueOf('B'), new ItemStack(Block.field_111039_cA, 1, 10)
+			"BB", "BB", Character.valueOf('B'), new ItemStack(Block.hardenedClay, 1, 10)
 				});
 		GameRegistry.addRecipe(new ItemStack(EDBlockManager.stainedBrick, 4, 15), new Object[]
 				{
-			"BB", "BB", Character.valueOf('B'), new ItemStack(Block.field_111039_cA, 1, 2)
+			"BB", "BB", Character.valueOf('B'), new ItemStack(Block.hardenedClay, 1, 2)
 				});	
 		
 		GameRegistry.addRecipe(new ItemStack(EDBlockManager.cobbledRoad, 1), new Object[]

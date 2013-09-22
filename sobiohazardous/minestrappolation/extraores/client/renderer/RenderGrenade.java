@@ -5,13 +5,13 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.texture.TextureMap;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.projectile.EntityPotion;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemPotion;
 import net.minecraft.potion.PotionHelper;
 import net.minecraft.util.Icon;
+import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
@@ -48,7 +48,7 @@ public class RenderGrenade extends Render
             GL11.glTranslatef((float)par2, (float)par4, (float)par6);
             GL11.glEnable(GL12.GL_RESCALE_NORMAL);
             GL11.glScalef(0.5F, 0.5F, 0.5F);
-            this.func_110777_b(par1Entity);
+            this.bindEntityTexture(par1Entity);
             Tessellator tessellator = Tessellator.instance;
 
             if (icon == ItemPotion.func_94589_d("bottle_splash"))
@@ -70,9 +70,12 @@ public class RenderGrenade extends Render
         }
     }
 
-    protected ResourceLocation func_110775_a(Entity par1Entity)
+    /**
+     * Returns the location of an entity's texture. Doesn't seem to be called unless you call Render.bindEntityTexture.
+     */
+    protected ResourceLocation getEntityTexture(Entity par1Entity)
     {
-        return TextureMap.field_110576_c;
+        return TextureMap.locationItemsTexture;
     }
 
     private void func_77026_a(Tessellator par1Tessellator, Icon par2Icon)

@@ -1,5 +1,9 @@
 package sobiohazardous.minestrappolation.extradecor.handler;
 
+import static net.minecraftforge.common.ForgeDirection.EAST;
+import static net.minecraftforge.common.ForgeDirection.NORTH;
+import static net.minecraftforge.common.ForgeDirection.SOUTH;
+import static net.minecraftforge.common.ForgeDirection.WEST;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
 import sobiohazardous.minestrappolation.extradecor.block.EDBlockPane;
@@ -64,29 +68,24 @@ public class PaneRenderingHandler extends RenderBlocks implements ISimpleBlockRe
         tessellator.setColorOpaque_F(f * f1, f * f2, f * f3);
         Icon icon;
         Icon icon1;
-        int j1;
 
-        if (render.hasOverrideBlockTexture())
+        if (this.hasOverrideBlockTexture())
         {
             icon = render.overrideBlockTexture;
             icon1 = render.overrideBlockTexture;
         }
         else
         {
-            j1 = render.blockAccess.getBlockMetadata(par2, par3, par4);
-            icon = render.getBlockIconFromSideAndMetadata(par1BlockPane, 0, j1);
+            int j1 = render.blockAccess.getBlockMetadata(par2, par3, par4);
+            icon = this.getBlockIconFromSideAndMetadata(par1BlockPane, 0, j1);
             icon1 = par1BlockPane.getSideTextureIndex();
         }
 
-        j1 = icon.getOriginX();
-        int k1 = icon.getOriginY();
         double d0 = (double)icon.getMinU();
         double d1 = (double)icon.getInterpolatedU(8.0D);
         double d2 = (double)icon.getMaxU();
         double d3 = (double)icon.getMinV();
         double d4 = (double)icon.getMaxV();
-        int l1 = icon1.getOriginX();
-        int i2 = icon1.getOriginY();
         double d5 = (double)icon1.getInterpolatedU(7.0D);
         double d6 = (double)icon1.getInterpolatedU(9.0D);
         double d7 = (double)icon1.getMinV();
@@ -102,12 +101,14 @@ public class PaneRenderingHandler extends RenderBlocks implements ISimpleBlockRe
         double d17 = (double)par2 + 0.5D + 0.0625D;
         double d18 = (double)par4 + 0.5D - 0.0625D;
         double d19 = (double)par4 + 0.5D + 0.0625D;
-        boolean flag = par1BlockPane.canThisPaneConnectToThisBlockID(render.blockAccess.getBlockId(par2, par3, par4 - 1));
-        boolean flag1 = par1BlockPane.canThisPaneConnectToThisBlockID(render.blockAccess.getBlockId(par2, par3, par4 + 1));
-        boolean flag2 = par1BlockPane.canThisPaneConnectToThisBlockID(render.blockAccess.getBlockId(par2 - 1, par3, par4));
-        boolean flag3 = par1BlockPane.canThisPaneConnectToThisBlockID(render.blockAccess.getBlockId(par2 + 1, par3, par4));
+        boolean flag = par1BlockPane.canPaneConnectTo(render.blockAccess,par2, par3, par4, NORTH);
+        boolean flag1 = par1BlockPane.canPaneConnectTo(render.blockAccess,par2, par3, par4, SOUTH);
+        boolean flag2 = par1BlockPane.canPaneConnectTo(render.blockAccess,par2, par3, par4, WEST);
+        boolean flag3 = par1BlockPane.canPaneConnectTo(render.blockAccess,par2, par3, par4, EAST);
         boolean flag4 = par1BlockPane.shouldSideBeRendered(render.blockAccess, par2, par3 + 1, par4, 1);
         boolean flag5 = par1BlockPane.shouldSideBeRendered(render.blockAccess, par2, par3 - 1, par4, 0);
+        double d20 = 0.01D;
+        double d21 = 0.005D;
 
         if ((!flag2 || !flag3) && (flag2 || flag3 || flag || flag1))
         {

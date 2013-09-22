@@ -36,7 +36,7 @@ public class GuiBarrel extends GuiContainer
 	{
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		ResourceLocation gui = new ResourceLocation("minestrappolation","gui/barrel.png");
-		this.mc.renderEngine.func_110577_a(gui);		
+		this.mc.renderEngine.bindTexture(gui);		
 		int x = (width - xSize) / 2;
 		int y = (height - ySize) / 2;
 		this.drawTexturedModalRect(x, y, 0, 0, xSize, ySize);

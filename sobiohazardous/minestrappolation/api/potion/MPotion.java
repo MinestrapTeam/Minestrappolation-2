@@ -37,7 +37,7 @@ public class MPotion extends Potion
 	@SideOnly(Side.CLIENT)
 	public int getStatusIconIndex()
 	{
-		Minecraft.getMinecraft().func_110434_K().func_110577_a(customIconFile);
+		Minecraft.getMinecraft().renderEngine.bindTexture(customIconFile);
 		return super.getStatusIconIndex();
 	}
 

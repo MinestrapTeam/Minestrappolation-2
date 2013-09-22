@@ -6,15 +6,10 @@ import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.texture.TextureMap;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityTNTPrimed;
-
+import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
-
-import sobiohazardous.minestrappolation.extraores.ExtraOres;
-import sobiohazardous.minestrappolation.extraores.entity.EntityNukePrimed;
-import sobiohazardous.minestrappolation.extraores.lib.EOBlockManager;
 
 @SideOnly(Side.CLIENT)
 public class RenderNukePrimed extends Render
@@ -26,7 +21,7 @@ public class RenderNukePrimed extends Render
         this.shadowSize = 0.5F;
     }
 
-    public void renderPrimedTNT(EntityNukePrimed par1EntityTNTPrimed, double par2, double par4, double par6, float par8, float par9)
+    public void renderPrimedTNT(EntityTNTPrimed par1EntityTNTPrimed, double par2, double par4, double par6, float par8, float par9)
     {
         GL11.glPushMatrix();
         GL11.glTranslatef((float)par2, (float)par4, (float)par6);
@@ -53,8 +48,8 @@ public class RenderNukePrimed extends Render
         }
 
         f2 = (1.0F - ((float)par1EntityTNTPrimed.fuse - par9 + 1.0F) / 100.0F) * 0.8F;
-        this.func_110777_b(par1EntityTNTPrimed);
-        this.blockRenderer.renderBlockAsItem(EOBlockManager.nuke, 0, par1EntityTNTPrimed.getBrightness(par9));
+        this.bindEntityTexture(par1EntityTNTPrimed);
+        this.blockRenderer.renderBlockAsItem(Block.tnt, 0, par1EntityTNTPrimed.getBrightness(par9));
 
         if (par1EntityTNTPrimed.fuse / 5 % 2 == 0)
         {
@@ -63,7 +58,7 @@ public class RenderNukePrimed extends Render
             GL11.glEnable(GL11.GL_BLEND);
             GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_DST_ALPHA);
             GL11.glColor4f(1.0F, 1.0F, 1.0F, f2);
-            this.blockRenderer.renderBlockAsItem(EOBlockManager.nuke, 0, 1.0F);
+            this.blockRenderer.renderBlockAsItem(Block.tnt, 0, 1.0F);
             GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
             GL11.glDisable(GL11.GL_BLEND);
             GL11.glEnable(GL11.GL_LIGHTING);
@@ -73,14 +68,17 @@ public class RenderNukePrimed extends Render
         GL11.glPopMatrix();
     }
 
-    protected ResourceLocation func_110808_a(EntityNukePrimed par1EntityTNTPrimed)
+    protected ResourceLocation func_110808_a(EntityTNTPrimed par1EntityTNTPrimed)
     {
-        return TextureMap.field_110575_b;
+        return TextureMap.locationBlocksTexture;
     }
 
-    protected ResourceLocation func_110775_a(Entity par1Entity)
+    /**
+     * Returns the location of an entity's texture. Doesn't seem to be called unless you call Render.bindEntityTexture.
+     */
+    protected ResourceLocation getEntityTexture(Entity par1Entity)
     {
-        return this.func_110808_a((EntityNukePrimed)par1Entity);
+        return this.func_110808_a((EntityTNTPrimed)par1Entity);
     }
 
     /**
@@ -91,6 +89,6 @@ public class RenderNukePrimed extends Render
      */
     public void doRender(Entity par1Entity, double par2, double par4, double par6, float par8, float par9)
     {
-        this.renderPrimedTNT((EntityNukePrimed)par1Entity, par2, par4, par6, par8, par9);
+        this.renderPrimedTNT((EntityTNTPrimed)par1Entity, par2, par4, par6, par8, par9);
     }
 }

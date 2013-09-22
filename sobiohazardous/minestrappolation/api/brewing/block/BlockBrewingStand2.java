@@ -29,13 +29,13 @@ public class BlockBrewingStand2 extends BlockBrewingStand
 {
 	private Random	rand	= new Random();
 	private Icon	texture;
-	
+
 	public BlockBrewingStand2(int par1)
 	{
 		super(par1);
-		this.func_111022_d("brewing_stand");
+		this.setTextureName("brewing_stand");
 	}
-	
+
 	/**
 	 * Is this block (a) opaque and (b) a full 1m cube? This determines whether
 	 * or not to render the shared face of two adjacent blocks and also whether
@@ -46,7 +46,7 @@ public class BlockBrewingStand2 extends BlockBrewingStand
 	{
 		return false;
 	}
-	
+
 	/**
 	 * The type of render function that is called for this block
 	 */
@@ -55,7 +55,7 @@ public class BlockBrewingStand2 extends BlockBrewingStand
 	{
 		return 25;
 	}
-	
+
 	/**
 	 * Called whenever the block is added into the world. Args: world, x, y, z
 	 */
@@ -65,7 +65,7 @@ public class BlockBrewingStand2 extends BlockBrewingStand
 		super.onBlockAdded(par1World, par2, par3, par4);
 		par1World.setBlockTileEntity(par2, par3, par4, this.createNewTileEntity(par1World));
 	}
-	
+
 	/**
 	 * Returns a new instance of a block's tile entity class. Called on placing
 	 * the block.
@@ -75,7 +75,7 @@ public class BlockBrewingStand2 extends BlockBrewingStand
 	{
 		return new TileEntityBrewingStand2();
 	}
-	
+
 	/**
 	 * If this block doesn't render as an ordinary block it will return False
 	 * (examples: signs, buttons, stairs, etc)
@@ -85,7 +85,7 @@ public class BlockBrewingStand2 extends BlockBrewingStand
 	{
 		return false;
 	}
-	
+
 	/**
 	 * if the specified block is in the given AABB, add its collision bounding
 	 * box to the given list
@@ -97,7 +97,7 @@ public class BlockBrewingStand2 extends BlockBrewingStand
 		this.setBlockBoundsForItemRender();
 		super.addCollisionBoxesToList(par1World, par2, par3, par4, par5AxisAlignedBB, par6List, par7Entity);
 	}
-	
+
 	/**
 	 * Sets the block's bounds for rendering it as an item
 	 */
@@ -106,7 +106,7 @@ public class BlockBrewingStand2 extends BlockBrewingStand
 	{
 		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);
 	}
-	
+
 	/**
 	 * Called upon block activation (right click on the block.)
 	 */
@@ -123,11 +123,11 @@ public class BlockBrewingStand2 extends BlockBrewingStand
 			{
 				FMLNetworkHandler.openGui(par5EntityPlayer, Minestrappolation.instance, Minestrappolation.BrewingStand2_TEID, par1World, par2, par3, par4);
 			}
-			
+
 			return true;
 		}
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	/**
@@ -140,7 +140,7 @@ public class BlockBrewingStand2 extends BlockBrewingStand
 		double var10 = par4 + 0.4F + par5Random.nextFloat() * 0.2F;
 		par1World.spawnParticle("smoke", var6, var8, var10, 0.0D, 0.0D, 0.0D);
 	}
-	
+
 	/**
 	 * ejects contained items into the world, and notifies neighbours of an
 	 * update, as appropriate
@@ -149,25 +149,25 @@ public class BlockBrewingStand2 extends BlockBrewingStand
 	public void breakBlock(World par1World, int par2, int par3, int par4, int par5, int par6)
 	{
 		TileEntity var7 = par1World.getBlockTileEntity(par2, par3, par4);
-		
+
 		if (var7 instanceof TileEntityBrewingStand2)
 		{
 			TileEntityBrewingStand2 var8 = (TileEntityBrewingStand2) var7;
-			
+
 			for (int var9 = 0; var9 < var8.getSizeInventory(); ++var9)
 			{
 				ItemStack var10 = var8.getStackInSlot(var9);
-				
+
 				if (var10 != null)
 				{
 					float var11 = this.rand.nextFloat() * 0.8F + 0.1F;
 					float var12 = this.rand.nextFloat() * 0.8F + 0.1F;
 					float var13 = this.rand.nextFloat() * 0.8F + 0.1F;
-					
+
 					while (var10.stackSize > 0)
 					{
 						int var14 = this.rand.nextInt(21) + 10;
-						
+
 						if (var14 > var10.stackSize)
 						{
 							var14 = var10.stackSize;
@@ -185,25 +185,25 @@ public class BlockBrewingStand2 extends BlockBrewingStand
 				}
 			}
 		}
-		
+
 		else if (var7 instanceof TileEntityBrewingStand)
 		{
 			TileEntityBrewingStand var8 = (TileEntityBrewingStand) var7;
-			
+
 			for (int var9 = 0; var9 < var8.getSizeInventory(); ++var9)
 			{
 				ItemStack var10 = var8.getStackInSlot(var9);
-				
+
 				if (var10 != null)
 				{
 					float var11 = this.rand.nextFloat() * 0.8F + 0.1F;
 					float var12 = this.rand.nextFloat() * 0.8F + 0.1F;
 					float var13 = this.rand.nextFloat() * 0.8F + 0.1F;
-					
+
 					while (var10.stackSize > 0)
 					{
 						int var14 = this.rand.nextInt(21) + 10;
-						
+
 						if (var14 > var10.stackSize)
 						{
 							var14 = var10.stackSize;
@@ -221,10 +221,10 @@ public class BlockBrewingStand2 extends BlockBrewingStand
 				}
 			}
 		}
-		
+
 		super.breakBlock(par1World, par2, par3, par4, par5, par6);
 	}
-	
+
 	/**
 	 * Returns the ID of the items to drop on destruction.
 	 */
@@ -233,7 +233,7 @@ public class BlockBrewingStand2 extends BlockBrewingStand
 	{
 		return Item.brewingStand.itemID;
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	/**
@@ -243,13 +243,13 @@ public class BlockBrewingStand2 extends BlockBrewingStand
 	{
 		return Item.brewingStand.itemID;
 	}
-	
+
 	@Override
 	public int getComparatorInputOverride(World par1World, int par2, int par3, int par4, int par5)
 	{
 		return Container.calcRedstoneFromInventory((IInventory) par1World.getBlockTileEntity(par2, par3, par4));
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	/**
@@ -259,9 +259,9 @@ public class BlockBrewingStand2 extends BlockBrewingStand
 	public void registerIcons(IconRegister par1IconRegister)
 	{
 		super.registerIcons(par1IconRegister);
-		this.texture = par1IconRegister.registerIcon(this.func_111023_E() + "_base");
+		this.texture = par1IconRegister.registerIcon(this.getTextureName() + "_base");
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Icon getBrewingStandIcon()
