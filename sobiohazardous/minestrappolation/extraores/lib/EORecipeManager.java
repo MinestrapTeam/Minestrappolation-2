@@ -16,6 +16,7 @@ public class EORecipeManager
 	
 	public static void loadRecipes()
 	{
+		GameRegistry.addSmelting(EOBlockManager.BlaziumOre.blockID, new ItemStack(Item.blazePowder, 3), 1.0F);
 		
 		GameRegistry.addSmelting(EOBlockManager.meuroditeOre.blockID, new ItemStack(EOItemManager.meuroditeIngot, 1), 1.0F);
 		

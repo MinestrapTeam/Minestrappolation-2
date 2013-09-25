@@ -76,7 +76,7 @@ public class ExtraOres
     public void myNewPreLoadMethod(FMLPreInitializationEvent evt)	
 	{    
 	    Block.bedrock.setHardness(80F);
-	    eoFluid = new EOFluids("EO Fluid");
+	    eoFluid = new EOFluids("EO Fluid").setLuminosity(2).setViscosity(3000).setDensity(3);
 		EOConfig.initilize(evt);
 	    	    
 		//Lib adding

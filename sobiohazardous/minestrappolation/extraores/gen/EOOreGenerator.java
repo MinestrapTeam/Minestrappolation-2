@@ -167,7 +167,7 @@ public class EOOreGenerator implements IWorldGenerator
 	public void generateNether(World world, Random rand, int chunkx, int chunkz)
 	{
 		//blazium ore
-		for(int h = 0; h<18; h++)
+		for(int h = 0; h<9; h++)
 		{
 			int i5 = chunkx + rand.nextInt(16);
 			int j5 = rand.nextInt(256);

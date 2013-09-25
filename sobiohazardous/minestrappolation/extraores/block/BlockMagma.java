@@ -19,10 +19,10 @@ public class BlockMagma extends BlockFluidClassic
 {  
 	protected Icon[] iconArray;
 
-    public BlockMagma(int par1, Material material) 
+    public BlockMagma(int par1) 
     {
-    	super(par1, ExtraOres.eoFluid, material);
-    	ExtraOres.eoFluid.setDensity(3);
+    	super(par1, ExtraOres.eoFluid, Material.lava);
+   
      }
     
     @Override

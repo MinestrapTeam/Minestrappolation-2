@@ -127,6 +127,8 @@ public class ModdedMelterRecipeLoader
 		 	bw.newLine();
 		 	bw.write("**If any issues are found with this please message one of the Minestappolation team**");
 		 	bw.close();
+		 	in2.close();
+		 	br.close();
 		} 
 		
 		catch (FileNotFoundException e) 
