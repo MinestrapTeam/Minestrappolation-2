@@ -35,6 +35,8 @@ ModdedMelterRecipeLoader meltr = new ModdedMelterRecipeLoader();
 
 	private MelterRecipes()
 	{
+		meltr.createPluginFolder();
+		meltr.createVanillaandMinestrappolationAlias();
 		meltr.loadModdedMelter();
 		addSmelting(Block.cobblestone.blockID, new ItemStack(Item.bucketLava, 1, 0), 0.4F);
 		addSmelting(Block.cobblestoneMossy.blockID, new ItemStack(Item.bucketLava, 1, 0), 0.6F);
