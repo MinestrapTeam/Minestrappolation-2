@@ -37,8 +37,10 @@ public class ModdedMelterRecipeLoader
 	
 	public  void loadModdedMelter()
 	{
-		File file = new File("Melter-Plugins/"+customRecipeFileName);
+		File file = new File("Melter-Plugins");
+		file.mkdirs();
 		File file2 = new File("Melter-Plugins/"+melterInfoFileName);
+		File file3 = new File("Melter-Plugins/"+"melter_customRecipes.txt");
 		String line;
 		String input = "";
 		String output = "";
@@ -56,6 +58,20 @@ public class ModdedMelterRecipeLoader
 				file.createNewFile();
 				System.out.println("Custom melter file created!");
 			}
+			if(!file3.exists()){
+				file3.createNewFile();
+			}
+			FilenameFilter filter = new FilenameFilter(){
+
+				@Override
+				public boolean accept(File arg0, String arg1) {
+					
+					return arg1.startsWith("melter_");
+				}
+	        	
+	        };
+	       
+	       File[] fList = file.listFiles(filter);
 			
 			FileWriter fw = new FileWriter(file2.getAbsoluteFile(),false);
 			BufferedWriter bw = new BufferedWriter(fw);
@@ -63,9 +79,6 @@ public class ModdedMelterRecipeLoader
 			// Get the object of DataInputStream
 			DataInputStream in2 = new DataInputStream(fstream);
 			
-			FileInputStream stream = new FileInputStream(file);
-		 	DataInputStream in = new DataInputStream(stream);
-		 	BufferedReader br = new BufferedReader(new InputStreamReader(in));
 		 	if(file2.exists()){
 		 		file2.delete();
 		 	}
@@ -73,61 +86,68 @@ public class ModdedMelterRecipeLoader
 		 	file2.createNewFile();
 		 	
 		 	
-		
-		 	while((line = br.readLine()) !=null)
-		 	{
-		 		line = line.toLowerCase().replaceAll(" ", "");
-		 		if(line.contains("input=")){
-					input = findAlias(line.substring(line.indexOf("input=")+6,line.lastIndexOf(";", line.indexOf("input=")+20)),line.substring(line.indexOf("input=")+6,line.lastIndexOf(";", line.indexOf("input=")+20)));
-				}else
-				if(line.contains("input=") == false && line.isEmpty() == false){
-					input = "1";
-					System.out.println("input not found defaulting");
-				}
-				
-				if(line.contains("output=")){
-					output = findAlias(line.substring(line.indexOf("output=")+7,line.lastIndexOf(";", line.indexOf("output=")+20)),line.substring(line.indexOf("output=")+7,line.lastIndexOf(";", line.indexOf("output=")+20)));
-				}else
-				if(line.contains("output=") == false &&line.isEmpty() == false){
-					output = "353";
-					System.out.println("output not found defaulting");
-				}
-				
-				if(line.contains("amount=")){
-					amount = line.substring(line.indexOf("amount=")+7,line.lastIndexOf(";", line.indexOf("amount=")+11));
-				}else
-				if(line.contains("amount=") == false &&line.isEmpty() == false){
-					amount = "1";
-					System.out.println("amount not found defaulting");
-				}
-				
-				if(line.contains("xp=")){
-					if(line.contains("xp=")){
-						xp = line.substring(line.indexOf("xp=")+3,line.lastIndexOf(";", line.indexOf("xp=")+8));
+		 	for(int a = 0; a < fList.length;a++){
+		 		FileInputStream stream = new FileInputStream(fList[a]);
+			 	DataInputStream in = new DataInputStream(stream);
+			 	BufferedReader br = new BufferedReader(new InputStreamReader(in));
+			 	System.out.println("Loading from: "+ fList[a]);
+		 		while((line = br.readLine()) !=null)
+			 	{
+			 		line = line.toLowerCase().replaceAll(" ", "");
+			 		if(line.contains("input=")){
+						input = findAlias(line.substring(line.indexOf("input=")+6,line.lastIndexOf(";", line.indexOf("input=")+20)),line.substring(line.indexOf("input=")+6,line.lastIndexOf(";", line.indexOf("input=")+20)));
+					}else
+					if(line.contains("input=") == false && line.isEmpty() == false){
+						input = "1";
+						System.out.println("input not found defaulting");
 					}
 					
+					if(line.contains("output=")){
+						output = findAlias(line.substring(line.indexOf("output=")+7,line.lastIndexOf(";", line.indexOf("output=")+20)),line.substring(line.indexOf("output=")+7,line.lastIndexOf(";", line.indexOf("output=")+20)));
+					}else
+					if(line.contains("output=") == false &&line.isEmpty() == false){
+						output = "353";
+						System.out.println("output not found defaulting");
+					}
 					
-				}else if(line.contains("experience=")){
-					xp = line.substring(line.indexOf("experience=")+11,line.lastIndexOf(";", line.indexOf("experience=")+13));
-				}
-				else	if(line.contains("xp=") == false && line.contains("experience=") == false &&line.isEmpty() == false){
-					xp = ".5";
-					System.out.println("xp not found defaulting");
-				}
-		 		
-		 		
-		 		if(line.isEmpty() == false){
-					ids[arrayID] = Integer.parseInt(input);
-					itemids[iarrayID] = Integer.parseInt(output);
-					amountids[aarrayID] = Integer.parseInt(amount);
-					xpids[xarrayID] = Float.parseFloat(xp);
-					arrayID++;
-					iarrayID++;
-					aarrayID++;
-					xarrayID++;
-					recipesUsed++;
-				}
+					if(line.contains("amount=")){
+						amount = line.substring(line.indexOf("amount=")+7,line.lastIndexOf(";", line.indexOf("amount=")+11));
+					}else
+					if(line.contains("amount=") == false &&line.isEmpty() == false){
+						amount = "1";
+						System.out.println("amount not found defaulting");
+					}
+					
+					if(line.contains("xp=")){
+						if(line.contains("xp=")){
+							xp = line.substring(line.indexOf("xp=")+3,line.lastIndexOf(";", line.indexOf("xp=")+8));
+						}
+						
+						
+					}else if(line.contains("experience=")){
+						xp = line.substring(line.indexOf("experience=")+11,line.lastIndexOf(";", line.indexOf("experience=")+13));
+					}
+					else	if(line.contains("xp=") == false && line.contains("experience=") == false &&line.isEmpty() == false){
+						xp = ".5";
+						System.out.println("xp not found defaulting");
+					}
+			 		
+			 		
+			 		if(line.isEmpty() == false){
+						ids[arrayID] = Integer.parseInt(input);
+						itemids[iarrayID] = Integer.parseInt(output);
+						amountids[aarrayID] = Integer.parseInt(amount);
+						xpids[xarrayID] = Float.parseFloat(xp);
+						arrayID++;
+						iarrayID++;
+						aarrayID++;
+						xarrayID++;
+						recipesUsed++;
+					}
+			 	}
+		 		br.close();
 		 	}
+		 	
 		 	
 		 	bw.write(melterinfomessage);
 		 	bw.newLine();
@@ -138,7 +158,6 @@ public class ModdedMelterRecipeLoader
 		 	bw.write("**If any issues are found with this please message one of the Minestappolation team**");
 		 	bw.close();
 		 	in2.close();
-		 	br.close();
 		} 
 		
 		catch (FileNotFoundException e) 
@@ -190,7 +209,6 @@ public class ModdedMelterRecipeLoader
         
         File[] fList = directory.listFiles(filter);
         aliasFilesFound = fList.length;
-        System.out.println("Loaded "+aliasFilesFound+" alias files");
         for(int i = 0; i < fList.length;i++){
         	try {
 				FileInputStream stream = new FileInputStream(fList[i]);
@@ -222,6 +240,7 @@ public class ModdedMelterRecipeLoader
         	
      
         }
+        System.out.println("Loaded "+aliasFilesFound+" alias files");
         if(aliasFound == true){
         	return value;
         }else{
