@@ -21,12 +21,6 @@ public class ModdedMelterRecipeLoader
 	public static int aliasFilesFound;
 	public static int maxAfterStringFoundValue = 19;
 	
-	public static String[] aliasname = {"stone","dirt","cobblestone","planks","sand","gravel","goldore","ironore","coalore","wood","glass","lapisore","sandstone","lavabucket","waterbucket","bricks","goldblock","ironblock","diamondblock","diamondore","snow"};
-	public static int[] aliasvalue = {1,3,4,5,12,13,14,15,16,17,20,21,24,327,326,45,41,42,57,56,80};
-	
-	public static String[] minename = {"radiantore"};
-	public static int[] minevalue = {3054};
-	
 	public static int[] ids = new int[maxCustomRecipes];
 	public static int[] itemids = new int[maxCustomRecipes];
 	public static int[] amountids = new int[maxCustomRecipes];
@@ -38,10 +32,10 @@ public class ModdedMelterRecipeLoader
 	
 	public  void loadModdedMelter()
 	{
-		File file = new File("Melter-Plugins");
+		File file = new File("Custom-Plugins");
 		file.mkdirs();
-		File file2 = new File("Melter-Plugins/"+melterInfoFileName);
-		File file3 = new File("Melter-Plugins/"+"melter_customRecipes.txt");
+		File file2 = new File("Custom-Plugins/"+melterInfoFileName);
+		File file3 = new File("Custom-Plugins/"+"melter_customRecipes.txt");
 		String line;
 		String input = "";
 		String output = "";
@@ -175,23 +169,9 @@ public class ModdedMelterRecipeLoader
 		System.out.println(file.getAbsolutePath());
 	}
 	
-	public void createPluginFolder(){
-		File directory = new File("Melter-Plugins");
-        directory.mkdirs();
-        if(directory.exists() == false){
-        	try {
-				directory.createNewFile();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-        	
-        }
-	}
-	
 	public String findAlias(String alias,String other){
-		String directoryName = "Melter-Plugins";
-		File directory = new File("Melter-Plugins");
+		String directoryName = "Custom-Plugins";
+		File directory = new File("Custom-Plugins");
         String value = "0";
         boolean aliasFound = false;
        
@@ -250,57 +230,5 @@ public class ModdedMelterRecipeLoader
         
         
     }
-	
-	public void createVanillaandMinestrappolationAlias(){
-		File vanilla = new File("Melter-Plugins/alias_Vanilla.txt");
-		File minestrap = new File("Melter-Plugins/alias_Minestrappolation.txt");
-		
-			try {
-				if(!vanilla.exists()){
-					vanilla.createNewFile();
-					
-					
-					
-				}
-				if(!minestrap.exists()){
-					minestrap.createNewFile();
-				}
-				
-				FileWriter fw = new FileWriter(vanilla.getAbsoluteFile(),true);
-				BufferedWriter bw = new BufferedWriter(fw);
-				
-				FileWriter fw2 = new FileWriter(minestrap.getAbsoluteFile(),true);
-				BufferedWriter bw2 = new BufferedWriter(fw2);
-			
-				BufferedReader br = new BufferedReader(new FileReader(vanilla));
-				BufferedReader br2 = new BufferedReader(new FileReader(minestrap));
-				
-				if(br.readLine() == null){
-					for(int i = 0; i < aliasname.length; i++){
-						bw.write(aliasname[i]+"="+aliasvalue[i]);
-						bw.newLine();
-					}
-				}
-				if(br2.readLine() == null){
-					for(int i = 0; i < minename.length; i++){
-						bw2.write(minename[i]+"="+minevalue[i]);
-						bw2.newLine();
-					}
-				}
-				
-				
-				
-				bw.close();
-				bw2.close();
-			
-				System.out.println("Minestrappolation: Created alias files succesfully");
-		
-			
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		
-	}
 
 }

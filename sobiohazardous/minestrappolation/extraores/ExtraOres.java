@@ -2,6 +2,8 @@ package sobiohazardous.minestrappolation.extraores;
 
 import java.util.EnumSet;
 
+import sobiohazardous.minestrappolation.api.customrecipes.CustomSmeltingLoader;
+import sobiohazardous.minestrappolation.api.customrecipes.PluginFolder;
 import sobiohazardous.minestrappolation.extraores.bridge.EOBridgeRecipes;
 import sobiohazardous.minestrappolation.extraores.entity.EntityGrenade;
 import sobiohazardous.minestrappolation.extraores.entity.EntityGrenadeImpact;
@@ -66,6 +68,8 @@ public class ExtraOres
 	@SidedProxy(clientSide = "sobiohazardous.minestrappolation.extraores.proxy.ClientProxy", serverSide = "sobiohazardous.minestrappolation.extraores.proxy.CommonProxy")
     public static CommonProxy proxy;
 	
+	CustomSmeltingLoader smelter = new CustomSmeltingLoader();
+	PluginFolder plug = new PluginFolder();
 	public static int plateRenderId = RenderingRegistry.getNextAvailableRenderId();
 
 	@Instance("ExtraOres")
@@ -83,6 +87,9 @@ public class ExtraOres
 		EOConfig.initilize(evt);
 	    	    
 		//Lib adding
+		plug.createPluginFolder();
+		plug.createVanillaandMinestrappolationAlias();
+		smelter.loadCustomFuels();
 		EOBlockManager.addBlocks();
 		EOItemManager.addItems();
         EONameManager.loadNames();
