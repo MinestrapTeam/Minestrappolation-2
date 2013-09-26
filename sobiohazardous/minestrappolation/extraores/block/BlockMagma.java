@@ -22,7 +22,7 @@ public class BlockMagma extends BlockFluidClassic
     public BlockMagma(int par1) 
     {
     	super(par1, ExtraOres.eoFluid, Material.lava);
-   
+    	this.setLightValue(.5F);
      }
     
     @Override

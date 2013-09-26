@@ -348,7 +348,7 @@ public class EOBlockManager {
 		plutoniumInsulated = (new BlockPlutoniumInsulated(EOConfig.plutoniumInsulatedId, Material.iron)).setHardness(6F).setResistance(9F).setCreativeTab(tabOresBlocks).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("plutoniumInsulated");
 		uraniumInsulated = (new BlockUraniumInsulated(EOConfig.uraniumInsulatedId, Material.iron)).setHardness(6F).setResistance(9F).setCreativeTab(tabOresBlocks).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("uraniumInsulated");      
 	
-		magma = new BlockMagma(EOConfig.magmaId).setHardness(100.0F).setLightOpacity(3).setUnlocalizedName("magma");
+		magma = new BlockMagma(EOConfig.magmaId).setHardness(100.0F).setLightOpacity(3).setUnlocalizedName("magma").setLightValue(2.5F);
 	}
 	
 	public static void addSlabs()

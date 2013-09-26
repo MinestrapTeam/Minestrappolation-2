@@ -19,12 +19,13 @@ public class ModdedMelterRecipeLoader
 {
 	public static int maxCustomRecipes = 2000;
 	public static int aliasFilesFound;
+	public static int maxAfterStringFoundValue = 19;
 	
-	public static String[] aliasname = {"stone","dirt","cobblestone","planks","sand","gravel","goldore","ironore","coalore","wood","glass","lapisore","sandstone"};
-	public static int[] aliasvalue = {1,3,4,5,12,13,14,15,16,17,20,21,24};
+	public static String[] aliasname = {"stone","dirt","cobblestone","planks","sand","gravel","goldore","ironore","coalore","wood","glass","lapisore","sandstone","lavabucket","waterbucket","bricks","goldblock","ironblock","diamondblock","diamondore","snow"};
+	public static int[] aliasvalue = {1,3,4,5,12,13,14,15,16,17,20,21,24,327,326,45,41,42,57,56,80};
 	
-	public static String[] minename = {"test"};
-	public static int[] minevalue = {3};
+	public static String[] minename = {"radiantore"};
+	public static int[] minevalue = {3054};
 	
 	public static int[] ids = new int[maxCustomRecipes];
 	public static int[] itemids = new int[maxCustomRecipes];
@@ -95,7 +96,7 @@ public class ModdedMelterRecipeLoader
 			 	{
 			 		line = line.toLowerCase().replaceAll(" ", "");
 			 		if(line.contains("input=")){
-						input = findAlias(line.substring(line.indexOf("input=")+6,line.lastIndexOf(";", line.indexOf("input=")+20)),line.substring(line.indexOf("input=")+6,line.lastIndexOf(";", line.indexOf("input=")+20)));
+						input = findAlias(line.substring(line.indexOf("input=")+6,line.lastIndexOf(";", line.indexOf("input=")+maxAfterStringFoundValue)),line.substring(line.indexOf("input=")+6,line.lastIndexOf(";", line.indexOf("input=")+maxAfterStringFoundValue)));
 					}else
 					if(line.contains("input=") == false && line.isEmpty() == false){
 						input = "1";
@@ -103,7 +104,7 @@ public class ModdedMelterRecipeLoader
 					}
 					
 					if(line.contains("output=")){
-						output = findAlias(line.substring(line.indexOf("output=")+7,line.lastIndexOf(";", line.indexOf("output=")+20)),line.substring(line.indexOf("output=")+7,line.lastIndexOf(";", line.indexOf("output=")+20)));
+						output = findAlias(line.substring(line.indexOf("output=")+7,line.lastIndexOf(";", line.indexOf("output=")+maxAfterStringFoundValue)),line.substring(line.indexOf("output=")+7,line.lastIndexOf(";", line.indexOf("output=")+maxAfterStringFoundValue)));
 					}else
 					if(line.contains("output=") == false &&line.isEmpty() == false){
 						output = "353";

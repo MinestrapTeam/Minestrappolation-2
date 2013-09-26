@@ -19,6 +19,7 @@ import sobiohazardous.minestrappolation.extraores.handler.ServerPacketHandler;
 import sobiohazardous.minestrappolation.extraores.handler.PlayerTickHandler;
 import sobiohazardous.minestrappolation.extraores.lib.EOBlockManager;
 import sobiohazardous.minestrappolation.extraores.lib.EOBlockRegister;
+import sobiohazardous.minestrappolation.extraores.lib.EOBucketHandler;
 import sobiohazardous.minestrappolation.extraores.lib.EOConfig;
 import sobiohazardous.minestrappolation.extraores.lib.EOFuelHandler;
 import sobiohazardous.minestrappolation.extraores.lib.EOItemManager;
@@ -29,6 +30,7 @@ import sobiohazardous.minestrappolation.extraores.tileentity.TileEntityMelter;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidContainerRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -75,8 +77,9 @@ public class ExtraOres
 	@Mod.EventHandler
     public void myNewPreLoadMethod(FMLPreInitializationEvent evt)	
 	{    
+		MinecraftForge.EVENT_BUS.register(new EOBucketHandler());
 	    Block.bedrock.setHardness(80F);
-	    eoFluid = new EOFluids("EO Fluid").setLuminosity(2).setViscosity(3000).setDensity(3);
+	    eoFluid = new EOFluids("EO Fluid").setViscosity(6500).setDensity(3);
 		EOConfig.initilize(evt);
 	    	    
 		//Lib adding
@@ -92,6 +95,7 @@ public class ExtraOres
 		}
 		EOBlockRegister.registerBlocks();
 		EOItemManager.setHarvestLevels();
+		 FluidContainerRegistry.registerFluidContainer(eoFluid, new ItemStack(EOItemManager.bucketMagma), new ItemStack(Item.bucketEmpty));
 		EntityRegistry.registerModEntity(EntityInstantExplosion.class, "Plutonium", 4, this, 350, 5, false);
 		EntityRegistry.registerModEntity(EntityGrenade.class, "Grenade", 2, this, 40, 3, true);
 		EntityRegistry.registerModEntity(EntityNukePrimed.class, "NukePrimed", 3, this, 350, 5, false);
@@ -106,7 +110,6 @@ public class ExtraOres
     {		
 		
         proxy.registerRenderThings(); //this allows seperate renderings for server and client
-        FluidContainerRegistry.registerFluidContainer(eoFluid, new ItemStack(EOItemManager.bucketMagma), new ItemStack(Item.bucketEmpty));
         TickRegistry.registerTickHandler(new ClientTickHandler(EnumSet.of(TickType.CLIENT)), Side.CLIENT);
         TickRegistry.registerTickHandler(new PlayerTickHandler(EnumSet.of(TickType.PLAYER)), Side.SERVER);
 

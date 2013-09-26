@@ -1,5 +1,6 @@
 package sobiohazardous.minestrappolation.api.item;
 
+import sobiohazardous.minestrappolation.extraores.lib.EOItemManager;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -17,6 +18,7 @@ public class MItemPickaxe extends MItemTool
     public MItemPickaxe(int par1, EnumToolMaterial par2EnumToolMaterial)
     {
         super(par1, 2.0F, par2EnumToolMaterial, blocksEffectiveAgainst);
+        this.setCreativeTab(EOItemManager.tabOresItems);
     }
 
     /**

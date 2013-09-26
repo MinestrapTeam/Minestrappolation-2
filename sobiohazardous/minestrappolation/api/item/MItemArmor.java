@@ -1,6 +1,7 @@
 package sobiohazardous.minestrappolation.api.item;
 
 import sobiohazardous.minestrappolation.extraores.ExtraOres;
+import sobiohazardous.minestrappolation.extraores.lib.EOItemManager;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.EnumArmorMaterial;
@@ -17,6 +18,7 @@ public class MItemArmor extends ItemArmor
 		super(par1, par2EnumArmorMaterial, par3, par4);
 		this.layer1 = layer1;
 		this.layer2 = layer2;
+		this.setCreativeTab(EOItemManager.tabOresItems);
 	}
 
 	public void registerIcons(IconRegister r)

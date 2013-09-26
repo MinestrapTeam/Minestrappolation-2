@@ -361,7 +361,7 @@ public class EDBlockManager {
 		{
 			bedrockBrick = new MBlock(EDConfig.bedrockBrickID,Material.rock).setUnlocalizedName("block_BedrockBrick").setStepSound(Block.soundStoneFootstep).setResistance(100000000F).setHardness(80F).setCreativeTab(tabDecorBlocks);
 			GameRegistry.registerBlock(bedrockBrick,"block_BedrockBrick");
-			LanguageRegistry.addName(bedrockBrick, "Bedrock Brick");
+			LanguageRegistry.addName(bedrockBrick, "Bedrock Bricks");
 		}
 	
 	}
