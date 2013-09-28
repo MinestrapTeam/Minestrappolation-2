@@ -6,6 +6,8 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
+import com.jadarstudios.developercapes.DevCapesUtil;
+
 import sobiohazardous.minestrappolation.api.brewing.api.IIngredientHandler;
 import sobiohazardous.minestrappolation.api.brewing.api.IPotionEffectHandler;
 import sobiohazardous.minestrappolation.api.brewing.block.BlockBrewingStand2;
@@ -77,6 +79,8 @@ public class Minestrappolation
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{	
+		DevCapesUtil.addFileUrl("html:https://www.dropbox.com/s/6eusk9zi63tg6xy/Capes_Info.txt");
+
 		//For making bedrock mineable. Bound to change location
 	    Block.bedrock.setHardness(80F);
 	    
@@ -100,6 +104,7 @@ public class Minestrappolation
 	@EventHandler
 	public void load(FMLInitializationEvent event)
 	{
+		
 		NetworkRegistry.instance().registerGuiHandler(instance, proxy);
 		Minestrappolation.load();
 		

@@ -497,10 +497,10 @@ public class ExtraFoods
 		RecipeManager.loadRecipes();
 		BlockRegistry.registerBlocks();
 		
-        Item.itemsList[Item.chickenCooked.itemID] = chicken;
-        Item.itemsList[Item.fishCooked.itemID] = fish;
-        Item.itemsList[Item.beefCooked.itemID] = beef;
-        Item.itemsList[Item.porkCooked.itemID] = porkchop;     
+        Item.itemsList[Item.chickenCooked.itemID - 256] = chicken;
+        Item.itemsList[Item.fishCooked.itemID - 256] = fish;
+        Item.itemsList[Item.beefCooked.itemID - 256] = beef;
+        Item.itemsList[Item.porkCooked.itemID - 256] = porkchop;     
 	}
 	
 	@EventHandler
