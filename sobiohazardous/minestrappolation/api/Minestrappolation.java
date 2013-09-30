@@ -128,6 +128,7 @@ public class Minestrappolation
 		Item.itemsList[Item.glassBottle.itemID - 256] = null;
 		glassBottle2 = (ItemGlassBottle2) (new ItemGlassBottle2(118)).setUnlocalizedName("glassBottle");
 		
+		NetworkRegistry.instance().registerConnectionHandler(new ConnectionHandler());
 		MinecraftForge.EVENT_BUS.register(this);
 		ModLoader.addDispenserBehavior(potion2, new DispenserBehaviorPotion2());
 		proxy.registerRenderInformation();
