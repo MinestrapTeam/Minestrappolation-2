@@ -63,4 +63,26 @@ public class MinestrappolationVersionChecker {
 			return version;
 		
 	}
+	
+	public static String getMOTD(String urlToCheck){
+		String motd = "";
+		try{
+			URL url = new URL(urlToCheck);
+			BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
+			String str;
+			
+			
+			while((str = in.readLine()) !=null){			
+				if(str.contains("motd=")){
+					motd = str.substring(5);
+				}else{
+					System.err.println("Version file not found at: "+urlToCheck);
+				}
+			}
+			in.close();
+		}catch(IOException e){
+			
+		}
+			return motd;
+	}
 }
