@@ -29,7 +29,7 @@ public class EntityNukePrimed extends Entity
         this.motionX = (double)(-((float)Math.sin((double)f)) * 0.02F);
         this.motionY = 0.20000000298023224D;
         this.motionZ = (double)(-((float)Math.cos((double)f)) * 0.02F);
-        this.fuse = 120;
+        this.fuse = 80;
         this.prevPosX = par2;
         this.prevPosY = par4;
         this.prevPosZ = par6;
@@ -93,7 +93,7 @@ public class EntityNukePrimed extends Entity
 
     private void explode()
     {
-        float f = 4.0F * 5;
+        float f = 4.0F*8;
         this.worldObj.createExplosion(this, this.posX, this.posY, this.posZ, f, true);
     }
 
@@ -127,3 +127,4 @@ public class EntityNukePrimed extends Entity
         return this.tntPlacedBy;
     }
 }
+
