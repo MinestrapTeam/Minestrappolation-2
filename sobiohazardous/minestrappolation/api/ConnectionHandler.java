@@ -11,11 +11,17 @@ import cpw.mods.fml.common.network.Player;
 
 public class ConnectionHandler implements IConnectionHandler {
 
+	String url = "https://raw.github.com/werty1124/VersionChecker/master/version.txt";
 	@Override
 	public void playerLoggedIn(Player player, NetHandler netHandler,
 			INetworkManager manager) {
-		netHandler.getPlayer().addChatMessage(MinestrappolationVersionChecker.checkIfCurrent("1.4", "https://raw.github.com/werty1124/VersionChecker/master/version.txt","You are using a outdated version. Version "+ MinestrappolationVersionChecker.getVersion("https://raw.github.com/werty1124/VersionChecker/master/version.txt")+" of Minestrappolation is out!"));
-		netHandler.getPlayer().addChatMessage(EnumChatFormatting.AQUA+MinestrappolationVersionChecker.getMOTD(("https://raw.github.com/werty1124/VersionChecker/master/version.txt")));
+		if(MinestrappolationVersionChecker.doesFileExist(url)){
+			netHandler.getPlayer().addChatMessage(MinestrappolationVersionChecker.checkIfCurrent("1.4", url,"You are using a outdated version. Version "+ MinestrappolationVersionChecker.getVersion(url)+" of Minestrappolation is out!"));
+			netHandler.getPlayer().addChatMessage(MinestrappolationVersionChecker.getMOTDColor(url)+MinestrappolationVersionChecker.getMOTD((url)));
+		}else{
+			netHandler.getPlayer().addChatMessage(EnumChatFormatting.RED+"Could not find version file or you may not be connected to the internet");
+		}
+		
 		
 	}
 
