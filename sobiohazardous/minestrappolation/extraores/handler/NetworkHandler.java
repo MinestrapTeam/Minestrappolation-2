@@ -5,6 +5,7 @@ import net.minecraft.network.NetLoginHandler;
 import net.minecraft.network.packet.NetHandler;
 import net.minecraft.network.packet.Packet1Login;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.ChatMessageComponent;
 import net.minecraft.util.EnumChatFormatting;
 import cpw.mods.fml.common.network.IConnectionHandler;
 import cpw.mods.fml.common.network.Player;
@@ -17,8 +18,9 @@ public class NetworkHandler implements IConnectionHandler
 	{
 		if(netHandler.getPlayer().username.equals("SoBiohazardous") || netHandler.getPlayer().username.equals("Delocuro"))
 		{
-			netHandler.getPlayer().addChatMessage(EnumChatFormatting.DARK_GREEN + "[Minestrappolation] " + EnumChatFormatting.RED + "A Minestrappolation developer has arrived!");
+			//netHandler.getPlayer().addChatMessage(EnumChatFormatting.DARK_GREEN + "[Minestrappolation] " + EnumChatFormatting.RED + "A Minestrappolation developer has arrived!");
 			//TODO Make it so server says above line when devs join.
+			MinecraftServer.getServer().getConfigurationManager().sendChatMsg(ChatMessageComponent.createFromText(EnumChatFormatting.DARK_GREEN + "[Minestrappolation] " + EnumChatFormatting.RED + "A Minestrappolation developer has arrived!"));
 		}
 		
 	}

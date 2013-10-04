@@ -20,6 +20,6 @@ public final class TabEFBlocks extends CreativeTabs
    
         public String getTranslatedTabLabel()
         {
-         return "Crazy Foods - Blocks";
+         return "Extrapolated Foods - Blocks";
         }
 }
