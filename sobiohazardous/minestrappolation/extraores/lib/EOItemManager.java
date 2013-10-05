@@ -340,7 +340,7 @@ public class EOItemManager
 	
 	public static Item meuroditePlateItem;
 	
-	public static Item bucketMagma;
+	//public static Item bucketMagma;
 	
 	public static void addItems()
 	{
@@ -595,7 +595,7 @@ public class EOItemManager
 		BPDiamondPants = (new MItemArmor(EOConfig.BPDiamondPantsId,MaterialBPDiamond, ExtraOres.proxy.addArmor("BPdiamond"), 2, "diamond_plated_1", "diamond_plated_2")).setUnlocalizedName("item_BronzePlatedDiamondLeggings");
 		BPDiamondBoots = (new MItemArmor(EOConfig.BPDiamondBootsId,MaterialBPDiamond, ExtraOres.proxy.addArmor("BPdiamond"), 3, "diamond_plated_1", "diamond_plated_2")).setUnlocalizedName("item_BronzePlatedDiamondBoots");		
 
-		bucketMagma = new EOItemBucket(EOConfig.bucketMagmaId, ExtraOres.eoFluid.getBlockID()).setUnlocalizedName("item_MagmaBucket");
+		//bucketMagma = new EOItemBucket(EOConfig.bucketMagmaId, ExtraOres.eoFluid.getBlockID()).setUnlocalizedName("item_MagmaBucket");
 	}
 	
 	public void addItemsToChests()

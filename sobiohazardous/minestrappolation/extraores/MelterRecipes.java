@@ -44,15 +44,15 @@ ModdedMelterRecipeLoader meltr = new ModdedMelterRecipeLoader();
 		addSmelting(80, new ItemStack(Item.bucketWater,1,0), 0.6F);
 		addSmelting(Block.ice.blockID, new ItemStack(Item.bucketWater.itemID,1,0), 0.7F);
 		addSmelting(Block.cobblestoneWall.blockID, new ItemStack(Item.bucketLava.itemID,1,0), 0.7F);
-		addSmelting(Block.obsidian.blockID, new ItemStack(EOItemManager.bucketMagma.itemID,1,0), 0.7F);
-		addSmelting(Block.bedrock.blockID, new ItemStack(EOItemManager.bucketMagma.itemID,1,0), 0.7F);
+		//addSmelting(Block.obsidian.blockID, new ItemStack(EOItemManager.bucketMagma.itemID,1,0), 0.7F);
+		//addSmelting(Block.bedrock.blockID, new ItemStack(EOItemManager.bucketMagma.itemID,1,0), 0.7F);
 		addSmelting(EOBlockManager.Granite.blockID, new ItemStack(Item.bucketLava.itemID,1,0), 0.7F);
 	
 		
 		
 		if(ModLoader.isModLoaded("ExtraDecor")){
-			addSmelting(EDBlockManager.obsidianTile.blockID, new ItemStack(EOItemManager.bucketMagma.itemID,1,0), 0.7F);
-			addSmelting(EDBlockManager.bedrockBrick.blockID, new ItemStack(EOItemManager.bucketMagma.itemID,1,0), 0.7F);
+			//addSmelting(EDBlockManager.obsidianTile.blockID, new ItemStack(EOItemManager.bucketMagma.itemID,1,0), 0.7F);
+			//addSmelting(EDBlockManager.bedrockBrick.blockID, new ItemStack(EOItemManager.bucketMagma.itemID,1,0), 0.7F);
 			addSmelting(EDBlockManager.snowBrick.blockID, new ItemStack(Item.bucketWater.itemID,1,0), 0.7F);
 			addSmelting(EDBlockManager.stoneBlockRefined.blockID, new ItemStack(Item.bucketLava.itemID,1,0), 0.7F);
 			addSmelting(EDBlockManager.stonePillar.blockID, new ItemStack(Item.bucketLava.itemID,1,0), 0.7F);

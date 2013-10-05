@@ -380,9 +380,9 @@ public class EORecipeManager
         		{
         	"Z", "Z", Character.valueOf('Z'), EOBlockManager.SmoothQuartzite
         		});
-        GameRegistry.addRecipe(new ItemStack(EOBlockManager.ChiseledQuartzite, 4), new Object[]
+        GameRegistry.addRecipe(new ItemStack(EOBlockManager.ChiseledQuartzite, 1), new Object[]
         		{
-        	"ZZ", "ZZ", Character.valueOf('Z'), EOBlockManager.SmoothQuartzite
+        	"Z", "Z", Character.valueOf('Z'), EOBlockManager.PinkQuartzSingleSlab
         		});
         GameRegistry.addRecipe(new ItemStack(EOBlockManager.SmoothQuartzTile, 8), new Object[]
         		{
@@ -602,7 +602,7 @@ public class EORecipeManager
 		
 		GameRegistry.addRecipe(new ItemStack(EOItemManager.grenade, 1), new Object[]
 				{
-			"SUS", "SGS", "SPS", Character.valueOf('P'), EOItemManager.Plutonium, Character.valueOf('S'), EOItemManager.SteelPlateItem, Character.valueOf('U'), EOItemManager.Uranium, Character.valueOf('G'), Item.gunpowder
+			"SUS", "PGP", "SUS", Character.valueOf('P'), EOItemManager.Plutonium, Character.valueOf('S'), EOItemManager.SteelPlateItem, Character.valueOf('U'), EOItemManager.Uranium, Character.valueOf('G'), Item.gunpowder
 				});
 		GameRegistry.addRecipe(new ItemStack(EOBlockManager.nuke, 1), new Object[]
 				{
@@ -1116,9 +1116,9 @@ public class EORecipeManager
         		{
         	"Z", "Z", Character.valueOf('Z'), EOBlockManager.SmoothRadiantQuartz
         		});
-        GameRegistry.addRecipe(new ItemStack(EOBlockManager.ChiseledRadiantQuartz, 4), new Object[]
+        GameRegistry.addRecipe(new ItemStack(EOBlockManager.ChiseledRadiantQuartz, 1), new Object[]
         		{
-        	"ZZ", "ZZ", Character.valueOf('Z'), EOBlockManager.SmoothRadiantQuartz
+        	"Z", "Z", Character.valueOf('Z'), EOBlockManager.RadiantQuartzSingleSlab
         		});
         
         GameRegistry.addSmelting(EOBlockManager.SmoothRadiantQuartz.blockID, new ItemStack(EOBlockManager.RadiantQuartz, 1), 0.15F);

@@ -21,7 +21,6 @@ import sobiohazardous.minestrappolation.extraores.handler.ServerPacketHandler;
 import sobiohazardous.minestrappolation.extraores.handler.PlayerTickHandler;
 import sobiohazardous.minestrappolation.extraores.lib.EOBlockManager;
 import sobiohazardous.minestrappolation.extraores.lib.EOBlockRegister;
-import sobiohazardous.minestrappolation.extraores.lib.EOBucketHandler;
 import sobiohazardous.minestrappolation.extraores.lib.EOConfig;
 import sobiohazardous.minestrappolation.extraores.lib.EOFuelHandler;
 import sobiohazardous.minestrappolation.extraores.lib.EOItemManager;
@@ -81,7 +80,7 @@ public class ExtraOres
 	@Mod.EventHandler
     public void myNewPreLoadMethod(FMLPreInitializationEvent evt)	
 	{    
-		MinecraftForge.EVENT_BUS.register(new EOBucketHandler());
+		//MinecraftForge.EVENT_BUS.register(new EOBucketHandler());
 	    Block.bedrock.setHardness(80F);
 	    eoFluid = new EOFluids("EO Fluid").setViscosity(6500).setDensity(3);
 		EOConfig.initilize(evt);
@@ -102,7 +101,7 @@ public class ExtraOres
 		}
 		EOBlockRegister.registerBlocks();
 		EOItemManager.setHarvestLevels();
-		 FluidContainerRegistry.registerFluidContainer(eoFluid, new ItemStack(EOItemManager.bucketMagma), new ItemStack(Item.bucketEmpty));
+		// FluidContainerRegistry.registerFluidContainer(eoFluid, new ItemStack(EOItemManager.bucketMagma), new ItemStack(Item.bucketEmpty));
 		EntityRegistry.registerModEntity(EntityInstantExplosion.class, "Plutonium", 4, this, 350, 5, false);
 		EntityRegistry.registerModEntity(EntityGrenade.class, "Grenade", 2, this, 40, 3, true);
 		EntityRegistry.registerModEntity(EntityNukePrimed.class, "NukePrimed", 6, this, 350, 5, false);

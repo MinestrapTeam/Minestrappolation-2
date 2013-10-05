@@ -1,4 +1,5 @@
-package sobiohazardous.minestrappolation.extraores.lib;
+
+/*package sobiohazardous.minestrappolation.extraores.lib;
 
 import sobiohazardous.minestrappolation.extraores.ExtraOres;
 import net.minecraft.item.ItemStack;
@@ -25,12 +26,15 @@ public class EOBucketHandler {
 	public ItemStack fillCustomBucket(World world, MovingObjectPosition pos) {
 		int blockID = world.getBlockId(pos.blockX, pos.blockY, pos.blockZ);
 
+		
 		if ((blockID == EOBlockManager.magma.blockID)
 				&& world.getBlockMetadata(pos.blockX, pos.blockY, pos.blockZ) == 0) {
 			world.setBlock(pos.blockX, pos.blockY, pos.blockZ, 0);
 			return new ItemStack(EOItemManager.bucketMagma);
 		} else
 			return null;
+			
 	}
 
 } 
+*/
