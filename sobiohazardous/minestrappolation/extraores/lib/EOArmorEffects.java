@@ -36,12 +36,12 @@ public class EOArmorEffects
 			  {
 				  if (helmet.getItem() == EOItemManager.ToriteHelmet && chest.getItem() == EOItemManager.ToriteChest && pants.getItem() == EOItemManager.ToritePants && boots.getItem() == EOItemManager.ToriteBoots) 
 			  	{	
-				  	player.addPotionEffect(new PotionEffect(Potion.regeneration.id, 80, 1,true));
+				  	player.addPotionEffect(new PotionEffect(Potion.regeneration.id, 80, 0,true));
 			  	}
 			  
 			  	if (helmet.getItem() == EOItemManager.BPToriteHelmet && chest.getItem() == EOItemManager.BPToriteChest && pants.getItem() == EOItemManager.BPToritePants && boots.getItem() == EOItemManager.BPToriteBoots) 
 			  	{	
-				  	player.addPotionEffect(new PotionEffect(Potion.regeneration.id, 80, 1,true));
+				  	player.addPotionEffect(new PotionEffect(Potion.regeneration.id, 80, 0,true));
 			  	}
 			  	tick = 0;
 			  }

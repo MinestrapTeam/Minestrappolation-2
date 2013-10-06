@@ -2,14 +2,19 @@ package sobiohazardous.minestrappolation.extraores.entity;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+
+import java.util.Iterator;
 import java.util.List;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IProjectile;
+import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.EnumMovingObjectType;
 import net.minecraft.util.MathHelper;
@@ -195,7 +200,21 @@ public abstract class EntityThrowableExplosive extends Entity implements IProjec
     	{
 	    	exploded = true;
 	        worldObj.createExplosion(null, posX, posY, posZ, 4F, true);
+	        addPotionEffects();
     	}
+    }
+    
+    public void addPotionEffects()
+    {
+    	AxisAlignedBB axisalignedbb = this.boundingBox.expand(4.0D, 2.0D, 4.0D);
+        List list = this.worldObj.getEntitiesWithinAABB(EntityLivingBase.class, axisalignedbb);
+        Iterator var6 = list.iterator();
+        
+        while (var6.hasNext())
+        {
+    	    EntityLivingBase living = (EntityLivingBase)var6.next();
+            living.addPotionEffect(new PotionEffect(Potion.poison.getId(),200,10)); 
+        }
     }
 
     /**
