@@ -1,5 +1,3 @@
 version=1.4
-
 motd=The MOTD
-
 motdcolor=green
