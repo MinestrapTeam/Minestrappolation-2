@@ -388,7 +388,7 @@ public class EOItemManager
 		TitaniumIngot = (new EOItem(EOConfig.titaniumIngotId)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumIngot");
 		
 		TitaniumSword = (new MItemSword(EOConfig.titaniumSwordId, toolMaterialTitanium, false)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumSword");
-		TitaniumPickaxe = (new MItemPickaxe(EOConfig.titaniumPickaxeId, toolMaterialTitanium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumPickaxe");
+		TitaniumPickaxe = (new ItemTitaniumPickaxe(EOConfig.titaniumPickaxeId, toolMaterialTitanium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumPickaxe");
 		TitaniumShovel = (new MItemShovel(EOConfig.titaniumShovelId, toolMaterialTitanium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumShovel");
 		TitaniumHoe = (new MItemHoe(EOConfig.titaniumHoeId,toolMaterialTitanium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumHoe");
 		TitaniumAxe = (new MItemAxe(EOConfig.titaniumAxeId,toolMaterialTitanium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumAxe");
@@ -447,7 +447,7 @@ public class EOItemManager
 		BPMeuroditeBoots = (new MItemArmor(EOConfig.BPmeuroditeBootsId, MaterialBPMeurodite, ExtraOres.proxy.addArmor("BPMeurodite"),3, "meurodite_plated_1", "meurodite_plated_2")).setUnlocalizedName("item_BronzePlatedMeuroditeBoots");
 		
 		BPTitaniumSword = (new MItemSword(EOConfig.BPTitaniumSwordId, toolMaterialBPTitanium, false)).setUnlocalizedName("item_BronzePlatedTitaniumSword");
-		BPTitaniumPickaxe = (new MItemPickaxe(EOConfig.BPTitaniumPickaxeId, toolMaterialBPTitanium)).setUnlocalizedName("item_BronzePlatedTitaniumPickaxe");
+		BPTitaniumPickaxe = (new ItemTitaniumPickaxe(EOConfig.BPTitaniumPickaxeId, toolMaterialBPTitanium)).setUnlocalizedName("item_BronzePlatedTitaniumPickaxe");
 		BPTitaniumShovel = (new MItemShovel(EOConfig.BPTitaniumShovelId, toolMaterialBPTitanium)).setUnlocalizedName("item_BronzePlatedTitaniumShovel");
 		BPTitaniumHoe = (new MItemHoe(EOConfig.BPTitaniumHoeId,toolMaterialBPTitanium)).setUnlocalizedName("item_BronzePlatedTitaniumHoe");
 		BPTitaniumAxe = (new MItemAxe(EOConfig.BPTitaniumAxeId,toolMaterialBPTitanium)).setUnlocalizedName("item_BronzePlatedTitaniumAxe");

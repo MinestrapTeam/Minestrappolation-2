@@ -1,0 +1,5 @@
+developer=https://www.dropbox.com/s/6zzr4t0rwsdnoe4/cape_dev.png
+developer=SoBiohazardous
+developer=Delocuro
+developer=triplg3
+developer=thewerty1124

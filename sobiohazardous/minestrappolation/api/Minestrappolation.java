@@ -79,10 +79,6 @@ public class Minestrappolation
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{	
-		DevCapesUtil.addFileUrl("html:https://www.dropbox.com/s/6eusk9zi63tg6xy/Capes_Info.txt");
-
-		//For making bedrock mineable. Bound to change location
-	    Block.bedrock.setHardness(80F);
 	    
 		expandPotionList();
 
@@ -104,7 +100,8 @@ public class Minestrappolation
 	@EventHandler
 	public void load(FMLInitializationEvent event)
 	{
-		
+		DevCapesUtil.addFileUrl("https://www.dropbox.com/s/fwx9apgnkz37p5o/Capes_Info.txt");	    
+		Block.bedrock.setHardness(80F);
 		NetworkRegistry.instance().registerGuiHandler(instance, proxy);
 		Minestrappolation.load();
 		
