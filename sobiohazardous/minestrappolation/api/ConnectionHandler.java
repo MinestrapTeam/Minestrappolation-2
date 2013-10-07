@@ -11,7 +11,7 @@ import cpw.mods.fml.common.network.Player;
 
 public class ConnectionHandler implements IConnectionHandler {
 
-	String url = "https://raw.github.com/sobiohazardous/minestrappolation-recode/info.text";
+	String url = "https://raw.github.com/SoBiohazardous/Minestrappolation-Recode/master/info.txt";
 	@Override
 	public void playerLoggedIn(Player player, NetHandler netHandler,
 			INetworkManager manager) {
