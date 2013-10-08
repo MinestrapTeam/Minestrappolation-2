@@ -130,6 +130,9 @@ public class MinestrappolationVersionChecker {
 		if(motd.equals("dark green")){
 			return EnumChatFormatting.DARK_GREEN;
 		}
+		if(motd.equals("blue")){
+			return EnumChatFormatting.BLUE;
+		}
 		return EnumChatFormatting.WHITE;
 			
 	}
