@@ -15,14 +15,7 @@ public class ConnectionHandler implements IConnectionHandler {
 	@Override
 	public void playerLoggedIn(Player player, NetHandler netHandler,
 			INetworkManager manager) {
-		if(MinestrappolationVersionChecker.doesFileExist(url)){
-			netHandler.getPlayer().addChatMessage(MinestrappolationVersionChecker.checkIfCurrent("1.4", url,"You are using a outdated version. Version "+ MinestrappolationVersionChecker.getVersion(url)+" of Minestrappolation is out!"));
-			netHandler.getPlayer().addChatMessage(MinestrappolationVersionChecker.getMOTDColor(url)+MinestrappolationVersionChecker.getMOTD((url)));
-		}else{
-			netHandler.getPlayer().addChatMessage(EnumChatFormatting.RED+"Could not find version file or you may not be connected to the internet");
-		}
-		
-		
+					
 	}
 
 	@Override
@@ -55,7 +48,12 @@ public class ConnectionHandler implements IConnectionHandler {
 	@Override
 	public void clientLoggedIn(NetHandler clientHandler,
 			INetworkManager manager, Packet1Login login) {
-		// TODO Auto-generated method stub
+		if(MinestrappolationVersionChecker.doesFileExist(url)){
+			clientHandler.getPlayer().addChatMessage(MinestrappolationVersionChecker.checkIfCurrent("1.4", url,"You are using a outdated version. Version "+ MinestrappolationVersionChecker.getVersion(url)+" of Minestrappolation is out!"));
+			clientHandler.getPlayer().addChatMessage(MinestrappolationVersionChecker.getMOTDColor(url)+MinestrappolationVersionChecker.getMOTD((url)));
+		}else{
+			clientHandler.getPlayer().addChatMessage(EnumChatFormatting.RED+"Could not find version file or you may not be connected to the internet");
+		}
 		
 	}
 
