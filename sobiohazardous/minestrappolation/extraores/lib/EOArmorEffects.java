@@ -28,7 +28,7 @@ public class EOArmorEffects
 				  player.addPotionEffect(new PotionEffect(Potion.fireResistance.id, 80, 0,true));
 			  }
 			 
-			  if(tick == 20)
+			  if(tick == 40)
 			  {
 				  	if (helmet.getItem() == EOItemManager.ToriteHelmet || helmet.getItem() == EOItemManager.BPToriteHelmet && chest.getItem() == EOItemManager.ToriteChest || chest.getItem() == EOItemManager.BPToriteChest  && pants.getItem() == EOItemManager.ToritePants || pants.getItem() == EOItemManager.BPToritePants && boots.getItem() == EOItemManager.ToriteBoots || boots.getItem() == EOItemManager.BPToriteBoots) 
 				  	{	
