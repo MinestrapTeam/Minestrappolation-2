@@ -228,4 +228,58 @@ public BlockUraniumOre(int par1, Material par3Material)
                 	    //varEntityLiving.addPotionEffect(new PotionEffect(Potion.poison.getId(),200,10));          
                     }
         }
+        
+        public void onBlockClicked(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer)
+        {
+            this.spawnParticle(par1World, par2, par3, par4);
+            super.onBlockClicked(par1World, par2, par3, par4, par5EntityPlayer);
+        }
+        
+        public void spawnParticle(World par1World, int par2, int par3, int par4)
+        {
+        	Random var5 = par1World.rand;
+            double var6 = 0.0625D;
+
+            for (int var8 = 0; var8 < 6; ++var8)
+            {
+                double var9 = (double)((float)par2 + var5.nextFloat());
+                double var11 = (double)((float)par3 + var5.nextFloat());
+                double var13 = (double)((float)par4 + var5.nextFloat());
+
+                if (var8 == 0 && !par1World.isBlockOpaqueCube(par2, par3 + 1, par4))
+                {
+                    var11 = (double)(par3 + 1) + var6;
+                }
+
+                if (var8 == 1 && !par1World.isBlockOpaqueCube(par2, par3 - 1, par4))
+                {
+                    var11 = (double)(par3 + 0) - var6;
+                }
+
+                if (var8 == 2 && !par1World.isBlockOpaqueCube(par2, par3, par4 + 1))
+                {
+                    var13 = (double)(par4 + 1) + var6;
+                }
+
+                if (var8 == 3 && !par1World.isBlockOpaqueCube(par2, par3, par4 - 1))
+                {
+                    var13 = (double)(par4 + 0) - var6;
+                }
+
+                if (var8 == 4 && !par1World.isBlockOpaqueCube(par2 + 1, par3, par4))
+                {
+                    var9 = (double)(par2 + 1) + var6;
+                }
+
+                if (var8 == 5 && !par1World.isBlockOpaqueCube(par2 - 1, par3, par4))
+                {
+                    var9 = (double)(par2 + 0) - var6;
+                }
+
+                if (var9 < (double)par2 || var9 > (double)(par2 + 1) || var11 < 0.0D || var11 > (double)(par3 + 1) || var13 < (double)par4 || var13 > (double)(par4 + 1))
+                {
+                    par1World.spawnParticle("smoke", var9, var11, var13, 0.0D, 0.0D, 0.0D);
+                }
+            }
+        }
 }

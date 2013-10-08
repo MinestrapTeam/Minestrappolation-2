@@ -1,10 +1,11 @@
-package sobiohazardous.minestrappolation.extraores.lib;
+package sobiohazardous.minestrappolation.extraores.block;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import sobiohazardous.minestrappolation.api.block.MBlock;
+import sobiohazardous.minestrappolation.extraores.lib.EOBlockManager;
 
 public class BlockInvincium extends MBlock{
 

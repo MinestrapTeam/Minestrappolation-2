@@ -11,6 +11,7 @@ import sobiohazardous.minestrappolation.extraores.block.BlockCopper;
 import sobiohazardous.minestrappolation.extraores.block.BlockCopperTarnished;
 import sobiohazardous.minestrappolation.extraores.block.BlockGlowGlass;
 import sobiohazardous.minestrappolation.extraores.block.BlockGodstone;
+import sobiohazardous.minestrappolation.extraores.block.BlockInvincium;
 import sobiohazardous.minestrappolation.extraores.block.BlockMagma;
 import sobiohazardous.minestrappolation.extraores.block.BlockMelter;
 import sobiohazardous.minestrappolation.extraores.block.BlockNuke;
@@ -297,9 +298,9 @@ public class EOBlockManager {
 		melterIdle = (new BlockMelter(EOConfig.melterIdleId, false)).setHardness(6F).setResistance(8.0F).setCreativeTab(tabOresBlocks).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("melter");
 		melterBurning = (new BlockMelter(EOConfig.melterBurningId, true)).setHardness(6F).setResistance(8.0F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("melter").setLightValue(1F);
 	
-		RadiantQuartzStairs = new EOBlockStairs(EOConfig.radiantQuartzStairsId, SmoothRadiantQuartz, 0).setUnlocalizedName("RadiantQuartzStairs");
-		RadiantQuartzSingleSlab = (BlockHalfSlab) new RadiantQuartzSlab(EOConfig.radiantQuartzSingleSlabId, false).setUnlocalizedName("RadiantQuartzSingleSlab").setCreativeTab(tabOresBlocks);
-		RadiantQuartzDoubleSlab = (BlockHalfSlab) new RadiantQuartzSlab(EOConfig.radiantQuartzDoubleSlabId, true).setUnlocalizedName("RadiantQuartzDoubleSlab");
+		RadiantQuartzStairs = new EOBlockStairs(EOConfig.radiantQuartzStairsId, SmoothRadiantQuartz, 0).setLightValue(0.5F).setUnlocalizedName("RadiantQuartzStairs");
+		RadiantQuartzSingleSlab = (BlockHalfSlab) new RadiantQuartzSlab(EOConfig.radiantQuartzSingleSlabId, false).setLightValue(0.5F).setUnlocalizedName("RadiantQuartzSingleSlab").setCreativeTab(tabOresBlocks);
+		RadiantQuartzDoubleSlab = (BlockHalfSlab) new RadiantQuartzSlab(EOConfig.radiantQuartzDoubleSlabId, true).setLightValue(0.5F).setUnlocalizedName("RadiantQuartzDoubleSlab");
 	
 		PinkQuartzStairs = new EOBlockStairs(EOConfig.pinkQuartzStairsId, SmoothQuartzite, 0).setUnlocalizedName("PinkQuartzStairs");
 		PinkQuartzSingleSlab = (BlockHalfSlab) new PinkQuartzSlab(EOConfig.pinkQuartzSingleSlabId, false).setUnlocalizedName("PinkQuartzSingleSlab").setCreativeTab(tabOresBlocks);
@@ -348,7 +349,7 @@ public class EOBlockManager {
 		plutoniumInsulated = (new BlockPlutoniumInsulated(EOConfig.plutoniumInsulatedId, Material.iron)).setHardness(6F).setResistance(9F).setCreativeTab(tabOresBlocks).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("plutoniumInsulated");
 		uraniumInsulated = (new BlockUraniumInsulated(EOConfig.uraniumInsulatedId, Material.iron)).setHardness(6F).setResistance(9F).setCreativeTab(tabOresBlocks).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("uraniumInsulated");      
 	
-		//magma = new BlockMagma(EOConfig.magmaId).setHardness(100.0F).setLightOpacity(3).setUnlocalizedName("magma").setLightValue(2.5F);
+		//magma = new BlockMagma(EOConfig.magmaId).setHardness(100.0F).setLightOpacity(3).setUnlocalizedName("magma").setLightValue(1F);
 	}
 	
 	public static void addSlabs()

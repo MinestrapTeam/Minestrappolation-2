@@ -143,9 +143,8 @@ public class BlockNuke extends Block
         }
     }
 
-    /**
-     * Called upon block activation (right click on the block.)
-     */
+    //Uncomment To use flint and steel for ignite.
+    /*
     public boolean onBlockActivated(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9)
     {
         if (par5EntityPlayer.getCurrentEquippedItem() != null && par5EntityPlayer.getCurrentEquippedItem().itemID == Item.flintAndSteel.itemID)
@@ -160,6 +159,7 @@ public class BlockNuke extends Block
             return super.onBlockActivated(par1World, par2, par3, par4, par5EntityPlayer, par6, par7, par8, par9);
         }
     }
+    */
 
     /**
      * Triggered whenever an entity collides with this block (enters into the block). Args: world, x, y, z, entity

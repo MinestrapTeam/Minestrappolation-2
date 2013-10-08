@@ -116,7 +116,7 @@ public class EOOreGenerator implements IWorldGenerator
 			int j5 = rand.nextInt(256); 
 			int k5 = chunkz + rand.nextInt(16);
 		
-		(new WorldGenMinable(EOBlockManager.Granite.blockID, 20)).generate(world, rand, i5, j5, k5);
+		(new WorldGenMinable(EOBlockManager.Granite.blockID, 50)).generate(world, rand, i5, j5, k5);
 		}
 		//quartzite
 		for(int h = 0; h<12; h++)

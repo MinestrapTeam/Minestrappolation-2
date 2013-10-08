@@ -18,7 +18,7 @@ public class MItemArmor extends ItemArmor
 		super(par1, par2EnumArmorMaterial, par3, par4);
 		this.layer1 = layer1;
 		this.layer2 = layer2;
-		this.setCreativeTab(EOItemManager.tabOresItems);
+        this.setCreativeTab(null);
 	}
 
 	public void registerIcons(IconRegister r)
