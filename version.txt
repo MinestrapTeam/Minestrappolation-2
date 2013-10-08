@@ -1,3 +1,3 @@
 version=1.4
-motd=Hello erik, it worked.
-motdcolor=purple
+motd=WOO, Message of the Day! We are too good at the Java's. :)
+motdcolor=dark red
