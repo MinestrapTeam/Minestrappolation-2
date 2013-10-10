@@ -139,7 +139,6 @@ public class BedrockBreakableTool extends MItem
     public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)
     {
 		  par3List.add(EnumChatFormatting.GREEN+"Durability: "+EnumChatFormatting.RED+Integer.toString(getMaxDamage()-par1ItemStack.getItemDamage()+1)+"/"+Integer.toString(getMaxDamage()+1));
-		  par3List.add(Integer.toString(EOItemManager.toolMaterialSandstone.getHarvestLevel()));
     }
 
     /** FORGE: Overridden to allow custom tool effectiveness */

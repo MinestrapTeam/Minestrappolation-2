@@ -68,7 +68,7 @@ public class EOItemManager
 	public static EnumToolMaterial toolMaterialSandstone = EnumHelper.addToolMaterial("ToolSandstone", 1, 111, 4.5F, 2, 6);
 	public static EnumToolMaterial toolMaterialBronze = EnumHelper.addToolMaterial("ToolBronze", 2, 1501, 6.5F, 2, 8);
 	public static EnumToolMaterial toolMaterialSteel = EnumHelper.addToolMaterial("ToolSteel", 2, 300, 7.5F, 3, 15);
-	public static EnumToolMaterial toolMaterialBedrock = EnumHelper.addToolMaterial("ToolBedrock", 4, 6247, 7F, 2, 5);
+	public static EnumToolMaterial toolMaterialBedrock = EnumHelper.addToolMaterial("ToolBedrock", 5, 6247, 7F, 2, 5);
 	public static EnumToolMaterial toolMaterialGranite = EnumHelper.addToolMaterial("ToolGranite", 1, 199, 4.3F, 2, 4);
 	public static EnumToolMaterial toolMaterialBPMeurodite = EnumHelper.addToolMaterial("ToolBPMeurodite", 2, 1610, 7.0F, 2, 15);
 	public static EnumToolMaterial toolMaterialBPTitanium = EnumHelper.addToolMaterial("ToolBPTitanium", 4, 5998, 10.0F, 5, 10);
@@ -77,7 +77,7 @@ public class EOItemManager
 	public static EnumToolMaterial toolMaterialBPCopper = EnumHelper.addToolMaterial("ToolBPCopper", 1, 278, 5.0F, 2, 10);
 	public static EnumToolMaterial toolMaterialBPSandstone = EnumHelper.addToolMaterial("ToolBPSandstone", 1, 222, 4.5F, 2, 6);
 	public static EnumToolMaterial toolMaterialBPSteel = EnumHelper.addToolMaterial("ToolBPSteel", 2, 600, 7.5F, 3, 15);
-	public static EnumToolMaterial toolMaterialBPBedrock = EnumHelper.addToolMaterial("ToolBPBedrock", 4, 12494, 7F, 2, 5);
+	public static EnumToolMaterial toolMaterialBPBedrock = EnumHelper.addToolMaterial("ToolBPBedrock", 5, 12494, 7F, 2, 5);
 	public static EnumToolMaterial toolMaterialBPGranite = EnumHelper.addToolMaterial("ToolBPGranite", 1, 398, 4.3F, 2, 4);
 	public static EnumToolMaterial toolMaterialBPWood = EnumHelper.addToolMaterial("ToolBPWood", 0, 118, 2.0F, 0, 15);
 	public static EnumToolMaterial toolMaterialBPStone = EnumHelper.addToolMaterial("ToolBPStone", 1, 262, 4.0F, 1, 5);
@@ -668,8 +668,8 @@ public class EOItemManager
 		MinecraftForge.setToolClass(BPGranitePickaxe, "pickaxe", 1);
 		MinecraftForge.setToolClass(meuroditePickaxe, "pickaxe", 2);
 		MinecraftForge.setToolClass(BPMeuroditePickaxe, "pickaxe", 2);
-		MinecraftForge.setToolClass(BedrockPickaxe, "pickaxe", 3);
-		MinecraftForge.setToolClass(BPBedrockPickaxe, "pickaxe", 3);
+		MinecraftForge.setToolClass(BedrockPickaxe, "pickaxe", 4);
+		MinecraftForge.setToolClass(BPBedrockPickaxe, "pickaxe", 4);
 		MinecraftForge.setToolClass(BronzePickaxe, "pickaxe", 2);
 		MinecraftForge.setToolClass(SteelPickaxe, "pickaxe", 2);
 		MinecraftForge.setToolClass(BPSteelPickaxe, "pickaxe", 2);

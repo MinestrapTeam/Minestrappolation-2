@@ -176,13 +176,13 @@ public class EOOreGenerator implements IWorldGenerator
 			(new WorldGenNether(EOBlockManager.BlaziumOre.blockID, 13)).generate(world, rand, i5, j5, k5);
 		}
 		//soul ore
-		for(int h = 0; h<20; h++)
+		for(int h = 0; h<28; h++)
 		{
 			int i5 = chunkx + rand.nextInt(16);
 			int j5 = rand.nextInt(256);
 			int k5 = chunkz + rand.nextInt(16);
 			
-			(new WorldGenSoulSand(EOBlockManager.SoulOre.blockID, 5)).generate(world,rand, i5, j5, k5);
+			(new WorldGenSoulSand(EOBlockManager.SoulOre.blockID, 15)).generate(world,rand, i5, j5, k5);
 		}
 		//invincium
 		for(int h = 0; h<400; h++)
