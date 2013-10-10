@@ -21,7 +21,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
 import sobiohazardous.minestrappolation.extraores.lib.EOItemManager;
 
-public class TitaniumTool extends MItem
+public class BedrockBreakableTool extends MItem
 {
     /** Array of blocks the tool has extra effect against. */
     private Block[] blocksEffectiveAgainst;
@@ -33,7 +33,7 @@ public class TitaniumTool extends MItem
     /** The material this tool is made from. */
     protected EnumToolMaterial toolMaterial;
 
-    protected TitaniumTool(int par1, float par2, EnumToolMaterial par3EnumToolMaterial, Block[] par4ArrayOfBlock)
+    protected BedrockBreakableTool(int par1, float par2, EnumToolMaterial par3EnumToolMaterial, Block[] par4ArrayOfBlock)
     {
         super(par1);
         this.toolMaterial = par3EnumToolMaterial;

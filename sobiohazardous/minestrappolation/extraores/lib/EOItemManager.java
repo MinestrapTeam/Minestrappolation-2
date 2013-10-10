@@ -30,7 +30,7 @@ import sobiohazardous.minestrappolation.extraores.item.EOItemBucket;
 import sobiohazardous.minestrappolation.extraores.item.ItemGrenade;
 import sobiohazardous.minestrappolation.extraores.item.ItemGrenadeImpact;
 import sobiohazardous.minestrappolation.extraores.item.ItemGrenadeSticky;
-import sobiohazardous.minestrappolation.extraores.item.ItemTitaniumPickaxe;
+import sobiohazardous.minestrappolation.extraores.item.ItemBedrockBreakablePickaxe;
 import sobiohazardous.minestrappolation.extraores.item.ToriteToolAxe;
 import sobiohazardous.minestrappolation.extraores.item.ToriteToolHoe;
 import sobiohazardous.minestrappolation.extraores.item.ToriteToolPickaxe;
@@ -68,16 +68,16 @@ public class EOItemManager
 	public static EnumToolMaterial toolMaterialSandstone = EnumHelper.addToolMaterial("ToolSandstone", 1, 111, 4.5F, 2, 6);
 	public static EnumToolMaterial toolMaterialBronze = EnumHelper.addToolMaterial("ToolBronze", 2, 1501, 6.5F, 2, 8);
 	public static EnumToolMaterial toolMaterialSteel = EnumHelper.addToolMaterial("ToolSteel", 2, 300, 7.5F, 3, 15);
-	public static EnumToolMaterial toolMaterialBedrock = EnumHelper.addToolMaterial("ToolBedrock", 3, 6247, 7F, 2, 5);
+	public static EnumToolMaterial toolMaterialBedrock = EnumHelper.addToolMaterial("ToolBedrock", 4, 6247, 7F, 2, 5);
 	public static EnumToolMaterial toolMaterialGranite = EnumHelper.addToolMaterial("ToolGranite", 1, 199, 4.3F, 2, 4);
 	public static EnumToolMaterial toolMaterialBPMeurodite = EnumHelper.addToolMaterial("ToolBPMeurodite", 2, 1610, 7.0F, 2, 15);
-	public static EnumToolMaterial toolMaterialBPTitanium = EnumHelper.addToolMaterial("ToolBPTitanium", 3, 5998, 10.0F, 5, 10);
+	public static EnumToolMaterial toolMaterialBPTitanium = EnumHelper.addToolMaterial("ToolBPTitanium", 4, 5998, 10.0F, 5, 10);
 	public static EnumToolMaterial toolMaterialBPTorite = EnumHelper.addToolMaterial("ToolBPTorite", 2, 1398, 6.0F, 3, 20);
 	public static EnumToolMaterial toolMaterialBPBlazium = EnumHelper.addToolMaterial("ToolBPBlazium", 2, 1598, 8.0F, 3, 18);
 	public static EnumToolMaterial toolMaterialBPCopper = EnumHelper.addToolMaterial("ToolBPCopper", 1, 278, 5.0F, 2, 10);
 	public static EnumToolMaterial toolMaterialBPSandstone = EnumHelper.addToolMaterial("ToolBPSandstone", 1, 222, 4.5F, 2, 6);
 	public static EnumToolMaterial toolMaterialBPSteel = EnumHelper.addToolMaterial("ToolBPSteel", 2, 600, 7.5F, 3, 15);
-	public static EnumToolMaterial toolMaterialBPBedrock = EnumHelper.addToolMaterial("ToolBPBedrock", 3, 12494, 7F, 2, 5);
+	public static EnumToolMaterial toolMaterialBPBedrock = EnumHelper.addToolMaterial("ToolBPBedrock", 4, 12494, 7F, 2, 5);
 	public static EnumToolMaterial toolMaterialBPGranite = EnumHelper.addToolMaterial("ToolBPGranite", 1, 398, 4.3F, 2, 4);
 	public static EnumToolMaterial toolMaterialBPWood = EnumHelper.addToolMaterial("ToolBPWood", 0, 118, 2.0F, 0, 15);
 	public static EnumToolMaterial toolMaterialBPStone = EnumHelper.addToolMaterial("ToolBPStone", 1, 262, 4.0F, 1, 5);
@@ -388,7 +388,7 @@ public class EOItemManager
 		TitaniumIngot = (new EOItem(EOConfig.titaniumIngotId)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumIngot");
 		
 		TitaniumSword = (new MItemSword(EOConfig.titaniumSwordId, toolMaterialTitanium, false)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumSword");
-		TitaniumPickaxe = (new ItemTitaniumPickaxe(EOConfig.titaniumPickaxeId, toolMaterialTitanium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumPickaxe");
+		TitaniumPickaxe = (new ItemBedrockBreakablePickaxe(EOConfig.titaniumPickaxeId, toolMaterialTitanium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumPickaxe");
 		TitaniumShovel = (new MItemShovel(EOConfig.titaniumShovelId, toolMaterialTitanium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumShovel");
 		TitaniumHoe = (new MItemHoe(EOConfig.titaniumHoeId,toolMaterialTitanium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumHoe");
 		TitaniumAxe = (new MItemAxe(EOConfig.titaniumAxeId,toolMaterialTitanium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumAxe");
@@ -447,7 +447,7 @@ public class EOItemManager
 		BPMeuroditeBoots = (new MItemArmor(EOConfig.BPmeuroditeBootsId, MaterialBPMeurodite, ExtraOres.proxy.addArmor("BPMeurodite"),3, "meurodite_plated_1", "meurodite_plated_2")).setUnlocalizedName("item_BronzePlatedMeuroditeBoots");
 		
 		BPTitaniumSword = (new MItemSword(EOConfig.BPTitaniumSwordId, toolMaterialBPTitanium, false)).setUnlocalizedName("item_BronzePlatedTitaniumSword");
-		BPTitaniumPickaxe = (new ItemTitaniumPickaxe(EOConfig.BPTitaniumPickaxeId, toolMaterialBPTitanium)).setUnlocalizedName("item_BronzePlatedTitaniumPickaxe");
+		BPTitaniumPickaxe = (new ItemBedrockBreakablePickaxe(EOConfig.BPTitaniumPickaxeId, toolMaterialBPTitanium)).setUnlocalizedName("item_BronzePlatedTitaniumPickaxe");
 		BPTitaniumShovel = (new MItemShovel(EOConfig.BPTitaniumShovelId, toolMaterialBPTitanium)).setUnlocalizedName("item_BronzePlatedTitaniumShovel");
 		BPTitaniumHoe = (new MItemHoe(EOConfig.BPTitaniumHoeId,toolMaterialBPTitanium)).setUnlocalizedName("item_BronzePlatedTitaniumHoe");
 		BPTitaniumAxe = (new MItemAxe(EOConfig.BPTitaniumAxeId,toolMaterialBPTitanium)).setUnlocalizedName("item_BronzePlatedTitaniumAxe");
@@ -507,7 +507,7 @@ public class EOItemManager
 		BPSandstoneHoe = (new MItemHoe(EOConfig.BPSandstoneHoeId,toolMaterialBPSandstone)).setUnlocalizedName("item_BronzePlatedSandstoneHoe");
 		BPSandstoneSword = (new MItemSword(EOConfig.BPSandstoneSwordId,toolMaterialBPSandstone, false)).setUnlocalizedName("item_BronzePlatedSandstoneSword");
 		
-		BPBedrockPickaxe = (new MItemPickaxe(EOConfig.BPBedrockPickaxeId, toolMaterialBPBedrock)).setUnlocalizedName("item_BronzePlatedBedrockPickaxe");
+		BPBedrockPickaxe = (new ItemBedrockBreakablePickaxe(EOConfig.BPBedrockPickaxeId, toolMaterialBPBedrock)).setUnlocalizedName("item_BronzePlatedBedrockPickaxe");
 		BPBedrockShovel = (new MItemShovel(EOConfig.BPBedrockShovelId,toolMaterialBPBedrock)).setUnlocalizedName("item_BronzePlatedBedrockShovel");
 		BPBedrockAxe = (new MItemAxe(EOConfig.BPBedrockAxeId,toolMaterialBPBedrock)).setUnlocalizedName("item_BronzePlatedBedrockAxe");
 		BPBedrockHoe = (new MItemHoe(EOConfig.BPBedrockHoeId,toolMaterialBPBedrock)).setUnlocalizedName("item_BronzePlatedBedrockHoe");
@@ -550,7 +550,7 @@ public class EOItemManager
 		TinChest = (new MItemArmor(EOConfig.tinChestId,MaterialTin, ExtraOres.proxy.addArmor("tin"), 1, "tin_1", "tin_2")).setCreativeTab(tabOresItems).setUnlocalizedName("item_TinChestplate");
 		TinPants = (new MItemArmor(EOConfig.tinPantsId,MaterialTin, ExtraOres.proxy.addArmor("tin"),2, "tin_1", "tin_2")).setCreativeTab(tabOresItems).setUnlocalizedName("item_TinLeggings");
 		TinBoots = (new MItemArmor(EOConfig.tinBootsId,MaterialTin, ExtraOres.proxy.addArmor("tin"),3, "tin_1", "tin_2")).setCreativeTab(tabOresItems).setUnlocalizedName("item_TinBoots");
-		BedrockPickaxe = (new MItemPickaxe(EOConfig.bedrockPickaxeId, toolMaterialBedrock)).setCreativeTab(tabOresItems).setUnlocalizedName("item_BedrockPickaxe");
+		BedrockPickaxe = (new ItemBedrockBreakablePickaxe(EOConfig.bedrockPickaxeId, toolMaterialBedrock)).setCreativeTab(tabOresItems).setUnlocalizedName("item_BedrockPickaxe");
 		BedrockShovel = (new MItemShovel(EOConfig.bedrockShovelId,toolMaterialBedrock)).setCreativeTab(tabOresItems).setUnlocalizedName( "item_BedrockShovel");
 		BedrockAxe = (new MItemAxe(EOConfig.bedrockAxeId,toolMaterialBedrock)).setCreativeTab(tabOresItems).setUnlocalizedName("item_BedrockAxe");
 		BedrockHoe = (new MItemHoe(EOConfig.bedrockHoeId,toolMaterialBedrock)).setCreativeTab(tabOresItems).setUnlocalizedName("item_BedrockHoe");

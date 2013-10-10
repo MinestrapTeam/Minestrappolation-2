@@ -101,7 +101,6 @@ public class Minestrappolation
 	public void load(FMLInitializationEvent event)
 	{
 		DevCapesUtil.addFileUrl("https://raw.github.com/SoBiohazardous/Minestrappolation-Recode/master/Capes_Info.txt");	    
-		Block.bedrock.setHardness(80F);
 		NetworkRegistry.instance().registerGuiHandler(instance, proxy);
 		Minestrappolation.load();
 		
@@ -125,6 +124,8 @@ public class Minestrappolation
 		Item.itemsList[Item.glassBottle.itemID - 256] = null;
 		glassBottle2 = (ItemGlassBottle2) (new ItemGlassBottle2(118)).setUnlocalizedName("glassBottle");
 		
+		Block.bedrock.setHardness(80F);
+
 		NetworkRegistry.instance().registerConnectionHandler(new ConnectionHandler());
 		MinecraftForge.EVENT_BUS.register(this);
 		ModLoader.addDispenserBehavior(potion2, new DispenserBehaviorPotion2());

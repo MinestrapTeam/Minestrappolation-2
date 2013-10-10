@@ -495,12 +495,7 @@ public class ExtraFoods
         
 		NameManager.loadNames();
 		RecipeManager.loadRecipes();
-		BlockRegistry.registerBlocks();
-		
-        Item.itemsList[Item.chickenCooked.itemID - 256] = chicken;
-        Item.itemsList[Item.fishCooked.itemID - 256] = fish;
-        Item.itemsList[Item.beefCooked.itemID - 256] = beef;
-        Item.itemsList[Item.porkCooked.itemID - 256] = porkchop;     
+		BlockRegistry.registerBlocks();		 
 	}
 	
 	@EventHandler
@@ -527,6 +522,11 @@ public class ExtraFoods
 		NetworkRegistry.instance().registerConnectionHandler(new NetworkHandler());
 		GameRegistry.registerWorldGenerator(new EFOreGenerator());
 		GameRegistry.registerCraftingHandler(new EFCraftingManager());
+		
+        Item.itemsList[Item.chickenCooked.itemID - 256] = chicken;
+        Item.itemsList[Item.fishCooked.itemID - 256] = fish;
+        Item.itemsList[Item.beefCooked.itemID - 256] = beef;
+        Item.itemsList[Item.porkCooked.itemID - 256] = porkchop; 
 	}
 
 	
