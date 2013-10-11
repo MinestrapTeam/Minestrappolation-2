@@ -109,6 +109,7 @@ public class ExtraOres
 		EntityRegistry.registerModEntity(EntityGrenadeSticky.class, "GrenadeSticky", 5, this, 40, 3, true);
 
 		GameRegistry.registerWorldGenerator(new EOOreGenerator());
+		EOItemManager.addItemsToChests();
 	}
 	
 	@Mod.EventHandler

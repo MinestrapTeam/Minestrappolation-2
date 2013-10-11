@@ -22,6 +22,7 @@ import sobiohazardous.minestrappolation.extraores.block.BlockPlutoniumInsulated;
 import sobiohazardous.minestrappolation.extraores.block.BlockPlutoniumOre;
 import sobiohazardous.minestrappolation.extraores.block.BlockPlutoniumRaw;
 import sobiohazardous.minestrappolation.extraores.block.BlockRadiantPillar;
+import sobiohazardous.minestrappolation.extraores.block.BlockSoulOre;
 import sobiohazardous.minestrappolation.extraores.block.BlockSteel;
 import sobiohazardous.minestrappolation.extraores.block.BlockSunstone;
 import sobiohazardous.minestrappolation.extraores.block.BlockUraniumInsulated;
@@ -43,6 +44,7 @@ import sobiohazardous.minestrappolation.extraores.block.TinPlatedGraniteBrickSla
 import sobiohazardous.minestrappolation.extraores.block.TinPlatedStoneBrickSlab;
 import sobiohazardous.minestrappolation.extraores.item.EItemFoiled;
 import sobiohazardous.minestrappolation.extraores.item.ItemSoulBottle;
+import sobiohazardous.minestrappolation.extraores.item.ItemSoulGem;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHalfSlab;
 import net.minecraft.block.material.Material;
@@ -257,8 +259,8 @@ public class EOBlockManager {
 		
 		SteelBlock = (new BlockSteel(EOConfig.steelBlockId)).setHardness(6F).setResistance(10F).setStepSound(Block.soundMetalFootstep).setCreativeTab(tabOresBlocks).setUnlocalizedName("SteelBlock");
 		
-		SoulOre = (new EOBlock(EOConfig.soulOreId, Material.sand)).setHardness(2F).setResistance(3F).setCreativeTab(tabOresBlocks).setStepSound(Block.soundSandFootstep).setUnlocalizedName("block_SoulOre");
-		SoulGem = (new EItemFoiled(EOConfig.soulGemId)).setCreativeTab(EOItemManager.tabOresItems).setUnlocalizedName("item_SoulGem");		
+		SoulOre = (new BlockSoulOre(EOConfig.soulOreId)).setHardness(2F).setResistance(3F).setCreativeTab(tabOresBlocks).setStepSound(Block.soundSandFootstep).setUnlocalizedName("block_SoulOre");
+		SoulGem = (new ItemSoulGem(EOConfig.soulGemId)).setCreativeTab(EOItemManager.tabOresItems).setUnlocalizedName("item_SoulGem");		
 		
 		TinPlatedCobble = (new EOBlock(EOConfig.tinPlatedCobbleId, Material.rock)).setHardness(2.0F).setResistance(10.0F).setCreativeTab(tabOresBlocks).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("block_TinCobble");
 		TinPlatedMossy = (new EOBlock(EOConfig.tinPlatedMossyId, Material.rock)).setHardness(2.0F).setResistance(10.0F).setCreativeTab(tabOresBlocks).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("block_TinMossy");

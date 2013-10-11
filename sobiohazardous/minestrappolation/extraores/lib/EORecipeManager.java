@@ -1243,6 +1243,10 @@ public class EORecipeManager
 				{
 			"MMM", "MMM", Character.valueOf('M'), EOItemManager.meuroditeIngot,
 				});
+        GameRegistry.addRecipe(new ItemStack(EOBlockManager.SoulBottle, 4), new Object[]
+				{
+			"S", "G", Character.valueOf('S'), EOBlockManager.SoulGem, Character.valueOf('G'), Item.glassBottle
+				});
 	}
 	
 }
