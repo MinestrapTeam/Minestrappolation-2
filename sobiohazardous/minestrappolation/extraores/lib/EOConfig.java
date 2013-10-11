@@ -318,7 +318,8 @@ public class EOConfig {
 	uraniumInsulatedId,
 	meuroditePlateItemID,
 	magmaId,
-	bucketMagmaId;
+	bucketMagmaId,
+	soulBlockId;
 
 	
 	public static int daysUntilTarnish;
@@ -641,6 +642,7 @@ public class EOConfig {
 	    meuroditePlateItemID = config.getItem("Meurodite Plate Item", 1075).getInt();
 	    magmaId = config.getBlock("Magma", 3097).getInt();
 	    bucketMagmaId = config.getItem("Bucket of Magma", 1076).getInt();
+	    soulBlockId = config.getBlock("Soul Block", 3098).getInt();
 		config.save();
 	}
 

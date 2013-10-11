@@ -440,6 +440,7 @@ public class EONameManager
 		//LanguageRegistry.addName(EOBlockManager.magma, "Magma");
 		//LanguageRegistry.addName(EOItemManager.bucketMagma, "Bucket of Magma");
 
+		LanguageRegistry.addName(EOBlockManager.soulBlock, "Soul Block");
 	}
 	
 }

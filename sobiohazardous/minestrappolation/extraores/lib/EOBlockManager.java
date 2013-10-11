@@ -22,6 +22,7 @@ import sobiohazardous.minestrappolation.extraores.block.BlockPlutoniumInsulated;
 import sobiohazardous.minestrappolation.extraores.block.BlockPlutoniumOre;
 import sobiohazardous.minestrappolation.extraores.block.BlockPlutoniumRaw;
 import sobiohazardous.minestrappolation.extraores.block.BlockRadiantPillar;
+import sobiohazardous.minestrappolation.extraores.block.BlockSoulBlock;
 import sobiohazardous.minestrappolation.extraores.block.BlockSoulOre;
 import sobiohazardous.minestrappolation.extraores.block.BlockSteel;
 import sobiohazardous.minestrappolation.extraores.block.BlockSunstone;
@@ -204,6 +205,8 @@ public class EOBlockManager {
 	
 	//public static Block magma;
 	
+	public static Block soulBlock;
+	
 	public static void addBlocks()
 	{
 		meuroditeOre = (new EOBlock(EOConfig.meuroditeOreId, Material.rock)).setHardness(5F).setCreativeTab(tabOresBlocks).setResistance(10F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("block_MeuroditeOre");
@@ -352,6 +355,8 @@ public class EOBlockManager {
 		uraniumInsulated = (new BlockUraniumInsulated(EOConfig.uraniumInsulatedId, Material.iron)).setHardness(6F).setResistance(9F).setCreativeTab(tabOresBlocks).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("uraniumInsulated");      
 	
 		//magma = new BlockMagma(EOConfig.magmaId).setHardness(100.0F).setLightOpacity(3).setUnlocalizedName("magma").setLightValue(1F);
+		
+		soulBlock = new BlockSoulBlock(EOConfig.soulBlockId).setUnlocalizedName("block_SoulBlock").setHardness(65F).setResistance(30F);
 	}
 	
 	public static void addSlabs()

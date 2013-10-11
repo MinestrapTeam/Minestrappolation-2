@@ -111,6 +111,7 @@ public class EOBlockRegister
 		ModLoader.registerBlock(EOBlockManager.meuroditePlate);
 		GameRegistry.registerTileEntity(TileEntityCopper.class, "tileentitycopper");
 		//ModLoader.registerBlock(EOBlockManager.magma);
+		ModLoader.registerBlock(EOBlockManager.soulBlock);
 	}
 	
 }

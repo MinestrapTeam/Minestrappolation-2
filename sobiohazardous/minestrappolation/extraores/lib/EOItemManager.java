@@ -733,5 +733,6 @@ public class EOItemManager
 		MinecraftForge.setBlockHarvestLevel(EOBlockManager.RadiantQuartzOre, "pickaxe", 3);
 		MinecraftForge.setBlockHarvestLevel(EOBlockManager.Godstone, "pickaxe", 2);
 		MinecraftForge.setBlockHarvestLevel(Block.bedrock, "pickaxe", 4);
+		MinecraftForge.setBlockHarvestLevel(EOBlockManager.soulBlock, "pickaxe", 4);
 	}
 }
