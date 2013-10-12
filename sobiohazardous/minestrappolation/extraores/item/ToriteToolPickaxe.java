@@ -46,6 +46,10 @@ public class ToriteToolPickaxe extends MItemTool
         return EnumAction.block;
     }
 
+    public int getMaxItemUseDuration(ItemStack par1ItemStack)
+    {
+        return 72000;
+    }
     
     public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase par2EntityLivingBase, EntityLivingBase par3EntityLivingBase)
     {

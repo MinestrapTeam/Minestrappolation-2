@@ -54,7 +54,11 @@ public class ToriteToolShovel extends MItemTool
         return EnumAction.block;
     }
 
-
+    public int getMaxItemUseDuration(ItemStack par1ItemStack)
+    {
+        return 72000;
+    }
+    
     /**
      * Called whenever this item is equipped and the right mouse button is pressed. Args: itemStack, world, entityPlayer
      */

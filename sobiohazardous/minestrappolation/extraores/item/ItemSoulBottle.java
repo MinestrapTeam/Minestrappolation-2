@@ -17,7 +17,6 @@ public class ItemSoulBottle extends Item
         {
                 super(i);
                 this.setCreativeTab(EOItemManager.tabOresItems);
-                this.setMaxStackSize(1);
         }
 
         public void registerIcons(IconRegister iconRegister)
@@ -26,18 +25,23 @@ public class ItemSoulBottle extends Item
     	}
         public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par2EntityPlayer)
         {
-        	if (par2EntityPlayer.experienceTotal >= 10)
+        	if (par2EntityPlayer.experienceTotal >= 20)
         	{
-        		par2EntityPlayer.addExperience(-10);
-        
+        		par2EntityPlayer.addExperience(-20);
             	--par1ItemStack.stackSize;
             	
-            	return par1ItemStack.stackSize <= 0 ? new ItemStack(Item.expBottle) : par1ItemStack;	   
+            	if(par1ItemStack.stackSize <=0)
+            	{
+            		return new ItemStack(Item.expBottle);	
+            	}
+            	
+            	if (!par2EntityPlayer.inventory.addItemStackToInventory(new ItemStack(Item.expBottle)))
+                {
+                    par2EntityPlayer.dropPlayerItem(new ItemStack(Item.expBottle.itemID, 1, 0));
+                }
         	}
-        	else
-        	{
-        		return par1ItemStack.stackSize <= 0 ? new ItemStack(EOBlockManager.SoulBottle) : par1ItemStack;
-        	}
+        	System.out.println(par2EntityPlayer.experience);
+			return par1ItemStack;
             
         }
         

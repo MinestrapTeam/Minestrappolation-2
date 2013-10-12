@@ -14,7 +14,7 @@ public class ItemSoulGem extends EItemFoiled
 
     public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
     {
-    	par3EntityPlayer.addExperience(100);
+    	par3EntityPlayer.addExperience(20);
     	--par1ItemStack.stackSize;
     	return par1ItemStack;	   
     }
