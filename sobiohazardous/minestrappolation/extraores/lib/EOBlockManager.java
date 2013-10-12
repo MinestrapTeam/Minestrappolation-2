@@ -7,6 +7,7 @@ import sobiohazardous.minestrappolation.api.block.MBlock;
 import sobiohazardous.minestrappolation.extraores.CreativeTabExtraoresBlocks;
 import sobiohazardous.minestrappolation.extraores.ExtraOres;
 import sobiohazardous.minestrappolation.extraores.block.BlockBlazium;
+import sobiohazardous.minestrappolation.extraores.block.BlockBlaziumOre;
 import sobiohazardous.minestrappolation.extraores.block.BlockCopper;
 import sobiohazardous.minestrappolation.extraores.block.BlockCopperTarnished;
 import sobiohazardous.minestrappolation.extraores.block.BlockGlowGlass;
@@ -26,6 +27,7 @@ import sobiohazardous.minestrappolation.extraores.block.BlockSoulBlock;
 import sobiohazardous.minestrappolation.extraores.block.BlockSoulOre;
 import sobiohazardous.minestrappolation.extraores.block.BlockSteel;
 import sobiohazardous.minestrappolation.extraores.block.BlockSunstone;
+import sobiohazardous.minestrappolation.extraores.block.BlockSunstoneOre;
 import sobiohazardous.minestrappolation.extraores.block.BlockUraniumInsulated;
 import sobiohazardous.minestrappolation.extraores.block.BlockUraniumOre;
 import sobiohazardous.minestrappolation.extraores.block.BlockUraniumRaw;
@@ -226,7 +228,7 @@ public class EOBlockManager {
 		
 		Sunstone = (new BlockSunstone(EOConfig.sunstoneId,Material.glass)).setHardness(0.3F).setStepSound(Block.soundGlassFootstep).setCreativeTab(tabOresBlocks).setLightValue(1.0F).setUnlocalizedName("Sunstone");
 		
-		SunstoneOre = (new EOBlock(EOConfig.sunstoneOreId, Material.rock)).setHardness(7F).setResistance(11F).setStepSound(Block.soundMetalFootstep).setCreativeTab(tabOresBlocks).setUnlocalizedName("block_SunstoneOre").setLightValue(1F);
+		SunstoneOre = (new BlockSunstoneOre(EOConfig.sunstoneOreId)).setHardness(7F).setResistance(11F).setStepSound(Block.soundMetalFootstep).setCreativeTab(tabOresBlocks).setUnlocalizedName("block_SunstoneOre").setLightValue(1F);
 		//Old Sunstone Ore code: SunstoneOre = (new BlockSunstoneOre(212, 40)).setHardness(7F).setStepSound(Block.soundStoneFootstep).setCreativeTab(ExtraOres.tabExtra).setLightValue(1.0F).setBlockName("Sunstone Ore");
 		
 		ToriteOre = (new EOBlock(EOConfig.toriteOreId, Material.rock)).setHardness(7F).setResistance(11F).setStepSound(Block.soundMetalFootstep).setCreativeTab(tabOresBlocks).setUnlocalizedName("block_ToriteOre");
@@ -243,7 +245,7 @@ public class EOBlockManager {
 		ChiseledQuartzite = (new BlockPinkChiseled(EOConfig.chiseledQuartziteId)).setHardness(6F).setResistance(10F).setStepSound(Block.soundMetalFootstep).setCreativeTab(tabOresBlocks).setUnlocalizedName("ChiseledQuartzite");
 		SmoothQuartzTile = (new EOBlock(EOConfig.smoothQuartzTileId, Material.rock)).setHardness(6F).setResistance(10F).setStepSound(Block.soundMetalFootstep).setCreativeTab(tabOresBlocks).setUnlocalizedName("block_PinkQuartzTileRefined");
 		
-		BlaziumOre = (new EOBlock(EOConfig.blaziumOreId, Material.rock)).setHardness(7F).setResistance(11F).setStepSound(Block.soundMetalFootstep).setCreativeTab(tabOresBlocks).setUnlocalizedName("block_BlaziumOre").setLightValue(0.5F);
+		BlaziumOre = (new BlockBlaziumOre(EOConfig.blaziumOreId)).setHardness(7F).setResistance(11F).setStepSound(Block.soundMetalFootstep).setCreativeTab(tabOresBlocks).setUnlocalizedName("block_BlaziumOre").setLightValue(0.5F);
 		//Experimental Blazium Ore Code: BlaziumOre = (new BlockBlaziumOre(204, 5)).setHardness(7F).setResistance(11F).setStepSound(Block.soundMetalFootstep).setCreativeTab(ExtraOres.tabExtra).setLightValue(0.5F).setBlockName("Blazium Ore");
 		BlaziumBlock = (new BlockBlazium(EOConfig.blaziumBlockId, Material.iron)).setHardness(8F).setResistance(12F).setStepSound(Block.soundMetalFootstep).setCreativeTab(tabOresBlocks).setUnlocalizedName("BlaziumBlock").setLightValue(0.7F);
 		
