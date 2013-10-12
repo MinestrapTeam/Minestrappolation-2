@@ -8,8 +8,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class PluginFolder {
-	public static String[] aliasname = {"stone","dirt","cobblestone","planks","sand","gravel","goldore","ironore","coalore","wood","glass","lapisore","sandstone","lavabucket","waterbucket","bricks","goldblock","ironblock","diamondblock","diamondore","snow"};
-	public static int[] aliasvalue = {1,3,4,5,12,13,14,15,16,17,20,21,24,327,326,45,41,42,57,56,80};
+	public static String[] aliasname = {"stone","dirt","cobblestone","planks","sand","gravel","goldore","ironore","coalore","wood","glass","lapisore","sandstone","lavabucket","waterbucket","bricks","goldblock",
+		"ironblock","diamondblock","diamondore","snow","clay","endstone","stonebrick","jackolantern","netherrack","soulsand","glowstone","pumpkin","bookshelf","dandelion","poppy","brownmushroom","redmushroom","tnt","cobweb","sponge",
+		"gunpowder","feather","string","bread","wheat","rawporkchop","cookedporkchop","goldapple","redstone"};
+	public static int[] aliasvalue = {1,3,4,5,12,13,14,15,16,17,20,21,24,327,326,45,41,42,57,56,80,82,121,98,91,87,88,89,86,47,37,38,39,40,46,30,19,
+		289,288,287,297,296,319,320,322,331};
 	
 	public static String[] minename = {"radiantore"};
 	public static int[] minevalue = {3054};
