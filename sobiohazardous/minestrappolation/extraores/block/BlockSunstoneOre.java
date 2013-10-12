@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.util.MathHelper;
+import net.minecraft.world.World;
 import sobiohazardous.minestrappolation.extraores.lib.EOBlockManager;
 import sobiohazardous.minestrappolation.extraores.lib.EOItemManager;
 
@@ -44,5 +45,10 @@ public class BlockSunstoneOre extends Block
     public int idDropped(int par1, Random par2Random, int par3)
     {
         return EOItemManager.SunstoneDust.itemID;
+    }
+    
+    public void onBlockDestroyedByPlayer(World par1World, int par2, int par3, int par4, int par5) 
+    {
+     this.dropXpOnBlockBreak(par1World, par2, par3, par4, 1); /* the 1 means it drops 1 xp, change it to 20, 100, as much as you want.*/
     }
 }
