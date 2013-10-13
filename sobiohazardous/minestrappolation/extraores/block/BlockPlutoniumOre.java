@@ -5,6 +5,7 @@ import java.util.Random;
 
 import sobiohazardous.minestrappolation.extraores.ExtraOres;
 import sobiohazardous.minestrappolation.extraores.lib.EOBlockManager;
+import sobiohazardous.minestrappolation.extraores.lib.EOConfig;
 import sobiohazardous.minestrappolation.extraores.lib.EOItemManager;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -208,9 +209,12 @@ public BlockPlutoniumOre(int par1, Material par3Material)
                 	while (var6.hasNext())
                     {
                 	    //System.out.println("close");
-                	    living = (EntityLivingBase)var6.next();
-                        living.addPotionEffect(new PotionEffect(Potion.wither.getId(), 20, 1, false));
-                	    //varEntityLiving.addPotionEffect(new PotionEffect(Potion.poison.getId(),200,10));          
+                	    if(EOConfig.shouldOresEffect)
+                	    {
+                	    	living = (EntityLivingBase)var6.next();
+                	    	living.addPotionEffect(new PotionEffect(Potion.wither.getId(), 20, 1, false));
+                    	    //varEntityLiving.addPotionEffect(new PotionEffect(Potion.poison.getId(),200,10));         
+                	    }
                     }
                 }
                 List list2 = world.getEntitiesWithinAABB(EntitySkeleton.class, axisalignedbb);
@@ -224,12 +228,15 @@ public BlockPlutoniumOre(int par1, Material par3Material)
                 	while (var8.hasNext())
                     {
                 	    //System.out.println("close");
-                	    skeleton = (EntitySkeleton)var8.next();
-                        skeleton.addPotionEffect(new PotionEffect(Potion.resistance.getId(), 180, 0, false));
-                        skeleton.addPotionEffect(new PotionEffect(Potion.damageBoost.getId(), 180, 0, false));
-                        skeleton.removePotionEffect(Potion.wither.getId());
-                	    //varEntityLiving.addPotionEffect(new PotionEffect(Potion.poison.getId(),200,10));          
-                    }
+                	    if(EOConfig.shouldOresEffect)
+                	    {
+                	    	skeleton = (EntitySkeleton)var8.next();
+                	    	skeleton.addPotionEffect(new PotionEffect(Potion.resistance.getId(), 180, 0, false));
+                	    	skeleton.addPotionEffect(new PotionEffect(Potion.damageBoost.getId(), 180, 0, false));
+                	    	skeleton.removePotionEffect(Potion.wither.getId());
+                	    	//varEntityLiving.addPotionEffect(new PotionEffect(Potion.poison.getId(),200,10));          
+                	    }
+                	 }
         }
         
         public void onBlockClicked(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer)

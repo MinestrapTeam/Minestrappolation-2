@@ -15,6 +15,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 import sobiohazardous.minestrappolation.extraores.lib.EOBlockManager;
+import sobiohazardous.minestrappolation.extraores.lib.EOConfig;
 import sobiohazardous.minestrappolation.extraores.lib.EOItemManager;
 public class BlockUraniumOre extends Block
 {
@@ -206,9 +207,12 @@ public BlockUraniumOre(int par1, Material par3Material)
                 	while (var6.hasNext())
                     {
                 	    //System.out.println("close");
-                	    living = (EntityLivingBase)var6.next();
-                        living.addPotionEffect(new PotionEffect(Potion.poison.getId(), 120, 1, false));
-                	    //varEntityLiving.addPotionEffect(new PotionEffect(Potion.poison.getId(),200,10));          
+                	    if(EOConfig.shouldOresEffect)
+                	    {
+                	    	living = (EntityLivingBase)var6.next();
+                        	living.addPotionEffect(new PotionEffect(Potion.poison.getId(), 120, 1, false));
+                        	//varEntityLiving.addPotionEffect(new PotionEffect(Potion.poison.getId(),200,10));          
+                	    }
                     }
                 }
                 List list2 = world.getEntitiesWithinAABB(EntityZombie.class, axisalignedbb);
@@ -221,12 +225,15 @@ public BlockUraniumOre(int par1, Material par3Material)
                 else
                 	while (var8.hasNext())
                     {
-                	    //System.out.println("close");
-                	    zombie = (EntityZombie)var8.next();
-                        zombie.addPotionEffect(new PotionEffect(Potion.moveSpeed.getId(), 180, 1, false));
-                        zombie.addPotionEffect(new PotionEffect(Potion.damageBoost.getId(), 180, 0, false));
-                	    //varEntityLiving.addPotionEffect(new PotionEffect(Potion.poison.getId(),200,10));          
-                    }
+                	    if(EOConfig.shouldOresEffect)
+                	    {
+                	    	//System.out.println("close");
+                	    	zombie = (EntityZombie)var8.next();
+                	    	zombie.addPotionEffect(new PotionEffect(Potion.moveSpeed.getId(), 180, 1, false));
+                	    	zombie.addPotionEffect(new PotionEffect(Potion.damageBoost.getId(), 180, 0, false));
+                	    	//varEntityLiving.addPotionEffect(new PotionEffect(Potion.poison.getId(),200,10));                             
+                	    }
+                	 }
         }
         
         public void onBlockClicked(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer)

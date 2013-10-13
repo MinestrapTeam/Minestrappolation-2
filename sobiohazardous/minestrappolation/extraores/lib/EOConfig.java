@@ -321,10 +321,11 @@ public class EOConfig {
 	bucketMagmaId,
 	soulBlockId;
 
-	
+	public static boolean shouldOresEffect = true;
 	public static int daysUntilTarnish;
 	
-	public static void initilize(FMLPreInitializationEvent event){
+	public static void initilize(FMLPreInitializationEvent event)
+	{
 		Configuration config = new Configuration(event.getSuggestedConfigurationFile());
 		config.load();
 		meuroditeOreId = config.getBlock("meurodite Ore", 3000).getInt();
@@ -643,6 +644,7 @@ public class EOConfig {
 	    magmaId = config.getBlock("Magma", 3097).getInt();
 	    bucketMagmaId = config.getItem("Bucket of Magma", 1076).getInt();
 	    soulBlockId = config.getBlock("Soul Block", 3098).getInt();
+	    shouldOresEffect = config.get("Misc", "should Plutonium/Uranium ores effect player", true).getBoolean(true);
 		config.save();
 	}
 
