@@ -1251,6 +1251,10 @@ public class EORecipeManager
 				{
 			"MMM", "MMM", "MMM", Character.valueOf('M'), EOBlockManager.SoulGem,
 				});
+        GameRegistry.addRecipe(new ItemStack(EOBlockManager.SoulGem, 9), new Object[]
+				{
+			"M", Character.valueOf('M'), EOBlockManager.soulBlock,
+				});
 	}
 	
 }

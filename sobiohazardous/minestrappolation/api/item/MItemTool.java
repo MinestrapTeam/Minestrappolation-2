@@ -3,6 +3,7 @@ package sobiohazardous.minestrappolation.api.item;
 import java.util.List;
 
 import sobiohazardous.minestrappolation.extradecor.lib.EDConfig;
+import sobiohazardous.minestrappolation.extraores.lib.EOBlockManager;
 import sobiohazardous.minestrappolation.extraores.lib.EOItemManager;
 
 import com.google.common.collect.Multimap;
@@ -84,6 +85,10 @@ public class MItemTool extends ItemTool
         if ((double)Block.blocksList[par3].getBlockHardness(par2World, par4, par5, par6) != 0.0D)
         {
             par1ItemStack.damageItem(1, par7EntityLivingBase);
+        }
+        
+        if((double)Block.blocksList[par3].blockID == EOBlockManager.soulBlock.blockID){
+        	par1ItemStack.damageItem(200, par7EntityLivingBase);
         }
 
         return true;

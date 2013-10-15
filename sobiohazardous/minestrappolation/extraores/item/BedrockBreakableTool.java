@@ -5,6 +5,7 @@ import java.util.List;
 import sobiohazardous.minestrappolation.api.item.MItem;
 
 import com.google.common.collect.Multimap;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -19,6 +20,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
+import sobiohazardous.minestrappolation.extraores.lib.EOBlockManager;
 import sobiohazardous.minestrappolation.extraores.lib.EOItemManager;
 
 public class BedrockBreakableTool extends MItem
@@ -73,6 +75,10 @@ public class BedrockBreakableTool extends MItem
 
     public boolean onBlockDestroyed(ItemStack par1ItemStack, World par2World, int par3, int par4, int par5, int par6, EntityLivingBase par7EntityLiving)
     {
+    	 if((double)Block.blocksList[par3].blockID == EOBlockManager.soulBlock.blockID){
+         	par1ItemStack.damageItem(200, par7EntityLiving);
+         }
+
         
     	if((double)Block.blocksList[par3].blockID != Block.bedrock.blockID)
         {
