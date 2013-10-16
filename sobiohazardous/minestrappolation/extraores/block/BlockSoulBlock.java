@@ -9,6 +9,7 @@ import sobiohazardous.minestrappolation.extraores.lib.EOBlockManager;
 
 public class BlockSoulBlock extends MBlock
 {
+	Random rand = new Random();
 
 	public BlockSoulBlock(int par1) 
 	{
@@ -64,8 +65,4 @@ public class BlockSoulBlock extends MBlock
     	return EOBlockManager.SoulGem.itemID;
     }
     
-    public void onBlockDestroyedByPlayer(World par1World, int par2, int par3, int par4, int par5) 
-    {
-     this.dropXpOnBlockBreak(par1World, par2, par3, par4, 15); /* the 1 means it drops 1 xp, change it to 20, 100, as much as you want.*/
-    }
 }

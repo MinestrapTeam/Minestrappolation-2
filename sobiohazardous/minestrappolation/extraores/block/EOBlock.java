@@ -105,20 +105,20 @@ public class EOBlock extends MBlock
     }
     
     */
-    
+    Random rand = new Random();
     public void onBlockDestroyedByPlayer(World par1World, int par2, int par3, int par4, int par5) 
     {
     	if(blockID == EOBlockManager.Quartzite.blockID){
     		this.dropXpOnBlockBreak(par1World, par2, par3, par4, 1); /* the 1 means it drops 1 xp, change it to 20, 100, as much as you want.*/
     	}
     	if(blockID == EOBlockManager.RadiantQuartzOre.blockID){
-    		this.dropXpOnBlockBreak(par1World, par2, par3, par4, 1); /* the 1 means it drops 1 xp, change it to 20, 100, as much as you want.*/
+    		this.dropXpOnBlockBreak(par1World, par2, par3, par4, rand.nextInt(9)+4); /* the 1 means it drops 1 xp, change it to 20, 100, as much as you want.*/
     	}
     	if(blockID == EOBlockManager.meuroditeOre.blockID){
-    		this.dropXpOnBlockBreak(par1World, par2, par3, par4, 1); /* the 1 means it drops 1 xp, change it to 20, 100, as much as you want.*/
+    		this.dropXpOnBlockBreak(par1World, par2, par3, par4, rand.nextInt(5)+2); /* the 1 means it drops 1 xp, change it to 20, 100, as much as you want.*/
     	}
     	if(blockID == EOBlockManager.SoulOre.blockID){
-    		this.dropXpOnBlockBreak(par1World, par2, par3, par4, 1); /* the 1 means it drops 1 xp, change it to 20, 100, as much as you want.*/
+    		this.dropXpOnBlockBreak(par1World, par2, par3, par4, rand.nextInt(10)+6); /* the 1 means it drops 1 xp, change it to 20, 100, as much as you want.*/
     	}
      
     }

@@ -12,6 +12,7 @@ import sobiohazardous.minestrappolation.extraores.lib.EOItemManager;
 
 public class BlockSunstoneOre extends Block
 {
+	Random rand = new Random();
     public BlockSunstoneOre(int par1)
     {
         super(par1, Material.rock);
@@ -49,6 +50,6 @@ public class BlockSunstoneOre extends Block
     
     public void onBlockDestroyedByPlayer(World par1World, int par2, int par3, int par4, int par5) 
     {
-     this.dropXpOnBlockBreak(par1World, par2, par3, par4, 1); /* the 1 means it drops 1 xp, change it to 20, 100, as much as you want.*/
+     this.dropXpOnBlockBreak(par1World, par2, par3, par4, rand.nextInt(5)+3); /* the 1 means it drops 1 xp, change it to 20, 100, as much as you want.*/
     }
 }

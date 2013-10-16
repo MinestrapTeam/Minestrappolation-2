@@ -13,6 +13,7 @@ import net.minecraft.world.World;
 
 public class BlockSoulOre extends MBlock
 {
+	Random rand = new Random();
     public BlockSoulOre(int par1)
     {
         super(par1, Material.sand);
@@ -46,5 +47,10 @@ public class BlockSoulOre extends MBlock
     public int idDropped(int par1, Random par2Random, int par3)
     {
     	return EOBlockManager.SoulGem.itemID;
+    }
+    
+    public void onBlockDestroyedByPlayer(World par1World, int par2, int par3, int par4, int par5) 
+    {
+     this.dropXpOnBlockBreak(par1World, par2, par3, par4, rand.nextInt(6)+4); /* the 1 means it drops 1 xp, change it to 20, 100, as much as you want.*/
     }
 }
