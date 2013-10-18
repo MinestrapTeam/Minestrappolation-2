@@ -3,6 +3,7 @@ package sobiohazardous.minestrappolation.extraores.block;
 import java.util.Random;
 
 import net.minecraft.block.material.Material;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import sobiohazardous.minestrappolation.api.block.MBlock;
 import sobiohazardous.minestrappolation.extraores.lib.EOBlockManager;
@@ -63,6 +64,13 @@ public class BlockSoulBlock extends MBlock
     public int idDropped(int par1, Random par2Random, int par3)
     {
     	return EOBlockManager.SoulGem.itemID;
+    }
+    
+    public void dropBlockAsItemWithChance(World par1World, int par2, int par3, int par4, int par5, float par6, int par7)
+    {
+    	super.dropBlockAsItemWithChance(par1World, par2, par3, par4, par5, par6, par7);
+        int j1 = MathHelper.getRandomIntegerInRange(par1World.rand, 140, 220);
+        this.dropXpOnBlockBreak(par1World, par2, par3, par4, j1);
     }
     
 }
