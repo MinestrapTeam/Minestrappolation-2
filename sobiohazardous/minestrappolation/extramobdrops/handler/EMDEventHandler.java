@@ -206,6 +206,24 @@ public class EMDEventHandler
 				if(rand2 < 0.15D)
 				{
 					event.entityLiving.dropItem(EMDItemManager.legSpider.itemID, 4);
+				}			
+			}
+			
+			if(event.entityLiving instanceof EntityCaveSpider)
+			{
+				if (rand < 0.05D) //Makes drop 100% drop chance. Example: (0.25D = 25%, 1D = 100%, etc.)
+				{
+					event.entityLiving.dropItem(EMDItemManager.animalBones.itemID, 1);
+				}
+				
+				if(rand2 <0.3D)
+				{
+					event.entityLiving.dropItem(EMDItemManager.poisonSack.itemID, 2);
+				}
+				
+				if(rand3 < 0.15D)
+				{
+					event.entityLiving.dropItem(EMDItemManager.legSpider.itemID, 4);
 				}
 			}
 			

@@ -44,7 +44,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 
-@Mod(modid = "Minestrappolation", name = "Minestrappolation API", version = "@VERSION@ - @BUILD_NUMBER@")
+@Mod(modid = "Minestrappolation", name = "Minestrappolation API", version = "1.0")
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 public class Minestrappolation
 {

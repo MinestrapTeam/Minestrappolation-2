@@ -76,6 +76,9 @@ public class EMDItemManager
 	public static Item marrow;
 	
 	public static Item legSpider;
+	public static Item poisonSack;
+	
+	public static Item swordPoisonWood;
 	
 	public static EnumToolMaterial toolMaterialWoodH = EnumHelper.addToolMaterial("ToolWoodH", 0, 59, 2.0F, 2.0F, 15);
 	public static EnumToolMaterial toolMaterialStoneH = EnumHelper.addToolMaterial("ToolStoneH", 1, 131, 4.0F, 3.0F, 5);
@@ -160,6 +163,9 @@ public class EMDItemManager
 		marrow = new MItemFood(EMDConfig.marrowId, 5, 0.0F).setUnlocalizedName("marrow").setCreativeTab(tabItems);
 	
 		legSpider = new MItem(EMDConfig.legSpiderId).setUnlocalizedName("spider_leg").setCreativeTab(tabItems);
+		poisonSack = new MItem(EMDConfig.poisonSackId).setUnlocalizedName("poison_sack").setCreativeTab(tabItems);
+		
+		swordPoisonWood = new ItemPoisonSword(EMDConfig.swordPoisonWoodId, EnumToolMaterial.WOOD, Item.swordWood.itemID).setUnlocalizedName("woodSwordPoison").setCreativeTab(tabItems);
 	}
 	
 	public static void loadNames()
@@ -208,5 +214,7 @@ public class EMDItemManager
 		LanguageRegistry.addName(flesh, "Flesh");
 		LanguageRegistry.addName(marrow, "Marrow");
 		LanguageRegistry.addName(legSpider, "Spider Leg");
+		LanguageRegistry.addName(poisonSack, "Poison Sack");
+		LanguageRegistry.addName(swordPoisonWood, "Poisoned Wood Sword");
 	}
 }

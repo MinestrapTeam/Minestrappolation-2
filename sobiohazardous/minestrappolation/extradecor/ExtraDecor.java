@@ -34,7 +34,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 @NetworkMod(clientSideRequired = true, serverSideRequired = false,
 clientPacketHandlerSpec = @SidedPacketHandler(channels = {"extradecorChan"}, packetHandler = ClientPacketHandler.class),
 serverPacketHandlerSpec = @SidedPacketHandler(channels = {"extradecorChanS"}, packetHandler = ServerPacketHandler.class))
-@Mod ( modid = "ExtraDecor", name="Extrappolated Decor", version="B1.1", dependencies = "required-after:Minestrappolation")
+@Mod ( modid = "ExtraDecor", name="Extrappolated Decor", version="B1.2", dependencies = "required-after:Minestrappolation")
 public class ExtraDecor 
 {
 	@SidedProxy(clientSide = "sobiohazardous.minestrappolation.extradecor.proxy.ClientProxy", serverSide = "sobiohazardous.minestrappolation.extradecor.proxy.CommonProxy")

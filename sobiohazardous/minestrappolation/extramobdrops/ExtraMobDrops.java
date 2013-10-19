@@ -29,7 +29,7 @@ import sobiohazardous.minestrappolation.extramobdrops.lib.EMDRecipeManager;
  * 
  * 
  * 
- * @author Crzyguitardude
+ * @author SoBiohazardous
  */
 @NetworkMod(clientSideRequired = true, serverSideRequired = false,
 clientPacketHandlerSpec = @SidedPacketHandler(channels = {"extraoresChan"}, packetHandler = ClientPacketHandler.class),

@@ -49,7 +49,9 @@ public class EMDConfig
 	wolfHideId,
 	fleshId,
 	marrowId,
-	legSpiderId;
+	legSpiderId,
+	poisonSackId,
+	swordPoisonWoodId;
 	
 	public static void initConfig(FMLPreInitializationEvent e)
 	{
@@ -101,6 +103,8 @@ public class EMDConfig
 		fleshId = config.getItem("Flesh", 4041).getInt();
 		marrowId = config.getItem("Marrow", 4042).getInt();
 		legSpiderId = config.getItem("Spider Leg", 4043).getInt();
+		poisonSackId = config.getItem("Poison Sack", 4044).getInt();
+		swordPoisonWoodId = config.getItem("Poisoned Wood Sword", 4045).getInt();
 		
 		config.save();
 	}
