@@ -60,20 +60,23 @@ public class ExtraMobDrops
 		proxy.registerRenderThings();
 		TickRegistry.registerTickHandler(new PlayerTickHandler(EnumSet.of(TickType.PLAYER)), Side.SERVER);
 		MinecraftForge.EVENT_BUS.register(new EMDEventHandler());
+		
+		try
+		{
+			EMDRecipeManager.loadBridgeRecipes();
+			EMDItemManager.loadBridgedItems();
+		}
+		catch(Exception ex)
+		{
+			System.err.println("ExtraMobDrops: Could not load bridge recipes/items. Heres why: ");
+			ex.printStackTrace();
+		}
+		
 	}
 
 	@Mod.EventHandler
 	public void postLoad(FMLPostInitializationEvent e)
 	{
-		try
-		{
-			EMDBridgeRecipes.loadBridgeRecipes();
-		}
-		catch(Exception ex)
-		{
-			System.err.println("ExtraMobDrops: Could not load bridge recipes. Heres why: ");
-			ex.printStackTrace();
-		}
 		
 	}
 }

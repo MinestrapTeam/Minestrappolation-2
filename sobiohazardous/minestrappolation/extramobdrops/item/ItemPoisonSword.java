@@ -48,8 +48,8 @@ public class ItemPoisonSword extends MItemSword
     	par3List.add(EnumChatFormatting.GREEN + "Poisoned +" + (int)poisonLevel);
     }    
     
-    public void registerIcons(IconRegister r)
-	{
-		//itemIcon = r.registerIcon("minestrappolation:" + this.getUnlocalizedName().substring(5));
-	}
+    public void registerIcons(IconRegister par1IconRegister)
+    {
+        this.itemIcon = par1IconRegister.registerIcon(this.getIconString());
+    }
 }

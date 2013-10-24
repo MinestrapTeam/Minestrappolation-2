@@ -1,5 +1,6 @@
 package sobiohazardous.minestrappolation.extramobdrops.lib;
 
+import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import sobiohazardous.minestrappolation.api.item.MItem;
 import sobiohazardous.minestrappolation.api.item.MItemFood;
@@ -79,7 +80,21 @@ public class EMDItemManager
 	public static Item poisonSack;
 	
 	public static Item swordPoisonWood;
+	public static Item swordPoisonStone;
+	public static Item swordPoisonIron;
+	public static Item swordPoisonDiamond;
+	public static Item swordPoisonGold;
 	
+	public static Item swordPosionSandstone;
+	public static Item swordPosionGranite;
+	public static Item swordPosionCopper;
+	public static Item swordPosionSteel;
+	public static Item swordPosionBronze;
+	public static Item swordPosionMeurodite;
+	public static Item swordPosionTorite;
+	public static Item swordPosionBlazium;
+	public static Item swordPosionTitanium;
+
 	public static EnumToolMaterial toolMaterialWoodH = EnumHelper.addToolMaterial("ToolWoodH", 0, 59, 2.0F, 2.0F, 15);
 	public static EnumToolMaterial toolMaterialStoneH = EnumHelper.addToolMaterial("ToolStoneH", 1, 131, 4.0F, 3.0F, 5);
 	public static EnumToolMaterial toolMaterialIronH = EnumHelper.addToolMaterial("ToolIronH", 2, 250, 6.0F, 4.0F, 14);
@@ -122,16 +137,6 @@ public class EMDItemManager
 		hornSwordIron = new MItemSword(EMDConfig.hornSwordIronId, toolMaterialIronH, false).setUnlocalizedName("horned_iron_sword").setCreativeTab(tabItems);
 		hornSwordDiamond = new MItemSword(EMDConfig.hornSwordDiamondId, toolMaterialDiamondH, false).setUnlocalizedName("horned_diamond_sword").setCreativeTab(tabItems);
 		hornSwordGold = new MItemSword(EMDConfig.hornSwordGoldId, toolMaterialGoldH, false).setUnlocalizedName("horned_gold_sword").setCreativeTab(tabItems);
-
-		hornSandstone = new MItemSword(EMDConfig.hornSandstoneId, toolMaterialSandstoneH, false).setUnlocalizedName("horned_sandstone_sword").setCreativeTab(tabItems);
-		hornGranite= new MItemSword(EMDConfig.hornGraniteId, toolMaterialGraniteH, false).setUnlocalizedName("horned_granite_sword").setCreativeTab(tabItems);
-		hornCopper= new MItemSword(EMDConfig.hornCopperId, toolMaterialCopperH, false).setUnlocalizedName("horned_copper_sword").setCreativeTab(tabItems);
-		hornSteel= new MItemSword(EMDConfig.hornSteelId, toolMaterialSteelH, false).setUnlocalizedName("horned_steel_sword").setCreativeTab(tabItems);
-		hornBronze= new MItemSword(EMDConfig.hornBronzeId, toolMaterialBronzeH, false).setUnlocalizedName("horned_bronze_sword").setCreativeTab(tabItems);
-		hornMeurodite= new MItemSword(EMDConfig.hornMeuroditeId, toolMaterialMeuroditeH, false).setUnlocalizedName("horned_meurodite_sword").setCreativeTab(tabItems);
-		hornTorite= new MItemSword(EMDConfig.hornToriteId, toolMaterialToriteH, false).setUnlocalizedName("horned_torite_sword").setCreativeTab(tabItems);
-		hornBlazium= new MItemSword(EMDConfig.hornBlaziumId, toolMaterialBlaziumH, true).setUnlocalizedName("horned_fire_sword").setCreativeTab(tabItems);
-		hornTitanium= new MItemSword(EMDConfig.hornTitaniumId, toolMaterialTitaniumH, false).setUnlocalizedName("horned_titanium_sword").setCreativeTab(tabItems);
 		
 		beakChicken = new MItem(EMDConfig.beakChickenId).setUnlocalizedName("chicken_beak").setCreativeTab(tabItems);
 			
@@ -166,6 +171,11 @@ public class EMDItemManager
 		poisonSack = new MItem(EMDConfig.poisonSackId).setUnlocalizedName("poison_sack").setCreativeTab(tabItems);
 		
 		swordPoisonWood = new ItemPoisonSword(EMDConfig.swordPoisonWoodId, EnumToolMaterial.WOOD, Item.swordWood.itemID).setUnlocalizedName("woodSwordPoison").setTextureName("wood_sword").setCreativeTab(tabItems);
+		swordPoisonStone = new ItemPoisonSword(EMDConfig.swordPoisonStoneId, EnumToolMaterial.STONE, Item.swordStone.itemID).setUnlocalizedName("stoneSwordPoison").setTextureName("stone_sword").setCreativeTab(tabItems);
+		swordPoisonIron = new ItemPoisonSword(EMDConfig.swordPoisonIronId, EnumToolMaterial.IRON, Item.swordIron.itemID).setUnlocalizedName("ironSwordPoison").setTextureName("iron_sword").setCreativeTab(tabItems);
+		swordPoisonDiamond = new ItemPoisonSword(EMDConfig.swordPoisonDiamondId, EnumToolMaterial.EMERALD, Item.swordDiamond.itemID).setUnlocalizedName("diamondSwordPoison").setTextureName("diamond_sword").setCreativeTab(tabItems);
+		swordPoisonGold = new ItemPoisonSword(EMDConfig.swordPoisonGoldId, EnumToolMaterial.GOLD, Item.swordGold.itemID).setUnlocalizedName("goldSwordPoison").setTextureName("gold_sword").setCreativeTab(tabItems);
+
 	}
 	
 	public static void loadNames()
@@ -183,20 +193,6 @@ public class EMDItemManager
 		LanguageRegistry.addName(animalBones, "Amimal Bones");
 		LanguageRegistry.addName(cowHoof, "Cow Hoof");
 		LanguageRegistry.addName( horn, "Horn");
-		LanguageRegistry.addName( hornSwordWood, "Horned Wood Sword");
-		LanguageRegistry.addName( hornSwordStone, "Horned Stone Sword");
-		LanguageRegistry.addName( hornSwordIron, "Horned Iron Sword");
-		LanguageRegistry.addName( hornSwordDiamond, "Horned Diamond Sword");
-		LanguageRegistry.addName( hornSwordGold, "Horned Gold Sword");
-		LanguageRegistry.addName( hornSandstone, "Horned Sanstone Sword");
-		LanguageRegistry.addName( hornGranite, "Horned Granite Sword");
-		LanguageRegistry.addName( hornCopper, "Horned Copper Sword");
-		LanguageRegistry.addName( hornSteel, "Horned Steel Sword");
-		LanguageRegistry.addName( hornBronze, "Horned Bronze Sword");
-		LanguageRegistry.addName( hornMeurodite, "Horned Meurodite Sword");
-		LanguageRegistry.addName( hornTorite, "Horned Torite Sword");
-		LanguageRegistry.addName( hornBlazium, "Horned Blazium Sword");
-		LanguageRegistry.addName( hornTitanium, "Horned Titanium Sword");
 		LanguageRegistry.addName( beakChicken, "Chicken Beak");
 		LanguageRegistry.addName( footChicken, "Chicken Foot");
 		LanguageRegistry.addName(chickenWingRaw, "Raw Chicken Wing");
@@ -215,6 +211,62 @@ public class EMDItemManager
 		LanguageRegistry.addName(marrow, "Marrow");
 		LanguageRegistry.addName(legSpider, "Spider Leg");
 		LanguageRegistry.addName(poisonSack, "Poison Sack");
-		LanguageRegistry.addName(swordPoisonWood, "Poisoned Wood Sword");
+		LanguageRegistry.addName(swordPoisonWood, "Wood Sword");
+		LanguageRegistry.addName(swordPoisonStone, "Stone Sword");
+		LanguageRegistry.addName(swordPoisonIron, "Iron Sword");
+		LanguageRegistry.addName(swordPoisonDiamond, "Diamond Sword");
+		LanguageRegistry.addName(swordPoisonGold, "Gold Sword");
+	}
+	
+	public static void loadBridgedItems() throws Exception
+	{
+		if(Loader.isModLoaded("ExtraOres"))
+		{
+			hornSandstone = new MItemSword(EMDConfig.hornSandstoneId, toolMaterialSandstoneH, false).setUnlocalizedName("horned_sandstone_sword").setCreativeTab(tabItems);
+			hornGranite= new MItemSword(EMDConfig.hornGraniteId, toolMaterialGraniteH, false).setUnlocalizedName("horned_granite_sword").setCreativeTab(tabItems);
+			hornCopper= new MItemSword(EMDConfig.hornCopperId, toolMaterialCopperH, false).setUnlocalizedName("horned_copper_sword").setCreativeTab(tabItems);
+			hornSteel= new MItemSword(EMDConfig.hornSteelId, toolMaterialSteelH, false).setUnlocalizedName("horned_steel_sword").setCreativeTab(tabItems);
+			hornBronze= new MItemSword(EMDConfig.hornBronzeId, toolMaterialBronzeH, false).setUnlocalizedName("horned_bronze_sword").setCreativeTab(tabItems);
+			hornMeurodite= new MItemSword(EMDConfig.hornMeuroditeId, toolMaterialMeuroditeH, false).setUnlocalizedName("horned_meurodite_sword").setCreativeTab(tabItems);
+			hornTorite= new MItemSword(EMDConfig.hornToriteId, toolMaterialToriteH, false).setUnlocalizedName("horned_torite_sword").setCreativeTab(tabItems);
+			hornBlazium= new MItemSword(EMDConfig.hornBlaziumId, toolMaterialBlaziumH, true).setUnlocalizedName("horned_fire_sword").setCreativeTab(tabItems);
+			hornTitanium= new MItemSword(EMDConfig.hornTitaniumId, toolMaterialTitaniumH, false).setUnlocalizedName("horned_titanium_sword").setCreativeTab(tabItems);
+			
+			swordPosionSandstone = new ItemPoisonSword(EMDConfig.swordPoisonSandstoneId, sobiohazardous.minestrappolation.extraores.lib.EOItemManager.toolMaterialSandstone, sobiohazardous.minestrappolation.extraores.lib.EOItemManager.SandstoneSword.itemID).setUnlocalizedName("sandstoneSwordPoison").setTextureName("minestrappolation:item_SandstoneSword").setCreativeTab(tabItems);
+			swordPosionGranite = new ItemPoisonSword(EMDConfig.swordPoisonGraniteId, sobiohazardous.minestrappolation.extraores.lib.EOItemManager.toolMaterialGranite, sobiohazardous.minestrappolation.extraores.lib.EOItemManager.GraniteSword.itemID).setUnlocalizedName("graniteSwordPoison").setTextureName("minestrappolation:item_GraniteSword").setCreativeTab(tabItems);
+			swordPosionCopper = new ItemPoisonSword(EMDConfig.swordPoisonCopperId, sobiohazardous.minestrappolation.extraores.lib.EOItemManager.toolMaterialCopper, sobiohazardous.minestrappolation.extraores.lib.EOItemManager.CopperSword.itemID).setUnlocalizedName("copperSwordPoison").setTextureName("minestrappolation:item_CopperSword").setCreativeTab(tabItems);
+			swordPosionSteel = new ItemPoisonSword(EMDConfig.swordPoisonSteelId, sobiohazardous.minestrappolation.extraores.lib.EOItemManager.toolMaterialSteel, sobiohazardous.minestrappolation.extraores.lib.EOItemManager.SteelSword.itemID).setUnlocalizedName("steelSwordPoison").setTextureName("minestrappolation:item_SteelSword").setCreativeTab(tabItems);
+			swordPosionBronze = new ItemPoisonSword(EMDConfig.swordPoisonBronzeId, sobiohazardous.minestrappolation.extraores.lib.EOItemManager.toolMaterialBronze, sobiohazardous.minestrappolation.extraores.lib.EOItemManager.BronzeSword.itemID).setUnlocalizedName("bronzeSwordPoison").setTextureName("minestrappolation:item_BronzeSword").setCreativeTab(tabItems);
+			swordPosionMeurodite = new ItemPoisonSword(EMDConfig.swordPoisonMeuroditeId, sobiohazardous.minestrappolation.extraores.lib.EOItemManager.toolMaterialMeurodite, sobiohazardous.minestrappolation.extraores.lib.EOItemManager.meuroditeSword.itemID).setUnlocalizedName("meuroditeSwordPoison").setTextureName("minestrappolation:item_MeuroditeSword").setCreativeTab(tabItems);
+			swordPosionTorite = new ItemPoisonSword(EMDConfig.swordPoisonToriteId, sobiohazardous.minestrappolation.extraores.lib.EOItemManager.toolMaterialTorite, sobiohazardous.minestrappolation.extraores.lib.EOItemManager.ToriteSword.itemID).setUnlocalizedName("toriteSwordPoison").setTextureName("minestrappolation:item_ToriteSword").setCreativeTab(tabItems);
+			swordPosionBlazium = new ItemPoisonSword(EMDConfig.swordPoisonBlaziumId, sobiohazardous.minestrappolation.extraores.lib.EOItemManager.toolMaterialBlazium, sobiohazardous.minestrappolation.extraores.lib.EOItemManager.BlaziumSword.itemID).setUnlocalizedName("blaziumSwordPoison").setTextureName("minestrappolation:item_BlaziumSword").setCreativeTab(tabItems);
+			swordPosionTitanium = new ItemPoisonSword(EMDConfig.swordPoisonTitaniumId, sobiohazardous.minestrappolation.extraores.lib.EOItemManager.toolMaterialTitanium, sobiohazardous.minestrappolation.extraores.lib.EOItemManager.TitaniumSword.itemID).setUnlocalizedName("titaniumSwordPoison").setTextureName("minestrappolation:item_TitaniumSword").setCreativeTab(tabItems);
+			
+			LanguageRegistry.addName(hornSwordWood, "Horned Wood Sword");
+			LanguageRegistry.addName(hornSwordStone, "Horned Stone Sword");
+			LanguageRegistry.addName(hornSwordIron, "Horned Iron Sword");
+			LanguageRegistry.addName(hornSwordDiamond, "Horned Diamond Sword");
+			LanguageRegistry.addName(hornSwordGold, "Horned Gold Sword");
+			LanguageRegistry.addName(hornSandstone, "Horned Sanstone Sword");
+			LanguageRegistry.addName(hornGranite, "Horned Granite Sword");
+			LanguageRegistry.addName(hornCopper, "Horned Copper Sword");
+			LanguageRegistry.addName(hornSteel, "Horned Steel Sword");
+			LanguageRegistry.addName(hornBronze, "Horned Bronze Sword");
+			LanguageRegistry.addName(hornMeurodite, "Horned Meurodite Sword");
+			LanguageRegistry.addName(hornTorite, "Horned Torite Sword");
+			LanguageRegistry.addName(hornBlazium, "Horned Blazium Sword");
+			LanguageRegistry.addName(hornTitanium, "Horned Titanium Sword");
+			
+			LanguageRegistry.addName(swordPosionSandstone, "Sandstone Sword");
+			LanguageRegistry.addName(swordPosionGranite, "Granite Sword");
+			LanguageRegistry.addName(swordPosionCopper, "Copper Sword");
+			LanguageRegistry.addName(swordPosionSteel, "Steel Sword");
+			LanguageRegistry.addName(swordPosionBronze, "Bronze Sword");
+			LanguageRegistry.addName(swordPosionMeurodite, "Meurodite Sword");
+			LanguageRegistry.addName(swordPosionTorite, "Torite Sword");
+			LanguageRegistry.addName(swordPosionBlazium, "Blazium Sword");
+			LanguageRegistry.addName(swordPosionTitanium, "Titanium Sword");
+
+		}
 	}
 }

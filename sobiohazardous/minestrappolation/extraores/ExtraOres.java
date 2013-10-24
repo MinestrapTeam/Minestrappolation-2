@@ -4,7 +4,6 @@ import java.util.EnumSet;
 
 import sobiohazardous.minestrappolation.api.customrecipes.CustomSmeltingLoader;
 import sobiohazardous.minestrappolation.api.customrecipes.PluginFolder;
-import sobiohazardous.minestrappolation.extraores.bridge.EOBridgeRecipes;
 import sobiohazardous.minestrappolation.extraores.entity.EntityGrenade;
 import sobiohazardous.minestrappolation.extraores.entity.EntityGrenadeImpact;
 import sobiohazardous.minestrappolation.extraores.entity.EntityGrenadeSticky;
@@ -61,7 +60,7 @@ import cpw.mods.fml.relauncher.Side;
 @NetworkMod(clientSideRequired = true, serverSideRequired = true,
 clientPacketHandlerSpec = @SidedPacketHandler(channels = {"extraoresCChan"}, packetHandler = ClientPacketHandler.class),
 serverPacketHandlerSpec = @SidedPacketHandler(channels = {"extraoresSChan"}, packetHandler = ServerPacketHandler.class))
-@Mod ( modid = "ExtraOres", name="Extrapolated Ores", version="B1.4", dependencies = "required-after:Minestrappolation")
+@Mod ( modid = "ExtraOres", name="Extrapolated Ores", version="B1.5", dependencies = "required-after:Minestrappolation")
 public class ExtraOres 
 {	
 	@SidedProxy(clientSide = "sobiohazardous.minestrappolation.extraores.proxy.ClientProxy", serverSide = "sobiohazardous.minestrappolation.extraores.proxy.CommonProxy")
@@ -141,7 +140,7 @@ public class ExtraOres
 	
 	public void loadBridgedRecipesAndBlocks() throws Exception{
 		EOBlockManager.loadBridgedBlocks();
-		EOBridgeRecipes.loadBridgedRecipes();
+		EORecipeManager.loadBridgedRecipes();
 	}
 
 }

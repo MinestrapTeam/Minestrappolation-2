@@ -1,6 +1,7 @@
 package sobiohazardous.minestrappolation.extramobdrops.lib;
 
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import net.minecraft.item.Item;
 import net.minecraftforge.common.Configuration;
 
 public class EMDConfig 
@@ -51,7 +52,20 @@ public class EMDConfig
 	marrowId,
 	legSpiderId,
 	poisonSackId,
-	swordPoisonWoodId;
+	swordPoisonWoodId,
+	swordPoisonStoneId,
+	swordPoisonIronId,
+	swordPoisonDiamondId,
+	swordPoisonGoldId,
+	swordPoisonSandstoneId,
+	swordPoisonGraniteId,
+	swordPoisonCopperId,
+	swordPoisonSteelId,
+	swordPoisonBronzeId,
+	swordPoisonMeuroditeId,
+	swordPoisonToriteId,
+	swordPoisonBlaziumId,
+	swordPoisonTitaniumId;
 	
 	public static void initConfig(FMLPreInitializationEvent e)
 	{
@@ -105,7 +119,20 @@ public class EMDConfig
 		legSpiderId = config.getItem("Spider Leg", 4043).getInt();
 		poisonSackId = config.getItem("Poison Sack", 4044).getInt();
 		swordPoisonWoodId = config.getItem("Poisoned Wood Sword", 4045).getInt();
-		
+		swordPoisonStoneId = config.getItem("Poisoned Stone Sword", 4046).getInt();
+		swordPoisonIronId = config.getItem("Poisoned Iron Sword", 4047).getInt();
+		swordPoisonDiamondId = config.getItem("Poisoned Diamond Sword", 4048).getInt();
+		swordPoisonGoldId = config.getItem("Poisoned Gold Sword", 4049).getInt();
+		swordPoisonSandstoneId = config.getItem("Poisoned Sandstone Sword", 4050).getInt();
+		swordPoisonGraniteId = config.getItem("Poisoned Granite Sword", 4051).getInt();
+		swordPoisonCopperId = config.getItem("Poisoned Copper Sword", 4052).getInt();
+		swordPoisonSteelId = config.getItem("Poisoned Steel Sword", 4053).getInt();
+		swordPoisonBronzeId = config.getItem("Poisoned Bronze Sword", 4054).getInt();
+		swordPoisonMeuroditeId = config.getItem("Poisoned Meurodite Sword", 4055).getInt();
+		swordPoisonToriteId = config.getItem("Poisoned Torite Sword", 4056).getInt();
+		swordPoisonBlaziumId = config.getItem("Poisoned Blazium Sword", 4057).getInt();
+		swordPoisonTitaniumId = config.getItem("Poisoned Titanium Sword", 4058).getInt();
+
 		config.save();
 	}
 }
