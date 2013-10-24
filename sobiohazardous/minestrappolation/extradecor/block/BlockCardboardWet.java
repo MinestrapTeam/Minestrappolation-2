@@ -2,7 +2,7 @@ package sobiohazardous.minestrappolation.extradecor.block;
 
 import java.util.Random;
 
-import sobiohazardous.minestrappolation.api.util.BlockFunctions;
+import sobiohazardous.minestrappolation.api.util.MiscFunctions;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
 import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
 import sobiohazardous.minestrappolation.extradecor.lib.EDItemManager;
@@ -110,13 +110,13 @@ public class BlockCardboardWet extends BlockContainer
      */
     public void onBlockAdded(World par1World, int par2, int par3, int par4) 
     {
-    	if(BlockFunctions.isWaterTouchingAllSides(par1World, par2, par3, par4))
+    	if(MiscFunctions.isWaterTouchingAllSides(par1World, par2, par3, par4))
     	{
             this.isDry = false;
     		par1World.setBlock(par2, par3, par4, EDBlockManager.cardboardWet.blockID);
     	}
     	
-    	if(!BlockFunctions.isWaterTouchingAllSides(par1World, par2, par3, par4))
+    	if(!MiscFunctions.isWaterTouchingAllSides(par1World, par2, par3, par4))
     	{
             this.isDry = true;
     	}

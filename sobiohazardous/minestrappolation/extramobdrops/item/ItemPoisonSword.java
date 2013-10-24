@@ -2,6 +2,7 @@ package sobiohazardous.minestrappolation.extramobdrops.item;
 
 import java.util.List;
 
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumToolMaterial;
@@ -45,5 +46,10 @@ public class ItemPoisonSword extends MItemSword
     {
     	super.addInformation(par1ItemStack, par2EntityPlayer, par3List, par4);
     	par3List.add(EnumChatFormatting.GREEN + "Poisoned +" + (int)poisonLevel);
-    }
+    }    
+    
+    public void registerIcons(IconRegister r)
+	{
+		//itemIcon = r.registerIcon("minestrappolation:" + this.getUnlocalizedName().substring(5));
+	}
 }

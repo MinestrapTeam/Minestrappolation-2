@@ -3,7 +3,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-import sobiohazardous.minestrappolation.api.util.BlockFunctions;
+import sobiohazardous.minestrappolation.api.util.MiscFunctions;
 import sobiohazardous.minestrappolation.extraores.ExtraOres;
 import sobiohazardous.minestrappolation.extraores.entity.EntityNukePrimed;
 import sobiohazardous.minestrappolation.extraores.entity.EntityInstantExplosion;
@@ -249,11 +249,11 @@ public BlockPlutoniumRaw(int par1, Material par3Material)
         
         public boolean canPlaceBlockAt(World par1World, int par2, int par3, int par4)
         {
-            if (BlockFunctions.isWaterTouchingAllSides(par1World, par2, par3, par4))
+            if (MiscFunctions.isWaterTouchingAllSides(par1World, par2, par3, par4))
             {
             	return true;
             }
-            else if (!BlockFunctions.isWaterTouchingAllSides(par1World, par2, par3, par4))
+            else if (!MiscFunctions.isWaterTouchingAllSides(par1World, par2, par3, par4))
             {
             	 if (!par1World.isRemote)
                  {                    
@@ -272,7 +272,7 @@ public BlockPlutoniumRaw(int par1, Material par3Material)
       
         public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, int par5)
         {
-        	 if (!BlockFunctions.isWaterTouchingAllSides(par1World, par2, par3, par4))
+        	 if (!MiscFunctions.isWaterTouchingAllSides(par1World, par2, par3, par4))
         	 {
         		 if (!par1World.isRemote)
                  {                    

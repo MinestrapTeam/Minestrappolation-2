@@ -1,5 +1,6 @@
 package sobiohazardous.minestrappolation.extradecor.lib;
 
+import sobiohazardous.minestrappolation.api.util.MiscFunctions;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -230,26 +231,26 @@ public class EDRecipeManager
 				{
 			"CCC", " C ", " CC", Character.valueOf('C'), EDItemManager.cardboardItem
 				});
-		GameRegistry.addSmelting(Block.sandStone.blockID, new ItemStack(EDBlockManager.sandstoneBrickItem, 4),  0.8F);
+		GameRegistry.addSmelting(Block.sandStone.blockID, new ItemStack(EDItemManager.sandstoneBrickItem, 4),  0.8F);
 		GameRegistry.addRecipe(new ItemStack(Block.stoneBrick, 1, 0), new Object[]
 				{
-			"BB", "BB", Character.valueOf('B'), EDBlockManager.stoneBrickItem
+			"BB", "BB", Character.valueOf('B'), EDItemManager.stoneBrickItem
 				});
-		GameRegistry.addShapelessRecipe(new ItemStack(EDBlockManager.stoneBrickItem , 4), new Object[]
+		GameRegistry.addShapelessRecipe(new ItemStack(EDItemManager.stoneBrickItem , 4), new Object[]
 				{
 			new ItemStack(Block.stoneBrick, 1 ,0)
 				});
 		GameRegistry.addRecipe(new ItemStack(Block.stoneBrick, 2, 3), new Object[]
 				{
-			"BBB", "BBB", "BBB", Character.valueOf('B'), EDBlockManager.stoneBrickItem
+			"BBB", "BBB", "BBB", Character.valueOf('B'), EDItemManager.stoneBrickItem
 				});
 		GameRegistry.addRecipe(new ItemStack(EDBlockManager.sandstoneBricks, 1, 0), new Object[]
 				{
-			"BB", "BB", Character.valueOf('B'), EDBlockManager.sandstoneBrickItem
+			"BB", "BB", Character.valueOf('B'), EDItemManager.sandstoneBrickItem
 				});
 		GameRegistry.addRecipe(new ItemStack(EDBlockManager.sandstoneBricks, 2, 1), new Object[]
 				{
-			"BBB", "BBB", "BBB", Character.valueOf('B'), EDBlockManager.sandstoneBrickItem
+			"BBB", "BBB", "BBB", Character.valueOf('B'), EDItemManager.sandstoneBrickItem
 				});
 		GameRegistry.addRecipe(new ItemStack(EDBlockManager.checkerTile, 4), new Object[]
 				{
@@ -439,5 +440,15 @@ public class EDRecipeManager
 				{
 			"CCC", "DDD", Character.valueOf('C'), Block.stoneBrick, Character.valueOf('D'), Block.dirt
 				});
+		GameRegistry.addRecipe(new ItemStack(EDItemManager.stoneBrickItem, 16), new Object[]
+				{
+			"BB", "BB", Character.valueOf('B'), Block.stone
+				});
+		
+	}
+	
+	public static void removeRecipes()
+	{
+		MiscFunctions.removeRecipe(new ItemStack(Block.stoneBrick, 4, 0));
 	}
 }

@@ -49,21 +49,8 @@ public class ExtraDecor
 	@Mod.EventHandler
 	public void preLoad(FMLPreInitializationEvent event)
 	{
+		//load libs
 		EDConfig.initilize(event);		
-	}	
-	
-	@Mod.EventHandler
-	public void load(FMLInitializationEvent event)
-	{
-		proxy.registerRenderThings();
-				
-		NetworkRegistry.instance().registerGuiHandler(this, new EDGuiHandler());
-		
-		EDTileEntityManager.registerTileEntitys();
-		
-		MinecraftForge.setToolClass(Item.shears, "shears", 0);
-		//Load Libs
-		
 		EDItemManager.addItems();
 		EDItemManager.addItemNames();
 		EDItemManager.setHarvestLevels();
@@ -71,9 +58,18 @@ public class ExtraDecor
 	    EDBlockManager.registerBlocks();
 	    EDBlockManager.addNames();
 		EDRecipeManager.loadAllRecipes();
-		EDOreRegistry.oreRegistration();
 		EDOreRegistry.addOreRecipes();
-		
+		EDRecipeManager.removeRecipes();
+	}	
+	
+	@Mod.EventHandler
+	public void load(FMLInitializationEvent event)
+	{
+		proxy.registerRenderThings();	
+		EDOreRegistry.oreRegistration();
+		NetworkRegistry.instance().registerGuiHandler(this, new EDGuiHandler());		
+		EDTileEntityManager.registerTileEntitys();		
+		MinecraftForge.setToolClass(Item.shears, "shears", 0);
 		GameRegistry.registerWorldGenerator(new EDOreGenerator());	
 	}
 

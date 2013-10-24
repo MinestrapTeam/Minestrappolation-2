@@ -47,8 +47,6 @@ public class MItemSword extends ItemSword
     {
 		if(EDConfig.showDur == true){
 			 par3List.add(EnumChatFormatting.GREEN+"Durability: "+EnumChatFormatting.RED+Integer.toString(getMaxDamage()-par1ItemStack.getItemDamage()+1)+"/"+Integer.toString(getMaxDamage()+1));
-		}
-		 
-		
+		}	 
     }
 }

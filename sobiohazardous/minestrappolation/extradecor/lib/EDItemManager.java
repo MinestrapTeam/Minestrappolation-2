@@ -2,6 +2,7 @@ package sobiohazardous.minestrappolation.extradecor.lib;
 
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import sobiohazardous.minestrappolation.api.item.MItem;
+import sobiohazardous.minestrappolation.api.item.MItemBlockPlacer;
 import sobiohazardous.minestrappolation.extradecor.block.BlockSandstoneBrick;
 import sobiohazardous.minestrappolation.extradecor.block.BlockStainedBrick;
 import sobiohazardous.minestrappolation.extradecor.block.BlockStoneLamp;
@@ -15,20 +16,28 @@ import net.minecraft.item.ItemMultiTextureTile;
 import net.minecraft.item.ItemSlab;
 import net.minecraftforge.common.MinecraftForge;
 
-public class EDItemManager {
-
+public class EDItemManager 
+{
 	public static Item cardboardItem;	
+	public static Item sandstoneBrickItem;
+	public static Item stoneBrickItem;
+	
 	public static void addItems()
 	{
-		cardboardItem = new MItem(3500).setCreativeTab(EDBlockManager.tabDecorBlocks).setUnlocalizedName("item_Cardboard");
+		cardboardItem = new MItem(EDConfig.cardboardItemId).setCreativeTab(EDBlockManager.tabDecorBlocks).setUnlocalizedName("item_Cardboard");
+		sandstoneBrickItem = new MItem(EDConfig.sandstoneBrickItemId).setUnlocalizedName("item_SandstoneBrick").setCreativeTab(EDBlockManager.tabDecorBlocks);
+		stoneBrickItem = new MItem(EDConfig.stoneBrickItemId).setUnlocalizedName("item_StoneBrick").setCreativeTab(EDBlockManager.tabDecorBlocks);
 	}
 	
 	public static void addItemNames()
 	{
-		LanguageRegistry.addName(cardboardItem, "CardBoard Piece");
+		LanguageRegistry.addName(cardboardItem, "Card Board Piece");
+		LanguageRegistry.addName(sandstoneBrickItem, "Sandstone Brick");
+		LanguageRegistry.addName(stoneBrickItem, "Stone Brick");
 	}
 	
-	public static void setHarvestLevels(){
+	public static void setHarvestLevels()
+	{
 		MinecraftForge.setBlockHarvestLevel(EDBlockManager.snowBrick, "shovel", 0);
 		MinecraftForge.setBlockHarvestLevel(EDBlockManager.flintBlock, "pickaxe", 1);
 		MinecraftForge.setBlockHarvestLevel(EDBlockManager.obsidianTile, "pickaxe", 3);

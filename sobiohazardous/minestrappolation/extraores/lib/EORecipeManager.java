@@ -1255,6 +1255,9 @@ public class EORecipeManager
 				{
 			"M", Character.valueOf('M'), EOBlockManager.soulBlock,
 				});
+        GameRegistry.addSmelting(EOBlockManager.RadiantQuartzOre.blockID, new ItemStack(EOBlockManager.RadiantQuartz, 1), 0.8F);
+        GameRegistry.addSmelting(EOBlockManager.SoulOre.blockID, new ItemStack(EOBlockManager.SoulGem, 1), 0.8F);
+
 	}
 	
 }

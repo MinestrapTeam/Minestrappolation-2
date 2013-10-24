@@ -5,6 +5,7 @@ import java.util.EnumSet;
 
 import org.lwjgl.input.Keyboard;
 
+import sobiohazardous.minestrappolation.api.util.MiscFunctions;
 import sobiohazardous.minestrappolation.extrafoods.block.*;
 import sobiohazardous.minestrappolation.extrafoods.block.freezer.BlockFreezer;
 import sobiohazardous.minestrappolation.extrafoods.block.freezer.TileEntityFreezer;
@@ -491,7 +492,7 @@ public class ExtraFoods
         cupGlass = new ItemGlassCup(cupGlassId, 0).setUnlocalizedName("cupGlass");
         cupWater = new ItemWaterCup(cupWaterId).setUnlocalizedName("cupWater");
         
-        removeRecipe(new ItemStack(Item.pumpkinPie, 1, 0));
+        MiscFunctions.removeRecipe(new ItemStack(Item.pumpkinPie, 1, 0));
         
 		NameManager.loadNames();
 		RecipeManager.loadRecipes();
@@ -536,22 +537,5 @@ public class ExtraFoods
 		
 	}
 	
-	private static void removeRecipe(ItemStack resultItem)
-	{
-		ItemStack recipeResult = null;
-		ArrayList recipes = (ArrayList) CraftingManager.getInstance().getRecipeList();
-		for (int scan = 0; scan < recipes.size(); scan++)
-		{
-			IRecipe tmpRecipe = (IRecipe) recipes.get(scan);
-			recipeResult = tmpRecipe.getRecipeOutput();
-			if (recipeResult != null) {
-				if (recipeResult.itemID == resultItem.itemID && recipeResult.getItemDamage() == resultItem.getItemDamage())
-				{
-					System.out.println("CrazyFoods: Removed Recipe: " + recipes.get(scan) + " -> " + recipeResult);
-					recipes.remove(scan);
-					scan--; //list is shifted after remove! Adjust index, so next time we will check this value again.
-				}
-			}
-		}
-	}
+	
 }

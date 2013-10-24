@@ -109,12 +109,8 @@ public class EDBlockManager {
 	public static Block cardboardBlock;
 	public static Block cardboardWet;
 	
-	public static Item sandstoneBrickItem;
-	public static Item stoneBrickItem;
-	
 	public static Block checkerTile;
-	
-	
+		
 	public static Block woodBoardsStairsOak;
 	public static Block woodBoardsStairsBirch;
 	public static Block woodBoardsStairsSpruce;
@@ -145,7 +141,7 @@ public class EDBlockManager {
 	
 		brickPattern = (new MBlock(EDConfig.brickPatternId, Material.rock)).setHardness(2.0F).setResistance(10.0F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("block_PatternBrick");
 	
-		obsidianTile = (new MBlock(EDConfig.obsidianTileId, Material.rock)).setHardness(50.0F).setResistance(2000.0F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("block_ObsidianTile");
+		obsidianTile = (new MBlock(EDConfig.obsidianTileId, Material.rock)).setHardness(60.0F).setResistance(2000.0F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("block_ObsidianTile");
 	
 		snowBrick = (new MBlock(EDConfig.snowBrickId, Material.snow)).setHardness(0.3F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundSnowFootstep).setUnlocalizedName("block_SnowBrick");
 	
@@ -195,10 +191,7 @@ public class EDBlockManager {
 		cardboard = new EDBlockPane(EDConfig.cardboardId, "block_CardboardBlock", "block_CardboardEdge", Material.cloth, true).setHardness(0.3F).setUnlocalizedName("cardboard");
 		cardboardBlock = new BlockCardboard(EDConfig.cardboardBlockId, Material.cloth).setHardness(0.4F).setUnlocalizedName("block_CardboardBlock").setCreativeTab(tabDecorBlocks);
 		cardboardWet = new BlockCardboardWet(EDConfig.cardboardWetId, Material.cloth).setCreativeTab(tabDecorBlocks).setHardness(0.2F).setResistance(0.8F).setUnlocalizedName("cardboardWet");
-	
-		sandstoneBrickItem = new MItem(EDConfig.sandstoneBrickItemId).setUnlocalizedName("item_SandstoneBrick");
-		stoneBrickItem = new MItem(EDConfig.stoneBrickItemId).setUnlocalizedName("item_StoneBrick");
-	
+		
 		checkerTile = new MBlock(EDConfig.checkerTileId, Material.rock).setUnlocalizedName("block_CheckerTile").setHardness(3F).setResistance(10.0F).setStepSound(Block.soundStoneFootstep);
 	
 		woodBoardsStairsOak = new EDBlockStairs(EDConfig.woodBoardsStairsOakId, woodBoards, 0).setUnlocalizedName("woodBoardsStairsOak").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep);
@@ -278,8 +271,8 @@ public class EDBlockManager {
 		LanguageRegistry.addName(stoneBlockRefined, "Refined Stone Block");
 		LanguageRegistry.addName(stonePillar, "Stone Pillar");
 		LanguageRegistry.addName(stoneTile, "Stone Tile");
-		LanguageRegistry.addName(edgeStoneBrick, "Edge Stone Brick");
-		LanguageRegistry.addName(brickPattern, "Patterned Brick");
+		LanguageRegistry.addName(edgeStoneBrick, "Edge Stone Bricks");
+		LanguageRegistry.addName(brickPattern, "Patterned Bricks");
 		LanguageRegistry.addName(obsidianTile, "Obisidian Tile");
 		LanguageRegistry.addName(snowBrick, "Snow Brick");
 		LanguageRegistry.addName(endstoneSmooth, "Smooth End Stone");
@@ -324,8 +317,6 @@ public class EDBlockManager {
 		//LanguageRegistry.addName(EDItemManager.cardboardItem, "Cardboard");
 		LanguageRegistry.addName(cardboardBlock, "Cardboard Block");
 		LanguageRegistry.addName(cardboardWet, "Wet Cardboard");
-		LanguageRegistry.addName(sandstoneBrickItem, "Sandstone Brick");
-		LanguageRegistry.addName(stoneBrickItem, "Stone Brick");
 		LanguageRegistry.addName(checkerTile, "Checker Tile");
 		LanguageRegistry.addName(woodBoardsStairsOak, "Oak Board Stairs");
 		LanguageRegistry.addName(woodBoardsStairsBirch, "Birch Board Stairs");

@@ -165,7 +165,7 @@ public class EMDItemManager
 		legSpider = new MItem(EMDConfig.legSpiderId).setUnlocalizedName("spider_leg").setCreativeTab(tabItems);
 		poisonSack = new MItem(EMDConfig.poisonSackId).setUnlocalizedName("poison_sack").setCreativeTab(tabItems);
 		
-		swordPoisonWood = new ItemPoisonSword(EMDConfig.swordPoisonWoodId, EnumToolMaterial.WOOD, Item.swordWood.itemID).setUnlocalizedName("woodSwordPoison").setCreativeTab(tabItems);
+		swordPoisonWood = new ItemPoisonSword(EMDConfig.swordPoisonWoodId, EnumToolMaterial.WOOD, Item.swordWood.itemID).setUnlocalizedName("woodSwordPoison").setTextureName("wood_sword").setCreativeTab(tabItems);
 	}
 	
 	public static void loadNames()

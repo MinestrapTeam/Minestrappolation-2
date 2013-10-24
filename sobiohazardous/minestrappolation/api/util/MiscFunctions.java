@@ -1,6 +1,11 @@
 package sobiohazardous.minestrappolation.api.util;
 
+import java.util.ArrayList;
+
 import net.minecraft.block.material.Material;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.CraftingManager;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
@@ -12,7 +17,7 @@ import net.minecraft.world.World;
  * @author SoBiohazardous
  * 
 */
-public class BlockFunctions 
+public class MiscFunctions 
 {
 	/**
 	 * This checks and returns if water is near in a 4x1,4 square
@@ -255,6 +260,23 @@ public class BlockFunctions
 		return false;
 	}
 	
-
+	public static void removeRecipe(ItemStack resultItem)
+	{
+		ItemStack recipeResult = null;
+		ArrayList recipes = (ArrayList) CraftingManager.getInstance().getRecipeList();
+		for (int scan = 0; scan < recipes.size(); scan++)
+		{
+			IRecipe tmpRecipe = (IRecipe) recipes.get(scan);
+			recipeResult = tmpRecipe.getRecipeOutput();
+			if (recipeResult != null) {
+				if (recipeResult.itemID == resultItem.itemID && recipeResult.getItemDamage() == resultItem.getItemDamage())
+				{
+					System.out.println("CrazyFoods: Removed Recipe: " + recipes.get(scan) + " -> " + recipeResult);
+					recipes.remove(scan);
+					scan--; //list is shifted after remove! Adjust index, so next time we will check this value again.
+				}
+			}
+		}
+	}
 	
 }
