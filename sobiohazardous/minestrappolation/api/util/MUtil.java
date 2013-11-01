@@ -17,7 +17,7 @@ import net.minecraft.world.World;
  * @author SoBiohazardous
  * 
 */
-public class MiscFunctions 
+public class MUtil 
 {
 	/**
 	 * This checks and returns if water is near in a 4x1,4 square

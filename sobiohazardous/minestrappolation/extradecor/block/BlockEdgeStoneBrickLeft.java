@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 import sobiohazardous.minestrappolation.api.block.MBlock;
-import sobiohazardous.minestrappolation.api.util.MiscFunctions;
+import sobiohazardous.minestrappolation.api.util.MUtil;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
 import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
 import net.minecraft.block.Block;

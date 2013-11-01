@@ -26,6 +26,7 @@ import sobiohazardous.minestrappolation.extradecor.block.BlockRefinedRoad;
 import sobiohazardous.minestrappolation.extradecor.block.BlockRope;
 import sobiohazardous.minestrappolation.extradecor.block.BlockRopeCoil;
 import sobiohazardous.minestrappolation.extradecor.block.BlockSandstoneBrick;
+import sobiohazardous.minestrappolation.extradecor.block.BlockSnowBrick;
 import sobiohazardous.minestrappolation.extradecor.block.BlockStainedBrick;
 import sobiohazardous.minestrappolation.extradecor.block.BlockStoneLamp;
 import sobiohazardous.minestrappolation.extradecor.block.BlockSugarBlock;
@@ -143,7 +144,7 @@ public class EDBlockManager {
 	
 		obsidianTile = (new MBlock(EDConfig.obsidianTileId, Material.rock)).setHardness(60.0F).setResistance(2000.0F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("block_ObsidianTile");
 	
-		snowBrick = (new MBlock(EDConfig.snowBrickId, Material.snow)).setHardness(0.3F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundSnowFootstep).setUnlocalizedName("block_SnowBrick");
+		snowBrick = (new BlockSnowBrick(EDConfig.snowBrickId)).setHardness(0.3F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundSnowFootstep).setUnlocalizedName("block_SnowBrick");
 	
 		endstoneSmooth = (new MBlock(EDConfig.endstoneSmoothId, Material.rock)).setHardness(3.0F).setResistance(15.0F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("block_EndstoneSmooth");
 		endstoneRefined = (new MBlock(EDConfig.endstoneRefinedId, Material.rock)).setHardness(3.5F).setResistance(15.0F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("block_EndstoneRefined");

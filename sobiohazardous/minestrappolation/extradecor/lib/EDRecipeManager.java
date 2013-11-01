@@ -1,6 +1,6 @@
 package sobiohazardous.minestrappolation.extradecor.lib;
 
-import sobiohazardous.minestrappolation.api.util.MiscFunctions;
+import sobiohazardous.minestrappolation.api.util.MUtil;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -232,10 +232,7 @@ public class EDRecipeManager
 			"CCC", " C ", " CC", Character.valueOf('C'), EDItemManager.cardboardItem
 				});
 		GameRegistry.addSmelting(Block.sandStone.blockID, new ItemStack(EDItemManager.sandstoneBrickItem, 4),  0.8F);
-		GameRegistry.addRecipe(new ItemStack(Block.stoneBrick, 1, 0), new Object[]
-				{
-			"BB", "BB", Character.valueOf('B'), EDItemManager.stoneBrickItem
-				});
+
 		GameRegistry.addShapelessRecipe(new ItemStack(EDItemManager.stoneBrickItem , 4), new Object[]
 				{
 			new ItemStack(Block.stoneBrick, 1 ,0)
@@ -438,8 +435,9 @@ public class EDRecipeManager
 		
 		GameRegistry.addRecipe(new ItemStack(EDBlockManager.refinedRoad, 1), new Object[]
 				{
-			"CCC", "DDD", Character.valueOf('C'), Block.stoneBrick, Character.valueOf('D'), Block.dirt
+			"CCC", "CCC", "DDD", Character.valueOf('C'), new ItemStack(Block.stoneBrick, 1, 0), Character.valueOf('D'), Block.dirt
 				});
+		
 		GameRegistry.addRecipe(new ItemStack(EDItemManager.stoneBrickItem, 16), new Object[]
 				{
 			"BB", "BB", Character.valueOf('B'), Block.stone
@@ -449,6 +447,12 @@ public class EDRecipeManager
 	
 	public static void removeRecipes()
 	{
-		MiscFunctions.removeRecipe(new ItemStack(Block.stoneBrick, 4, 0));
+		MUtil.removeRecipe(new ItemStack(Block.stoneBrick, 4, 0));
+		
+		//It must be added after the recipe is removed.
+		GameRegistry.addRecipe(new ItemStack(Block.stoneBrick, 1), new Object[]
+				{
+			"BB", "BB", Character.valueOf('B'), EDItemManager.stoneBrickItem
+				});
 	}
 }

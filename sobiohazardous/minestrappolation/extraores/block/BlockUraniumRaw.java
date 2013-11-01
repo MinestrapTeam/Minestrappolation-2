@@ -15,7 +15,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
-import sobiohazardous.minestrappolation.api.util.MiscFunctions;
+import sobiohazardous.minestrappolation.api.util.MUtil;
 import sobiohazardous.minestrappolation.extraores.entity.EntityInstantExplosion;
 import sobiohazardous.minestrappolation.extraores.lib.EOBlockManager;
 public class BlockUraniumRaw extends Block
@@ -246,7 +246,7 @@ public BlockUraniumRaw(int par1, Material par3Material)
         @Override
 		public boolean canPlaceBlockAt(World par1World, int par2, int par3, int par4)
         {
-            if (MiscFunctions.isWaterTouchingAllSides(par1World, par2, par3, par4))
+            if (MUtil.isWaterTouchingAllSides(par1World, par2, par3, par4))
             {
             	return true;
             }
@@ -269,7 +269,7 @@ public BlockUraniumRaw(int par1, Material par3Material)
         @Override
 		public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, int par5)
         {
-        	 if (!MiscFunctions.isWaterTouchingAllSides(par1World, par2, par3, par4))
+        	 if (!MUtil.isWaterTouchingAllSides(par1World, par2, par3, par4))
         	 {
         		 if (!par1World.isRemote)
                  {                    

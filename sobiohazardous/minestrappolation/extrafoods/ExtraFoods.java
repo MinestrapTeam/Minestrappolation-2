@@ -5,7 +5,7 @@ import java.util.EnumSet;
 
 import org.lwjgl.input.Keyboard;
 
-import sobiohazardous.minestrappolation.api.util.MiscFunctions;
+import sobiohazardous.minestrappolation.api.util.MUtil;
 import sobiohazardous.minestrappolation.extrafoods.block.*;
 import sobiohazardous.minestrappolation.extrafoods.block.freezer.BlockFreezer;
 import sobiohazardous.minestrappolation.extrafoods.block.freezer.TileEntityFreezer;
@@ -492,7 +492,7 @@ public class ExtraFoods
         cupGlass = new ItemGlassCup(cupGlassId, 0).setUnlocalizedName("cupGlass");
         cupWater = new ItemWaterCup(cupWaterId).setUnlocalizedName("cupWater");
         
-        MiscFunctions.removeRecipe(new ItemStack(Item.pumpkinPie, 1, 0));
+        MUtil.removeRecipe(new ItemStack(Item.pumpkinPie, 1, 0));
         
 		NameManager.loadNames();
 		RecipeManager.loadRecipes();

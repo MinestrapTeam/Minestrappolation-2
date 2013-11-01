@@ -1,6 +1,6 @@
 package sobiohazardous.minestrappolation.extradecor.tileentity;
 
-import sobiohazardous.minestrappolation.api.util.MiscFunctions;
+import sobiohazardous.minestrappolation.api.util.MUtil;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
 import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
 import net.minecraft.block.Block;
@@ -31,7 +31,7 @@ public class TileEntityCardboardWet extends TileEntity
     
     public boolean isDry(World world)
     {
-    	if(!MiscFunctions.isWaterTouchingAllSides(world, this.xCoord, this.yCoord, this.zCoord))
+    	if(!MUtil.isWaterTouchingAllSides(world, this.xCoord, this.yCoord, this.zCoord))
     	{
     		return true;
     	}
