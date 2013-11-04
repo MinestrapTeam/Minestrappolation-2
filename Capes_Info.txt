@@ -1,6 +1,6 @@
 developer=https://raw.github.com/SoBiohazardous/Minestrappolation-Recode/master/cape_dev.png
-developer=SoBiohazardous
-developer=Delocuro
-developer=triplg3
-developer=thewerty1124
-developer=Psioptic
+developer=SoBiohazardous1
+developer=Delocuro1
+developer=triplg31
+developer=thewerty11241
+developer=Psioptic1
