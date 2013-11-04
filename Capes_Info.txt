@@ -3,3 +3,4 @@ developer=SoBiohazardous
 developer=Delocuro
 developer=triplg3
 developer=thewerty1124
+developer=Psioptic

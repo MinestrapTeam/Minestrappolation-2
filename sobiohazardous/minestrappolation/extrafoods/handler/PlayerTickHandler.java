@@ -41,7 +41,7 @@ public class PlayerTickHandler implements ITickHandler
     @Override
     public String getLabel()
     {
-        return "CoolHatsServerTick";
+        return "ExtraFoodsPlayerTick";
     }
     
     public static void playerTick(EntityPlayer player)

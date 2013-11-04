@@ -24,7 +24,6 @@ public class BlockRopeCoil extends Block
     {
         super(par1, Material.cloth);
     }
-
     
     public boolean getBlocksMovement(IBlockAccess par1IBlockAccess, int par2, int par3, int par4)
     {
@@ -74,6 +73,11 @@ public class BlockRopeCoil extends Block
     
     @Override
     public boolean isLadder(World world, int x, int y, int z, EntityLivingBase entity)
+    {
+        return true;
+    }
+    
+    public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
     {
         return true;
     }

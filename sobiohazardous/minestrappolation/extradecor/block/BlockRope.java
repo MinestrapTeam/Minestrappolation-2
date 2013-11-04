@@ -15,6 +15,7 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
@@ -57,7 +58,6 @@ public class BlockRope extends Block
     {
         return false;
     }
-
     
     public boolean getBlocksMovement(IBlockAccess par1IBlockAccess, int par2, int par3, int par4)
     {
@@ -112,6 +112,7 @@ public class BlockRope extends Block
     	{
     		par1World.setBlockToAir(par2, par3, par4);
             par1World.scheduleBlockUpdate(par2, par3, par4, this.blockID, 4);
+            this.dropBlockAsItem(par1World, par2, par3, par4, par1World.getBlockMetadata(par2, par3, par4), 0);
     	}
     }
     
@@ -122,7 +123,6 @@ public class BlockRope extends Block
             par1World.scheduleBlockUpdate(par2, par3, par4, this.blockID, 4);
     		return false;
     	}
-    	
     	return true;
     }
     public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random)
@@ -130,6 +130,7 @@ public class BlockRope extends Block
     	if(par1World.getBlockId(par2, par3 +1, par4) == 0)
     	{
     		par1World.setBlockToAir(par2, par3, par4);
+            this.dropBlockAsItem(par1World, par2, par3, par4, par1World.getBlockMetadata(par2, par3, par4), 0);
     	}
     }
     
@@ -147,6 +148,15 @@ public class BlockRope extends Block
     	{
     		par1World.setBlockToAir(par2, par3, par4);
             par1World.scheduleBlockUpdate(par2, par3, par4, this.blockID, 4);
+            this.dropBlockAsItem(par1World, par2, par3, par4, par1World.getBlockMetadata(par2, par3, par4), 0);
     	}
+    }
+    
+    /**
+     * only called by clickMiddleMouseButton , and passed to inventory.setCurrentItem (along with isCreative)
+     */
+    public int idPicked(World par1World, int par2, int par3, int par4)
+    {
+    	return EDBlockManager.itemRope.itemID;
     }
 }

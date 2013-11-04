@@ -4,6 +4,7 @@ import sobiohazardous.minestrappolation.extradecor.block.*;
 import sobiohazardous.minestrappolation.extradecor.gen.EDOreGenerator;
 import sobiohazardous.minestrappolation.extradecor.handler.ClientPacketHandler;
 import sobiohazardous.minestrappolation.extradecor.handler.EDGuiHandler;
+import sobiohazardous.minestrappolation.extradecor.handler.EDPriestTradeHandler;
 import sobiohazardous.minestrappolation.extradecor.handler.ServerPacketHandler;
 import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
 import sobiohazardous.minestrappolation.extradecor.lib.EDConfig;
@@ -24,6 +25,7 @@ import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.network.NetworkMod.SidedPacketHandler;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.common.registry.VillagerRegistry;
 
 /**
  * 
@@ -53,13 +55,14 @@ public class ExtraDecor
 		EDConfig.initilize(event);		
 		EDItemManager.addItems();
 		EDItemManager.addItemNames();
-		EDItemManager.setHarvestLevels();
 		EDBlockManager.createBlocks();
 	    EDBlockManager.registerBlocks();
 	    EDBlockManager.addNames();
 		EDRecipeManager.loadAllRecipes();
 		EDOreRegistry.addOreRecipes();
 		EDRecipeManager.removeRecipes();
+		EDItemManager.setHarvestLevels();
+
 	}	
 	
 	@Mod.EventHandler
@@ -71,6 +74,7 @@ public class ExtraDecor
 		EDTileEntityManager.registerTileEntitys();		
 		MinecraftForge.setToolClass(Item.shears, "shears", 0);
 		GameRegistry.registerWorldGenerator(new EDOreGenerator());	
+		VillagerRegistry.instance().registerVillageTradeHandler(2, new EDPriestTradeHandler());
 	}
 
 	@Mod.EventHandler

@@ -42,6 +42,6 @@ public class ServerTickHandler implements ITickHandler
     @Override
     public String getLabel()
     {
-        return "CrazyFoodsClientTick";
+        return "CrazyFoodsServerTick";
     }
 }

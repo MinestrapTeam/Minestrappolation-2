@@ -12,7 +12,7 @@ public class BlockSnowBrick extends MBlock
 {
 	public BlockSnowBrick(int id)
 	{
-		super(id, Material.snow);
+		super(id, Material.craftedSnow);
 	}
 	
 	/**

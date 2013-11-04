@@ -153,9 +153,9 @@ public class EDBlockManager {
 		glassRefined = (new BlockGlassRefined(EDConfig.glassRefinedId, Material.glass, false)).setHardness(0.3F).setStepSound(Block.soundGlassFootstep).setCreativeTab(tabDecorBlocks).setUnlocalizedName("glassRefined");
 		glassRefinedPane = (new EDBlockPane(EDConfig.glassRefinedPaneId, "block_ClearGlass", "block_ClearGlassTop", Material.glass, false)).setHardness(0.3F).setStepSound(Block.soundGlassFootstep).setCreativeTab(tabDecorBlocks).setUnlocalizedName("glassRefinedPane");
 	
-		flintBlock = (new MBlock(EDConfig.flintBlockId, Material.rock)).setHardness(3F).setResistance(10.0F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("block_FlintBlock");
+		flintBlock = (new MBlock(EDConfig.flintBlockId, Material.rock)).setHardness(3F).setResistance(10.0F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("block_FlintBlock").setCreativeTab(tabDecorBlocks);
 	
-		gunpowderBlock = (new BlockGunpowderBlock(EDConfig.gunpowderBlockId, Material.ground)).setHardness(0.6F).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("block_FlintBlock");
+		gunpowderBlock = (new BlockGunpowderBlock(EDConfig.gunpowderBlockId, Material.ground)).setHardness(0.6F).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("block_GunpowderBlock");
 	
 		rope = (new BlockRope(EDConfig.ropeId)).setHardness(0.9F).setStepSound(Block.soundClothFootstep).setUnlocalizedName("rope");
 		itemRope = (new MItemBlockPlacer(EDConfig.itemRopeId, rope)).setUnlocalizedName("item_Rope").setCreativeTab(tabDecorBlocks);
@@ -177,7 +177,7 @@ public class EDBlockManager {
 	
 		flintTile = new MBlock(EDConfig.flintTileId, Material.rock).setUnlocalizedName("block_FlintTile").setHardness(3F).setResistance(10.0F).setCreativeTab(tabDecorBlocks);
 	
-		netherQuartzTile = new MBlock(EDConfig.netherQuartzTileId, Material.rock).setHardness(0.8F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("block_NetherTile");
+		netherQuartzTile = new MBlock(EDConfig.netherQuartzTileId, Material.rock).setHardness(0.8F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("block_NetherTile").setCreativeTab(tabDecorBlocks);
 
 		sugarBlock = new BlockSugarBlock(EDConfig.sugarBlockId).setHardness(0.6F).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("block_SugarBlock");
 		meatBlock = new BlockMeatBlock(EDConfig.meatBlockId, "block_MeatBlock").setHardness(0.8F).setStepSound(Block.soundClothFootstep).setUnlocalizedName("block_MeatBlock");
@@ -193,7 +193,7 @@ public class EDBlockManager {
 		cardboardBlock = new BlockCardboard(EDConfig.cardboardBlockId, Material.cloth).setHardness(0.4F).setUnlocalizedName("block_CardboardBlock").setCreativeTab(tabDecorBlocks);
 		cardboardWet = new BlockCardboardWet(EDConfig.cardboardWetId, Material.cloth).setCreativeTab(tabDecorBlocks).setHardness(0.2F).setResistance(0.8F).setUnlocalizedName("cardboardWet");
 		
-		checkerTile = new MBlock(EDConfig.checkerTileId, Material.rock).setUnlocalizedName("block_CheckerTile").setHardness(3F).setResistance(10.0F).setStepSound(Block.soundStoneFootstep);
+		checkerTile = new MBlock(EDConfig.checkerTileId, Material.rock).setUnlocalizedName("block_CheckerTile").setHardness(3F).setResistance(10.0F).setStepSound(Block.soundStoneFootstep).setCreativeTab(tabDecorBlocks);
 	
 		woodBoardsStairsOak = new EDBlockStairs(EDConfig.woodBoardsStairsOakId, woodBoards, 0).setUnlocalizedName("woodBoardsStairsOak").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep);
 		woodBoardsStairsBirch = new EDBlockStairs(EDConfig.woodBoardsStairsBirchId, woodBoards, 1).setUnlocalizedName("woodBoardsStairsBirch").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep);
