@@ -442,6 +442,7 @@ public class EDRecipeManager
 				{
 			"BB", "BB", Character.valueOf('B'), Block.stone
 				});
+
 		
 	}
 	

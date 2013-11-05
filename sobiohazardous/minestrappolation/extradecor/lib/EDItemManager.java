@@ -24,7 +24,7 @@ public class EDItemManager
 	
 	public static void addItems()
 	{
-		cardboardItem = new MItem(EDConfig.cardboardItemId).setCreativeTab(EDBlockManager.tabDecorBlocks).setUnlocalizedName("item_Cardboard");
+		cardboardItem = new MItemBlockPlacer(EDConfig.cardboardItemId, EDBlockManager.cardboard).setCreativeTab(EDBlockManager.tabDecorBlocks).setUnlocalizedName("item_Cardboard");
 		sandstoneBrickItem = new MItem(EDConfig.sandstoneBrickItemId).setUnlocalizedName("item_SandstoneBrick").setCreativeTab(EDBlockManager.tabDecorBlocks);
 		stoneBrickItem = new MItem(EDConfig.stoneBrickItemId).setUnlocalizedName("item_StoneBrick").setCreativeTab(EDBlockManager.tabDecorBlocks);
 	}
@@ -49,7 +49,6 @@ public class EDItemManager
 		MinecraftForge.setBlockHarvestLevel(EDBlockManager.oozeSlime, "shovel", 0);
 		MinecraftForge.setBlockHarvestLevel(EDBlockManager.magmaOoze, "shovel", 0);
 		MinecraftForge.setBlockHarvestLevel(EDBlockManager.cobbledRoad, "pickaxe", 0);
-		MinecraftForge.setBlockHarvestLevel(EDBlockManager.bedrockBrick, "pickaxe", 3);
 		MinecraftForge.setBlockHarvestLevel(EDBlockManager.sandstoneBricks,0, "pickaxe", 0);
 		MinecraftForge.setBlockHarvestLevel(EDBlockManager.sandstoneBricks,1, "pickaxe", 0);
 		MinecraftForge.setBlockHarvestLevel(EDBlockManager.sandstoneBricks,2, "pickaxe", 0);

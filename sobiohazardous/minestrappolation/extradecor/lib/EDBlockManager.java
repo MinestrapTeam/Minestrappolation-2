@@ -43,6 +43,7 @@ import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraftforge.common.MinecraftForge;
 
 public class EDBlockManager {
 	
@@ -207,7 +208,7 @@ public class EDBlockManager {
 		stainedBrick = (new BlockStainedBrick(EDConfig.stainedBrickId)).setHardness(2F).setResistance(10F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("stainedBrick");
 	
 		cobbledRoad = (new BlockCobbledRoad(EDConfig.cobbledRoadId)).setHardness(1).setResistance(5F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("cobbledRoad");
-		infertileDirt = new MBlock(EDConfig.infertiledirtId,Material.grass).setCreativeTab(tabDecorBlocks).setUnlocalizedName("block_InfertileSoil").setStepSound(Block.soundGrassFootstep);
+		infertileDirt = new MBlock(EDConfig.infertiledirtId,Material.grass).setCreativeTab(tabDecorBlocks).setUnlocalizedName("block_InfertileSoil").setHardness(1.5F).setStepSound(Block.soundGrassFootstep);
 		refinedRoad = (new BlockRefinedRoad(EDConfig.refinedRoadID)).setResistance(1F).setHardness(5F).setUnlocalizedName("block_RefinedRoad").setStepSound(Block.soundStoneFootstep).setCreativeTab(tabDecorBlocks);
 
 	}
@@ -353,6 +354,7 @@ public class EDBlockManager {
 		{
 			bedrockBrick = new MBlock(EDConfig.bedrockBrickID,Material.rock).setUnlocalizedName("block_BedrockBrick").setStepSound(Block.soundStoneFootstep).setResistance(100000000F).setHardness(80F).setCreativeTab(tabDecorBlocks);
 			GameRegistry.registerBlock(bedrockBrick,"block_BedrockBrick");
+			MinecraftForge.setBlockHarvestLevel(EDBlockManager.bedrockBrick, "pickaxe", 4);
 			LanguageRegistry.addName(bedrockBrick, "Bedrock Bricks");
 		}
 	

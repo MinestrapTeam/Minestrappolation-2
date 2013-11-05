@@ -20,13 +20,12 @@ public class TileEntityCopper extends TileEntity
     	if(worldObj.getWorldTime() == 12521)
         {
         	this.daysPassed += 1;
-        	System.out.println(this.daysPassed+"/"+EOConfig.daysUntilTarnish);
-   
+        	//System.out.println(this.daysPassed+"/"+EOConfig.daysUntilTarnish); 
         }
     	
     	if(this.daysPassed >= EOConfig.daysUntilTarnish)
         {
-    		System.out.println(EOConfig.daysUntilTarnish);
+    		//System.out.println(EOConfig.daysUntilTarnish);
         	this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EOBlockManager.CopperBlockTarnished.blockID);
         }
     }

@@ -6,6 +6,8 @@ import sobiohazardous.minestrappolation.api.item.MItem;
 
 import com.google.common.collect.Multimap;
 
+import cpw.mods.fml.common.Loader;
+import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -78,8 +80,7 @@ public class BedrockBreakableTool extends MItem
     	 if((double)Block.blocksList[par3].blockID == EOBlockManager.soulBlock.blockID){
          	par1ItemStack.damageItem(200, par7EntityLiving);
          }
-
-        
+    	 
     	if((double)Block.blocksList[par3].blockID != Block.bedrock.blockID)
         {
     	    if ((double)Block.blocksList[par3].getBlockHardness(par2World, par4, par5, par6) != 0.0D)

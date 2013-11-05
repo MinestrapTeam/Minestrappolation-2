@@ -1,6 +1,7 @@
 package sobiohazardous.minestrappolation.extradecor;
 
 import sobiohazardous.minestrappolation.extradecor.block.*;
+import sobiohazardous.minestrappolation.extradecor.bridge.EDBridgeRecipes;
 import sobiohazardous.minestrappolation.extradecor.gen.EDOreGenerator;
 import sobiohazardous.minestrappolation.extradecor.handler.ClientPacketHandler;
 import sobiohazardous.minestrappolation.extradecor.handler.EDGuiHandler;
@@ -52,12 +53,12 @@ public class ExtraDecor
 	public void preLoad(FMLPreInitializationEvent event)
 	{
 		//load libs
-		EDConfig.initilize(event);		
-		EDItemManager.addItems();
-		EDItemManager.addItemNames();
+		EDConfig.initilize(event);			
 		EDBlockManager.createBlocks();
 	    EDBlockManager.registerBlocks();
 	    EDBlockManager.addNames();
+	    EDItemManager.addItems();
+		EDItemManager.addItemNames();
 		EDRecipeManager.loadAllRecipes();
 		EDOreRegistry.addOreRecipes();
 		EDRecipeManager.removeRecipes();
@@ -85,6 +86,7 @@ public class ExtraDecor
 		try 
 		{
 			EDBlockManager.loadBridgedBlocks();
+			EDBridgeRecipes.loadBridgeRecipes();
 		} catch (Exception e) 
 		{
 			e.printStackTrace();
