@@ -196,6 +196,7 @@ public class BlockCrate extends BlockContainer
                 if (par3 > 0)
                 {
                     par1World.setBlock(par2, par3, par4, this.blockID);
+                    System.out.println("Finished");
                 }
             }
         }
@@ -239,5 +240,6 @@ public class BlockCrate extends BlockContainer
     /**
      * Called when the falling block entity for this block hits the ground and turns back into a block
      */
-    public void onFinishFalling(World par1World, int par2, int par3, int par4, int par5) {}
+    public void onFinishFalling(World par1World, int par2, int par3, int par4, int par5) {
+    }
 }

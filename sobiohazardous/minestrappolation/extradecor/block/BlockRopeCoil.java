@@ -25,11 +25,20 @@ public class BlockRopeCoil extends Block
         super(par1, Material.cloth);
     }
     
-    public boolean getBlocksMovement(IBlockAccess par1IBlockAccess, int par2, int par3, int par4)
+    public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int par2, int par3, int par4)
     {
-        return false;
+        this.setBlockBoundsBasedOnState(par1World, par2, par3, par4);
+        return super.getCollisionBoundingBoxFromPool(par1World, par2, par3, par4);
     }
-
+    
+    public AxisAlignedBB getSelectedBoundingBoxFromPool(World par1World, int par2, int par3, int par4)
+    {
+        this.setBlockBoundsBasedOnState(par1World, par2, par3, par4);
+        return super.getSelectedBoundingBoxFromPool(par1World, par2, par3, par4);
+    }
+    
+    
+    
     @SideOnly(Side.CLIENT)
 
     /**

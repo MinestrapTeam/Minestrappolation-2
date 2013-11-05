@@ -38,7 +38,7 @@ public class EDItemManager
 	
 	public static void setHarvestLevels()
 	{
-		MinecraftForge.setBlockHarvestLevel(EDBlockManager.snowBrick, "shovel", 0);
+		MinecraftForge.setBlockHarvestLevel(EDBlockManager.snowBrick, "shovel", 1);
 		MinecraftForge.setBlockHarvestLevel(EDBlockManager.flintBlock, "pickaxe", 1);
 		MinecraftForge.setBlockHarvestLevel(EDBlockManager.obsidianTile, "pickaxe", 3);
 		MinecraftForge.setBlockHarvestLevel(EDBlockManager.gunpowderBlock, "shovel", 0);
