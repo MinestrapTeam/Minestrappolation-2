@@ -435,7 +435,7 @@ public class EDRecipeManager
 		
 		GameRegistry.addRecipe(new ItemStack(EDBlockManager.refinedRoad, 1), new Object[]
 				{
-			"CCC", "CCC", "DDD", Character.valueOf('C'), new ItemStack(Block.stoneBrick, 1, 0), Character.valueOf('D'), Block.dirt
+			"CCC", "CCC", "DDD", Character.valueOf('C'), new ItemStack(EDItemManager.stoneBrickItem, 1, 0), Character.valueOf('D'), Block.dirt
 				});
 		
 		GameRegistry.addRecipe(new ItemStack(EDItemManager.stoneBrickItem, 16), new Object[]

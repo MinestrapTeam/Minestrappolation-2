@@ -20,7 +20,7 @@ public class BlockSnowBrick extends MBlock
      */
     public int quantityDropped(Random par1Random)
     {
-        return 4 + par1Random.nextInt(8);
+        return 4;
     }
 
     /**
