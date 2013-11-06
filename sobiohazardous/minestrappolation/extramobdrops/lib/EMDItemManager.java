@@ -94,6 +94,8 @@ public class EMDItemManager
 	public static Item swordPosionTorite;
 	public static Item swordPosionBlazium;
 	public static Item swordPosionTitanium;
+	
+	public static Item guano;
 
 	public static EnumToolMaterial toolMaterialWoodH = EnumHelper.addToolMaterial("ToolWoodH", 0, 59, 2.0F, 2.0F, 15);
 	public static EnumToolMaterial toolMaterialStoneH = EnumHelper.addToolMaterial("ToolStoneH", 1, 131, 4.0F, 3.0F, 5);
@@ -175,7 +177,8 @@ public class EMDItemManager
 		swordPoisonIron = new ItemPoisonSword(EMDConfig.swordPoisonIronId, EnumToolMaterial.IRON, Item.swordIron.itemID).setUnlocalizedName("ironSwordPoison").setTextureName("iron_sword").setCreativeTab(tabItems);
 		swordPoisonDiamond = new ItemPoisonSword(EMDConfig.swordPoisonDiamondId, EnumToolMaterial.EMERALD, Item.swordDiamond.itemID).setUnlocalizedName("diamondSwordPoison").setTextureName("diamond_sword").setCreativeTab(tabItems);
 		swordPoisonGold = new ItemPoisonSword(EMDConfig.swordPoisonGoldId, EnumToolMaterial.GOLD, Item.swordGold.itemID).setUnlocalizedName("goldSwordPoison").setTextureName("gold_sword").setCreativeTab(tabItems);
-
+		
+		guano = new ItemGuano(EMDConfig.guanoId).setUnlocalizedName("guano").setCreativeTab(tabItems);
 	}
 	
 	public static void loadNames()
@@ -216,6 +219,7 @@ public class EMDItemManager
 		LanguageRegistry.addName(swordPoisonIron, "Iron Sword");
 		LanguageRegistry.addName(swordPoisonDiamond, "Diamond Sword");
 		LanguageRegistry.addName(swordPoisonGold, "Gold Sword");
+		LanguageRegistry.addName(guano, "Guano");
 	}
 	
 	public static void loadBridgedItems() throws Exception

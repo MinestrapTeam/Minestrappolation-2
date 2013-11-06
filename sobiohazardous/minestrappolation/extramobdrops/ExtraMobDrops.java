@@ -5,6 +5,7 @@ import java.util.EnumSet;
 import sobiohazardous.minestrappolation.extramobdrops.bridge.EMDBridgeRecipes;
 import sobiohazardous.minestrappolation.extramobdrops.handler.ClientPacketHandler;
 import sobiohazardous.minestrappolation.extramobdrops.handler.EMDEventHandler;
+import sobiohazardous.minestrappolation.extramobdrops.handler.EMDFuelHandler;
 import sobiohazardous.minestrappolation.extramobdrops.handler.PlayerTickHandler;
 import sobiohazardous.minestrappolation.extramobdrops.handler.ServerPacketHandler;
 import sobiohazardous.minestrappolation.extramobdrops.proxy.CommonProxy;
@@ -18,6 +19,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod.SidedPacketHandler;
+import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.TickRegistry;
 import cpw.mods.fml.relauncher.Side;
 import sobiohazardous.minestrappolation.extramobdrops.lib.EMDConfig;
@@ -58,6 +60,7 @@ public class ExtraMobDrops
 	public void load(FMLInitializationEvent e)
 	{
 		proxy.registerRenderThings();
+		GameRegistry.registerFuelHandler(new EMDFuelHandler());
 		TickRegistry.registerTickHandler(new PlayerTickHandler(EnumSet.of(TickType.PLAYER)), Side.SERVER);
 		MinecraftForge.EVENT_BUS.register(new EMDEventHandler());
 		
@@ -70,8 +73,7 @@ public class ExtraMobDrops
 		{
 			System.err.println("ExtraMobDrops: Could not load bridge recipes/items. Heres why: ");
 			ex.printStackTrace();
-		}
-		
+		}		
 	}
 
 	@Mod.EventHandler

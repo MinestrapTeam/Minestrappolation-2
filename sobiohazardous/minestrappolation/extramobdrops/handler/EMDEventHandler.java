@@ -271,6 +271,13 @@ public class EMDEventHandler
 					event.entityLiving.dropItem(EMDItemManager.marrow.itemID, 3);
 				}
 			}
+			if(event.entityLiving instanceof EntityBat)
+			{
+				if(rand < 0.5)
+				{
+					event.entityLiving.dropItem(EMDItemManager.guano.itemID, 2);
+				}
+			}
 		}
 	}
 	

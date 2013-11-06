@@ -65,7 +65,8 @@ public class EMDConfig
 	swordPoisonMeuroditeId,
 	swordPoisonToriteId,
 	swordPoisonBlaziumId,
-	swordPoisonTitaniumId;
+	swordPoisonTitaniumId,
+	guanoId;
 	
 	public static void initConfig(FMLPreInitializationEvent e)
 	{
@@ -132,6 +133,7 @@ public class EMDConfig
 		swordPoisonToriteId = config.getItem("Poisoned Torite Sword", 4056).getInt();
 		swordPoisonBlaziumId = config.getItem("Poisoned Blazium Sword", 4057).getInt();
 		swordPoisonTitaniumId = config.getItem("Poisoned Titanium Sword", 4058).getInt();
+		guanoId = config.getItem("Guano", 4059).getInt();
 
 		config.save();
 	}
