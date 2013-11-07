@@ -38,9 +38,9 @@ public class EDRecipeManager
 			"SS", "SS", Character.valueOf('S'), EDBlockManager.stoneBlockRefined
 				});
 		
-		GameRegistry.addRecipe(new ItemStack(EDBlockManager.edgeStoneBrick, 4), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EDBlockManager.edgeStoneBrick, 1), new Object[]
 				{
-			"SG", "SG", Character.valueOf('S'), new ItemStack(Block.stoneBrick, 1, 0), Character.valueOf('G'), new ItemStack(Block.blockNetherQuartz, 1, 0)
+			"SG", "SG", Character.valueOf('S'), new ItemStack(EDItemManager.stoneBrickItem, 1), Character.valueOf('G'), new ItemStack(Item.netherQuartz, 1)
 				});
 		GameRegistry.addRecipe(new ItemStack(EDBlockManager.brickPattern, 2), new Object[]
 				{
@@ -232,11 +232,6 @@ public class EDRecipeManager
 			"CCC", " C ", " CC", Character.valueOf('C'), EDItemManager.cardboardItem
 				});
 		GameRegistry.addSmelting(Block.sandStone.blockID, new ItemStack(EDItemManager.sandstoneBrickItem, 4),  0.8F);
-
-		GameRegistry.addShapelessRecipe(new ItemStack(EDItemManager.stoneBrickItem , 4), new Object[]
-				{
-			new ItemStack(Block.stoneBrick, 1 ,0)
-				});
 		GameRegistry.addRecipe(new ItemStack(Block.stoneBrick, 2, 3), new Object[]
 				{
 			"BBB", "BBB", "BBB", Character.valueOf('B'), EDItemManager.stoneBrickItem

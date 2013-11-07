@@ -24,7 +24,7 @@ public class BlockSandstoneBrick extends Block
     
     public BlockSandstoneBrick(int id)
     {
-        super(id, Material.sand);
+        super(id, Material.rock);
         this.setCreativeTab(EDBlockManager.tabDecorBlocks);
     }
 

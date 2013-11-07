@@ -127,7 +127,7 @@ public class BlockCrate extends BlockContainer
     				entity_item.getEntityItem().setTagCompound((NBTTagCompound) item.getTagCompound().copy());
     			}
 
-    			float factor = 0.5F;
+    			float factor = 0.05F;
 
     			entity_item.motionX = rand.nextGaussian() * factor;
     			entity_item.motionY = rand.nextGaussian() * factor + 0.2F;

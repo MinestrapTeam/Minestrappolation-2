@@ -31,14 +31,14 @@ public class EDItemManager
 	
 	public static void addItemNames()
 	{
-		LanguageRegistry.addName(cardboardItem, "Card Board Piece");
+		LanguageRegistry.addName(cardboardItem, "Cardboard");
 		LanguageRegistry.addName(sandstoneBrickItem, "Sandstone Brick");
 		LanguageRegistry.addName(stoneBrickItem, "Stone Brick");
 	}
 	
 	public static void setHarvestLevels()
 	{
-		MinecraftForge.setBlockHarvestLevel(EDBlockManager.snowBrick, "shovel", 1);
+		MinecraftForge.setBlockHarvestLevel(EDBlockManager.snowBrick, "shovel", 0);
 		MinecraftForge.setBlockHarvestLevel(EDBlockManager.flintBlock, "pickaxe", 1);
 		MinecraftForge.setBlockHarvestLevel(EDBlockManager.obsidianTile, "pickaxe", 3);
 		MinecraftForge.setBlockHarvestLevel(EDBlockManager.gunpowderBlock, "shovel", 0);
@@ -46,6 +46,8 @@ public class EDItemManager
 		MinecraftForge.setBlockHarvestLevel(EDBlockManager.ropeCoil, "shears", 0);
 		MinecraftForge.setBlockHarvestLevel(EDBlockManager.rope, "shears", 0);
 		MinecraftForge.setBlockHarvestLevel(EDBlockManager.flintTile, "pickaxe", 1);
+		MinecraftForge.setBlockHarvestLevel(EDBlockManager.checkerTile, "pickaxe", 1);
+		MinecraftForge.setBlockHarvestLevel(EDBlockManager.checkerTileStairs, "pickaxe", 1);
 		MinecraftForge.setBlockHarvestLevel(EDBlockManager.oozeSlime, "shovel", 0);
 		MinecraftForge.setBlockHarvestLevel(EDBlockManager.magmaOoze, "shovel", 0);
 		MinecraftForge.setBlockHarvestLevel(EDBlockManager.cobbledRoad, "pickaxe", 0);

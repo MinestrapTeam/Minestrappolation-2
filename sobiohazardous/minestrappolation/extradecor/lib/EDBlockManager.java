@@ -272,14 +272,14 @@ public class EDBlockManager {
 		LanguageRegistry.addName(infertileDirt, "Infertile Dirt");
 		LanguageRegistry.addName(stoneBlockRefined, "Refined Stone Block");
 		LanguageRegistry.addName(stonePillar, "Stone Pillar");
-		LanguageRegistry.addName(stoneTile, "Stone Tile");
+		LanguageRegistry.addName(stoneTile, "Stone Tiles");
 		LanguageRegistry.addName(edgeStoneBrick, "Edge Stone Bricks");
 		LanguageRegistry.addName(brickPattern, "Patterned Bricks");
-		LanguageRegistry.addName(obsidianTile, "Obisidian Tile");
-		LanguageRegistry.addName(snowBrick, "Snow Brick");
+		LanguageRegistry.addName(obsidianTile, "Obisidian Tiles");
+		LanguageRegistry.addName(snowBrick, "Snow Bricks");
 		LanguageRegistry.addName(endstoneSmooth, "Smooth End Stone");
 		LanguageRegistry.addName(endstoneRefined, "Refined End Stone");
-		LanguageRegistry.addName(endstoneBrick, "End Stone Brick");
+		LanguageRegistry.addName(endstoneBrick, "End Stone Bricks");
 		LanguageRegistry.addName(glassRefined, "Refined Glass");
 		LanguageRegistry.addName(glassRefinedPane, "Refined Glass Pane");
 		LanguageRegistry.addName(flintBlock, "Block of Flint");
@@ -319,7 +319,7 @@ public class EDBlockManager {
 		//LanguageRegistry.addName(EDItemManager.cardboardItem, "Cardboard");
 		LanguageRegistry.addName(cardboardBlock, "Cardboard Block");
 		LanguageRegistry.addName(cardboardWet, "Wet Cardboard");
-		LanguageRegistry.addName(checkerTile, "Checker Tile");
+		LanguageRegistry.addName(checkerTile, "Checker Tiles");
 		LanguageRegistry.addName(woodBoardsStairsOak, "Oak Board Stairs");
 		LanguageRegistry.addName(woodBoardsStairsBirch, "Birch Board Stairs");
 		LanguageRegistry.addName(woodBoardsStairsSpruce, "Spruce Board Stairs");
