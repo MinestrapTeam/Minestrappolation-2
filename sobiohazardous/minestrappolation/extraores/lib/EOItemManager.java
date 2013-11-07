@@ -655,6 +655,34 @@ public class EOItemManager
 		ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH).addItem(new WeightedRandomChestContent(new ItemStack(BronzeIngot),1,3,25));
 		ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH).addItem(new WeightedRandomChestContent(new ItemStack(CoalIronIngot),1,5,17));
 		ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH).addItem(new WeightedRandomChestContent(new ItemStack(SteelIngot),1,5,17));
+		
+		//shovels
+				MinecraftForge.setToolClass(BPGoldShovel, "shovel", 0);
+				MinecraftForge.setToolClass(BPIronShovel, "shovel", 2);
+				MinecraftForge.setToolClass(BPDiamondShovel, "shovel", 3);
+				MinecraftForge.setToolClass(BPWoodShovel, "shovel", 0);
+				MinecraftForge.setToolClass(BPStoneShovel, "shovel", 1);
+				MinecraftForge.setToolClass(GraniteShovel, "shovel", 1);
+				MinecraftForge.setToolClass(BPGraniteShovel, "shovel", 1);
+				MinecraftForge.setToolClass(meuroditeShovel, "shovel", 2);
+				MinecraftForge.setToolClass(BPMeuroditeShovel, "shovel", 2);
+				MinecraftForge.setToolClass(BedrockShovel, "shovel", 4);
+				MinecraftForge.setToolClass(BPBedrockShovel, "shovel", 4);
+				MinecraftForge.setToolClass(BronzeShovel, "shovel", 2);
+				MinecraftForge.setToolClass(SteelShovel, "shovel", 2);
+				MinecraftForge.setToolClass(BPSteelShovel, "shovel", 2);
+				MinecraftForge.setToolClass(CopperShovel, "shovel", 1);
+				MinecraftForge.setToolClass(BPCopperShovel, "shovel", 1);
+				MinecraftForge.setToolClass(BlaziumShovel, "shovel", 2);
+				MinecraftForge.setToolClass(BPBlaziumShovel, "shovel", 2);
+				MinecraftForge.setToolClass(ToriteShovel, "shovel", 2);
+				MinecraftForge.setToolClass(BPToriteShovel, "shovel", 2);
+				MinecraftForge.setToolClass(TitaniumShovel, "shovel", 4);
+				MinecraftForge.setToolClass(BPTitaniumShovel, "shovel", 4);
+				MinecraftForge.setToolClass(meuroditeShovel, "shovel", 2);
+				MinecraftForge.setToolClass(BPMeuroditeShovel, "shovel", 2);
+				MinecraftForge.setToolClass(SandstoneShovel, "shovel", 1);
+				MinecraftForge.setToolClass(BPSandstoneShovel, "shovel", 1);
 	}
 
 	public static void setHarvestLevels()
