@@ -2,6 +2,7 @@ package sobiohazardous.minestrappolation.api.util;
 
 import java.util.ArrayList;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
@@ -45,6 +46,50 @@ public class MUtil
 
         return false;
     }
+	
+	public static boolean isWaterTouchingAnySide(World par1World, int par2, int par3, int par4){
+		
+		if(par1World.getBlockId(par2+1, par3, par4) == Block.waterMoving.blockID ){
+			return true;
+		}
+		if(par1World.getBlockId(par2-1, par3, par4) == Block.waterMoving.blockID ){
+			return true;
+		}
+		if(par1World.getBlockId(par2, par3+1, par4) == Block.waterMoving.blockID ){
+			return true;
+		}
+		if(par1World.getBlockId(par2, par3-1, par4) == Block.waterMoving.blockID ){
+			return true;
+		}
+		if(par1World.getBlockId(par2, par3, par4+1) == Block.waterMoving.blockID ){
+			return true;
+		}
+		if(par1World.getBlockId(par2, par3, par4-1) == Block.waterMoving.blockID ){
+			return true;
+		}
+		
+		if(par1World.getBlockId(par2+1, par3, par4) == Block.waterStill.blockID ){
+			return true;
+		}
+		if(par1World.getBlockId(par2-1, par3, par4) == Block.waterStill.blockID ){
+			return true;
+		}
+		if(par1World.getBlockId(par2, par3+1, par4) == Block.waterStill.blockID ){
+			return true;
+		}
+		if(par1World.getBlockId(par2, par3-1, par4) == Block.waterStill.blockID ){
+			return true;
+		}
+		if(par1World.getBlockId(par2, par3, par4+1) == Block.waterStill.blockID ){
+			return true;
+		}
+		if(par1World.getBlockId(par2, par3, par4-1) == Block.waterStill.blockID ){
+			return true;
+		}
+		System.out.println("No water");
+		return false;
+		
+	}
 	
 	public static boolean isLavaNearby(World par1World, int par2, int par3, int par4)
     {

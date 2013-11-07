@@ -423,7 +423,7 @@ public class EDRecipeManager
 			"BB", "BB", Character.valueOf('B'), new ItemStack(Block.hardenedClay, 1, 2)
 				});	
 		
-		GameRegistry.addRecipe(new ItemStack(EDBlockManager.cobbledRoad, 1), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EDBlockManager.cobbledRoad, 2), new Object[]
 				{
 			"CC", "DD", Character.valueOf('C'), Block.cobblestone, Character.valueOf('D'), Block.dirt
 				});
