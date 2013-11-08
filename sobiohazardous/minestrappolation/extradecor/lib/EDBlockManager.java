@@ -28,6 +28,7 @@ import sobiohazardous.minestrappolation.extradecor.block.BlockRopeCoil;
 import sobiohazardous.minestrappolation.extradecor.block.BlockSandstoneBrick;
 import sobiohazardous.minestrappolation.extradecor.block.BlockSnowBrick;
 import sobiohazardous.minestrappolation.extradecor.block.BlockStainedBrick;
+import sobiohazardous.minestrappolation.extradecor.block.BlockStatueTest;
 import sobiohazardous.minestrappolation.extradecor.block.BlockStoneLamp;
 import sobiohazardous.minestrappolation.extradecor.block.BlockSugarBlock;
 import sobiohazardous.minestrappolation.extradecor.block.BlockWoodBeveled;
@@ -54,6 +55,8 @@ public class EDBlockManager {
 	public static Block stonePillar;
 	public static Block stoneTile;
 	public static Block stoneLamp;
+	
+	public static Block StatueTest;
 	
 	public static Block edgeStoneBrick;
 	public static Block edgeStoneBrickLeft;
@@ -211,6 +214,8 @@ public class EDBlockManager {
 		infertileDirt = new MBlock(EDConfig.infertiledirtId,Material.grass).setCreativeTab(tabDecorBlocks).setUnlocalizedName("block_InfertileSoil").setHardness(.6F).setStepSound(Block.soundGrassFootstep);
 		refinedRoad = (new BlockRefinedRoad(EDConfig.refinedRoadID)).setResistance(1F).setHardness(5F).setUnlocalizedName("block_RefinedRoad").setStepSound(Block.soundStoneFootstep).setCreativeTab(tabDecorBlocks);
 
+		
+		StatueTest = new BlockStatueTest(999,Material.rock);
 	}
 	
 	public static void registerBlocks()
@@ -264,6 +269,7 @@ public class EDBlockManager {
 		GameRegistry.registerBlock(stainedBrick, "stainedBrick");
 		GameRegistry.registerBlock(cobbledRoad, "cobbledRoad");
 		GameRegistry.registerBlock(infertileDirt,"Infertile Dirt");
+		GameRegistry.registerBlock(StatueTest,"Test");
 	}
 	
 	public static void addNames()
@@ -346,6 +352,7 @@ public class EDBlockManager {
 		LanguageRegistry.instance().addStringLocalization("tile.stainedBrick.purple.name", "Purple Stained Bricks");
 		LanguageRegistry.instance().addStringLocalization("tile.stainedBrick.magenta.name", "Magenta Stained Bricks");
 		LanguageRegistry.addName(cobbledRoad, "Cobbled Road");
+		LanguageRegistry.addName(StatueTest, "Test");
 	}
 	
 	public static void loadBridgedBlocks() throws Exception

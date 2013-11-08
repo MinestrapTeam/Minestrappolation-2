@@ -13,8 +13,11 @@ import sobiohazardous.minestrappolation.extradecor.lib.EDItemManager;
 import sobiohazardous.minestrappolation.extradecor.lib.EDRecipeManager;
 import sobiohazardous.minestrappolation.extradecor.lib.EDTileEntityManager;
 import sobiohazardous.minestrappolation.extradecor.proxy.CommonProxy;
+import sobiohazardous.minestrappolation.extradecor.tileentity.RendererStatueTest;
+import sobiohazardous.minestrappolation.extradecor.tileentity.TileEntityStatueTest;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
+import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Instance;
@@ -63,19 +66,19 @@ public class ExtraDecor
 		EDOreRegistry.addOreRecipes();
 		EDRecipeManager.removeRecipes();
 		EDItemManager.setHarvestLevels();
-
+		
 	}	
 	
 	@Mod.EventHandler
 	public void load(FMLInitializationEvent event)
 	{
-		proxy.registerRenderThings();	
 		EDOreRegistry.oreRegistration();
 		NetworkRegistry.instance().registerGuiHandler(this, new EDGuiHandler());		
 		EDTileEntityManager.registerTileEntitys();		
 		MinecraftForge.setToolClass(Item.shears, "shears", 0);
 		GameRegistry.registerWorldGenerator(new EDOreGenerator());	
 		VillagerRegistry.instance().registerVillageTradeHandler(2, new EDPriestTradeHandler());
+		proxy.registerRenderThings();	
 	}
 
 	@Mod.EventHandler

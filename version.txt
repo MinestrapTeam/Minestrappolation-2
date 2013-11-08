@@ -1,3 +1,3 @@
 version=1.4
-motd=WOO, Message of the Day! We are too good at the Java's. :)
-motdcolor=dark red
+motd=Working on bug fixes for Extapolated Decor
+motdcolor=yellow
