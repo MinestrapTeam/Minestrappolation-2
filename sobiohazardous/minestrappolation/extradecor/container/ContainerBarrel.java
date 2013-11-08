@@ -101,17 +101,19 @@ protected TileEntityBarrel tile_entity;
             ItemStack itemstack1 = slot.getStack();
             itemstack = itemstack1.copy();
 
-            if (par2 < 18)
+            if (par2 < 36)
             {
-                if (!this.mergeItemStack(itemstack1, 18, this.inventorySlots.size(), true))
+                if (!this.mergeItemStack(itemstack1, 36, this.inventorySlots.size(), true))
                 {
                     return null;
                 }
+                slot.onSlotChange(itemstack1, itemstack);
             }
             else if (!this.mergeItemStack(itemstack1, 0, 18, false))
             {
                 return null;
             }
+            slot.onSlotChange(itemstack1, itemstack);
 
             if (itemstack1.stackSize == 0)
             {

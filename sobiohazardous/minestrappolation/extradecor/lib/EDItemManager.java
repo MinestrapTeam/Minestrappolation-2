@@ -56,6 +56,7 @@ public class EDItemManager
 		MinecraftForge.setBlockHarvestLevel(EDBlockManager.sandstoneBricks,2, "pickaxe", 0);
 		MinecraftForge.setBlockHarvestLevel(EDBlockManager.sandstoneBricks,3, "pickaxe", 0);
 		MinecraftForge.setBlockHarvestLevel(EDBlockManager.sandstoneBricks,4, "pickaxe", 0);
+		MinecraftForge.setBlockHarvestLevel(EDBlockManager.infertileDirt, "shovel", 0);
 	}
 	
 	public static void addItemsToItemList()
