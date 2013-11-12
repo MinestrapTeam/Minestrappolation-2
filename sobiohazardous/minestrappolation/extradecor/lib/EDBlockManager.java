@@ -10,6 +10,7 @@ import sobiohazardous.minestrappolation.api.item.MItem;
 import sobiohazardous.minestrappolation.extradecor.CreativeTabExtraDecorBlocks;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
 import sobiohazardous.minestrappolation.extradecor.block.BlockBarrel;
+import sobiohazardous.minestrappolation.extradecor.block.BlockBedrockBrick;
 import sobiohazardous.minestrappolation.extradecor.block.BlockCardboard;
 import sobiohazardous.minestrappolation.extradecor.block.BlockCardboardWet;
 import sobiohazardous.minestrappolation.extradecor.block.BlockCobbledRoad;
@@ -374,7 +375,7 @@ public class EDBlockManager {
 	{
 		if(Loader.isModLoaded("ExtraOres"))
 		{
-			bedrockBrick = new MBlock(EDConfig.bedrockBrickID,Material.rock).setUnlocalizedName("block_BedrockBrick").setStepSound(Block.soundStoneFootstep).setResistance(100000000F).setHardness(80F).setCreativeTab(tabDecorBlocks);
+			bedrockBrick = new BlockBedrockBrick(EDConfig.bedrockBrickID).setUnlocalizedName("block_BedrockBrick").setStepSound(Block.soundStoneFootstep).setResistance(100000000F).setHardness(80F).setCreativeTab(tabDecorBlocks);
 			GameRegistry.registerBlock(bedrockBrick,"block_BedrockBrick");
 			MinecraftForge.setBlockHarvestLevel(EDBlockManager.bedrockBrick, "pickaxe", 4);
 			LanguageRegistry.addName(bedrockBrick, "Bedrock Bricks");

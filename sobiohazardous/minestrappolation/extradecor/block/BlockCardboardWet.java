@@ -2,6 +2,8 @@ package sobiohazardous.minestrappolation.extradecor.block;
 
 import java.util.Random;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import sobiohazardous.minestrappolation.api.util.MUtil;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
 import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
@@ -42,7 +44,7 @@ public class BlockCardboardWet extends BlockContainer
      */
     public int quantityDropped(Random par1Random)
     {
-        return 2 + par1Random.nextInt(3);
+        return 2;
     }
     
     public Icon getIcon(int i, int j)
@@ -124,7 +126,6 @@ public class BlockCardboardWet extends BlockContainer
     
     public void onEntityWalking(World par1World, int par2, int par3, int par4, Entity par5Entity)
     {
-        super.onEntityWalking(par1World, par2, par3, par4, par5Entity);
         par1World.destroyBlock(par2, par3, par4, true);
     }
 }

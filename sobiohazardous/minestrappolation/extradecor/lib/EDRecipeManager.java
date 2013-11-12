@@ -428,6 +428,21 @@ public class EDRecipeManager
 			"CC", "DD", Character.valueOf('C'), Block.cobblestone, Character.valueOf('D'), Block.dirt
 				});
 		
+		GameRegistry.addRecipe(new ItemStack(EDBlockManager.sandstoneRoad, 2), new Object[]
+				{
+			"CC", "DD", Character.valueOf('C'), Block.sandStone, Character.valueOf('D'), Block.dirt
+				});
+		
+		GameRegistry.addRecipe(new ItemStack(EDBlockManager.sandyRoad, 2), new Object[]
+				{
+			"CC", "DD", Character.valueOf('C'), Block.sand, Character.valueOf('D'), Block.dirt
+				});
+		
+		GameRegistry.addRecipe(new ItemStack(EDBlockManager.gravelRoad, 2), new Object[]
+				{
+			"CC", "DD", Character.valueOf('C'), Block.gravel, Character.valueOf('D'), Block.dirt
+				});
+		
 		GameRegistry.addRecipe(new ItemStack(EDBlockManager.refinedRoad, 1), new Object[]
 				{
 			"CCC", "CCC", "DDD", Character.valueOf('C'), new ItemStack(EDItemManager.stoneBrickItem, 1, 0), Character.valueOf('D'), Block.dirt
