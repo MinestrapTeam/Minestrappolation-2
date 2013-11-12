@@ -26,6 +26,7 @@ import sobiohazardous.minestrappolation.extradecor.block.BlockRefinedRoad;
 import sobiohazardous.minestrappolation.extradecor.block.BlockRope;
 import sobiohazardous.minestrappolation.extradecor.block.BlockRopeCoil;
 import sobiohazardous.minestrappolation.extradecor.block.BlockSandstoneBrick;
+import sobiohazardous.minestrappolation.extradecor.block.BlockSandyRoad;
 import sobiohazardous.minestrappolation.extradecor.block.BlockSnowBrick;
 import sobiohazardous.minestrappolation.extradecor.block.BlockStainedBrick;
 import sobiohazardous.minestrappolation.extradecor.block.BlockStatueTest;
@@ -131,6 +132,10 @@ public class EDBlockManager {
 	public static Block infertileDirt;
 	public static Block refinedRoad;
 	
+	public static Block sandyRoad;
+	public static Block sandstoneRoad;
+	public static Block gravelRoad;
+	
 	
 	public static CreativeTabs tabDecorBlocks = new CreativeTabExtraDecorBlocks(CreativeTabs.getNextID(),"Extrappolated Decor");
 	public static void createBlocks()
@@ -213,6 +218,10 @@ public class EDBlockManager {
 		cobbledRoad = (new BlockCobbledRoad(EDConfig.cobbledRoadId)).setHardness(1).setResistance(5F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("cobbledRoad");
 		infertileDirt = new MBlock(EDConfig.infertiledirtId,Material.grass).setCreativeTab(tabDecorBlocks).setUnlocalizedName("block_InfertileSoil").setHardness(.6F).setStepSound(Block.soundGrassFootstep);
 		refinedRoad = (new BlockRefinedRoad(EDConfig.refinedRoadID)).setResistance(1F).setHardness(5F).setUnlocalizedName("block_RefinedRoad").setStepSound(Block.soundStoneFootstep).setCreativeTab(tabDecorBlocks);
+		
+		sandyRoad = (new BlockSandyRoad(EDConfig.sandyRoadId)).setHardness(0.8F).setResistance(4F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("sandyRoad");
+		sandstoneRoad = (new BlockSandyRoad(EDConfig.sandstoneRoadId)).setHardness(1).setResistance(4.5F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("sandstoneRoad");
+		gravelRoad = (new BlockSandyRoad(EDConfig.gravelRoadId)).setHardness(1.5F).setResistance(5F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("gravelRoad");
 
 		
 		StatueTest = new BlockStatueTest(999,Material.rock);
@@ -269,6 +278,9 @@ public class EDBlockManager {
 		GameRegistry.registerBlock(stainedBrick, "stainedBrick");
 		GameRegistry.registerBlock(cobbledRoad, "cobbledRoad");
 		GameRegistry.registerBlock(infertileDirt,"Infertile Dirt");
+		GameRegistry.registerBlock(sandyRoad, "sandyRoad");
+		GameRegistry.registerBlock(sandstoneRoad, "sandstoneRoad");
+		GameRegistry.registerBlock(gravelRoad, "gravelRoad");
 		GameRegistry.registerBlock(StatueTest,"Test");
 	}
 	
@@ -352,6 +364,9 @@ public class EDBlockManager {
 		LanguageRegistry.instance().addStringLocalization("tile.stainedBrick.purple.name", "Purple Stained Bricks");
 		LanguageRegistry.instance().addStringLocalization("tile.stainedBrick.magenta.name", "Magenta Stained Bricks");
 		LanguageRegistry.addName(cobbledRoad, "Cobbled Road");
+		LanguageRegistry.addName(sandyRoad, "Sandy Road");
+		LanguageRegistry.addName(sandstoneRoad, "Sandstone Road");
+		LanguageRegistry.addName(gravelRoad, "Gravel Road");
 		LanguageRegistry.addName(StatueTest, "Test");
 	}
 	

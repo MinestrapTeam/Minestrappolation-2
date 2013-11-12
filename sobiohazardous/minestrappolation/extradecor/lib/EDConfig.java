@@ -58,7 +58,10 @@ public class EDConfig {
 	checkerTileStairsId,
 	stainedBrickId,
 	infertiledirtId,
-	cobbledRoadId;
+	cobbledRoadId,
+	sandyRoadId,
+	sandstoneRoadId,
+	gravelRoadId;
 	
 	public static boolean showDur; 
 	
@@ -122,6 +125,9 @@ public class EDConfig {
 		infertiledirtId = config.getBlock("Infertile Dirt", 748).getInt();
 		bedrockBrickID = config.getBlock("Bedrock Brick", 749).getInt();
 		refinedRoadID = config.getBlock("Refined Road", 750).getInt();
+		sandyRoadId = config.getBlock("Sandy Road", 751).getInt();
+		sandstoneRoadId = config.getBlock("Sandstone Road", 752).getInt();
+		gravelRoadId = config.getBlock("Gravel Road", 753).getInt();
 		showDur = config.get("Misc", "Show Durability", true).getBoolean(true);
 		config.save();		
 		
