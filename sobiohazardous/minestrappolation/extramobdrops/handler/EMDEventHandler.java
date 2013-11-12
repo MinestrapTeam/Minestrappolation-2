@@ -278,6 +278,13 @@ public class EMDEventHandler
 					event.entityLiving.dropItem(EMDItemManager.guano.itemID, 2);
 				}
 			}
+			if(event.entityLiving instanceof EntitySilverfish)
+			{
+				if(rand < 0.5)
+				{
+					event.entityLiving.dropItem(EMDItemManager.carcassSilverfish.itemID, 1);
+				}
+			}
 		}
 	}
 	

@@ -66,7 +66,8 @@ public class EMDConfig
 	swordPoisonToriteId,
 	swordPoisonBlaziumId,
 	swordPoisonTitaniumId,
-	guanoId;
+	guanoId,
+	carcassSilverfishId;
 	
 	public static void initConfig(FMLPreInitializationEvent e)
 	{
@@ -91,6 +92,7 @@ public class EMDConfig
 		hornSwordIronId = config.getItem("Horned Iron Sword", 4015).getInt();
 		hornSwordDiamondId = config.getItem("Horned Diamond Sword", 4016).getInt();
 		hornSwordGoldId = config.getItem("Horned Gold Sword", 4026).getInt();
+		beakChickenId = config.getItem("Chicken Beak", 4026).getInt();
 		hornSandstoneId = config.getItem("Horned Sandstone Sword", 4017).getInt();
 		hornGraniteId = config.getItem("Horned Granite Sword", 4018).getInt();
 		hornCopperId = config.getItem("Horned Copper Sword", 4019).getInt();
@@ -100,7 +102,6 @@ public class EMDConfig
 		hornToriteId = config.getItem("Horned Torite Sword", 4023).getInt();
 		hornBlaziumId = config.getItem("Horned Blazium Sword", 4024).getInt();
 		hornTitaniumId = config.getItem("Horned Titanium Sword", 4025).getInt();
-		beakChickenId = config.getItem("Chicken Beak", 4026).getInt();
 		potionId = config.getItem("Potion", 4027).getInt();
 		footChickenId = config.getItem("Chicken Foot", 4028).getInt();
 		chickenWingRawId = config.getItem("Raw Chicken Wing", 4029).getInt();
@@ -134,6 +135,7 @@ public class EMDConfig
 		swordPoisonBlaziumId = config.getItem("Poisoned Blazium Sword", 4057).getInt();
 		swordPoisonTitaniumId = config.getItem("Poisoned Titanium Sword", 4058).getInt();
 		guanoId = config.getItem("Guano", 4059).getInt();
+		carcassSilverfishId = config.getItem("Silverfish Carcass", 4060).getInt();
 
 		config.save();
 	}
