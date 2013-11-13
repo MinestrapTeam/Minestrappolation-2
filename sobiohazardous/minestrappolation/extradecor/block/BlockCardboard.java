@@ -6,6 +6,7 @@ import sobiohazardous.minestrappolation.api.util.MUtil;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
 import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
 import sobiohazardous.minestrappolation.extradecor.lib.EDItemManager;
+import sobiohazardous.minestrappolation.extradecor.tileentity.TileEntityCardBoard;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -15,47 +16,20 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeDirection;
 
-public class BlockCardboard extends EDBlock
+public class BlockCardboard extends BlockContainer
 {
+	
+	private Icon top;
 	public BlockCardboard(int par1, Material material) 
 	{
 		super(par1, material);
 	}
 
-    /**
-     * Lets the block know when one of its neighbor changes. Doesn't know which neighbor changed (coordinates passed are
-     * their own) Args: x, y, z, neighbor blockID
-     */
-    public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, int par5) 
-    {
-    	if(par5 == Block.waterMoving.blockID || par5 == Block.waterStill.blockID)
-    	{
-            par1World.setBlock(par2, par3, par4, EDBlockManager.cardboardWet.blockID);
-    	}
-    }
-
-    /**
-     * Called whenever the block is added into the world. Args: world, x, y, z
-     */
-    public void onBlockAdded(World par1World, int par2, int par3, int par4) 
-    {
-    	if(MUtil.isWaterTouchingAnySide(par1World, par2, par3, par4))
-    	{
-    		par1World.setBlock(par2, par3, par4, EDBlockManager.cardboardWet.blockID);
-    	}
-    }
-    
-    public void onBlockPlacedBy(World par1World, int par2, int par3, int par4, EntityLivingBase par5EntityLivingBase, ItemStack par6ItemStack)
-    {
-    	if(MUtil.isWaterTouchingAnySide(par1World, par2, par3, par4))
-    	{
-    		par1World.setBlock(par2, par3, par4, EDBlockManager.cardboardWet.blockID);
-    	}
-    }
     
     public int getFlammability(IBlockAccess world, int x, int y, int z, int metadata, ForgeDirection face)
     {
@@ -72,6 +46,41 @@ public class BlockCardboard extends EDBlock
     		return 0;
     }
     
+    public Icon getIcon(int i, int j)
+    {
+    	if (i == 0)//bottom
+            
+            return blockIcon;
+    	if (i == 1)//top
+           
+            return top;
+   
+    	if (i == 2) // side
+           
+            return blockIcon;
+    	if (i == 3)//side 
+           
+            return blockIcon;
+    	if (i == 4) //side
+   
+    		return blockIcon;
+    	if (i == 5) //side
+   
+    		return blockIcon;
+
+    	if (j ==1)
+    	{
+    		return blockIcon;
+    	}
+		return blockIcon;
+    }
+    
+	public void registerIcons(IconRegister iconRegister)
+	{
+		blockIcon = iconRegister.registerIcon("Minestrappolation:block_CardboardBlock");
+		top = iconRegister.registerIcon("Minestrappolation:block_CardboardBlock");
+	}
+    
     public int idDropped(int par1, Random par2Random, int par3)
     {
     	return EDItemManager.cardboardItem.itemID;
@@ -84,5 +93,11 @@ public class BlockCardboard extends EDBlock
     {
         return 2 + par1Random.nextInt(3);
     }
+
+	@Override
+	public TileEntity createNewTileEntity(World world) {
+		// TODO Auto-generated method stub
+		return new TileEntityCardBoard();
+	}
 
 }

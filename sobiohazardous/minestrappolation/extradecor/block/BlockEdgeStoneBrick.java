@@ -7,7 +7,9 @@ import java.util.Random;
 import sobiohazardous.minestrappolation.api.util.MUtil;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
 import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
+import sobiohazardous.minestrappolation.extradecor.tileentity.TileEntityEdgeStone;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -19,12 +21,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.src.*;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 
-public class BlockEdgeStoneBrick extends Block
+public class BlockEdgeStoneBrick extends BlockContainer
 {
 	private Icon left;
 	private Icon right;
@@ -69,44 +72,11 @@ public class BlockEdgeStoneBrick extends Block
     	}
 		return blockIcon;
     }
-	
-    /*
-    public void onBlockPlacedBy(World par1World, int par2, int par3, int par4, EntityLiving par5EntityLiving, ItemStack par6ItemStack)
-    {
-    	
-    	 * TODO:
-    	 * -Add isBlockTouchingFront and isBlockTouchingBack methods to BlockFunctions.
-    	 * -Make the block change textures based on the stone brick position, rather than changing what block it is.
-    	 * -Improve logic to allow for corner edges, etc.
-    	 
-    }
-	*/
-    /*
-	public void onBlockPlacedBy(World par1World, int par2, int par3, int par4, EntityLiving par5EntityLiving, ItemStack par6ItemStack)
-	{
-		if(BlockFunctions.isBlockTouchingLeft(par1World, par2, par3, par4, Block.stoneBrick.blockID))
-		{
-			par1World.setBlock(par2, par3, par4, ExtraDecor.edgeStoneBrickLeft.blockID);
-		}
-		
-		if(BlockFunctions.isBlockTouchingRight(par1World, par2, par3, par4, Block.stoneBrick.blockID))
-		{
-			par1World.setBlock(par2, par3, par4, ExtraDecor.edgeStoneBrickRight.blockID);
-		}
-		
+
+	@Override
+	public TileEntity createNewTileEntity(World world) {
+		// TODO Auto-generated method stub
+		return new TileEntityEdgeStone();
 	}
 	
-	public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, int neighborBlockId)
-	{
-		if (neighborBlockId == Block.stoneBrick.blockID)
-		{
-			par1World.setBlock(par2, par3, par4, ExtraDecor.edgeStoneBrickLeft.blockID);
-		}
-		
-		if (neighborBlockId == Block.stoneBrick.blockID)
-		{
-			par1World.setBlock(par2, par3, par4, ExtraDecor.edgeStoneBrickRight.blockID);
-		}
-	}    
-	*/
 }

@@ -1,5 +1,6 @@
 package sobiohazardous.minestrappolation.extradecor.tileentity;
 
+
 import sobiohazardous.minestrappolation.api.util.MUtil;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
 import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
@@ -8,7 +9,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-public class TileEntityCardboardWet extends TileEntity
+public class TileEntityCardBoard extends TileEntity
 {
 	private long ticks = 0;
 	/**
@@ -17,15 +18,12 @@ public class TileEntityCardboardWet extends TileEntity
      */
     public void updateEntity()
     {
-    	ticks++;
-
-    	if(isDry(worldObj))
+    	if(!isDry(worldObj))
     	{ 	
-    		if(ticks == 1000)
-    		{
-            	this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.cardboardBlock.blockID);
+    		
+            	this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.cardboardWet.blockID);
 
-    		}
+    		
     	}
     
     }

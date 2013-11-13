@@ -8,7 +8,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-public class TileEntityCardboardWet extends TileEntity
+public class TileEntityEdgeStoneSides extends TileEntity
 {
 	private long ticks = 0;
 	/**
@@ -17,26 +17,10 @@ public class TileEntityCardboardWet extends TileEntity
      */
     public void updateEntity()
     {
-    	ticks++;
-
-    	if(isDry(worldObj))
-    	{ 	
-    		if(ticks == 1000)
-    		{
-            	this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.cardboardBlock.blockID);
-
-    		}
-    	}
-    
+    	if(this.worldObj.getBlockId(this.xCoord+1, this.yCoord, this.zCoord) != Block.stoneBrick.blockID && this.worldObj.getBlockId(this.xCoord-1, this.yCoord, this.zCoord) != Block.stoneBrick.blockID && this.worldObj.getBlockId(this.xCoord, this.yCoord, this.zCoord+1) != Block.stoneBrick.blockID && this.worldObj.getBlockId(this.xCoord, this.yCoord, this.zCoord-1) != Block.stoneBrick.blockID ){
+    		this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.edgeStoneBrick.blockID);
+		}
+  
     }
     
-    
-    public boolean isDry(World world)
-    {
-    	if(MUtil.isWaterTouchingAnySide(world, this.xCoord, this.yCoord, this.zCoord))
-    	{
-    		return false;
-    	}
-    	return true;
-    }
 }

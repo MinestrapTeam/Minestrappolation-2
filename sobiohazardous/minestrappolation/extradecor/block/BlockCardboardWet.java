@@ -15,6 +15,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
@@ -89,43 +90,10 @@ public class BlockCardboardWet extends BlockContainer
 	}
     
 
-    /**
-     * Lets the block know when one of its neighbor changes. Doesn't know which neighbor changed (coordinates passed are
-     * their own) Args: x, y, z, neighbor blockID
-     */
-    public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, int par5) 
-    {
-    	if(par5 == Block.waterMoving.blockID || par5 == Block.waterStill.blockID)
-    	{
-            this.isDry = false;
-            par1World.setBlock(par2, par3, par4, EDBlockManager.cardboardWet.blockID);
-    	}
-    	
-    	if(par5 != Block.waterMoving.blockID || par5 != Block.waterStill.blockID)
-    	{
-            this.isDry = true;
-    	}
-    }
-
-    /**
-     * Called whenever the block is added into the world. Args: world, x, y, z
-     */
-    public void onBlockAdded(World par1World, int par2, int par3, int par4) 
-    {
-    	if(MUtil.isWaterTouchingAllSides(par1World, par2, par3, par4))
-    	{
-            this.isDry = false;
-    		par1World.setBlock(par2, par3, par4, EDBlockManager.cardboardWet.blockID);
-    	}
-    	
-    	if(!MUtil.isWaterTouchingAllSides(par1World, par2, par3, par4))
-    	{
-            this.isDry = true;
-    	}
-    }
+   
     
     public void onEntityWalking(World par1World, int par2, int par3, int par4, Entity par5Entity)
     {
-        par1World.destroyBlock(par2, par3, par4, true);
+    	par1World.destroyBlock(par2, par3, par4, true);        
     }
 }

@@ -305,6 +305,15 @@ public class MUtil
 		return false;
 	}
 	
+	public static boolean isRaining(World par1World, int x, int y, int z)
+	{
+		if(par1World.isRaining()){
+			return true;
+		}
+		
+		return false;
+	}
+	
 	public static void removeRecipe(ItemStack resultItem)
 	{
 		ItemStack recipeResult = null;
