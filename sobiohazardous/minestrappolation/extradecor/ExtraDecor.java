@@ -78,6 +78,7 @@ public class ExtraDecor
 		MinecraftForge.setToolClass(Item.shears, "shears", 0);
 		GameRegistry.registerWorldGenerator(new EDOreGenerator());	
 		VillagerRegistry.instance().registerVillageTradeHandler(2, new EDPriestTradeHandler());
+		EDBlockManager.loadVanillaOverwrites();
 		proxy.registerRenderThings();	
 	}
 

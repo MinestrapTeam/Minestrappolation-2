@@ -22,6 +22,7 @@ import sobiohazardous.minestrappolation.extradecor.block.BlockEnderblock;
 import sobiohazardous.minestrappolation.extradecor.block.BlockGlassRefined;
 import sobiohazardous.minestrappolation.extradecor.block.BlockGunpowderBlock;
 import sobiohazardous.minestrappolation.extradecor.block.BlockMeatBlock;
+import sobiohazardous.minestrappolation.extradecor.block.BlockMossyWood;
 import sobiohazardous.minestrappolation.extradecor.block.BlockOoze;
 import sobiohazardous.minestrappolation.extradecor.block.BlockRefinedRoad;
 import sobiohazardous.minestrappolation.extradecor.block.BlockRope;
@@ -36,12 +37,14 @@ import sobiohazardous.minestrappolation.extradecor.block.BlockSugarBlock;
 import sobiohazardous.minestrappolation.extradecor.block.BlockWoodBeveled;
 import sobiohazardous.minestrappolation.extradecor.block.BlockWoodBoardSlab;
 import sobiohazardous.minestrappolation.extradecor.block.BlockWoodBoards;
+import sobiohazardous.minestrappolation.extradecor.block.BlockWoodOverwrite;
 import sobiohazardous.minestrappolation.extradecor.block.BlockWoodPanel;
 import sobiohazardous.minestrappolation.extradecor.block.EDBlockPane;
 import sobiohazardous.minestrappolation.extradecor.block.EDBlockStairs;
 import sobiohazardous.minestrappolation.extradecor.material.MaterialOoze;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHalfSlab;
+import net.minecraft.block.BlockWood;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -137,6 +140,8 @@ public class EDBlockManager {
 	public static Block sandstoneRoad;
 	public static Block gravelRoad;
 	
+	public static Block woodPlanksMossy;
+	public static Block woodPlanksOverwrite;
 	
 	public static CreativeTabs tabDecorBlocks = new CreativeTabExtraDecorBlocks(CreativeTabs.getNextID(),"Extrappolated Decor");
 	public static void createBlocks()
@@ -224,8 +229,21 @@ public class EDBlockManager {
 		sandstoneRoad = (new BlockSandyRoad(EDConfig.sandstoneRoadId)).setHardness(1).setResistance(4.5F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("sandstoneRoad");
 		gravelRoad = (new BlockSandyRoad(EDConfig.gravelRoadId)).setHardness(1.5F).setResistance(5F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("gravelRoad");
 
+		woodPlanksMossy = new BlockMossyWood(EDConfig.woodPlanksMossyId).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("woodPlanksMossy").setCreativeTab(tabDecorBlocks);
 		
+		//Test
 		StatueTest = new BlockStatueTest(999,Material.rock);
+	}
+	
+	public static void loadVanillaOverwrites()
+	{
+		Block.blocksList[Block.planks.blockID] = null;
+	    woodPlanksOverwrite = (new BlockWoodOverwrite(5)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("wood").setTextureName("planks");
+	    GameRegistry.registerBlock(woodPlanksOverwrite, "wood");
+	    LanguageRegistry.instance().addStringLocalization("tile.wood.oak.name", "Oak Wood Planks");
+		LanguageRegistry.instance().addStringLocalization("tile.wood.birch.name", "Birch Wood Plank");
+		LanguageRegistry.instance().addStringLocalization("tile.wood.spruce.name", "Spruce Wood Planks");
+		LanguageRegistry.instance().addStringLocalization("tile.wood.jungle.name", "Jungle Wood Planks");
 	}
 	
 	public static void registerBlocks()
@@ -283,6 +301,7 @@ public class EDBlockManager {
 		GameRegistry.registerBlock(sandstoneRoad, "sandstoneRoad");
 		GameRegistry.registerBlock(gravelRoad, "gravelRoad");
 		GameRegistry.registerBlock(StatueTest,"Test");
+		GameRegistry.registerBlock(woodPlanksMossy, "woodPlanksMossy");
 	}
 	
 	public static void addNames()
@@ -369,6 +388,10 @@ public class EDBlockManager {
 		LanguageRegistry.addName(sandstoneRoad, "Sandstone Road");
 		LanguageRegistry.addName(gravelRoad, "Gravel Road");
 		LanguageRegistry.addName(StatueTest, "Test");
+		LanguageRegistry.instance().addStringLocalization("tile.woodPlanksMossy.Oak.name", "Mossy Oak Wood Planks");
+		LanguageRegistry.instance().addStringLocalization("tile.woodPlanksMossy.Birch.name", "Mossy Birch Wood Planks");
+		LanguageRegistry.instance().addStringLocalization("tile.woodPlanksMossy.Spruce.name", "Mossy Spruce Wood Planks");
+		LanguageRegistry.instance().addStringLocalization("tile.woodPlanksMossy.Jungle.name", "Mossy Jungle Wood Planks");
 	}
 	
 	public static void loadBridgedBlocks() throws Exception

@@ -61,9 +61,11 @@ public class EDConfig {
 	cobbledRoadId,
 	sandyRoadId,
 	sandstoneRoadId,
-	gravelRoadId;
+	gravelRoadId,
+	woodPlanksMossyId;
 	
 	public static boolean showDur; 
+	public static int daysUntilMossy;
 	
 	public static void initilize(FMLPreInitializationEvent event)
 	{
@@ -128,9 +130,10 @@ public class EDConfig {
 		sandyRoadId = config.getBlock("Sandy Road", 751).getInt();
 		sandstoneRoadId = config.getBlock("Sandstone Road", 752).getInt();
 		gravelRoadId = config.getBlock("Gravel Road", 753).getInt();
+		woodPlanksMossyId = config.getBlock("Mossy Wood Planks", 754).getInt();
 		showDur = config.get("Misc", "Show Durability", true).getBoolean(true);
-		config.save();		
-		
+		daysUntilMossy = config.get("Misc", "Days Until Planks Get Mossy", 3).getInt();
+		config.save();			
 	}
 
 }

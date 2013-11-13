@@ -1,5 +1,6 @@
 package sobiohazardous.minestrappolation.extradecor.block;
 
+import sobiohazardous.minestrappolation.api.block.MBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -8,8 +9,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
 import net.minecraft.world.World;
 
-public class BlockBedrockBrick extends Block{
-
+public class BlockBedrockBrick extends MBlock
+{
 	public BlockBedrockBrick(int par1) {
 		super(par1, Material.rock);
 		// TODO Auto-generated constructor stub
