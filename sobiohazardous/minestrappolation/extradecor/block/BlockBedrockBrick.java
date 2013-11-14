@@ -22,12 +22,8 @@ public class BlockBedrockBrick extends MBlock
 	 public void harvestBlock(World par1World, EntityPlayer par2EntityPlayer, int par3, int par4, int par5, int par6)
 	    {
 	        par2EntityPlayer.getHeldItem().damageItem(200, par2EntityPlayer);
+	        this.dropBlockAsItem_do(par1World, par3, par4, par5, new ItemStack(this));
 	     
-	    }
-	 
-	 public int idDropped(int par1, Random par2Random, int par3)
-	    {
-	        return EDBlockManager.bedrockBrick.blockID;
 	    }
 
 }

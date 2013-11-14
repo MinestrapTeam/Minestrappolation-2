@@ -305,7 +305,7 @@ public class EDBlockManager {
 		GameRegistry.registerBlock(sandyRoad, "sandyRoad");
 		GameRegistry.registerBlock(sandstoneRoad, "sandstoneRoad");
 		GameRegistry.registerBlock(gravelRoad, "gravelRoad");
-		GameRegistry.registerBlock(StatueTest,"Test");
+		//GameRegistry.registerBlock(StatueTest,"Test");
 		GameRegistry.registerBlock(woodPlanksMossy, "woodPlanksMossy");
 	}
 	
@@ -418,7 +418,7 @@ public class EDBlockManager {
 		{
 			bedrockBrick = new BlockBedrockBrick(EDConfig.bedrockBrickID).setUnlocalizedName("block_BedrockBrick").setStepSound(Block.soundStoneFootstep).setResistance(100000000F).setHardness(80F).setCreativeTab(tabDecorBlocks);
 			GameRegistry.registerBlock(bedrockBrick,"block_BedrockBrick");
-			MinecraftForge.setBlockHarvestLevel(EDBlockManager.bedrockBrick, "pickaxe", 4);
+			MinecraftForge.setBlockHarvestLevel(EDBlockManager.bedrockBrick, "pickaxe", 3);
 			LanguageRegistry.addName(bedrockBrick, "Bedrock Bricks");
 		}
 	
