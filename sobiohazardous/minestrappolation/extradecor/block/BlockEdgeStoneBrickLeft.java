@@ -35,7 +35,6 @@ public class BlockEdgeStoneBrickLeft extends BlockContainer
 	public BlockEdgeStoneBrickLeft(int par1)
     {
         super(par1, Material.rock);
-        this.setCreativeTab(EDBlockManager.tabDecorBlocks);
     }
 	
 	public int idDropped(int par1, Random par2Random, int par3)

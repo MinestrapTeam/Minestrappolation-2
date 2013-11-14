@@ -76,16 +76,7 @@ public class BlockRopeCoil extends Block
     {
         return true;
     }
-    
-    public boolean canPlaceBlockAt(World par1World, int par2, int par3, int par4)
-    {
-    	if(par1World.isBlockSolidOnSide(par2, par3, par4, ForgeDirection.DOWN)){
-    		return true;
-    	}
-		return false;
-       
-    }
-    
+
     
     public int getRenderType()
     {

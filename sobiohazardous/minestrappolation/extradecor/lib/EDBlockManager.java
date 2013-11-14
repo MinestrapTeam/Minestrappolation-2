@@ -226,7 +226,7 @@ public class EDBlockManager {
 		stainedBrick = (new BlockStainedBrick(EDConfig.stainedBrickId)).setHardness(2F).setResistance(10F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("stainedBrick");
 	
 		cobbledRoad = (new BlockCobbledRoad(EDConfig.cobbledRoadId)).setHardness(1).setResistance(5F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("cobbledRoad");
-		infertileDirt = new MBlock(EDConfig.infertiledirtId,Material.grass).setCreativeTab(tabDecorBlocks).setUnlocalizedName("block_InfertileSoil").setHardness(.6F).setStepSound(Block.soundGrassFootstep);
+		infertileDirt = new MBlock(EDConfig.infertiledirtId,Material.grass).setCreativeTab(tabDecorBlocks).setUnlocalizedName("block_InfertileSoil").setHardness(.4F).setStepSound(Block.soundGrassFootstep);
 		refinedRoad = (new BlockRefinedRoad(EDConfig.refinedRoadID)).setResistance(1F).setHardness(5F).setUnlocalizedName("block_RefinedRoad").setStepSound(Block.soundStoneFootstep).setCreativeTab(tabDecorBlocks);
 		
 		sandyRoad = (new BlockSandyRoad(EDConfig.sandyRoadId)).setHardness(0.8F).setResistance(4F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("sandyRoad");
@@ -400,6 +400,16 @@ public class EDBlockManager {
 		LanguageRegistry.instance().addStringLocalization("tile.woodPlanksMossy.Birch.name", "Mossy Birch Wood Planks");
 		LanguageRegistry.instance().addStringLocalization("tile.woodPlanksMossy.Spruce.name", "Mossy Spruce Wood Planks");
 		LanguageRegistry.instance().addStringLocalization("tile.woodPlanksMossy.Jungle.name", "Mossy Jungle Wood Planks");
+		
+		LanguageRegistry.instance().addStringLocalization("tile.block_edgeStoneBrickCorner.0.name", "Corner 0");
+		LanguageRegistry.instance().addStringLocalization("tile.block_edgeStoneBrickCorner.1.name", "Corner 1");
+		LanguageRegistry.instance().addStringLocalization("tile.block_edgeStoneBrickCorner.2.name", "Corner 2");
+		LanguageRegistry.instance().addStringLocalization("tile.block_edgeStoneBrickCorner.3.name", "Corner 3");
+		
+		LanguageRegistry.instance().addStringLocalization("tile.block_edgeStoneBrickCorner.4.name", "End 0");
+		LanguageRegistry.instance().addStringLocalization("tile.block_edgeStoneBrickCorner.5.name", "End 1");
+		LanguageRegistry.instance().addStringLocalization("tile.block_edgeStoneBrickCorner.6.name", "End 2");
+		LanguageRegistry.instance().addStringLocalization("tile.block_edgeStoneBrickCorner.7.name", "End 3");
 	}
 	
 	public static void loadBridgedBlocks() throws Exception

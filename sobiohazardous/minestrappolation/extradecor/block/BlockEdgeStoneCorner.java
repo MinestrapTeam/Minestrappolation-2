@@ -36,11 +36,10 @@ public class BlockEdgeStoneCorner extends BlockContainer{
 	private Icon left;
 	private Icon right;
 	
-	public static final String[] cType = new String[] {"0", "1", "2", "3"};
+	public static final String[] cType = new String[] {"0", "1", "2", "3","4","5","6","7"};
 
 	public BlockEdgeStoneCorner(int par1) {
 		super(par1, Material.rock);
-		this.setCreativeTab(EDBlockManager.tabDecorBlocks);
 	
 	}
 
@@ -151,6 +150,90 @@ public class BlockEdgeStoneCorner extends BlockContainer{
 
 				return left;
 			break;
+		case 4:
+			if (i == 0)// bottom
+
+				return blockIcon;
+			if (i == 1)// top
+
+				return blockIcon;
+
+			if (i == 2) // side
+
+				return blockIcon;
+			if (i == 3)// side
+
+				return blockIcon;
+			if (i == 4) // side
+
+				return right;
+			if (i == 5) // side
+
+				return left;
+			break;
+		case 5:
+			if (i == 0)// bottom
+
+				return blockIcon;
+			if (i == 1)// top
+
+				return blockIcon;
+
+			if (i == 2) // side
+
+				return right;
+			if (i == 3)// side
+
+				return left;
+			if (i == 4) // side
+
+				return blockIcon;
+			if (i == 5) // side
+
+				return blockIcon;
+			break;
+		case 6:
+			if (i == 0)// bottom
+
+				return blockIcon;
+			if (i == 1)// top
+
+				return blockIcon;
+
+			if (i == 2) // side
+
+				return blockIcon;
+			if (i == 3)// side
+
+				return blockIcon;
+			if (i == 4) // side
+
+				return left;
+			if (i == 5) // side
+
+				return right;
+			break;
+		case 7:
+			if (i == 0)// bottom
+
+				return blockIcon;
+			if (i == 1)// top
+
+				return blockIcon;
+
+			if (i == 2) // side
+
+				return left;
+			if (i == 3)// side
+
+				return right;
+			if (i == 4) // side
+
+				return blockIcon;
+			if (i == 5) // side
+
+				return blockIcon;
+			break;
 
 		}
 		return blockIcon;
@@ -168,6 +251,11 @@ public class BlockEdgeStoneCorner extends BlockContainer{
 		par3List.add(new ItemStack(par1, 1, 1));
 		par3List.add(new ItemStack(par1, 1, 2));
 		par3List.add(new ItemStack(par1, 1, 3));
+	
+		par3List.add(new ItemStack(par1, 1, 4));
+		par3List.add(new ItemStack(par1, 1, 5));
+		par3List.add(new ItemStack(par1, 1, 6));
+		par3List.add(new ItemStack(par1, 1, 7));
 	}
 
 	@Override

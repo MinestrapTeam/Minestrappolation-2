@@ -20,6 +20,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.ForgeDirection;
 
 public class BlockRope extends Block
 {
@@ -133,6 +134,29 @@ public class BlockRope extends Block
             this.dropBlockAsItem(par1World, par2, par3, par4, par1World.getBlockMetadata(par2, par3, par4), 0);
     	}
     }
+    
+    
+    public boolean canPlaceBlockAt(World par1World, int par2, int par3, int par4)
+    {
+    	if(par1World.getBlockId(par2, par3+1, par4) == Block.glass.blockID){
+    		return false;
+    	}
+    	if(par1World.getBlockId(par2, par3+1, par4) == Block.torchWood.blockID){
+    		return false;
+    	}
+    	if(par1World.getBlockId(par2, par3+1, par4) == Block.torchRedstoneActive.blockID){
+    		return false;
+    	}
+    	if(par1World.getBlockId(par2, par3+1, par4) == Block.torchRedstoneIdle.blockID){
+    		return false;
+    	}
+    	if(par1World.getBlockId(par2, par3+1, par4) == Block.web.blockID){
+    		return false;
+    	}
+		return true;
+       
+    }
+    
     
     /**
      * Returns the ID of the items to drop on destruction.

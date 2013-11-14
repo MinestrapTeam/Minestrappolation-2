@@ -23,6 +23,7 @@ import net.minecraft.world.World;
 public class BlockCardboardWet extends BlockContainer
 {
 	private Icon top;
+	private Icon bottom;
 	public boolean isDry = true;
 	
 	public BlockCardboardWet(int id, Material mat)
@@ -52,7 +53,7 @@ public class BlockCardboardWet extends BlockContainer
     {
     	if (i == 0)//bottom
             
-            return blockIcon;
+            return bottom;
     	if (i == 1)//top
            
             return top;
@@ -81,6 +82,7 @@ public class BlockCardboardWet extends BlockContainer
 	{
 		blockIcon = iconRegister.registerIcon("Minestrappolation:block_CardboardWetSide");
 		top = iconRegister.registerIcon("Minestrappolation:block_CardboardWetTop");
+		bottom = iconRegister.registerIcon("Minestrappolation:block_CardboardBlock");
 	}
 
 	@Override
