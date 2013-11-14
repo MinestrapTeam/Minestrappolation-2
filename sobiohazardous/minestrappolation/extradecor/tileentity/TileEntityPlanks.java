@@ -14,6 +14,7 @@ public class TileEntityPlanks extends TileEntity
      */
     public void updateEntity()
     {
+    	System.out.println("Block");
     	if(worldObj.getWorldTime() == 12521)
         {
         	this.daysPassed += 1;
@@ -21,6 +22,7 @@ public class TileEntityPlanks extends TileEntity
     	
     	if(worldObj.getBlockMaterial(this.xCoord, this.yCoord + 1, this.zCoord) == Material.water)
     	{
+    		System.out.println("True");
     		if(this.daysPassed >= EDConfig.daysUntilMossy)
     		{
     			this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.woodPlanksMossy.blockID);

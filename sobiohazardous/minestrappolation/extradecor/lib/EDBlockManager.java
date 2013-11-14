@@ -18,6 +18,7 @@ import sobiohazardous.minestrappolation.extradecor.block.BlockCrate;
 import sobiohazardous.minestrappolation.extradecor.block.BlockEdgeStoneBrick;
 import sobiohazardous.minestrappolation.extradecor.block.BlockEdgeStoneBrickLeft;
 import sobiohazardous.minestrappolation.extradecor.block.BlockEdgeStoneBrickRight;
+import sobiohazardous.minestrappolation.extradecor.block.BlockEdgeStoneCorner;
 import sobiohazardous.minestrappolation.extradecor.block.BlockEnderblock;
 import sobiohazardous.minestrappolation.extradecor.block.BlockGlassRefined;
 import sobiohazardous.minestrappolation.extradecor.block.BlockGunpowderBlock;
@@ -49,6 +50,7 @@ import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 
 public class EDBlockManager {
@@ -66,6 +68,7 @@ public class EDBlockManager {
 	public static Block edgeStoneBrick;
 	public static Block edgeStoneBrickLeft;
 	public static Block edgeStoneBrickRight;
+	public static Block edgeStoneBrickCorner;
 	
 	public static Block brickPattern;
 	
@@ -154,6 +157,7 @@ public class EDBlockManager {
 		edgeStoneBrick = (new BlockEdgeStoneBrick(EDConfig.edgeStoneBrickId)).setHardness(1.5F).setResistance(10F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("block_edgeStoneBrick");
 		edgeStoneBrickLeft = (new BlockEdgeStoneBrickLeft(EDConfig.edgeStoneLeftId)).setHardness(1.5F).setResistance(10F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("block_edgeStoneBrickLeft");
 		edgeStoneBrickRight = (new BlockEdgeStoneBrickRight(EDConfig.edgeStoneBrickRightId)).setHardness(1.5F).setResistance(10F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("block_edgeStoneBrickRight");
+		edgeStoneBrickCorner = (new BlockEdgeStoneCorner(EDConfig.edgeStoneCornerID)).setHardness(1.5F).setResistance(10F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("block_edgeStoneBrickCorner");
 	
 		brickPattern = (new MBlock(EDConfig.brickPatternId, Material.rock)).setHardness(2.0F).setResistance(10.0F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("block_PatternBrick");
 	
@@ -248,6 +252,7 @@ public class EDBlockManager {
 	
 	public static void registerBlocks()
 	{
+		GameRegistry.registerBlock(edgeStoneBrickCorner,"Edge corner");
 		GameRegistry.registerBlock(refinedRoad,"Refined Road");
 		GameRegistry.registerBlock(stoneBlockRefined, "refinedStoneBrick");
 		GameRegistry.registerBlock(stonePillar, "stonePillar");
@@ -324,6 +329,9 @@ public class EDBlockManager {
 		LanguageRegistry.addName(gunpowderBlock, "Block of Gunpowder");
 		LanguageRegistry.addName(itemRope, "Rope");
 		LanguageRegistry.addName(ropeCoil, "Rope Coil");
+		LanguageRegistry.addName(oozeSlime, "Slime Ooze");
+		LanguageRegistry.addName(new ItemStack(edgeStoneBrickCorner,1,0), "Corner 0");
+		LanguageRegistry.addName(new ItemStack(edgeStoneBrickCorner,1,1), "Corner 1");
 		LanguageRegistry.addName(oozeSlime, "Slime Ooze");
 		LanguageRegistry.instance().addStringLocalization("tile.stoneLamp.glowstone.name", "Glowstone Stone Lamp");
 		LanguageRegistry.instance().addStringLocalization("tile.stoneLamp.sunstone.name", "Sunstone Stone Lamp");

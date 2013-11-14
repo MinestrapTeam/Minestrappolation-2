@@ -3,6 +3,7 @@ package sobiohazardous.minestrappolation.extradecor.lib;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import sobiohazardous.minestrappolation.api.item.MItem;
 import sobiohazardous.minestrappolation.api.item.MItemBlockPlacer;
+import sobiohazardous.minestrappolation.extradecor.block.BlockEdgeStoneCorner;
 import sobiohazardous.minestrappolation.extradecor.block.BlockMossyWood;
 import sobiohazardous.minestrappolation.extradecor.block.BlockSandstoneBrick;
 import sobiohazardous.minestrappolation.extradecor.block.BlockStainedBrick;
@@ -69,6 +70,7 @@ public class EDItemManager
 		Item.itemsList[EDBlockManager.sandstoneBricks.blockID] = (new ItemMultiTextureTile(EDBlockManager.sandstoneBricks.blockID - 256, EDBlockManager.sandstoneBricks, BlockSandstoneBrick.sandType)).setUnlocalizedName("sandstoneBrick");
 		Item.itemsList[EDBlockManager.woodBoards.blockID] = (new ItemMultiTextureTile(EDBlockManager.woodBoards.blockID - 256, EDBlockManager.woodBoards, BlockWoodBoards.woodType)).setUnlocalizedName("woodBoards");
 		Item.itemsList[EDBlockManager.stainedBrick.blockID] = (new ItemMultiTextureTile(EDBlockManager.stainedBrick.blockID - 256, EDBlockManager.stainedBrick, BlockStainedBrick.brickType)).setUnlocalizedName("stainedBrick");
+		Item.itemsList[EDBlockManager.edgeStoneBrickCorner.blockID] = (new ItemMultiTextureTile(EDBlockManager.edgeStoneBrickCorner.blockID - 256, EDBlockManager.edgeStoneBrickCorner,BlockEdgeStoneCorner.cType)).setUnlocalizedName("stainedBrick");
 		Item.itemsList[EDBlockManager.woodPlanksMossy.blockID] = (new ItemMultiTextureTile(EDBlockManager.woodPlanksMossy.blockID - 256, EDBlockManager.woodPlanksMossy, BlockMossyWood.woodType)).setUnlocalizedName("woodPlanksMossy");
 		Item.itemsList[EDBlockManager.woodPlanksOverwrite.blockID] = (new ItemMultiTextureTile(EDBlockManager.woodPlanksOverwrite.blockID - 256, EDBlockManager.woodPlanksOverwrite, BlockWoodOverwrite.woodType)).setUnlocalizedName("wood");
 
