@@ -24,23 +24,23 @@ public class EDRecipeManager
 				});
 		
 		
-		GameRegistry.addRecipe(new ItemStack(EDBlockManager.stoneBlockRefined, 9), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EDBlockManager.stones,9, 1), new Object[]
 				{
 			"SSS", "SSS", "SSS", Character.valueOf('S'), Block.stone
 				});
 		
 		GameRegistry.addRecipe(new ItemStack(EDBlockManager.stonePillar, 2), new Object[]
 				{
-			"S", "S", Character.valueOf('S'), EDBlockManager.stoneBlockRefined
+			"S", "S", Character.valueOf('S'), new ItemStack(EDBlockManager.stones,1,1)
 				});
-		GameRegistry.addRecipe(new ItemStack(EDBlockManager.stoneTile, 4), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EDBlockManager.stones,4, 0), new Object[]
 				{
-			"SS", "SS", Character.valueOf('S'), EDBlockManager.stoneBlockRefined
+			"SS", "SS", Character.valueOf('S'), new ItemStack(EDBlockManager.stones,1,1)
 				});
 		
 		GameRegistry.addRecipe(new ItemStack(EDBlockManager.edgeStoneBrick, 1), new Object[]
 				{
-			"SG", "SG", Character.valueOf('S'), new ItemStack(EDItemManager.stoneBrickItem, 1), Character.valueOf('G'), new ItemStack(Item.netherQuartz, 1)
+			"SG", "SG", Character.valueOf('S'), new ItemStack(EDItemManager.stoneBrickItem, 1,1), Character.valueOf('G'), new ItemStack(Item.netherQuartz, 1)
 				});
 		GameRegistry.addRecipe(new ItemStack(EDBlockManager.brickPattern, 2), new Object[]
 				{
@@ -54,14 +54,14 @@ public class EDRecipeManager
 				{
 			"SS", "SS", Character.valueOf('S'), Block.blockSnow
 				});
-		GameRegistry.addSmelting(Block.whiteStone.blockID, new ItemStack(EDBlockManager.endstoneSmooth), 20);
-		GameRegistry.addRecipe(new ItemStack(EDBlockManager.endstoneRefined, 9), new Object[]
+		GameRegistry.addSmelting(Block.whiteStone.blockID, new ItemStack(EDBlockManager.endstone, 1,1), 20);
+		GameRegistry.addRecipe(new ItemStack(EDBlockManager.endstone, 9,2), new Object[]
 				{
-			"SSS", "SSS", "SSS", Character.valueOf('S'), EDBlockManager.endstoneSmooth
+			"SSS", "SSS", "SSS", Character.valueOf('S'), new ItemStack(EDBlockManager.endstone,1,1)
 				});
-		GameRegistry.addRecipe(new ItemStack(EDBlockManager.endstoneBrick, 4), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EDBlockManager.endstone, 4,0), new Object[]
 				{
-			"SS", "SS", Character.valueOf('S'), EDBlockManager.endstoneSmooth
+			"SS", "SS", Character.valueOf('S'), new ItemStack(EDBlockManager.endstone,1,1)
 				});
 		GameRegistry.addSmelting(Block.glass.blockID, new ItemStack(EDBlockManager.glassRefined), 20);
 		GameRegistry.addRecipe(new ItemStack(EDBlockManager.glassRefinedPane, 16), new Object[]
@@ -159,7 +159,7 @@ public class EDRecipeManager
 				});
 		GameRegistry.addRecipe(new ItemStack(EDBlockManager.stoneLamp, 8, 0), new Object[]
 				{
-			"SSS", "SGS", "SSS", Character.valueOf('S'), EDBlockManager.stoneBlockRefined, Character.valueOf('G'), Block.glowStone
+			"SSS", "SGS", "SSS", Character.valueOf('S'), new ItemStack(EDBlockManager.stones,1), Character.valueOf('G'), Block.glowStone
 				});
 		GameRegistry.addRecipe(new ItemStack(EDBlockManager.netherBrickPattern, 9), new Object[]
 				{

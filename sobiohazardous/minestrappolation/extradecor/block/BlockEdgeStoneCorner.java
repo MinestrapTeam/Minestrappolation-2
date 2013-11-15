@@ -11,7 +11,6 @@ import sobiohazardous.minestrappolation.api.util.MUtil;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
 import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
 import sobiohazardous.minestrappolation.extradecor.tileentity.TileEntityEdgeStoneCorner;
-import sobiohazardous.minestrappolation.extradecor.tileentity.TileEntityEdgeStoneSides;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;

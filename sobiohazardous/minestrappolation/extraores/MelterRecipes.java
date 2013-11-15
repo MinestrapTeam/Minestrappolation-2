@@ -1,6 +1,8 @@
 package sobiohazardous.minestrappolation.extraores;
 
+
 import java.util.HashMap;
+import java.util.Arrays;
 import java.util.Map;
 
 import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
@@ -22,6 +24,7 @@ private static final MelterRecipes melterBase = new MelterRecipes();
 /** The list of smelting results. */
 private Map melterList = new HashMap();
 private Map melterExperience = new HashMap();
+private Map metal = new HashMap();
 
 ModdedMelterRecipeLoader meltr = new ModdedMelterRecipeLoader();
 
@@ -54,9 +57,9 @@ ModdedMelterRecipeLoader meltr = new ModdedMelterRecipeLoader();
 			//addSmelting(EDBlockManager.obsidianTile.blockID, new ItemStack(EOItemManager.bucketMagma.itemID,1,0), 0.7F);
 			//addSmelting(EDBlockManager.bedrockBrick.blockID, new ItemStack(EOItemManager.bucketMagma.itemID,1,0), 0.7F);
 			addSmelting(EDBlockManager.snowBrick.blockID, new ItemStack(Item.bucketWater.itemID,1,0), 0.7F);
-			addSmelting(EDBlockManager.stoneBlockRefined.blockID, new ItemStack(Item.bucketLava.itemID,1,0), 0.7F);
+			addSmelting(EDBlockManager.stones.blockID,0, new ItemStack(Item.bucketLava.itemID,1,0), 0.7F);
 			addSmelting(EDBlockManager.stonePillar.blockID, new ItemStack(Item.bucketLava.itemID,1,0), 0.7F);
-			addSmelting(EDBlockManager.stoneTile.blockID, new ItemStack(Item.bucketLava.itemID,1,0), 0.7F);
+			addSmelting(EDBlockManager.stones.blockID,1, new ItemStack(Item.bucketLava.itemID,1,0), 0.7F);
 		}
 		
 		
@@ -84,15 +87,33 @@ ModdedMelterRecipeLoader meltr = new ModdedMelterRecipeLoader();
 		
 		
 	}
+	
+	public void addSmelting(int id,int meta, ItemStack itemStack, float experience)
+	{
+		metal.put(Arrays.asList(id, meta), itemStack);
+		this.melterExperience.put(Arrays.asList(itemStack.itemID, itemStack.getItemDamage()), Float.valueOf(experience));
+		
+		
+		
+	}
 
 /**
 * Returns the smelting result of an item.
 */
-public ItemStack getSmeltingResult(int id)
-{
-return (ItemStack)melterList.get(Integer.valueOf(id));
-}
 
+	public ItemStack getSmeltingResult(ItemStack item)
+	 {
+	 if (item == null)
+	 {
+	 return null;
+	 }
+	 ItemStack ret = (ItemStack)metal.get(Arrays.asList(item.itemID, item.getItemDamage()));
+	 if (ret != null)
+	 {
+	 return ret;
+	 }
+	 return (ItemStack)melterList.get(Integer.valueOf(item.itemID));
+	 }
 public Map getSmeltingList()
 {
 return melterList;

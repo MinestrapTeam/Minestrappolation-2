@@ -332,7 +332,7 @@ public class TileEntityMelter extends TileEntity implements IInventory
          }
          else{
         	// if(hasBucket == true) return true; 
-        	  ItemStack itemstack = MelterRecipes.smelting().getSmeltingResult(goldItemStacks[0].getItem().itemID);      	
+        	  ItemStack itemstack = MelterRecipes.smelting().getSmeltingResult(goldItemStacks[0]);      	
         	  if(itemstack == null) return false;      
         	  if(this.goldItemStacks[2] == null) return true;
         	  if(!this.goldItemStacks[2].isItemEqual(itemstack)) return false;
@@ -356,7 +356,7 @@ public class TileEntityMelter extends TileEntity implements IInventory
 	{
          if (this.canSmelt() == true)
          {
-                 ItemStack itemstack = MelterRecipes.smelting().getSmeltingResult(this.goldItemStacks[0].getItem().itemID);
+                 ItemStack itemstack = MelterRecipes.smelting().getSmeltingResult(this.goldItemStacks[0]);
                  if (this.goldItemStacks[2] == null)
                  {
                      this.goldItemStacks[2] = itemstack.copy();

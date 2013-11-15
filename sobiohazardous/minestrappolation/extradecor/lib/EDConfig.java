@@ -7,20 +7,15 @@ public class EDConfig {
 	public static int
 	refinedRoadID,
 	bedrockBrickID,
-	stoneBlockRefinedId,
 	stonePillarId,
 	stoneTileId,
 	stoneLampId,
 	edgeStoneBrickId,
-	edgeStoneLeftId,
-	edgeStoneBrickRightId,
 	edgeStoneCornerID,
 	brickPatternId,
 	obsidianTileId,
 	snowBrickId,
 	endstoneSmoothId,
-	endstoneRefinedId,
-	endstoneBrickId,
 	glassRefinedId,
 	glassRefinedPaneId,
 	woodPanelId,
@@ -74,19 +69,14 @@ public class EDConfig {
 		config.load();
 		//blocks 700
 		//items 2500
-		stoneBlockRefinedId = config.getBlock("Stone Block Refined", 700).getInt();
 		stonePillarId = config.getBlock("Stone Pillar", 701).getInt();
 		stoneTileId = config.getBlock("Stone Tile", 702).getInt();
 		stoneLampId = config.getBlock("Stone Lamp", 703).getInt();
 		edgeStoneBrickId = config.getBlock("Edge Stone Brick", 704).getInt();
-		edgeStoneLeftId = config.getBlock("Left Edgestone Brick", 705).getInt();
-		edgeStoneBrickRightId = config.getBlock("Rigt Edgestone Brick", 706).getInt();
 		brickPatternId = config.getBlock("Pattern Brick", 707).getInt();
 		obsidianTileId = config.getBlock("Obsidian Tile", 708).getInt();
 		snowBrickId = config.getBlock("Snow Brick", 709).getInt();
 		endstoneSmoothId = config.getBlock("Smooth Endstone", 710).getInt();
-		endstoneRefinedId = config.getBlock("Refined Endstone", 711).getInt();
-		endstoneBrickId = config.getBlock("Endstone Brick", 712).getInt();
 		glassRefinedId = config.getBlock("Refined Glass", 713).getInt();
 		glassRefinedPaneId = config.getBlock("Refined Glass Pane", 714).getInt();
 		woodPanelId = config.getBlock("Wood Panel", 715).getInt();

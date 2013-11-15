@@ -42,6 +42,13 @@ public class TileEntityEdgeStoneCorner extends TileEntity
 			if(this.worldObj.getBlockId(this.xCoord-1, this.yCoord, this.zCoord) == Block.stoneBrick.blockID){
 	    		this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.edgeStoneBrickCorner.blockID,5,2);
 	    	}
+			
+			if(this.worldObj.getBlockId(this.xCoord-1, this.yCoord, this.zCoord) == Block.stoneBrick.blockID && this.worldObj.getBlockId(this.xCoord+1, this.yCoord, this.zCoord) == Block.stoneBrick.blockID){
+	    		this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.edgeStoneBrick.blockID);
+			}
+			if(this.worldObj.getBlockId(this.xCoord, this.yCoord, this.zCoord+1) == Block.stoneBrick.blockID && this.worldObj.getBlockId(this.xCoord, this.yCoord, this.zCoord-1) == Block.stoneBrick.blockID){
+	    		this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.edgeStoneBrick.blockID);
+			}
 		}
  
     	if(this.worldObj.getBlockId(this.xCoord, this.yCoord, this.zCoord+1) != Block.stoneBrick.blockID && this.worldObj.getBlockId(this.xCoord-1, this.yCoord, this.zCoord) != Block.stoneBrick.blockID && this.worldObj.getBlockId(this.xCoord, this.yCoord, this.zCoord-1) != Block.stoneBrick.blockID && this.worldObj.getBlockId(this.xCoord+1, this.yCoord, this.zCoord) != Block.stoneBrick.blockID){

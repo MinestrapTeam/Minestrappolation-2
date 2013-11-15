@@ -131,7 +131,7 @@ public ItemStack transferStackInSlot(EntityPlayer player, int slotnumber)
                                  return null;
                          }
                  }
-                 else if (MelterRecipes.smelting().getSmeltingResult(itemstack1.getItem().itemID) != null)
+                 else if (MelterRecipes.smelting().getSmeltingResult(itemstack1) != null)
                  {
                          if (!mergeItemStack(itemstack1, 1, 2, false))
                          {

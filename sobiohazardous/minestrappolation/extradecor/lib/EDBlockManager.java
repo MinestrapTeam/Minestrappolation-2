@@ -9,43 +9,9 @@ import sobiohazardous.minestrappolation.api.item.MItemBlockPlacer;
 import sobiohazardous.minestrappolation.api.item.MItem;
 import sobiohazardous.minestrappolation.extradecor.CreativeTabExtraDecorBlocks;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
-import sobiohazardous.minestrappolation.extradecor.block.BlockBarrel;
-import sobiohazardous.minestrappolation.extradecor.block.BlockBedrockBrick;
-import sobiohazardous.minestrappolation.extradecor.block.BlockCardboard;
-import sobiohazardous.minestrappolation.extradecor.block.BlockCardboardWet;
-import sobiohazardous.minestrappolation.extradecor.block.BlockCobbledRoad;
-import sobiohazardous.minestrappolation.extradecor.block.BlockCrate;
-import sobiohazardous.minestrappolation.extradecor.block.BlockEdgeStoneBrick;
-import sobiohazardous.minestrappolation.extradecor.block.BlockEdgeStoneBrickLeft;
-import sobiohazardous.minestrappolation.extradecor.block.BlockEdgeStoneBrickRight;
-import sobiohazardous.minestrappolation.extradecor.block.BlockEdgeStoneCorner;
-import sobiohazardous.minestrappolation.extradecor.block.BlockEnderblock;
-import sobiohazardous.minestrappolation.extradecor.block.BlockGlassRefined;
-import sobiohazardous.minestrappolation.extradecor.block.BlockGunpowderBlock;
-import sobiohazardous.minestrappolation.extradecor.block.BlockMeatBlock;
-import sobiohazardous.minestrappolation.extradecor.block.BlockMossyWood;
-import sobiohazardous.minestrappolation.extradecor.block.BlockOoze;
-import sobiohazardous.minestrappolation.extradecor.block.BlockRefinedRoad;
-import sobiohazardous.minestrappolation.extradecor.block.BlockRope;
-import sobiohazardous.minestrappolation.extradecor.block.BlockRopeCoil;
-import sobiohazardous.minestrappolation.extradecor.block.BlockSandstoneBrick;
-import sobiohazardous.minestrappolation.extradecor.block.BlockSandyRoad;
-import sobiohazardous.minestrappolation.extradecor.block.BlockSnowBrick;
-import sobiohazardous.minestrappolation.extradecor.block.BlockStainedBrick;
-import sobiohazardous.minestrappolation.extradecor.block.BlockStatueTest;
-import sobiohazardous.minestrappolation.extradecor.block.BlockStoneLamp;
-import sobiohazardous.minestrappolation.extradecor.block.BlockSugarBlock;
-import sobiohazardous.minestrappolation.extradecor.block.BlockWoodBeveled;
-import sobiohazardous.minestrappolation.extradecor.block.BlockWoodBoardSlab;
-import sobiohazardous.minestrappolation.extradecor.block.BlockWoodBoards;
-import sobiohazardous.minestrappolation.extradecor.block.BlockWoodOverwrite;
-import sobiohazardous.minestrappolation.extradecor.block.BlockWoodPanel;
-import sobiohazardous.minestrappolation.extradecor.block.EDBlockPane;
-import sobiohazardous.minestrappolation.extradecor.block.EDBlockStairs;
+import sobiohazardous.minestrappolation.extradecor.block.*;
 import sobiohazardous.minestrappolation.extradecor.material.MaterialOoze;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockHalfSlab;
-import net.minecraft.block.BlockWood;
+import net.minecraft.block.*;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -58,16 +24,13 @@ public class EDBlockManager {
 	public static final Material materialOoze = new MaterialOoze(MapColor.foliageColor);
 	//bridged blocks
 	public static Block bedrockBrick;
-	public static Block stoneBlockRefined;
 	public static Block stonePillar;
-	public static Block stoneTile;
 	public static Block stoneLamp;
+	public static Block stones;
 	
 	public static Block StatueTest;
 	
 	public static Block edgeStoneBrick;
-	public static Block edgeStoneBrickLeft;
-	public static Block edgeStoneBrickRight;
 	public static Block edgeStoneBrickCorner;
 	
 	public static Block brickPattern;
@@ -75,10 +38,7 @@ public class EDBlockManager {
 	public static Block obsidianTile;
 	
 	public static Block snowBrick;
-	
-	public static Block endstoneSmooth;
-	public static Block endstoneRefined;
-	public static Block endstoneBrick;
+	public static Block endstone;
 	
 	public static Block glassRefined;
 	public static Block glassRefinedPane;
@@ -149,14 +109,11 @@ public class EDBlockManager {
 	public static CreativeTabs tabDecorBlocks = new CreativeTabExtraDecorBlocks(CreativeTabs.getNextID(),"Extrappolated Decor");
 	public static void createBlocks()
 	{
-		stoneBlockRefined = (new MBlock(EDConfig.stoneBlockRefinedId, Material.rock)).setHardness(1.5F).setResistance(10F).setStepSound(Block.soundStoneFootstep).setCreativeTab(tabDecorBlocks).setUnlocalizedName("block_StoneRefined");
 		stonePillar = (new BlockPillar(EDConfig.stonePillarId, "block_StonePillar", "block_StoneRefined")).setHardness(1.5F).setResistance(10F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("stonePillar");
-		stoneTile = (new MBlock(EDConfig.stoneTileId, Material.rock)).setHardness(1.5F).setResistance(10F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("block_StoneTile");
 		stoneLamp = (new BlockStoneLamp(EDConfig.stoneLampId)).setHardness(1.5F).setResistance(8F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setLightValue(1.0F).setUnlocalizedName("stoneLamp");
+		stones = new BlockStones(EDConfig.stoneTileId).setHardness(1.5F).setResistance(10F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep);
 	
 		edgeStoneBrick = (new BlockEdgeStoneBrick(EDConfig.edgeStoneBrickId)).setHardness(1.5F).setResistance(10F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("block_edgeStoneBrick");
-		edgeStoneBrickLeft = (new BlockEdgeStoneBrickLeft(EDConfig.edgeStoneLeftId)).setHardness(1.5F).setResistance(10F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("block_edgeStoneBrickLeft");
-		edgeStoneBrickRight = (new BlockEdgeStoneBrickRight(EDConfig.edgeStoneBrickRightId)).setHardness(1.5F).setResistance(10F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("block_edgeStoneBrickRight");
 		edgeStoneBrickCorner = (new BlockEdgeStoneCorner(EDConfig.edgeStoneCornerID)).setHardness(1.5F).setResistance(10F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("block_edgeStoneBrickCorner");
 	
 		brickPattern = (new MBlock(EDConfig.brickPatternId, Material.rock)).setHardness(2.0F).setResistance(10.0F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("block_PatternBrick");
@@ -165,9 +122,7 @@ public class EDBlockManager {
 	
 		snowBrick = (new BlockSnowBrick(EDConfig.snowBrickId)).setHardness(0.3F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundSnowFootstep).setUnlocalizedName("block_SnowBrick");
 	
-		endstoneSmooth = (new MBlock(EDConfig.endstoneSmoothId, Material.rock)).setHardness(3.0F).setResistance(15.0F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("block_EndstoneSmooth");
-		endstoneRefined = (new MBlock(EDConfig.endstoneRefinedId, Material.rock)).setHardness(3.5F).setResistance(15.0F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("block_EndstoneRefined");
-		endstoneBrick = (new MBlock(EDConfig.endstoneBrickId, Material.rock)).setHardness(3.5F).setResistance(15.0F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("block_EndstoneBrick");
+		endstone = (new BlockEndStone(EDConfig.endstoneSmoothId)).setHardness(3.0F).setResistance(15.0F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("block_Endstone");
 	
 		glassRefined = (new BlockGlassRefined(EDConfig.glassRefinedId, Material.glass, false)).setHardness(0.3F).setStepSound(Block.soundGlassFootstep).setCreativeTab(tabDecorBlocks).setUnlocalizedName("glassRefined");
 		glassRefinedPane = (new EDBlockPane(EDConfig.glassRefinedPaneId, "block_ClearGlass", "block_ClearGlassTop", Material.glass, false)).setHardness(0.3F).setStepSound(Block.soundGlassFootstep).setCreativeTab(tabDecorBlocks).setUnlocalizedName("glassRefinedPane");
@@ -254,19 +209,12 @@ public class EDBlockManager {
 	{
 		GameRegistry.registerBlock(edgeStoneBrickCorner,"Edge corner");
 		GameRegistry.registerBlock(refinedRoad,"Refined Road");
-		GameRegistry.registerBlock(stoneBlockRefined, "refinedStoneBrick");
-		GameRegistry.registerBlock(stonePillar, "stonePillar");
-		GameRegistry.registerBlock(stoneTile, "stoneTile");
 		GameRegistry.registerBlock(stoneLamp, "stoneLamp");
 		GameRegistry.registerBlock(edgeStoneBrick, "edgeStoneBrick");
-		GameRegistry.registerBlock(edgeStoneBrickLeft, "edgeStoneBrickLeft");
-		GameRegistry.registerBlock(edgeStoneBrickRight, "edgeStoneBrickRight");
 		GameRegistry.registerBlock(brickPattern, "brickPattern");
 		GameRegistry.registerBlock(obsidianTile, "Obsidian Tile");
 		GameRegistry.registerBlock(snowBrick, "snowBrick");
-		GameRegistry.registerBlock(endstoneSmooth, "endstoneSmooth");
-		GameRegistry.registerBlock(endstoneRefined, "endstoneRefined");
-		GameRegistry.registerBlock(endstoneBrick, "endstoneBrick");
+		GameRegistry.registerBlock(endstone, "endstone");
 		GameRegistry.registerBlock(glassRefined, "glassRefined");
 		GameRegistry.registerBlock(glassRefinedPane, "glassRefinedPane");
 		GameRegistry.registerBlock(flintBlock, "flintBlock");
@@ -279,6 +227,7 @@ public class EDBlockManager {
 		GameRegistry.registerBlock(netherBrickPattern, "netherBrickPattern");
 		GameRegistry.registerBlock(sandstoneBricks, "sandstoneBrick");
 		GameRegistry.registerBlock(sandstonePillar, "sandstonePillar");
+		GameRegistry.registerBlock(stonePillar, "stonePillar");
 		GameRegistry.registerBlock(woodBoards, "woodBoards");
 		GameRegistry.registerBlock(flintTile, "flintTile");
 		GameRegistry.registerBlock(netherQuartzTile, "netherQuartzTile");
@@ -307,22 +256,17 @@ public class EDBlockManager {
 		GameRegistry.registerBlock(gravelRoad, "gravelRoad");
 		//GameRegistry.registerBlock(StatueTest,"Test");
 		GameRegistry.registerBlock(woodPlanksMossy, "woodPlanksMossy");
+		GameRegistry.registerBlock(stones,"Stones");
 	}
 	
 	public static void addNames()
 	{
 		LanguageRegistry.addName(refinedRoad, "Refined Road");
 		LanguageRegistry.addName(infertileDirt, "Infertile Dirt");
-		LanguageRegistry.addName(stoneBlockRefined, "Refined Stone Block");
-		LanguageRegistry.addName(stonePillar, "Stone Pillar");
-		LanguageRegistry.addName(stoneTile, "Stone Tiles");
 		LanguageRegistry.addName(edgeStoneBrick, "Edge Stone Bricks");
 		LanguageRegistry.addName(brickPattern, "Patterned Bricks");
 		LanguageRegistry.addName(obsidianTile, "Obisidian Tiles");
 		LanguageRegistry.addName(snowBrick, "Snow Bricks");
-		LanguageRegistry.addName(endstoneSmooth, "Smooth End Stone");
-		LanguageRegistry.addName(endstoneRefined, "Refined End Stone");
-		LanguageRegistry.addName(endstoneBrick, "End Stone Bricks");
 		LanguageRegistry.addName(glassRefined, "Refined Glass");
 		LanguageRegistry.addName(glassRefinedPane, "Refined Glass Pane");
 		LanguageRegistry.addName(flintBlock, "Block of Flint");
@@ -330,8 +274,6 @@ public class EDBlockManager {
 		LanguageRegistry.addName(itemRope, "Rope");
 		LanguageRegistry.addName(ropeCoil, "Rope Coil");
 		LanguageRegistry.addName(oozeSlime, "Slime Ooze");
-		LanguageRegistry.addName(new ItemStack(edgeStoneBrickCorner,1,0), "Corner 0");
-		LanguageRegistry.addName(new ItemStack(edgeStoneBrickCorner,1,1), "Corner 1");
 		LanguageRegistry.addName(oozeSlime, "Slime Ooze");
 		LanguageRegistry.instance().addStringLocalization("tile.stoneLamp.glowstone.name", "Glowstone Stone Lamp");
 		LanguageRegistry.instance().addStringLocalization("tile.stoneLamp.sunstone.name", "Sunstone Stone Lamp");
@@ -410,6 +352,15 @@ public class EDBlockManager {
 		LanguageRegistry.instance().addStringLocalization("tile.block_edgeStoneBrickCorner.5.name", "End 1");
 		LanguageRegistry.instance().addStringLocalization("tile.block_edgeStoneBrickCorner.6.name", "End 2");
 		LanguageRegistry.instance().addStringLocalization("tile.block_edgeStoneBrickCorner.7.name", "End 3");
+		
+		LanguageRegistry.instance().addStringLocalization("tile.null.tile.name", "Stone Tiles");
+		LanguageRegistry.instance().addStringLocalization("tile.null.refined.name", "Refined Stone");
+		
+		LanguageRegistry.instance().addStringLocalization("tile.block_Endstone.smooth.name", "Smooth EndStone");
+		LanguageRegistry.instance().addStringLocalization("tile.block_Endstone.refined.name", "Refined EndStone");
+		LanguageRegistry.instance().addStringLocalization("tile.block_Endstone.brick.name", "EndStone Bricks");
+		
+		
 	}
 	
 	public static void loadBridgedBlocks() throws Exception

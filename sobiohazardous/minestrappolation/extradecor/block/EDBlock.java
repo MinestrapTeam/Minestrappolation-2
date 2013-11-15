@@ -27,11 +27,11 @@ public class EDBlock extends MBlock
      */
     public int idDropped(int par1, Random par2Random, int par3)
     {
-        return this.blockID == EDBlockManager.stoneBlockRefined.blockID ? EDBlockManager.stoneBlockRefined.blockID : this.blockID;
+        return this.blockID;
     }
     public boolean canDragonDestroy(World world, int x, int y, int z)
     {
-        return blockID != obsidian.blockID && blockID != whiteStone.blockID && blockID != bedrock.blockID && blockID != EDBlockManager.endstoneSmooth.blockID && blockID != EDBlockManager.endstoneRefined.blockID && blockID !=EDBlockManager.endstoneBrick.blockID && blockID != EDBlockManager.obsidianTile.blockID;
+        return blockID != obsidian.blockID && blockID != whiteStone.blockID && blockID != bedrock.blockID && blockID  != EDBlockManager.obsidianTile.blockID;
     }
     public int getFlammability(IBlockAccess world, int x, int y, int z, int metadata, ForgeDirection face)
     {

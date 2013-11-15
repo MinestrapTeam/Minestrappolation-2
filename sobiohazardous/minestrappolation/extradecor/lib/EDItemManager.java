@@ -4,10 +4,12 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 import sobiohazardous.minestrappolation.api.item.MItem;
 import sobiohazardous.minestrappolation.api.item.MItemBlockPlacer;
 import sobiohazardous.minestrappolation.extradecor.block.BlockEdgeStoneCorner;
+import sobiohazardous.minestrappolation.extradecor.block.BlockEndStone;
 import sobiohazardous.minestrappolation.extradecor.block.BlockMossyWood;
 import sobiohazardous.minestrappolation.extradecor.block.BlockSandstoneBrick;
 import sobiohazardous.minestrappolation.extradecor.block.BlockStainedBrick;
 import sobiohazardous.minestrappolation.extradecor.block.BlockStoneLamp;
+import sobiohazardous.minestrappolation.extradecor.block.BlockStones;
 import sobiohazardous.minestrappolation.extradecor.block.BlockWoodBeveled;
 import sobiohazardous.minestrappolation.extradecor.block.BlockWoodBoards;
 import sobiohazardous.minestrappolation.extradecor.block.BlockWoodOverwrite;
@@ -74,7 +76,8 @@ public class EDItemManager
 		Item.itemsList[EDBlockManager.edgeStoneBrickCorner.blockID] = (new ItemMultiTextureTile(EDBlockManager.edgeStoneBrickCorner.blockID - 256, EDBlockManager.edgeStoneBrickCorner,BlockEdgeStoneCorner.cType)).setUnlocalizedName("stainedBrick");
 		Item.itemsList[EDBlockManager.woodPlanksMossy.blockID] = (new ItemMultiTextureTile(EDBlockManager.woodPlanksMossy.blockID - 256, EDBlockManager.woodPlanksMossy, BlockMossyWood.woodType)).setUnlocalizedName("woodPlanksMossy");
 		Item.itemsList[EDBlockManager.woodPlanksOverwrite.blockID] = (new ItemMultiTextureTile(EDBlockManager.woodPlanksOverwrite.blockID - 256, EDBlockManager.woodPlanksOverwrite, BlockWoodOverwrite.woodType)).setUnlocalizedName("wood");
-
+		Item.itemsList[EDBlockManager.stones.blockID] = (new ItemMultiTextureTile(EDBlockManager.stones.blockID - 256, EDBlockManager.stones,BlockStones.brickType)).setUnlocalizedName("Stones");
+		Item.itemsList[EDBlockManager.endstone.blockID] = (new ItemMultiTextureTile(EDBlockManager.endstone.blockID - 256, EDBlockManager.endstone,BlockEndStone.bType)).setUnlocalizedName("EndStone");
 		//TODO Forms of adding slabs
 		Item.itemsList[EDBlockManager.woodBoardsSingleSlab.blockID] = (new ItemSlab(EDBlockManager.woodBoardsSingleSlab.blockID - 256, (BlockHalfSlab)EDBlockManager.woodBoardsSingleSlab, (BlockHalfSlab)EDBlockManager.woodBoardsDoubleSlab, false));
 	}
