@@ -10,6 +10,7 @@ import sobiohazardous.minestrappolation.extradecor.block.BlockSandstoneBrick;
 import sobiohazardous.minestrappolation.extradecor.block.BlockStainedBrick;
 import sobiohazardous.minestrappolation.extradecor.block.BlockStoneLamp;
 import sobiohazardous.minestrappolation.extradecor.block.BlockStones;
+import sobiohazardous.minestrappolation.extradecor.block.BlockTiles;
 import sobiohazardous.minestrappolation.extradecor.block.BlockWoodBeveled;
 import sobiohazardous.minestrappolation.extradecor.block.BlockWoodBoards;
 import sobiohazardous.minestrappolation.extradecor.block.BlockWoodOverwrite;
@@ -45,14 +46,14 @@ public class EDItemManager
 	{
 		MinecraftForge.setToolClass(Item.shears, "shears", 0);
 		MinecraftForge.setBlockHarvestLevel(EDBlockManager.snowBrick, "shovel", 0);
-		MinecraftForge.setBlockHarvestLevel(EDBlockManager.flintBlock, "pickaxe", 1);
-		MinecraftForge.setBlockHarvestLevel(EDBlockManager.obsidianTile, "pickaxe", 3);
+		MinecraftForge.setBlockHarvestLevel(EDBlockManager.Tiles,5, "pickaxe", 1);
+		MinecraftForge.setBlockHarvestLevel(EDBlockManager.Tiles,0, "pickaxe", 3);
 		MinecraftForge.setBlockHarvestLevel(EDBlockManager.gunpowderBlock, "shovel", 0);
 		MinecraftForge.setBlockHarvestLevel(EDBlockManager.sugarBlock, "shovel", 0);
 		MinecraftForge.setBlockHarvestLevel(EDBlockManager.ropeCoil, "shears", 0);
 		MinecraftForge.setBlockHarvestLevel(EDBlockManager.rope, "shears", 0);
-		MinecraftForge.setBlockHarvestLevel(EDBlockManager.flintTile, "pickaxe", 1);
-		MinecraftForge.setBlockHarvestLevel(EDBlockManager.checkerTile, "pickaxe", 1);
+		MinecraftForge.setBlockHarvestLevel(EDBlockManager.Tiles,1, "pickaxe", 1);
+		MinecraftForge.setBlockHarvestLevel(EDBlockManager.Tiles,3, "pickaxe", 1);
 		MinecraftForge.setBlockHarvestLevel(EDBlockManager.checkerTileStairs, "pickaxe", 1);
 		MinecraftForge.setBlockHarvestLevel(EDBlockManager.oozeSlime, "shovel", 0);
 		MinecraftForge.setBlockHarvestLevel(EDBlockManager.magmaOoze, "shovel", 0);
@@ -78,6 +79,7 @@ public class EDItemManager
 		Item.itemsList[EDBlockManager.woodPlanksOverwrite.blockID] = (new ItemMultiTextureTile(EDBlockManager.woodPlanksOverwrite.blockID - 256, EDBlockManager.woodPlanksOverwrite, BlockWoodOverwrite.woodType)).setUnlocalizedName("wood");
 		Item.itemsList[EDBlockManager.stones.blockID] = (new ItemMultiTextureTile(EDBlockManager.stones.blockID - 256, EDBlockManager.stones,BlockStones.brickType)).setUnlocalizedName("Stones");
 		Item.itemsList[EDBlockManager.endstone.blockID] = (new ItemMultiTextureTile(EDBlockManager.endstone.blockID - 256, EDBlockManager.endstone,BlockEndStone.bType)).setUnlocalizedName("EndStone");
+		Item.itemsList[EDBlockManager.Tiles.blockID] = (new ItemMultiTextureTile(EDBlockManager.Tiles.blockID - 256, EDBlockManager.Tiles,BlockTiles.brickType)).setUnlocalizedName("Tiles");
 		//TODO Forms of adding slabs
 		Item.itemsList[EDBlockManager.woodBoardsSingleSlab.blockID] = (new ItemSlab(EDBlockManager.woodBoardsSingleSlab.blockID - 256, (BlockHalfSlab)EDBlockManager.woodBoardsSingleSlab, (BlockHalfSlab)EDBlockManager.woodBoardsDoubleSlab, false));
 	}

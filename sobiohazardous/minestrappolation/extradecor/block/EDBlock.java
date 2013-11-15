@@ -31,7 +31,7 @@ public class EDBlock extends MBlock
     }
     public boolean canDragonDestroy(World world, int x, int y, int z)
     {
-        return blockID != obsidian.blockID && blockID != whiteStone.blockID && blockID != bedrock.blockID && blockID  != EDBlockManager.obsidianTile.blockID;
+        return blockID != obsidian.blockID && blockID != whiteStone.blockID && blockID != bedrock.blockID;
     }
     public int getFlammability(IBlockAccess world, int x, int y, int z, int metadata, ForgeDirection face)
     {

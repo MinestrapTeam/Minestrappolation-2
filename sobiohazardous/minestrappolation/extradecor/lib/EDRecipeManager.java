@@ -42,11 +42,11 @@ public class EDRecipeManager
 				{
 			"SG", "SG", Character.valueOf('S'), new ItemStack(EDItemManager.stoneBrickItem, 1,1), Character.valueOf('G'), new ItemStack(Item.netherQuartz, 1)
 				});
-		GameRegistry.addRecipe(new ItemStack(EDBlockManager.brickPattern, 2), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EDBlockManager.Tiles, 2,4), new Object[]
 				{
 			"SSS", "SSS", "SSS", Character.valueOf('S'), Item.brick
 				});
-		GameRegistry.addRecipe(new ItemStack(EDBlockManager.obsidianTile, 4), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EDBlockManager.Tiles, 4,0), new Object[]
 				{
 			"SS", "SS", Character.valueOf('S'), Block.obsidian
 				});
@@ -68,13 +68,13 @@ public class EDRecipeManager
 				{
 			"SSS", "SSS", Character.valueOf('S'), EDBlockManager.glassRefined
 				});
-		GameRegistry.addRecipe(new ItemStack(EDBlockManager.flintBlock, 2), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EDBlockManager.Tiles, 2,5), new Object[]
 				{
 			"SS", "SS", Character.valueOf('S'), Item.flint
 				});
 		GameRegistry.addRecipe(new ItemStack(Item.flint, 2), new Object[]
 				{
-			"S", Character.valueOf('S'), EDBlockManager.flintBlock
+			"S", Character.valueOf('S'), new ItemStack(EDBlockManager.Tiles,1,5)
 				});
 		GameRegistry.addRecipe(new ItemStack(EDBlockManager.gunpowderBlock, 1), new Object[]
 				{
@@ -161,7 +161,7 @@ public class EDRecipeManager
 				{
 			"SSS", "SGS", "SSS", Character.valueOf('S'), new ItemStack(EDBlockManager.stones,1), Character.valueOf('G'), Block.glowStone
 				});
-		GameRegistry.addRecipe(new ItemStack(EDBlockManager.netherBrickPattern, 9), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EDBlockManager.Tiles, 9,6), new Object[]
 				{
 			"SSS", "SSS", "SSS", Character.valueOf('S'), Item.netherrackBrick
 				});
@@ -187,11 +187,11 @@ public class EDRecipeManager
 				{
 			"SS", "SS", Character.valueOf('S'), new ItemStack(Block.wood, 1 , 3)
 				});
-		GameRegistry.addRecipe(new ItemStack(EDBlockManager.flintTile, 4), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EDBlockManager.Tiles, 4,1), new Object[]
 				{
-			"FF", "FF", Character.valueOf('F'), EDBlockManager.flintBlock
+			"FF", "FF", Character.valueOf('F'), new ItemStack(EDBlockManager.Tiles,1,5)
 				});
-		GameRegistry.addRecipe(new ItemStack(EDBlockManager.netherQuartzTile, 4), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EDBlockManager.Tiles, 4,2), new Object[]
 				{
 			"FF", "FF", Character.valueOf('F'), Block.blockNetherQuartz
 				});
@@ -244,9 +244,9 @@ public class EDRecipeManager
 				{
 			"BBB", "BBB", "BBB", Character.valueOf('B'), EDItemManager.sandstoneBrickItem
 				});
-		GameRegistry.addRecipe(new ItemStack(EDBlockManager.checkerTile, 4), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EDBlockManager.Tiles, 4,3), new Object[]
 				{
-			"FQ", "QF", Character.valueOf('F'), EDBlockManager.flintTile, Character.valueOf('Q'), EDBlockManager.netherQuartzTile
+			"FQ", "QF", Character.valueOf('F'), new ItemStack(EDBlockManager.Tiles,1,2), Character.valueOf('Q'), new ItemStack(EDBlockManager.Tiles,1,2)
 				});
 		GameRegistry.addRecipe(new ItemStack(EDBlockManager.woodBoardsSingleSlab, 6, 0), new Object[]
 				{
@@ -286,7 +286,7 @@ public class EDRecipeManager
 				});
 		GameRegistry.addRecipe(new ItemStack(EDBlockManager.checkerTileStairs, 4), new Object[]
 				{
-			"  T",  " TT", "TTT", Character.valueOf('T'), EDBlockManager.checkerTile
+			"  T",  " TT", "TTT", Character.valueOf('T'), new ItemStack(EDBlockManager.Tiles,1,3)
 				});
 		
 		

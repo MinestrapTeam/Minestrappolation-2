@@ -28,14 +28,12 @@ public class EDBlockManager {
 	public static Block stoneLamp;
 	public static Block stones;
 	
+	public static Block Tiles;
+	
 	public static Block StatueTest;
 	
 	public static Block edgeStoneBrick;
 	public static Block edgeStoneBrickCorner;
-	
-	public static Block brickPattern;
-	
-	public static Block obsidianTile;
 	
 	public static Block snowBrick;
 	public static Block endstone;
@@ -46,9 +44,6 @@ public class EDBlockManager {
 	public static Block woodPanel;
 	
 	public static Block woodBeveled;
-
-	public static Block flintBlock;
-	
 	public static Block gunpowderBlock;
 	
 	public static Block rope;
@@ -57,16 +52,10 @@ public class EDBlockManager {
 	
 	public static Block oozeSlime;
 	
-	public static Block netherBrickPattern;
-	
 	public static Block sandstoneBricks;	
 	public static Block sandstonePillar;
 	
 	public static Block woodBoards;
-	
-	public static Block flintTile;
-	
-	public static Block netherQuartzTile;
 	
 	public static Block sugarBlock;
 	public static Block meatBlock;
@@ -81,8 +70,6 @@ public class EDBlockManager {
 	public static Block cardboard;
 	public static Block cardboardBlock;
 	public static Block cardboardWet;
-	
-	public static Block checkerTile;
 		
 	public static Block woodBoardsStairsOak;
 	public static Block woodBoardsStairsBirch;
@@ -112,13 +99,11 @@ public class EDBlockManager {
 		stonePillar = (new BlockPillar(EDConfig.stonePillarId, "block_StonePillar", "block_StoneRefined")).setHardness(1.5F).setResistance(10F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("stonePillar");
 		stoneLamp = (new BlockStoneLamp(EDConfig.stoneLampId)).setHardness(1.5F).setResistance(8F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setLightValue(1.0F).setUnlocalizedName("stoneLamp");
 		stones = new BlockStones(EDConfig.stoneTileId).setHardness(1.5F).setResistance(10F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep);
+		
+		Tiles = new BlockTiles(EDConfig.obsidianTileId).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep);
 	
 		edgeStoneBrick = (new BlockEdgeStoneBrick(EDConfig.edgeStoneBrickId)).setHardness(1.5F).setResistance(10F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("block_edgeStoneBrick");
 		edgeStoneBrickCorner = (new BlockEdgeStoneCorner(EDConfig.edgeStoneCornerID)).setHardness(1.5F).setResistance(10F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("block_edgeStoneBrickCorner");
-	
-		brickPattern = (new MBlock(EDConfig.brickPatternId, Material.rock)).setHardness(2.0F).setResistance(10.0F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("block_PatternBrick");
-	
-		obsidianTile = (new MBlock(EDConfig.obsidianTileId, Material.rock)).setHardness(60.0F).setResistance(2000.0F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("block_ObsidianTile");
 	
 		snowBrick = (new BlockSnowBrick(EDConfig.snowBrickId)).setHardness(0.3F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundSnowFootstep).setUnlocalizedName("block_SnowBrick");
 	
@@ -126,9 +111,6 @@ public class EDBlockManager {
 	
 		glassRefined = (new BlockGlassRefined(EDConfig.glassRefinedId, Material.glass, false)).setHardness(0.3F).setStepSound(Block.soundGlassFootstep).setCreativeTab(tabDecorBlocks).setUnlocalizedName("glassRefined");
 		glassRefinedPane = (new EDBlockPane(EDConfig.glassRefinedPaneId, "block_ClearGlass", "block_ClearGlassTop", Material.glass, false)).setHardness(0.3F).setStepSound(Block.soundGlassFootstep).setCreativeTab(tabDecorBlocks).setUnlocalizedName("glassRefinedPane");
-	
-		flintBlock = (new MBlock(EDConfig.flintBlockId, Material.rock)).setHardness(3F).setResistance(10.0F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("block_FlintBlock").setCreativeTab(tabDecorBlocks);
-	
 		gunpowderBlock = (new BlockGunpowderBlock(EDConfig.gunpowderBlockId, Material.ground)).setHardness(0.6F).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("block_GunpowderBlock");
 	
 		rope = (new BlockRope(EDConfig.ropeId)).setHardness(0.9F).setStepSound(Block.soundClothFootstep).setUnlocalizedName("rope");
@@ -141,17 +123,11 @@ public class EDBlockManager {
 		
 		woodBeveled = (new BlockWoodBeveled(EDConfig.woodBeveledId)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("woodBeveled");
 	
-		netherBrickPattern = (new MBlock(EDConfig.netherBrickPatternId, Material.rock)).setHardness(2.0F).setResistance(10.0F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("block_PatternBrickNether");
-	
 		sandstoneBricks = (new BlockSandstoneBrick(EDConfig.sandstoneBrickId)).setHardness(1F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("sandstoneBrick");
 		sandstonePillar = new BlockPillar(EDConfig.sandstonePillarId, "block_SandstonePillarSide", "block_SandstonePillarTop").setUnlocalizedName("sandstonePillar").setHardness(1F).setStepSound(Block.soundStoneFootstep);
 	
 		woodBoards = new BlockWoodBoards(EDConfig.woodBoardsId).setHardness(2.0F).setResistance(5.0F).setUnlocalizedName("woodBoards").setStepSound(Block.soundWoodFootstep);
 		//TODO add the rest of the boards after Extrapolated Nature
-	
-		flintTile = new MBlock(EDConfig.flintTileId, Material.rock).setUnlocalizedName("block_FlintTile").setHardness(3F).setResistance(10.0F).setCreativeTab(tabDecorBlocks);
-	
-		netherQuartzTile = new MBlock(EDConfig.netherQuartzTileId, Material.rock).setHardness(0.8F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("block_NetherTile").setCreativeTab(tabDecorBlocks);
 
 		sugarBlock = new BlockSugarBlock(EDConfig.sugarBlockId).setHardness(0.6F).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("block_SugarBlock");
 		meatBlock = new BlockMeatBlock(EDConfig.meatBlockId, "block_MeatBlock").setHardness(0.8F).setStepSound(Block.soundClothFootstep).setUnlocalizedName("block_MeatBlock");
@@ -167,8 +143,6 @@ public class EDBlockManager {
 		cardboardBlock = new BlockCardboard(EDConfig.cardboardBlockId, Material.cloth).setHardness(0.4F).setUnlocalizedName("block_CardboardBlock").setCreativeTab(tabDecorBlocks);
 		cardboardWet = new BlockCardboardWet(EDConfig.cardboardWetId, Material.cloth).setCreativeTab(tabDecorBlocks).setHardness(0.2F).setResistance(0.8F).setUnlocalizedName("cardboardWet");
 		
-		checkerTile = new MBlock(EDConfig.checkerTileId, Material.rock).setUnlocalizedName("block_CheckerTile").setHardness(3F).setResistance(10.0F).setStepSound(Block.soundStoneFootstep).setCreativeTab(tabDecorBlocks);
-	
 		woodBoardsStairsOak = new EDBlockStairs(EDConfig.woodBoardsStairsOakId, woodBoards, 0).setUnlocalizedName("woodBoardsStairsOak").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep);
 		woodBoardsStairsBirch = new EDBlockStairs(EDConfig.woodBoardsStairsBirchId, woodBoards, 1).setUnlocalizedName("woodBoardsStairsBirch").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep);
 		woodBoardsStairsSpruce = new EDBlockStairs(EDConfig.woodBoardsStairsSpruceId, woodBoards, 2).setUnlocalizedName("woodBoardsStairsSpruce").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep);
@@ -176,7 +150,7 @@ public class EDBlockManager {
 		woodBoardsSingleSlab = (BlockHalfSlab) new BlockWoodBoardSlab(EDConfig.woodBoardsSingleSlabId, false).setUnlocalizedName("woodBoardsSingleSlab").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep);
 		woodBoardsDoubleSlab = (BlockHalfSlab) new BlockWoodBoardSlab(EDConfig.woodBoardsDoubleSlabId, true).setUnlocalizedName("woodBoardsSingleSlab").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep);
 
-		checkerTileStairs = new EDBlockStairs(EDConfig.checkerTileStairsId, checkerTile, 0).setUnlocalizedName("checkerTileStairs").setHardness(3F).setResistance(10.0F).setStepSound(Block.soundStoneFootstep);
+		checkerTileStairs = new EDBlockStairs(EDConfig.checkerTileStairsId, Tiles, 3).setUnlocalizedName("checkerTileStairs").setHardness(3F).setResistance(10.0F).setStepSound(Block.soundStoneFootstep);
 	
 		stainedBrick = (new BlockStainedBrick(EDConfig.stainedBrickId)).setHardness(2F).setResistance(10F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("stainedBrick");
 	
@@ -211,26 +185,20 @@ public class EDBlockManager {
 		GameRegistry.registerBlock(refinedRoad,"Refined Road");
 		GameRegistry.registerBlock(stoneLamp, "stoneLamp");
 		GameRegistry.registerBlock(edgeStoneBrick, "edgeStoneBrick");
-		GameRegistry.registerBlock(brickPattern, "brickPattern");
-		GameRegistry.registerBlock(obsidianTile, "Obsidian Tile");
 		GameRegistry.registerBlock(snowBrick, "snowBrick");
 		GameRegistry.registerBlock(endstone, "endstone");
 		GameRegistry.registerBlock(glassRefined, "glassRefined");
 		GameRegistry.registerBlock(glassRefinedPane, "glassRefinedPane");
-		GameRegistry.registerBlock(flintBlock, "flintBlock");
 		GameRegistry.registerBlock(gunpowderBlock, "gunpowderBlock");
 		GameRegistry.registerBlock(rope, "rope");
 		GameRegistry.registerBlock(ropeCoil, "ropeCoil");
 		GameRegistry.registerBlock(woodPanel, "woodPanel");
 		GameRegistry.registerBlock(woodBeveled, "woodBeveled");
 		GameRegistry.registerBlock(oozeSlime, "oozeSlime");
-		GameRegistry.registerBlock(netherBrickPattern, "netherBrickPattern");
 		GameRegistry.registerBlock(sandstoneBricks, "sandstoneBrick");
 		GameRegistry.registerBlock(sandstonePillar, "sandstonePillar");
 		GameRegistry.registerBlock(stonePillar, "stonePillar");
 		GameRegistry.registerBlock(woodBoards, "woodBoards");
-		GameRegistry.registerBlock(flintTile, "flintTile");
-		GameRegistry.registerBlock(netherQuartzTile, "netherQuartzTile");
 		GameRegistry.registerBlock(sugarBlock, "sugarBlock");
 		GameRegistry.registerBlock(meatBlock, "meatBlock");
 		GameRegistry.registerBlock(magmaOoze, "magmaOoze");
@@ -240,7 +208,6 @@ public class EDBlockManager {
 		GameRegistry.registerBlock(cardboard, "cardboard");
 		GameRegistry.registerBlock(cardboardBlock, "cardboardBlock");
 		GameRegistry.registerBlock(cardboardWet, "cardboardWet");
-		GameRegistry.registerBlock(checkerTile, "checkerTile");
 		GameRegistry.registerBlock(woodBoardsStairsOak, "woodBoardStairsOak");
 		GameRegistry.registerBlock(woodBoardsStairsBirch, "woodBoardStairsBirch");
 		GameRegistry.registerBlock(woodBoardsStairsSpruce, "woodBoardStairsSpruce");
@@ -264,12 +231,10 @@ public class EDBlockManager {
 		LanguageRegistry.addName(refinedRoad, "Refined Road");
 		LanguageRegistry.addName(infertileDirt, "Infertile Dirt");
 		LanguageRegistry.addName(edgeStoneBrick, "Edge Stone Bricks");
-		LanguageRegistry.addName(brickPattern, "Patterned Bricks");
-		LanguageRegistry.addName(obsidianTile, "Obisidian Tiles");
+		LanguageRegistry.addName(Tiles, "Tiles");
 		LanguageRegistry.addName(snowBrick, "Snow Bricks");
 		LanguageRegistry.addName(glassRefined, "Refined Glass");
 		LanguageRegistry.addName(glassRefinedPane, "Refined Glass Pane");
-		LanguageRegistry.addName(flintBlock, "Block of Flint");
 		LanguageRegistry.addName(gunpowderBlock, "Block of Gunpowder");
 		LanguageRegistry.addName(itemRope, "Rope");
 		LanguageRegistry.addName(ropeCoil, "Rope Coil");
@@ -285,7 +250,6 @@ public class EDBlockManager {
 		LanguageRegistry.instance().addStringLocalization("tile.woodBeveled.birch.name", "Beveled Birch Wood Panel");
 		LanguageRegistry.instance().addStringLocalization("tile.woodBeveled.spruce.name", "Beveled Spruce Wood Panel");
 		LanguageRegistry.instance().addStringLocalization("tile.woodBeveled.jungle.name", "Beveled Jungle Wood Panel");
-		LanguageRegistry.addName(netherBrickPattern, "Patterned Nether Bricks");
 		LanguageRegistry.instance().addStringLocalization("tile.sandstoneBrick.brick.name", "Sandstone Bricks");
 		LanguageRegistry.instance().addStringLocalization("tile.sandstoneBrick.chiseled.name", "Chiseled Sandstone Bricks");
 		LanguageRegistry.instance().addStringLocalization("tile.sandstoneBrick.mossy.name", "Mossy Sandstone Bricks");
@@ -296,8 +260,6 @@ public class EDBlockManager {
 		LanguageRegistry.instance().addStringLocalization("tile.woodBoards.birch.name", "Birch Wood Boards");
 		LanguageRegistry.instance().addStringLocalization("tile.woodBoards.spruce.name", "Spruce Wood Boards");
 		LanguageRegistry.instance().addStringLocalization("tile.woodBoards.jungle.name", "Jungle Wood Boards");
-		LanguageRegistry.addName(flintTile, "Flint Tile");
-		LanguageRegistry.addName(netherQuartzTile, "Nether Quartz Tile");
 		LanguageRegistry.addName(sugarBlock, "Block of Sugar");
 		LanguageRegistry.addName(meatBlock, "Block of Meat");
 		LanguageRegistry.addName(magmaOoze, "Magma Ooze");
@@ -307,7 +269,7 @@ public class EDBlockManager {
 		//LanguageRegistry.addName(EDItemManager.cardboardItem, "Cardboard");
 		LanguageRegistry.addName(cardboardBlock, "Cardboard Block");
 		LanguageRegistry.addName(cardboardWet, "Wet Cardboard");
-		LanguageRegistry.addName(checkerTile, "Checker Tiles");
+		
 		LanguageRegistry.addName(woodBoardsStairsOak, "Oak Board Stairs");
 		LanguageRegistry.addName(woodBoardsStairsBirch, "Birch Board Stairs");
 		LanguageRegistry.addName(woodBoardsStairsSpruce, "Spruce Board Stairs");
@@ -360,6 +322,14 @@ public class EDBlockManager {
 		LanguageRegistry.instance().addStringLocalization("tile.block_Endstone.refined.name", "Refined EndStone");
 		LanguageRegistry.instance().addStringLocalization("tile.block_Endstone.brick.name", "EndStone Bricks");
 		
+		LanguageRegistry.instance().addStringLocalization("tile.null.obsidian.name", "Obsidian Tile");
+		LanguageRegistry.instance().addStringLocalization("tile.null.flint.name", "Flint Tile");
+		LanguageRegistry.instance().addStringLocalization("tile.null.nether.name", "Nether Quartz Tile");
+		LanguageRegistry.instance().addStringLocalization("tile.null.checker.name", "Checker Tiles");
+		LanguageRegistry.instance().addStringLocalization("tile.null.brick.name", "Patterned Bricks");
+		LanguageRegistry.instance().addStringLocalization("tile.null.fb.name", "Block of Flint");
+		LanguageRegistry.instance().addStringLocalization("tile.null.nb.name", "Patterned Nether Bricks");
+	
 		
 	}
 	

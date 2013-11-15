@@ -12,7 +12,6 @@ public class EDConfig {
 	stoneLampId,
 	edgeStoneBrickId,
 	edgeStoneCornerID,
-	brickPatternId,
 	obsidianTileId,
 	snowBrickId,
 	endstoneSmoothId,
@@ -20,7 +19,6 @@ public class EDConfig {
 	glassRefinedPaneId,
 	woodPanelId,
 	woodBeveledId,
-	flintBlockId,
 	gunpowderBlockId,
 	ropeId,
 	itemRopeId,
@@ -30,8 +28,6 @@ public class EDConfig {
 	sandstoneBrickId,
 	sandstonePillarId,
 	woodBoardsId,
-	flintTileId,
-	netherQuartzTileId,
 	sugarBlockId,
 	meatBlockId,
 	magmaOozeId,
@@ -44,7 +40,6 @@ public class EDConfig {
 	cardboardWetId,
 	sandstoneBrickItemId,
 	stoneBrickItemId,
-	checkerTileId,
 	woodBoardsStairsOakId,
 	woodBoardsStairsBirchId,
 	woodBoardsStairsSpruceId,
@@ -73,7 +68,6 @@ public class EDConfig {
 		stoneTileId = config.getBlock("Stone Tile", 702).getInt();
 		stoneLampId = config.getBlock("Stone Lamp", 703).getInt();
 		edgeStoneBrickId = config.getBlock("Edge Stone Brick", 704).getInt();
-		brickPatternId = config.getBlock("Pattern Brick", 707).getInt();
 		obsidianTileId = config.getBlock("Obsidian Tile", 708).getInt();
 		snowBrickId = config.getBlock("Snow Brick", 709).getInt();
 		endstoneSmoothId = config.getBlock("Smooth Endstone", 710).getInt();
@@ -81,7 +75,6 @@ public class EDConfig {
 		glassRefinedPaneId = config.getBlock("Refined Glass Pane", 714).getInt();
 		woodPanelId = config.getBlock("Wood Panel", 715).getInt();
 		woodBeveledId = config.getBlock("Beveled Wood", 716).getInt();
-		flintBlockId = config.getBlock("Flint Block", 717).getInt();
 		gunpowderBlockId = config.getBlock("Gunpowder Block", 718).getInt();
 		ropeId = config.getBlock("Rope", 719).getInt();
 		itemRopeId = config.getItem("Rope Item", 25000).getInt();
@@ -91,8 +84,6 @@ public class EDConfig {
 		sandstoneBrickId = config.getBlock("Sandstone Brick", 724).getInt();
 		sandstonePillarId = config.getBlock("Sandstone Pillar", 725).getInt();
 		woodBoardsId = config.getBlock("Wood Boards", 726).getInt();
-		flintTileId = config.getBlock("Flint Tile", 727).getInt();
-		netherQuartzTileId = config.getBlock("Nether Quartz Tile", 728).getInt();
 		sugarBlockId = config.getBlock("Sugar Block", 729).getInt();
 		meatBlockId = config.getBlock("Meat Block", 730).getInt();
 		magmaOozeId = config.getBlock("Magma Ooze", 731).getInt();
@@ -105,7 +96,6 @@ public class EDConfig {
 		cardboardWetId = config.getBlock("Wet Cardboard", 737).getInt();
 		sandstoneBrickItemId = config.getItem("Sandstone Brick Item", 25002).getInt();
 		stoneBrickItemId = config.getItem("Stone Brick Item", 25003).getInt();
-		checkerTileId = config.getBlock("Checker Tile", 738).getInt();
 		woodBoardsStairsOakId = config.getBlock("Oak Board Stairs", 739).getInt();
 		woodBoardsStairsBirchId = config.getBlock("Birch Boards Stairs", 740).getInt();
 		woodBoardsStairsSpruceId = config.getBlock("Spruce Boards Stairs", 741).getInt();
