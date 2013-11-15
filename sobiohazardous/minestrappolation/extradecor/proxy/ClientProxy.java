@@ -29,6 +29,5 @@ public class ClientProxy extends CommonProxy
     	ClientRegistry.bindTileEntitySpecialRenderer(TileEntityStatueTest.class, new RendererStatueTest());
     	RenderingRegistry.registerBlockHandler(new PaneRenderingHandler());
     	RenderingRegistry.registerBlockHandler(new RopeRenderingHandler());
-    	
     }
 }

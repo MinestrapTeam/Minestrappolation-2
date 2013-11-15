@@ -51,6 +51,7 @@ public class ExtraDecor
 		
 	public static int paneRenderId = RenderingRegistry.getNextAvailableRenderId();
 	public static int ropeRenderId = RenderingRegistry.getNextAvailableRenderId();
+	public static int stairsRenderId = RenderingRegistry.getNextAvailableRenderId();
 		
 	@Mod.EventHandler
 	public void preLoad(FMLPreInitializationEvent event)
@@ -65,8 +66,7 @@ public class ExtraDecor
 		EDRecipeManager.loadAllRecipes();
 		EDOreRegistry.addOreRecipes();
 		EDRecipeManager.removeRecipes();
-		EDItemManager.setHarvestLevels();
-		
+		EDItemManager.setHarvestLevels();	
 	}	
 	
 	@Mod.EventHandler

@@ -6,11 +6,9 @@ import static net.minecraftforge.common.ForgeDirection.SOUTH;
 import static net.minecraftforge.common.ForgeDirection.WEST;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
+import sobiohazardous.minestrappolation.extradecor.block.BlockStairsOverwrite;
 import sobiohazardous.minestrappolation.extradecor.block.EDBlockPane;
-import sobiohazardous.minestrappolation.extradecor.block.BlockRope;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockFence;
-import net.minecraft.block.BlockPane;
 import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
@@ -32,7 +30,7 @@ public class PaneRenderingHandler extends RenderBlocks implements ISimpleBlockRe
 				return renderBlockEDPane((EDBlockPane)block, renderer, x, y, z);
 		}
 	    return false;
-	 }
+	 } 
 
 	public boolean shouldRender3DInInventory()
 	{
