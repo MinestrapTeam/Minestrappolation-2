@@ -92,7 +92,13 @@ public class EDBlockManager {
 	
 	public static Block woodPlanksMossy;
 	public static Block woodPlanksOverwrite;
-	
+	public static Block stairsWoodOakM;
+	public static Block stairsWoodSpruceM;
+	public static Block stairsWoodBirchM;
+	public static Block stairsWoodJungleM;
+	public static BlockHalfSlab woodDoubleSlabM;
+	public static BlockHalfSlab woodSingleSlabM;
+
 	public static CreativeTabs tabDecorBlocks = new CreativeTabExtraDecorBlocks(CreativeTabs.getNextID(),"Extrappolated Decor");
 	public static void createBlocks()
 	{
@@ -146,11 +152,11 @@ public class EDBlockManager {
 		woodBoardsStairsOak = new EDBlockStairs(EDConfig.woodBoardsStairsOakId, woodBoards, 0).setUnlocalizedName("woodBoardsStairsOak").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep);
 		woodBoardsStairsBirch = new EDBlockStairs(EDConfig.woodBoardsStairsBirchId, woodBoards, 1).setUnlocalizedName("woodBoardsStairsBirch").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep);
 		woodBoardsStairsSpruce = new EDBlockStairs(EDConfig.woodBoardsStairsSpruceId, woodBoards, 2).setUnlocalizedName("woodBoardsStairsSpruce").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep);
-		woodBoardsStairsJungle = new EDBlockStairs(EDConfig.woodBoardsStairsJungleId, woodBoards, 3).setUnlocalizedName("woodBoardsStairsJungle").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep);
+		woodBoardsStairsJungle = new EDBlockStairs(EDConfig.woodBoardsStairsJungleId, woodBoards, 3).setUnlocalizedName("woodBoardsStairsJungle").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setCreativeTab(tabDecorBlocks);
 		woodBoardsSingleSlab = (BlockHalfSlab) new BlockWoodBoardSlab(EDConfig.woodBoardsSingleSlabId, false).setUnlocalizedName("woodBoardsSingleSlab").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep);
 		woodBoardsDoubleSlab = (BlockHalfSlab) new BlockWoodBoardSlab(EDConfig.woodBoardsDoubleSlabId, true).setUnlocalizedName("woodBoardsSingleSlab").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep);
 
-		checkerTileStairs = new EDBlockStairs(EDConfig.checkerTileStairsId, Tiles, 3).setUnlocalizedName("checkerTileStairs").setHardness(3F).setResistance(10.0F).setStepSound(Block.soundStoneFootstep);
+		checkerTileStairs = new EDBlockStairs(EDConfig.checkerTileStairsId, Tiles, 3).setUnlocalizedName("checkerTileStairs").setHardness(3F).setResistance(10.0F).setStepSound(Block.soundStoneFootstep).setCreativeTab(tabDecorBlocks);
 	
 		stainedBrick = (new BlockStainedBrick(EDConfig.stainedBrickId)).setHardness(2F).setResistance(10F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("stainedBrick");
 	
@@ -177,6 +183,30 @@ public class EDBlockManager {
 		LanguageRegistry.instance().addStringLocalization("tile.wood.birch.name", "Birch Wood Plank");
 		LanguageRegistry.instance().addStringLocalization("tile.wood.spruce.name", "Spruce Wood Planks");
 		LanguageRegistry.instance().addStringLocalization("tile.wood.jungle.name", "Jungle Wood Planks");
+		Block.blocksList[Block.stairsWoodOak.blockID] = null;
+		stairsWoodOakM = (new EDBlockStairs(53, woodPlanksOverwrite, 0)).setUnlocalizedName("stairsWood");
+	    GameRegistry.registerBlock(stairsWoodOakM, "stairsWood");
+	    LanguageRegistry.addName(stairsWoodOakM, "Oak Wood Stairs");
+		Block.blocksList[Block.stairsWoodSpruce.blockID] = null;
+		stairsWoodSpruceM = (new EDBlockStairs(134, woodPlanksOverwrite, 1)).setUnlocalizedName("stairsWoodSpruce");
+	    GameRegistry.registerBlock(stairsWoodSpruceM, "stairsWoodSpruce");
+	    LanguageRegistry.addName(stairsWoodSpruceM, "Spruce Wood Stairs");
+	    Block.blocksList[Block.stairsWoodBirch.blockID] = null;
+		stairsWoodBirchM = (new EDBlockStairs(135, woodPlanksOverwrite, 2)).setUnlocalizedName("stairsWoodBirch");
+	    GameRegistry.registerBlock(stairsWoodBirchM, "stairsWoodBirch");
+	    LanguageRegistry.addName(stairsWoodBirchM, "Birch Wood Stairs");
+	    Block.blocksList[Block.stairsWoodJungle.blockID] = null;
+		stairsWoodJungleM = (new EDBlockStairs(136, woodPlanksOverwrite, 3)).setUnlocalizedName("stairsWoodJungle");
+	    GameRegistry.registerBlock(stairsWoodJungleM, "stairsWoodJungle");
+	    LanguageRegistry.addName(stairsWoodJungleM, "Jungle Wood Stairs");
+	    
+	    Block.blocksList[Block.woodDoubleSlab.blockID] = null;
+	    woodDoubleSlabM = (BlockHalfSlab)(new BlockWoodSlabOverwrite(125, true)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("woodSlab");
+	    GameRegistry.registerBlock(woodDoubleSlabM, "woodSlabD");
+	    Block.blocksList[Block.woodSingleSlab.blockID] = null;
+	    woodSingleSlabM = (BlockHalfSlab)(new BlockWoodSlabOverwrite(126, false)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("woodSlab");
+	    GameRegistry.registerBlock(woodSingleSlabM, "woodSlab");
+	    LanguageRegistry.addName(woodSingleSlabM, "Wood Slab");
 	}
 	
 	public static void registerBlocks()
