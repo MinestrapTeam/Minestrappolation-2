@@ -17,39 +17,55 @@ public class TileEntityEdgeStoneCorner extends TileEntity
      */
     public void updateEntity()
     {
-    	
-    	if(this.worldObj.getBlockId(this.xCoord, this.yCoord, this.zCoord+1) == Block.stoneBrick.blockID && this.worldObj.getBlockId(this.xCoord-1, this.yCoord, this.zCoord) == Block.stoneBrick.blockID){
-    		this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.edgeStoneBrickCorner.blockID,3,2);
+    	if(this.worldObj.getBlockId(this.xCoord, this.yCoord, this.zCoord-1) == Block.stoneBrick.blockID && this.worldObj.getBlockId(this.xCoord-1, this.yCoord, this.zCoord) == Block.stoneBrick.blockID && this.worldObj.getBlockId(this.xCoord+1, this.yCoord, this.zCoord) == Block.stoneBrick.blockID){
+	    	this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.edgeStoneBrick.blockID);
 		}else
-    	if(this.worldObj.getBlockId(this.xCoord, this.yCoord, this.zCoord-1) == Block.stoneBrick.blockID && this.worldObj.getBlockId(this.xCoord+1, this.yCoord, this.zCoord) == Block.stoneBrick.blockID){
-    		this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.edgeStoneBrickCorner.blockID,2,2);
+		if(this.worldObj.getBlockId(this.xCoord, this.yCoord, this.zCoord+1) == Block.stoneBrick.blockID && this.worldObj.getBlockId(this.xCoord-1, this.yCoord, this.zCoord) == Block.stoneBrick.blockID && this.worldObj.getBlockId(this.xCoord+1, this.yCoord, this.zCoord) == Block.stoneBrick.blockID){
+	    	this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.edgeStoneBrick.blockID);
 		}else
-    	if(this.worldObj.getBlockId(this.xCoord, this.yCoord, this.zCoord+1) == Block.stoneBrick.blockID && this.worldObj.getBlockId(this.xCoord+1, this.yCoord, this.zCoord) == Block.stoneBrick.blockID){
-    		this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.edgeStoneBrickCorner.blockID,0,2);
+		if(this.worldObj.getBlockId(this.xCoord, this.yCoord, this.zCoord+1) == Block.stoneBrick.blockID && this.worldObj.getBlockId(this.xCoord, this.yCoord, this.zCoord-1) == Block.stoneBrick.blockID && this.worldObj.getBlockId(this.xCoord+1, this.yCoord, this.zCoord) == Block.stoneBrick.blockID){
+		    this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.edgeStoneBrick.blockID);
 		}else
-    	if(this.worldObj.getBlockId(this.xCoord, this.yCoord, this.zCoord-1) == Block.stoneBrick.blockID && this.worldObj.getBlockId(this.xCoord-1, this.yCoord, this.zCoord) == Block.stoneBrick.blockID){
-    		this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.edgeStoneBrickCorner.blockID,1,2);
-		}else{
-			if(this.worldObj.getBlockId(this.xCoord, this.yCoord, this.zCoord+1) == Block.stoneBrick.blockID){
-	    		this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.edgeStoneBrickCorner.blockID,4,2);
-	    	}
-			if(this.worldObj.getBlockId(this.xCoord, this.yCoord, this.zCoord-1) == Block.stoneBrick.blockID){
-	    		this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.edgeStoneBrickCorner.blockID,6,2);
-	    	}
-			if(this.worldObj.getBlockId(this.xCoord+1, this.yCoord, this.zCoord) == Block.stoneBrick.blockID){
-	    		this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.edgeStoneBrickCorner.blockID,7,2);
-	    	}
-			if(this.worldObj.getBlockId(this.xCoord-1, this.yCoord, this.zCoord) == Block.stoneBrick.blockID){
-	    		this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.edgeStoneBrickCorner.blockID,5,2);
-	    	}
-			
-			if(this.worldObj.getBlockId(this.xCoord-1, this.yCoord, this.zCoord) == Block.stoneBrick.blockID && this.worldObj.getBlockId(this.xCoord+1, this.yCoord, this.zCoord) == Block.stoneBrick.blockID){
-	    		this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.edgeStoneBrick.blockID);
-			}
-			if(this.worldObj.getBlockId(this.xCoord, this.yCoord, this.zCoord+1) == Block.stoneBrick.blockID && this.worldObj.getBlockId(this.xCoord, this.yCoord, this.zCoord-1) == Block.stoneBrick.blockID){
-	    		this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.edgeStoneBrick.blockID);
+		if(this.worldObj.getBlockId(this.xCoord, this.yCoord, this.zCoord+1) == Block.stoneBrick.blockID && this.worldObj.getBlockId(this.xCoord, this.yCoord, this.zCoord-1) == Block.stoneBrick.blockID && this.worldObj.getBlockId(this.xCoord-1, this.yCoord, this.zCoord) == Block.stoneBrick.blockID){
+			   this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.edgeStoneBrick.blockID);
+		}
+	    	
+    	else{
+			if(this.worldObj.getBlockId(this.xCoord, this.yCoord, this.zCoord+1) == Block.stoneBrick.blockID && this.worldObj.getBlockId(this.xCoord-1, this.yCoord, this.zCoord) == Block.stoneBrick.blockID){
+	    		this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.edgeStoneBrickCorner.blockID,3,2);
+			}else
+	    	if(this.worldObj.getBlockId(this.xCoord, this.yCoord, this.zCoord-1) == Block.stoneBrick.blockID && this.worldObj.getBlockId(this.xCoord+1, this.yCoord, this.zCoord) == Block.stoneBrick.blockID){
+	    		this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.edgeStoneBrickCorner.blockID,2,2);
+			}else
+	    	if(this.worldObj.getBlockId(this.xCoord, this.yCoord, this.zCoord+1) == Block.stoneBrick.blockID && this.worldObj.getBlockId(this.xCoord+1, this.yCoord, this.zCoord) == Block.stoneBrick.blockID){
+	    		this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.edgeStoneBrickCorner.blockID,0,2);
+			}else
+	    	if(this.worldObj.getBlockId(this.xCoord, this.yCoord, this.zCoord-1) == Block.stoneBrick.blockID && this.worldObj.getBlockId(this.xCoord-1, this.yCoord, this.zCoord) == Block.stoneBrick.blockID){
+	    		this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.edgeStoneBrickCorner.blockID,1,2);
+			}else{		
+				if(this.worldObj.getBlockId(this.xCoord, this.yCoord, this.zCoord+1) == Block.stoneBrick.blockID){
+		    		this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.edgeStoneBrickCorner.blockID,4,2);
+		    	}
+				if(this.worldObj.getBlockId(this.xCoord, this.yCoord, this.zCoord-1) == Block.stoneBrick.blockID){
+		    		this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.edgeStoneBrickCorner.blockID,6,2);
+		    	}
+				if(this.worldObj.getBlockId(this.xCoord+1, this.yCoord, this.zCoord) == Block.stoneBrick.blockID){
+		    		this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.edgeStoneBrickCorner.blockID,7,2);
+		    	}
+				if(this.worldObj.getBlockId(this.xCoord-1, this.yCoord, this.zCoord) == Block.stoneBrick.blockID){
+		    		this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.edgeStoneBrickCorner.blockID,5,2);
+		    	}
+				
+				if(this.worldObj.getBlockId(this.xCoord-1, this.yCoord, this.zCoord) == Block.stoneBrick.blockID && this.worldObj.getBlockId(this.xCoord+1, this.yCoord, this.zCoord) == Block.stoneBrick.blockID){
+		    		this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.edgeStoneBrick.blockID);
+				}
+				if(this.worldObj.getBlockId(this.xCoord, this.yCoord, this.zCoord+1) == Block.stoneBrick.blockID && this.worldObj.getBlockId(this.xCoord, this.yCoord, this.zCoord-1) == Block.stoneBrick.blockID){
+		    		this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.edgeStoneBrick.blockID);
+				}
 			}
 		}
+    	
+		
  
     	if(this.worldObj.getBlockId(this.xCoord, this.yCoord, this.zCoord+1) != Block.stoneBrick.blockID && this.worldObj.getBlockId(this.xCoord-1, this.yCoord, this.zCoord) != Block.stoneBrick.blockID && this.worldObj.getBlockId(this.xCoord, this.yCoord, this.zCoord-1) != Block.stoneBrick.blockID && this.worldObj.getBlockId(this.xCoord+1, this.yCoord, this.zCoord) != Block.stoneBrick.blockID){
     		this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.edgeStoneBrick.blockID);

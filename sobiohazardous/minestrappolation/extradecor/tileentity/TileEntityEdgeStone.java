@@ -28,6 +28,9 @@ public class TileEntityEdgeStone extends TileEntity
 		}else
     	if(this.worldObj.getBlockId(this.xCoord, this.yCoord, this.zCoord+1) == Block.stoneBrick.blockID && this.worldObj.getBlockId(this.xCoord+1, this.yCoord, this.zCoord) == Block.stoneBrick.blockID){
     		this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.edgeStoneBrickCorner.blockID,1,2);
+		}else
+    	if(this.worldObj.getBlockId(this.xCoord, this.yCoord, this.zCoord+1) == Block.stoneBrick.blockID && this.worldObj.getBlockId(this.xCoord-1, this.yCoord, this.zCoord) == Block.stoneBrick.blockID && this.worldObj.getBlockId(this.xCoord+1, this.yCoord, this.zCoord) == Block.stoneBrick.blockID){
+	    	this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.edgeStoneBrick.blockID);
 		}
     	else{
 	    	if(this.worldObj.getBlockId(this.xCoord, this.yCoord, this.zCoord+1) == Block.stoneBrick.blockID){
