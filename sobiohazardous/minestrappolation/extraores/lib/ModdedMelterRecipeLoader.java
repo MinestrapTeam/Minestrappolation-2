@@ -22,6 +22,7 @@ public class ModdedMelterRecipeLoader
 	public static int maxAfterStringFoundValue = 19;
 	
 	public static int[] ids = new int[maxCustomRecipes];
+	public static int[] metaids = new int[maxCustomRecipes];
 	public static int[] itemids = new int[maxCustomRecipes];
 	public static int[] amountids = new int[maxCustomRecipes];
 	public static float[] xpids = new float[maxCustomRecipes];
@@ -38,6 +39,7 @@ public class ModdedMelterRecipeLoader
 		File file3 = new File("Custom-Plugins/"+"melter_customRecipes.txt");
 		String line;
 		String input = "";
+		String meta = "";
 		String output = "";
 		String amount = ""; 
 		String xp = ""; 
@@ -45,6 +47,7 @@ public class ModdedMelterRecipeLoader
 		int arrayID = 0;
 		int iarrayID = 0;
 		int xarrayID = 0;
+		int marrayID = 0;
 		int recipesUsed = 0;
 		try 
 		{
@@ -96,6 +99,14 @@ public class ModdedMelterRecipeLoader
 						input = "1";
 						System.out.println("input not found defaulting");
 					}
+			 		
+			 		if(line.contains("meta=")){
+						meta = findAlias(line.substring(line.indexOf("meta=")+5,line.lastIndexOf(";", line.indexOf("meta=")+maxAfterStringFoundValue)),line.substring(line.indexOf("meta=")+5,line.lastIndexOf(";", line.indexOf("meta=")+maxAfterStringFoundValue)));
+					}else
+					if(line.contains("meta=") == false && line.isEmpty() == false){
+						meta = "0";
+						System.out.println("meta not found defaulting");
+					}
 					
 					if(line.contains("output=")){
 						output = findAlias(line.substring(line.indexOf("output=")+7,line.lastIndexOf(";", line.indexOf("output=")+maxAfterStringFoundValue)),line.substring(line.indexOf("output=")+7,line.lastIndexOf(";", line.indexOf("output=")+maxAfterStringFoundValue)));
@@ -106,7 +117,7 @@ public class ModdedMelterRecipeLoader
 					}
 					
 					if(line.contains("amount=")){
-						amount = line.substring(line.indexOf("amount=")+7,line.lastIndexOf(";", line.indexOf("amount=")+11));
+						amount = line.substring(line.indexOf("amount=")+7,line.lastIndexOf(";", line.indexOf("amount=")+9));
 					}else
 					if(line.contains("amount=") == false &&line.isEmpty() == false){
 						amount = "1";
@@ -130,10 +141,12 @@ public class ModdedMelterRecipeLoader
 			 		
 			 		if(line.isEmpty() == false){
 						ids[arrayID] = Integer.parseInt(input);
+						metaids[marrayID] = Integer.parseInt(meta);
 						itemids[iarrayID] = Integer.parseInt(output);
 						amountids[aarrayID] = Integer.parseInt(amount);
 						xpids[xarrayID] = Float.parseFloat(xp);
 						arrayID++;
+						marrayID++;
 						iarrayID++;
 						aarrayID++;
 						xarrayID++;
