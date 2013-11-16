@@ -45,9 +45,9 @@ public class BlockEndStone extends Block {
 			case 0:
 				return brick;
 			case 1:
-				return refined;
-			case 2:
 				return smooth;
+			case 2:
+				return refined;
 			}
 			return refined;
 

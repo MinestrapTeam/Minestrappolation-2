@@ -153,6 +153,21 @@ public class BlockRope extends Block
     	if(par1World.getBlockId(par2, par3+1, par4) == Block.web.blockID){
     		return false;
     	}
+    	if(par1World.getBlockId(par2, par3+1, par4) == Block.ladder.blockID){
+    		return false;
+    	}
+    	if(par1World.getBlockId(par2, par3+1, par4) == Block.waterStill.blockID){
+    		return false;
+    	}
+    	if(par1World.getBlockId(par2, par3+1, par4) == Block.waterMoving.blockID){
+    		return false;
+    	}
+    	if(par1World.getBlockId(par2, par3+1, par4) == Block.stoneSingleSlab.blockID){
+    		return false;
+    	}
+    	if(par1World.getBlockId(par2, par3+1, par4) == Block.woodSingleSlab.blockID){
+    		return false;
+    	}
 		return true;
        
     }

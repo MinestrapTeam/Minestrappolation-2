@@ -359,6 +359,8 @@ public class EDBlockManager {
 		LanguageRegistry.instance().addStringLocalization("tile.null.brick.name", "Patterned Bricks");
 		LanguageRegistry.instance().addStringLocalization("tile.null.fb.name", "Block of Flint");
 		LanguageRegistry.instance().addStringLocalization("tile.null.nb.name", "Patterned Nether Bricks");
+		
+		LanguageRegistry.instance().addStringLocalization("tile.stonePillar.name", "Stone Pillar");
 	
 		
 	}
@@ -369,7 +371,7 @@ public class EDBlockManager {
 		{
 			bedrockBrick = new BlockBedrockBrick(EDConfig.bedrockBrickID).setUnlocalizedName("block_BedrockBrick").setStepSound(Block.soundStoneFootstep).setResistance(100000000F).setHardness(80F).setCreativeTab(tabDecorBlocks);
 			GameRegistry.registerBlock(bedrockBrick,"block_BedrockBrick");
-			MinecraftForge.setBlockHarvestLevel(EDBlockManager.bedrockBrick, "pickaxe", 3);
+			MinecraftForge.setBlockHarvestLevel(EDBlockManager.bedrockBrick, "pickaxe", 4);
 			LanguageRegistry.addName(bedrockBrick, "Bedrock Bricks");
 		}
 	

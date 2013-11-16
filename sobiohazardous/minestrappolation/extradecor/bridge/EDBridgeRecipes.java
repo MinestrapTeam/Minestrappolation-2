@@ -24,7 +24,7 @@ public class EDBridgeRecipes
 	{	
 		if(hasExtraOres)
 		{
-			GameRegistry.addRecipe(new ItemStack(EDBlockManager.stoneLamp, 8), new Object[]
+			GameRegistry.addRecipe(new ItemStack(EDBlockManager.stoneLamp, 8,1), new Object[]
 					{
 				"SSS", "SGS", "SSS", Character.valueOf('S'), new ItemStack(EDBlockManager.stones,1,1), Character.valueOf('G'), EOBlockManager.Sunstone
 					});

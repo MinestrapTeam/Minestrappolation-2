@@ -83,7 +83,7 @@ public class BlockCardboard extends BlockContainer
     
     public int idDropped(int par1, Random par2Random, int par3)
     {
-    	return EDItemManager.cardboardItem.itemID;
+    	return EDBlockManager.cardboardBlock.blockID;
     }
     
     /**
