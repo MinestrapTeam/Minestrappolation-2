@@ -149,9 +149,9 @@ public class EDBlockManager {
 		cardboardBlock = new BlockCardboard(EDConfig.cardboardBlockId, Material.cloth).setHardness(0.4F).setUnlocalizedName("block_CardboardBlock").setCreativeTab(tabDecorBlocks);
 		cardboardWet = new BlockCardboardWet(EDConfig.cardboardWetId, Material.cloth).setCreativeTab(tabDecorBlocks).setHardness(0.2F).setResistance(0.8F).setUnlocalizedName("cardboardWet");
 		
-		woodBoardsStairsOak = new EDBlockStairs(EDConfig.woodBoardsStairsOakId, woodBoards, 0).setUnlocalizedName("woodBoardsStairsOak").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep);
-		woodBoardsStairsBirch = new EDBlockStairs(EDConfig.woodBoardsStairsBirchId, woodBoards, 1).setUnlocalizedName("woodBoardsStairsBirch").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep);
-		woodBoardsStairsSpruce = new EDBlockStairs(EDConfig.woodBoardsStairsSpruceId, woodBoards, 2).setUnlocalizedName("woodBoardsStairsSpruce").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep);
+		woodBoardsStairsOak = new EDBlockStairs(EDConfig.woodBoardsStairsOakId, woodBoards, 0).setUnlocalizedName("woodBoardsStairsOak").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setCreativeTab(tabDecorBlocks);
+		woodBoardsStairsBirch = new EDBlockStairs(EDConfig.woodBoardsStairsBirchId, woodBoards, 1).setUnlocalizedName("woodBoardsStairsBirch").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setCreativeTab(tabDecorBlocks);
+		woodBoardsStairsSpruce = new EDBlockStairs(EDConfig.woodBoardsStairsSpruceId, woodBoards, 2).setUnlocalizedName("woodBoardsStairsSpruce").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setCreativeTab(tabDecorBlocks);
 		woodBoardsStairsJungle = new EDBlockStairs(EDConfig.woodBoardsStairsJungleId, woodBoards, 3).setUnlocalizedName("woodBoardsStairsJungle").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setCreativeTab(tabDecorBlocks);
 		woodBoardsSingleSlab = (BlockHalfSlab) new BlockWoodBoardSlab(EDConfig.woodBoardsSingleSlabId, false).setUnlocalizedName("woodBoardsSingleSlab").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep);
 		woodBoardsDoubleSlab = (BlockHalfSlab) new BlockWoodBoardSlab(EDConfig.woodBoardsDoubleSlabId, true).setUnlocalizedName("woodBoardsSingleSlab").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep);
