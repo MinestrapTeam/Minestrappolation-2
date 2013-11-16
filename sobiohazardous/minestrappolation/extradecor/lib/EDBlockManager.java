@@ -281,7 +281,7 @@ public class EDBlockManager {
 		LanguageRegistry.instance().addStringLocalization("tile.woodBeveled.spruce.name", "Beveled Spruce Wood Panel");
 		LanguageRegistry.instance().addStringLocalization("tile.woodBeveled.jungle.name", "Beveled Jungle Wood Panel");
 		LanguageRegistry.instance().addStringLocalization("tile.sandstoneBrick.brick.name", "Sandstone Bricks");
-		LanguageRegistry.instance().addStringLocalization("tile.sandstoneBrick.chiseled.name", "Chiseled Sandstone Bricks");
+		LanguageRegistry.instance().addStringLocalization("tile.sandstoneBrick.chiseled.name", "Patterned Sandstone Bricks");
 		LanguageRegistry.instance().addStringLocalization("tile.sandstoneBrick.mossy.name", "Mossy Sandstone Bricks");
 		LanguageRegistry.instance().addStringLocalization("tile.sandstoneBrick.heiroglyph.name", "Sandstone Heiroglyphs");
 		LanguageRegistry.instance().addStringLocalization("tile.sandstoneBrick.heiroglyph_2.name", "Sandstone Heiroglyphs");
@@ -348,9 +348,9 @@ public class EDBlockManager {
 		LanguageRegistry.instance().addStringLocalization("tile.null.tile.name", "Stone Tiles");
 		LanguageRegistry.instance().addStringLocalization("tile.null.refined.name", "Refined Stone");
 		
-		LanguageRegistry.instance().addStringLocalization("tile.block_Endstone.smooth.name", "Smooth EndStone");
-		LanguageRegistry.instance().addStringLocalization("tile.block_Endstone.refined.name", "Refined EndStone");
-		LanguageRegistry.instance().addStringLocalization("tile.block_Endstone.brick.name", "EndStone Bricks");
+		LanguageRegistry.instance().addStringLocalization("tile.block_Endstone.smooth.name", "Smooth End Stone");
+		LanguageRegistry.instance().addStringLocalization("tile.block_Endstone.refined.name", "Refined End Stone");
+		LanguageRegistry.instance().addStringLocalization("tile.block_Endstone.brick.name", "End Stone Bricks");
 		
 		LanguageRegistry.instance().addStringLocalization("tile.null.obsidian.name", "Obsidian Tile");
 		LanguageRegistry.instance().addStringLocalization("tile.null.flint.name", "Flint Tile");
