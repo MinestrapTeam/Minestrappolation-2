@@ -14,7 +14,6 @@ public class TileEntityPlanks extends TileEntity
      */
     public void updateEntity()
     {
-    	System.out.println(worldObj.getWorldTime());
     	if(worldObj.getWorldTime() == 12521)
         {
         	this.daysPassed += 1;

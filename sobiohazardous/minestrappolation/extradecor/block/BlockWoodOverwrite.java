@@ -8,6 +8,7 @@ import java.util.Random;
 import sobiohazardous.minestrappolation.extradecor.tileentity.TileEntityPlanks;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -16,7 +17,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 
-public class BlockWoodOverwrite extends Block
+public class BlockWoodOverwrite extends BlockContainer
 {
     /** The type of tree this block came from. */
     public static final String[] woodType = new String[] {"oak", "spruce", "birch", "jungle"};
@@ -95,7 +96,8 @@ public class BlockWoodOverwrite extends Block
         }
     }
     
-    public TileEntity createNewTileEntity(World par1World)
+    @Override
+	public TileEntity createNewTileEntity(World world)
     {
     	return new TileEntityPlanks();
     }
