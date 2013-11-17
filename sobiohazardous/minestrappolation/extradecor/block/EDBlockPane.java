@@ -50,7 +50,7 @@ public class EDBlockPane extends Block
      */
     public int idDropped(int par1, Random par2Random, int par3)
     {
-        return !this.canDropItself ? 0 : blockID == EDItemManager.cardboardItem.itemID ? EDItemManager.cardboardItem.itemID : super.idDropped(par1, par2Random, par3);
+        return !this.canDropItself ? 0 : blockID == EDBlockManager.cardboard.blockID ? EDItemManager.cardboardItem.itemID : super.idDropped(par1, par2Random, par3);
     }
 
     /**

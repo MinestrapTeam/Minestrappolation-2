@@ -9,6 +9,7 @@ import java.util.Random;
 import sobiohazardous.minestrappolation.api.util.MUtil;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
 import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
+import sobiohazardous.minestrappolation.extraores.lib.EOBlockManager;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -168,8 +169,40 @@ public class BlockRope extends Block
     	if(par1World.getBlockId(par2, par3+1, par4) == Block.woodSingleSlab.blockID){
     		return false;
     	}
+    	if(par1World.getBlockId(par2, par3+1, par4) == Block.lever.blockID){
+    		return false;
+    	}
+    	if(par1World.getBlockId(par2, par3+1, par4) == Block.cauldron.blockID){
+    		return false;
+    	}
+    	if(par1World.getBlockId(par2, par3+1, par4) == Block.signWall.blockID){
+    		return false;
+    	}
+    	if(par1World.getBlockId(par2, par3+1, par4) == Block.trapdoor.blockID){
+    		return false;
+    	}
+    	if(par1World.getBlockId(par2, par3+1, par4) == Block.vine.blockID){
+    		return false;
+    	}
+    	if(par1World.getBlockId(par2, par3+1, par4) == Block.skull.blockID){
+    		return false;
+    	}
+    	if(par1World.getBlockId(par2, par3+1, par4) == Block.hopperBlock.blockID){
+    		return false;
+    	}
+    	if(par1World.getBlockId(par2, par3+1, par4) == Block.lavaStill.blockID){
+    		return false;
+    	}
+    	if(par1World.getBlockId(par2, par3+1, par4) == Block.lavaMoving.blockID){
+    		return false;
+    	}
+    	if(par1World.getBlockId(par2, par3+1, par4) == Block.fenceGate.blockID){
+    		return false;
+    	}
+    	if(par1World.getBlockId(par2, par3+1, par4) == EDBlockManager.woodBoardsSingleSlab.blockID){
+    		return false;
+    	}
 		return true;
-       
     }
     
     
