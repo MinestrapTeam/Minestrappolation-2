@@ -206,7 +206,10 @@ public class EDBlockManager {
 	    Block.blocksList[Block.woodSingleSlab.blockID] = null;
 	    woodSingleSlabM = (BlockHalfSlab)(new BlockWoodSlabOverwrite(126, false)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("woodSlab");
 	    GameRegistry.registerBlock(woodSingleSlabM, "woodSlab");
-	    LanguageRegistry.addName(woodSingleSlabM, "Wood Slab");
+	    LanguageRegistry.instance().addStringLocalization("tile.woodSlab.oak.name", "Oak Wood Slabs");
+		LanguageRegistry.instance().addStringLocalization("tile.woodSlab.birch.name", "Birch Wood Slabs");
+		LanguageRegistry.instance().addStringLocalization("tile.woodSlab.spruce.name", "Spruce Wood Slabs");
+		LanguageRegistry.instance().addStringLocalization("tile.woodSlab.jungle.name", "Jungle Wood Slabs");
 	}
 	
 	public static void registerBlocks()

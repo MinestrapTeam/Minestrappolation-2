@@ -285,6 +285,20 @@ public class EMDEventHandler
 					event.entityLiving.dropItem(EMDItemManager.carcassSilverfish.itemID, 1);
 				}
 			}
+			if(event.entityLiving instanceof EntityCreeper)
+			{
+				if(rand < 0.1)
+				{
+					event.entityLiving.dropItem(EMDItemManager.hideCreeper.itemID, 2);
+				}
+			}
+			if(event.entityLiving instanceof EntitySlime)
+			{
+				if(rand < 0.1)
+				{
+					event.entityLiving.dropItem(EMDItemManager.slimeCore.itemID, 1);
+				}
+			}
 		}
 	}
 	

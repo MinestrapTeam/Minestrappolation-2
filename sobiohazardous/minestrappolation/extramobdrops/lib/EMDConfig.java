@@ -67,7 +67,9 @@ public class EMDConfig
 	swordPoisonBlaziumId,
 	swordPoisonTitaniumId,
 	guanoId,
-	carcassSilverfishId;
+	carcassSilverfishId,
+	hideCreeperId,
+	slimeCoreId;
 	
 	public static void initConfig(FMLPreInitializationEvent e)
 	{
@@ -136,7 +138,8 @@ public class EMDConfig
 		swordPoisonTitaniumId = config.getItem("Poisoned Titanium Sword", 4058).getInt();
 		guanoId = config.getItem("Guano", 4059).getInt();
 		carcassSilverfishId = config.getItem("Silverfish Carcass", 4060).getInt();
-
+		hideCreeperId = config.getItem("Creeper Hide", 4061).getInt();
+		slimeCoreId = config.getItem("Slime Core", 4062).getInt();
 		config.save();
 	}
 }

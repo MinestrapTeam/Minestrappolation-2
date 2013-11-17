@@ -161,7 +161,7 @@ public class EDRecipeManager
 				{
 			"SSS", "SGS", "SSS", Character.valueOf('S'), new ItemStack(EDBlockManager.stones,1,1), Character.valueOf('G'), Block.glowStone
 				});
-		GameRegistry.addRecipe(new ItemStack(EDBlockManager.Tiles, 9,2), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EDBlockManager.Tiles, 2,6), new Object[]
 				{
 			"SSS", "SSS", "SSS", Character.valueOf('S'), Item.netherrackBrick
 				});

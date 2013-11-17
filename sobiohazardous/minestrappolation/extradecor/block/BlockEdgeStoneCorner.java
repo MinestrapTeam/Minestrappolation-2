@@ -263,5 +263,9 @@ public class BlockEdgeStoneCorner extends BlockContainer{
 		return new TileEntityEdgeStoneCorner();
 	}
 
-	
+	@Override
+    public int idDropped(int par1, Random par2Random, int par3)
+	{
+		return EDBlockManager.edgeStoneBrick.blockID;
+	}
 }
