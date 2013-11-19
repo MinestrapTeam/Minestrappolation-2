@@ -5,6 +5,7 @@ import sobiohazardous.minestrappolation.extradecor.tileentity.TileEntityCardboar
 import sobiohazardous.minestrappolation.extradecor.tileentity.TileEntityCrate;
 import sobiohazardous.minestrappolation.extradecor.tileentity.TileEntityEdgeStone;
 import sobiohazardous.minestrappolation.extradecor.tileentity.TileEntityEdgeStoneCorner;
+import sobiohazardous.minestrappolation.extradecor.tileentity.TileEntityGoblet;
 import sobiohazardous.minestrappolation.extradecor.tileentity.TileEntityPlanks;
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -17,6 +18,6 @@ public class EDTileEntityManager {
 		GameRegistry.registerTileEntity(TileEntityPlanks.class, "tileEntityPlanks");
 		GameRegistry.registerTileEntity(TileEntityEdgeStone.class, "tileEntityedgestone");
 		GameRegistry.registerTileEntity(TileEntityEdgeStoneCorner.class, "tileEntityedgecorner");
-		
+		GameRegistry.registerTileEntity(TileEntityGoblet.class, "tileEntitygoblet");
 	}
 }

@@ -30,7 +30,7 @@ public class EDBlockManager {
 	
 	public static Block Tiles;
 	
-	public static Block StatueTest;
+	public static Block Goblet;
 	
 	public static Block edgeStoneBrick;
 	public static Block edgeStoneBrickCorner;
@@ -171,7 +171,7 @@ public class EDBlockManager {
 		woodPlanksMossy = new BlockMossyWood(EDConfig.woodPlanksMossyId).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("woodPlanksMossy").setCreativeTab(tabDecorBlocks);
 		
 		//Test
-		StatueTest = new BlockStatueTest(999,Material.rock);
+		Goblet = new BlockGoblet(999,Material.rock);
 	}
 	
 	public static void loadVanillaOverwrites()
@@ -254,7 +254,7 @@ public class EDBlockManager {
 		GameRegistry.registerBlock(sandyRoad, "sandyRoad");
 		GameRegistry.registerBlock(sandstoneRoad, "sandstoneRoad");
 		GameRegistry.registerBlock(gravelRoad, "gravelRoad");
-		//GameRegistry.registerBlock(StatueTest,"Test");
+		GameRegistry.registerBlock(Goblet,"Goblet");
 		GameRegistry.registerBlock(woodPlanksMossy, "woodPlanksMossy");
 		GameRegistry.registerBlock(stones,"Stones");
 	}
@@ -332,7 +332,7 @@ public class EDBlockManager {
 		LanguageRegistry.addName(sandyRoad, "Sandy Road");
 		LanguageRegistry.addName(sandstoneRoad, "Sandstone Road");
 		LanguageRegistry.addName(gravelRoad, "Gravel Road");
-		LanguageRegistry.addName(StatueTest, "Test");
+		LanguageRegistry.addName(Goblet, "Goblet");
 		LanguageRegistry.instance().addStringLocalization("tile.woodPlanksMossy.Oak.name", "Mossy Oak Wood Planks");
 		LanguageRegistry.instance().addStringLocalization("tile.woodPlanksMossy.Birch.name", "Mossy Birch Wood Planks");
 		LanguageRegistry.instance().addStringLocalization("tile.woodPlanksMossy.Spruce.name", "Mossy Spruce Wood Planks");

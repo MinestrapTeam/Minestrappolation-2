@@ -42,6 +42,8 @@ public class Block100 extends BlockContainer{
 		switch (j) {
 		case 0:
 				return tile;
+		case 472:
+			return tile;
 		case 999:
 			return tile;
 		}

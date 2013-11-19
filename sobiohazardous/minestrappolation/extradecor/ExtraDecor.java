@@ -13,8 +13,6 @@ import sobiohazardous.minestrappolation.extradecor.lib.EDItemManager;
 import sobiohazardous.minestrappolation.extradecor.lib.EDRecipeManager;
 import sobiohazardous.minestrappolation.extradecor.lib.EDTileEntityManager;
 import sobiohazardous.minestrappolation.extradecor.proxy.CommonProxy;
-import sobiohazardous.minestrappolation.extradecor.tileentity.RendererStatueTest;
-import sobiohazardous.minestrappolation.extradecor.tileentity.TileEntityStatueTest;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.client.registry.ClientRegistry;

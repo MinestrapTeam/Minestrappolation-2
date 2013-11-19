@@ -1,7 +1,5 @@
 package sobiohazardous.minestrappolation.extradecor.proxy;
 
-import sobiohazardous.minestrappolation.extradecor.tileentity.RendererStatueTest;
-import sobiohazardous.minestrappolation.extradecor.tileentity.TileEntityStatueTest;
 import cpw.mods.fml.client.registry.ClientRegistry;
 
 public class CommonProxy

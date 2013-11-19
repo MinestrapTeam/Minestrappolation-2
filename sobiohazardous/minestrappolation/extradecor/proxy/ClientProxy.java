@@ -2,8 +2,8 @@ package sobiohazardous.minestrappolation.extradecor.proxy;
 
 import sobiohazardous.minestrappolation.extradecor.handler.PaneRenderingHandler;
 import sobiohazardous.minestrappolation.extradecor.handler.RopeRenderingHandler;
-import sobiohazardous.minestrappolation.extradecor.tileentity.RendererStatueTest;
-import sobiohazardous.minestrappolation.extradecor.tileentity.TileEntityStatueTest;
+import sobiohazardous.minestrappolation.extradecor.tileentity.RendererGoblet;
+import sobiohazardous.minestrappolation.extradecor.tileentity.TileEntityGoblet;
 import net.minecraft.src.ModLoader;
 import net.minecraftforge.client.MinecraftForgeClient;
 import cpw.mods.fml.client.registry.ClientRegistry;
@@ -26,7 +26,7 @@ public class ClientProxy extends CommonProxy
          * use RenderingRegistry.registerEntityRenderingHandler for entities
          * look at RenderingRegistry for more
          */
-    	ClientRegistry.bindTileEntitySpecialRenderer(TileEntityStatueTest.class, new RendererStatueTest());
+    	ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGoblet.class, new RendererGoblet());
     	RenderingRegistry.registerBlockHandler(new PaneRenderingHandler());
     	RenderingRegistry.registerBlockHandler(new RopeRenderingHandler());
     }
