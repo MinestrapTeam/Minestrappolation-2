@@ -3,6 +3,7 @@ package sobiohazardous.minestrappolation.extradecor.lib;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import sobiohazardous.minestrappolation.api.item.MItem;
 import sobiohazardous.minestrappolation.api.item.MItemBlockPlacer;
+import sobiohazardous.minestrappolation.extradecor.block.Block100;
 import sobiohazardous.minestrappolation.extradecor.block.BlockEdgeStoneCorner;
 import sobiohazardous.minestrappolation.extradecor.block.BlockEndStone;
 import sobiohazardous.minestrappolation.extradecor.block.BlockMossyWood;
@@ -80,6 +81,9 @@ public class EDItemManager
 		Item.itemsList[EDBlockManager.stones.blockID] = (new ItemMultiTextureTile(EDBlockManager.stones.blockID - 256, EDBlockManager.stones,BlockStones.brickType)).setUnlocalizedName("Stones");
 		Item.itemsList[EDBlockManager.endstone.blockID] = (new ItemMultiTextureTile(EDBlockManager.endstone.blockID - 256, EDBlockManager.endstone,BlockEndStone.bType)).setUnlocalizedName("EndStone");
 		Item.itemsList[EDBlockManager.Tiles.blockID] = (new ItemMultiTextureTile(EDBlockManager.Tiles.blockID - 256, EDBlockManager.Tiles,BlockTiles.brickType)).setUnlocalizedName("Tiles");
+		
+		//this for testing unlimited metadata
+		//Item.itemsList[EDBlockManager.infertileDirt.blockID] = (new ItemMultiTextureTile(EDBlockManager.infertileDirt.blockID - 256, EDBlockManager.infertileDirt,Block100.brickType)).setUnlocalizedName("test");
 		//TODO Forms of adding slabs
 		Item.itemsList[EDBlockManager.woodBoardsSingleSlab.blockID] = (new ItemSlab(EDBlockManager.woodBoardsSingleSlab.blockID - 256, (BlockHalfSlab)EDBlockManager.woodBoardsSingleSlab, (BlockHalfSlab)EDBlockManager.woodBoardsDoubleSlab, false));
 	}

@@ -28,6 +28,7 @@ public class BlockCardboard extends BlockContainer
 	public BlockCardboard(int par1, Material material) 
 	{
 		super(par1, material);
+		
 	}
 
     
