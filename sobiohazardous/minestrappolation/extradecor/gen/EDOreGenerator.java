@@ -67,6 +67,15 @@ public class EDOreGenerator implements IWorldGenerator
 		(new WorldGenSandstone(EDBlockManager.sandstoneBricks.blockID, 4, 6)).generate(world, rand, i1, j1, k1); //5 = how much in a vain
 		}
 		
+		for(int l1 = 0; l1 <20; l1++) //5 = how much veins in a chunk (chunk = 16x16x128)
+		{
+			int i1 = chunkx +rand.nextInt(16);
+			int j1 = rand.nextInt(60); //layer it spawns in
+			int k1 = chunkz + rand.nextInt(16);
+		
+		(new WorldGenSandstone(EDBlockManager.woodPlanksMossy.blockID, 0, 3)).generate(world, rand, i1, j1, k1); //5 = how much in a vain
+		}
+		
 	}
 	
 	public void generateNether(World world, Random rand, int chunkx, int chunkz)

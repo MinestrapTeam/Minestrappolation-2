@@ -6,7 +6,6 @@ import static net.minecraftforge.common.ForgeDirection.SOUTH;
 import static net.minecraftforge.common.ForgeDirection.WEST;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
-import sobiohazardous.minestrappolation.extradecor.block.BlockStairsOverwrite;
 import sobiohazardous.minestrappolation.extradecor.block.EDBlockPane;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.EntityRenderer;

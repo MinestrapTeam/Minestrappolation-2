@@ -14,7 +14,6 @@ import sobiohazardous.minestrappolation.extradecor.block.BlockStones;
 import sobiohazardous.minestrappolation.extradecor.block.BlockTiles;
 import sobiohazardous.minestrappolation.extradecor.block.BlockWoodBeveled;
 import sobiohazardous.minestrappolation.extradecor.block.BlockWoodBoards;
-import sobiohazardous.minestrappolation.extradecor.block.BlockWoodOverwrite;
 import sobiohazardous.minestrappolation.extradecor.block.BlockWoodPanel;
 import sobiohazardous.minestrappolation.extradecor.bridge.EDBridgeRecipes;
 import net.minecraft.block.BlockHalfSlab;
@@ -77,7 +76,6 @@ public class EDItemManager
 		Item.itemsList[EDBlockManager.stainedBrick.blockID] = (new ItemMultiTextureTile(EDBlockManager.stainedBrick.blockID - 256, EDBlockManager.stainedBrick, BlockStainedBrick.brickType)).setUnlocalizedName("stainedBrick");
 		Item.itemsList[EDBlockManager.edgeStoneBrickCorner.blockID] = (new ItemMultiTextureTile(EDBlockManager.edgeStoneBrickCorner.blockID - 256, EDBlockManager.edgeStoneBrickCorner,BlockEdgeStoneCorner.cType)).setUnlocalizedName("stainedBrick");
 		Item.itemsList[EDBlockManager.woodPlanksMossy.blockID] = (new ItemMultiTextureTile(EDBlockManager.woodPlanksMossy.blockID - 256, EDBlockManager.woodPlanksMossy, BlockMossyWood.woodType)).setUnlocalizedName("woodPlanksMossy");
-		Item.itemsList[EDBlockManager.woodPlanksOverwrite.blockID] = (new ItemMultiTextureTile(EDBlockManager.woodPlanksOverwrite.blockID - 256, EDBlockManager.woodPlanksOverwrite, BlockWoodOverwrite.woodType)).setUnlocalizedName("wood");
 		Item.itemsList[EDBlockManager.stones.blockID] = (new ItemMultiTextureTile(EDBlockManager.stones.blockID - 256, EDBlockManager.stones,BlockStones.brickType)).setUnlocalizedName("Stones");
 		Item.itemsList[EDBlockManager.endstone.blockID] = (new ItemMultiTextureTile(EDBlockManager.endstone.blockID - 256, EDBlockManager.endstone,BlockEndStone.bType)).setUnlocalizedName("EndStone");
 		Item.itemsList[EDBlockManager.Tiles.blockID] = (new ItemMultiTextureTile(EDBlockManager.Tiles.blockID - 256, EDBlockManager.Tiles,BlockTiles.brickType)).setUnlocalizedName("Tiles");

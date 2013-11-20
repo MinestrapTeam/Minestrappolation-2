@@ -91,13 +91,6 @@ public class EDBlockManager {
 	public static Block gravelRoad;
 	
 	public static Block woodPlanksMossy;
-	public static Block woodPlanksOverwrite;
-	public static Block stairsWoodOakM;
-	public static Block stairsWoodSpruceM;
-	public static Block stairsWoodBirchM;
-	public static Block stairsWoodJungleM;
-	public static BlockHalfSlab woodDoubleSlabM;
-	public static BlockHalfSlab woodSingleSlabM;
 
 	public static CreativeTabs tabDecorBlocks = new CreativeTabExtraDecorBlocks(CreativeTabs.getNextID(),"Extrappolated Decor");
 	public static void createBlocks()
@@ -176,40 +169,7 @@ public class EDBlockManager {
 	
 	public static void loadVanillaOverwrites()
 	{
-		Block.blocksList[Block.planks.blockID] = null;
-	    woodPlanksOverwrite = (new BlockWoodOverwrite(5)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("wood").setTextureName("planks");
-	    GameRegistry.registerBlock(woodPlanksOverwrite, "wood");
-	    LanguageRegistry.instance().addStringLocalization("tile.wood.oak.name", "Oak Wood Planks");
-		LanguageRegistry.instance().addStringLocalization("tile.wood.birch.name", "Birch Wood Plank");
-		LanguageRegistry.instance().addStringLocalization("tile.wood.spruce.name", "Spruce Wood Planks");
-		LanguageRegistry.instance().addStringLocalization("tile.wood.jungle.name", "Jungle Wood Planks");
-		Block.blocksList[Block.stairsWoodOak.blockID] = null;
-		stairsWoodOakM = (new EDBlockStairs(53, woodPlanksOverwrite, 0)).setUnlocalizedName("stairsWood");
-	    GameRegistry.registerBlock(stairsWoodOakM, "stairsWood");
-	    LanguageRegistry.addName(stairsWoodOakM, "Oak Wood Stairs");
-		Block.blocksList[Block.stairsWoodSpruce.blockID] = null;
-		stairsWoodSpruceM = (new EDBlockStairs(134, woodPlanksOverwrite, 1)).setUnlocalizedName("stairsWoodSpruce");
-	    GameRegistry.registerBlock(stairsWoodSpruceM, "stairsWoodSpruce");
-	    LanguageRegistry.addName(stairsWoodSpruceM, "Spruce Wood Stairs");
-	    Block.blocksList[Block.stairsWoodBirch.blockID] = null;
-		stairsWoodBirchM = (new EDBlockStairs(135, woodPlanksOverwrite, 2)).setUnlocalizedName("stairsWoodBirch");
-	    GameRegistry.registerBlock(stairsWoodBirchM, "stairsWoodBirch");
-	    LanguageRegistry.addName(stairsWoodBirchM, "Birch Wood Stairs");
-	    Block.blocksList[Block.stairsWoodJungle.blockID] = null;
-		stairsWoodJungleM = (new EDBlockStairs(136, woodPlanksOverwrite, 3)).setUnlocalizedName("stairsWoodJungle");
-	    GameRegistry.registerBlock(stairsWoodJungleM, "stairsWoodJungle");
-	    LanguageRegistry.addName(stairsWoodJungleM, "Jungle Wood Stairs");
-	    
-	    Block.blocksList[Block.woodDoubleSlab.blockID] = null;
-	    woodDoubleSlabM = (BlockHalfSlab)(new BlockWoodSlabOverwrite(125, true)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("woodSlab");
-	    GameRegistry.registerBlock(woodDoubleSlabM, "woodSlabD");
-	    Block.blocksList[Block.woodSingleSlab.blockID] = null;
-	    woodSingleSlabM = (BlockHalfSlab)(new BlockWoodSlabOverwrite(126, false)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("woodSlab");
-	    GameRegistry.registerBlock(woodSingleSlabM, "woodSlab");
-	    LanguageRegistry.instance().addStringLocalization("tile.woodSlab.oak.name", "Oak Wood Slabs");
-		LanguageRegistry.instance().addStringLocalization("tile.woodSlab.birch.name", "Birch Wood Slabs");
-		LanguageRegistry.instance().addStringLocalization("tile.woodSlab.spruce.name", "Spruce Wood Slabs");
-		LanguageRegistry.instance().addStringLocalization("tile.woodSlab.jungle.name", "Jungle Wood Slabs");
+		//add vanilla overwrites	    
 	}
 	
 	public static void registerBlocks()
