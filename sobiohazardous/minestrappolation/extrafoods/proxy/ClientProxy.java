@@ -18,6 +18,7 @@ public class ClientProxy extends CommonProxy
     @Override
     public void registerRenderThings()
     {
+        RenderingRegistry.registerEntityRenderingHandler(EntityCakeMan.class, new RenderCakeMan());
     }
     
     @Override

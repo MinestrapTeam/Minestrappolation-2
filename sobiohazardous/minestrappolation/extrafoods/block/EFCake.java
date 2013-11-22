@@ -36,10 +36,10 @@ public class EFCake extends Block
     {
         super(par1, Material.cake);
         this.setTickRandomly(true);
-        this.iconSidePath = side;
         this.iconTopPath = top;
         this.iconBottomPath = bottom;
         this.iconInnerPath = inner;
+        this.iconSidePath = side;
         this.item = item;
         this.healamt = healamt;
     }

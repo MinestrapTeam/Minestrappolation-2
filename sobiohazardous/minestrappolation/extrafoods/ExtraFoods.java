@@ -507,7 +507,6 @@ public class ExtraFoods
         MinecraftForge.EVENT_BUS.register(new EFSoundHandler());
         
         ModLoader.registerEntityID(EntityCakeMan.class, "CakeMan", ModLoader.getUniqueEntityId(), 0x646464, 0x3A3A3A);
-        RenderingRegistry.registerEntityRenderingHandler(EntityCakeMan.class, new RenderCakeMan());
         LanguageRegistry.instance().addStringLocalization("entity.CakeMan.name", "Cake Man");
         ModLoader.addSpawn(EntityCakeMan.class, 9, 4, 4, EnumCreatureType.creature);
         
