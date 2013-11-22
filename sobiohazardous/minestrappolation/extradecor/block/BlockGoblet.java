@@ -50,13 +50,15 @@ public class BlockGoblet extends BlockContainer{
             }else
         	if (par5EntityPlayer.getCurrentEquippedItem() != null && par5EntityPlayer.inventory.getCurrentItem().itemID == Item.bucketWater.itemID)
             {
-        		par5EntityPlayer.inventory.getCurrentItem().stackSize--;
+        		par5EntityPlayer.inventory.getCurrentItem().stackSize --;
+        		par5EntityPlayer.inventory.addItemStackToInventory(new ItemStack(Item.bucketEmpty));
             	par1World.setBlock(par2, par3, par4, EDBlockManager.Goblet.blockID, 1,2);
                 return true;
             }
         	else if (par5EntityPlayer.getCurrentEquippedItem() != null && par5EntityPlayer.inventory.getCurrentItem().itemID == Item.bucketMilk.itemID)
             {
-        		par5EntityPlayer.inventory.getCurrentItem().stackSize--;
+        		par5EntityPlayer.inventory.getCurrentItem().stackSize --;
+        		par5EntityPlayer.inventory.addItemStackToInventory(new ItemStack(Item.bucketEmpty));
             	par1World.setBlock(par2, par3, par4, EDBlockManager.Goblet.blockID, 2,2);
                 return true;
             }
