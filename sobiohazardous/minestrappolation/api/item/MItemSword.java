@@ -2,7 +2,8 @@ package sobiohazardous.minestrappolation.api.item;
 
 import java.util.List;
 
-import sobiohazardous.minestrappolation.extradecor.lib.EDConfig;
+import sobiohazardous.minestrappolation.api.Minestrappolation;
+
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -45,7 +46,7 @@ public class MItemSword extends ItemSword
     
     public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)
     {
-		if(EDConfig.showDur == true){
+		if(Minestrappolation.showDur == true){
 			 par3List.add(EnumChatFormatting.GREEN+"Durability: "+EnumChatFormatting.RED+Integer.toString(getMaxDamage()-par1ItemStack.getItemDamage()+1)+"/"+Integer.toString(getMaxDamage()+1));
 		}	 
     }

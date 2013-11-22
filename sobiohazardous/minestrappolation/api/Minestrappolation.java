@@ -76,6 +76,8 @@ public class Minestrappolation
 	
 	public static final int			POTION_LIST_LENGTH		= 1024;
 	
+	public static boolean showDur = true;
+	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{	
@@ -93,6 +95,7 @@ public class Minestrappolation
 		showAllBaseBrewings = config.get("Potions", "ShowAllBaseBrewings", false, "If true, all base potions are shown in creative inventory.").getBoolean(false);
 		defaultAwkwardBrewing = config.get("Potions", "DefaultAwkwardBrewing", false, "If true, all potions can be brewed with an awkward potion.").getBoolean(false);
 		potionStackSize = config.get("Potions", "PotionStackSize", 1).getInt();
+		showDur = config.get("Misc", "Show Durability", true).getBoolean(true);
 		
 		config.save();
 	}
