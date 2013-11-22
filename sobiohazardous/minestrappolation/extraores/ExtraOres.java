@@ -61,7 +61,7 @@ import cpw.mods.fml.relauncher.Side;
 @NetworkMod(clientSideRequired = true, serverSideRequired = true,
 clientPacketHandlerSpec = @SidedPacketHandler(channels = {"extraoresCChan"}, packetHandler = ClientPacketHandler.class),
 serverPacketHandlerSpec = @SidedPacketHandler(channels = {"extraoresSChan"}, packetHandler = ServerPacketHandler.class))
-@Mod ( modid = "ExtraOres", name="Extrapolated Ores", version="B1.5", dependencies = "required-after:Minestrappolation")
+@Mod ( modid = "ExtraOres", name="Extrapolated Ores", version="B1.4.5", dependencies = "required-after:Minestrappolation")
 public class ExtraOres 
 {	
 	@SidedProxy(clientSide = "sobiohazardous.minestrappolation.extraores.proxy.ClientProxy", serverSide = "sobiohazardous.minestrappolation.extraores.proxy.CommonProxy")
