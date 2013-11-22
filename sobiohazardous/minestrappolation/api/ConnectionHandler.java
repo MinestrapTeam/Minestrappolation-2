@@ -49,7 +49,7 @@ public class ConnectionHandler implements IConnectionHandler {
 	public void clientLoggedIn(NetHandler clientHandler,
 			INetworkManager manager, Packet1Login login) {
 		if(MinestrappolationVersionChecker.doesFileExist(url)){
-			clientHandler.getPlayer().addChatMessage(MinestrappolationVersionChecker.checkIfCurrent("1.4", url,"You are using a outdated version. Version "+ MinestrappolationVersionChecker.getVersion(url)+" of Minestrappolation is out!"));
+			clientHandler.getPlayer().addChatMessage(MinestrappolationVersionChecker.checkIfCurrent("2.0", url,"You are using a outdated version. Version "+ MinestrappolationVersionChecker.getVersion(url)+" of Minestrappolation is out!"));
 			clientHandler.getPlayer().addChatMessage(MinestrappolationVersionChecker.getMOTDColor(url)+MinestrappolationVersionChecker.getMOTD((url)));
 		}else{
 			clientHandler.getPlayer().addChatMessage(EnumChatFormatting.RED+"Could not find version file or you may not be connected to the internet");
