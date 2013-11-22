@@ -164,7 +164,7 @@ public class EDBlockManager {
 		woodPlanksMossy = new BlockMossyWood(EDConfig.woodPlanksMossyId).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("woodPlanksMossy").setCreativeTab(tabDecorBlocks);
 		
 		//Test
-		Goblet = new BlockGoblet(999,Material.rock);
+		Goblet = new BlockGoblet(784,Material.rock);
 	}
 	
 	public static void loadVanillaOverwrites()

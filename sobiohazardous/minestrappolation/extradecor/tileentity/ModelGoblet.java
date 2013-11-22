@@ -91,7 +91,7 @@ public ModelGoblet()
    Side4.setTextureSize(64, 32);
    Side4.mirror = true;
    setRotation(Side4, 0F, 0F, 0F);
-   Liquid = new ModelRenderer(this, 48, 28);
+   Liquid = new ModelRenderer(this, 48, 27);
    Liquid.addBox(0F, 0F, 0F, 4, 0, 4);
    Liquid.setRotationPoint(-2F, 14F, -2F);
    Liquid.setTextureSize(64, 32);

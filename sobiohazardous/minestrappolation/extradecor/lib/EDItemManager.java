@@ -1,11 +1,13 @@
 package sobiohazardous.minestrappolation.extradecor.lib;
 
 import cpw.mods.fml.common.registry.LanguageRegistry;
+import sobiohazardous.minestrappolation.api.item.BlockPlacer;
 import sobiohazardous.minestrappolation.api.item.MItem;
 import sobiohazardous.minestrappolation.api.item.MItemBlockPlacer;
 import sobiohazardous.minestrappolation.extradecor.block.Block100;
 import sobiohazardous.minestrappolation.extradecor.block.BlockEdgeStoneCorner;
 import sobiohazardous.minestrappolation.extradecor.block.BlockEndStone;
+import sobiohazardous.minestrappolation.extradecor.block.BlockGoblet;
 import sobiohazardous.minestrappolation.extradecor.block.BlockMossyWood;
 import sobiohazardous.minestrappolation.extradecor.block.BlockSandstoneBrick;
 import sobiohazardous.minestrappolation.extradecor.block.BlockStainedBrick;
@@ -27,12 +29,14 @@ public class EDItemManager
 	public static Item cardboardItem;	
 	public static Item sandstoneBrickItem;
 	public static Item stoneBrickItem;
+	public static Item gobletItem;
 	
 	public static void addItems()
 	{
 		cardboardItem = new MItemBlockPlacer(EDConfig.cardboardItemId, EDBlockManager.cardboard).setCreativeTab(EDBlockManager.tabDecorBlocks).setUnlocalizedName("item_Cardboard");
 		sandstoneBrickItem = new MItem(EDConfig.sandstoneBrickItemId).setUnlocalizedName("item_SandstoneBrick").setCreativeTab(EDBlockManager.tabDecorBlocks);
 		stoneBrickItem = new MItem(EDConfig.stoneBrickItemId).setUnlocalizedName("item_StoneBrick").setCreativeTab(EDBlockManager.tabDecorBlocks);
+		gobletItem = new BlockPlacer(8888,EDBlockManager.Goblet.blockID,0).setCreativeTab(EDBlockManager.tabDecorBlocks).setUnlocalizedName("item_GobletEmpty");
 	}
 	
 	public static void addItemNames()
@@ -79,7 +83,7 @@ public class EDItemManager
 		Item.itemsList[EDBlockManager.stones.blockID] = (new ItemMultiTextureTile(EDBlockManager.stones.blockID - 256, EDBlockManager.stones,BlockStones.brickType)).setUnlocalizedName("Stones");
 		Item.itemsList[EDBlockManager.endstone.blockID] = (new ItemMultiTextureTile(EDBlockManager.endstone.blockID - 256, EDBlockManager.endstone,BlockEndStone.bType)).setUnlocalizedName("EndStone");
 		Item.itemsList[EDBlockManager.Tiles.blockID] = (new ItemMultiTextureTile(EDBlockManager.Tiles.blockID - 256, EDBlockManager.Tiles,BlockTiles.brickType)).setUnlocalizedName("Tiles");
-		
+		Item.itemsList[EDBlockManager.Goblet.blockID] = (new ItemMultiTextureTile(EDBlockManager.Goblet.blockID - 256, EDBlockManager.Goblet,BlockGoblet.g)).setUnlocalizedName("Goblets");
 		//this for testing unlimited metadata
 		//Item.itemsList[EDBlockManager.infertileDirt.blockID] = (new ItemMultiTextureTile(EDBlockManager.infertileDirt.blockID - 256, EDBlockManager.infertileDirt,Block100.brickType)).setUnlocalizedName("test");
 		//TODO Forms of adding slabs
