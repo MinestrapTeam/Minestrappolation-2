@@ -44,6 +44,7 @@ public class EDItemManager
 		LanguageRegistry.addName(cardboardItem, "Cardboard");
 		LanguageRegistry.addName(sandstoneBrickItem, "Sandstone Brick");
 		LanguageRegistry.addName(stoneBrickItem, "Stone Brick");
+		LanguageRegistry.addName(gobletItem, "Goblet");
 	}
 	
 	public static void setHarvestLevels()

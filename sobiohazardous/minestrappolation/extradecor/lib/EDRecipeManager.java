@@ -13,6 +13,11 @@ public class EDRecipeManager
 	public static void loadAllRecipes()
 	{
 		
+		GameRegistry.addRecipe(new ItemStack(EDItemManager.gobletItem, 1), new Object[]
+				{
+			"D D"," D ", Character.valueOf('D'), Item.ingotGold
+				});
+		
 		GameRegistry.addRecipe(new ItemStack(EDBlockManager.infertileDirt, 8), new Object[]
 				{
 			"DDD","DBD", "DDD", Character.valueOf('D'), Block.dirt,Character.valueOf('B'), Item.bucketEmpty.setContainerItem(Item.bucketWater)

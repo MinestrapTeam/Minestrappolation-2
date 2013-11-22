@@ -64,7 +64,7 @@ public class BlockPlacer extends Item {
 
 		  
 			  par3World.setBlock(par4, par5, par6, this.blockID,this.meta,2);
-          
+			  par1ItemStack.stackSize--;
 		  
 	            return true;
 	        

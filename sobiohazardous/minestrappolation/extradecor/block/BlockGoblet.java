@@ -6,6 +6,7 @@ import java.util.Random;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
+import sobiohazardous.minestrappolation.extradecor.lib.EDItemManager;
 import sobiohazardous.minestrappolation.extradecor.tileentity.TileEntityGoblet;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -25,7 +26,7 @@ public class BlockGoblet extends BlockContainer{
 	public static final String[] g = new String[] {"0", "1", "2", "3","4","5","6","7"};
 
 	public BlockGoblet(int par1, Material par2Material) {
-		super(par1, Material.rock);
+		super(par1, Material.grass);
 		this.setBlockBounds(1F/16F*5F, 0F, 1F/16F*5F, 1F-1F/16F*5F, 1F-1F/16F*5F, 1F-1F/16F*5F);
 	}
 	@SideOnly(Side.CLIENT)
@@ -102,10 +103,15 @@ public class BlockGoblet extends BlockContainer{
 		par3List.add(new ItemStack(par1, 1, 2));
 	}
 	
+	public int idPicked(World par1World, int par2, int par3, int par4)
+    {
+        return EDItemManager.gobletItem.itemID;
+    }
+	
 	@Override
     public int idDropped(int par1, Random par2Random, int par3)
 	{
-		return EDBlockManager.Goblet.blockID;
+		return EDItemManager.gobletItem.itemID;
 	}
 
 }
