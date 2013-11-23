@@ -20,6 +20,7 @@ public MGenBasicTree(int leavesBlockID,int woodBlockID,int height,int leavethick
 	this.leavesID = leavesBlockID;
 	this.woodID = woodBlockID;
 	this.height = height;
+	// to thick and the leaves will start to decay
 	this.thickness = leavethickness;
 	if(this.treeType == 1){
 		System.out.println("basic tree type");
@@ -65,7 +66,6 @@ public MGenBasicTree(int leavesBlockID,int woodBlockID,int height,int leavethick
 
 		if ((Math.abs(var12) != var10 || Math.abs(var14) != var10 || random.nextInt(2) != 0) && !Block.opaqueCubeLookup[world.getBlockId(x, y, z)])
 		{
-			System.out.println("leavesX - "+x+", "+"leavesY - "+y+", "+"leavesZ - "+z);
 			for(int v = 0; v < this.thickness; v++){
 				this.setBlockAndMetadata(world, x, y+height-v, z, this.leavesID, 1);
 			}

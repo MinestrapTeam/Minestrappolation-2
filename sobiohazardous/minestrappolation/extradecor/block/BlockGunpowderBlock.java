@@ -2,6 +2,8 @@ package sobiohazardous.minestrappolation.extradecor.block;
 
 import java.util.Random;
 
+import sobiohazardous.minestrappolation.api.util.MUtil;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.item.EntityFallingSand;
@@ -43,6 +45,10 @@ public class BlockGunpowderBlock extends EDBlock
         if (!par1World.isRemote)
         {
             this.tryToFall(par1World, par2, par3, par4);
+        }
+        
+        if(MUtil.isBlockTouchingAnySide(par1World, par2, par3, par4, Block.fire.blockID)){
+        	par1World.createExplosion(null, par2, par3, par4, 4F*2, true);
         }
     }
 

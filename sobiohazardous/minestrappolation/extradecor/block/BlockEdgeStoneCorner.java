@@ -10,6 +10,7 @@ import sobiohazardous.minestrappolation.api.block.MBlock;
 import sobiohazardous.minestrappolation.api.util.MUtil;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
 import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
+import sobiohazardous.minestrappolation.extradecor.lib.EDItemManager;
 import sobiohazardous.minestrappolation.extradecor.tileentity.TileEntityEdgeStoneCorner;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
@@ -262,6 +263,12 @@ public class BlockEdgeStoneCorner extends BlockContainer{
 		// TODO Auto-generated method stub
 		return new TileEntityEdgeStoneCorner();
 	}
+	
+	public int idPicked(World par1World, int par2, int par3, int par4)
+    {
+        return EDBlockManager.edgeStoneBrick.blockID;
+    }
+	
 
 	@Override
     public int idDropped(int par1, Random par2Random, int par3)

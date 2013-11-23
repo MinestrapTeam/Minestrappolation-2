@@ -103,7 +103,7 @@ protected TileEntityBarrel tile_entity;
 
             if (par2 < 36)
             {
-                if (!this.mergeItemStack(itemstack1, 36, this.inventorySlots.size(), true))
+                if (!this.mergeItemStack(itemstack1, 36, this.inventorySlots.size(), false))
                 {
                     return null;
                 }

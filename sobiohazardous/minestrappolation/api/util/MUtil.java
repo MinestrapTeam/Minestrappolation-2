@@ -91,6 +91,49 @@ public class MUtil
 		
 	}
 	
+public static boolean isBlockTouchingAnySide(World par1World, int par2, int par3, int par4, int blockID){
+		
+		if(par1World.getBlockId(par2+1, par3, par4) == blockID ){
+			return true;
+		}
+		if(par1World.getBlockId(par2-1, par3, par4) == blockID ){
+			return true;
+		}
+		if(par1World.getBlockId(par2, par3+1, par4) == blockID ){
+			return true;
+		}
+		if(par1World.getBlockId(par2, par3-1, par4) == blockID ){
+			return true;
+		}
+		if(par1World.getBlockId(par2, par3, par4+1) == blockID ){
+			return true;
+		}
+		if(par1World.getBlockId(par2, par3, par4-1) == blockID ){
+			return true;
+		}
+		
+		if(par1World.getBlockId(par2+1, par3, par4) == blockID ){
+			return true;
+		}
+		if(par1World.getBlockId(par2-1, par3, par4) == blockID ){
+			return true;
+		}
+		if(par1World.getBlockId(par2, par3+1, par4) == blockID ){
+			return true;
+		}
+		if(par1World.getBlockId(par2, par3-1, par4) == blockID ){
+			return true;
+		}
+		if(par1World.getBlockId(par2, par3, par4+1) == blockID ){
+			return true;
+		}
+		if(par1World.getBlockId(par2, par3, par4-1) == blockID ){
+			return true;
+		}
+		return false;
+		
+	}
+	
 	public static boolean isLavaNearby(World par1World, int par2, int par3, int par4)
     {
         for (int l = par2 - 4; l <= par2 + 4; ++l)//x

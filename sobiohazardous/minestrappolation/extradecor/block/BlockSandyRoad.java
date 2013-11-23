@@ -179,13 +179,13 @@ public class BlockSandyRoad extends Block
     {
     	if(this.blockID == EDBlockManager.sandyRoad.blockID || this.blockID == EDBlockManager.gravelRoad.blockID)
     	{
-    		living = (EntityLivingBase)par5Entity;
-    		living.addPotionEffect(new PotionEffect(Potion.moveSpeed.getId(), 20, 0, true));
+    		par5Entity.motionX *= 1.9;
+    		par5Entity.motionZ *= 1.9;
     	}
         else
         {
-        	living = (EntityLivingBase)par5Entity;
-    		living.addPotionEffect(new PotionEffect(Potion.moveSpeed.getId(), 20, 1, true));
+        	par5Entity.motionX *= 1.9;
+    		par5Entity.motionZ *= 1.9;
         }
     }
 }

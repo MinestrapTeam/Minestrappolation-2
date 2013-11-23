@@ -131,7 +131,7 @@ public class EDBlockManager {
 		sugarBlock = new BlockSugarBlock(EDConfig.sugarBlockId).setHardness(0.6F).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("block_SugarBlock");
 		meatBlock = new BlockMeatBlock(EDConfig.meatBlockId, "block_MeatBlock").setHardness(0.8F).setStepSound(Block.soundClothFootstep).setUnlocalizedName("block_MeatBlock");
 	
-		magmaOoze = new BlockOoze(EDConfig.magmaOozeId, materialOoze).setHardness(1F).setResistance(2000F).setStepSound(Block.soundClothFootstep).setUnlocalizedName("block_MagmaOoze");
+		magmaOoze = new BlockOoze(EDConfig.magmaOozeId, Material.lava).setHardness(1F).setResistance(2000F).setStepSound(Block.soundClothFootstep).setUnlocalizedName("block_MagmaOoze");
 	
 		enderBlock = new BlockEnderblock(EDConfig.enderBlockId).setHardness(3.0F).setResistance(4.0F).setUnlocalizedName("block_EnderBlock").setStepSound(Block.soundGlassFootstep).setCreativeTab(tabDecorBlocks);
 	

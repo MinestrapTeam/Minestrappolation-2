@@ -15,6 +15,7 @@ import net.minecraft.stats.StatList;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockOoze extends EDBlock
@@ -33,6 +34,11 @@ public class BlockOoze extends EDBlock
     {
         return 1;
     }
+    
+    public void registerIcons(IconRegister r)
+	{
+		blockIcon = r.registerIcon("minestrappolation:" + this.getUnlocalizedName().substring(5));
+	}
 
     /**
      * Is this block (a) opaque and (b) a full 1m cube?  This determines whether or not to render the shared face of two
@@ -45,11 +51,7 @@ public class BlockOoze extends EDBlock
     /**
      * If this block doesn't render as an ordinary block it will return False (examples: signs, buttons, stairs, etc)
      */
-    public boolean renderAsNormalBlock()
-    {
-        return false;
-    }
-    
+
     public void onEntityCollidedWithBlock(World par1World, int par2, int par3, int par4, Entity par5Entity)
     {
         par5Entity.setInWeb();
