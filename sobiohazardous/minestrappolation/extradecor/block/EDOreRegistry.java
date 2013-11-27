@@ -15,6 +15,10 @@ public class EDOreRegistry
 		OreDictionary.registerOre("plankWood", new ItemStack(EDBlockManager.woodBoards, 1, 1));
 		OreDictionary.registerOre("plankWood", new ItemStack(EDBlockManager.woodBoards, 1, 2));
 		OreDictionary.registerOre("plankWood", new ItemStack(EDBlockManager.woodBoards, 1, 3));
+		OreDictionary.registerOre("plankWood", new ItemStack(EDBlockManager.woodPlanksMossy, 1, 0));
+		OreDictionary.registerOre("plankWood", new ItemStack(EDBlockManager.woodPlanksMossy, 1, 1));
+		OreDictionary.registerOre("plankWood", new ItemStack(EDBlockManager.woodPlanksMossy, 1, 2));
+		OreDictionary.registerOre("plankWood", new ItemStack(EDBlockManager.woodPlanksMossy, 1, 3));
 		OreDictionary.registerOre("meatRaw", new ItemStack(Item.beefRaw));
 		OreDictionary.registerOre("meatRaw", new ItemStack(Item.porkRaw));
 		OreDictionary.registerOre("meatRaw", new ItemStack(Item.fishRaw));
