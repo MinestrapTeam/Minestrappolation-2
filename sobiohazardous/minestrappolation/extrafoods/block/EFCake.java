@@ -16,13 +16,9 @@ import net.minecraft.world.World;
 
 public class EFCake extends Block
 {
-    @SideOnly(Side.CLIENT)
     private Icon iconTop;
-    @SideOnly(Side.CLIENT)
     private Icon iconBottom;
-    @SideOnly(Side.CLIENT)
     private Icon iconInner;
-    @SideOnly(Side.CLIENT)
 
     private String iconTopPath;
     private String iconBottomPath;

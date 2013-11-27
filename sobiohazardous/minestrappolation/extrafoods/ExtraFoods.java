@@ -63,6 +63,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.common.registry.TickRegistry;
 import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import cpw.mods.fml.common.network.NetworkMod.SidedPacketHandler;
 
 @NetworkMod(clientSideRequired = true, serverSideRequired = false,
@@ -503,8 +504,8 @@ public class ExtraFoods
     public void load(FMLInitializationEvent event)
 	{
 	    
-        MinecraftForge.EVENT_BUS.register(new EFEventHandler());
-        MinecraftForge.EVENT_BUS.register(new EFSoundHandler());
+        loadSoundManager();
+    	MinecraftForge.EVENT_BUS.register(new EFEventHandler());
         
         ModLoader.registerEntityID(EntityCakeMan.class, "CakeMan", ModLoader.getUniqueEntityId(), 0x646464, 0x3A3A3A);
         LanguageRegistry.instance().addStringLocalization("entity.CakeMan.name", "Cake Man");
@@ -527,6 +528,10 @@ public class ExtraFoods
         Item.itemsList[Item.fishCooked.itemID - 256] = fish;
         Item.itemsList[Item.beefCooked.itemID - 256] = beef;
         Item.itemsList[Item.porkCooked.itemID - 256] = porkchop; 
+	}
+	
+	public void loadSoundManager(){
+        MinecraftForge.EVENT_BUS.register(new EFSoundHandler());
 	}
 
 	
