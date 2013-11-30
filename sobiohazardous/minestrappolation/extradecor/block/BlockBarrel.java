@@ -144,6 +144,7 @@ public class BlockBarrel extends BlockContainer
     public void onBlockAdded(World par1World, int par2, int par3, int par4)
     {
         par1World.scheduleBlockUpdate(par2, par3, par4, this.blockID, this.tickRate(par1World));
+      
     }
 
     /**

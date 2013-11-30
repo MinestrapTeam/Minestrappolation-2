@@ -31,6 +31,7 @@ public class EDBlockManager {
 	public static Block Tiles;
 	
 	public static Block Goblet;
+	public static Block Plate;
 	
 	public static Block edgeStoneBrick;
 	public static Block edgeStoneBrickCorner;
@@ -165,6 +166,7 @@ public class EDBlockManager {
 		
 		//Test
 		Goblet = new BlockGoblet(784,Material.rock);
+		Plate = new BlockPlate(785,Material.rock);
 	}
 	
 	public static void loadVanillaOverwrites()
@@ -215,6 +217,7 @@ public class EDBlockManager {
 		GameRegistry.registerBlock(sandstoneRoad, "sandstoneRoad");
 		GameRegistry.registerBlock(gravelRoad, "gravelRoad");
 		GameRegistry.registerBlock(Goblet,"Goblet");
+		GameRegistry.registerBlock(Plate,"Plate");
 		GameRegistry.registerBlock(woodPlanksMossy, "woodPlanksMossy");
 		GameRegistry.registerBlock(stones,"Stones");
 	}
@@ -225,6 +228,7 @@ public class EDBlockManager {
 		LanguageRegistry.addName(infertileDirt, "Infertile Dirt");
 		LanguageRegistry.addName(edgeStoneBrick, "Edge Stone Bricks");
 		LanguageRegistry.addName(Tiles, "Tiles");
+		LanguageRegistry.addName(Plate, "Plate");
 		LanguageRegistry.addName(snowBrick, "Snow Bricks");
 		LanguageRegistry.addName(glassRefined, "Refined Glass");
 		LanguageRegistry.addName(glassRefinedPane, "Refined Glass Pane");
