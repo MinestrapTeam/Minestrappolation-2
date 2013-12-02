@@ -8,6 +8,7 @@ import net.minecraft.block.BlockBreakable;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import sobiohazardous.minestrappolation.api.block.MBlock;
+import sobiohazardous.minestrappolation.extraores.lib.EOBlockManager;
 
 public class BlockGlowGlass extends BlockBreakable {
 
@@ -15,6 +16,7 @@ public class BlockGlowGlass extends BlockBreakable {
 	 public BlockGlowGlass(int par1, Material par3Material,
 			boolean par4) {
 		super(par1, "GlowGlass",par3Material, par4);
+		this.setCreativeTab(EOBlockManager.tabOresBlocks);
 		
 	}
 

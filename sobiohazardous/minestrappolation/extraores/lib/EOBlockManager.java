@@ -379,7 +379,7 @@ public class EOBlockManager {
 	
 	public static void loadBridgedBlocks() throws Exception{
 		if(Loader.isModLoaded("ExtraDecor")){
-			glowGlass = new BlockGlowGlass(EOConfig.glowGlassID,Material.glass,true).setUnlocalizedName("block_GlowGlass").setLightValue(0.7F).setStepSound(Block.soundGlassFootstep);
+			glowGlass = new BlockGlowGlass(EOConfig.glowGlassID,Material.glass,true).setUnlocalizedName("block_GlowGlass").setLightValue(0.7F).setStepSound(Block.soundGlassFootstep).setHardness(.8F);
 			GameRegistry.registerBlock(glowGlass,"block_GlowGlass");
 			LanguageRegistry.addName(glowGlass, "Glow Glass");
 		}

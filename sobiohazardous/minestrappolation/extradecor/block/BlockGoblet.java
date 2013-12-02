@@ -8,6 +8,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
 import sobiohazardous.minestrappolation.extradecor.lib.EDItemManager;
 import sobiohazardous.minestrappolation.extradecor.tileentity.TileEntityGoblet;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -37,7 +38,12 @@ public class BlockGoblet extends BlockContainer{
 	}
 	
 	public Icon getIcon(int i,int j){
-		return this.blockIcon;
+		switch(j){
+		case 0:
+			return this.blockIcon;
+		default:
+			return this.blockIcon;		
+		}
 	}
 	
 	public boolean onBlockActivated(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9)

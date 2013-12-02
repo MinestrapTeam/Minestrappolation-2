@@ -1,10 +1,17 @@
 package sobiohazardous.minestrappolation.extradecor.block;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
 import sobiohazardous.minestrappolation.extradecor.tileentity.TileEntityPlate;
+import sobiohazardous.minestrappolation.extraores.ExtraOres;
+import sobiohazardous.minestrappolation.extraores.tileentity.TileEntityMelter;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 
 public class BlockPlate extends BlockContainer{
@@ -20,6 +27,24 @@ public class BlockPlate extends BlockContainer{
 		return new TileEntityPlate();
 	}
 	
+	public void registerIcons(IconRegister par1IconRegister) {
+		this.blockIcon = par1IconRegister
+				.registerIcon("Minestrappolation:block_StoneTile");
+
+
+	}
+	
+	public int damageDropped(int par1)
+    {
+        return par1;
+    }
+	
+	 @SideOnly(Side.CLIENT)
+		public Icon getIcon(int i, int j) {
+			return blockIcon;
+
+		}
+	
 	public int getRenderType(){
 		return -1;	
 	}
@@ -31,6 +56,5 @@ public class BlockPlate extends BlockContainer{
 	public boolean renderAsNormalBlock(){
 		return false;
 	}
-	
 
 }

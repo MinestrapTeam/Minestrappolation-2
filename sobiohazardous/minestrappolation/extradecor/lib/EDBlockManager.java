@@ -20,6 +20,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 
 public class EDBlockManager {
+// §
 	
 	public static final Material materialOoze = new MaterialOoze(MapColor.foliageColor);
 	//bridged blocks
@@ -165,7 +166,7 @@ public class EDBlockManager {
 		woodPlanksMossy = new BlockMossyWood(EDConfig.woodPlanksMossyId).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("woodPlanksMossy").setCreativeTab(tabDecorBlocks);
 		
 		//Test
-		Goblet = new BlockGoblet(784,Material.rock);
+		Goblet = new BlockGoblet(784,Material.rock).setHardness(.5F);
 		Plate = new BlockPlate(785,Material.rock);
 	}
 	
@@ -296,7 +297,6 @@ public class EDBlockManager {
 		LanguageRegistry.addName(sandyRoad, "Sandy Road");
 		LanguageRegistry.addName(sandstoneRoad, "Sandstone Road");
 		LanguageRegistry.addName(gravelRoad, "Gravel Road");
-		LanguageRegistry.addName(Goblet, "Goblet");
 		LanguageRegistry.instance().addStringLocalization("tile.woodPlanksMossy.Oak.name", "Mossy Oak Wood Planks");
 		LanguageRegistry.instance().addStringLocalization("tile.woodPlanksMossy.Birch.name", "Mossy Birch Wood Planks");
 		LanguageRegistry.instance().addStringLocalization("tile.woodPlanksMossy.Spruce.name", "Mossy Spruce Wood Planks");
