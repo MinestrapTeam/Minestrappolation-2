@@ -177,15 +177,20 @@ public class BlockSandyRoad extends Block
     }
     public void onEntityWalking(World par1World, int par2, int par3, int par4, Entity par5Entity)
     {
-    	if(this.blockID == EDBlockManager.sandyRoad.blockID || this.blockID == EDBlockManager.gravelRoad.blockID)
+    	if(this.blockID == EDBlockManager.sandyRoad.blockID)
     	{
-    		par5Entity.motionX *= 1.9;
-    		par5Entity.motionZ *= 1.9;
+    		par5Entity.motionX *= 1.4;
+    		par5Entity.motionZ *= 1.4;
+    	}
+    	else if(this.blockID == EDBlockManager.gravelRoad.blockID)
+    	{
+    		par5Entity.motionX *= 1.6;
+    		par5Entity.motionZ *= 1.6;
     	}
         else
         {
-        	par5Entity.motionX *= 1.9;
-    		par5Entity.motionZ *= 1.9;
+        	par5Entity.motionX *= 1.8;
+    		par5Entity.motionZ *= 1.8;
         }
     }
 }

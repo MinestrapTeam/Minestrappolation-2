@@ -53,7 +53,8 @@ public class EDConfig {
 	sandyRoadId,
 	sandstoneRoadId,
 	gravelRoadId,
-	woodPlanksMossyId;
+	woodPlanksMossyId,
+	netherroadId;
 	
 	public static int daysUntilMossy;
 	
@@ -112,6 +113,7 @@ public class EDConfig {
 		gravelRoadId = config.getBlock("Gravel Road", 753).getInt();
 		edgeStoneCornerID = config.getBlock("Edge stone corner", 845).getInt();
 		woodPlanksMossyId = config.getBlock("Mossy Wood Planks", 754).getInt();
+		netherroadId = config.getBlock("Netherroad", 755).getInt();
 		daysUntilMossy = config.get("Misc", "Days Until Planks Get Mossy", 3).getInt();
 		config.save();			
 	}

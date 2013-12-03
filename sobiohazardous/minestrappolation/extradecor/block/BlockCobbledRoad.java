@@ -81,7 +81,7 @@ public class BlockCobbledRoad extends Block
     }
     public void onEntityWalking(World par1World, int par2, int par3, int par4, Entity par5Entity)
     {
-    	living = (EntityLivingBase)par5Entity;
-        living.addPotionEffect(new PotionEffect(Potion.moveSpeed.getId(), 20, 0, true));
+    	par5Entity.motionX *= 1.4;
+		par5Entity.motionZ *= 1.4;
     }
 }

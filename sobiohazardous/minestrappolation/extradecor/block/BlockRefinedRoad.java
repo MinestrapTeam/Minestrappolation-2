@@ -4,6 +4,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import java.util.List;
 
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
+import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -45,9 +46,18 @@ public class BlockRefinedRoad extends Block
      */
     public void registerIcons(IconRegister par1IconRegister)
     {
-        this.blockIcon = par1IconRegister.registerIcon("Minestrappolation:block_RefinedRoadSide");
-        this.top = par1IconRegister.registerIcon("Minestrappolation:block_RefinedRoadTop");
-        this.bottom = par1IconRegister.registerIcon("Minestrappolation:block_RefinedRoadBottom");
+    	if(this.blockID == EDBlockManager.refinedRoad.blockID)
+    	{
+    		this.blockIcon = par1IconRegister.registerIcon("Minestrappolation:block_RefinedRoadSide");
+    		this.top = par1IconRegister.registerIcon("Minestrappolation:block_RefinedRoadTop");
+    		this.bottom = par1IconRegister.registerIcon("Minestrappolation:block_RefinedRoadBottom");
+    	}
+    	else
+    	{
+    		this.blockIcon = par1IconRegister.registerIcon("Minestrappolation:block_NetherroadSide");
+    		this.top = par1IconRegister.registerIcon("Minestrappolation:block_NetherroadTop");
+    		this.bottom = par1IconRegister.registerIcon("Minestrappolation:block_NetherroadBottom");
+    	}
     }
     
     public Icon getIcon(int i, int j)
@@ -80,7 +90,15 @@ public class BlockRefinedRoad extends Block
     }
     public void onEntityWalking(World par1World, int par2, int par3, int par4, Entity par5Entity)
     {
-    	par5Entity.motionX *= 1.9;
-		par5Entity.motionZ *= 1.9;
+    	if(this.blockID == EDBlockManager.refinedRoad.blockID)
+    	{
+    		par5Entity.motionX *= 1.9;
+    		par5Entity.motionZ *= 1.9;
+    	}
+        else
+        {
+        	par5Entity.motionX *= 2.2;
+    		par5Entity.motionZ *= 2.2;
+        }
     }
 }
