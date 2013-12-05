@@ -31,6 +31,12 @@ public class RendererGoblet extends TileEntitySpecialRenderer {
 		case 2:
 			texture = new ResourceLocation("minestrappolation:textures/blocks/block_GobletMilk.png");
 			break;
+		case 3:
+			texture = new ResourceLocation("minestrappolation:textures/blocks/block_GobletInvisibility.png");
+			break;
+		case 4:
+			texture = new ResourceLocation("minestrappolation:textures/blocks/block_GobletRegeneration.png");
+			break;
 			
 		}
 		this.bindTexture(texture);

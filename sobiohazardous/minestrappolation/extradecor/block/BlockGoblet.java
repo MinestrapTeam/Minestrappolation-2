@@ -68,6 +68,20 @@ public class BlockGoblet extends BlockContainer{
             	par1World.setBlock(par2, par3, par4, EDBlockManager.Goblet.blockID, 2,2);
                 return true;
             }
+        	else if (par5EntityPlayer.getCurrentEquippedItem() != null && par5EntityPlayer.inventory.getCurrentItem() == new ItemStack(Item.potion,1,8026))
+            {
+        		par5EntityPlayer.inventory.getCurrentItem().stackSize --;
+        		par5EntityPlayer.inventory.addItemStackToInventory(new ItemStack(Item.glassBottle));
+            	par1World.setBlock(par2, par3, par4, EDBlockManager.Goblet.blockID, 3,2);
+                return true;
+            }
+        	else if (par5EntityPlayer.getCurrentEquippedItem() != null && par5EntityPlayer.inventory.getCurrentItem() == new ItemStack(Item.potion,1,8193))
+            {
+        		par5EntityPlayer.inventory.getCurrentItem().stackSize --;
+        		par5EntityPlayer.inventory.addItemStackToInventory(new ItemStack(Item.glassBottle));
+            	par1World.setBlock(par2, par3, par4, EDBlockManager.Goblet.blockID, 4,2);
+                return true;
+            }
         	
         case 1:
         		par1World.setBlock(par2, par3, par4, EDBlockManager.Goblet.blockID, 0,2);
@@ -79,6 +93,15 @@ public class BlockGoblet extends BlockContainer{
         case 2:
         	par1World.setBlock(par2, par3, par4, EDBlockManager.Goblet.blockID, 0,2);
         	par5EntityPlayer.curePotionEffects(new ItemStack(Item.bucketMilk));
+        	return true;
+        	
+        case 3:
+        	par1World.setBlock(par2, par3, par4, EDBlockManager.Goblet.blockID, 0,2);
+        	par5EntityPlayer.addPotionEffect(new PotionEffect(Potion.invisibility.id,3490,0,true));
+        	return true;
+        case 4:
+        	par1World.setBlock(par2, par3, par4, EDBlockManager.Goblet.blockID, 0,2);
+        	par5EntityPlayer.addPotionEffect(new PotionEffect(Potion.regeneration.id,3490,0,true));
         	return true;
         	
         }
@@ -109,6 +132,8 @@ public class BlockGoblet extends BlockContainer{
 		par3List.add(new ItemStack(par1, 1, 0));
 		par3List.add(new ItemStack(par1, 1, 1));
 		par3List.add(new ItemStack(par1, 1, 2));
+		par3List.add(new ItemStack(par1, 1, 3));
+		par3List.add(new ItemStack(par1, 1, 4));
 	}
 	
 	public int idPicked(World par1World, int par2, int par3, int par4)

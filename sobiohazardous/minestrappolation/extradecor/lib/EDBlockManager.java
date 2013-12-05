@@ -94,10 +94,13 @@ public class EDBlockManager {
 	public static Block netherroad;
 	
 	public static Block woodPlanksMossy;
+	
+	public static Block GlassDoor;
 
 	public static CreativeTabs tabDecorBlocks = new CreativeTabExtraDecorBlocks(CreativeTabs.getNextID(),"Extrappolated Decor");
 	public static void createBlocks()
 	{
+		GlassDoor = (new BlockGlassDoor(899,Material.glass));
 		stonePillar = (new BlockPillar(EDConfig.stonePillarId, "block_StonePillar", "block_StoneRefined")).setHardness(1.5F).setResistance(10F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("stonePillar");
 		stoneLamp = (new BlockStoneLamp(EDConfig.stoneLampId)).setHardness(1.5F).setResistance(8F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setLightValue(1.0F).setUnlocalizedName("stoneLamp");
 		stones = new BlockStones(EDConfig.stoneTileId).setHardness(1.5F).setResistance(10F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep);
@@ -179,6 +182,7 @@ public class EDBlockManager {
 	
 	public static void registerBlocks()
 	{
+		GameRegistry.registerBlock(GlassDoor ,"GlassDoor");
 		GameRegistry.registerBlock(edgeStoneBrickCorner,"Edge corner");
 		GameRegistry.registerBlock(refinedRoad,"Refined Road");
 		GameRegistry.registerBlock(stoneLamp, "stoneLamp");

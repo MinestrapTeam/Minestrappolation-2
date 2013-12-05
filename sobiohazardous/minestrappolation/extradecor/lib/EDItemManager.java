@@ -18,7 +18,9 @@ import sobiohazardous.minestrappolation.extradecor.block.BlockWoodBeveled;
 import sobiohazardous.minestrappolation.extradecor.block.BlockWoodBoards;
 import sobiohazardous.minestrappolation.extradecor.block.BlockWoodPanel;
 import sobiohazardous.minestrappolation.extradecor.bridge.EDBridgeRecipes;
+import sobiohazardous.minestrappolation.extraenviroments.lib.ItemGDoor;
 import net.minecraft.block.BlockHalfSlab;
+import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemMultiTextureTile;
 import net.minecraft.item.ItemSlab;
@@ -30,6 +32,7 @@ public class EDItemManager
 	public static Item sandstoneBrickItem;
 	public static Item stoneBrickItem;
 	public static Item gobletItem;
+	public static Item gDoor;
 	
 	public static void addItems()
 	{
@@ -37,6 +40,7 @@ public class EDItemManager
 		sandstoneBrickItem = new MItem(EDConfig.sandstoneBrickItemId).setUnlocalizedName("item_SandstoneBrick").setCreativeTab(EDBlockManager.tabDecorBlocks);
 		stoneBrickItem = new MItem(EDConfig.stoneBrickItemId).setUnlocalizedName("item_StoneBrick").setCreativeTab(EDBlockManager.tabDecorBlocks);
 		gobletItem = new BlockPlacer(8888,EDBlockManager.Goblet.blockID,0).setCreativeTab(EDBlockManager.tabDecorBlocks).setUnlocalizedName("item_GobletEmpty");
+		gDoor = new ItemGDoor(8889, Material.glass);
 	}
 	
 	public static void addItemNames()
@@ -45,6 +49,7 @@ public class EDItemManager
 		LanguageRegistry.addName(sandstoneBrickItem, "Sandstone Brick");
 		LanguageRegistry.addName(stoneBrickItem, "Stone Brick");
 		LanguageRegistry.addName(gobletItem, "Goblet");
+		LanguageRegistry.addName(gDoor, "Glass Door");
 	}
 	
 	public static void setHarvestLevels()
