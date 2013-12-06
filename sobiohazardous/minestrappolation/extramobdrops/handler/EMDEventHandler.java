@@ -299,6 +299,13 @@ public class EMDEventHandler
 					event.entityLiving.dropItem(EMDItemManager.slimeCore.itemID, 1);
 				}
 			}
+			if(event.entityLiving instanceof EntityEnderman)
+			{
+				if(rand < 0.25)
+				{
+					event.entityLiving.dropItem(EMDItemManager.enderCore.itemID, 1);
+				}
+			}
 		}
 	}
 	

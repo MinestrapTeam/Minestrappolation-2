@@ -69,7 +69,8 @@ public class EMDConfig
 	guanoId,
 	carcassSilverfishId,
 	hideCreeperId,
-	slimeCoreId;
+	slimeCoreId,
+	enderCoreId;
 	
 	public static void initConfig(FMLPreInitializationEvent e)
 	{
@@ -140,6 +141,7 @@ public class EMDConfig
 		carcassSilverfishId = config.getItem("Silverfish Carcass", 4060).getInt();
 		hideCreeperId = config.getItem("Creeper Hide", 4061).getInt();
 		slimeCoreId = config.getItem("Slime Core", 4062).getInt();
+		enderCoreId = config.getItem("Ender Core", 4063).getInt();
 		config.save();
 	}
 }

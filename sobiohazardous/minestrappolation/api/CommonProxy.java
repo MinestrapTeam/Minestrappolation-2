@@ -2,10 +2,10 @@ package sobiohazardous.minestrappolation.api;
 
 import java.util.Random;
 
-import sobiohazardous.minestrappolation.api.brewing.common.PacketPlaySplashEffect;
 import sobiohazardous.minestrappolation.api.brewing.inventory.ContainerBrewingStand2;
 import sobiohazardous.minestrappolation.api.brewing.item.ItemPotion2;
 import sobiohazardous.minestrappolation.api.brewing.tileentity.TileEntityBrewingStand2;
+import sobiohazardous.minestrappolation.api.common.PacketPlaySplashEffect;
 
 import cpw.mods.fml.common.network.IGuiHandler;
 import cpw.mods.fml.common.network.PacketDispatcher;

@@ -100,7 +100,8 @@ public class EMDItemManager
 	
 	public static Item hideCreeper;
 	
-	public static Item slimeCore;
+	public static Item slimeCore;	
+	public static Item enderCore;
 
 	public static EnumToolMaterial toolMaterialWoodH = EnumHelper.addToolMaterial("ToolWoodH", 0, 59, 2.0F, 2.0F, 15);
 	public static EnumToolMaterial toolMaterialStoneH = EnumHelper.addToolMaterial("ToolStoneH", 1, 131, 4.0F, 3.0F, 5);
@@ -189,6 +190,7 @@ public class EMDItemManager
 		hideCreeper = new MItem(EMDConfig.hideCreeperId).setUnlocalizedName("creeper_hide").setCreativeTab(tabItems);
 		
 		slimeCore = new MItem(EMDConfig.slimeCoreId).setUnlocalizedName("slime_core").setCreativeTab(tabItems);
+		enderCore = new ItemEnderCore(EMDConfig.enderCoreId, 0, 0).setUnlocalizedName("ender_core").setCreativeTab(tabItems);
 	}
 	
 	public static void loadNames()
@@ -233,6 +235,7 @@ public class EMDItemManager
 		LanguageRegistry.addName(carcassSilverfish, "Silverfish Carcass");
 		LanguageRegistry.addName(hideCreeper, "Creeper Hide");
 		LanguageRegistry.addName(slimeCore, "Slime Core");
+		LanguageRegistry.addName(enderCore, "Ender Core");
 	}
 	
 	public static void loadBridgedItems() throws Exception

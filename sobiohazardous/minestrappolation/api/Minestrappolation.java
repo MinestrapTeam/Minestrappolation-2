@@ -20,7 +20,7 @@ import sobiohazardous.minestrappolation.api.brewing.item.ItemGlassBottle2;
 import sobiohazardous.minestrappolation.api.brewing.item.ItemPotion2;
 import sobiohazardous.minestrappolation.api.brewing.lib.DispenserBehaviorPotion2;
 import sobiohazardous.minestrappolation.api.brewing.tileentity.TileEntityBrewingStand2;
-import sobiohazardous.minestrappolation.api.brewing.common.MAPIPacketHandler;
+import sobiohazardous.minestrappolation.api.common.MAPIPacketHandler;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;

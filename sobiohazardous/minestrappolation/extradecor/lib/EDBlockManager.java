@@ -20,7 +20,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 
 public class EDBlockManager {
-// §
 	
 	public static final Material materialOoze = new MaterialOoze(MapColor.foliageColor);
 	//bridged blocks

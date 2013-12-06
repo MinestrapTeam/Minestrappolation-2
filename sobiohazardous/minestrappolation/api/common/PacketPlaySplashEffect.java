@@ -1,4 +1,4 @@
-package sobiohazardous.minestrappolation.api.brewing.common;
+package sobiohazardous.minestrappolation.api.common;
 
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
