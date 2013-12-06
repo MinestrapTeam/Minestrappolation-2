@@ -10,16 +10,17 @@ import com.jadarstudios.developercapes.DevCapesUtil;
 
 import sobiohazardous.minestrappolation.api.brewing.api.IIngredientHandler;
 import sobiohazardous.minestrappolation.api.brewing.api.IPotionEffectHandler;
+import sobiohazardous.minestrappolation.api.brewing.api.IPotionEffectHandler.PotionQueue;
 import sobiohazardous.minestrappolation.api.brewing.block.BlockBrewingStand2;
-import sobiohazardous.minestrappolation.api.brewing.brewing.Brewing;
-import sobiohazardous.minestrappolation.api.brewing.brewing.BrewingList;
+import sobiohazardous.minestrappolation.api.brewing.brewing.PotionList;
+import sobiohazardous.minestrappolation.api.brewing.brewing.PotionType;
 import sobiohazardous.minestrappolation.api.brewing.entity.EntityPotion2;
 import sobiohazardous.minestrappolation.api.brewing.item.ItemBrewingStand2;
 import sobiohazardous.minestrappolation.api.brewing.item.ItemGlassBottle2;
 import sobiohazardous.minestrappolation.api.brewing.item.ItemPotion2;
-import sobiohazardous.minestrappolation.api.brewing.lib.BAPICreativeTabs;
 import sobiohazardous.minestrappolation.api.brewing.lib.DispenserBehaviorPotion2;
 import sobiohazardous.minestrappolation.api.brewing.tileentity.TileEntityBrewingStand2;
+import sobiohazardous.minestrappolation.api.brewing.common.MAPIPacketHandler;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -44,8 +45,8 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 
-@Mod(modid = "Minestrappolation", name = "Minestrappolation API", version = "1.1")
-@NetworkMod(clientSideRequired = true, serverSideRequired = false)
+@Mod(modid = "Minestrappolation", name = "Minestrappolation API", version = "1.2")
+@NetworkMod(channels = { "MAPI" }, packetHandler = MAPIPacketHandler.class, clientSideRequired = true, serverSideRequired = false)
 public class Minestrappolation
 {
 	@Instance("Minestrappolation")
@@ -53,7 +54,7 @@ public class Minestrappolation
 	
 	@SidedProxy(modId = "Minestrappolation", clientSide = "sobiohazardous.minestrappolation.api.ClientProxy", serverSide = "sobiohazardous.minestrappolation.api.CommonProxy")
 	public static CommonProxy		proxy;
-	
+		
 	public static boolean			multiPotions			= false;
 	public static boolean			advancedPotionInfo		= false;
 	public static boolean			animatedPotionLiquid	= true;
@@ -61,12 +62,10 @@ public class Minestrappolation
 	public static boolean			defaultAwkwardBrewing	= false;
 	public static int				potionStackSize			= 1;
 	
-	public static int				BrewingStand2_TEID		= 11;
-	public static int				SplashPotion2_ID		= EntityRegistry.findGlobalUniqueEntityId();
+	public static int				brewingStand2ID		= 11;
+	public static int				splashPotion2ID		= EntityRegistry.findGlobalUniqueEntityId();
 	
-	public static int				PotionsTab_ID			= CreativeTabs.getNextID();
-	
-	public static BAPICreativeTabs	potions;
+	public static MAPICreativeTab	potions;
 	
 	public static Block				brewingStand2;
 	public static Item				brewingStand2Item;
@@ -80,14 +79,11 @@ public class Minestrappolation
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
-	{	
-	    
-		expandPotionList();
-
+	{
 		Configuration config = new Configuration(event.getSuggestedConfigurationFile());
 		config.load();
 		
-		BrewingStand2_TEID = config.get("TileEntityIDs", "BrewingStand2TEID", 11).getInt();
+		brewingStand2ID = config.get("TileEntityIDs", "BrewingStand2TEID", 11).getInt();
 		
 		multiPotions = config.get("Potions", "MultiPotions", false, "If true, potions with 2 different effects are shown in the creative inventory.").getBoolean(false);
 		advancedPotionInfo = config.get("Potions", "AdvancedPotionInfo", true).getBoolean(true);
@@ -98,6 +94,8 @@ public class Minestrappolation
 		showDur = config.get("Misc", "Show Durability", true).getBoolean(true);
 		
 		config.save();
+		
+		expandPotionList();
 	}
 	
 	@EventHandler
@@ -108,11 +106,11 @@ public class Minestrappolation
 		Minestrappolation.load();
 		
 		if (multiPotions)
-			potions = new BAPICreativeTabs("morepotions");
+			potions = new MAPICreativeTab(CreativeTabs.getNextID(), "morepotions");
 		
 		GameRegistry.registerTileEntity(TileEntityBrewingStand2.class, "BrewingStand2");
-		EntityRegistry.registerGlobalEntityID(EntityPotion2.class, "SplashPotion2", SplashPotion2_ID);
-		EntityRegistry.registerModEntity(EntityPotion2.class, "SplashPotion2", SplashPotion2_ID, this, 100, 20, true);
+		EntityRegistry.registerGlobalEntityID(EntityPotion2.class, "SplashPotion2", splashPotion2ID);
+		EntityRegistry.registerModEntity(EntityPotion2.class, "SplashPotion2", splashPotion2ID, this, 100, 20, true);
 		
 		Block.blocksList[Block.brewingStand.blockID] = null;
 		brewingStand2 = (new BlockBrewingStand2(Block.brewingStand.blockID)).setHardness(0.5F).setLightValue(0.125F).setUnlocalizedName("brewingStand");
@@ -135,16 +133,14 @@ public class Minestrappolation
 		proxy.registerRenderInformation();
 		proxy.registerRenderers();
 		
-		if (multiPotions)
-			potions.setIconItemStack(BrewingList.damageBoost.addBrewingToItemStack(new ItemStack(Minestrappolation.potion2, 0, 1)));
 	}
 	
 	public static void load()
 	{
 		if (!hasLoaded)
 		{
-			BrewingList.initializeBrewings();
-			BrewingList.registerBrewings();
+			PotionList.initializeBrewings();
+			PotionList.registerBrewings();
 			hasLoaded = true;
 		}
 	}
@@ -182,9 +178,9 @@ public class Minestrappolation
 	public static List<IPotionEffectHandler>	effectHandlers		= new LinkedList<IPotionEffectHandler>();
 	public static List<IIngredientHandler>		ingredientHandlers	= new LinkedList<IIngredientHandler>();
 	
-	public static Brewing addBrewing(Brewing brewing)
+	public static PotionType addBrewing(PotionType potionType)
 	{
-		return brewing.register();
+		return potionType.register();
 	}
 	
 	public static void registerIngredientHandler(IIngredientHandler par1iIngredientHandler)
@@ -205,31 +201,25 @@ public class Minestrappolation
 		}
 	}
 	
+	private static PotionQueue	queue	= new PotionQueue();
+	
 	@ForgeSubscribe
 	public void onEntityUpdate(LivingUpdateEvent event)
 	{
-		Collection c = event.entityLiving.getActivePotionEffects();
-		for (IPotionEffectHandler handler : effectHandlers)
+		if (event.entityLiving != null && !event.entityLiving.worldObj.isRemote)
 		{
-			for (Object effect : c)
+			Collection<PotionEffect> c = event.entityLiving.getActivePotionEffects();
+			
+			for (PotionEffect effect : c)
 			{
-				if (handler.canHandle((PotionEffect) effect))
+				for (IPotionEffectHandler handler : effectHandlers)
 				{
-					handler.onPotionUpdate(event.entityLiving, (PotionEffect) effect);
+					if (handler.canHandle(effect))
+						handler.onPotionUpdate(queue, event.entityLiving, effect);
 				}
 			}
-			List<PotionEffect> addqueue = handler.getAddQueue();
-			for (PotionEffect pe : addqueue)
-			{
-				event.entityLiving.addPotionEffect(pe);
-			}
-			handler.clearRemoveQueue();
-			List<Integer> removequeue = handler.getRemoveQueue();
-			for (int i : removequeue)
-			{
-				event.entityLiving.removePotionEffect(i);
-			}
-			handler.clearRemoveQueue();
+			
+			//queue.updateEntity(event.entityLiving);
 		}
 	}
 	
