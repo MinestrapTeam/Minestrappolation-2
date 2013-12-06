@@ -52,6 +52,12 @@ public class BlockRefinedRoad extends Block
     		this.top = par1IconRegister.registerIcon("Minestrappolation:block_RefinedRoadTop");
     		this.bottom = par1IconRegister.registerIcon("Minestrappolation:block_RefinedRoadBottom");
     	}
+    	else if(this.blockID == EDBlockManager.refinedNetherroad.blockID)
+    	{
+    		this.blockIcon = par1IconRegister.registerIcon("Minestrappolation:block_RefinedNetherroadSide");
+    		this.top = par1IconRegister.registerIcon("Minestrappolation:block_RefinedNetherroadTop");
+    		this.bottom = par1IconRegister.registerIcon("Minestrappolation:block_NetherroadBottom");
+    	}
     	else
     	{
     		this.blockIcon = par1IconRegister.registerIcon("Minestrappolation:block_NetherroadSide");
@@ -94,6 +100,11 @@ public class BlockRefinedRoad extends Block
     	{
     		par5Entity.motionX *= 1.9;
     		par5Entity.motionZ *= 1.9;
+    	}
+    	else if(this.blockID == EDBlockManager.refinedNetherroad.blockID)
+    	{
+    		par5Entity.motionX *= 3;
+    		par5Entity.motionZ *= 3;
     	}
         else
         {

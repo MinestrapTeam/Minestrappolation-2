@@ -458,6 +458,11 @@ public class EDRecipeManager
 			"CC", "DD", Character.valueOf('C'), Block.netherrack, Character.valueOf('D'), Block.slowSand
 				});
 		
+		GameRegistry.addRecipe(new ItemStack(EDBlockManager.refinedNetherroad, 1), new Object[]
+				{
+			"CCC", "CCC", "DDD", Character.valueOf('C'), new ItemStack(Item.netherrackBrick, 1, 0), Character.valueOf('D'), Block.slowSand
+				});
+		
 		GameRegistry.addRecipe(new ItemStack(EDItemManager.stoneBrickItem, 16), new Object[]
 				{
 			"BB", "BB", Character.valueOf('B'), Block.stone

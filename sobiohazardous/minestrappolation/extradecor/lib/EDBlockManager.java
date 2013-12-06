@@ -91,6 +91,7 @@ public class EDBlockManager {
 	public static Block sandstoneRoad;
 	public static Block gravelRoad;
 	public static Block netherroad;
+	public static Block refinedNetherroad;
 	
 	public static Block woodPlanksMossy;
 	
@@ -165,7 +166,8 @@ public class EDBlockManager {
 		sandyRoad = (new BlockSandyRoad(EDConfig.sandyRoadId)).setHardness(0.8F).setResistance(4F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("sandyRoad");
 		sandstoneRoad = (new BlockSandyRoad(EDConfig.sandstoneRoadId)).setHardness(1).setResistance(4.5F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("sandstoneRoad");
 		gravelRoad = (new BlockSandyRoad(EDConfig.gravelRoadId)).setHardness(1.5F).setResistance(5F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("gravelRoad");
-		netherroad = (new BlockRefinedRoad(EDConfig.netherroadId)).setHardness(2.2F).setResistance(4F).setUnlocalizedName("block_Netherroad").setStepSound(Block.soundStoneFootstep).setCreativeTab(tabDecorBlocks);
+		netherroad = (new BlockRefinedRoad(EDConfig.netherroadId)).setHardness(2.2F).setResistance(4F).setUnlocalizedName("netherroad").setStepSound(Block.soundStoneFootstep).setCreativeTab(tabDecorBlocks);
+		refinedNetherroad = (new BlockRefinedRoad(EDConfig.refinedNetherroadId)).setHardness(2.8F).setResistance(6F).setUnlocalizedName("refinedNetherroad").setStepSound(Block.soundStoneFootstep).setCreativeTab(tabDecorBlocks);
 
 		woodPlanksMossy = new BlockMossyWood(EDConfig.woodPlanksMossyId).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("woodPlanksMossy").setCreativeTab(tabDecorBlocks);
 		
@@ -223,6 +225,7 @@ public class EDBlockManager {
 		GameRegistry.registerBlock(sandstoneRoad, "sandstoneRoad");
 		GameRegistry.registerBlock(gravelRoad, "gravelRoad");
 		GameRegistry.registerBlock(netherroad, "netherroad");
+		GameRegistry.registerBlock(refinedNetherroad, "refinedNetherroad");
 		GameRegistry.registerBlock(Goblet,"Goblet");
 		GameRegistry.registerBlock(Plate,"Plate");
 		GameRegistry.registerBlock(woodPlanksMossy, "woodPlanksMossy");
@@ -304,6 +307,7 @@ public class EDBlockManager {
 		LanguageRegistry.addName(sandstoneRoad, "Sandstone Road");
 		LanguageRegistry.addName(gravelRoad, "Gravel Road");
 		LanguageRegistry.addName(netherroad, "Netherroad");
+		LanguageRegistry.addName(refinedNetherroad, "Refined Netherroad");
 		LanguageRegistry.instance().addStringLocalization("tile.woodPlanksMossy.Oak.name", "Mossy Oak Wood Planks");
 		LanguageRegistry.instance().addStringLocalization("tile.woodPlanksMossy.Birch.name", "Mossy Birch Wood Planks");
 		LanguageRegistry.instance().addStringLocalization("tile.woodPlanksMossy.Spruce.name", "Mossy Spruce Wood Planks");
