@@ -2,86 +2,79 @@ package sobiohazardous.minestrappolation.api;
 
 import java.util.Random;
 
+import sobiohazardous.minestrappolation.api.brewing.client.gui.GuiBrewingStand2;
 import sobiohazardous.minestrappolation.api.brewing.entity.EntityPotion2;
 import sobiohazardous.minestrappolation.api.brewing.entity.RenderPotion2;
 import sobiohazardous.minestrappolation.api.brewing.item.ItemPotion2;
+import sobiohazardous.minestrappolation.api.brewing.tileentity.TileEntityBrewingStand2;
 
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.EntityFX;
+import net.minecraft.client.renderer.RenderGlobal;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class ClientProxy extends CommonProxy
 {
-	public static int	mixerRenderType;
-	public static int	cauldronRenderType;
-	public static int	splashpotioncolor;
+public static int	splashpotioncolor;
 	
 	@Override
 	public void registerRenderers()
 	{
-		RenderingRegistry.registerEntityRenderingHandler(EntityPotion2.class, new RenderPotion2(Minestrappolation.potion2, 154));
-		setCustomRenderers();
-	}
-	
-	public static void setCustomRenderers()
-	{
+		RenderingRegistry.registerEntityRenderingHandler(EntityPotion2.class, new RenderPotion2());
 	}
 	
 	@Override
-	public void playSplashEffect(World par0World, int par1, int par2, int par3, ItemStack par4ItemStack)
+	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z)
 	{
-		Random random = par0World.rand;
-		double d0;
-		double d1;
-		double d2;
-		String s;
-		int j1;
-		int k1;
-		double d3;
-		double d4;
-		double d5;
-		double d6;
-		double d7;
+		if (ID == Minestrappolation.brewingStand2ID)
+			return new GuiBrewingStand2(player.inventory, (TileEntityBrewingStand2) world.getBlockTileEntity(x, y, z));
+		return null;
+	}
+	
+	@Override
+	public void playSplashEffect(World world, double x, double y, double z, int color, boolean isInstant)
+	{
+		RenderGlobal renderGlobal = Minecraft.getMinecraft().renderGlobal;
 		
-		d0 = par1;
-		d1 = par2;
-		d2 = par3;
-		s = "iconcrack_" + Item.potion.itemID;
+		Random random = world.rand;
+		String crackParticleName = "iconcrack_" + Minestrappolation.potion2.itemID;
 		
-		for (j1 = 0; j1 < 8; ++j1)
+		double distance;
+		float colorMultiplier;
+		double velocityX;
+		double velocityY;
+		double velocityZ;
+		double velocityMultiplier;
+		
+		for (int i = 0; i < 8; ++i)
 		{
-			par0World.spawnParticle(s, d0, d1, d2, random.nextGaussian() * 0.15D, random.nextDouble() * 0.2D, random.nextGaussian() * 0.15D);
+			renderGlobal.spawnParticle(crackParticleName, x, y, z, random.nextGaussian() * 0.15D, random.nextDouble() * 0.2D, random.nextGaussian() * 0.15D);
 		}
 		
-		j1 = ((ItemPotion2) par4ItemStack.getItem()).getColorFromItemStack(par4ItemStack, 0);
-		float f = (j1 >> 16 & 255) / 255.0F;
-		float f1 = (j1 >> 8 & 255) / 255.0F;
-		float f2 = (j1 >> 0 & 255) / 255.0F;
-		String s1 = "spell";
+		float r = (color >> 16 & 255) / 255.0F;
+		float g = (color >> 8 & 255) / 255.0F;
+		float b = (color >> 0 & 255) / 255.0F;
+		String particleName = isInstant ? "instanceSpell" : "spell";
 		
-		if (Minestrappolation.potion2.isEffectInstant(par4ItemStack))
+		for (int i = 0; i < 100; ++i)
 		{
-			s1 = "instantSpell";
-		}
-		
-		for (k1 = 0; k1 < 100; ++k1)
-		{
-			d7 = random.nextDouble() * 4.0D;
-			d3 = random.nextDouble() * Math.PI * 2.0D;
-			d4 = Math.cos(d3) * d7;
-			d5 = 0.01D + random.nextDouble() * 0.5D;
-			d6 = Math.sin(d3) * d7;
-			EntityFX entityfx = Minecraft.getMinecraft().renderGlobal.doSpawnParticle(s1, d0 + d4 * 0.1D, d1 + 0.3D, d2 + d6 * 0.1D, d4, d5, d6);
+			velocityMultiplier = random.nextDouble() * 4.0D;
+			distance = random.nextDouble() * Math.PI * 2.0D;
+			velocityX = Math.cos(distance) * velocityMultiplier;
+			velocityY = 0.01D + random.nextDouble() * 0.5D;
+			velocityZ = Math.sin(distance) * velocityMultiplier;
+			EntityFX entityfx = renderGlobal.doSpawnParticle(particleName, x + velocityX * 0.1D, y + 0.3D, z + velocityZ * 0.1D, velocityX, velocityY, velocityZ);
 			
 			if (entityfx != null)
 			{
-				float f3 = 0.75F + random.nextFloat() * 0.25F;
-				entityfx.setRBGColorF(f * f3, f1 * f3, f2 * f3);
-				entityfx.multiplyVelocity((float) d7);
+				colorMultiplier = 0.75F + random.nextFloat() * 0.25F;
+				entityfx.setRBGColorF(r * colorMultiplier, g * colorMultiplier, b * colorMultiplier);
+				entityfx.multiplyVelocity((float) velocityMultiplier);
 			}
 		}
 	}
