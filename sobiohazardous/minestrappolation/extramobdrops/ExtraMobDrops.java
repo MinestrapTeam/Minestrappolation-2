@@ -51,8 +51,6 @@ public class ExtraMobDrops
 		EMDConfig.initConfig(e);
 		EMDItemManager.loadItems();		
 		EMDItemManager.loadNames();
-		EMDPotionManager.loadPotions();
-		EMDPotionManager.loadBrewingRecipes();
 		EMDRecipeManager.loadRecipes();			
 	}
 	
@@ -63,6 +61,9 @@ public class ExtraMobDrops
 		GameRegistry.registerFuelHandler(new EMDFuelHandler());
 		TickRegistry.registerTickHandler(new PlayerTickHandler(EnumSet.of(TickType.PLAYER)), Side.SERVER);
 		MinecraftForge.EVENT_BUS.register(new EMDEventHandler());
+		
+		EMDPotionManager.loadPotions();
+		EMDPotionManager.loadBrewingRecipes();
 		
 		try
 		{

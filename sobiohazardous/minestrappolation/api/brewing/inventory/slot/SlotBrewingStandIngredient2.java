@@ -1,7 +1,8 @@
 package sobiohazardous.minestrappolation.api.brewing.inventory.slot;
 
-import sobiohazardous.minestrappolation.api.brewing.brewing.Brewing;
+import sobiohazardous.minestrappolation.api.brewing.brewing.PotionType;
 import sobiohazardous.minestrappolation.api.brewing.inventory.ContainerBrewingStand2;
+
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.Item;
@@ -22,11 +23,12 @@ public class SlotBrewingStandIngredient2 extends Slot
 	 * Check if the stack is a valid item for this slot. Always true beside for
 	 * the armor slots.
 	 */
+	@Override
 	public boolean isItemValid(ItemStack par1ItemStack)
 	{
 		if (par1ItemStack != null)
 		{
-			if (Item.itemsList[par1ItemStack.itemID].isPotionIngredient() || Brewing.isPotionIngredient(par1ItemStack))
+			if (Item.itemsList[par1ItemStack.itemID].isPotionIngredient() || PotionType.isPotionIngredient(par1ItemStack))
 			{
 				return true;
 			}
@@ -38,6 +40,7 @@ public class SlotBrewingStandIngredient2 extends Slot
 	 * Returns the maximum stack size for a given slot (usually the same as
 	 * getInventoryStackLimit(), but 1 in the case of armor slots)
 	 */
+	@Override
 	public int getSlotStackLimit()
 	{
 		return 64;

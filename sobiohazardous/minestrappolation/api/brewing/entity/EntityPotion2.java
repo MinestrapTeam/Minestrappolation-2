@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import sobiohazardous.minestrappolation.api.Minestrappolation;
-import sobiohazardous.minestrappolation.api.brewing.brewing.Brewing;
+import sobiohazardous.minestrappolation.api.brewing.brewing.PotionType;
 import sobiohazardous.minestrappolation.api.brewing.item.ItemPotion2;
 
 
@@ -20,29 +20,21 @@ import net.minecraft.world.World;
 
 public class EntityPotion2 extends EntityPotion
 {
-	/**
-	 * The damage value of the thrown potion that this EntityPotion represents.
-	 */
-	public ItemStack	potionDamage;
-	public int			color;
-	
-	public EntityPotion2(World par1World)
+	public EntityPotion2(World world)
 	{
-		super(par1World);
+		super(world);
 	}
 	
-	public EntityPotion2(World par1World, EntityLivingBase par2EntityLiving, ItemStack par3ItemStack)
+	public EntityPotion2(World world, EntityLivingBase thrower, ItemStack stack)
 	{
-		super(par1World, par2EntityLiving, par3ItemStack);
-		this.potionDamage = par3ItemStack;
-		this.color = ((ItemPotion2) par3ItemStack.getItem()).getColorFromItemStack(par3ItemStack, 0);
+		super(world, thrower, stack);
+		this.setPotion(stack);
 	}
 	
-	public EntityPotion2(World par1World, double par2, double par4, double par6, ItemStack par8ItemStack)
+	public EntityPotion2(World world, double x, double y, double z, ItemStack stack)
 	{
-		super(par1World, par2, par4, par6, par8ItemStack);
-		this.potionDamage = par8ItemStack;
-		this.color = ((ItemPotion2) par8ItemStack.getItem()).getColorFromItemStack(par8ItemStack, 0);
+		super(world, x, y, z, stack);
+		this.setPotion(stack);
 	}
 	
 	/**
@@ -66,29 +58,27 @@ public class EntityPotion2 extends EntityPotion
 		return -20.0F;
 	}
 	
-	public void setPotionDamage(ItemStack par1)
+	public void setPotion(ItemStack stack)
 	{
-		this.potionDamage = par1;
+		this.getDataWatcher().updateObject(10, stack);
+		this.getDataWatcher().setObjectWatched(10);
 	}
 	
-	/**
-	 * Returns the damage value of the thrown potion that this EntityPotion
-	 * represents.
-	 */
 	public ItemStack getPotion()
 	{
-		return potionDamage;
+		return this.getDataWatcher().getWatchableObjectItemStack(10);
 	}
 	
 	/**
 	 * Called when this EntityThrowable hits a block or entity.
 	 */
 	@Override
-	protected void onImpact(MovingObjectPosition par1MovingObjectPosition)
+	protected void onImpact(MovingObjectPosition movingObjectPosition)
 	{
 		if (!this.worldObj.isRemote)
 		{
-			List list = Minestrappolation.potion2.getEffects(this.potionDamage);
+			ItemStack potion = this.getPotion();
+			List list = ((ItemPotion2) potion.getItem()).getEffects(potion);
 			
 			if (list != null && !list.isEmpty())
 			{
@@ -108,7 +98,7 @@ public class EntityPotion2 extends EntityPotion
 						{
 							double d1 = 1.0D - Math.sqrt(d0) / 4.0D;
 							
-							if (entitylivingbase == par1MovingObjectPosition.entityHit)
+							if (entitylivingbase == movingObjectPosition.entityHit)
 							{
 								d1 = 1.0D;
 							}
@@ -117,7 +107,7 @@ public class EntityPotion2 extends EntityPotion
 							
 							while (iterator1.hasNext())
 							{
-								PotionEffect potioneffect = ((Brewing) iterator1.next()).getEffect();
+								PotionEffect potioneffect = ((PotionType) iterator1.next()).getEffect();
 								if (potioneffect != null)
 								{
 									int i = potioneffect.getPotionID();
@@ -142,64 +132,38 @@ public class EntityPotion2 extends EntityPotion
 				}
 			}
 			
-			this.playSplashEffect((int) Math.round(this.posX), (int) Math.round(this.posY), (int) Math.round(this.posZ), this.getPotion());
-			this.worldObj.playSoundEffect(this.posX, this.posY, this.posZ, "random.glass", 1.0F, worldObj.rand.nextFloat() * 0.1F + 0.9F);
+			Minestrappolation.proxy.playSplashEffect(this.worldObj, this.posX, this.posY, this.posZ, potion);
+			this.worldObj.playSoundEffect(this.posX, this.posY, this.posZ, "random.glass", 1.0F, this.worldObj.rand.nextFloat() * 0.1F + 0.9F);
 			this.setDead();
 		}
 	}
 	
-	private void playSplashEffect(int par1, int par2, int par3, ItemStack par4ItemStack)
+	@Override
+	protected void entityInit()
 	{
-		Minestrappolation.proxy.playSplashEffect(this.worldObj, par1, par2, par3, par4ItemStack);
-		this.worldObj.playSound(par1 + 0.5D, par2 + 0.5D, par3 + 0.5D, "random.glass", 1.0F, this.worldObj.rand.nextFloat() * 0.1F + 0.9F, false);
+		this.getDataWatcher().addObjectByDataType(10, 5);
 	}
 	
-	/**
-	 * (abstract) Protected helper method to read subclass entity data from NBT.
-	 */
 	@Override
-	public void readEntityFromNBT(NBTTagCompound par1NBTTagCompound)
+	public void writeToNBT(NBTTagCompound nbt)
 	{
-		super.readEntityFromNBT(par1NBTTagCompound);
+		super.writeToNBT(nbt);
 		
-		if (par1NBTTagCompound.hasKey("Potion"))
-		{
-			this.potionDamage = ItemStack.loadItemStackFromNBT(par1NBTTagCompound.getCompoundTag("Potion"));
-		}
+		if (this.getPotion() != null)
+			nbt.setCompoundTag("Item", this.getPotion().writeToNBT(new NBTTagCompound()));
+	}
+	
+	@Override
+	public void readFromNBT(NBTTagCompound nbt)
+	{
+		super.readFromNBT(nbt);
 		
-		if (this.potionDamage == null)
-		{
+		NBTTagCompound nbttagcompound1 = nbt.getCompoundTag("Item");
+		this.setPotion(ItemStack.loadItemStackFromNBT(nbttagcompound1));
+		
+		ItemStack item = this.getDataWatcher().getWatchableObjectItemStack(10);
+		
+		if (item == null || item.stackSize <= 0)
 			this.setDead();
-		}
-		
-		if (par1NBTTagCompound.hasKey("Color"))
-		{
-			color = par1NBTTagCompound.getInteger("Color");
-		}
-		else
-		{
-			color = 0x0F0F0F;
-		}
-	}
-	
-	/**
-	 * (abstract) Protected helper method to write subclass entity data to NBT.
-	 */
-	@Override
-	public void writeEntityToNBT(NBTTagCompound par1NBTTagCompound)
-	{
-		super.writeEntityToNBT(par1NBTTagCompound);
-		
-		if (this.potionDamage != null)
-		{
-			par1NBTTagCompound.setCompoundTag("Potion", this.potionDamage.writeToNBT(new NBTTagCompound()));
-		}
-		par1NBTTagCompound.setInteger("Color", color);
-	}
-	
-	@Override
-	public void onUpdate()
-	{
-		super.onUpdate();
 	}
 }

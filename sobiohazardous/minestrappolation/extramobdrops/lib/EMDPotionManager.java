@@ -3,8 +3,8 @@ package sobiohazardous.minestrappolation.extramobdrops.lib;
 import java.util.Iterator;
 import java.util.List;
 
-import sobiohazardous.minestrappolation.api.brewing.brewing.Brewing;
-import sobiohazardous.minestrappolation.api.brewing.brewing.BrewingList;
+import sobiohazardous.minestrappolation.api.brewing.brewing.PotionList;
+import sobiohazardous.minestrappolation.api.brewing.brewing.PotionType;
 import sobiohazardous.minestrappolation.api.potion.MPotion;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
@@ -20,8 +20,8 @@ public class EMDPotionManager
 	
 	public static Potion infectious;
 	
-	public static Brewing waterBreathing;
-	public static Brewing resistance;
+	public static PotionType waterBreathing;
+	public static PotionType resistance;
 	
 	public static void loadPotions()
 	{
@@ -57,9 +57,9 @@ public class EMDPotionManager
 	 */
 	public static void loadBrewingRecipes()
 	{
-		waterBreathing = new Brewing(new PotionEffect(Potion.waterBreathing.id, 120 * 20, 0), 2, 1, new ItemStack(EMDItemManager.airSack), BrewingList.awkward);
+		waterBreathing = new PotionType(new PotionEffect(Potion.waterBreathing.id, 120 * 20, 0), 2, 1, new ItemStack(EMDItemManager.airSack), PotionList.awkward);
 		waterBreathing.register();
-		resistance = new Brewing(new PotionEffect(Potion.resistance.id, 180 * 20), 2, 2, new ItemStack(EMDItemManager.marrow), BrewingList.awkward);
+		resistance = new PotionType(new PotionEffect(Potion.resistance.id, 180 * 20), 2, 2, new ItemStack(EMDItemManager.marrow), PotionList.awkward);
 		resistance.register();
 	}
 	
