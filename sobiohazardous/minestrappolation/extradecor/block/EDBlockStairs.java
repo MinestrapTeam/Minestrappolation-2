@@ -12,6 +12,7 @@ public class EDBlockStairs extends BlockStairs
 	public EDBlockStairs(int id, Block block, int blockmeta)
 	{
 		super(id, block, blockmeta);
+		  this.setLightOpacity(255);
 	}
 	
 	public int getFlammability(IBlockAccess world, int x, int y, int z, int metadata, ForgeDirection face)

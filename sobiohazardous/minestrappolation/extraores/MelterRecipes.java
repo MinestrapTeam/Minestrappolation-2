@@ -50,7 +50,7 @@ ModdedMelterRecipeLoader meltr = new ModdedMelterRecipeLoader();
 		//addSmelting(Block.obsidian.blockID, new ItemStack(EOItemManager.bucketMagma.itemID,1,0), 0.7F);
 		//addSmelting(Block.bedrock.blockID, new ItemStack(EOItemManager.bucketMagma.itemID,1,0), 0.7F);
 		addSmelting(EOBlockManager.Granite.blockID, new ItemStack(Item.bucketLava.itemID,1,0), 0.7F);
-	
+		addSmelting(Block.glowStone.blockID, new ItemStack(EOBlockManager.glowGlass), 0.7F);
 		
 		
 		if(ModLoader.isModLoaded("ExtraDecor")){

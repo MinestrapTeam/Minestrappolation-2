@@ -10,5 +10,6 @@ public class EOBlockStairs extends BlockStairs
 	{
 		super(id, block, blockmeta);
 		this.setCreativeTab(EOBlockManager.tabOresBlocks);
+		this.setLightOpacity(255);
 	}
 }
