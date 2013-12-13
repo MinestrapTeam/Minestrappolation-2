@@ -7,23 +7,30 @@ import net.minecraft.tileentity.TileEntity;
 
 public class TileEntityPlate extends TileEntity 
 {
+	int itemNumbersSpawned = 0;
+	EntityItem item;
 	public void render(boolean render, ItemStack currItem)
 	{
 		if(render)
 		{
 			if(!this.worldObj.isRemote)
 			{
-				EntityItem item = new EntityItem(this.worldObj, this.xCoord, this.yCoord, this.zCoord, currItem);
-				this.worldObj.spawnEntityInWorld(item);
-				item.posX = this.xCoord;
-				item.posY = this.yCoord;
-				item.posZ = this.zCoord;
+				
+				item = new EntityItem(this.worldObj, this.xCoord+.5, this.yCoord+1, this.zCoord+.5, currItem);
+				item.setVelocity(0D, 0D, 0D);
+				if(this.itemNumbersSpawned == 0){
+					this.worldObj.spawnEntityInWorld(item);
+					this.itemNumbersSpawned = 1;
+				}				
+				item.delayBeforeCanPickup = 1000000000;
+			
 			}
 		}
 	}
 	
 	public void updateEntity()
 	{
+		render(true,new ItemStack(Item.bone));
 		
 	}
 }
