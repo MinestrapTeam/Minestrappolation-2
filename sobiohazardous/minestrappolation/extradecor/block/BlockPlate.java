@@ -10,6 +10,7 @@ import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
@@ -44,6 +45,21 @@ public class BlockPlate extends BlockContainer{
 			return blockIcon;
 
 		}
+	public boolean onBlockActivated(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9)
+	{
+	    ItemStack currItem = par5EntityPlayer.inventory.getCurrentItem();
+	    TileEntityPlate te = (TileEntityPlate) par1World.getBlockTileEntity(par2, par3, par4);
+	    if(currItem != null)
+	    {
+	    	te.render(true, currItem);
+	    }
+	    
+	    if(!par5EntityPlayer.capabilities.isCreativeMode)
+	    {
+	    	par5EntityPlayer.inventory.getCurrentItem().stackSize--;
+	    }
+		return true;	
+	}
 	
 	public int getRenderType(){
 		return -1;	
