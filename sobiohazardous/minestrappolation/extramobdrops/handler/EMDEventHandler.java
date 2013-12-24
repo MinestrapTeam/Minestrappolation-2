@@ -306,6 +306,13 @@ public class EMDEventHandler
 					event.entityLiving.dropItem(EMDItemManager.enderCore.itemID, 1);
 				}
 			}
+			if(event.entityLiving instanceof EntityGhast)
+			{
+				if(rand < 0.15)
+				{
+					event.entityLiving.dropItem(EMDItemManager.ghastTentacle.itemID, 4);
+				}
+			}
 		}
 	}
 	

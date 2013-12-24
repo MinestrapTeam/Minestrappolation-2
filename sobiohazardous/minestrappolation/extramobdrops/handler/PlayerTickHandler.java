@@ -1,9 +1,10 @@
 package sobiohazardous.minestrappolation.extramobdrops.handler;
 
 import java.util.EnumSet;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.world.World;
+import java.util.Random;
 
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import cpw.mods.fml.common.ITickHandler;
 import cpw.mods.fml.common.TickType;
 
@@ -11,6 +12,13 @@ public class PlayerTickHandler implements ITickHandler
 {
     private final EnumSet<TickType> ticksToGet;
     
+    static int ticks = 0;
+    
+    public static boolean gTentacleEffect = false;
+    
+    static Random rand = new Random();
+	public static int gTime = 30 + rand.nextInt(150);
+	
     /*
      * This Tick Handler will fire for whatever TickType's you construct and register it with.
      */
@@ -47,5 +55,22 @@ public class PlayerTickHandler implements ITickHandler
     
     public static void playerTick(EntityPlayer player)
     {
+
+    	if(gTentacleEffect)
+    	{
+    		ticks++;
+    		if(ticks == gTime*20)
+    		{
+    			gTentacleEffect = false;
+    			EntityPlayerMP playermp = (EntityPlayerMP)player;
+    			playermp.mcServer.getConfigurationManager().transferPlayerToDimension(playermp, 0);
+    		}
+    	}
+    	
+    	if(!gTentacleEffect)
+    	{
+    		ticks = 0;
+    	}
     }
+
 }
