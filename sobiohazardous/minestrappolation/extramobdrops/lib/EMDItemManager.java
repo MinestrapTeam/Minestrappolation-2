@@ -105,6 +105,8 @@ public class EMDItemManager
 
 	public static Item ghastTentacle;
 	
+	public static Item genes;
+	
 	public static EnumToolMaterial toolMaterialWoodH = EnumHelper.addToolMaterial("ToolWoodH", 0, 59, 2.0F, 2.0F, 15);
 	public static EnumToolMaterial toolMaterialStoneH = EnumHelper.addToolMaterial("ToolStoneH", 1, 131, 4.0F, 3.0F, 5);
 	public static EnumToolMaterial toolMaterialIronH = EnumHelper.addToolMaterial("ToolIronH", 2, 250, 6.0F, 4.0F, 14);
@@ -195,6 +197,8 @@ public class EMDItemManager
 		enderCore = new ItemEnderCore(EMDConfig.enderCoreId, 0, 0).setUnlocalizedName("ender_core").setCreativeTab(tabItems);
 	
 		ghastTentacle = new ItemGhastTentacle(EMDConfig.ghastTentacleId).setUnlocalizedName("ghast_tentacle").setCreativeTab(tabItems);
+		
+		genes = new ItemGene(EMDConfig.genesId).setUnlocalizedName("gene");
 	}
 	
 	public static void loadNames()
@@ -241,6 +245,17 @@ public class EMDItemManager
 		LanguageRegistry.addName(slimeCore, "Slime Core");
 		LanguageRegistry.addName(enderCore, "Ender Core");
 		LanguageRegistry.addName(ghastTentacle, "Ghast Tentacle");
+		
+		LanguageRegistry.instance().addStringLocalization("item.gene.pig.name", "Pig Gene");
+		LanguageRegistry.instance().addStringLocalization("item.gene.cow.name", "Cow Gene");
+		LanguageRegistry.instance().addStringLocalization("item.gene.chicken.name", "Chicken Gene");
+		LanguageRegistry.instance().addStringLocalization("item.gene.sheep.name", "Sheep Gene");
+		LanguageRegistry.instance().addStringLocalization("item.gene.horse.name", "Horse Gene");
+		LanguageRegistry.instance().addStringLocalization("item.gene.mooshroom.name", "Mooshroom Gene");
+		LanguageRegistry.instance().addStringLocalization("item.gene.squid.name", "Squid Gene");
+		LanguageRegistry.instance().addStringLocalization("item.gene.ocelot.name", "Ocelot Gene");
+		LanguageRegistry.instance().addStringLocalization("item.gene.wolf.name", "Wolf Gene");
+		LanguageRegistry.instance().addStringLocalization("item.gene.bat.name", "Bat Gene");
 	}
 	
 	public static void loadBridgedItems() throws Exception

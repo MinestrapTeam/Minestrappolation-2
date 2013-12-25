@@ -71,7 +71,8 @@ public class EMDConfig
 	hideCreeperId,
 	slimeCoreId,
 	enderCoreId,
-	ghastTentacleId;
+	ghastTentacleId,
+	genesId;
 	
 	public static void initConfig(FMLPreInitializationEvent e)
 	{
@@ -144,6 +145,7 @@ public class EMDConfig
 		slimeCoreId = config.getItem("Slime Core", 4062).getInt();
 		enderCoreId = config.getItem("Ender Core", 4063).getInt();
 		ghastTentacleId = config.getItem("Ghast Tentacle", 4064).getInt();
+		genesId = config.getItem("Genes", 4065).getInt();
 		config.save();
 	}
 }
