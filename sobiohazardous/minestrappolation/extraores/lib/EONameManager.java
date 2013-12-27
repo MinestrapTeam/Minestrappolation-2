@@ -7,15 +7,7 @@ import net.minecraft.block.Block;
 
 
 public class EONameManager 
-
 {
-
-	//Load using method or constructor, depending on situation
-	
-	public EONameManager()
-	{
-		loadNames();
-	}
 	
 	public static void loadNames()
 	{
@@ -441,6 +433,9 @@ public class EONameManager
 		//LanguageRegistry.addName(EOItemManager.bucketMagma, "Bucket of Magma");
 
 		LanguageRegistry.addName(EOBlockManager.soulBlock, "Soul Block");
+		
+		LanguageRegistry.addName(EOItemManager.steelKey, "Steel Key");
+		LanguageRegistry.addName(EOItemManager.steelLock, "Steel Lock");
 	}
 	
 }

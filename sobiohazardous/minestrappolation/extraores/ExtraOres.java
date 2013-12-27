@@ -123,7 +123,8 @@ public class ExtraOres
 
         GameRegistry.registerFuelHandler(new EOFuelHandler());
     	GameRegistry.registerTileEntity(TileEntityMelter.class, "tileEntityMelter");
-
+    	
+    	EOBlockManager.loadVanillaOverwrites();
 		
 		VillagerRegistry.instance().registerVillageTradeHandler(3, new BlacksmithTradeHandler());
 		VillagerRegistry.instance().registerVillageTradeHandler(2, new PriestTradeHandler());

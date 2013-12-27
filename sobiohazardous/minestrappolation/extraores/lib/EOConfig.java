@@ -319,7 +319,9 @@ public class EOConfig {
 	meuroditePlateItemID,
 	magmaId,
 	bucketMagmaId,
-	soulBlockId;
+	soulBlockId,
+	steelKeyId,
+	steelLockId;
 
 	public static boolean shouldOresEffect = true;
 	public static int daysUntilTarnish;
@@ -645,6 +647,8 @@ public class EOConfig {
 	    bucketMagmaId = config.getItem("Bucket of Magma", 1076).getInt();
 	    soulBlockId = config.getBlock("Soul Block", 3098).getInt();
 	    shouldOresEffect = config.get("Misc", "should Plutonium/Uranium ores effect player", true).getBoolean(true);
+	    steelKeyId = config.getItem("SteelKey", 1077).getInt();
+	    steelLockId = config.getItem("Steel Lock", 1078).getInt();
 		config.save();
 	}
 

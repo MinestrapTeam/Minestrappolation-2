@@ -10,6 +10,7 @@ import sobiohazardous.minestrappolation.extraores.block.BlockBlazium;
 import sobiohazardous.minestrappolation.extraores.block.BlockBlaziumOre;
 import sobiohazardous.minestrappolation.extraores.block.BlockCopper;
 import sobiohazardous.minestrappolation.extraores.block.BlockCopperTarnished;
+import sobiohazardous.minestrappolation.extraores.block.BlockDoorOverwrite;
 import sobiohazardous.minestrappolation.extraores.block.BlockGlowGlass;
 import sobiohazardous.minestrappolation.extraores.block.BlockGodstone;
 import sobiohazardous.minestrappolation.extraores.block.BlockInvincium;
@@ -209,6 +210,8 @@ public class EOBlockManager {
 	
 	public static Block soulBlock;
 	
+	public static Block doorWoodOverwrite;
+	
 	public static void addBlocks()
 	{
 		meuroditeOre = (new EOBlock(EOConfig.meuroditeOreId, Material.rock)).setHardness(5F).setCreativeTab(tabOresBlocks).setResistance(10F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("block_MeuroditeOre");
@@ -359,6 +362,15 @@ public class EOBlockManager {
 		//magma = new BlockMagma(EOConfig.magmaId).setHardness(100.0F).setLightOpacity(3).setUnlocalizedName("magma").setLightValue(1F);
 		
 		soulBlock = new BlockSoulBlock(EOConfig.soulBlockId).setUnlocalizedName("block_SoulBlock").setHardness(65F).setResistance(30F).setLightValue(1F);
+	}
+	
+	public static void loadVanillaOverwrites()
+	{
+		/*
+		Block.blocksList[Block.doorWood.blockID] = null;
+		doorWoodOverwrite = new BlockDoorOverwrite(64, Material.wood).setHardness(3.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("doorWood").setTextureName("door_wood");
+		GameRegistry.registerBlock(doorWoodOverwrite, "doorWood");
+		*/
 	}
 	
 	public static void addSlabs()
