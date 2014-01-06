@@ -3,6 +3,7 @@ package sobiohazardous.minestrappolation.extraores.item;
 import java.util.List;
 
 import sobiohazardous.minestrappolation.api.Minestrappolation;
+import sobiohazardous.minestrappolation.api.lib.MAPIConfig;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -48,7 +49,7 @@ public class BlaziumToolSword extends ItemSword
     
     public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)
     {
-		if(Minestrappolation.showDur == true){
+		if(MAPIConfig.showDur == true){
 			 par3List.add(EnumChatFormatting.GREEN+"Durability: "+EnumChatFormatting.RED+Integer.toString(getMaxDamage()-par1ItemStack.getItemDamage()+1)+"/"+Integer.toString(getMaxDamage()+1));
 		}
 		 

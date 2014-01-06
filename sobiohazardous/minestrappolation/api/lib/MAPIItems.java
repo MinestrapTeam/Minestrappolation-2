@@ -1,8 +1,8 @@
 package sobiohazardous.minestrappolation.api.lib;
 
-public class Potions 
+public class MAPIItems 
 {
-	public void loadPotionEffects()
+	public void loadItems()
 	{
 		
 	}

@@ -21,6 +21,9 @@ import sobiohazardous.minestrappolation.api.brewing.item.ItemPotion2;
 import sobiohazardous.minestrappolation.api.brewing.lib.DispenserBehaviorPotion2;
 import sobiohazardous.minestrappolation.api.brewing.tileentity.TileEntityBrewingStand2;
 import sobiohazardous.minestrappolation.api.common.MAPIPacketHandler;
+import sobiohazardous.minestrappolation.api.lib.MAPIBlocks;
+import sobiohazardous.minestrappolation.api.lib.MAPIConfig;
+import sobiohazardous.minestrappolation.api.tileentity.TileEntityStonecutter;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -53,19 +56,9 @@ public class Minestrappolation
 	public static Minestrappolation		instance;
 	
 	@SidedProxy(modId = "Minestrappolation", clientSide = "sobiohazardous.minestrappolation.api.ClientProxy", serverSide = "sobiohazardous.minestrappolation.api.CommonProxy")
-	public static CommonProxy		proxy;
+	public static CommonProxy		proxy;		
 		
-	public static boolean			multiPotions			= false;
-	public static boolean			advancedPotionInfo		= false;
-	public static boolean			animatedPotionLiquid	= true;
-	public static boolean			showAllBaseBrewings		= false;
-	public static boolean			defaultAwkwardBrewing	= false;
-	public static int				potionStackSize			= 1;
-	
-	public static int				brewingStand2ID		= 11;
-	public static int				splashPotion2ID		= EntityRegistry.findGlobalUniqueEntityId();
-	
-	public static MAPICreativeTab	potions;
+	public static MAPICreativeTab	creativeTab;
 	
 	public static Block				brewingStand2;
 	public static Item				brewingStand2Item;
@@ -74,28 +67,13 @@ public class Minestrappolation
 	public static ItemGlassBottle2	glassBottle2;
 	
 	public static final int			POTION_LIST_LENGTH		= 1024;
-	
-	public static boolean showDur = true;
-	
+		
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
-	{
-		Configuration config = new Configuration(event.getSuggestedConfigurationFile());
-		config.load();
-		
-		brewingStand2ID = config.get("TileEntityIDs", "BrewingStand2TEID", 11).getInt();
-		
-		multiPotions = config.get("Potions", "MultiPotions", false, "If true, potions with 2 different effects are shown in the creative inventory.").getBoolean(false);
-		advancedPotionInfo = config.get("Potions", "AdvancedPotionInfo", true).getBoolean(true);
-		animatedPotionLiquid = config.get("Potions", "AnimatedPotionLiquid", true).getBoolean(true);
-		showAllBaseBrewings = config.get("Potions", "ShowAllBaseBrewings", false, "If true, all base potions are shown in creative inventory.").getBoolean(false);
-		defaultAwkwardBrewing = config.get("Potions", "DefaultAwkwardBrewing", false, "If true, all potions can be brewed with an awkward potion.").getBoolean(false);
-		potionStackSize = config.get("Potions", "PotionStackSize", 1).getInt();
-		showDur = config.get("Misc", "Show Durability", true).getBoolean(true);
-		
-		config.save();
-		
+	{	
 		expandPotionList();
+		//Lib init
+		MAPIBlocks.loadBlocks();
 	}
 	
 	@EventHandler
@@ -105,12 +83,12 @@ public class Minestrappolation
 		NetworkRegistry.instance().registerGuiHandler(instance, proxy);
 		Minestrappolation.load();
 		
-		if (multiPotions)
-			potions = new MAPICreativeTab(CreativeTabs.getNextID(), "morepotions");
+		creativeTab = new MAPICreativeTab(CreativeTabs.getNextID(), "morepotions");
 		
 		GameRegistry.registerTileEntity(TileEntityBrewingStand2.class, "BrewingStand2");
-		EntityRegistry.registerGlobalEntityID(EntityPotion2.class, "SplashPotion2", splashPotion2ID);
-		EntityRegistry.registerModEntity(EntityPotion2.class, "SplashPotion2", splashPotion2ID, this, 100, 20, true);
+		EntityRegistry.registerGlobalEntityID(EntityPotion2.class, "SplashPotion2", MAPIConfig.splashPotion2ID);
+		EntityRegistry.registerModEntity(EntityPotion2.class, "SplashPotion2", MAPIConfig.splashPotion2ID, this, 100, 20, true);
+		GameRegistry.registerTileEntity(TileEntityStonecutter.class, "tileEntityStoneCutter");
 		
 		Block.blocksList[Block.brewingStand.blockID] = null;
 		brewingStand2 = (new BlockBrewingStand2(Block.brewingStand.blockID)).setHardness(0.5F).setLightValue(0.125F).setUnlocalizedName("brewingStand");

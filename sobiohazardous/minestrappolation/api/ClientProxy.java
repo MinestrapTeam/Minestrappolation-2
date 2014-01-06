@@ -7,7 +7,11 @@ import sobiohazardous.minestrappolation.api.brewing.entity.EntityPotion2;
 import sobiohazardous.minestrappolation.api.brewing.entity.RenderPotion2;
 import sobiohazardous.minestrappolation.api.brewing.item.ItemPotion2;
 import sobiohazardous.minestrappolation.api.brewing.tileentity.TileEntityBrewingStand2;
+import sobiohazardous.minestrappolation.api.lib.MAPIConfig;
+import sobiohazardous.minestrappolation.api.tileentity.RendererStonecutter;
+import sobiohazardous.minestrappolation.api.tileentity.TileEntityStonecutter;
 
+import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
 import net.minecraft.client.Minecraft;
@@ -26,12 +30,13 @@ public static int	splashpotioncolor;
 	public void registerRenderers()
 	{
 		RenderingRegistry.registerEntityRenderingHandler(EntityPotion2.class, new RenderPotion2());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityStonecutter.class, new RendererStonecutter());
 	}
 	
 	@Override
 	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z)
 	{
-		if (ID == Minestrappolation.brewingStand2ID)
+		if (ID == MAPIConfig.brewingStand2ID)
 			return new GuiBrewingStand2(player.inventory, (TileEntityBrewingStand2) world.getBlockTileEntity(x, y, z));
 		return null;
 	}

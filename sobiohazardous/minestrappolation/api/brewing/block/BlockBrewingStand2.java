@@ -5,6 +5,7 @@ import java.util.Random;
 
 import sobiohazardous.minestrappolation.api.Minestrappolation;
 import sobiohazardous.minestrappolation.api.brewing.tileentity.TileEntityBrewingStand2;
+import sobiohazardous.minestrappolation.api.lib.MAPIConfig;
 
 import cpw.mods.fml.common.network.FMLNetworkHandler;
 import cpw.mods.fml.relauncher.Side;
@@ -121,7 +122,7 @@ public class BlockBrewingStand2 extends BlockBrewingStand
 		{
 			if (par1World.getBlockTileEntity(par2, par3, par4) != null)
 			{
-				FMLNetworkHandler.openGui(par5EntityPlayer, Minestrappolation.instance, Minestrappolation.brewingStand2ID, par1World, par2, par3, par4);
+				FMLNetworkHandler.openGui(par5EntityPlayer, Minestrappolation.instance, MAPIConfig.brewingStand2ID, par1World, par2, par3, par4);
 			}
 			
 			return true;

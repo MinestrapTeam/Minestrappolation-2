@@ -10,6 +10,7 @@ import sobiohazardous.minestrappolation.api.brewing.brewing.PotionType;
 import sobiohazardous.minestrappolation.api.brewing.brewing.PotionUtils;
 import sobiohazardous.minestrappolation.api.brewing.entity.EntityPotion2;
 import sobiohazardous.minestrappolation.api.brewing.lib.AttributeModifierComparator;
+import sobiohazardous.minestrappolation.api.lib.MAPIConfig;
 
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
@@ -55,7 +56,7 @@ public class ItemPotion2 extends Item
 	public ItemPotion2(int par1)
 	{
 		super(par1);
-		this.setMaxStackSize(Minestrappolation.potionStackSize);
+		this.setMaxStackSize(MAPIConfig.potionStackSize);
 		this.setHasSubtypes(true);
 		this.setCreativeTab(CreativeTabs.tabBrewing);
 		this.setTextureName("potion");
@@ -64,7 +65,7 @@ public class ItemPotion2 extends Item
 	@Override
 	public CreativeTabs[] getCreativeTabs()
 	{
-		return new CreativeTabs[] { Minestrappolation.potions, CreativeTabs.tabBrewing, CreativeTabs.tabAllSearch };
+		return new CreativeTabs[] { Minestrappolation.creativeTab, CreativeTabs.tabBrewing, CreativeTabs.tabAllSearch };
 	}
 	
 	public List<PotionType> getLegacyEffects(ItemStack stack)
@@ -421,7 +422,7 @@ public class ItemPotion2 extends Item
 						builder.append(" (").append(potionType.getDuration() >= 1000000 ? I18n.getString("potion.infinite") : Potion.getDurationString(potionType.getEffect())).append(")");			
 				}
 				
-				if (Minestrappolation.advancedPotionInfo && Keyboard.isKeyDown(Keyboard.KEY_CAPITAL))
+				if (MAPIConfig.advancedPotionInfo && Keyboard.isKeyDown(Keyboard.KEY_CAPITAL))
 				{
 					if (potionTypes.size() == 1)
 					{
@@ -599,7 +600,7 @@ public class ItemPotion2 extends Item
 				list.add(bad2);
 			
 		}
-		else if (Minestrappolation.multiPotions && tab == Minestrappolation.potions)
+		else if (MAPIConfig.multiPotions && tab == Minestrappolation.creativeTab)
 		{
 			for (int i = 1; i <= 2; i++)
 			{
