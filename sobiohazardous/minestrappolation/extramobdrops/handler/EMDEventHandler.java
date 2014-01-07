@@ -4,11 +4,15 @@ import java.util.Collection;
 
 import sobiohazardous.minestrappolation.extramobdrops.lib.EMDItemManager;
 import sobiohazardous.minestrappolation.extramobdrops.lib.EMDPotionManager;
+import sobiohazardous.minestrappolation.extramobdrops.tileentity.ModelHangGlider;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.monster.*;
 import net.minecraft.entity.passive.*;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.Potion;
+import net.minecraftforge.client.event.RenderPlayerEvent;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
@@ -314,6 +318,17 @@ public class EMDEventHandler
 				}
 			}
 		}
+	}
+	
+	@ForgeSubscribe
+	public void renderPlayer (RenderPlayerEvent.Post evt)
+	{
+		//add if statements to check if holding item
+		//bind the model texture (this is hard)
+		//rotate model above player (GL11)
+		//make the players hands move upward
+		//ModelHangGlider m = new ModelHangGlider();				
+		//m.render(0.0625F);
 	}
 	
 	@ForgeSubscribe

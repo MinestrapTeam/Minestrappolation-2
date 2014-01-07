@@ -112,8 +112,7 @@ public class ModelPlate extends ModelBase
     PlateI.render(f5);
   }
   
-  public void render(float f5)
-  {
+  public void render(float f5){
 	  Base.render(f5);
 	    PlateA.render(f5);
 	    PlateB.render(f5);
