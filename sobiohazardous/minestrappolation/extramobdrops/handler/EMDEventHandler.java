@@ -122,6 +122,18 @@ public class EMDEventHandler
 				{
 					event.entityLiving.dropItem(EMDItemManager.animalBones.itemID, 4);
 				}
+				if(rand3 < 0.25D)
+				{
+					event.entityLiving.dropItem(EMDItemManager.horseHoof.itemID, 4);
+				}
+				if(rand4 < 0.5)
+				{
+					event.entityLiving.dropItem(EMDItemManager.rawHorseHaunch.itemID, 3);
+				}
+				if(rand5 < 0.3)
+				{
+					event.entityLiving.dropItem(EMDItemManager.horseHair.itemID, 4);
+				}
 			}
 			
 			if(event.entityLiving instanceof EntityWolf)

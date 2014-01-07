@@ -72,7 +72,14 @@ public class EMDConfig
 	slimeCoreId,
 	enderCoreId,
 	ghastTentacleId,
-	genesId;
+	genesId,
+	charmsId,
+	amuletPorcumId,
+	horseHoofId,
+	rawHorseHaunchId,
+	cookedHorseHaunchId,
+	horseHairId,
+	amuletVaccamId;
 	
 	public static void initConfig(FMLPreInitializationEvent e)
 	{
@@ -146,6 +153,13 @@ public class EMDConfig
 		enderCoreId = config.getItem("Ender Core", 4063).getInt();
 		ghastTentacleId = config.getItem("Ghast Tentacle", 4064).getInt();
 		genesId = config.getItem("Genes", 4065).getInt();
+		charmsId = config.getItem("Charms", 4066).getInt();
+		amuletPorcumId = config.getItem("Porcum Amulet", 4067).getInt();
+		horseHoofId = config.getItem("Horse Hoof", 4068).getInt();
+		rawHorseHaunchId = config.getItem("Raw Horse Haunch", 4069).getInt();
+		cookedHorseHaunchId = config.getItem("Cooked Horse Haunch", 4070).getInt();
+		horseHairId = config.getItem("Horse Hair ", 4071).getInt();
+		amuletVaccamId = config.getItem("Vaccam Amulet", 4072).getInt();
 		config.save();
 	}
 }

@@ -65,6 +65,27 @@ public class EMDRecipeManager
 				{
 			"WW", "WW", Character.valueOf('W'), EMDItemManager.whisker
 				});
+		GameRegistry.addRecipe(new ItemStack(EMDItemManager.charms, 1, 0), new Object[]
+				{
+			" G ", "GPG", " G ", Character.valueOf('G'), Item.ingotGold, Character.valueOf('P'), EMDItemManager.pigHoof
+				});
+		GameRegistry.addRecipe(new ItemStack(EMDItemManager.charms, 1, 1), new Object[]
+				{
+			" G ", "GPG", " G ", Character.valueOf('G'), Item.ingotGold, Character.valueOf('P'), EMDItemManager.cowHoof
+				});
+		GameRegistry.addRecipe(new ItemStack(EMDItemManager.charms, 1, 2), new Object[]
+				{
+			" G ", "GPG", " G ", Character.valueOf('G'), Item.ingotGold, Character.valueOf('P'), EMDItemManager.footChicken
+				});
+		GameRegistry.addRecipe(new ItemStack(EMDItemManager.charms, 1, 3), new Object[]
+				{
+			" G ", "GPG", " G ", Character.valueOf('G'), Item.ingotGold, Character.valueOf('P'), EMDItemManager.sheepHoof
+				});
+		GameRegistry.addRecipe(new ItemStack(EMDItemManager.charms, 1, 4), new Object[]
+				{
+			" G ", "GPG", " G ", Character.valueOf('G'), Item.ingotGold, Character.valueOf('P'), EMDItemManager.horseHoof
+				});
+		GameRegistry.addSmelting(EMDItemManager.rawHorseHaunch.itemID, new ItemStack(EMDItemManager.cookedHorseHaunch), 0.8F);
 	}
 	
 	public static void loadBridgeRecipes() throws Exception

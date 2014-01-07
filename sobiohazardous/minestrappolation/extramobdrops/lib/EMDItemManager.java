@@ -105,7 +105,17 @@ public class EMDItemManager
 
 	public static Item ghastTentacle;
 	
+	public static Item horseHoof;
+	public static Item rawHorseHaunch;
+	public static Item cookedHorseHaunch;
+	public static Item horseHair;
+	
 	public static Item genes;
+	
+	public static Item charms;
+	
+	public static Item amuletPorcum;
+	public static Item amuletVaccam;
 	
 	public static EnumToolMaterial toolMaterialWoodH = EnumHelper.addToolMaterial("ToolWoodH", 0, 59, 2.0F, 2.0F, 15);
 	public static EnumToolMaterial toolMaterialStoneH = EnumHelper.addToolMaterial("ToolStoneH", 1, 131, 4.0F, 3.0F, 5);
@@ -198,7 +208,17 @@ public class EMDItemManager
 	
 		ghastTentacle = new ItemGhastTentacle(EMDConfig.ghastTentacleId).setUnlocalizedName("ghast_tentacle").setCreativeTab(tabItems);
 		
+		horseHoof = new MItem(EMDConfig.horseHoofId).setCreativeTab(tabItems).setUnlocalizedName("horse_foot");
+		rawHorseHaunch = new MItemFood(EMDConfig.rawHorseHaunchId, 4, 0.4F).setCreativeTab(tabItems).setUnlocalizedName("raw_horse_haunch");
+		cookedHorseHaunch = new MItemFood(EMDConfig.cookedHorseHaunchId, 10, 0.8F).setCreativeTab(tabItems).setUnlocalizedName("cooked_horse_haunch");
+		horseHair = new MItem(EMDConfig.horseHairId).setCreativeTab(tabItems).setUnlocalizedName("horse_hair");
+		
 		genes = new ItemGene(EMDConfig.genesId).setUnlocalizedName("gene");
+		
+		charms = new ItemCharm(EMDConfig.charmsId).setUnlocalizedName("charm").setCreativeTab(tabItems);
+		
+		amuletPorcum = new ItemAmuletPorcum(EMDConfig.amuletPorcumId).setUnlocalizedName("PorcumAmulet").setCreativeTab(tabItems);
+		amuletVaccam = new ItemAmuletVaccam(EMDConfig.amuletVaccamId).setUnlocalizedName("VaccamAmulet").setCreativeTab(tabItems);
 	}
 	
 	public static void loadNames()
@@ -245,6 +265,10 @@ public class EMDItemManager
 		LanguageRegistry.addName(slimeCore, "Slime Core");
 		LanguageRegistry.addName(enderCore, "Ender Core");
 		LanguageRegistry.addName(ghastTentacle, "Ghast Tentacle");
+		LanguageRegistry.addName(horseHoof, "Horse Hoof");
+		LanguageRegistry.addName(rawHorseHaunch, "Raw Horse Haunch");
+		LanguageRegistry.addName(cookedHorseHaunch, "Cooked Horse Haunch");
+		LanguageRegistry.addName(horseHair, "Horse Hair");
 		
 		LanguageRegistry.instance().addStringLocalization("item.gene.pig.name", "Pig Gene");
 		LanguageRegistry.instance().addStringLocalization("item.gene.cow.name", "Cow Gene");
@@ -256,6 +280,15 @@ public class EMDItemManager
 		LanguageRegistry.instance().addStringLocalization("item.gene.ocelot.name", "Ocelot Gene");
 		LanguageRegistry.instance().addStringLocalization("item.gene.wolf.name", "Wolf Gene");
 		LanguageRegistry.instance().addStringLocalization("item.gene.bat.name", "Bat Gene");
+		
+		LanguageRegistry.instance().addStringLocalization("item.charm.pig.name", "Porcum Charm");
+		LanguageRegistry.instance().addStringLocalization("item.charm.cow.name", "Vaccam Charm");
+		LanguageRegistry.instance().addStringLocalization("item.charm.chicken.name", "Pullum Charm");
+		LanguageRegistry.instance().addStringLocalization("item.charm.sheep.name", "Oves Charm");
+		LanguageRegistry.instance().addStringLocalization("item.charm.horse.name", "Equus Charm");
+		
+		LanguageRegistry.addName(amuletPorcum, "Porcum Amulet");
+		LanguageRegistry.addName(amuletVaccam, "Vaccam Amulet");
 	}
 	
 	public static void loadBridgedItems() throws Exception
