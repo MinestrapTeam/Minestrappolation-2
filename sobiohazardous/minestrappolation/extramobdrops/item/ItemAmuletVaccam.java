@@ -16,6 +16,7 @@ public class ItemAmuletVaccam extends MItem
 	{
 		super(id);
 		this.setMaxDamage(50);
+		this.setMaxStackSize(1);
 	}
     
     public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase par2EntityLivingBase, EntityLivingBase par3EntityLivingBase)

@@ -79,7 +79,8 @@ public class EMDConfig
 	rawHorseHaunchId,
 	cookedHorseHaunchId,
 	horseHairId,
-	amuletVaccamId;
+	amuletVaccamId,
+	amuletPullumId;
 	
 	public static void initConfig(FMLPreInitializationEvent e)
 	{
@@ -160,6 +161,7 @@ public class EMDConfig
 		cookedHorseHaunchId = config.getItem("Cooked Horse Haunch", 4070).getInt();
 		horseHairId = config.getItem("Horse Hair ", 4071).getInt();
 		amuletVaccamId = config.getItem("Vaccam Amulet", 4072).getInt();
+		amuletPullumId = config.getItem("Pullum Amulet", 4073).getInt();
 		config.save();
 	}
 }

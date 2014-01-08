@@ -12,10 +12,12 @@ import net.minecraft.entity.monster.*;
 import net.minecraft.entity.passive.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.Potion;
+import net.minecraft.util.DamageSource;
 import net.minecraftforge.client.event.RenderPlayerEvent;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
 public class EMDEventHandler 
 {
@@ -331,6 +333,7 @@ public class EMDEventHandler
 			}
 		}
 	}
+	
 	
 	@ForgeSubscribe
 	public void renderPlayer (RenderPlayerEvent.Post evt)
