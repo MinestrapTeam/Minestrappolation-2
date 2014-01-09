@@ -98,18 +98,18 @@ public class BlockRefinedRoad extends Block
     {
     	if(this.blockID == EDBlockManager.refinedRoad.blockID)
     	{
-    		par5Entity.motionX *= 1.9;
-    		par5Entity.motionZ *= 1.9;
+    		par5Entity.motionX *= 1.6;
+    		par5Entity.motionZ *= 1.6;
     	}
     	else if(this.blockID == EDBlockManager.refinedNetherroad.blockID)
     	{
-    		par5Entity.motionX *= 3;
-    		par5Entity.motionZ *= 3;
+    		par5Entity.motionX *= 2.4;
+    		par5Entity.motionZ *= 2.4;
     	}
         else
         {
-        	par5Entity.motionX *= 2.2;
-    		par5Entity.motionZ *= 2.2;
+        	par5Entity.motionX *= 1.9;
+    		par5Entity.motionZ *= 1.9;
         }
     }
 }

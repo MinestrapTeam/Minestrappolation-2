@@ -100,7 +100,7 @@ public class EDBlockManager {
 	public static CreativeTabs tabDecorBlocks = new CreativeTabExtraDecorBlocks(CreativeTabs.getNextID(),"Extrappolated Decor");
 	public static void createBlocks()
 	{
-		GlassDoor = (new BlockGlassDoor(899,Material.glass));
+		GlassDoor = (new BlockGlassDoor(899,Material.glass)).setHardness(1F);
 		stonePillar = (new BlockPillar(EDConfig.stonePillarId, "block_StonePillar", "block_StoneRefined")).setHardness(1.5F).setResistance(10F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("stonePillar");
 		stoneLamp = (new BlockStoneLamp(EDConfig.stoneLampId)).setHardness(1.5F).setResistance(8F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setLightValue(1.0F).setUnlocalizedName("stoneLamp");
 		stones = new BlockStones(EDConfig.stoneTileId).setHardness(1.5F).setResistance(10F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep);

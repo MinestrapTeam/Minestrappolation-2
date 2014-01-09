@@ -253,7 +253,7 @@ public class EDBlockPane extends Block
     	{
     		if(face == ForgeDirection.UP || face == ForgeDirection.DOWN || face == ForgeDirection.NORTH || face == ForgeDirection.SOUTH || face == ForgeDirection.EAST || face == ForgeDirection.WEST)
     		{
-                return 100;
+                return 255;
     		}
     		else
     			return 0;
