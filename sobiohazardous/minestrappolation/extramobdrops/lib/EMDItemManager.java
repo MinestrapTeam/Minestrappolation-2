@@ -232,7 +232,7 @@ public class EMDItemManager
 		wingSinew = new MItem(EMDConfig.wingSinewId).setUnlocalizedName("wing_sinew").setCreativeTab(tabItems);
 		wingSegment = new MItem(EMDConfig.wingSegmentId).setUnlocalizedName("wing_segment").setCreativeTab(tabItems);
 		
-		hangGlider = new MItem(EMDConfig.hangGliderId).setUnlocalizedName("hangglider").setCreativeTab(tabItems);
+		hangGlider = new ItemHangGlider(EMDConfig.hangGliderId).setUnlocalizedName("hangglider").setCreativeTab(tabItems);
 	}
 	
 	public static void loadNames()

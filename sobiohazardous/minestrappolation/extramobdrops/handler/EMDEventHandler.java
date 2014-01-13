@@ -12,6 +12,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.entity.monster.*;
 import net.minecraft.entity.passive.*;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
@@ -342,14 +343,13 @@ public class EMDEventHandler
 	
 	
 	@ForgeSubscribe
-	public void renderPlayer (RenderPlayerEvent.Post evt)
+	public void renderPlayer (RenderPlayerEvent.Pre evt)
 	{
 		//add if statements to check if holding item
 		//bind the model texture (this is hard)
 		//rotate model above player (GL11)
 		//make the players hands move upward
-		
-		if(evt.entityPlayer.inventory.hasItem(EMDItemManager.hangGlider.itemID))
+		if(evt.entityPlayer.inventory.getCurrentItem() != EMDItemManager.hangGlider.getContainerItemStack(null))
 		{
 			GL11.glPushMatrix();
 			ModelHangGlider m = new ModelHangGlider();		

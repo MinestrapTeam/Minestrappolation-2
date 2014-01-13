@@ -56,7 +56,6 @@ public class PlayerTickHandler implements ITickHandler
     
     public static void playerTick(EntityPlayer player)
     {
-
     	if(gTentacleEffect)
     	{
     		ticks++;
@@ -72,15 +71,6 @@ public class PlayerTickHandler implements ITickHandler
     	{
     		ticks = 0;
     	}
-		
-    	if(player.inventory.hasItem(EMDItemManager.hangGlider.itemID))
-		{
-			if(player.motionY > 0.0D)
-	    	{
-	    		player.motionY /= 1.6000000238418579D;	    		
-	    	}
-		}
-
     }
 
 }
