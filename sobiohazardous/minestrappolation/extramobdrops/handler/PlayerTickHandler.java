@@ -3,6 +3,7 @@ package sobiohazardous.minestrappolation.extramobdrops.handler;
 import java.util.EnumSet;
 import java.util.Random;
 
+import sobiohazardous.minestrappolation.extramobdrops.lib.EMDItemManager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import cpw.mods.fml.common.ITickHandler;
@@ -71,6 +72,15 @@ public class PlayerTickHandler implements ITickHandler
     	{
     		ticks = 0;
     	}
+		
+    	if(player.inventory.hasItem(EMDItemManager.hangGlider.itemID))
+		{
+			if(player.motionY > 0.0D)
+	    	{
+	    		player.motionY /= 1.6000000238418579D;	    		
+	    	}
+		}
+
     }
 
 }

@@ -80,7 +80,11 @@ public class EMDConfig
 	cookedHorseHaunchId,
 	horseHairId,
 	amuletVaccamId,
-	amuletPullumId;
+	amuletPullumId,
+	amuletOvesId,
+	wingSinewId,
+	wingSegmentId,
+	hangGliderId;
 	
 	public static void initConfig(FMLPreInitializationEvent e)
 	{
@@ -162,6 +166,10 @@ public class EMDConfig
 		horseHairId = config.getItem("Horse Hair ", 4071).getInt();
 		amuletVaccamId = config.getItem("Vaccam Amulet", 4072).getInt();
 		amuletPullumId = config.getItem("Pullum Amulet", 4073).getInt();
+		amuletOvesId = config.getItem("Oves Amulet", 4074).getInt();
+		wingSinewId = config.getItem("Wing Sinew", 4075).getInt();
+		wingSegmentId = config.getItem("Wing Segment", 4076).getInt();
+		hangGliderId = config.getItem("Wing Segment", 4077).getInt();
 		config.save();
 	}
 }

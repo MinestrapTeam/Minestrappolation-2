@@ -2,10 +2,11 @@ package sobiohazardous.minestrappolation.extramobdrops.handler;
 
 import java.util.Collection;
 
+import org.lwjgl.opengl.GL11;
+
 import sobiohazardous.minestrappolation.extramobdrops.lib.EMDItemManager;
 import sobiohazardous.minestrappolation.extramobdrops.lib.EMDPotionManager;
 import sobiohazardous.minestrappolation.extramobdrops.tileentity.ModelHangGlider;
-
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.monster.*;
@@ -13,6 +14,7 @@ import net.minecraft.entity.passive.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.RenderPlayerEvent;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
@@ -295,6 +297,10 @@ public class EMDEventHandler
 				{
 					event.entityLiving.dropItem(EMDItemManager.guano.itemID, 2);
 				}
+				if(rand < 0.5)
+				{
+					event.entityLiving.dropItem(EMDItemManager.wingSinew.itemID, 2);
+				}
 			}
 			if(event.entityLiving instanceof EntitySilverfish)
 			{
@@ -342,9 +348,39 @@ public class EMDEventHandler
 		//bind the model texture (this is hard)
 		//rotate model above player (GL11)
 		//make the players hands move upward
-		//ModelHangGlider m = new ModelHangGlider();				
-		//m.render(0.0625F);
+		
+		if(evt.entityPlayer.inventory.hasItem(EMDItemManager.hangGlider.itemID))
+		{
+			GL11.glPushMatrix();
+			ModelHangGlider m = new ModelHangGlider();		
+			Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation("minestrappolation:textures/misc/HangGlider.png"));
+			int tick = 0;
+			tick++;
+			float rotateYaw = this.interpolateRotation(evt.entityPlayer.prevRotationYaw, evt.entityPlayer.rotationYaw, tick);
+			GL11.glRotatef(rotateYaw, 0, -1, 0);
+			GL11.glRotatef(180F, 0, 0, 1);
+			GL11.glTranslatef(0, 0, -0.5F);				
+			m.render(0.0625F);
+			GL11.glPopMatrix();
+		}		
 	}
+	
+	public static float interpolateRotation(float par1, float par2, float par3)
+    {
+        float f3;
+
+        for (f3 = par2 - par1; f3 < -180.0F; f3 += 360.0F)
+        {
+            ;
+        }
+
+        while (f3 >= 180.0F)
+        {
+            f3 -= 360.0F;
+        }
+
+        return par1 + par3 * f3;
+    }
 	
 	@ForgeSubscribe
 	public void livingUpdate(LivingUpdateEvent event)

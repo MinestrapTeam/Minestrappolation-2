@@ -117,6 +117,12 @@ public class EMDItemManager
 	public static Item amuletPorcum;
 	public static Item amuletVaccam;
 	public static Item amuletPullum;
+	public static Item amuletOves;
+	
+	public static Item wingSinew;
+	public static Item wingSegment;
+	
+	public static Item hangGlider;
 	
 	public static EnumToolMaterial toolMaterialWoodH = EnumHelper.addToolMaterial("ToolWoodH", 0, 59, 2.0F, 2.0F, 15);
 	public static EnumToolMaterial toolMaterialStoneH = EnumHelper.addToolMaterial("ToolStoneH", 1, 131, 4.0F, 3.0F, 5);
@@ -221,6 +227,12 @@ public class EMDItemManager
 		amuletPorcum = new ItemAmuletPorcum(EMDConfig.amuletPorcumId).setUnlocalizedName("PorcumAmulet").setCreativeTab(tabItems);
 		amuletVaccam = new ItemAmuletVaccam(EMDConfig.amuletVaccamId).setUnlocalizedName("VaccamAmulet").setCreativeTab(tabItems);
 		amuletPullum = new ItemAmuletPullum(EMDConfig.amuletPullumId).setUnlocalizedName("PullumAmulet").setCreativeTab(tabItems);
+		amuletOves = new ItemAmuletOves(EMDConfig.amuletOvesId).setUnlocalizedName("OvesAmulet").setCreativeTab(tabItems);
+		
+		wingSinew = new MItem(EMDConfig.wingSinewId).setUnlocalizedName("wing_sinew").setCreativeTab(tabItems);
+		wingSegment = new MItem(EMDConfig.wingSegmentId).setUnlocalizedName("wing_segment").setCreativeTab(tabItems);
+		
+		hangGlider = new MItem(EMDConfig.hangGliderId).setUnlocalizedName("hangglider").setCreativeTab(tabItems);
 	}
 	
 	public static void loadNames()
@@ -292,6 +304,10 @@ public class EMDItemManager
 		LanguageRegistry.addName(amuletPorcum, "Porcum Amulet");
 		LanguageRegistry.addName(amuletVaccam, "Vaccam Amulet");
 		LanguageRegistry.addName(amuletPullum, "Pullum Amulet");
+		LanguageRegistry.addName(amuletOves, "Oves Amulet");
+		LanguageRegistry.addName(wingSinew, "Wing Sinew");
+		LanguageRegistry.addName(wingSegment, "Wing Segment");
+		LanguageRegistry.addName(hangGlider, "Hang Glider");
 	}
 	
 	public static void loadBridgedItems() throws Exception

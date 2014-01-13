@@ -1,5 +1,7 @@
 package sobiohazardous.minestrappolation.extramobdrops.proxy;
 
+import net.minecraft.client.model.ModelBiped;
+import net.minecraft.entity.player.EntityPlayer;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class ClientProxy extends CommonProxy
