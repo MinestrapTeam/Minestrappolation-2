@@ -72,8 +72,7 @@ public class Minestrappolation
 	public void preInit(FMLPreInitializationEvent event)
 	{	
 		expandPotionList();
-		//Lib init
-		MAPIBlocks.loadBlocks();
+		MAPIConfig.initConfig(event);
 	}
 	
 	@EventHandler
@@ -103,6 +102,8 @@ public class Minestrappolation
 		Item.itemsList[Item.glassBottle.itemID - 256] = null;
 		glassBottle2 = (ItemGlassBottle2) (new ItemGlassBottle2(118)).setUnlocalizedName("glassBottle");
 		
+		MAPIBlocks.loadBlocks();
+
 		Block.bedrock.setHardness(80F);
 
 		NetworkRegistry.instance().registerConnectionHandler(new ConnectionHandler());

@@ -8,11 +8,12 @@ import net.minecraft.block.Block;
 public class MAPIBlocks 
 {
 	public static Block stoneCutter;
-	
+		
 	public static void loadBlocks()
 	{
-		//stoneCutter = new BlockStonecutter(MAPIConfig.stoneCutterId).setHardness(3.5F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("stoneCutter");
-		//GameRegistry.registerBlock(stoneCutter, "stoneCutter");
-		//LanguageRegistry.addName(stoneCutter, "Stone Cutter");
+		stoneCutter = new BlockStonecutter(MAPIConfig.stoneCutterId).setHardness(3.5F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("stoneCutter");
+		GameRegistry.registerBlock(stoneCutter, "stoneCutter");
+		LanguageRegistry.addName(stoneCutter, "Stone Cutter");
 	}
+	
 }
