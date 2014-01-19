@@ -12,6 +12,7 @@ public class ItemHangGlider extends MItem
 	public ItemHangGlider(int id) 
 	{
 		super(id);
+		this.setMaxDamage(50);
 	}
 
     public void onUpdate(ItemStack par1ItemStack, World par2World, Entity par3Entity, int par4, boolean par5)
@@ -36,6 +37,16 @@ public class ItemHangGlider extends MItem
     		if(Math.abs(player.motionZ) < 0.9)
     		{
     			player.motionZ *= 1.06;
+    		}
+    		System.out.println(Math.abs(player.motionY));
+    		//wall colision
+    		if(Math.abs(player.motionX) == 0 && player.isCollidedHorizontally && Math.abs(player.motionY) > 0.13)
+    		{
+    			par1ItemStack.damageItem(1, player);
+    		}
+    		if(Math.abs(player.motionZ) == 0 && player.isCollidedHorizontally && Math.abs(player.motionY) > 0.13)
+    		{
+    			par1ItemStack.damageItem(1, player);
     		}
     	}
     }

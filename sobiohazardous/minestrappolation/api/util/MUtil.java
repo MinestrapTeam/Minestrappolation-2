@@ -357,6 +357,10 @@ public static boolean isBlockTouchingAnySide(World par1World, int par2, int par3
 		return false;
 	}
 	
+	/**
+	 * Removes a vanilla recipe based on the result item and amount.
+	 * @param resultItem
+	 */
 	public static void removeRecipe(ItemStack resultItem)
 	{
 		ItemStack recipeResult = null;
