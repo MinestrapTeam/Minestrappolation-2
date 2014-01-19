@@ -3,10 +3,13 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+import org.lwjgl.opengl.GL11;
+
 import sobiohazardous.minestrappolation.extraores.ExtraOres;
 import sobiohazardous.minestrappolation.extraores.lib.EOBlockManager;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLiving;
@@ -68,6 +71,30 @@ public BlockGodstone(int par1, Material par3Material)
         {
                         par1World.setBlockMetadataWithNotify(par2, par3, par4, blockID, par4);
                         par1World.scheduleBlockUpdate(par2, par3, par4, blockID, tickRate());
+                        /*Random random = new Random(432L);
+                        Tessellator tessellator = Tessellator.instance;
+                        for (int i = 0; (float)i < 50; ++i)
+                        {
+                            GL11.glRotatef(random.nextFloat() * 360.0F, 1.0F, 0.0F, 0.0F);
+                            GL11.glRotatef(random.nextFloat() * 360.0F, 0.0F, 1.0F, 0.0F);
+                            GL11.glRotatef(random.nextFloat() * 360.0F, 0.0F, 0.0F, 1.0F);
+                            GL11.glRotatef(random.nextFloat() * 360.0F, 1.0F, 0.0F, 0.0F);
+                            GL11.glRotatef(random.nextFloat() * 360.0F, 0.0F, 1.0F, 0.0F);
+                            GL11.glRotatef(random.nextFloat() * 360.0F + 50 * 90.0F, 0.0F, 0.0F, 1.0F);
+                            tessellator.startDrawing(6);
+                            float f3 = random.nextFloat() * 20.0F + 5.0F + 50 * 10.0F;
+                            float f4 = random.nextFloat() * 2.0F + 1.0F + 50 * 2.0F;
+                            tessellator.setColorRGBA_I(16777215, (int)(255.0F * (1.0F - 50)));
+                            tessellator.addVertex(0.0D, 0.0D, 0.0D);
+                            tessellator.setColorRGBA_I(16711935, 0);
+                            tessellator.addVertex(-0.866D * (double)50, (double)50, (double)(-0.5F * 50));
+                            tessellator.addVertex(0.866D * (double)50, (double)50, (double)(-0.5F * 50));
+                            tessellator.addVertex(0.0D, (double)50, (double)(1.0F * 50));
+                            tessellator.addVertex(-0.866D * (double)50, (double)50, (double)(-0.5F * 50));
+                            tessellator.draw();
+                        }*/
+                        //My bullshit code didn't work. This is SUPPOSED to make the block emit ender dragon beam particles, but obviously I put it in the wrong place, because it only makes it crash when placed.
+                        //If you can figure out how to fix this, please do.
         }
         
    
