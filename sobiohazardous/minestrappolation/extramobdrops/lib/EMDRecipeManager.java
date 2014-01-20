@@ -1,5 +1,6 @@
 package sobiohazardous.minestrappolation.extramobdrops.lib;
 
+import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import cpw.mods.fml.common.Loader;
@@ -86,6 +87,14 @@ public class EMDRecipeManager
 			" G ", "GPG", " G ", Character.valueOf('G'), Item.ingotGold, Character.valueOf('P'), EMDItemManager.horseHoof
 				});
 		GameRegistry.addSmelting(EMDItemManager.rawHorseHaunch.itemID, new ItemStack(EMDItemManager.cookedHorseHaunch), 0.8F);
+		GameRegistry.addRecipe(new ItemStack(EMDItemManager.wingSegment, 1, 0), new Object[]
+				{
+			"FSF", "SLS", "FSF", Character.valueOf('F'), Item.feather, Character.valueOf('S'), EMDItemManager.wingSinew, Character.valueOf('L'), Item.leather
+				});
+		GameRegistry.addRecipe(new ItemStack(EMDItemManager.hangGlider, 1, 0), new Object[]
+				{
+			"PPP", "W W", "W W", Character.valueOf('P'), Block.planks, Character.valueOf('W'), EMDItemManager.wingSegment
+				});
 	}
 	
 	public static void loadBridgeRecipes() throws Exception

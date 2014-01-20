@@ -84,7 +84,10 @@ public class EMDConfig
 	amuletOvesId,
 	wingSinewId,
 	wingSegmentId,
-	hangGliderId;
+	hangGliderId,
+	enderAuraId,
+	ghastlySoulId,
+	witheredBoneId;
 	
 	public static void initConfig(FMLPreInitializationEvent e)
 	{
@@ -169,7 +172,10 @@ public class EMDConfig
 		amuletOvesId = config.getItem("Oves Amulet", 4074).getInt();
 		wingSinewId = config.getItem("Wing Sinew", 4075).getInt();
 		wingSegmentId = config.getItem("Wing Segment", 4076).getInt();
-		hangGliderId = config.getItem("Wing Segment", 4077).getInt();
+		hangGliderId = config.getItem("Hang Glider", 4077).getInt();
+		enderAuraId = config.getItem("Ender Aura", 4078).getInt();
+		ghastlySoulId = config.getItem("Ghastly Soul", 4079).getInt();
+		witheredBoneId = config.getItem("Withered Bone", 4080).getInt();
 		config.save();
 	}
 }

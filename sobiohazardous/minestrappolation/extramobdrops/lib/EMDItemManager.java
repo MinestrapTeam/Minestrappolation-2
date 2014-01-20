@@ -124,6 +124,12 @@ public class EMDItemManager
 	
 	public static Item hangGlider;
 	
+	public static Item enderAura;
+	
+	public static Item ghastlySoul;
+	
+	public static Item witheredBone;
+	
 	public static EnumToolMaterial toolMaterialWoodH = EnumHelper.addToolMaterial("ToolWoodH", 0, 59, 2.0F, 2.0F, 15);
 	public static EnumToolMaterial toolMaterialStoneH = EnumHelper.addToolMaterial("ToolStoneH", 1, 131, 4.0F, 3.0F, 5);
 	public static EnumToolMaterial toolMaterialIronH = EnumHelper.addToolMaterial("ToolIronH", 2, 250, 6.0F, 4.0F, 14);
@@ -233,6 +239,12 @@ public class EMDItemManager
 		wingSegment = new MItem(EMDConfig.wingSegmentId).setUnlocalizedName("wing_segment").setCreativeTab(tabItems);
 		
 		hangGlider = new ItemHangGlider(EMDConfig.hangGliderId).setUnlocalizedName("hangglider").setCreativeTab(tabItems);
+		
+		enderAura = new MItem(EMDConfig.enderAuraId).setUnlocalizedName("item_EnderAura1").setCreativeTab(tabItems);
+		
+		ghastlySoul = new MItem(EMDConfig.ghastlySoulId).setUnlocalizedName("item_GhastlySoul").setCreativeTab(tabItems);
+		
+		witheredBone = new MItem(EMDConfig.witheredBoneId).setUnlocalizedName("withered_bone").setCreativeTab(tabItems);
 	}
 	
 	public static void loadNames()
@@ -308,6 +320,9 @@ public class EMDItemManager
 		LanguageRegistry.addName(wingSinew, "Wing Sinew");
 		LanguageRegistry.addName(wingSegment, "Wing Segment");
 		LanguageRegistry.addName(hangGlider, "Hang Glider");
+		LanguageRegistry.addName(enderAura, "Ender Aura");
+		LanguageRegistry.addName(ghastlySoul, "Ghastly Soul");
+		LanguageRegistry.addName(witheredBone, "Withered Bone");
 	}
 	
 	public static void loadBridgedItems() throws Exception

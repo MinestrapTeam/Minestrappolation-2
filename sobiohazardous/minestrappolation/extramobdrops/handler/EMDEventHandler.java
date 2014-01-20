@@ -9,9 +9,11 @@ import sobiohazardous.minestrappolation.extramobdrops.lib.EMDPotionManager;
 import sobiohazardous.minestrappolation.extramobdrops.tileentity.ModelHangGlider;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
+import net.minecraft.entity.boss.EntityWither;
 import net.minecraft.entity.monster.*;
 import net.minecraft.entity.passive.*;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.DamageSource;
@@ -21,6 +23,7 @@ import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.player.EntityInteractEvent;
 
 public class EMDEventHandler 
 {
@@ -287,11 +290,25 @@ public class EMDEventHandler
 			}
 			if(event.entityLiving instanceof EntitySkeleton)
 			{
-				if(rand < 0.15D)
+				EntitySkeleton skeleton = (EntitySkeleton)event.entityLiving;
+
+				if(skeleton.getSkeletonType() == 0)
 				{
-					event.entityLiving.dropItem(EMDItemManager.marrow.itemID, 3);
+					if(rand < 0.15D)
+					{
+						event.entityLiving.dropItem(EMDItemManager.marrow.itemID, 3);
+					}
+				}
+				
+				if(skeleton.getSkeletonType() == 1)
+				{
+					if(rand < 0.2D)
+					{
+						event.entityLiving.dropItem(EMDItemManager.witheredBone.itemID, 3);
+					}
 				}
 			}
+
 			if(event.entityLiving instanceof EntityBat)
 			{
 				if(rand < 0.5)
@@ -330,6 +347,10 @@ public class EMDEventHandler
 				{
 					event.entityLiving.dropItem(EMDItemManager.enderCore.itemID, 1);
 				}
+				if(rand < 0.20)
+				{
+					event.entityLiving.dropItem(EMDItemManager.enderAura.itemID, 2);
+				}
 			}
 			if(event.entityLiving instanceof EntityGhast)
 			{
@@ -337,6 +358,10 @@ public class EMDEventHandler
 				{
 					event.entityLiving.dropItem(EMDItemManager.ghastTentacle.itemID, 4);
 				}
+			}
+			if(event.entityLiving instanceof EntityWither)
+			{
+				event.entityLiving.dropItem(EMDItemManager.witheredBone.itemID, 15);
 			}
 		}
 	}
@@ -381,6 +406,16 @@ public class EMDEventHandler
 
         return par1 + par3 * f3;
     }
+	
+	@ForgeSubscribe
+	public void entityInteract(EntityInteractEvent evt)
+	{
+		if(evt.target instanceof EntityGhast && evt.entityPlayer.inventory.getCurrentItem() != Item.glassBottle.getContainerItemStack(null))
+		{
+			evt.entityPlayer.inventory.getCurrentItem().stackSize--;
+			evt.entityPlayer.inventory.addItemStackToInventory(new ItemStack(EMDItemManager.ghastlySoul, 1));
+		}
+	}
 	
 	@ForgeSubscribe
 	public void livingUpdate(LivingUpdateEvent event)

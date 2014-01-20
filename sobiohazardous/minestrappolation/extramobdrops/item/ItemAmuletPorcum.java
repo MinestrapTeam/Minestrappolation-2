@@ -2,6 +2,8 @@ package sobiohazardous.minestrappolation.extramobdrops.item;
 
 import java.util.Random;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -44,5 +46,11 @@ public class ItemAmuletPorcum extends MItem
     			tick = 0;
     		}
     	}
+    }
+    
+    @SideOnly(Side.CLIENT)
+    public boolean hasEffect(ItemStack par1ItemStack)
+    {
+        return true;
     }
 }

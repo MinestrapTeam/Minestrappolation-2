@@ -1,5 +1,7 @@
 package sobiohazardous.minestrappolation.extramobdrops.item;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -33,5 +35,11 @@ public class ItemAmuletPullum extends MItem
     			}   			
     		}
     	}
+    }
+    
+    @SideOnly(Side.CLIENT)
+    public boolean hasEffect(ItemStack par1ItemStack)
+    {
+        return true;
     }
 }

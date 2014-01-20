@@ -2,6 +2,8 @@ package sobiohazardous.minestrappolation.extramobdrops.item;
 
 import java.util.Random;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -33,5 +35,11 @@ public class ItemAmuletVaccam extends MItem
     	}
     	
     	return true;
+    }
+    
+    @SideOnly(Side.CLIENT)
+    public boolean hasEffect(ItemStack par1ItemStack)
+    {
+        return true;
     }
 }
