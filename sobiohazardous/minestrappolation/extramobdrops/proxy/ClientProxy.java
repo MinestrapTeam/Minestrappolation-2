@@ -1,8 +1,14 @@
 package sobiohazardous.minestrappolation.extramobdrops.proxy;
 
+import java.util.EnumSet;
+
+import sobiohazardous.minestrappolation.extramobdrops.handler.ClientTickHandler;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.player.EntityPlayer;
 import cpw.mods.fml.client.registry.RenderingRegistry;
+import cpw.mods.fml.common.TickType;
+import cpw.mods.fml.common.registry.TickRegistry;
+import cpw.mods.fml.relauncher.Side;
 
 public class ClientProxy extends CommonProxy
 {
@@ -19,6 +25,8 @@ public class ClientProxy extends CommonProxy
          * use RenderingRegistry.registerEntityRenderingHandler for entities
          * look at RenderingRegistry for more
          */        
+		TickRegistry.registerTickHandler(new ClientTickHandler(EnumSet.of(TickType.RENDER)), Side.CLIENT);
+
     }
     
    public static int addArmor(String armor)

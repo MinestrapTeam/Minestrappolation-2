@@ -4,6 +4,7 @@ import java.util.EnumSet;
 
 import sobiohazardous.minestrappolation.extramobdrops.bridge.EMDBridgeRecipes;
 import sobiohazardous.minestrappolation.extramobdrops.handler.ClientPacketHandler;
+import sobiohazardous.minestrappolation.extramobdrops.handler.ClientTickHandler;
 import sobiohazardous.minestrappolation.extramobdrops.handler.EMDEventHandler;
 import sobiohazardous.minestrappolation.extramobdrops.handler.EMDFuelHandler;
 import sobiohazardous.minestrappolation.extramobdrops.handler.PlayerTickHandler;

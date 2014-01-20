@@ -366,7 +366,7 @@ public class EMDEventHandler
 		}
 	}
 	
-	
+	/*
 	@ForgeSubscribe
 	public void renderPlayer (RenderPlayerEvent.Pre evt)
 	{
@@ -376,6 +376,7 @@ public class EMDEventHandler
 		//make the players hands move upward
 		if(evt.entityPlayer.inventory.getCurrentItem() != EMDItemManager.hangGlider.getContainerItemStack(null))
 		{
+			
 			GL11.glPushMatrix();
 			ModelHangGlider m = new ModelHangGlider();		
 			Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation("minestrappolation:textures/misc/HangGlider.png"));
@@ -387,8 +388,10 @@ public class EMDEventHandler
 			GL11.glTranslatef(0, 0, -0.5F);				
 			m.render(0.0625F);
 			GL11.glPopMatrix();
+			
 		}		
 	}
+	*/
 	
 	public static float interpolateRotation(float par1, float par2, float par3)
     {
