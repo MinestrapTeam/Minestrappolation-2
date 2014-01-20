@@ -9,9 +9,13 @@ import sobiohazardous.minestrappolation.extramobdrops.lib.EMDItemManager;
 
 public class ItemHangGlider extends MItem
 {
+	World par3World;
+	boolean initCheck = true;
+	boolean checking = false;
 	public ItemHangGlider(int id) 
 	{
 		super(id);
+		this.maxStackSize = 1;
 		this.setMaxDamage(50);
 	}
 
@@ -38,17 +42,35 @@ public class ItemHangGlider extends MItem
     		{
     			player.motionZ *= 1.06;
     		}
-    		System.out.println(Math.abs(player.motionY));
+    		if(initCheck == true && (Math.abs(player.motionX) + Math.abs(player.motionZ) > 0.15))
+    		{
+    			checking = true;
+    			initCheck = false;
+    		}
+    		if(checking == true && (Math.abs(player.motionX) + Math.abs(player.motionZ) <= 0.15) && (player.isCollidedHorizontally == false))
+    		{
+    			checking = false;
+    			initCheck = true;
+    		}
+    		if(checking == true && (player.isCollidedHorizontally == true))
+    		{
+    			player.motionX = 0;
+    			player.motionZ = 0;
+    			par1ItemStack.damageItem(1, player);
+    			checking = false;
+    			initCheck = true;
+    		}
     		//wall colision
-    		if(Math.abs(player.motionX) == 0 && player.isCollidedHorizontally && Math.abs(player.motionY) > 0.13)
+    		/*if((Math.abs(prev2XMotion) > 0.3 || Math.abs(prev2ZMotion) > 0.3 || (Math.abs(prev2XMotion) > 0.3 && Math.abs(prev2ZMotion) > 0.3)) && player.isCollidedHorizontally && Math.abs(player.motionY) > 0.13)
     		{
     			par1ItemStack.damageItem(1, player);
-    		}
-    		if(Math.abs(player.motionZ) == 0 && player.isCollidedHorizontally && Math.abs(player.motionY) > 0.13)
-    		{
-    			par1ItemStack.damageItem(1, player);
-    		}
+    		}*/
+    		System.out.println("Checking" + checking);
+    		System.out.println("InitChecking" + initCheck);
+    		System.out.println("SpeedZ" + player.motionZ);
+    		System.out.println("SpeedX" + player.motionX);
     	}
+    	
     }
     
 }
