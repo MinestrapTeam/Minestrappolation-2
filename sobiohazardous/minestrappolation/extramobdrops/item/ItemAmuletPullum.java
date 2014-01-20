@@ -30,8 +30,11 @@ public class ItemAmuletPullum extends MItem
     			//FIXME temp fix. Needs to damage item when player doesn't take fall damage
     			if(player.isAirBorne)
     			{
-    				player.fallDistance = 0;    			
-    				par1ItemStack.damageItem(1, player);
+    				if(player.motionY > 1.2)
+    				{
+    					player.fallDistance = 0;    			
+    					par1ItemStack.damageItem(1, player);
+    				}
     			}   			
     		}
     	}

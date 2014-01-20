@@ -1,6 +1,7 @@
 package sobiohazardous.minestrappolation.extraenviroments.lib;
 
 
+import sobiohazardous.minestrappolation.api.item.MItem;
 import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -12,7 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class ItemGDoor extends Item
+public class ItemGDoor extends MItem
 {
     private Material doorMaterial;
 
@@ -23,11 +24,6 @@ public class ItemGDoor extends Item
         this.maxStackSize = 1;
         this.setCreativeTab(EDBlockManager.tabDecorBlocks);
     }
-    
-    public void registerIcons(IconRegister r)
-	{
-		itemIcon = r.registerIcon("Minestrappolation:item_DoorGlass");
-	}
 
     /**
      * Callback for item usage. If the item does something special on right clicking, he will have one of those. Return

@@ -39,8 +39,8 @@ public class EDItemManager
 		cardboardItem = new MItemBlockPlacer(EDConfig.cardboardItemId, EDBlockManager.cardboard).setCreativeTab(EDBlockManager.tabDecorBlocks).setUnlocalizedName("item_Cardboard");
 		sandstoneBrickItem = new MItem(EDConfig.sandstoneBrickItemId).setUnlocalizedName("item_SandstoneBrick").setCreativeTab(EDBlockManager.tabDecorBlocks);
 		stoneBrickItem = new MItem(EDConfig.stoneBrickItemId).setUnlocalizedName("item_StoneBrick").setCreativeTab(EDBlockManager.tabDecorBlocks);
-		gobletItem = new BlockPlacer(8888,EDBlockManager.Goblet.blockID,0).setCreativeTab(EDBlockManager.tabDecorBlocks).setUnlocalizedName("item_GobletEmpty");
-		gDoor = new ItemGDoor(8889, Material.glass);
+		gobletItem = new BlockPlacer(EDConfig.gobletId,EDBlockManager.Goblet.blockID,0).setCreativeTab(EDBlockManager.tabDecorBlocks).setUnlocalizedName("item_GobletEmpty");
+		gDoor = new ItemGDoor(EDConfig.glassDoorItemId, Material.glass).setUnlocalizedName("item_GlassDoor");
 	}
 	
 	public static void addItemNames()

@@ -100,7 +100,6 @@ public class EDBlockManager {
 	public static CreativeTabs tabDecorBlocks = new CreativeTabExtraDecorBlocks(CreativeTabs.getNextID(),"Extrappolated Decor");
 	public static void createBlocks()
 	{
-		GlassDoor = (new BlockGlassDoor(899,Material.glass)).setHardness(1F);
 		stonePillar = (new BlockPillar(EDConfig.stonePillarId, "block_StonePillar", "block_StoneRefined")).setHardness(1.5F).setResistance(10F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("stonePillar");
 		stoneLamp = (new BlockStoneLamp(EDConfig.stoneLampId)).setHardness(1.5F).setResistance(8F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setLightValue(1.0F).setUnlocalizedName("stoneLamp");
 		stones = new BlockStones(EDConfig.stoneTileId).setHardness(1.5F).setResistance(10F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep);
@@ -172,8 +171,10 @@ public class EDBlockManager {
 		woodPlanksMossy = new BlockMossyWood(EDConfig.woodPlanksMossyId).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("woodPlanksMossy").setCreativeTab(tabDecorBlocks);
 		
 		//Test
-		Goblet = new BlockGoblet(784,Material.rock).setHardness(.5F);
-		Plate = new BlockPlate(785,Material.rock);
+		Goblet = new BlockGoblet(EDConfig.gobletId,Material.rock).setHardness(.5F);
+		Plate = new BlockPlate(EDConfig.plateId,Material.rock);
+		
+		GlassDoor = (new BlockGlassDoor(EDConfig.glassDoorId,Material.glass)).setHardness(1F);
 	}
 	
 	public static void loadVanillaOverwrites()

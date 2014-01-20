@@ -55,7 +55,12 @@ public class EDConfig {
 	gravelRoadId,
 	woodPlanksMossyId,
 	netherroadId,
-	refinedNetherroadId;
+	refinedNetherroadId,
+	glassDoorId,
+	plateId,
+	gobletId,
+	gobletItemId,
+	glassDoorItemId;
 	
 	public static int daysUntilMossy;
 	
@@ -117,6 +122,11 @@ public class EDConfig {
 		netherroadId = config.getBlock("Netherroad", 755).getInt();
 		refinedNetherroadId = config.getBlock("Refined Netherroad", 756).getInt();
 		daysUntilMossy = config.get("Misc", "Days Until Planks Get Mossy", 3).getInt();
+		glassDoorId = config.getBlock("Glass Door Block", 757).getInt();
+		plateId = config.getBlock("Plate", 758).getInt();
+		gobletId = config.getBlock("Goblet", 759).getInt();
+		gobletItemId = config.getItem("Goblet Item", 25004).getInt();
+		glassDoorItemId = config.getItem("Glass Door Item", 25005).getInt();
 		config.save();			
 	}
 

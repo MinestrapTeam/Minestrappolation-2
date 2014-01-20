@@ -87,7 +87,8 @@ public class EMDConfig
 	hangGliderId,
 	enderAuraId,
 	ghastlySoulId,
-	witheredBoneId;
+	witheredBoneId,
+	horseHairFibreId;
 	
 	public static void initConfig(FMLPreInitializationEvent e)
 	{
@@ -176,6 +177,7 @@ public class EMDConfig
 		enderAuraId = config.getItem("Ender Aura", 4078).getInt();
 		ghastlySoulId = config.getItem("Ghastly Soul", 4079).getInt();
 		witheredBoneId = config.getItem("Withered Bone", 4080).getInt();
+		horseHairFibreId = config.getItem("Horse Hair Fibre", 4081).getInt();
 		config.save();
 	}
 }
