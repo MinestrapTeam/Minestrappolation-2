@@ -3,12 +3,11 @@ package sobiohazardous.minestrappolation.extramobdrops;
 import java.util.EnumSet;
 
 import sobiohazardous.minestrappolation.extramobdrops.bridge.EMDBridgeRecipes;
-import sobiohazardous.minestrappolation.extramobdrops.handler.ClientPacketHandler;
+import sobiohazardous.minestrappolation.extramobdrops.handler.EMDPacketHandler;
 import sobiohazardous.minestrappolation.extramobdrops.handler.ClientTickHandler;
 import sobiohazardous.minestrappolation.extramobdrops.handler.EMDEventHandler;
 import sobiohazardous.minestrappolation.extramobdrops.handler.EMDFuelHandler;
 import sobiohazardous.minestrappolation.extramobdrops.handler.PlayerTickHandler;
-import sobiohazardous.minestrappolation.extramobdrops.handler.ServerPacketHandler;
 import sobiohazardous.minestrappolation.extramobdrops.proxy.CommonProxy;
 import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.common.Mod;
@@ -34,9 +33,7 @@ import sobiohazardous.minestrappolation.extramobdrops.lib.EMDRecipeManager;
  * 
  * @author SoBiohazardous
  */
-@NetworkMod(clientSideRequired = true, serverSideRequired = false,
-clientPacketHandlerSpec = @SidedPacketHandler(channels = {"extraoresChan"}, packetHandler = ClientPacketHandler.class),
-serverPacketHandlerSpec = @SidedPacketHandler(channels = {"extroresChan"}, packetHandler = ServerPacketHandler.class))
+@NetworkMod(clientSideRequired = true, serverSideRequired = false, channels = {"emdPacketChan"}, packetHandler = EMDPacketHandler.class)
 @Mod ( modid = "ExtraMobDrops", name="Extrappolated Mob Drops", version="B1.0", dependencies = "required-after:Minestrappolation")
 public class ExtraMobDrops 
 {
