@@ -1,5 +1,6 @@
 package sobiohazardous.minestrappolation.api;
 
+import sobiohazardous.minestrappolation.api.lib.MAPIBlocks;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.creativetab.CreativeTabs;
@@ -15,7 +16,7 @@ public final class MAPICreativeTab extends CreativeTabs
         @SideOnly(Side.CLIENT)
         public int getTabIconItemIndex()
         {
-                return Item.potion.itemID;
+                return MAPIBlocks.stoneCutter.blockID;
         }
    
         public String getTranslatedTabLabel()

@@ -3,8 +3,8 @@ package sobiohazardous.minestrappolation.extramobdrops.lib;
 import java.util.Iterator;
 import java.util.List;
 
-import sobiohazardous.minestrappolation.api.brewing.brewing.PotionList;
-import sobiohazardous.minestrappolation.api.brewing.brewing.PotionType;
+import clashsoft.brewingapi.brewing.PotionList;
+import clashsoft.brewingapi.brewing.PotionType;
 import sobiohazardous.minestrappolation.api.potion.MPotion;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
