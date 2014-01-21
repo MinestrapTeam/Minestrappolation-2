@@ -78,7 +78,6 @@ public class Minestrappolation
 	@EventHandler
 	public void load(FMLInitializationEvent event)
 	{
-		DevCapesUtil.addFileUrl("https://raw.github.com/SoBiohazardous/Minestrappolation-Recode/master/Capes_Info.txt");	    
 		NetworkRegistry.instance().registerGuiHandler(instance, proxy);
 		Minestrappolation.load();
 		
