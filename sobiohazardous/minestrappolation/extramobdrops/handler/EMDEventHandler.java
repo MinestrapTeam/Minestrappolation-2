@@ -419,10 +419,4 @@ public class EMDEventHandler
 			evt.entityPlayer.inventory.addItemStackToInventory(new ItemStack(EMDItemManager.ghastlySoul, 1));
 		}
 	}
-	
-	@ForgeSubscribe
-	public void livingUpdate(LivingUpdateEvent event)
-	{
-		EMDPotionManager.loadPotionEffect(event);
-	}
 }

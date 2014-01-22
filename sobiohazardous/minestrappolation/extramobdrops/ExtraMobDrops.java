@@ -2,6 +2,7 @@ package sobiohazardous.minestrappolation.extramobdrops;
 
 import java.util.EnumSet;
 
+import clashsoft.brewingapi.BrewingAPI;
 import sobiohazardous.minestrappolation.extramobdrops.bridge.EMDBridgeRecipes;
 import sobiohazardous.minestrappolation.extramobdrops.handler.EMDPacketHandler;
 import sobiohazardous.minestrappolation.extramobdrops.handler.ClientTickHandler;
@@ -60,6 +61,7 @@ public class ExtraMobDrops
 		TickRegistry.registerTickHandler(new PlayerTickHandler(EnumSet.of(TickType.PLAYER)), Side.SERVER);
 		MinecraftForge.EVENT_BUS.register(new EMDEventHandler());
 		
+		BrewingAPI.registerEffectHandler(new EMDPotionManager());
 		EMDPotionManager.loadPotions();
 		EMDPotionManager.loadBrewingRecipes();
 		
