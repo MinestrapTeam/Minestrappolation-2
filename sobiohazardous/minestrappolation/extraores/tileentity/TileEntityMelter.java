@@ -16,13 +16,15 @@ import net.minecraft.src.ModLoader;
 import net.minecraft.tileentity.TileEntity;
 
 public class TileEntityMelter extends TileEntity implements IInventory
-	{
+{
 	private ItemStack goldItemStacks[];
 
 	/** The number of ticks that the furnace will keep burning */
 	public int goldBurnTime;
 
 	public static boolean isActive;
+	
+	public static boolean hasPower;
 	
 	ModdedMelterRecipeLoader meltr = new ModdedMelterRecipeLoader();
 
@@ -45,6 +47,7 @@ public class TileEntityMelter extends TileEntity implements IInventory
          goldBurnTime = 0;
          goldItemBurnTime = 0;
          goldCookTime = 0;
+         hasPower = false;
 	}
 	
 	public void setFrontDirection(int f)
@@ -165,8 +168,14 @@ public class TileEntityMelter extends TileEntity implements IInventory
          goldBurnTime = par1NBTTagCompound.getShort("BurnTime");
          goldCookTime = par1NBTTagCompound.getShort("CookTime");
          goldItemBurnTime = getItemBurnTime(goldItemStacks[1]);
+         hasPower = par1NBTTagCompound.getBoolean("hasPower");
         
          System.out.println("front:" + front);
+	}
+	
+	public boolean isPowered()
+	{
+		return this.hasPower;
 	}
 
 /**
@@ -178,6 +187,8 @@ public class TileEntityMelter extends TileEntity implements IInventory
          par1NBTTagCompound.setInteger("FrontDirection", (int)front);
          par1NBTTagCompound.setShort("BurnTime", (short)goldBurnTime);
          par1NBTTagCompound.setShort("CookTime", (short)goldCookTime);
+         par1NBTTagCompound.setBoolean("hasPower", hasPower);
+         
          NBTTagList nbttaglist = new NBTTagList();
 
          for (int i = 0; i < goldItemStacks.length; i++)
@@ -209,7 +220,11 @@ public class TileEntityMelter extends TileEntity implements IInventory
          */
 	public int getCookProgressScaled(int par1)
 	{
-		return (goldCookTime * par1) / 200;
+		if (!hasPower)
+		{
+			return ((goldCookTime * par1) / 200) * 64;
+		}
+		return ((goldCookTime * par1) / 200) * 32;
 	}
 
 	/**
@@ -311,21 +326,24 @@ public class TileEntityMelter extends TileEntity implements IInventory
                  this.onInventoryChanged();
          }
          
+         if(this.worldObj.isBlockIndirectlyGettingPowered(this.xCoord, this.yCoord, this.zCoord))
+         {
+        	 hasPower = true;
+         }
+         
+         if(!this.worldObj.isBlockIndirectlyGettingPowered(this.xCoord, this.yCoord, this.zCoord))
+         {
+        	 hasPower = false;
+         }
 	}
 
 /**
          * Returns true if the furnace can smelt an item, i.e. has a source item, destination stack isn't full, etc.
          */
 	private boolean canSmelt()
-	{
-		  
-       
-        
-       
-        
+	{       
          if (goldItemStacks[0] == null)
-         {
-       
+         {     
                  return false;
          }if(!hasBucket){
         	 return false;
@@ -339,14 +357,8 @@ public class TileEntityMelter extends TileEntity implements IInventory
         	  if (goldItemStacks[0] == null && goldItemStacks[3].getItem() == Item.bucketEmpty) return false;
         	  if(goldItemStacks[2].stackSize == goldItemStacks[2].getMaxStackSize()) return false;
         	  int result = goldItemStacks[2].stackSize + itemstack.stackSize;
-        	  return (result <= getInventoryStackLimit() && result <= itemstack.getMaxStackSize());
-        	 
-         }
-         
-       
-      
-
-       
+        	  return (result <= getInventoryStackLimit() && result <= itemstack.getMaxStackSize());       	 
+         }     
 	}
 
 /**
@@ -409,50 +421,99 @@ public class TileEntityMelter extends TileEntity implements IInventory
 
          int i = par1ItemStack.getItem().itemID;
 
-         if (i < 256 && Block.blocksList[i].blockMaterial == Material.wood)
+         if(!hasPower)
          {
+        	if (i < 256 && Block.blocksList[i].blockMaterial == Material.wood)
+         	{
                  return 300;
-         }
+         	}
 
-         if (i == Item.stick.itemID)
-         {
+         	if (i == Item.stick.itemID)
+         	{
                  return 100;
-         }
+         	}
 
-         if (i == Item.coal.itemID)
-         {
+         	if (i == Item.coal.itemID)
+         	{
                  return 1600;
-         }
+         	}
 
-         if (i == Item.bucketLava.itemID)
-         {
+         	if (i == Item.bucketLava.itemID)
+         	{
                  return 20000;
-         }
+         	}
          
-         if (i == EOItemManager.Uranium.itemID)
-         {
-                 return 150000;
-         }
+         	if (i == EOItemManager.Uranium.itemID)
+	        {
+	             return 150000;
+         	}
          
-         if (i == EOItemManager.Plutonium.itemID)
-         {
+         	if (i == EOItemManager.Plutonium.itemID)
+         	{
                  return 200000;
-         }
+         	}
 
 
-         if (i == Block.sapling.blockID)
-         {
+         	if (i == Block.sapling.blockID)
+         	{
                  return 100;
-         }
+         	}
 
-         if (i == Item.blazeRod.itemID)
-         {
+         	if (i == Item.blazeRod.itemID)
+         	{
                  return 2400;
+         	}
          }
-         else
+         
+         else if(hasPower)
          {
-                 return ModLoader.addAllFuel(par1ItemStack.itemID, par1ItemStack.getItemDamage());
+        	if (i < 256 && Block.blocksList[i].blockMaterial == Material.wood)
+         	{
+                 return 300 / 4;
+         	}
+
+         	if (i == Item.stick.itemID)
+         	{
+                 return 100 / 4;
+         	}
+
+         	if (i == Item.coal.itemID)
+         	{
+                 return 1600 / 4;
+         	}
+
+         	if (i == Item.bucketLava.itemID)
+         	{
+                 return 20000 / 4;
+         	}
+         
+         	if (i == EOItemManager.Uranium.itemID)
+	        {
+	             return 150000 / 4;
+         	}
+         
+         	if (i == EOItemManager.Plutonium.itemID)
+         	{
+                 return 200000 / 4;
+         	}
+
+
+         	if (i == Block.sapling.blockID)
+         	{
+                 return 100 / 4;
+         	}
+
+         	if (i == Item.blazeRod.itemID)
+         	{
+                 return 2400 / 4;
+         	}
+         	
+         	if (i == Item.redstone.itemID)
+         	{
+                 return 1600 / 2;
+         	}
          }
+         return 0;
 	}
 	/**
          * Do not make give this method the name canInteractWith because it clashes with Container

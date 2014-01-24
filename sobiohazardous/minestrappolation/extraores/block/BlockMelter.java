@@ -70,7 +70,7 @@ public class BlockMelter extends BlockContainer
         super.onBlockAdded(par1World, par2, par3, par4);
         this.setDefaultDirection(par1World, par2, par3, par4);
     }
-
+    
     /**
      * set a blocks direction
      */
@@ -131,7 +131,6 @@ public class BlockMelter extends BlockContainer
         {
             par1World.setBlockMetadataWithNotify(par2, par3, par4, 4, 2);
         }
-
     }
 
     @SideOnly(Side.CLIENT)
@@ -172,7 +171,6 @@ public class BlockMelter extends BlockContainer
 
             if (tileentityfurnace != null)
             {
-            	System.out.println(this.isActive());
             	par5EntityPlayer.openGui(ExtraOres.instance, 0, par1World, par2, par3, par4);
             }
 

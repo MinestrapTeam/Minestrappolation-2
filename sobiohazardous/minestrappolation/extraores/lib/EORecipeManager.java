@@ -1237,7 +1237,7 @@ public class EORecipeManager
         		});
         GameRegistry.addRecipe(new ItemStack(EOBlockManager.melterIdle, 1), new Object[]
 				{
-			"ZZZ", "ZFZ", "ZZZ", Character.valueOf('Z'), EOItemManager.meuroditePlateItem, Character.valueOf('F'), Block.furnaceIdle
+			"ZZZ", "ZFZ", "ZBZ", Character.valueOf('Z'), EOItemManager.meuroditePlateItem, Character.valueOf('F'), Block.furnaceIdle, Character.valueOf('B'), EOBlockManager.BlaziumBlock
 				});
         
         GameRegistry.addRecipe(new ItemStack(EOItemManager.meuroditePlateItem, 4), new Object[]

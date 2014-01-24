@@ -10,12 +10,12 @@ import org.lwjgl.opengl.GL11;
 import sobiohazardous.minestrappolation.extraores.tileentity.TileEntityMelter;
 public class GuiMelter extends GuiContainer
 	{
-	private TileEntityMelter goldInventory;
+	private TileEntityMelter tileEntity;
 
 	public GuiMelter(InventoryPlayer inventory, TileEntityMelter gold)
 	{
          super(new ContainerMelter(inventory, gold));
-         goldInventory = gold;
+         tileEntity = gold;
 	}
 
 /**
@@ -38,13 +38,18 @@ public class GuiMelter extends GuiContainer
          int k = (height - ySize) / 2;
          drawTexturedModalRect(j, k, 0, 0, xSize, ySize);
 
-         if (goldInventory.isBurning())
+         if (tileEntity.isBurning())
          {
-                 int burn = goldInventory.getBurnTimeRemainingScaled(12);
+                 int burn = tileEntity.getBurnTimeRemainingScaled(12);
                  this.drawTexturedModalRect(j + 56, k + 36 + 12 - burn, 176, 12 - burn, 14, burn + 2);
          }
+         
+         if(tileEntity.isPowered())
+         {
+        	 this.drawTexturedModalRect(j+58, k+5, 176, 31, 12, 10);
+         }
 
-         int update = goldInventory.getCookProgressScaled(24);
+         int update = tileEntity.getCookProgressScaled(24);
          this.drawTexturedModalRect(j + 79, k + 34, 176, 14, update + 1, 16);
 	}
 }
