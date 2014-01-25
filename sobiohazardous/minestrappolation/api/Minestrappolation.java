@@ -3,6 +3,7 @@ package sobiohazardous.minestrappolation.api;
 import sobiohazardous.minestrappolation.api.lib.MAPIBlocks;
 import sobiohazardous.minestrappolation.api.lib.MAPIConfig;
 import sobiohazardous.minestrappolation.api.tileentity.TileEntityStonecutter;
+import sobiohazardous.minestrappolation.extraores.handler.GuiHandler;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -24,6 +25,7 @@ public class Minestrappolation
 {
 	@Instance("Minestrappolation")
 	public static Minestrappolation	instance;
+	private MGuiHandler guiHandler = new MGuiHandler();
 	
 	@SidedProxy(modId = "Minestrappolation", clientSide = "sobiohazardous.minestrappolation.api.ClientProxy", serverSide = "sobiohazardous.minestrappolation.api.CommonProxy")
 	public static CommonProxy	proxy;		
@@ -47,6 +49,7 @@ public class Minestrappolation
 		Block.bedrock.setHardness(80F);
 
 		NetworkRegistry.instance().registerConnectionHandler(new ConnectionHandler());
+		NetworkRegistry.instance().registerGuiHandler(this, guiHandler);
 		MinecraftForge.EVENT_BUS.register(this);
 		proxy.registerRenderers();	
 	}

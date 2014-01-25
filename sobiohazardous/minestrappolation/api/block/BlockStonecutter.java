@@ -2,12 +2,15 @@ package sobiohazardous.minestrappolation.api.block;
 
 import sobiohazardous.minestrappolation.api.Minestrappolation;
 import sobiohazardous.minestrappolation.api.tileentity.TileEntityStonecutter;
+import sobiohazardous.minestrappolation.extraores.ExtraOres;
+import sobiohazardous.minestrappolation.extraores.tileentity.TileEntityMelter;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityFurnace;
@@ -48,6 +51,25 @@ public class BlockStonecutter extends BlockContainer
         public boolean renderAsNormalBlock() 
         {
                 return false;
+        }
+        
+        public boolean onBlockActivated(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9)
+        {
+            if (par1World.isRemote)
+            {
+                return true;
+            }
+            else
+            {
+                TileEntityStonecutter tileentityfurnace = (TileEntityStonecutter)par1World.getBlockTileEntity(par2, par3, par4);
+
+                if (tileentityfurnace != null)
+                {
+                	par5EntityPlayer.openGui(Minestrappolation.instance, 0, par1World, par2, par3, par4);
+                }
+
+                return true;
+            }
         }
         
         /**
