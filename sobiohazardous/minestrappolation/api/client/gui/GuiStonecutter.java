@@ -11,6 +11,8 @@ import net.minecraft.world.World;
 
 import org.lwjgl.opengl.GL11;
 
+import sobiohazardous.minestrappolation.api.tileentity.ContainerStonecutter;
+
 @SideOnly(Side.CLIENT)
 public class GuiStonecutter extends GuiContainer
 {
@@ -18,7 +20,7 @@ public class GuiStonecutter extends GuiContainer
 
     public GuiStonecutter(InventoryPlayer par1InventoryPlayer, World par2World, int par3, int par4, int par5)
     {
-        super(new ContainerWorkbench(par1InventoryPlayer, par2World, par3, par4, par5));
+        super(new ContainerStonecutter(par1InventoryPlayer, par2World, par3, par4, par5));
     }
 
     /**

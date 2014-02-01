@@ -29,17 +29,18 @@ public class ContainerStonecutter extends Container
         this.posX = par3;
         this.posY = par4;
         this.posZ = par5;
-        this.addSlotToContainer(new SlotCrafting(par1InventoryPlayer.player, this.craftMatrix, this.craftResult, 0, 124, 35));
+        this.addSlotToContainer(new SlotCrafting(par1InventoryPlayer.player, this.craftMatrix, this.craftResult, 0, 124 + 14, 35));
         int l;
         int i1;
-
+        
         for (l = 0; l < 3; ++l)
         {
             for (i1 = 0; i1 < 3; ++i1)
             {
-                this.addSlotToContainer(new Slot(this.craftMatrix, i1 + l * 3, 30 + i1 * 18, 17 + l * 18));
+                this.addSlotToContainer(new Slot(this.craftMatrix, i1 + l * 3, 30 + i1 * 18 + 14, 17 + l * 18));
             }
         }
+       
 
         for (l = 0; l < 3; ++l)
         {

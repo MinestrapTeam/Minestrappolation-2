@@ -174,8 +174,29 @@ public class ItemHorseHairBow extends MItem
     /**
      * used to cycle through icons based on their used duration, i.e. for the bow
      */
+    /*
     public Icon getItemIconForUseDuration(int par1)
     {
         return this.iconArray[par1];
     }
+    */
+    
+   public Icon getIcon(ItemStack stack, int renderPass, EntityPlayer player, ItemStack usingItem, int useRemaining)
+   {
+	   if(player.getItemInUse() == null) return this.itemIcon;
+	   int Pulling = stack.getMaxItemUseDuration() - useRemaining;
+	   if (Pulling >= 18)
+	   {
+		   return iconArray[2];
+	   }
+	   else if (Pulling > 13)
+	   {
+		   return iconArray[1];
+	   }
+	   else if (Pulling > 0)
+	   {
+		   return iconArray[0];
+	   }              
+	   return iconArray[0];
+   	}
 }
