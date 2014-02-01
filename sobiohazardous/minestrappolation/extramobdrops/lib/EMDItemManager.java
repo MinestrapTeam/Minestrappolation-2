@@ -130,7 +130,8 @@ public class EMDItemManager
 	
 	public static Item witheredBone;
 	
-	public static Item horseHairFibre;
+	public static Item horseHairFibre;	
+	public static Item horseHairBow;
 	
 	public static EnumToolMaterial toolMaterialWoodH = EnumHelper.addToolMaterial("ToolWoodH", 0, 59, 2.0F, 2.0F, 15);
 	public static EnumToolMaterial toolMaterialStoneH = EnumHelper.addToolMaterial("ToolStoneH", 1, 131, 4.0F, 3.0F, 5);
@@ -249,6 +250,7 @@ public class EMDItemManager
 		witheredBone = new MItem(EMDConfig.witheredBoneId).setUnlocalizedName("withered_bone").setCreativeTab(tabItems);
 		
 		horseHairFibre = new MItem(EMDConfig.horseHairFibreId).setUnlocalizedName("horse_hair_fibre").setCreativeTab(tabItems);
+		horseHairBow = new ItemHorseHairBow(EMDConfig.horseHairBowId).setUnlocalizedName("horsehair_bow").setCreativeTab(tabItems);
 	}
 	
 	public static void loadNames()
@@ -328,6 +330,7 @@ public class EMDItemManager
 		LanguageRegistry.addName(ghastlySoul, "Ghastly Soul");
 		LanguageRegistry.addName(witheredBone, "Withered Bone");
 		LanguageRegistry.addName(horseHairFibre, "Horse Hair Fibre");
+		LanguageRegistry.addName(horseHairBow, "Horse Hair Bow");
 	}
 	
 	public static void loadBridgedItems() throws Exception
