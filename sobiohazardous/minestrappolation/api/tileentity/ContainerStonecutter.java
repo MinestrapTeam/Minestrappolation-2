@@ -1,6 +1,7 @@
 package sobiohazardous.minestrappolation.api.tileentity;
 
 import sobiohazardous.minestrappolation.api.lib.MAPIBlocks;
+import sobiohazardous.minestrappolation.api.recipes.StonecutterCraftingManager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -10,7 +11,6 @@ import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.inventory.Slot;
 import net.minecraft.inventory.SlotCrafting;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.world.World;
 
 public class ContainerStonecutter extends Container
@@ -18,12 +18,13 @@ public class ContainerStonecutter extends Container
     /** The crafting matrix inventory (3x3). */
     public InventoryCrafting craftMatrix = new InventoryCrafting(this, 3, 3);
     public IInventory craftResult = new InventoryCraftResult();
+    public IInventory extraSlot = new InventoryStonecutterExtraSlot();
     private World worldObj;
     private int posX;
     private int posY;
     private int posZ;
 
-    public ContainerStonecutter(InventoryPlayer par1InventoryPlayer, World par2World, int par3, int par4, int par5)
+    public ContainerStonecutter(InventoryPlayer par1InventoryPlayer, TileEntityStonecutter te, World par2World, int par3, int par4, int par5)
     {
         this.worldObj = par2World;
         this.posX = par3;
@@ -54,6 +55,9 @@ public class ContainerStonecutter extends Container
         {
             this.addSlotToContainer(new Slot(par1InventoryPlayer, l, 8 + l * 18, 142));
         }
+        
+        //extra slot
+        this.addSlotToContainer(new Slot(extraSlot, 37, 8, 35));
 
         this.onCraftMatrixChanged(this.craftMatrix);
     }
@@ -63,7 +67,7 @@ public class ContainerStonecutter extends Container
      */
     public void onCraftMatrixChanged(IInventory par1IInventory)
     {
-        this.craftResult.setInventorySlotContents(0, CraftingManager.getInstance().findMatchingRecipe(this.craftMatrix, this.worldObj));
+        this.craftResult.setInventorySlotContents(0, StonecutterCraftingManager.getInstance().findMatchingRecipe(this.craftMatrix, this.worldObj));
     }
 
     /**

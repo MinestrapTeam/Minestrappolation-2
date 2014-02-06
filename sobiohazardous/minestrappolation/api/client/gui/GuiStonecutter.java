@@ -12,15 +12,16 @@ import net.minecraft.world.World;
 import org.lwjgl.opengl.GL11;
 
 import sobiohazardous.minestrappolation.api.tileentity.ContainerStonecutter;
+import sobiohazardous.minestrappolation.api.tileentity.TileEntityStonecutter;
 
 @SideOnly(Side.CLIENT)
 public class GuiStonecutter extends GuiContainer
 {
     private static final ResourceLocation craftingTableGuiTextures = new ResourceLocation("Minestrappolation:gui/stonecutter.png");
 
-    public GuiStonecutter(InventoryPlayer par1InventoryPlayer, World par2World, int par3, int par4, int par5)
+    public GuiStonecutter(InventoryPlayer par1InventoryPlayer, TileEntityStonecutter te, World par2World, int par3, int par4, int par5)
     {
-        super(new ContainerStonecutter(par1InventoryPlayer, par2World, par3, par4, par5));
+        super(new ContainerStonecutter(par1InventoryPlayer, te, par2World, par3, par4, par5));
     }
 
     /**
