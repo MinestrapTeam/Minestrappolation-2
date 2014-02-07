@@ -19,21 +19,24 @@ public class StonecutterShapedRecipes implements IRecipe
 
     /** Is the ItemStack that you get when craft the recipe. */
     private ItemStack recipeOutput;
-
-    private ItemStack extraSlot;
     
     /** Is the itemID of the output item that you get when craft the recipe. */
     public final int recipeOutputItemID;
     private boolean field_92101_f;
+    
+    private ItemStack extraSlot;
+    
+    private boolean needsExtraSlot;
 
-    public StonecutterShapedRecipes(int par1, int par2, ItemStack[] par3ArrayOfItemStack, ItemStack par4ItemStack, ItemStack extraSlot)
+    public StonecutterShapedRecipes(int par1, int par2, ItemStack[] par3ArrayOfItemStack, ItemStack par4ItemStack, ItemStack extraslot, boolean needsSlot)
     {
         this.recipeOutputItemID = par4ItemStack.itemID;
         this.recipeWidth = par1;
         this.recipeHeight = par2;
         this.recipeItems = par3ArrayOfItemStack;
         this.recipeOutput = par4ItemStack;
-        this.extraSlot = extraSlot;
+        this.extraSlot = extraslot;
+        this.needsExtraSlot = needsSlot;
     }
 
     public ItemStack getRecipeOutput()
@@ -50,12 +53,12 @@ public class StonecutterShapedRecipes implements IRecipe
         {
             for (int j = 0; j <= 3 - this.recipeHeight; ++j)
             {
-                if (this.checkMatch(par1InventoryCrafting, i, j, true))
+                if (this.checkMatch(par1InventoryCrafting, i, j, extraSlot, true))
                 {
                     return true;
                 }
 
-                if (this.checkMatch(par1InventoryCrafting, i, j, false))
+                if (this.checkMatch(par1InventoryCrafting, i, j, extraSlot, false))
                 {
                     return true;
                 }
@@ -68,7 +71,7 @@ public class StonecutterShapedRecipes implements IRecipe
     /**
      * Checks if the region of a crafting inventory is match for the recipe.
      */
-    private boolean checkMatch(InventoryCrafting par1InventoryCrafting, int par2, int par3, boolean par4)
+    private boolean checkMatch(InventoryCrafting par1InventoryCrafting, int par2, int par3, ItemStack extra, boolean par4)
     {
         for (int k = 0; k < 3; ++k)
         {
@@ -112,7 +115,15 @@ public class StonecutterShapedRecipes implements IRecipe
             }
         }
 
-        return true;
+        if(needsExtraSlot && extra != null)
+        {
+        	return true;
+        }
+        else if(!needsExtraSlot && extra == null)
+        {
+        	return true;
+        }
+        return false;
     }
 
     /**

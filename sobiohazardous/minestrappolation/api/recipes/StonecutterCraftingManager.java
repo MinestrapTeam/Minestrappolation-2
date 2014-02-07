@@ -5,13 +5,12 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
+import sobiohazardous.minestrappolation.api.tileentity.InventoryStonecutterExtraSlot;
 import net.minecraft.block.Block;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.item.crafting.ShapedRecipes;
-import net.minecraft.item.crafting.ShapelessRecipes;
 import net.minecraft.world.World;
 
 public class StonecutterCraftingManager
@@ -21,7 +20,7 @@ public class StonecutterCraftingManager
 
     /** A list of all the recipes added */
     private List recipes = new ArrayList();
-
+    
     /**
      * Returns the static instance of this class
      */
@@ -33,11 +32,11 @@ public class StonecutterCraftingManager
     private StonecutterCraftingManager()
     {
         //add recipes
-    	this.addRecipe(new ItemStack(Item.stick), new Object[]{"SSS"});
-        Collections.sort(this.recipes, new RecipeSorter(this));
+    	this.addRecipe(new ItemStack(Item.stick, 1), Item.appleRed.itemID, true, new Object[]{"SSS", Character.valueOf('S'), Item.stick});
+        Collections.sort(this.recipes, new StonecutterRecipeSorter(this));
     }
 
-    public ShapedRecipes addRecipe(ItemStack par1ItemStack, Object ... par2ArrayOfObj)
+    public StonecutterShapedRecipes addRecipe(ItemStack par1ItemStack, int extraSlotId, boolean needsExtra, Object ... par2ArrayOfObj)
     {
         String s = "";
         int i = 0;
@@ -47,7 +46,6 @@ public class StonecutterCraftingManager
         if (par2ArrayOfObj[i] instanceof String[])
         {
             String[] astring = (String[])((String[])par2ArrayOfObj[i++]);
-
             for (int l = 0; l < astring.length; ++l)
             {
                 String s1 = astring[l];
@@ -105,13 +103,19 @@ public class StonecutterCraftingManager
                 aitemstack[i1] = null;
             }
         }
-
-        ShapedRecipes shapedrecipes = new ShapedRecipes(j, k, aitemstack, par1ItemStack);
+        
+        ItemStack extraSlot = null;
+        if(new Integer(extraSlotId)!= null)
+        {
+        	extraSlot = new ItemStack(extraSlotId, 1, 0);
+        }
+        
+        StonecutterShapedRecipes shapedrecipes = new StonecutterShapedRecipes(j, k, aitemstack, par1ItemStack, extraSlot, needsExtra);
         this.recipes.add(shapedrecipes);
         return shapedrecipes;
     }
 
-    public void addShapelessRecipe(ItemStack par1ItemStack, Object ... par2ArrayOfObj)
+    public void addShapelessRecipe(ItemStack par1ItemStack, int extraSlotId, boolean needsExtraSlot, Object ... par2ArrayOfObj)
     {
         ArrayList arraylist = new ArrayList();
         Object[] aobject = par2ArrayOfObj;
@@ -140,10 +144,16 @@ public class StonecutterCraftingManager
             }
         }
 
-        this.recipes.add(new ShapelessRecipes(par1ItemStack, arraylist));
+        ItemStack extraSlot = null;
+        if(new Integer(extraSlotId)!= null)
+        {
+        	extraSlot = new ItemStack(extraSlotId, 1, 0);
+        }
+        
+        this.recipes.add(new StonecutterShapelessRecipes(par1ItemStack, arraylist, extraSlot, needsExtraSlot));
     }
 
-    public ItemStack findMatchingRecipe(InventoryCrafting par1InventoryCrafting, World par2World)
+    public ItemStack findMatchingRecipe(InventoryCrafting par1InventoryCrafting, World par2World, InventoryStonecutterExtraSlot extra)
     {
         int i = 0;
         ItemStack itemstack = null;
@@ -169,7 +179,7 @@ public class StonecutterCraftingManager
                 ++i;
             }
         }
-
+        
         if (i == 2 && itemstack.itemID == itemstack1.itemID && itemstack.stackSize == 1 && itemstack1.stackSize == 1 && Item.itemsList[itemstack.itemID].isRepairable())
         {
             Item item = Item.itemsList[itemstack.itemID];

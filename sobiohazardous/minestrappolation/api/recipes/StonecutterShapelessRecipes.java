@@ -16,11 +16,17 @@ public class StonecutterShapelessRecipes implements IRecipe
 
     /** Is a List of ItemStack that composes the recipe. */
     public final List recipeItems;
+    
+    private final ItemStack extraSlot;
+    
+    private boolean needsExtraSlot;
 
-    public StonecutterShapelessRecipes(ItemStack par1ItemStack, List par2List)
+    public StonecutterShapelessRecipes(ItemStack par1ItemStack, List par2List, ItemStack extraSlot, boolean needsExtraSlot)
     {
         this.recipeOutput = par1ItemStack;
         this.recipeItems = par2List;
+        this.extraSlot = extraSlot;
+        this.needsExtraSlot = needsExtraSlot;
     }
 
     public ItemStack getRecipeOutput()
@@ -52,9 +58,12 @@ public class StonecutterShapelessRecipes implements IRecipe
 
                         if (itemstack.itemID == itemstack1.itemID && (itemstack1.getItemDamage() == 32767 || itemstack.getItemDamage() == itemstack1.getItemDamage()))
                         {
-                            flag = true;
-                            arraylist.remove(itemstack1);
-                            break;
+                        	if(needsExtraSlot && extraSlot == null)
+                            {                                                   
+                            	flag = true;
+                            	arraylist.remove(itemstack1);
+                            	break;
+                            }
                         }
                     }
 

@@ -4,11 +4,11 @@ import java.util.Comparator;
 
 import net.minecraft.item.crafting.IRecipe;
 
-class RecipeSorter implements Comparator
+class StonecutterRecipeSorter implements Comparator
 {
     final StonecutterCraftingManager craftingManager;
 
-    RecipeSorter(StonecutterCraftingManager par1CraftingManager)
+    StonecutterRecipeSorter(StonecutterCraftingManager par1CraftingManager)
     {
         this.craftingManager = par1CraftingManager;
     }
