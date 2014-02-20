@@ -5,3 +5,6 @@ build/
 eclipse/
 bin/
 repo/
+.settings/
+Build Mod.bat
+Update Workspace.bat
