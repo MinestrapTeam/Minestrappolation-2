@@ -50,7 +50,9 @@ public class CSCollections
 	{
 		Set<T> set = new HashSet<T>(array.length);
 		for (T t : array)
+		{
 			set.add(t);
+		}
 		return set;
 	}
 	
@@ -226,8 +228,7 @@ public class CSCollections
 	}
 	
 	/**
-	 * Returns the first index after {@code start} of the {@code object} in the
-	 * {@code list}
+	 * Returns the first index after {@code start} of the {@code object} in the {@code list}
 	 * 
 	 * @param list
 	 *            the list
@@ -262,8 +263,7 @@ public class CSCollections
 	}
 	
 	/**
-	 * Returns the last index before {@code start} of the {@code object} in the
-	 * {@code list}
+	 * Returns the last index before {@code start} of the {@code object} in the {@code list}
 	 * 
 	 * @param list
 	 *            the list
@@ -284,8 +284,7 @@ public class CSCollections
 	}
 	
 	/**
-	 * Returns the first index of the any of the {@code objects} in the
-	 * {@code list}
+	 * Returns the first index of the any of the {@code objects} in the {@code list}
 	 * 
 	 * @param list
 	 *            the list

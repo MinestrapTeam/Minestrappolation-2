@@ -4,7 +4,7 @@ import java.io.File;
 
 import clashsoft.cslib.util.CSLog;
 
-import net.minecraftforge.common.Configuration;
+import net.minecraftforge.common.config.Configuration;
 
 public class CSConfig
 {
@@ -98,7 +98,7 @@ public class CSConfig
 	
 	public static float getFloat(String category, String key, String desc, float _default)
 	{
-		return (float) getDouble(category, key, desc, (double) _default);
+		return (float) getDouble(category, key, desc, _default);
 	}
 	
 	public static double getDouble(String category, String key, String desc, double _default)
@@ -134,56 +134,46 @@ public class CSConfig
 	
 	public static int getItem(String key, int _default)
 	{
-		checkConfig();
-		
 		if (!key.contains("Item ID"))
 		{
 			key += " Item ID";
 		}
-		return config.getItem(key, _default, getDefaultDesc(key, _default)).getInt(_default);
+		return getInt("item", key, _default);
 	}
 	
 	public static int getTerrainBlock(String key, int _default)
 	{
-		checkConfig();
-		
 		if (!key.contains("Block ID"))
 		{
 			key += " Block ID";
 		}
-		return config.getTerrainBlock(Configuration.CATEGORY_BLOCK, key, _default, getDefaultDesc(key, _default)).getInt(_default);
+		return getInt("terrainblock", key, _default);
 	}
 	
 	public static int getBlock(String key, int _default)
 	{
-		checkConfig();
-		
 		if (!key.contains("Block ID"))
 		{
 			key += " Block ID";
 		}
-		return config.getBlock(key, _default, getDefaultDesc(key, _default)).getInt(_default);
+		return getInt("block", key, _default);
 	}
 	
 	public static int getDimension(String key, int _default)
 	{
-		checkConfig();
-		
 		if (!key.contains("Dimension ID"))
 		{
 			key += " Dimension ID";
 		}
-		return config.get("dimension", key, _default, getDefaultDesc(key, _default)).getInt(_default);
+		return getInt("dim", key, _default);
 	}
 	
 	public static int getBiome(String key, int _default)
 	{
-		checkConfig();
-		
 		if (!key.contains("Biome ID"))
 		{
 			key += " Biome ID";
 		}
-		return config.get("biome", key, _default, getDefaultDesc(key, _default)).getInt(_default);
+		return getInt("biome", key, _default);
 	}
 }

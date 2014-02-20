@@ -1,101 +1,96 @@
 package clashsoft.cslib.minecraft;
 
+import clashsoft.cslib.minecraft.common.CSLProxy;
 import clashsoft.cslib.minecraft.update.CSUpdate;
-import clashsoft.cslib.util.CSLog;
-import cpw.mods.fml.common.FMLLog;
+import clashsoft.cslib.minecraft.update.ModUpdate;
+import clashsoft.cslib.minecraft.util.CSConfig;
+import clashsoft.cslib.minecraft.util.Convenience;
+import clashsoft.cslib.util.CSArrays;
 import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.stats.StatList;
-import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.ServerChatEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 
-@Mod(modid = "ClashsoftAPI", name = "Clashsoft Lib", version = CSLib.VERSION)
+@Mod(modid = CSLib.MODID, name = CSLib.NAME, version = CSLib.VERSION)
 public class CSLib
 {
-	public static final int		REVISION	= 8;
+	public static final String	MODID		= "cslib";
+	public static final String	NAME		= "Clashsoft Lib";
+	public static final String	ACRONYM		= MODID;
+	public static final int		REVISION	= 0;
 	public static final String	VERSION		= CSUpdate.CURRENT_VERSION + "-" + REVISION;
 	
-	@Instance("ClashsoftAPI")
+	@Instance(MODID)
 	public static CSLib			instance;
+	
+	@SidedProxy(clientSide = "clashsoft.cslib.minecraft.client.CSLClientProxy", serverSide = "clashsoft.cslib.minecraft.common.CSLProxy")
+	public static CSLProxy		proxy;
 	
 	public static boolean		updateCheck	= true;
 	public static boolean		autoUpdate	= true;
 	
-	static
-	{
-		CSLog.logger.setParent(FMLLog.getLogger());
-	}
-	
-	private void test()
-	{
-		
-	}
-	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
-		test();
+		CSConfig.loadConfig(event.getSuggestedConfigurationFile(), NAME);
 		
-		Configuration config = new Configuration(event.getSuggestedConfigurationFile());
-		config.load();
+		autoUpdate = CSConfig.getBool("updates", "Auto Updates", "Disables automatic updates", true);
+		updateCheck = CSConfig.getBool("updates", "Update Check", "Disables update checks for ALL mods", true);
 		
-		autoUpdate = config.get("Updates", "Auto Updates", true, "Disables automatic updates").getBoolean(true);
-		updateCheck = config.get("Updates", "Update Check", true, "Disables update checks for ALL mods").getBoolean(true);
-		
-		config.save();
+		CSConfig.saveConfig();
 	}
 	
 	@EventHandler
 	public void init(FMLInitializationEvent event)
 	{
-		MinecraftForge.EVENT_BUS.register(this);
+		CSUpdate.updateCheck(CSUpdate.CLASHSOFT_UPDATE_NOTES);
 		
-		//Hidden.hidden();
+		CSUpdate.addUpdate(new ModUpdate(NAME, VERSION, "1.7.2-1", CSArrays.asList(new String[] {
+				"+ Added stuff",
+				"+ Added more stuff",
+				"* Fixed a bug",
+				"* Fixed another bug",
+				"- Removed Something" }), "http://clashsoft.weebly.com"));
+		
+		MinecraftForge.EVENT_BUS.register(this);
 	}
 	
-	@ForgeSubscribe
-	public void playerJoined(EntityJoinWorldEvent event)
-	{
-		if (event.entity instanceof EntityPlayer)
-		{
-			CSUpdate.doClashsoftUpdateCheck((EntityPlayer) event.entity, "Clashsoft API", "csapi", CSLib.VERSION);
-		}
-	}
-	
-	@ForgeSubscribe
+	@SubscribeEvent
 	public void chatMessageSent(ServerChatEvent event)
 	{
 		String message = event.message;
 		
-		if (message.startsWith(">Update "))
+		if (message.startsWith(">updates"))
 		{
-			String modName = message.substring(message.indexOf(' ') + 1);
+			proxy.displayUpdatesGUI();
+			event.setCanceled(true);
+		}
+		else if (message.startsWith(">update "))
+		{
+			String modName = message.substring(8);
 			CSUpdate.update(event.player, modName);
 			event.setCanceled(true);
 		}
-		if (message.startsWith(">Restart"))
+		else if (message.startsWith(">restart"))
 		{
-			try
-			{
-				Minecraft.getMinecraft().statFileWriter.readStat(StatList.leaveGameStat, 1);
-				Minecraft.getMinecraft().theWorld.sendQuittingDisconnectingPacket();
-				Minecraft.getMinecraft().loadWorld((WorldClient) null);
-				
-				Minecraft.getMinecraft().shutdown();
-			}
-			catch (Exception ex)
-			{
-			}
+			Convenience.shutdown();
+		}
+	}
+	
+	@SubscribeEvent
+	public void playerJoined(EntityJoinWorldEvent event)
+	{
+		if (event.entity instanceof EntityPlayer)
+		{
+			CSUpdate.notifyAllUpdates((EntityPlayer) event.entity);
 		}
 	}
 }

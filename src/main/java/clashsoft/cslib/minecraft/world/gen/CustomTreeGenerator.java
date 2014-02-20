@@ -2,11 +2,12 @@ package clashsoft.cslib.minecraft.world.gen;
 
 import java.util.Random;
 
-
 import net.minecraft.block.Block;
-import net.minecraft.util.Direction;
+import net.minecraft.block.BlockSapling;
+import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenTrees;
+import net.minecraftforge.common.util.ForgeDirection;
 
 /**
  * The class CustomTreeGenerator
@@ -21,9 +22,9 @@ public class CustomTreeGenerator extends WorldGenTrees
 	/** True if this tree should grow Vines. */
 	public boolean	vinesGrow		= false;
 	
-	public int		woodId			= Block.wood.blockID;
-	public int		leavesId		= Block.leaves.blockID;
-	public int		vinesId			= Block.vine.blockID;
+	public Block	logBlock		= Blocks.log;
+	public Block	leafBlock		= Blocks.leaves;
+	public Block	vineBlock		= Blocks.vine;
 	
 	/** The metadata value of the wood to use in tree generation. */
 	public int		metaWood		= 0;
@@ -31,22 +32,22 @@ public class CustomTreeGenerator extends WorldGenTrees
 	/** The metadata value of the leaves to use in tree generation. */
 	public int		metaLeaves		= 0;
 	
-	public CustomTreeGenerator(boolean blockUpdates, int minTreeHeight, int woodID, int leavesID)
+	public CustomTreeGenerator(boolean blockUpdates, int minTreeHeight, Block log, Block leaf)
 	{
-		this(blockUpdates, minTreeHeight, woodID, leavesID, 0, 0);
+		this(blockUpdates, minTreeHeight, log, leaf, 0, 0);
 	}
 	
-	public CustomTreeGenerator(boolean blockUpdates, int minTreeHeight, int woodID, int leavesID, int woodMetadata, int leavesMetadata)
+	public CustomTreeGenerator(boolean blockUpdates, int minTreeHeight, Block log, Block leaf, int woodMetadata, int leavesMetadata)
 	{
-		this(blockUpdates, minTreeHeight, woodID, leavesID, woodMetadata, leavesMetadata, false);
+		this(blockUpdates, minTreeHeight, log, leaf, woodMetadata, leavesMetadata, false);
 	}
 	
-	public CustomTreeGenerator(boolean blockUpdates, int minTreeHeight, int woodID, int leavesID, int woodMetadata, int leavesMetadata, boolean vinesGrow)
+	public CustomTreeGenerator(boolean blockUpdates, int minTreeHeight, Block log, Block leaf, int woodMetadata, int leavesMetadata, boolean vinesGrow)
 	{
 		super(blockUpdates);
 		this.minTreeHeight = minTreeHeight;
-		this.woodId = woodID;
-		this.leavesId = leavesID;
+		this.logBlock = log;
+		this.leafBlock = leaf;
 		this.metaWood = woodMetadata;
 		this.metaLeaves = leavesMetadata;
 		this.vinesGrow = vinesGrow;
@@ -55,45 +56,36 @@ public class CustomTreeGenerator extends WorldGenTrees
 	@Override
 	public boolean generate(World world, Random random, int x, int y, int z)
 	{
-		int treeHeight = random.nextInt(3) + this.minTreeHeight;
+		int l = random.nextInt(3) + this.minTreeHeight;
 		boolean flag = true;
 		
-		if (y > 0 && y + treeHeight < 256)
+		if ((y >= 1) && (y + l + 1 <= 256))
 		{
-			int var8;
-			byte var9;
-			int var11;
-			int var12;
-			
-			for (var8 = y; var8 <= y + 1 + treeHeight; ++var8)
+			for (int i1 = y; i1 <= y + 1 + l; ++i1)
 			{
-				var9 = 1;
+				byte b0 = 1;
 				
-				if (var8 == y)
+				if (i1 == y)
 				{
-					var9 = 0;
+					b0 = 0;
 				}
 				
-				if (var8 >= y + 1 + treeHeight - 2)
+				if (i1 >= y + 1 + l - 2)
 				{
-					var9 = 2;
+					b0 = 2;
 				}
 				
-				for (int var10 = x - var9; var10 <= x + var9 && flag; ++var10)
+				for (int j1 = x - b0; (j1 <= x + b0) && (flag); ++j1)
 				{
-					for (var11 = z - var9; var11 <= z + var9 && flag; ++var11)
+					for (int k1 = z - b0; (k1 <= z + b0) && (flag); ++k1)
 					{
-						if (var8 >= 0 && var8 < 256)
+						if ((i1 >= 0) && (i1 < 256))
 						{
-							var12 = world.getBlockId(var10, var8, var11);
-							int var12_1 = world.getBlockMetadata(var10, var8, var11);
+							Block block = world.getBlock(j1, i1, k1);
 							
-							Block block = Block.blocksList[var12];
-							
-							if (var12 != 0 && !block.isLeaves(world, var10, var8, var11) && var12 != Block.grass.blockID && var12 != Block.dirt.blockID)
-							{
-								flag = false;
-							}
+							if (this.isReplaceable(world, j1, i1, k1))
+								continue;
+							flag = false;
 						}
 						else
 						{
@@ -103,163 +95,153 @@ public class CustomTreeGenerator extends WorldGenTrees
 				}
 			}
 			
-			if (!flag)
+			if (!(flag))
 			{
 				return false;
 			}
-			else
+			
+			Block block2 = world.getBlock(x, y - 1, z);
+			
+			boolean isSoil = block2.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, (BlockSapling) Blocks.sapling);
+			if ((isSoil) && (y < 256 - l - 1))
 			{
-				var8 = world.getBlockId(x, y - 1, z);
-				int var8_1 = world.getBlockMetadata(x, y - 1, z);
+				block2.onPlantGrow(world, x, y - 1, z, x, y, z);
+				byte b0 = 3;
+				byte b1 = 0;
 				
-				if (y < 256 - treeHeight - 1)
+				for (int k1 = y - b0 + l; k1 <= y + l; ++k1)
 				{
-					var9 = 3;
-					byte var18 = 0;
-					int var13;
-					int var14;
-					int var15;
+					int i3 = k1 - (y + l);
+					int l1 = b1 + 1 - (i3 / 2);
 					
-					for (var11 = y - var9 + treeHeight; var11 <= y + treeHeight; ++var11)
+					for (int i2 = x - l1; i2 <= x + l1; ++i2)
 					{
-						var12 = var11 - (y + treeHeight);
-						var13 = var18 + 1 - var12 / 2;
+						int j2 = i2 - x;
 						
-						for (var14 = x - var13; var14 <= x + var13; ++var14)
+						for (int k2 = z - l1; k2 <= z + l1; ++k2)
 						{
-							var15 = var14 - x;
+							int l2 = k2 - z;
 							
-							for (int var16 = z - var13; var16 <= z + var13; ++var16)
-							{
-								int var17 = var16 - z;
-								
-								Block block = Block.blocksList[world.getBlockId(var14, var11, var16)];
-								
-								if ((Math.abs(var15) != var13 || Math.abs(var17) != var13 || random.nextInt(2) != 0 && var12 != 0) && (block == null || block.canBeReplacedByLeaves(world, var14, var11, var16)))
-								{
-									this.setBlockAndMetadata(world, var14, var11, var16, this.leavesId, this.metaLeaves);
-								}
-							}
+							if ((Math.abs(j2) == l1) && (Math.abs(l2) == l1) && (((random.nextInt(2) == 0) || (i3 == 0))))
+								continue;
+							Block block1 = world.getBlock(i2, k1, k2);
+							
+							if ((!(block1.isAir(world, i2, k1, k2))) && (!(block1.isLeaves(world, i2, k1, k2))))
+								continue;
+							this.setBlockAndNotifyAdequately(world, i2, k1, k2, this.leafBlock, this.metaLeaves);
 						}
+						
 					}
 					
-					for (var11 = 0; var11 < treeHeight; ++var11)
-					{
-						var12 = world.getBlockId(x, y + var11, z);
-						
-						Block block = Block.blocksList[var12];
-						
-						if (var12 == 0 || block == null || block.isLeaves(world, x, y + var11, z))
-						{
-							this.setBlockAndMetadata(world, x, y + var11, z, this.woodId, this.metaWood);
-							
-							if (this.vinesGrow && var11 > 0)
-							{
-								if (random.nextInt(3) > 0 && world.isAirBlock(x - 1, y + var11, z))
-								{
-									this.setBlockAndMetadata(world, x - 1, y + var11, z, Block.vine.blockID, 8);
-								}
-								
-								if (random.nextInt(3) > 0 && world.isAirBlock(x + 1, y + var11, z))
-								{
-									this.setBlockAndMetadata(world, x + 1, y + var11, z, Block.vine.blockID, 2);
-								}
-								
-								if (random.nextInt(3) > 0 && world.isAirBlock(x, y + var11, z - 1))
-								{
-									this.setBlockAndMetadata(world, x, y + var11, z - 1, Block.vine.blockID, 1);
-								}
-								
-								if (random.nextInt(3) > 0 && world.isAirBlock(x, y + var11, z + 1))
-								{
-									this.setBlockAndMetadata(world, x, y + var11, z + 1, Block.vine.blockID, 4);
-								}
-							}
-						}
-					}
-					
-					if (this.vinesGrow)
-					{
-						for (var11 = y - 3 + treeHeight; var11 <= y + treeHeight; ++var11)
-						{
-							var12 = var11 - (y + treeHeight);
-							var13 = 2 - var12 / 2;
-							
-							for (var14 = x - var13; var14 <= x + var13; ++var14)
-							{
-								for (var15 = z - var13; var15 <= z + var13; ++var15)
-								{
-									Block block = Block.blocksList[world.getBlockId(var14, var11, var15)];
-									if (block != null && block.isLeaves(world, var14, var11, var15))
-									{
-										if (random.nextInt(4) == 0 && world.getBlockId(var14 - 1, var11, var15) == 0)
-										{
-											this.growVines(world, var14 - 1, var11, var15, 8);
-										}
-										
-										if (random.nextInt(4) == 0 && world.getBlockId(var14 + 1, var11, var15) == 0)
-										{
-											this.growVines(world, var14 + 1, var11, var15, 2);
-										}
-										
-										if (random.nextInt(4) == 0 && world.getBlockId(var14, var11, var15 - 1) == 0)
-										{
-											this.growVines(world, var14, var11, var15 - 1, 1);
-										}
-										
-										if (random.nextInt(4) == 0 && world.getBlockId(var14, var11, var15 + 1) == 0)
-										{
-											this.growVines(world, var14, var11, var15 + 1, 4);
-										}
-									}
-								}
-							}
-						}
-						
-						if (random.nextInt(5) == 0 && treeHeight > 5)
-						{
-							for (var11 = 0; var11 < 2; ++var11)
-							{
-								for (var12 = 0; var12 < 4; ++var12)
-								{
-									if (random.nextInt(4 - var11) == 0)
-									{
-										var13 = random.nextInt(3);
-										this.setBlockAndMetadata(world, x + Direction.offsetX[Direction.directionToFacing[var12]], y + treeHeight - 5 + var11, z + Direction.offsetZ[Direction.directionToFacing[var12]], Block.cocoaPlant.blockID, var13 << 2 | var12);
-									}
-								}
-							}
-						}
-					}
-					
-					return true;
 				}
-				else
+				
+				for (int k1 = 0; k1 < l; ++k1)
 				{
-					return false;
+					Block block = world.getBlock(x, y + k1, z);
+					
+					if ((!(block.isAir(world, x, y + k1, z))) && (!(block.isLeaves(world, x, y + k1, z))))
+						continue;
+					this.setBlockAndNotifyAdequately(world, x, y + k1, z, this.logBlock, this.metaWood);
+					
+					if ((!(this.vinesGrow)) || (k1 <= 0))
+						continue;
+					if ((random.nextInt(3) > 0) && (world.isAirBlock(x - 1, y + k1, z)))
+					{
+						this.setBlockAndNotifyAdequately(world, x - 1, y + k1, z, Blocks.vine, 8);
+					}
+					
+					if ((random.nextInt(3) > 0) && (world.isAirBlock(x + 1, y + k1, z)))
+					{
+						this.setBlockAndNotifyAdequately(world, x + 1, y + k1, z, Blocks.vine, 2);
+					}
+					
+					if ((random.nextInt(3) > 0) && (world.isAirBlock(x, y + k1, z - 1)))
+					{
+						this.setBlockAndNotifyAdequately(world, x, y + k1, z - 1, Blocks.vine, 1);
+					}
+					
+					if ((random.nextInt(3) <= 0) || (!(world.isAirBlock(x, y + k1, z + 1))))
+						continue;
+					this.setBlockAndNotifyAdequately(world, x, y + k1, z + 1, Blocks.vine, 4);
 				}
+				
+				if (this.vinesGrow)
+				{
+					for (int k1 = y - 3 + l; k1 <= y + l; ++k1)
+					{
+						int i3 = k1 - (y + l);
+						int l1 = 2 - (i3 / 2);
+						
+						for (int i2 = x - l1; i2 <= x + l1; ++i2)
+						{
+							for (int j2 = z - l1; j2 <= z + l1; ++j2)
+							{
+								if (!(world.getBlock(i2, k1, j2).isLeaves(world, i2, k1, j2)))
+									continue;
+								if ((random.nextInt(4) == 0) && (world.getBlock(i2 - 1, k1, j2).isAir(world, i2 - 1, k1, j2)))
+								{
+									this.growVines(world, i2 - 1, k1, j2, 8);
+								}
+								
+								if ((random.nextInt(4) == 0) && (world.getBlock(i2 + 1, k1, j2).isAir(world, i2 + 1, k1, j2)))
+								{
+									this.growVines(world, i2 + 1, k1, j2, 2);
+								}
+								
+								if ((random.nextInt(4) == 0) && (world.getBlock(i2, k1, j2 - 1).isAir(world, i2, k1, j2 - 1)))
+								{
+									this.growVines(world, i2, k1, j2 - 1, 1);
+								}
+								
+								if ((random.nextInt(4) != 0) || (!(world.getBlock(i2, k1, j2 + 1).isAir(world, i2, k1, j2 + 1))))
+									continue;
+								this.growVines(world, i2, k1, j2 + 1, 4);
+							}
+							
+						}
+						
+					}
+					
+					if ((random.nextInt(5) == 0) && (l > 5))
+					{
+						for (int k1 = 0; k1 < 2; ++k1)
+						{
+							for (int i3 = 0; i3 < 4; ++i3)
+							{
+								if (random.nextInt(4 - k1) != 0)
+									continue;
+								int l1 = random.nextInt(3);
+								this.setBlockAndNotifyAdequately(world, x + net.minecraft.util.Direction.offsetX[net.minecraft.util.Direction.rotateOpposite[i3]], y + l - 5 + k1, z + net.minecraft.util.Direction.offsetZ[net.minecraft.util.Direction.rotateOpposite[i3]], Blocks.cocoa, l1 << 2 | i3);
+							}
+						}
+					}
+					
+				}
+				
+				return true;
 			}
-		}
-		else
-		{
+			
 			return false;
 		}
+		
+		return false;
 	}
 	
-	/**
-	 * Grows vines downward from the given block for a given length. Args:
-	 * world, x, y, z, vine metadata
-	 */
-	private void growVines(World world, int x, int y, int z, int vineMetadata)
+	private void growVines(World world, int x, int y, int z, int metadata)
 	{
-		this.setBlockAndMetadata(world, x, y, z, vinesId, vineMetadata);
-		int var6 = 4;
-		
-		while (world.getBlockId(x, y, z) != 0 || var6 <= 0)
+		this.setBlockAndNotifyAdequately(world, x, y, z, this.vineBlock, metadata);
+		int i1 = 4;
+		while (true)
 		{
 			--y;
-			--var6;
-			this.setBlockAndMetadata(world, x, y, z, vinesId, vineMetadata);
+			
+			if ((world.getBlock(x, y, z).isAir(world, x, y, z)) || (i1 <= 0))
+			{
+				return;
+			}
+			
+			this.setBlockAndNotifyAdequately(world, x, y, z, this.vineBlock, metadata);
+			--i1;
 		}
 	}
 }

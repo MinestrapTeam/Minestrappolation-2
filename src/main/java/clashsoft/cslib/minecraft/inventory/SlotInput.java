@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 
 public class SlotInput extends Slot2
 {
-	public IItemMatcher iItemMatcher;
+	public IItemMatcher	iItemMatcher;
 	
 	public SlotInput(IInventory inventory, int slotID, int x, int y)
 	{
@@ -23,6 +23,6 @@ public class SlotInput extends Slot2
 	@Override
 	public boolean isItemValid(ItemStack stack)
 	{
-		return this.iItemMatcher == null ? this.inventory.isItemValidForSlot(getSlotIndex(), stack) : this.iItemMatcher.isItemValid(stack);
+		return this.iItemMatcher == null ? this.inventory.isItemValidForSlot(this.getSlotIndex(), stack) : this.iItemMatcher.isItemValid(stack);
 	}
 }

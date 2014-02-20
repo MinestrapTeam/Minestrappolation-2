@@ -5,7 +5,8 @@ import net.minecraft.client.Minecraft;
 /**
  * The class CSString
  * <p>
- * Extension for {@link clashsoft.cslib.util.CSString} adding String utils only usable with Minecraft.
+ * Extension for {@link clashsoft.cslib.util.CSString} adding String utils only usable with
+ * Minecraft.
  * 
  * @author Clashsoft
  */
@@ -14,8 +15,8 @@ public class CSString extends clashsoft.cslib.util.CSString
 	/**
 	 * Trims a string to the given render width.
 	 * <p>
-	 * If the renderer string length is longer than the maximum render width
-	 * given, the last chars will be replaced with "...".
+	 * If the renderer string length is longer than the maximum render width given, the last chars
+	 * will be replaced with "...".
 	 * 
 	 * @param string
 	 *            the string

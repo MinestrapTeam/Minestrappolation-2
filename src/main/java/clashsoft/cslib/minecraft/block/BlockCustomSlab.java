@@ -3,132 +3,115 @@ package clashsoft.cslib.minecraft.block;
 import java.util.List;
 import java.util.Random;
 
-import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-import net.minecraft.block.BlockHalfSlab;
-import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockStoneSlab;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-public class BlockCustomSlab extends BlockHalfSlab implements ICustomBlock
+public class BlockCustomSlab extends BlockStoneSlab implements ICustomBlock
 {
-	public int		otherSlab;
+	public Block	otherSlab;
 	
-	/** The list of the types of step blocks. */
 	public String[]	names;
-	public String[]	topIcons;
-	public String[]	sideIcons;
+	public String[]	topIconNames;
+	public String[]	sideIconNames;
 	
-	private Icon[]	TopIcons;
-	private Icon[]	SideIcons;
+	private IIcon[]	topIcons;
+	private IIcon[]	sideIcons;
 	
-	public BlockCustomSlab(int blockID, String[] names, String[] topIcons, String[] sideIcons, int otherSlabID, boolean doubleSlab)
+	public BlockCustomSlab(String[] names, String[] topIcons, String[] sideIcons, Block otherSlab, boolean doubleSlab)
 	{
-		super(blockID, doubleSlab, Material.rock);
-		this.setCreativeTab(CreativeTabs.tabBlock);
+		super(doubleSlab);
+		
 		this.names = names;
-		this.topIcons = topIcons;
-		this.TopIcons = new Icon[topIcons.length];
-		this.sideIcons = sideIcons;
-		this.SideIcons = new Icon[sideIcons.length];
-		this.otherSlab = otherSlabID;
+		this.topIconNames = topIcons;
+		this.topIcons = new IIcon[topIcons.length];
+		this.sideIconNames = sideIcons;
+		this.sideIcons = new IIcon[sideIcons.length];
+		this.otherSlab = otherSlab;
 	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	/**
-	 * From the specified side and block metadata retrieves the blocks texture. Args: side, metadata
-	 */
-	public Icon getIcon(int side, int metadata)
+	public IIcon getIcon(int side, int metadata)
 	{
-		if (this.isDoubleSlab && (metadata & 8) != 0)
+		if (this.isOpaqueCube() && (metadata & 8) != 0)
 		{
 			side = 1;
 		}
 		
-		return side == 1 || side == 0 ? TopIcons[metadata & 7] : SideIcons[metadata & 7];
+		return side == 1 || side == 0 ? this.topIcons[metadata & 7] : this.sideIcons[metadata & 7];
 	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	/**
-	 * When this method is called, your block should register all the icons it needs with the given IconRegister. This
-	 * is the only chance you get to register icons.
-	 */
-	public void registerIcons(IconRegister iconRegister)
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		for (int i = 0; i < topIcons.length; i++)
+		for (int i = 0; i < this.topIconNames.length; i++)
 		{
-			TopIcons[i] = iconRegister.registerIcon(topIcons[i]);
-			SideIcons[i] = iconRegister.registerIcon(sideIcons[i]);
+			this.topIcons[i] = iconRegister.registerIcon(this.topIconNames[i]);
+			this.sideIcons[i] = iconRegister.registerIcon(this.sideIconNames[i]);
 		}
+		
+		this.topIconNames = this.sideIconNames = null;
 	}
 	
-	/**
-	 * Returns the ID of the items to drop on destruction.
-	 */
 	@Override
-	public int idDropped(int metadata, Random random, int fortune)
+	public Item getItem(World world, int x, int y, int z)
 	{
-		return this.blockID;
+		return this.isOpaqueCube() ? this.otherSlab.getItem(world, x, y, z) : super.getItem(world, x, y, z);
 	}
 	
-	/**
-	 * Returns an item stack containing a single instance of the current block
-	 * type. 'i' is the block's subtype/damage and is ignored for blocks which
-	 * do not support subtypes. Blocks which cannot be harvested should return
-	 * null.
-	 */
+	@Override
+	public Item getItemDropped(int metadata, Random random, int fortune)
+	{
+		return this.isOpaqueCube() ? this.otherSlab.getItemDropped(metadata, random, fortune) : super.getItemDropped(metadata, random, fortune);
+	}
+	
 	@Override
 	protected ItemStack createStackedBlock(int metadata)
 	{
-		return new ItemStack(this.blockID, 2, metadata & 7);
+		return new ItemStack(this, 2, metadata & 7);
 	}
 	
-	/**
-	 * returns a list of blocks with the same ID, but different meta (eg: wood returns 4 blocks)
-	 */
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void getSubBlocks(int blockID, CreativeTabs creativeTab, List list)
+	public void getSubBlocks(Item item, CreativeTabs creativeTab, List list)
 	{
-		for (int j = 0; j < names.length; ++j)
+		for (int j = 0; j < this.names.length; ++j)
 		{
-			list.add(new ItemStack(blockID, 1, j));
+			list.add(new ItemStack(this, 1, j));
 		}
 	}
 	
-	/**
-	 * only called by clickMiddleMouseButton , and passed to
-	 * inventory.setCurrentItem (along with isCreative)
-	 */
-	@Override
-	public int idPicked(World world, int x, int y, int z)
-	{
-		return !isDoubleSlab ? this.blockID : this.otherSlab;
-	}
-	
-	@Override
-	public void addNames()
-	{
-		for (int i = 0; i < names.length; i++)
-		{
-			LanguageRegistry.addName(new ItemStack(this, 1, i), names[i]);
-		}
-	}
-	
-	@Override
 	public String getFullSlabName(int metadata)
 	{
-		return names[metadata];
+		return this.func_150002_b(metadata);
 	}
-
+	
+	/*
+	 * getFullSlabName
+	 */
+	@Override
+	public String func_150002_b(int metadata)
+	{
+		return this.names[metadata];
+	}
+	
+	@Override
+	public String getUnlocalizedName(ItemStack stack)
+	{
+		return this.names[stack.getItemDamage()];
+	}
+	
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List<String> list)
 	{

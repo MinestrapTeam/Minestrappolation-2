@@ -1,16 +1,14 @@
 package clashsoft.cslib.minecraft.update;
 
-import java.io.BufferedInputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 import clashsoft.cslib.minecraft.CSLib;
+import clashsoft.cslib.minecraft.util.CSWeb;
 import clashsoft.cslib.util.CSString;
 
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.ChatComponentTranslation;
 
 /**
  * The class CSUpdate.
@@ -21,11 +19,11 @@ import net.minecraft.util.EnumChatFormatting;
  */
 public class CSUpdate
 {
-	/** The found updates. */
-	protected static Map<String, ModUpdate>	foundUpdates			= new HashMap();
+	/** The updates already found. */
+	public static Map<String, ModUpdate>	updates					= new HashMap();
 	
 	/** The Constant CURRENT_VERSION. */
-	public static final String				CURRENT_VERSION			= "1.6.4";
+	public static final String				CURRENT_VERSION			= "1.7.2";
 	
 	/** The Constant CLASHSOFT_ADFLY. */
 	public static final String				CLASHSOFT_ADFLY			= "http://adf.ly/2175784/";
@@ -34,70 +32,7 @@ public class CSUpdate
 	public static final String				CLASHSOFT_UPDATE_NOTES	= "https://dl.dropboxusercontent.com/s/pxm1ki6wbtxlvuv/update.txt";
 	
 	/**
-	 * Checks if the website is available.
-	 * 
-	 * @param url
-	 *            the url
-	 * @return true, if available
-	 */
-	public static boolean checkWebsiteAvailable(String url)
-	{
-		try
-		{
-			URL url1 = new URL(url);
-			
-			HttpURLConnection.setFollowRedirects(false);
-			HttpURLConnection con = (HttpURLConnection) url1.openConnection();
-			con.setRequestMethod("HEAD");
-			int response = con.getResponseCode();
-			return response == HttpURLConnection.HTTP_OK;
-		}
-		catch (Exception ex)
-		{
-			return false;
-		}
-	}
-	
-	/**
-	 * Reads a website or downloads its contents.
-	 * 
-	 * @param url
-	 *            the url
-	 * @return the string[]
-	 */
-	public static String[] readWebsite(String url)
-	{
-		try
-		{
-			URL url1 = new URL(url);
-			HttpURLConnection.setFollowRedirects(true);
-			HttpURLConnection con = (HttpURLConnection) url1.openConnection();
-			con.setDoOutput(false);
-			con.setReadTimeout(20000);
-			con.setRequestProperty("Connection", "keep-alive");
-			
-			con.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:16.0) Gecko/20100101 Firefox/20.0");
-			con.setRequestMethod("GET");
-			con.setConnectTimeout(5000);
-			BufferedInputStream in = new BufferedInputStream(con.getInputStream());
-			int responseCode = con.getResponseCode();
-			StringBuffer buffer = new StringBuffer();
-			int chars_read;
-			while ((chars_read = in.read()) != -1)
-			{
-				char g = (char) chars_read;
-				buffer.append(g);
-			}
-			return buffer.toString().split("\n");
-		}
-		catch (Exception ex)
-		{
-			return new String[] {};
-		}
-	}
-	
-	/**
-	 * Creates a CLASHSOFT UNIQUE VERSION (e.g. v1.6.4-4)
+	 * Creates a Clashsoft Unique Version (e.g. v1.6.4-4)
 	 * 
 	 * @param rev
 	 *            the rev
@@ -108,216 +43,220 @@ public class CSUpdate
 		return CURRENT_VERSION + "-" + rev;
 	}
 	
-	/**
-	 * Checks if an update for Clashsoft mod is available.
-	 * 
-	 * @param modName
-	 *            the mod name
-	 * @param version
-	 *            the current version
-	 * @return the mod update
-	 */
-	public static ModUpdate checkForUpdate(String modName, String version)
+	public static ModUpdate readUpdateLine(String line, String modName, String acronym, String version)
 	{
-		return checkForUpdate(modName, CSString.getAcronym(modName).toLowerCase(), version);
-	}
-	
-	/**
-	 * Checks if an update for Clashsoft mod is available.
-	 * 
-	 * @param modName
-	 *            the mod name
-	 * @param modInitials
-	 *            the mod initials
-	 * @param version
-	 *            the version
-	 * @return the mod update
-	 */
-	public static ModUpdate checkForUpdate(String modName, String modInitials, String version)
-	{
-		return checkForUpdate(modName, modInitials, version, readWebsite(CLASHSOFT_UPDATE_NOTES));
-	}
-	
-	/**
-	 * Checks if an update for a mod is available by reading the update file.
-	 * 
-	 * @param modName
-	 *            the mod name
-	 * @param modInitials
-	 *            the mod initials
-	 * @param version
-	 *            the version
-	 * @param updateFile
-	 *            the update file
-	 * @return the mod update
-	 */
-	public static ModUpdate checkForUpdate(String modName, String modInitials, String version, String[] updateFile)
-	{
-		if (!CSLib.updateCheck)
-			return null;
+		int i0 = line.indexOf(':');
+		int i1 = line.indexOf('=');
+		int i2 = line.lastIndexOf('@');
 		
-		String newVersion = version;
-		String updateNotes = "";
-		String updateUrl = "";
-		for (int i = 0; i < updateFile.length; i++)
+		if (i0 == -1)
 		{
-			String s = updateFile[i];
-			
-			if (s.startsWith(modName) || s.startsWith(modInitials))
-			{
-				int i0 = s.indexOf(':');
-				int i1 = s.indexOf('=');
-				int i2 = s.indexOf('@');
-				// Find an @ without a trailing backslash
-				while (i2 != -1 && s.charAt(i2 - 1) == '\\' && i2 < s.length())
-					i2 = s.indexOf('@', i2 + 1);
-				
-				if (i0 == -1)
-					break;
-				
-				newVersion = s.substring(i0 + 1, i1);
-				if (i1 != -1)
-					updateNotes = s.substring(i1 + 1, i2 == -1 ? s.length() : i2).replace("\\n", "\n").replace("\\@", "@");
-				if (i2 != -1)
-					updateUrl = s.substring(i2 + 1);
-				break;
-			}
+			return null;
 		}
 		
-		if (version != newVersion)
+		String key = line.substring(0, i0);
+		
+		if (modName == null)
 		{
-			ModUpdate update = new ModUpdate(modName, modInitials, version, newVersion, updateNotes, updateUrl);
-			
-			if (update.isValid())
-				foundUpdates.put(modName, update);
-			
-			return update;
+			modName = key;
+		}
+		
+		if (key.equals(modName) || key.equals(acronym))
+		{
+			String newVersion = line.substring(i0 + 1, i1);
+			if (version == null || !newVersion.equals(version))
+			{
+				String updateNotes = null;
+				String updateUrl = null;
+				if (i1 != -1)
+				{
+					updateNotes = line.substring(i1 + 1, i2 == -1 ? line.length() : i2);
+				}
+				if (i2 != -1)
+				{
+					updateUrl = line.substring(i2 + 1);
+				}
+				
+				return new ModUpdate(modName, version, newVersion, updateNotes, updateUrl);
+			}
 		}
 		return null;
 	}
 	
-	/**
-	 * Does an update check and notification for Clashsoft mods.
-	 * 
-	 * @see CSUpdate#doUpdateCheck(EntityPlayer, String, String, String, String[])
-	 * 
-	 * @param player
-	 *            the player
-	 * @param modName
-	 *            the mod name
-	 * @param modInitials
-	 *            the mod initials
-	 * @param version
-	 *            the version
-	 */
-	public static void doClashsoftUpdateCheck(final EntityPlayer player, final String modName, final String modInitials, final String version)
+	public static List<ModUpdate> getUpdates(boolean invalidUpdates)
 	{
-		if (player.worldObj.isRemote)
+		Collection<ModUpdate> collection = updates.values();
+		List<ModUpdate> list = new ArrayList(collection.size());
+		
+		if (invalidUpdates)
 		{
-		doUpdateCheck(player, modName, modInitials, version, readWebsite(CLASHSOFT_UPDATE_NOTES));
+			list.addAll(collection);
+		}
+		else
+		{
+			for (ModUpdate update : collection)
+			{
+				if (update.isValid())
+				{
+					list.add(update);
+				}
+			}
+		}
+		
+		return list;
+	}
+	
+	public static ModUpdate getUpdate(String modName)
+	{
+		return updates.get(modName);
+	}
+	
+	public static ModUpdate addUpdate(ModUpdate update)
+	{
+		if (update != null)
+		{
+			ModUpdate update1 = getUpdate(update.modName);
+			if (update1 != null)
+			{
+				update1.combine(update);
+				return update1;
+			}
+			else
+			{
+				updates.put(update.modName, update);
+			}
+		}
+		return update;
+	}
+	
+	public static ModUpdate getUpdate(String modName, String acronym, String version, String[] updateFile)
+	{
+		ModUpdate update = getUpdate(modName);
+		
+		if (update != null)
+		{
+			return update;
+		}
+		
+		for (String line : updateFile)
+		{
+			update = readUpdateLine(line, modName, acronym, version);
+			if (update != null)
+			{
+				return addUpdate(update);
+			}
+		}
+		return null;
+	}
+	
+	public static void updateCheck(String url)
+	{
+		updateCheck(CSWeb.readWebsite(url));
+	}
+	
+	public static void updateCheck(String[] updateFile)
+	{
+		for (String line : updateFile)
+		{
+			ModUpdate update = readUpdateLine(line, null, null, null);
+			addUpdate(update);
 		}
 	}
 	
-	
-	/**
-	 * Does an update check and notification for mods.
-	 * This uses threading to check for updates.
-	 * 
-	 * @see CSUpdate#checkForUpdate(String, String, String, String[])
-	 * @see CSUpdate#notifyUpdate(EntityPlayer, String, ModUpdate)
-	 * 
-	 * @param player
-	 *            the player (used for chat notifations)
-	 * @param modName
-	 *            the mod name
-	 * @param modInitials
-	 *            the mod initials
-	 * @param version
-	 *            the mod version
-	 * @param updateFile
-	 *            the update file
-	 */
-	public static void doUpdateCheck(final EntityPlayer player, final String modName, final String modInitials, final String version, final String[] updateFile)
+	public static void updateCheckCS(String modName, String acronym, String version)
 	{
-		if (player.worldObj.isRemote)
-			new Thread(new Runnable()
-			{
-				public void run()
-				{
-					ModUpdate update = checkForUpdate(modName, modInitials, version, updateFile);
-					notifyUpdate(player, modName, update);
-				}
-			}).start();
+		updateCheck(modName, acronym, version, CLASHSOFT_UPDATE_NOTES);
 	}
 	
-	/**
-	 * Notifies a player about an update and installs it if
-	 * {@link CSLib.autoUpdate} is enabled.
-	 * 
-	 * @param player
-	 *            the player
-	 * @param modName
-	 *            the mod name
-	 * @param update
-	 *            the update
-	 */
-	public static void notifyUpdate(EntityPlayer player, String modName, ModUpdate update)
+	public static void updateCheck(String modName, String version, String url)
 	{
-		if (CSLib.updateCheck && update != null && update.isValid() && player.worldObj.isRemote)
+		updateCheck(modName, CSString.getAcronym(modName), version, url);
+	}
+	
+	public static void updateCheck(String modName, String acronym, String version, String url)
+	{
+		if (CSLib.updateCheck)
 		{
-			player.addChatMessage("A new " + modName + " version is available: " + EnumChatFormatting.GREEN + update.newVersion + EnumChatFormatting.RESET + ". You are using " + EnumChatFormatting.RED + update.version);
+			new CheckUpdateThread(modName, acronym, version, url).start();
+		}
+	}
+	
+	public static void updateCheck(String modName, String acronym, String version, String[] updateLines)
+	{
+		if (CSLib.updateCheck)
+		{
+			new CheckUpdateThread(modName, acronym, version, updateLines).start();
+		}
+	}
+	
+	public static void notifyAllUpdates(EntityPlayer player)
+	{
+		if (player.worldObj.isRemote)
+		{
+			player.addChatMessage(new ChatComponentTranslation("update.found"));
+			for (ModUpdate update : updates.values())
+			{
+				notifyUpdate(player, update);
+			}
+		}
+	}
+	
+	public static void notifyUpdate(EntityPlayer player, ModUpdate update)
+	{
+		if (player.worldObj.isRemote && update != null && update.isValid())
+		{
+			player.addChatMessage(new ChatComponentTranslation("update.notification", update.modName, update.newVersion, update.version));
 			
 			if (!update.updateNotes.isEmpty())
 			{
-				player.addChatMessage("Update Notes: ");
+				player.addChatMessage(new ChatComponentTranslation("update.notes"));
 				
-				for (String line : update.updateNotes.split("\n"))
-					player.addChatMessage(" " + EnumChatFormatting.ITALIC + line + EnumChatFormatting.RESET);
+				for (String line : update.updateNotes)
+				{
+					player.addChatMessage(new ChatComponentText(line));
+				}
 			}
 			
 			if (CSLib.autoUpdate)
+			{
 				update.install(player);
+			}
 			else
-				player.addChatMessage(EnumChatFormatting.RED + "Automatic updates disabled. Type \">Update " + modName + "\" to manually install the update.");
+			{
+				player.addChatMessage(new ChatComponentTranslation("update.automatic.disabled", update.modName));
+			}
 		}
 	}
 	
-	/**
-	 * Installs an update.
-	 * 
-	 * @param player
-	 *            the player
-	 * @param modName
-	 *            the mod name
-	 */
 	public static void update(EntityPlayer player, String modName)
 	{
-		ModUpdate update = foundUpdates.get(modName);
+		ModUpdate update = getUpdate(modName);
 		if (update != null)
+		{
 			update.install(player);
+		}
 		else
-			player.addChatMessage(EnumChatFormatting.RED + "No updates found for '" + modName + "'.");
+		{
+			player.addChatMessage(new ChatComponentTranslation("update.none", modName));
+		}
 	}
 	
-	/**
-	 * Compares two versions.
-	 * 
-	 * @param version1
-	 *            the first version
-	 * @param version2
-	 *            the first version
-	 * @return the comparation result
-	 */
 	public static int compareVersion(String version1, String version2)
 	{
-		int mcv1 = Integer.parseInt(version1.substring(0, version1.indexOf('-')).replace(".", ""));
-		int mcv2 = Integer.parseInt(version2.substring(0, version2.indexOf('-')).replace(".", ""));
-		int rev1 = Integer.parseInt(version1.substring(version1.indexOf('-') + 1, version1.length()));
-		int rev2 = Integer.parseInt(version2.substring(version2.indexOf('-') + 1, version2.length()));
+		if (version1 == null)
+		{
+			return -1;
+		}
+		if (version2 == null)
+		{
+			return 1;
+		}
 		
-		int v1 = mcv1 << 4 | rev1;
-		int v2 = mcv2 << 4 | rev2;
+		String s1 = version1.replace(".", "").replace("-", ".");
+		String s2 = version2.replace(".", "").replace("-", ".");
+		float f1 = Float.parseFloat(s1);
+		float f2 = Float.parseFloat(s2);
 		
-		return Integer.compare(v1, v2);
+		return Float.compare(f1, f2);
 	}
 }

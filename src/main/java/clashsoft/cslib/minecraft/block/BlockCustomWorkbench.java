@@ -2,17 +2,17 @@ package clashsoft.cslib.minecraft.block;
 
 import java.util.List;
 
-import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 public class BlockCustomWorkbench extends Block implements ICustomBlock
@@ -23,14 +23,14 @@ public class BlockCustomWorkbench extends Block implements ICustomBlock
 	public String[]	side2IconNames;
 	public String[]	bottomIconNames;
 	
-	public Icon[]	topIcons;
-	public Icon[]	sideIcons;
-	public Icon[]	side2Icons;
-	public Icon[]	bottomIcons;
+	public IIcon[]	topIcons;
+	public IIcon[]	sideIcons;
+	public IIcon[]	side2Icons;
+	public IIcon[]	bottomIcons;
 	
 	public BlockCustomWorkbench(int blockID, String[] names, String[] topIcons, String[] sideIcons, String[] side2Icons, String[] bottomIcons)
 	{
-		super(blockID, Material.wood);
+		super(Material.wood);
 		this.setCreativeTab(CreativeTabs.tabDecorations);
 		
 		this.names = names;
@@ -42,48 +42,46 @@ public class BlockCustomWorkbench extends Block implements ICustomBlock
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	/**
-	 * From the specified side and block metadata retrieves the blocks texture. Args: side, metadata
-	 */
-	public Icon getIcon(int side, int metadata)
+	public IIcon getIcon(int side, int metadata)
 	{
 		if (side == 1)
-			return topIcons[metadata];
+		{
+			return this.topIcons[metadata];
+		}
 		else if (side == 0)
-			return bottomIcons[metadata];
+		{
+			return this.bottomIcons[metadata];
+		}
 		else if (side == 2 || side == 4)
-			return sideIcons[metadata];
+		{
+			return this.sideIcons[metadata];
+		}
 		else
-			return side2Icons[metadata];
+		{
+			return this.side2Icons[metadata];
+		}
 	}
 	
-	/**
-	 * When this method is called, your block should register all the icons it needs with the given IconRegister. This
-	 * is the only chance you get to register icons.
-	 */
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister iconRegister)
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.topIcons = new Icon[topIcons.length];
-		this.sideIcons = new Icon[sideIcons.length];
-		this.side2Icons = new Icon[side2Icons.length];
-		this.bottomIcons = new Icon[bottomIcons.length];
+		this.topIcons = new IIcon[this.topIcons.length];
+		this.sideIcons = new IIcon[this.sideIcons.length];
+		this.side2Icons = new IIcon[this.side2Icons.length];
+		this.bottomIcons = new IIcon[this.bottomIcons.length];
 		
-		for (int i = 0; i < topIconNames.length; i++)
+		for (int i = 0; i < this.topIconNames.length; i++)
 		{
-			topIcons[i] = iconRegister.registerIcon(topIconNames[i]);
-			sideIcons[i] = iconRegister.registerIcon(sideIconNames[i]);
-			side2Icons[i] = iconRegister.registerIcon(side2IconNames[i]);
-			bottomIcons[i] = iconRegister.registerIcon(bottomIconNames[i]);
+			this.topIcons[i] = iconRegister.registerIcon(this.topIconNames[i]);
+			this.sideIcons[i] = iconRegister.registerIcon(this.sideIconNames[i]);
+			this.side2Icons[i] = iconRegister.registerIcon(this.side2IconNames[i]);
+			this.bottomIcons[i] = iconRegister.registerIcon(this.bottomIconNames[i]);
 		}
 		
-		topIconNames = sideIconNames = side2IconNames = bottomIconNames = null;
+		this.topIconNames = this.sideIconNames = this.side2IconNames = this.bottomIconNames = null;
 	}
 	
-	/**
-	 * Called upon block activation (right click on the block.)
-	 */
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ)
 	{
@@ -98,28 +96,21 @@ public class BlockCustomWorkbench extends Block implements ICustomBlock
 		}
 	}
 	
-	/**
-	 * returns a list of blocks with the same ID, but different meta (eg: wood
-	 * returns 4 blocks)
-	 */
 	@Override
-	public void getSubBlocks(int blockID, CreativeTabs creativeTab, List list)
+	public void getSubBlocks(Item item, CreativeTabs creativeTab, List list)
 	{
-		for (int i = 0; i < names.length; i++)
+		for (int i = 0; i < this.names.length; i++)
 		{
 			list.add(new ItemStack(this, 1, i));
 		}
 	}
 	
 	@Override
-	public void addNames()
+	public String getUnlocalizedName(ItemStack stack)
 	{
-		for (int i = 0; i < names.length; i++)
-		{
-			LanguageRegistry.addName(new ItemStack(this, 1, i), names[i]);
-		}
+		return this.names[stack.getItemDamage()];
 	}
-
+	
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List<String> list)
 	{

@@ -79,7 +79,7 @@ public class ShapedAdvancedRecipe extends ShapedRecipes
 						return false;
 					}
 					
-					if (itemstack.itemID != itemstack1.itemID)
+					if (itemstack.getItem() != itemstack1.getItem())
 					{
 						return false;
 					}

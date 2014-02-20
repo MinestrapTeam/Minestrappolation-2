@@ -1,28 +1,29 @@
 package clashsoft.cslib.minecraft.inventory.itemmatcher;
 
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
 public class ItemMatcherID implements IItemMatcher
 {
-	public int	itemID;
+	public Item	item;
 	public int	itemDamage;
 	
-	public ItemMatcherID(int itemID)
+	public ItemMatcherID(Item item)
 	{
-		this(itemID, OreDictionary.WILDCARD_VALUE);
+		this(item, OreDictionary.WILDCARD_VALUE);
 	}
 	
-	public ItemMatcherID(int itemID, int itemDamage)
+	public ItemMatcherID(Item item, int itemDamage)
 	{
-		this.itemID = itemID;
+		this.item = item;
 		this.itemDamage = itemDamage;
 	}
 	
 	@Override
 	public boolean isItemValid(ItemStack stack)
 	{
-		return stack != null && stack.itemID == this.itemID && (this.itemDamage == OreDictionary.WILDCARD_VALUE || stack.getItemDamage() == this.itemDamage);
+		return stack != null && stack.getItem() == this.item && (this.itemDamage == OreDictionary.WILDCARD_VALUE || stack.getItemDamage() == this.itemDamage);
 	}
 	
 }

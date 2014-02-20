@@ -1,16 +1,14 @@
 package clashsoft.cslib.util;
 
 /**
- * The Class CSUtil.
- * This class adds several util methods.
+ * The Class CSUtil. This class adds several util methods.
  */
 public class CSUtil
-{	
+{
 	/**
 	 * Logs an object.
 	 * 
 	 * @Deprecated Use {@link CSLog#info(Object)}
-	 * 
 	 * @param o
 	 *            the object to log
 	 */
@@ -111,5 +109,23 @@ public class CSUtil
 	public static int fontColorInt(EnumFontColor fontColor)
 	{
 		return fontColorInt(fontColor.getLight(), fontColor.getRed(), fontColor.getGreen(), fontColor.getBlue());
+	}
+	
+	public static String getAppdataDirectory()
+	{
+		String OS = System.getProperty("os.name").toUpperCase();
+		if (OS.contains("WIN"))
+		{
+			return System.getenv("APPDATA");
+		}
+		else if (OS.contains("MAC"))
+		{
+			return System.getProperty("user.home") + "/Library/Application Support";
+		}
+		else if (OS.contains("NUX"))
+		{
+			return System.getProperty("user.home");
+		}
+		return System.getProperty("user.dir");
 	}
 }

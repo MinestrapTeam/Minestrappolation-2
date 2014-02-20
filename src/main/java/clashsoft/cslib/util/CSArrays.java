@@ -5,8 +5,6 @@ import java.util.*;
 
 import clashsoft.cslib.collections.CSCollections;
 
-import net.minecraft.util.MathHelper;
-
 /**
  * The class CSArrays.
  * <p>
@@ -109,7 +107,7 @@ public class CSArrays
 	public static <T> T[][] split(T[] array, int maxLength)
 	{
 		Class clazz = array.getClass().getComponentType();
-		int arrays = MathHelper.ceiling_float_int(((float) array.length) / ((float) maxLength));
+		int arrays = (array.length / maxLength) + 1;
 		T[][] ret = (T[][]) Array.newInstance(clazz, arrays, maxLength);
 		
 		for (int i = 0; i < ret.length; i++)

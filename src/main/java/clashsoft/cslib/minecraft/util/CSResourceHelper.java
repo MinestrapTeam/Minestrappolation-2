@@ -3,8 +3,8 @@ package clashsoft.cslib.minecraft.util;
 import java.util.HashMap;
 import java.util.Map;
 
-import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.util.Icon;
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.util.IIcon;
 import net.minecraft.util.ResourceLocation;
 
 /**
@@ -20,9 +20,9 @@ public class CSResourceHelper
 	public static Map<String, ResourceLocation>	resources		= new HashMap<String, ResourceLocation>();
 	
 	/** The icons. */
-	public static Map<String, Icon>				icons			= new HashMap<String, Icon>();
+	public static Map<String, IIcon>			icons			= new HashMap<String, IIcon>();
 	
-	public static IconRegister					iconRegister	= null;
+	public static IIconRegister					iconRegister	= null;
 	
 	/**
 	 * Returns a resource, may already be stored.
@@ -45,7 +45,8 @@ public class CSResourceHelper
 	}
 	
 	/**
-	 * Returns a new icon with the given icon name, if no stored icon is found a new one is registered and stored using the given icon register.
+	 * Returns a new icon with the given icon name, if no stored icon is found a new one is
+	 * registered and stored using the given icon register.
 	 * 
 	 * @param iconRegister
 	 *            the icon register
@@ -53,32 +54,37 @@ public class CSResourceHelper
 	 *            the icon name
 	 * @return the icon
 	 */
-	public static Icon getIcon(IconRegister iconRegister, String iconName)
+	public static IIcon getIcon(IIconRegister iconRegister, String iconName)
 	{
 		CSResourceHelper.iconRegister = iconRegister;
 		
-		Icon ic;
+		IIcon ic;
 		if (!icons.containsKey(iconName))
 		{
 			ic = iconRegister.registerIcon(iconName);
 			icons.put(iconName, ic);
 		}
 		else
+		{
 			ic = icons.get(iconName);
+		}
 		return ic;
 	}
 	
 	/**
-	 * Returns a new icon with the given icon name, if no stored icon is found a new one is registered and stored using the stored icon register.
+	 * Returns a new icon with the given icon name, if no stored icon is found a new one is
+	 * registered and stored using the stored icon register.
 	 * <p>
-	 * <b>Warning!</b><p>
-	 * If you call this method before an icon register is stored, it will cause a crash! Make sure to use {@link CSResourceHelper#getIcon(IconRegister, String)} at least once!
+	 * <b>Warning!</b>
+	 * <p>
+	 * If you call this method before an icon register is stored, it will cause a crash! Make sure
+	 * to use {@link CSResourceHelper#getIcon(IconRegister, String)} at least once!
 	 * 
 	 * @param iconName
 	 *            the icon name
 	 * @return the icon
 	 */
-	public static Icon getIcon(String iconName)
+	public static IIcon getIcon(String iconName)
 	{
 		return getIcon(iconRegister, iconName);
 	}

@@ -1,33 +1,31 @@
 package clashsoft.cslib.minecraft.item.datatools;
 
+import java.util.Set;
+
+import clashsoft.cslib.collections.CSCollections;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.item.EnumToolMaterial;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 
 public class ItemDataAxe extends ItemDataTool
 {
-    /** an array of the blocks this axe is effective against */
-    public static final Block[] blocksEffectiveAgainst = new Block[] {Block.planks, Block.bookShelf, Block.wood, Block.chest, Block.stoneDoubleSlab, Block.stoneSingleSlab, Block.pumpkin, Block.pumpkinLantern};
-
-    public ItemDataAxe(int par1, EnumToolMaterial par2EnumToolMaterial)
-    {
-        super(par1, 3F, par2EnumToolMaterial, blocksEffectiveAgainst, "Axe");
-    }
-
-    /**
-     * Returns the strength of the stack against a given block. 1.0F base, (Quality+1)*2 if correct blocktype, 1.5F if
-     * sword
-     */
-    @Override
-	public float getStrVsBlock(ItemStack par1ItemStack, Block par2Block)
-    {
-        if (par2Block != null && (par2Block.blockMaterial == Material.wood || par2Block.blockMaterial == Material.plants || par2Block.blockMaterial == Material.vine))
-        {
-        	EnumToolMaterial tm = getToolMaterialFromItemStack(par1ItemStack);
-        	if (tm != null)
-        		return tm.getEfficiencyOnProperMaterial();
-        }
-        return super.getStrVsBlock(par1ItemStack, par2Block);
-    }
+	public static final Set<Block>	blocksEffectiveAgainst	= CSCollections.createSet(Blocks.planks, Blocks.bookshelf, Blocks.log, Blocks.chest, Blocks.double_stone_slab, Blocks.stone_slab, Blocks.pumpkin, Blocks.lit_pumpkin);
+	
+	public ItemDataAxe(ToolMaterial toolMaterial)
+	{
+		super(3F, toolMaterial, blocksEffectiveAgainst, "Axe");
+	}
+	
+	@Override
+	public float getDigSpeed(ItemStack stack, Block block, int metadata)
+	{
+		Material material = block.getMaterial();
+		if (material == Material.wood || material == Material.plants || material == Material.vine)
+		{
+			super.getDigSpeed(stack, block, metadata);
+		}
+		return super.func_150893_a(stack, block);
+	}
 }

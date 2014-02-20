@@ -36,8 +36,8 @@ public class GuiBuilder extends Gui
 	
 	public void drawFrame(int x, int y, int width, int height)
 	{
-		bind(window);
-		drawFrame_(x, y, width, height);
+		this.bind(window);
+		this.drawFrame_(x, y, width, height);
 	}
 	
 	public void drawFrame_(int x, int y, int width, int height)
@@ -78,18 +78,18 @@ public class GuiBuilder extends Gui
 	
 	public void drawPlayerBackgroundL(int x, int y)
 	{
-		drawWidget(x, y, 0, 0, 54, 72);
+		this.drawWidget(x, y, 0, 0, 54, 72);
 	}
 	
 	public void drawPlayerBackgroundS(int x, int y)
 	{
-		drawWidget(x, y, 54, 0, 34, 45);
+		this.drawWidget(x, y, 54, 0, 34, 45);
 	}
 	
 	public void drawWidget(int x, int y, int u, int v, int width, int height)
 	{
-		bind(widgets);
-		drawWidget_(x, y, u, v, width, height);
+		this.bind(widgets);
+		this.drawWidget_(x, y, u, v, width, height);
 	}
 	
 	public void drawWidget_(int x, int y, int u, int v, int width, int height)
@@ -178,8 +178,8 @@ public class GuiBuilder extends Gui
 		drawRect(x + width - 1, y + 1, x + width, y + height - 1, bgAlpha);
 		
 		// Render colored rects
-		drawGradientRect(x + 1, y + 2, x + 2, y + height - 2, colorAlpha, colorGradient);
-		drawGradientRect(x + width - 2, y + 2, x + width - 1, y + height - 2, colorAlpha, colorGradient);
+		this.drawGradientRect(x + 1, y + 2, x + 2, y + height - 2, colorAlpha, colorGradient);
+		this.drawGradientRect(x + width - 2, y + 2, x + width - 1, y + height - 2, colorAlpha, colorGradient);
 		drawRect(x + 1, y + 1, x + width - 1, y + 2, colorAlpha);
 		drawRect(x + 1, y + height - 2, x + width - 1, y + height - 1, colorGradient);
 	}

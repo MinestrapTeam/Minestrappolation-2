@@ -1,24 +1,25 @@
 package clashsoft.cslib.minecraft.item.datatools;
 
+import java.util.Set;
+
+import clashsoft.cslib.collections.CSCollections;
+
 import net.minecraft.block.Block;
-import net.minecraft.item.EnumToolMaterial;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
 
 public class ItemDataSpade extends ItemDataTool
 {
-	/** an array of the blocks this spade is effective against */
-	public static final Block[]	blocksEffectiveAgainst	= new Block[] { Block.grass, Block.dirt, Block.sand, Block.gravel, Block.snow, Block.blockSnow, Block.blockClay, Block.tilledField, Block.slowSand, Block.mycelium };
+	public static final Set	blocksEffectiveAgainst	= CSCollections.createSet(Blocks.grass, Blocks.dirt, Blocks.sand, Blocks.gravel, Blocks.snow, Blocks.snow, Blocks.clay, Blocks.farmland, Blocks.soul_sand, Blocks.mycelium);
 	
-	public ItemDataSpade(int par1, EnumToolMaterial par2EnumToolMaterial)
+	public ItemDataSpade(ToolMaterial toolMaterial)
 	{
-		super(par1, 1F, par2EnumToolMaterial, blocksEffectiveAgainst, "Shovel");
+		super(1F, toolMaterial, blocksEffectiveAgainst, "Shovel");
 	}
 	
-	/**
-	 * Returns if the item (tool) can harvest results from the block type.
-	 */
 	@Override
-	public boolean canHarvestBlock(Block par1Block)
+	public boolean canHarvestBlock(Block block, ItemStack stack)
 	{
-		return par1Block == Block.snow ? true : par1Block == Block.blockSnow;
+		return block == Blocks.snow || block == Blocks.snow_layer;
 	}
 }

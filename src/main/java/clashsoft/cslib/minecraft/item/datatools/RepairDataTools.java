@@ -1,8 +1,8 @@
 package clashsoft.cslib.minecraft.item.datatools;
 
 import net.minecraft.inventory.InventoryCrafting;
-import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
+import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.MathHelper;
@@ -21,7 +21,7 @@ public class RepairDataTools implements IRecipe
 			
 			if (stack != null && stack.getItem() instanceof ItemDataTool)
 			{
-				if (toolType == null || (toolType == stack && ItemDataTool.getToolMaterialFromItemStack(stack) == ItemDataTool.getToolMaterialFromItemStack(toolType)))
+				if (toolType == null || (toolType == stack && ItemDataTool.getToolMaterial(stack) == ItemDataTool.getToolMaterial(toolType)))
 				{
 					toolType = stack;
 					itemsOfType++;
@@ -41,14 +41,14 @@ public class RepairDataTools implements IRecipe
 	@Override
 	public ItemStack getCraftingResult(InventoryCrafting inventorycrafting)
 	{
-		if (matches(inventorycrafting, null))
+		if (this.matches(inventorycrafting, null))
 		{
 			int maxDamage = -1;
 			int damage1 = -1;
 			int damage2 = -1;
 			int resultdamage = -1;
 			Item item = null;
-			EnumToolMaterial material = null;
+			ToolMaterial material = null;
 			
 			for (int i = 0; i < inventorycrafting.getSizeInventory(); i++)
 			{
@@ -57,11 +57,15 @@ public class RepairDataTools implements IRecipe
 				{
 					maxDamage = stack.getMaxDamage();
 					item = stack.getItem();
-					material = ItemDataTool.getToolMaterialFromItemStack(stack);
+					material = ItemDataTool.getToolMaterial(stack);
 					if (damage1 == -1)
+					{
 						damage1 = stack.getItemDamage();
+					}
 					else if (damage2 == -1)
+					{
 						damage2 = stack.getItemDamage();
+					}
 					else
 					{
 						resultdamage = (int) Math.min((float) maxDamage, (float) (MathHelper.floor_float(damage1 + damage2 + (maxDamage / 10F))));

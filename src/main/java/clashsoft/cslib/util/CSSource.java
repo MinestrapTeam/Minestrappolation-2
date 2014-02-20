@@ -148,13 +148,14 @@ public class CSSource extends CSString
 	 */
 	public static String stripComments(String string)
 	{
-		StringBuilder result = new StringBuilder(string.length());
+		int len = string.length();
+		StringBuilder result = new StringBuilder(len);
 		
 		boolean quote = false;
 		boolean charQuote = false;
 		boolean literal = false;
 		
-		for (int i = 0; i < string.length(); i++)
+		for (int i = 0; i < len; i++)
 		{
 			char c = string.charAt(i);
 			
@@ -203,10 +204,11 @@ public class CSSource extends CSString
 	
 	public static String replaceLiterals(String string)
 	{
-		StringBuilder result = new StringBuilder(string.length());
+		int len = string.length();
+		StringBuilder result = new StringBuilder(len);
 		
 		boolean literal = false;
-		for (int i = 0; i < string.length(); i++)
+		for (int i = 0; i < len; i++)
 		{
 			char c = string.charAt(i);
 			if (!literal)
@@ -228,7 +230,7 @@ public class CSSource extends CSString
 					c = '\r';
 				else if (c == 'b')
 					c = '\b';
-				else if (c == 'u' && i + 5 < string.length())
+				else if (c == 'u' && i + 5 < len)
 				{
 					String u = string.substring(i + 1, i + 5);
 					c = (char) Integer.parseInt(u, 16);

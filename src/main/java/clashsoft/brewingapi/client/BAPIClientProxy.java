@@ -14,6 +14,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.renderer.RenderGlobal;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.world.World;
 
 public class BAPIClientProxy extends BAPICommonProxy
@@ -30,7 +31,9 @@ public class BAPIClientProxy extends BAPICommonProxy
 	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z)
 	{
 		if (ID == BrewingAPI.brewingStand2ID)
-			return new GuiBrewingStand2(player.inventory, (TileEntityBrewingStand2) world.getBlockTileEntity(x, y, z));
+		{
+			return new GuiBrewingStand2(player.inventory, (TileEntityBrewingStand2) world.getTileEntity(x, y, z));
+		}
 		return null;
 	}
 	
@@ -40,7 +43,7 @@ public class BAPIClientProxy extends BAPICommonProxy
 		RenderGlobal renderGlobal = Minecraft.getMinecraft().renderGlobal;
 		
 		Random random = world.rand;
-		String crackParticleName = "iconcrack_" + BrewingAPI.potion2.itemID;
+		String crackParticleName = "iconcrack_" + Item.getIdFromItem(BrewingAPI.potion2);
 		
 		double distance;
 		float colorMultiplier;

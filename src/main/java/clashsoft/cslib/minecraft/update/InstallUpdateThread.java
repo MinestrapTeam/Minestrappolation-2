@@ -11,7 +11,7 @@ import cpw.mods.fml.relauncher.Side;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.ChatComponentTranslation;
 
 /**
  * The class InstallUpdateThread.
@@ -21,74 +21,82 @@ import net.minecraft.util.EnumChatFormatting;
 public class InstallUpdateThread extends Thread
 {
 	/** The mod update to install. */
-	private ModUpdate update;
+	private ModUpdate		update;
 	
 	/** The player used for chat message notifications. */
-	private EntityPlayer player;
+	private EntityPlayer	player;
 	
-	/**
-	 * Instantiates a new install update thread.
-	 * 
-	 * @param update
-	 *            the update
-	 * @param player
-	 *            the player
-	 */
 	public InstallUpdateThread(ModUpdate update, EntityPlayer player)
 	{
 		this.update = update;
 		this.player = player;
 	}
 	
-	/**
-	 * Installs the mod update by downloading the file from {@link ModUpdate#updateUrl} and deleting old mod versions.
-	 */
 	@Override
 	public void run()
 	{
-		player.addChatMessage("Installing " + update.modName + " version " + update.newVersion);
-		
-		File file;
-		if (FMLCommonHandler.instance().getEffectiveSide() == Side.CLIENT)
-			file = Minecraft.getMinecraft().mcDataDir;
-		else
-			file = new File(MinecraftServer.getServer().getFolderName());
-		
-		File mods = new File(file, "mods");
-		
-		try
+		if (this.update.isValid() && this.update.hasDownload())
 		{
-			File output = new File(mods, update.updateUrl.substring(update.updateUrl.lastIndexOf('/')).replace('+', ' '));
+			this.update.installStatus = 1;
 			
-			if (output.exists())
+			String modName = this.update.modName;
+			String newVersion = this.update.newVersion;
+			String mod = this.update.getName();
+			
+			this.player.addChatMessage(new ChatComponentTranslation("update.install", modName, newVersion));
+			
+			File file;
+			if (FMLCommonHandler.instance().getEffectiveSide() == Side.CLIENT)
 			{
-				player.addChatMessage(EnumChatFormatting.GREEN + "Latest Mod version found - Skipping download.");
-				return;
+				file = Minecraft.getMinecraft().mcDataDir;
+			}
+			else
+			{
+				file = new File(MinecraftServer.getServer().getFolderName());
 			}
 			
-			for (File f : mods.listFiles())
+			File mods = new File(file, "mods");
+			
+			try
 			{
-				if (f.getName().startsWith(update.modName))
+				File output = new File(mods, this.update.getDownloadedFileName());
+				
+				if (output.exists())
 				{
-					player.addChatMessage(EnumChatFormatting.YELLOW + "Old Mod version detected (" + f.getName() + "). Deleting.");
-					f.delete();
+					this.player.addChatMessage(new ChatComponentTranslation("update.install.skipping", mod));
+					this.update.installStatus = 2;
+					return;
 				}
+				
+				for (File f : mods.listFiles())
+				{
+					String fileName = f.getName();
+					if (fileName.startsWith(modName))
+					{
+						this.player.addChatMessage(new ChatComponentTranslation("update.install.oldversion", modName, fileName));
+						f.delete();
+					}
+				}
+				
+				URL url = new URL(this.update.updateUrl);
+				HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+				connection.setRequestMethod("GET");
+				InputStream in = connection.getInputStream();
+				FileOutputStream out = new FileOutputStream(output);
+				copy(in, out, 1024);
+				out.close();
+				
+				this.player.addChatMessage(new ChatComponentTranslation("update.install.success", mod));
+				
+				this.update.installStatus = 2;
 			}
-			
-			URL url = new URL(update.updateUrl);
-			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-			connection.setRequestMethod("GET");
-			InputStream in = connection.getInputStream();
-			FileOutputStream out = new FileOutputStream(output);
-			copy(in, out, 1024);
-			out.close();
-			
-			player.addChatMessage(EnumChatFormatting.GREEN + "Update installed. Restart the game to apply changes.");
-		}
-		catch (Exception ex)
-		{
-			CSLog.error(ex);
-			player.addChatMessage(EnumChatFormatting.RED + "Error while installing update: " + ex.getMessage());
+			catch (Exception ex)
+			{
+				CSLog.error(ex);
+				this.player.addChatMessage(new ChatComponentTranslation("update.install.failure", mod, ex.getMessage()));
+				
+				this.update.installStatus = -1;
+			}
 		}
 	}
 	

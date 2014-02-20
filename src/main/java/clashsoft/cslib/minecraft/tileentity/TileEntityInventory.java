@@ -88,13 +88,13 @@ public class TileEntityInventory extends TileEntity implements IInventory
 	}
 	
 	@Override
-	public String getInvName()
+	public String getInventoryName()
 	{
-		return this.isInvNameLocalized() ? this.name : "tile.generic.name";
+		return this.hasCustomInventoryName() ? this.name : "tile.generic.name";
 	}
 	
 	@Override
-	public boolean isInvNameLocalized()
+	public boolean hasCustomInventoryName()
 	{
 		return this.name != null && this.name.length() > 0;
 	}
@@ -113,17 +113,7 @@ public class TileEntityInventory extends TileEntity implements IInventory
 	@Override
 	public boolean isUseableByPlayer(EntityPlayer player)
 	{
-		return this.worldObj.getBlockTileEntity(this.xCoord, this.yCoord, this.zCoord) != this ? false : player.getDistanceSq(this.xCoord + 0.5D, this.yCoord + 0.5D, this.zCoord + 0.5D) <= 64.0D;
-	}
-	
-	@Override
-	public void openChest()
-	{
-	}
-	
-	@Override
-	public void closeChest()
-	{
+		return this.worldObj.getTileEntity(this.xCoord, this.yCoord, this.zCoord) != this ? false : player.getDistanceSq(this.xCoord + 0.5D, this.yCoord + 0.5D, this.zCoord + 0.5D) <= 64.0D;
 	}
 	
 	@Override
@@ -137,12 +127,12 @@ public class TileEntityInventory extends TileEntity implements IInventory
 	{
 		super.readFromNBT(nbt);
 		
-		NBTTagList nbttaglist = nbt.getTagList("Items");
+		NBTTagList nbttaglist = nbt.getTagList("Items", 10);
 		this.itemStacks = new ItemStack[this.getSizeInventory()];
 		
 		for (int i = 0; i < nbttaglist.tagCount(); ++i)
 		{
-			NBTTagCompound nbttagcompound1 = (NBTTagCompound) nbttaglist.tagAt(i);
+			NBTTagCompound nbttagcompound1 = nbttaglist.getCompoundTagAt(i);
 			byte b0 = nbttagcompound1.getByte("Slot");
 			
 			if (b0 >= 0 && b0 < this.itemStacks.length)
@@ -175,9 +165,19 @@ public class TileEntityInventory extends TileEntity implements IInventory
 		
 		nbt.setTag("Items", nbttaglist);
 		
-		if (this.isInvNameLocalized())
+		if (this.hasCustomInventoryName())
 		{
 			nbt.setString("CustomName", this.name);
 		}
+	}
+	
+	@Override
+	public void closeInventory()
+	{
+	}
+	
+	@Override
+	public void openInventory()
+	{
 	}
 }

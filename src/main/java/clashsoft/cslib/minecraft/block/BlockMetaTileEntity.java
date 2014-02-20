@@ -1,6 +1,5 @@
 package clashsoft.cslib.minecraft.block;
 
-import clashsoft.cslib.minecraft.CustomBlock;
 import clashsoft.cslib.util.CSLog;
 
 import net.minecraft.block.ITileEntityProvider;
@@ -11,32 +10,31 @@ import net.minecraft.world.World;
 
 public class BlockMetaTileEntity extends CustomBlock implements ITileEntityProvider
 {
-	public Class[] tileEntities;
+	public Class[]	tileEntities;
 	
-	public BlockMetaTileEntity(int blockID, Material material, String displayName, String iconNames, boolean opaque, int renderType, CreativeTabs creativeTabs)
+	public BlockMetaTileEntity(Material material, String displayName, String iconNames, boolean opaque, int renderType, CreativeTabs creativeTabs)
 	{
-		super(blockID, material, displayName, iconNames, opaque, renderType, creativeTabs);
+		super(material, displayName, iconNames, opaque, renderType, creativeTabs);
 	}
-
-	public BlockMetaTileEntity(int blockID, Material material, String displayName, String iconName, CreativeTabs creativeTab)
+	
+	public BlockMetaTileEntity(Material material, String displayName, String iconName, CreativeTabs creativeTab)
 	{
-		super(blockID, material, displayName, iconName, creativeTab);
+		super(material, displayName, iconName, creativeTab);
 	}
-
-	public BlockMetaTileEntity(int blockID, Material material, String[] displayNames, String[] iconNames, boolean opaque, int renderType, CreativeTabs[] creativeTabs)
+	
+	public BlockMetaTileEntity(Material material, String[] displayNames, String[] iconNames, boolean opaque, int renderType, CreativeTabs[] creativeTabs)
 	{
-		super(blockID, material, displayNames, iconNames, opaque, renderType, creativeTabs);
+		super(material, displayNames, iconNames, opaque, renderType, creativeTabs);
 	}
-
-	public BlockMetaTileEntity(int blockID, Material material, String[] displayNames, String[] iconNames, CreativeTabs[] creativeTabs)
+	
+	public BlockMetaTileEntity(Material material, String[] displayNames, String[] iconNames, CreativeTabs[] creativeTabs)
 	{
-		super(blockID, material, displayNames, iconNames, creativeTabs);
+		super(material, displayNames, iconNames, creativeTabs);
 	}
-
-	public BlockMetaTileEntity(int blockID, Material material, String[] displayNames, String[][] iconNames, boolean opaque, int renderType, CreativeTabs[] creativeTabs)
+	
+	public BlockMetaTileEntity(Material material, String[] displayNames, String[][] iconNames, boolean opaque, int renderType, CreativeTabs[] creativeTabs)
 	{
-		super(blockID, material, displayNames, iconNames, opaque, renderType, creativeTabs);
-		
+		super(material, displayNames, iconNames, opaque, renderType, creativeTabs);
 	}
 	
 	public BlockMetaTileEntity setTileEntityClasses(Class<? extends TileEntity>... tileEntityClasses)
@@ -56,11 +54,6 @@ public class BlockMetaTileEntity extends CustomBlock implements ITileEntityProvi
 	}
 	
 	@Override
-	public TileEntity createNewTileEntity(World world)
-	{
-		return createTileEntity(world, 0);
-	}
-	
 	public boolean hasTileEntity(int metadata)
 	{
 		return this.tileEntities[metadata] != null;
@@ -81,6 +74,12 @@ public class BlockMetaTileEntity extends CustomBlock implements ITileEntityProvi
 				CSLog.error(ex);
 			}
 		}
+		return null;
+	}
+	
+	@Override
+	public TileEntity createNewTileEntity(World paramWorld, int paramInt)
+	{
 		return null;
 	}
 }

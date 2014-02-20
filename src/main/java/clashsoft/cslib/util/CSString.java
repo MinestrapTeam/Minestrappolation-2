@@ -1,6 +1,7 @@
 package clashsoft.cslib.util;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 import java.util.regex.Matcher;
@@ -101,6 +102,26 @@ public class CSString
 		}
 	}
 	
+	public static String identifier(String string)
+	{
+		int len = string.length();
+		StringBuilder result = new StringBuilder(len);
+		
+		for (int i = 0; i < len; i++)
+		{
+			char c = Character.toLowerCase(string.charAt(i));
+			
+			if (Character.isWhitespace(c))
+			{
+				c = '_';
+			}
+			
+			result.append(c);
+		}
+		
+		return result.toString();
+	}
+	
 	/**
 	 * Converts a number to a roman number.
 	 * 
@@ -174,9 +195,20 @@ public class CSString
 	 *            the string
 	 * @return the string[]
 	 */
-	public static String[] makeLineList(String string)
+	public static String[] lineArray(String string)
 	{
 		return string.split("\n");
+	}
+	
+	public static List<String> lineList(String string)
+	{
+		return Arrays.asList(lineArray(string));
+	}
+	
+	@Deprecated
+	public static String[] makeLineList(String string)
+	{
+		return lineArray(string);
 	}
 	
 	/**
@@ -184,7 +216,7 @@ public class CSString
 	 * <p>
 	 * Example:
 	 * <p>
-	 * {@code getInitials("Hello World")} returns "HW"; {@code getInitials("Half-Life 3")} returns "HL3"
+	 * {@code getAcronym("Hello World")} returns "HW"; {@code getAcronym("Half-Life 3")} returns "HL3"
 	 * 
 	 * @param string
 	 *            the string
@@ -196,7 +228,7 @@ public class CSString
 		String[] strings = string.split("\\p{Punct}");
 		for (String s : strings)
 		{
-			char c = Character.toUpperCase(s.charAt(0));
+			char c = s.charAt(0);
 			builder.append(c);
 		}
 		return builder.toString();

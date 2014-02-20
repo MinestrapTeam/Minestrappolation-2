@@ -3,7 +3,9 @@ package clashsoft.cslib.reflect;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import clashsoft.cslib.util.CSLog;
 
@@ -15,7 +17,7 @@ import clashsoft.cslib.util.CSLog;
  * @author Clashsoft
  */
 public class CSReflection
-{	
+{
 	// Caller-sensitive
 	
 	public static Class getCallerClass()
@@ -73,23 +75,23 @@ public class CSReflection
 	
 	// Method invocation
 	
-	public static <T, R> R invokeStatic(Class<? super T> clazz, String[] methodNames, Object[] values)
+	public static <T, R> R invokeStatic(Class<? super T> clazz, Object[] args, String... methodNames)
 	{
-		return invoke(clazz, null, methodNames, values);
+		return invoke(clazz, null, args, methodNames);
 	}
 	
-	public static <T, R> R invoke(T instance, String[] methodNames, Object[] values)
+	public static <T, R> R invoke(T instance, Object[] args, String... methodNames)
 	{
-		return invoke((Class<T>) instance.getClass(), instance, methodNames, values);
+		return invoke((Class<T>) instance.getClass(), instance, args, methodNames);
 	}
 	
-	public static <T, R> R invoke(Class<? super T> clazz, T instance, String[] methodNames, Object[] values)
+	public static <T, R> R invoke(Class<? super T> clazz, T instance, Object[] args, String... methodNames)
 	{
 		try
 		{
 			Method m = getMethod(clazz, methodNames);
 			m.setAccessible(true);
-			return (R) m.invoke(instance, values);
+			return (R) m.invoke(instance, args);
 		}
 		catch (Exception ex)
 		{
@@ -99,6 +101,36 @@ public class CSReflection
 	}
 	
 	// Fields
+	
+	public static <T> T[] getStaticObjects(Class clazz, Class<T> fieldType, boolean subtypes)
+	{
+		return getObjects(clazz, null, fieldType, subtypes);
+	}
+	
+	public static <T> T[] getObjects(Class clazz, Object instance, Class<T> fieldType, boolean subtypes)
+	{
+		List list = new ArrayList();
+		Field[] fields = clazz.getDeclaredFields();
+		
+		for (int i = 0; i < fields.length; i++)
+		{
+			try
+			{
+				Field field = fields[i];
+				Class c = field.getType();
+				Object o = field.get(instance);
+				if (c == fieldType || (subtypes && fieldType.isAssignableFrom(c)))
+				{
+					list.add(o);
+				}
+			}
+			catch (Exception ex)
+			{
+			}
+		}
+		
+		return (T[]) list.toArray();
+	}
 	
 	public static Field getField(Class clazz, String... fieldNames) throws NoSuchFieldException
 	{
@@ -245,7 +277,7 @@ public class CSReflection
 	}
 	
 	// Instances
-
+	
 	/**
 	 * Creates a new instance of T using the parameters.
 	 * 
