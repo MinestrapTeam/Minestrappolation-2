@@ -8,3 +8,5 @@ repo/
 .settings/
 Build Mod.bat
 Update Workspace.bat
+gradlew
+build.gradle

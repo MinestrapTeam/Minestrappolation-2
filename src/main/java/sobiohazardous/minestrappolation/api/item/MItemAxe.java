@@ -1,32 +1,29 @@
 package sobiohazardous.minestrappolation.api.item;
 
+import java.util.List;
+
+import sobiohazardous.minestrappolation.api.lib.MAPIConfig;
 import sobiohazardous.minestrappolation.extraores.lib.EOBlockManager;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.*;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 
-public class MItemAxe extends MItemTool
+public class MItemAxe extends ItemAxe
 {
-    /** an array of the blocks this axe is effective against */
-    public static final Block[] blocksEffectiveAgainst = new Block[] {Block.planks, Block.bookShelf, Block.wood, Block.chest, Block.stoneDoubleSlab, Block.stoneSingleSlab, Block.pumpkin, Block.pumpkinLantern};
-
-    public MItemAxe(int par1, EnumToolMaterial par2EnumToolMaterial)
+    public MItemAxe(int par1, ToolMaterial par2EnumToolMaterial)
     {
-        super(par1, 3, par2EnumToolMaterial, blocksEffectiveAgainst);
+        super(par2EnumToolMaterial);
         this.setCreativeTab(null);
-    }
-
-    /**
-     * Returns the strength of the stack against a given block. 1.0F base, (Quality+1)*2 if correct blocktype, 1.5F if
-     * sword
-     */
-    public float getStrVsBlock(ItemStack par1ItemStack, Block par2Block)
+    }    
+    
+    public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)
     {
-        return par2Block != null && (par2Block.blockMaterial == Material.wood || par2Block.blockMaterial == Material.plants || par2Block.blockMaterial == Material.vine) ? this.efficiencyOnProperMaterial : super.getStrVsBlock(par1ItemStack, par2Block);
-    }   
-    
-    
+		if(MAPIConfig.showDur == true)
+		{
+			 par3List.add(EnumChatFormatting.GREEN+"Durability: "+EnumChatFormatting.RED+Integer.toString(getMaxDamage()-par1ItemStack.getItemDamage()+1)+"/"+Integer.toString(getMaxDamage()+1));
+		}		
+    }
 }

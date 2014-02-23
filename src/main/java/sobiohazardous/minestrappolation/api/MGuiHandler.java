@@ -14,7 +14,7 @@ public class MGuiHandler implements IGuiHandler
 	@Override
 	public Object getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
 	{
-		TileEntity tile_entity = world.getBlockTileEntity(x, y, z);
+		TileEntity tile_entity = world.getTileEntity(x, y, z);
 		if(tile_entity instanceof TileEntityStonecutter)
 		{
 			return new ContainerStonecutter(player.inventory,(TileEntityStonecutter)tile_entity, world, x, y, z);
@@ -26,7 +26,7 @@ public class MGuiHandler implements IGuiHandler
 	@Override
 	public Object getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
 	{
-		TileEntity tile_entity = world.getBlockTileEntity(x, y, z);
+		TileEntity tile_entity = world.getTileEntity(x, y, z);
 		if(tile_entity instanceof TileEntityStonecutter)
 		{
 			return new GuiStonecutter(player.inventory, (TileEntityStonecutter)tile_entity, world, x, y, z);

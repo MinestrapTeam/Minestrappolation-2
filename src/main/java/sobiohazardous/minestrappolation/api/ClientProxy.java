@@ -5,7 +5,7 @@ import sobiohazardous.minestrappolation.api.tileentity.TileEntityStonecutter;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ThreadDownloadImageData;
-import net.minecraft.client.renderer.texture.TextureObject;
+import net.minecraft.client.renderer.texture.ITextureObject;
 import net.minecraft.util.ResourceLocation;
 
 public class ClientProxy extends CommonProxy
@@ -29,7 +29,7 @@ public static int	splashpotioncolor;
 		for (String username : devs) 
 		{
 
-			Minecraft.getMinecraft().renderEngine.loadTexture(new ResourceLocation("cloaks/" + username), (TextureObject) image);
+			Minecraft.getMinecraft().renderEngine.loadTexture(new ResourceLocation("cloaks/" + username), (ITextureObject) image);
 		}
 	}
 }

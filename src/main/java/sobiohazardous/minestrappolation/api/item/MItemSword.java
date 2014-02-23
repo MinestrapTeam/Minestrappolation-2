@@ -4,11 +4,9 @@ import java.util.List;
 
 import sobiohazardous.minestrappolation.api.Minestrappolation;
 import sobiohazardous.minestrappolation.api.lib.MAPIConfig;
-
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.util.EnumChatFormatting;
@@ -16,20 +14,22 @@ import net.minecraft.util.EnumChatFormatting;
 public class MItemSword extends ItemSword
 {
 	private boolean ignitesMob;
-    private final EnumToolMaterial toolMaterial;
+    private final ToolMaterial toolMaterial;
 
-	public MItemSword(int par1, EnumToolMaterial par2EnumToolMaterial, boolean ignitesMob) 
+	public MItemSword(ToolMaterial par2EnumToolMaterial, boolean ignitesMob) 
 	{
-		super(par1, par2EnumToolMaterial);
+		super(par2EnumToolMaterial);
         this.toolMaterial = par2EnumToolMaterial;
         this.ignitesMob = ignitesMob;
         this.setCreativeTab(null);
 	}
 	
-	public void registerIcons(IconRegister r)
+	/*
+	public void registerIcons(IIconRegister r)
 	{
 		itemIcon = r.registerIcon("minestrappolation:" + this.getUnlocalizedName().substring(5));
 	}
+	*/
 	
 	/**
      * Current implementations of this method in child classes do not use the entry argument beside ev. They just raise

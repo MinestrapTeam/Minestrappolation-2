@@ -2,37 +2,41 @@ package sobiohazardous.minestrappolation.api.block;
 
 import java.util.Random;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
 import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraft.src.*;
 import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 public class BlockPillar extends Block
 {
-	private Icon top;
+	private IIcon top;
 	private String sidesImg;
 	private String topImg;
 	
-	public BlockPillar(int par1, String sidesImg, String topImg)
+	public BlockPillar(String sidesImg, String topImg)
     {
-        super(par1, Material.rock);
+        super(Material.rock);
         this.setCreativeTab(EDBlockManager.tabDecorBlocks);
         this.sidesImg = sidesImg;
         this.topImg = topImg;
     }
 
-	public void registerIcons(IconRegister iconRegister)
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-	         blockIcon = iconRegister.registerIcon("Minestrappolation:"+sidesImg);
-	         this.top = iconRegister.registerIcon("Minestrappolation:"+topImg);    
+		blockIcon = iconRegister.registerIcon("Minestrappolation:"+sidesImg);
+	    this.top = iconRegister.registerIcon("Minestrappolation:"+topImg);    
 	}
     
     /**
@@ -43,11 +47,9 @@ public class BlockPillar extends Block
         return 0;
     }
     
-    
-    /**
-     * From the specified side and block metadata retrieves the blocks texture. Args: side, metadata
-     */
-    public Icon getIcon(int par1, int par2)
+    @SideOnly(Side.CLIENT)
+    @Override
+    public IIcon getIcon(int par1, int par2)
     {
         int k = par2 & 12;
         int l = par2 & 3;

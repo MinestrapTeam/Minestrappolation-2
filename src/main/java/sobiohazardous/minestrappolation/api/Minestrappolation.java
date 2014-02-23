@@ -4,23 +4,20 @@ import sobiohazardous.minestrappolation.api.lib.MAPIBlocks;
 import sobiohazardous.minestrappolation.api.lib.MAPIConfig;
 import sobiohazardous.minestrappolation.api.tileentity.TileEntityStonecutter;
 import sobiohazardous.minestrappolation.extraores.handler.GuiHandler;
-
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
-
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
 
-@Mod(modid = "Minestrappolation", name = "Minestrappolation API", version = "1.2")
-@NetworkMod(clientSideRequired = true, serverSideRequired = false)
+@Mod(modid = "Minestrappolation", name = "Minestrappolation API", version = "1.3")
 public class Minestrappolation
 {
 	@Instance("Minestrappolation")
@@ -46,11 +43,12 @@ public class Minestrappolation
 		
 		MAPIBlocks.loadBlocks();
 
-		Block.bedrock.setHardness(80F);
+		FMLCommonHandler.instance().bus().register(new MAPIEventHandler());
+		
+		Block.getBlockFromName("bedrock").setHardness(80F);
 
-		NetworkRegistry.instance().registerConnectionHandler(new ConnectionHandler());
-		NetworkRegistry.instance().registerGuiHandler(this, guiHandler);
-		MinecraftForge.EVENT_BUS.register(this);
+		//NetworkRegistry.instance().registerConnectionHandler(new ConnectionHandler());
+		//NetworkRegistry.instance().registerGuiHandler(this, guiHandler);
 		proxy.registerRenderers();	
 	}
 }

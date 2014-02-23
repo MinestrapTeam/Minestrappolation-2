@@ -7,7 +7,7 @@ import sobiohazardous.minestrappolation.extraores.tileentity.TileEntityMelter;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -19,19 +19,19 @@ import net.minecraft.world.World;
 
 public class BlockStonecutter extends BlockContainer
 {
-        public BlockStonecutter(int id) 
+        public BlockStonecutter() 
         {
-                super(id, Material.rock);
-                this.setCreativeTab(Minestrappolation.creativeTab);
+        	super(Material.rock);
+        	this.setCreativeTab(Minestrappolation.creativeTab);
         }
 
-        public void registerIcons(IconRegister ir)
+    	public void registerBlockIcons(IIconRegister ir)
         {
         	blockIcon = ir.registerIcon("Minestrappolation:block_StoneCutterFullFront");
         }
         
         @Override
-        public TileEntity createNewTileEntity(World world) 
+		public TileEntity createNewTileEntity(World var1, int var2) 
         {
                 return new TileEntityStonecutter();
         }
@@ -61,7 +61,7 @@ public class BlockStonecutter extends BlockContainer
             }
             else
             {
-                TileEntityStonecutter tileentityfurnace = (TileEntityStonecutter)par1World.getBlockTileEntity(par2, par3, par4);
+                TileEntityStonecutter tileentityfurnace = (TileEntityStonecutter)par1World.getTileEntity(par2, par3, par4);
 
                 if (tileentityfurnace != null)
                 {
@@ -88,28 +88,28 @@ public class BlockStonecutter extends BlockContainer
         {
             if (!par1World.isRemote)
             {
-                int l = par1World.getBlockId(par2, par3, par4 - 1);
-                int i1 = par1World.getBlockId(par2, par3, par4 + 1);
-                int j1 = par1World.getBlockId(par2 - 1, par3, par4);
-                int k1 = par1World.getBlockId(par2 + 1, par3, par4);
+                Block l = par1World.getBlock(par2, par3, par4 - 1);
+                Block i1 = par1World.getBlock(par2, par3, par4 + 1);
+                Block j1 = par1World.getBlock(par2 - 1, par3, par4);
+                Block k1 = par1World.getBlock(par2 + 1, par3, par4);
                 byte b0 = 3;
 
-                if (Block.opaqueCubeLookup[l] && !Block.opaqueCubeLookup[i1])
+                if (!Block.isEqualTo(l, i1))
                 {
                     b0 = 3;
                 }
 
-                if (Block.opaqueCubeLookup[i1] && !Block.opaqueCubeLookup[l])
+                if (!Block.isEqualTo(i1, l))
                 {
                     b0 = 2;
                 }
 
-                if (Block.opaqueCubeLookup[j1] && !Block.opaqueCubeLookup[k1])
+                if (!Block.isEqualTo(j1, k1))
                 {
                     b0 = 5;
                 }
 
-                if (Block.opaqueCubeLookup[k1] && !Block.opaqueCubeLookup[j1])
+                if (!Block.isEqualTo(k1, j1))
                 {
                     b0 = 4;
                 }

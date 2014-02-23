@@ -9,9 +9,9 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 public class MGenFlowers extends WorldGenerator
 {
     /** The ID of the plant block used in this plant generator. */
-    private int plantBlockId;
+    private Block plantBlockId;
 
-    public MGenFlowers(int par1)
+    public MGenFlowers(Block par1)
     {
         this.plantBlockId = par1;
     }
@@ -24,7 +24,7 @@ public class MGenFlowers extends WorldGenerator
             int j1 = par4 + par2Random.nextInt(4) - par2Random.nextInt(4);
             int k1 = par5 + par2Random.nextInt(8) - par2Random.nextInt(8);
 
-            if (par1World.isAirBlock(i1, j1, k1) && (!par1World.provider.hasNoSky || j1 < 127) && Block.blocksList[this.plantBlockId].canBlockStay(par1World, i1, j1, k1))
+            if (par1World.isAirBlock(i1, j1, k1) && (!par1World.provider.hasNoSky || j1 < 127) && this.plantBlockId.canBlockStay(par1World, i1, j1, k1))
             {
                 par1World.setBlock(i1, j1, k1, this.plantBlockId, 0, 2);
             }

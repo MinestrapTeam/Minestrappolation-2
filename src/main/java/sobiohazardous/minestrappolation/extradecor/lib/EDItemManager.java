@@ -1,7 +1,7 @@
 package sobiohazardous.minestrappolation.extradecor.lib;
 
 import cpw.mods.fml.common.registry.LanguageRegistry;
-import sobiohazardous.minestrappolation.api.item.BlockPlacer;
+import sobiohazardous.minestrappolation.api.item.ItemBlockPlacer;
 import sobiohazardous.minestrappolation.api.item.MItem;
 import sobiohazardous.minestrappolation.api.item.MItemBlockPlacer;
 import sobiohazardous.minestrappolation.extradecor.block.Block100;
@@ -39,7 +39,7 @@ public class EDItemManager
 		cardboardItem = new MItemBlockPlacer(EDConfig.cardboardItemId, EDBlockManager.cardboard).setCreativeTab(EDBlockManager.tabDecorBlocks).setUnlocalizedName("item_Cardboard");
 		sandstoneBrickItem = new MItem(EDConfig.sandstoneBrickItemId).setUnlocalizedName("item_SandstoneBrick").setCreativeTab(EDBlockManager.tabDecorBlocks);
 		stoneBrickItem = new MItem(EDConfig.stoneBrickItemId).setUnlocalizedName("item_StoneBrick").setCreativeTab(EDBlockManager.tabDecorBlocks);
-		gobletItem = new BlockPlacer(EDConfig.gobletId,EDBlockManager.Goblet.blockID,0).setCreativeTab(EDBlockManager.tabDecorBlocks).setUnlocalizedName("item_GobletEmpty");
+		gobletItem = new ItemBlockPlacer(EDConfig.gobletId,EDBlockManager.Goblet.blockID,0).setCreativeTab(EDBlockManager.tabDecorBlocks).setUnlocalizedName("item_GobletEmpty");
 		gDoor = new ItemGDoor(EDConfig.glassDoorItemId, Material.glass).setUnlocalizedName("item_GlassDoor");
 	}
 	

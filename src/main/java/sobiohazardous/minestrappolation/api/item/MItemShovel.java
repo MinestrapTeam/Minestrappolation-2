@@ -1,38 +1,28 @@
 package sobiohazardous.minestrappolation.api.item;
 
+import java.util.List;
+
+import sobiohazardous.minestrappolation.api.lib.MAPIConfig;
 import net.minecraft.block.Block;
-import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.item.EnumToolMaterial;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemSpade;
+import net.minecraft.item.ItemStack;
 import net.minecraft.src.*;
+import net.minecraft.util.EnumChatFormatting;
 
-public class MItemShovel extends MItemTool
+public class MItemShovel extends ItemSpade
 {
-    private static Block blocksEffectiveAgainst[];
-
-    public MItemShovel(int par1, EnumToolMaterial par2EnumToolMaterial)
+    public MItemShovel(ToolMaterial par2EnumToolMaterial)
     {
-        super(par1, 1, par2EnumToolMaterial, blocksEffectiveAgainst);
+        super(par2EnumToolMaterial);
         this.setCreativeTab(null);
     }
 
-    /**
-     * Returns if the item (tool) can harvest results from the block type.
-     */
-    public boolean canHarvestBlock(Block par1Block)
+    public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)
     {
-        if (par1Block == Block.snow)
-        {
-            return true;
-        }
-
-        return par1Block == Block.blockSnow;
-    }
-
-    static
-    {
-        blocksEffectiveAgainst = (new Block[]
-                {
-                    Block.grass, Block.dirt, Block.sand, Block.gravel, Block.snow, Block.blockSnow, Block.blockClay, Block.tilledField, Block.slowSand, Block.mycelium
-                });
+		if(MAPIConfig.showDur == true)
+		{
+			 par3List.add(EnumChatFormatting.GREEN+"Durability: "+EnumChatFormatting.RED+Integer.toString(getMaxDamage()-par1ItemStack.getItemDamage()+1)+"/"+Integer.toString(getMaxDamage()+1));
+		}		
     }
 }
