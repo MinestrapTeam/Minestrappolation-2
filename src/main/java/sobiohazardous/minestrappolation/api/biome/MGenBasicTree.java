@@ -3,6 +3,7 @@ package sobiohazardous.minestrappolation.api.biome;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
@@ -41,7 +42,7 @@ public class MGenBasicTree extends WorldGenerator
 
 		Block block = world.getBlock(i, j, k);
 		
-		if (block == Block.getBlockFromName("dirt") || block == Block.getBlockFromName("grass"))
+		if (block == Blocks.dirt || block == Blocks.grass)
 		{
 					
 			++j;
