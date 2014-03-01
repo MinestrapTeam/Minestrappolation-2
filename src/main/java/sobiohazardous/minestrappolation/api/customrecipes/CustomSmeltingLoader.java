@@ -8,16 +8,19 @@ import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-public class CustomSmeltingLoader {
-	public static int[] smeltinIds = new int[3000];
-	public static int[] smeltoutIds = new int[3000];
+public class CustomSmeltingLoader
+{
+	public static Block[] smeltinIds = new Block[3000];
+	public static Block[] smeltoutIds = new Block[3000];
 	public static int[] amountIds = new int[3000];	
 	public static int maxAfterStringFoundValue = 19;
 	
-	public void loadCustomFuels(){
+	public void loadCustomFuels()
+	{
 		File file = new File("Custom-Plugins");
 		file.mkdirs();
 		File file2 = new File("Custom-Plugins/"+"smelt_customFurnace.txt");
@@ -28,26 +31,32 @@ public class CustomSmeltingLoader {
 		int arrayID=0;
 		int iarrayID=0;
 		int aarrayID=0;
-		FilenameFilter filter = new FilenameFilter(){
+		FilenameFilter filter = new FilenameFilter()
+		{
 
 			@Override
-			public boolean accept(File arg0, String arg1) {
+			public boolean accept(File arg0, String arg1) 
+			{
 				
 				return arg1.startsWith("smelt_");
 			}
         	
         };
-			try {
-				if(!file.exists()){
+			try 
+			{
+				if(!file.exists())
+				{
 					file.createNewFile();
 				}
-				if(!file2.exists()){
+				if(!file2.exists())
+				{
 					file2.createNewFile();
 				}
 				
 				File[] fList = file.listFiles(filter);
 				
-				for(int a = 0; a < fList.length;a++){
+				for(int a = 0; a < fList.length;a++)
+				{
 			 		FileInputStream stream = new FileInputStream(fList[a]);
 				 	DataInputStream in = new DataInputStream(stream);
 				 	BufferedReader br = new BufferedReader(new InputStreamReader(in));
@@ -55,25 +64,33 @@ public class CustomSmeltingLoader {
 			 		while((line = br.readLine()) !=null)
 				 	{
 				 		line = line.toLowerCase().replaceAll(" ", "");
-				 		if(line.contains("input=")){
+				 		if(line.contains("input="))
+				 		{
 							input = findAlias(line.substring(line.indexOf("input=")+6,line.lastIndexOf(";", line.indexOf("input=")+maxAfterStringFoundValue)),line.substring(line.indexOf("input=")+6,line.lastIndexOf(";", line.indexOf("input=")+maxAfterStringFoundValue)));
-						}else
-						if(line.contains("input=") == false && line.isEmpty() == false){
+						}
+				 		else
+						if(line.contains("input=") == false && line.isEmpty() == false)
+						{
 							input = "1";
 							System.out.println("input not found defaulting");
 						}
 						
-						if(line.contains("output=")){
+						if(line.contains("output="))
+						{
 							output = findAlias(line.substring(line.indexOf("output=")+7,line.lastIndexOf(";", line.indexOf("output=")+maxAfterStringFoundValue)),line.substring(line.indexOf("output=")+7,line.lastIndexOf(";", line.indexOf("output=")+maxAfterStringFoundValue)));
-						}else
-						if(line.contains("output=") == false &&line.isEmpty() == false){
+						}
+						else
+						if(line.contains("output=") == false &&line.isEmpty() == false)
+						{
 							output = "353";
 							System.out.println("output not found defaulting");
 						}
 						
-						if(line.contains("amount=")){
+						if(line.contains("amount="))
+						{
 							amount = line.substring(line.indexOf("amount=")+7,line.lastIndexOf(";", line.indexOf("amount=")+11));
-						}else
+						}
+						else
 						if(line.contains("amount=") == false &&line.isEmpty() == false){
 							amount = "1";
 							System.out.println("amount not found defaulting");
@@ -81,9 +98,10 @@ public class CustomSmeltingLoader {
 						
 				 		
 				 		
-				 		if(line.isEmpty() == false){
-							smeltinIds[arrayID] = Integer.parseInt(input);
-							smeltoutIds[iarrayID] = Integer.parseInt(output);
+				 		if(line.isEmpty() == false)
+				 		{
+							smeltinIds[arrayID] = Block.getBlockFromName(input);
+							smeltoutIds[iarrayID] = Block.getBlockFromName(output);
 							amountIds[aarrayID] = Integer.parseInt(amount);
 							arrayID++;
 							iarrayID++;
@@ -93,26 +111,31 @@ public class CustomSmeltingLoader {
 			 		br.close();
 			 	}
 				
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
+			} catch (IOException e) 
+			{
 				e.printStackTrace();
 			}
 			
-			addFuels();
-		
+			addFuels();	
 	}
 	
-	private void addFuels(){
-		for(int i = 0; i < smeltinIds.length;i++){
-			if(smeltinIds[i] == 0 || smeltoutIds[i] == 0){
+	private void addFuels()
+	{
+		for(int i = 0; i < smeltinIds.length;i++)
+		{
+			if(Block.isEqualTo(smeltinIds[i], Block.getBlockById(0)) || Block.isEqualTo(smeltoutIds[i], Block.getBlockById(0)))
+			{
 				break;
-			}else{
+			}
+			else
+			{
 				GameRegistry.addSmelting(smeltinIds[i], new ItemStack(smeltoutIds[i],amountIds[i],0), 1F);
 			}
 		}
 	}
 	
-	public String findAlias(String alias,String other){
+	public String findAlias(String alias,String other)
+	{
 		String directoryName = "Custom-Plugins";
 		File directory = new File("Custom-Plugins");
         String value = "0";
@@ -124,7 +147,8 @@ public class CustomSmeltingLoader {
         FilenameFilter filter = new FilenameFilter(){
 
 			@Override
-			public boolean accept(File arg0, String arg1) {
+			public boolean accept(File arg0, String arg1) 
+			{
 				
 				return arg1.startsWith("alias_");
 			}
@@ -132,7 +156,8 @@ public class CustomSmeltingLoader {
         };
         
         File[] fList = directory.listFiles(filter);
-        for(int i = 0; i < fList.length;i++){
+        for(int i = 0; i < fList.length;i++)
+        {
         	try {
 				FileInputStream stream = new FileInputStream(fList[i]);
 				DataInputStream in = new DataInputStream(stream);
@@ -140,35 +165,42 @@ public class CustomSmeltingLoader {
 				String line;
 				
 				int x;
-				while((line = br.readLine())!=null){
+				while((line = br.readLine())!=null)
+				{
 					if(line.length() == 0){
 						continue;
 					}
-					if(line.toLowerCase().replaceAll(" ", "").contains(alias+"=")){
+					if(line.toLowerCase().replaceAll(" ", "").contains(alias+"="))
+					{
 						aliasFound = true;
 					}
 					
 					x = line.toLowerCase().replaceAll(" ", "").indexOf(alias+"=");
-					if(x>=0){
+					if(x>=0)
+					{
 						value = line.toLowerCase().replaceAll(" ", "").substring(alias.length()+1);
 						System.out.println(alias+" - Found in: "+fList[i]);
 						break;
 					}
 					
 				}
-			} catch (IOException e) {
+			} 
+        	catch (IOException e) 
+			{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
         	
      
         }
-        if(aliasFound == true){
+        
+        if(aliasFound == true)
+        {
         	return value;
-        }else{
-        	return other;
         }
-        
-        
+        else
+        {
+        	return other;
+        }                
     }
 }

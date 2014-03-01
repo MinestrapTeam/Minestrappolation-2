@@ -4,8 +4,6 @@ import java.util.Random;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
-import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -26,7 +24,6 @@ public class BlockPillar extends Block
 	public BlockPillar(String sidesImg, String topImg)
     {
         super(Material.rock);
-        this.setCreativeTab(EDBlockManager.tabDecorBlocks);
         this.sidesImg = sidesImg;
         this.topImg = topImg;
     }

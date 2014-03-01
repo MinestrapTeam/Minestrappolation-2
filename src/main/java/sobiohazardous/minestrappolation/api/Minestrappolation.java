@@ -1,9 +1,10 @@
 package sobiohazardous.minestrappolation.api;
 
+import clashsoft.brewingapi.BrewingAPI;
 import sobiohazardous.minestrappolation.api.lib.MAPIBlocks;
 import sobiohazardous.minestrappolation.api.lib.MAPIConfig;
 import sobiohazardous.minestrappolation.api.tileentity.TileEntityStonecutter;
-import sobiohazardous.minestrappolation.extraores.handler.GuiHandler;
+import sobiohazardous.minestrappolation.api.lib.MAPIReference;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -17,9 +18,9 @@ import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
 
-@Mod(modid = "Minestrappolation", name = "Minestrappolation API", version = "1.3")
+@Mod(modid = MAPIReference.MODID_MAPI, name = MAPIReference.MODNAME_MAPI, version = MAPIReference.VERSION_MAPI, dependencies = "required-after:" + BrewingAPI.MODID)
 public class Minestrappolation
-{
+{	
 	@Instance("Minestrappolation")
 	public static Minestrappolation	instance;
 	private MGuiHandler guiHandler = new MGuiHandler();

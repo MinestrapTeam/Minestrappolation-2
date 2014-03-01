@@ -7,7 +7,8 @@ import net.minecraft.item.ItemStack;
 public class InventoryStonecutterExtraSlot implements IInventory
 {
     /** A list of one item containing the result of the crafting formula */
-    private ItemStack[] extraSlot = new ItemStack[1];
+    private ItemStack[] stackResult = new ItemStack[1];
+    private static final String __OBFID = "CL_00001760";
 
     /**
      * Returns the number of slots in the inventory.
@@ -22,22 +23,21 @@ public class InventoryStonecutterExtraSlot implements IInventory
      */
     public ItemStack getStackInSlot(int par1)
     {
-        return this.extraSlot[0];
+        return this.stackResult[0];
     }
 
     /**
-     * Returns the name of the inventory.
+     * Returns the name of the inventory
      */
-    public String getInvName()
+    public String getInventoryName()
     {
         return "Extra";
     }
 
     /**
-     * If this returns false, the inventory name will be used as an unlocalized name, and translated into the player's
-     * language. Otherwise it will be used directly.
+     * Returns if the inventory name is localized
      */
-    public boolean isInvNameLocalized()
+    public boolean isInventoryNameLocalized()
     {
         return false;
     }
@@ -48,11 +48,11 @@ public class InventoryStonecutterExtraSlot implements IInventory
      */
     public ItemStack decrStackSize(int par1, int par2)
     {
-        if (this.extraSlot[0] != null)
+        if (this.stackResult[0] != null)
         {
-            ItemStack itemstack = this.extraSlot[0];
-            this.extraSlot[0] = null;
-            return itemstack;
+            ItemStack var3 = this.stackResult[0];
+            this.stackResult[0] = null;
+            return var3;
         }
         else
         {
@@ -66,11 +66,11 @@ public class InventoryStonecutterExtraSlot implements IInventory
      */
     public ItemStack getStackInSlotOnClosing(int par1)
     {
-        if (this.extraSlot[0] != null)
+        if (this.stackResult[0] != null)
         {
-            ItemStack itemstack = this.extraSlot[0];
-            this.extraSlot[0] = null;
-            return itemstack;
+            ItemStack var2 = this.stackResult[0];
+            this.stackResult[0] = null;
+            return var2;
         }
         else
         {
@@ -83,12 +83,11 @@ public class InventoryStonecutterExtraSlot implements IInventory
      */
     public void setInventorySlotContents(int par1, ItemStack par2ItemStack)
     {
-        this.extraSlot[0] = par2ItemStack;
+        this.stackResult[0] = par2ItemStack;
     }
 
     /**
-     * Returns the maximum stack size for a inventory slot. Seems to always be 64, possibly will be extended. *Isn't
-     * this more of a set than a get?*
+     * Returns the maximum stack size for a inventory slot.
      */
     public int getInventoryStackLimit()
     {
@@ -108,9 +107,9 @@ public class InventoryStonecutterExtraSlot implements IInventory
         return true;
     }
 
-    public void openChest() {}
+    public void openInventory() {}
 
-    public void closeChest() {}
+    public void closeInventory() {}
 
     /**
      * Returns true if automation is allowed to insert the given stack (ignoring stack size) into the given slot.
@@ -119,4 +118,16 @@ public class InventoryStonecutterExtraSlot implements IInventory
     {
         return true;
     }
+
+	@Override
+	public boolean hasCustomInventoryName() 
+	{
+		return false;
+	}
+
+	@Override
+	public void markDirty() 
+	{
+		
+	}
 }

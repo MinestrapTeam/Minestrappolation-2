@@ -66,7 +66,7 @@ public class MGenBasicTree extends WorldGenerator
 					{
 						int var14 = z - k;
 
-						if ((Math.abs(var12) != var10 || Math.abs(var14) != var10 || random.nextInt(2) != 0) && !Block.opaqueCubeLookup[world.getBlockId(x, y, z)])
+						if ((Math.abs(var12) != var10 || Math.abs(var14) != var10 || random.nextInt(2) != 0) && !world.isBlockNormalCubeDefault(x, y, z, true))
 						{
 							for(int v = 0; v < this.thickness; v++)
 							{

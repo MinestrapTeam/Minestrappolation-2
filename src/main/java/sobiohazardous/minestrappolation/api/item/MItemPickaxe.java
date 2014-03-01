@@ -3,7 +3,6 @@ package sobiohazardous.minestrappolation.api.item;
 import java.util.List;
 
 import sobiohazardous.minestrappolation.api.lib.MAPIConfig;
-import sobiohazardous.minestrappolation.extraores.lib.EOItemManager;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;

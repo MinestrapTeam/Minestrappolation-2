@@ -56,7 +56,7 @@ public class StonecutterShapelessRecipes implements IRecipe
                     {
                         ItemStack itemstack1 = (ItemStack)iterator.next();
 
-                        if (itemstack.itemID == itemstack1.itemID && (itemstack1.getItemDamage() == 32767 || itemstack.getItemDamage() == itemstack1.getItemDamage()))
+                        if (itemstack == itemstack1 && (itemstack1.getItemDamage() == 32767 || itemstack.getItemDamage() == itemstack1.getItemDamage()))
                         {
                         	if(needsExtraSlot && extraSlot == null)
                             {                                                   
