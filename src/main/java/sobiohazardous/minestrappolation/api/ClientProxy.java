@@ -21,7 +21,7 @@ public static int	splashpotioncolor;
 	
 	public static void addDevCapes() 
 	{
-		String capeURL = "https://raw.github.com/SoBiohazardous/Minestrappolation-Recode/master/cape_dev.png";
+		String capeURL = "https://raw.github.com/SoBiohazardous/Minestrappolation-Recode/master/src/main/resources/cape_dev.png";
 		String[] devs = {"SoBiohazardous", "Delocuro", "triplg3", "thewerty1124"};
 
 		ThreadDownloadImageData image = new ThreadDownloadImageData(capeURL, null, null);
