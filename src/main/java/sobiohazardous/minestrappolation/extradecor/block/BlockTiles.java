@@ -8,31 +8,33 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 //flintBlock = (new MBlock(EDConfig.flintBlockId, Material.rock)).setHardness(3F).setResistance(10.0F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("block_FlintBlock").setCreativeTab(tabDecorBlocks);
 //netherBrickPattern = (new MBlock(EDConfig.netherBrickPatternId, Material.rock)).setHardness(2.0F).setResistance(10.0F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("block_PatternBrickNether");
 
-public class BlockTiles extends Block {
+public class BlockTiles extends Block 
+{
 
 	public static final String[] brickType = new String[] {"obsidian","flint","nether","checker","brick","fb","nb"};
 
-	private Icon ob;
-	private Icon flint;
-	private Icon nether;
-	private Icon checker;
-	private Icon brick;
-	private Icon fb;
-	private Icon nb;
+	private IIcon ob;
+	private IIcon flint;
+	private IIcon nether;
+	private IIcon checker;
+	private IIcon brick;
+	private IIcon fb;
+	private IIcon nb;
 	
-	public BlockTiles(int par1) {
-		super(par1, Material.rock);
-
+	public BlockTiles() 
+	{
+		super(Material.rock);
 	}
 	
 	public float getBlockHardness(World par1World, int par2, int par3, int par4){
@@ -85,7 +87,8 @@ public class BlockTiles extends Block {
     }
 	
 	
-	public void registerIcons(IconRegister par1IconRegister) {
+	public void registerBlockIcons(IIconRegister par1IconRegister) 
+	{
 		this.ob = par1IconRegister
 				.registerIcon("Minestrappolation:block_ObsidianTile");
 		this.flint = par1IconRegister
@@ -109,7 +112,8 @@ public class BlockTiles extends Block {
     }
 	
 	 @SideOnly(Side.CLIENT)
-		public Icon getIcon(int i, int j) {
+		public IIcon getIcon(int i, int j) 
+	 {
 			switch (j) {
 			case 0:
 					return ob;
@@ -135,7 +139,7 @@ public class BlockTiles extends Block {
 		 * returns a list of blocks with the same ID, but different meta (eg: wood
 		 * returns 4 blocks)
 		 */
-		public void getSubBlocks(int par1, CreativeTabs par2CreativeTabs,
+		public void getSubBlocks(Item par1, CreativeTabs par2CreativeTabs,
 				List par3List) {
 			par3List.add(new ItemStack(par1, 1, 0));
 			par3List.add(new ItemStack(par1, 1, 1));

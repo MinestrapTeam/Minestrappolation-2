@@ -1,6 +1,7 @@
 package sobiohazardous.minestrappolation.extradecor.block;
 
 import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
@@ -19,11 +20,12 @@ public class EDOreRegistry
 		OreDictionary.registerOre("plankWood", new ItemStack(EDBlockManager.woodPlanksMossy, 1, 1));
 		OreDictionary.registerOre("plankWood", new ItemStack(EDBlockManager.woodPlanksMossy, 1, 2));
 		OreDictionary.registerOre("plankWood", new ItemStack(EDBlockManager.woodPlanksMossy, 1, 3));
-		OreDictionary.registerOre("meatRaw", new ItemStack(Item.beefRaw));
-		OreDictionary.registerOre("meatRaw", new ItemStack(Item.porkRaw));
-		OreDictionary.registerOre("meatRaw", new ItemStack(Item.fishRaw));
-		OreDictionary.registerOre("meatRaw", new ItemStack(Item.chickenRaw));
-		OreDictionary.registerOre("meatRaw", new ItemStack(Item.rottenFlesh));
+		//raw
+		OreDictionary.registerOre("meatRaw", new ItemStack(Items.beef));
+		OreDictionary.registerOre("meatRaw", new ItemStack(Items.porkchop));
+		OreDictionary.registerOre("meatRaw", new ItemStack(Items.fish));
+		OreDictionary.registerOre("meatRaw", new ItemStack(Items.chicken));
+		OreDictionary.registerOre("meatRaw", new ItemStack(Items.rotten_flesh));
 	}
 	
 	public static void addOreRecipes()
@@ -34,7 +36,7 @@ public class EDOreRegistry
 				}));
 		GameRegistry.addRecipe(new ShapedOreRecipe(EDBlockManager.crate, true, new Object[]
 				{
-			"WWW","SSS","WWW", Character.valueOf('S'), Item.stick, Character.valueOf('W'), "plankWood"
+			"WWW","SSS","WWW", Character.valueOf('S'), Items.stick, Character.valueOf('W'), "plankWood"
 				}));
 	}
 

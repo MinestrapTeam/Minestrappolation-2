@@ -15,7 +15,7 @@ import sobiohazardous.minestrappolation.extradecor.tileentity.TileEntityEdgeSton
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -28,40 +28,41 @@ import net.minecraft.src.*;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-public class BlockEdgeStoneCorner extends BlockContainer{
+public class BlockEdgeStoneCorner extends BlockContainer
+{
     @SideOnly(Side.CLIENT)
-	private Icon left;
-	private Icon right;
+	private IIcon left;
+	private IIcon right;
 	
 	public static final String[] cType = new String[] {"0", "1", "2", "3","4","5","6","7"};
 
-	public BlockEdgeStoneCorner(int par1) {
-		super(par1, Material.rock);
-	
+	public BlockEdgeStoneCorner() 
+	{
+		super(Material.rock);	
 	}
 
 	public int damageDropped(int par1)
     {
         return par1;
     }
+	
     @SideOnly(Side.CLIENT)
-
-
-	public void registerIcons(IconRegister par1IconRegister) {
+	public void registerBlockIcons(IIconRegister par1IconRegister) 
+    {
 		this.blockIcon = par1IconRegister
 				.registerIcon("Minestrappolation:block_EdgeStoneFull");
 		this.left = par1IconRegister
 				.registerIcon("Minestrappolation:block_EdgeStoneSideRight");
 		this.right = par1IconRegister
 				.registerIcon("Minestrappolation:block_EdgeStoneSideLeft");
-
 	}
 
     @SideOnly(Side.CLIENT)
-	public Icon getIcon(int i, int j) {
+	public IIcon getIcon(int i, int j) 
+    {
 		switch (j) {
 		case 0:
 			if (i == 0)// bottom
@@ -245,8 +246,8 @@ public class BlockEdgeStoneCorner extends BlockContainer{
 	 * returns a list of blocks with the same ID, but different meta (eg: wood
 	 * returns 4 blocks)
 	 */
-	public void getSubBlocks(int par1, CreativeTabs par2CreativeTabs,
-			List par3List) {
+	public void getSubBlocks(Item par1, CreativeTabs par2CreativeTabs, List par3List) 
+    {
 		par3List.add(new ItemStack(par1, 1, 0));
 		par3List.add(new ItemStack(par1, 1, 1));
 		par3List.add(new ItemStack(par1, 1, 2));
@@ -256,23 +257,17 @@ public class BlockEdgeStoneCorner extends BlockContainer{
 		par3List.add(new ItemStack(par1, 1, 5));
 		par3List.add(new ItemStack(par1, 1, 6));
 		par3List.add(new ItemStack(par1, 1, 7));
-	}
+	}	
 
 	@Override
-	public TileEntity createNewTileEntity(World world) {
-		// TODO Auto-generated method stub
-		return new TileEntityEdgeStoneCorner();
-	}
-	
-	public int idPicked(World par1World, int par2, int par3, int par4)
-    {
-        return EDBlockManager.edgeStoneBrick.blockID;
-    }
-	
-
-	@Override
-    public int idDropped(int par1, Random par2Random, int par3)
+	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)    
 	{
-		return EDBlockManager.edgeStoneBrick.blockID;
+		return Item.getItemFromBlock(EDBlockManager.edgeStoneBrick);
+	}
+
+	@Override
+	public TileEntity createNewTileEntity(World var1, int var2)
+	{
+		return new TileEntityEdgeStoneCorner();
 	}
 }

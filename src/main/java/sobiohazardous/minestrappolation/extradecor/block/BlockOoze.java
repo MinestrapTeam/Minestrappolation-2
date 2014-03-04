@@ -6,7 +6,7 @@ import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
 import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -21,9 +21,9 @@ import net.minecraft.world.World;
 public class BlockOoze extends EDBlock
 {
 	private int ticks = 0;
-	public BlockOoze(int par1, Material material)
+	public BlockOoze(Material material)
     {
-        super(par1, material);
+        super(material);
         this.setCreativeTab(EDBlockManager.tabDecorBlocks);  
     }
     
@@ -35,7 +35,7 @@ public class BlockOoze extends EDBlock
         return 1;
     }
     
-    public void registerIcons(IconRegister r)
+    public void registerBlockIcons(IIconRegister r)
 	{
 		blockIcon = r.registerIcon("minestrappolation:" + this.getUnlocalizedName().substring(5));
 	}
@@ -72,7 +72,8 @@ public class BlockOoze extends EDBlock
         	}
         }
         */
-        if(blockID == EDBlockManager.magmaOoze.blockID)
+        
+        if(par1World.getBlock(par2, par3, par4) == EDBlockManager.magmaOoze)
         {
         	par5Entity.setFire(1);
         }

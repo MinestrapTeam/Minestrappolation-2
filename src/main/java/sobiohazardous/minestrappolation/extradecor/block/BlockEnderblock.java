@@ -24,10 +24,10 @@ public class BlockEnderblock extends EDBlock
 {
 	private EntityLiving living;
 	
-	public BlockEnderblock(int id)
+	public BlockEnderblock()
 	{
-		super(id, Material.rock);
-		this.setLightValue(0.6F);
+		super(Material.rock);
+		this.setLightLevel(0.6F);
 		this.setLightOpacity(1);
 	}
 	

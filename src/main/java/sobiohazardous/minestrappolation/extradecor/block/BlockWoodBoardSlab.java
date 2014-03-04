@@ -8,23 +8,24 @@ import java.util.Random;
 
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
 import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
-import net.minecraft.block.BlockHalfSlab;
+import net.minecraft.block.BlockSlab;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
-import net.minecraftforge.common.ForgeDirection;
+import net.minecraftforge.common.util.ForgeDirection;
 
-public class BlockWoodBoardSlab extends BlockHalfSlab
+public class BlockWoodBoardSlab extends BlockSlab
 {
     /** The type of tree this slab came from. */
     public static final String[] woodType = new String[] {"oak", "birch", "spruce", "jungle"};
 
-    public BlockWoodBoardSlab(int par1, boolean par2)
+    public BlockWoodBoardSlab(boolean par2)
     {
-        super(par1, par2, Material.wood);
+        super(par2, Material.wood);
         this.setCreativeTab(EDBlockManager.tabDecorBlocks);
     }
 
@@ -33,32 +34,15 @@ public class BlockWoodBoardSlab extends BlockHalfSlab
     /**
      * From the specified side and block metadata retrieves the blocks texture. Args: side, metadata
      */
-    public Icon getIcon(int par1, int par2)
+    public IIcon getIcon(int par1, int par2)
     {
         return EDBlockManager.woodBoards.getIcon(par1, par2 & 7);
     }
 
     /**
-     * Returns the ID of the items to drop on destruction.
-     */
-    public int idDropped(int par1, Random par2Random, int par3)
-    {
-        return EDBlockManager.woodBoardsSingleSlab.blockID;
-    }
-
-    /**
-     * Returns an item stack containing a single instance of the current block type. 'i' is the block's subtype/damage
-     * and is ignored for blocks which do not support subtypes. Blocks which cannot be harvested should return null.
-     */
-    protected ItemStack createStackedBlock(int par1)
-    {
-        return new ItemStack(EDBlockManager.woodBoardsSingleSlab.blockID, 2, par1 & 7);
-    }
-
-    /**
      * Returns the slab block name with step type.
      */
-    public String getFullSlabName(int par1)
+    public String func_150002_b(int par1)
     {
         if (par1 < 0 || par1 >= woodType.length)
         {
@@ -73,9 +57,9 @@ public class BlockWoodBoardSlab extends BlockHalfSlab
     /**
      * returns a list of blocks with the same ID, but different meta (eg: wood returns 4 blocks)
      */
-    public void getSubBlocks(int par1, CreativeTabs par2CreativeTabs, List par3List)
+    public void getSubBlocks(Item par1, CreativeTabs par2CreativeTabs, List par3List)
     {
-        if (par1 != EDBlockManager.woodBoardsDoubleSlab.blockID)
+        if (par1 != EDBlockManager.woodBoardsDoubleSlab)
         {
             for (int j = 0; j < 4; ++j)
             {
@@ -85,16 +69,11 @@ public class BlockWoodBoardSlab extends BlockHalfSlab
     }
 
     @SideOnly(Side.CLIENT)
-
-    /**
-     * When this method is called, your block should register all the icons it needs with the given IconRegister. This
-     * is the only chance you get to register icons.
-     */
-    public void registerIcons(IconRegister par1IconRegister) {}
+    public void registerBlockIcons(IIconRegister par1IconRegister) {}
     
-    public int getFlammability(IBlockAccess world, int x, int y, int z, int metadata, ForgeDirection face)
+    public int getFlammability(IBlockAccess world, int x, int y, int z,ForgeDirection face)
     {
-    	if(blockID == EDBlockManager.woodBoardsSingleSlab.blockID || blockID == EDBlockManager.woodBoardsDoubleSlab.blockID)
+    	if(world.getBlock(x, y, z) == EDBlockManager.woodBoardsSingleSlab || world.getBlock(x, y, z) == EDBlockManager.woodBoardsDoubleSlab)
     	{
     		if(face == ForgeDirection.UP || face == ForgeDirection.DOWN || face == ForgeDirection.NORTH || face == ForgeDirection.SOUTH || face == ForgeDirection.EAST || face == ForgeDirection.WEST)
     		{

@@ -2,18 +2,19 @@ package sobiohazardous.minestrappolation.extradecor.block;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+
 import java.util.Random;
 
 import net.minecraft.block.BlockBreakable;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 
 public class BlockGlassRefined extends BlockBreakable
 {
     public BlockGlassRefined(int par1, Material par2Material, boolean par3)
     {
-        super(par1, "glass", par2Material, par3);
+        super("glass", par2Material, par3);
         this.setCreativeTab(CreativeTabs.tabBlock);
     }
 
@@ -60,7 +61,7 @@ public class BlockGlassRefined extends BlockBreakable
         return true;
     }
     
-    public void registerIcons(IconRegister par1IconRegister)
+    public void registerBlockIcons(IIconRegister par1IconRegister)
     {
         blockIcon = par1IconRegister.registerIcon("Minestrappolation:block_ClearGlass");
     } 

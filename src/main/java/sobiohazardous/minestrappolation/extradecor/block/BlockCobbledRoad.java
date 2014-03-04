@@ -2,13 +2,13 @@ package sobiohazardous.minestrappolation.extradecor.block;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+
 import java.util.List;
 
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -17,7 +17,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
@@ -25,11 +25,12 @@ public class BlockCobbledRoad extends Block
 {
 	public Entity entity;
 	public EntityLivingBase living;
-	private Icon top;
-	private Icon bottom;
-    public BlockCobbledRoad(int par1)
+	private IIcon top;
+	private IIcon bottom;
+	
+    public BlockCobbledRoad()
     {
-        super(par1, Material.ground);
+        super(Material.ground);
     }
 
     
@@ -39,19 +40,14 @@ public class BlockCobbledRoad extends Block
     }
 
     @SideOnly(Side.CLIENT)
-
-    /**
-     * When this method is called, your block should register all the icons it needs with the given IconRegister. This
-     * is the only chance you get to register icons.
-     */
-    public void registerIcons(IconRegister par1IconRegister)
+    public void registerBlockIcons(IIconRegister par1IconRegister)
     {
         this.blockIcon = par1IconRegister.registerIcon("Minestrappolation:block_CobbledRoadSide");
         this.top = par1IconRegister.registerIcon("Minestrappolation:block_CobbledRoadTop");
         this.bottom = par1IconRegister.registerIcon("Minestrappolation:block_CobbledRoadBottom");
     }
     
-    public Icon getIcon(int i, int j)
+    public IIcon getIcon(int i, int j)
     {
     	if (i == 0)//bottom
             
@@ -79,6 +75,7 @@ public class BlockCobbledRoad extends Block
     	}
 		return blockIcon;
     }
+    
     public void onEntityWalking(World par1World, int par2, int par3, int par4, Entity par5Entity)
     {
     	par5Entity.motionX *= 1.4;

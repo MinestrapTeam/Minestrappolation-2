@@ -12,29 +12,27 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.common.ForgeDirection;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public class BlockCardboard extends BlockContainer
-{
-	
-	private Icon top;
-	public BlockCardboard(int par1, Material material) 
+{	
+	private IIcon top;
+	public BlockCardboard(Material material) 
 	{
-		super(par1, material);
-		
+		super(material);		
 	}
-
-    
-    public int getFlammability(IBlockAccess world, int x, int y, int z, int metadata, ForgeDirection face)
+   
+	public int getFlammability(IBlockAccess world, int x, int y, int z, ForgeDirection face)
     {
-    	if(blockID == EDBlockManager.cardboardBlock.blockID)
+    	if(world.getBlock(x, y, z) == EDBlockManager.cardboardBlock)
     	{
     		if(face == ForgeDirection.UP || face == ForgeDirection.DOWN || face == ForgeDirection.NORTH || face == ForgeDirection.SOUTH || face == ForgeDirection.EAST || face == ForgeDirection.WEST)
     		{
@@ -47,7 +45,7 @@ public class BlockCardboard extends BlockContainer
     		return 0;
     }
     
-    public Icon getIcon(int i, int j)
+    public IIcon getIcon(int i, int j)
     {
     	if (i == 0)//bottom
             
@@ -76,15 +74,16 @@ public class BlockCardboard extends BlockContainer
 		return blockIcon;
     }
     
-	public void registerIcons(IconRegister iconRegister)
+    @Override
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		blockIcon = iconRegister.registerIcon("Minestrappolation:block_CardboardBlock");
 		top = iconRegister.registerIcon("Minestrappolation:block_CardboardBlock");
 	}
     
-    public int idDropped(int par1, Random par2Random, int par3)
-    {
-    	return EDBlockManager.cardboardBlock.blockID;
+	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)    
+	{
+    	return EDItemManager.cardboardItem;
     }
     
     /**
@@ -96,9 +95,8 @@ public class BlockCardboard extends BlockContainer
     }
 
 	@Override
-	public TileEntity createNewTileEntity(World world) {
-		// TODO Auto-generated method stub
+	public TileEntity createNewTileEntity(World var1, int var2) 
+	{
 		return new TileEntityCardBoard();
 	}
-
 }

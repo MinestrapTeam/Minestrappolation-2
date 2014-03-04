@@ -10,16 +10,19 @@ import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
 import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
 import sobiohazardous.minestrappolation.extradecor.lib.EDItemManager;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockPane;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.common.ForgeDirection;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public class EDBlockPane extends Block
 {
@@ -35,11 +38,11 @@ public class EDBlockPane extends Block
     private final boolean canDropItself;
     private final String field_94402_c;
     @SideOnly(Side.CLIENT)
-    private Icon theIcon;
+    private IIcon theIcon;
 
-    public EDBlockPane(int par1, String texture, String edgeTexture, Material par4Material, boolean par5)
+    public EDBlockPane(String texture, String edgeTexture, Material par4Material, boolean par5)
     {
-        super(par1, par4Material);
+        super(par4Material);
         this.sideTextureIndex = "Minestrappolation:" + edgeTexture;
         this.canDropItself = par5;
         this.field_94402_c = "Minestrappolation:" + texture;
@@ -48,10 +51,10 @@ public class EDBlockPane extends Block
     /**
      * Returns the ID of the items to drop on destruction.
      */
-    public int idDropped(int par1, Random par2Random, int par3)
+	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)    
     {
-        return !this.canDropItself ? 0 : blockID == EDBlockManager.cardboard.blockID ? EDItemManager.cardboardItem.itemID : super.idDropped(par1, par2Random, par3);
-    }
+		return !this.canDropItself ? null : super.getItemDropped(p_149650_1_, p_149650_2_, p_149650_3_);    
+	}
 
     /**
      * Is this block (a) opaque and (b) a full 1m cube?  This determines whether or not to render the shared face of two
@@ -84,62 +87,61 @@ public class EDBlockPane extends Block
      * Returns true if the given side of this block type should be rendered, if the adjacent block is at the given
      * coordinates.  Args: blockAccess, x, y, z, side
      */
-    public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
+    public boolean shouldSideBeRendered(IBlockAccess p_149646_1_, int p_149646_2_, int p_149646_3_, int p_149646_4_, int p_149646_5_)
     {
-        int i1 = par1IBlockAccess.getBlockId(par2, par3, par4);
-        return i1 == this.blockID ? false : super.shouldSideBeRendered(par1IBlockAccess, par2, par3, par4, par5);
+        return p_149646_1_.getBlock(p_149646_2_, p_149646_3_, p_149646_4_) == this ? false : super.shouldSideBeRendered(p_149646_1_, p_149646_2_, p_149646_3_, p_149646_4_, p_149646_5_);
     }
 
     /**
      * Adds all intersecting collision boxes to a list. (Be sure to only add boxes to the list if they intersect the
      * mask.) Parameters: World, X, Y, Z, mask, list, colliding entity
      */
-    public void addCollisionBoxesToList(World par1World, int par2, int par3, int par4, AxisAlignedBB par5AxisAlignedBB, List par6List, Entity par7Entity)
+    public void addCollisionBoxesToList(World p_149743_1_, int p_149743_2_, int p_149743_3_, int p_149743_4_, AxisAlignedBB p_149743_5_, List p_149743_6_, Entity p_149743_7_)
     {
-        boolean flag = this.canThisPaneConnectToThisBlockID(par1World.getBlockId(par2, par3, par4 - 1));
-        boolean flag1 = this.canThisPaneConnectToThisBlockID(par1World.getBlockId(par2, par3, par4 + 1));
-        boolean flag2 = this.canThisPaneConnectToThisBlockID(par1World.getBlockId(par2 - 1, par3, par4));
-        boolean flag3 = this.canThisPaneConnectToThisBlockID(par1World.getBlockId(par2 + 1, par3, par4));
+        boolean var8 = this.canThisPaneConnectToThisBlockID(p_149743_1_.getBlock(p_149743_2_, p_149743_3_, p_149743_4_ - 1));
+        boolean var9 = this.canThisPaneConnectToThisBlockID(p_149743_1_.getBlock(p_149743_2_, p_149743_3_, p_149743_4_ + 1));
+        boolean var10 = this.canThisPaneConnectToThisBlockID(p_149743_1_.getBlock(p_149743_2_ - 1, p_149743_3_, p_149743_4_));
+        boolean var11 = this.canThisPaneConnectToThisBlockID(p_149743_1_.getBlock(p_149743_2_ + 1, p_149743_3_, p_149743_4_));
 
-        if ((!flag2 || !flag3) && (flag2 || flag3 || flag || flag1))
+        if ((!var10 || !var11) && (var10 || var11 || var8 || var9))
         {
-            if (flag2 && !flag3)
+            if (var10 && !var11)
             {
                 this.setBlockBounds(0.0F, 0.0F, 0.4375F, 0.5F, 1.0F, 0.5625F);
-                super.addCollisionBoxesToList(par1World, par2, par3, par4, par5AxisAlignedBB, par6List, par7Entity);
+                super.addCollisionBoxesToList(p_149743_1_, p_149743_2_, p_149743_3_, p_149743_4_, p_149743_5_, p_149743_6_, p_149743_7_);
             }
-            else if (!flag2 && flag3)
+            else if (!var10 && var11)
             {
                 this.setBlockBounds(0.5F, 0.0F, 0.4375F, 1.0F, 1.0F, 0.5625F);
-                super.addCollisionBoxesToList(par1World, par2, par3, par4, par5AxisAlignedBB, par6List, par7Entity);
+                super.addCollisionBoxesToList(p_149743_1_, p_149743_2_, p_149743_3_, p_149743_4_, p_149743_5_, p_149743_6_, p_149743_7_);
             }
         }
         else
         {
             this.setBlockBounds(0.0F, 0.0F, 0.4375F, 1.0F, 1.0F, 0.5625F);
-            super.addCollisionBoxesToList(par1World, par2, par3, par4, par5AxisAlignedBB, par6List, par7Entity);
+            super.addCollisionBoxesToList(p_149743_1_, p_149743_2_, p_149743_3_, p_149743_4_, p_149743_5_, p_149743_6_, p_149743_7_);
         }
 
-        if ((!flag || !flag1) && (flag2 || flag3 || flag || flag1))
+        if ((!var8 || !var9) && (var10 || var11 || var8 || var9))
         {
-            if (flag && !flag1)
+            if (var8 && !var9)
             {
                 this.setBlockBounds(0.4375F, 0.0F, 0.0F, 0.5625F, 1.0F, 0.5F);
-                super.addCollisionBoxesToList(par1World, par2, par3, par4, par5AxisAlignedBB, par6List, par7Entity);
+                super.addCollisionBoxesToList(p_149743_1_, p_149743_2_, p_149743_3_, p_149743_4_, p_149743_5_, p_149743_6_, p_149743_7_);
             }
-            else if (!flag && flag1)
+            else if (!var8 && var9)
             {
                 this.setBlockBounds(0.4375F, 0.0F, 0.5F, 0.5625F, 1.0F, 1.0F);
-                super.addCollisionBoxesToList(par1World, par2, par3, par4, par5AxisAlignedBB, par6List, par7Entity);
+                super.addCollisionBoxesToList(p_149743_1_, p_149743_2_, p_149743_3_, p_149743_4_, p_149743_5_, p_149743_6_, p_149743_7_);
             }
         }
         else
         {
             this.setBlockBounds(0.4375F, 0.0F, 0.0F, 0.5625F, 1.0F, 1.0F);
-            super.addCollisionBoxesToList(par1World, par2, par3, par4, par5AxisAlignedBB, par6List, par7Entity);
+            super.addCollisionBoxesToList(p_149743_1_, p_149743_2_, p_149743_3_, p_149743_4_, p_149743_5_, p_149743_6_, p_149743_7_);
         }
     }
-
+    
     /**
      * Sets the block's bounds for rendering it as an item
      */
@@ -157,10 +159,10 @@ public class EDBlockPane extends Block
         float f1 = 0.5625F;
         float f2 = 0.4375F;
         float f3 = 0.5625F;
-        boolean flag = this.canThisPaneConnectToThisBlockID(par1IBlockAccess.getBlockId(par2, par3, par4 - 1));
-        boolean flag1 = this.canThisPaneConnectToThisBlockID(par1IBlockAccess.getBlockId(par2, par3, par4 + 1));
-        boolean flag2 = this.canThisPaneConnectToThisBlockID(par1IBlockAccess.getBlockId(par2 - 1, par3, par4));
-        boolean flag3 = this.canThisPaneConnectToThisBlockID(par1IBlockAccess.getBlockId(par2 + 1, par3, par4));
+        boolean flag = this.canThisPaneConnectToThisBlockID(par1IBlockAccess.getBlock(par2, par3, par4 - 1));
+        boolean flag1 = this.canThisPaneConnectToThisBlockID(par1IBlockAccess.getBlock(par2, par3, par4 + 1));
+        boolean flag2 = this.canThisPaneConnectToThisBlockID(par1IBlockAccess.getBlock(par2 - 1, par3, par4));
+        boolean flag3 = this.canThisPaneConnectToThisBlockID(par1IBlockAccess.getBlock(par2 + 1, par3, par4));
 
         if ((!flag2 || !flag3) && (flag2 || flag3 || flag || flag1))
         {
@@ -204,7 +206,7 @@ public class EDBlockPane extends Block
     /**
      * Returns the texture index of the thin side of the pane.
      */
-    public Icon getSideTextureIndex()
+    public IIcon getSideTextureIndex()
     {
         return this.theIcon;
     }
@@ -213,9 +215,9 @@ public class EDBlockPane extends Block
      * Gets passed in the blockID of the block adjacent and supposed to return true if its allowed to connect to the
      * type of blockID passed in. Args: blockID
      */
-    public final boolean canThisPaneConnectToThisBlockID(int par1)
+    public final boolean canThisPaneConnectToThisBlockID(Block par1)
     {
-        return Block.opaqueCubeLookup[par1] || par1 == this.blockID || par1 == Block.glass.blockID || par1 == EDBlockManager.glassRefined.blockID || par1 == EDBlockManager.cardboard.blockID;
+    	return par1.func_149730_j() || par1 == this || par1 == Blocks.glass || par1 == Blocks.stained_glass || par1 == Blocks.stained_glass_pane || par1 instanceof BlockPane;    
     }
 
     /**
@@ -232,7 +234,7 @@ public class EDBlockPane extends Block
      */
     protected ItemStack createStackedBlock(int par1)
     {
-        return new ItemStack(this.blockID, 1, par1);
+        return new ItemStack(this, 1, par1);
     }
 
     @SideOnly(Side.CLIENT)
@@ -241,15 +243,15 @@ public class EDBlockPane extends Block
      * When this method is called, your block should register all the icons it needs with the given IconRegister. This
      * is the only chance you get to register icons.
      */
-    public void registerIcons(IconRegister par1IconRegister)
+    public void registerBlockIcons(IIconRegister par1IconRegister)
     {
         this.blockIcon = par1IconRegister.registerIcon(this.field_94402_c);
         this.theIcon = par1IconRegister.registerIcon(this.sideTextureIndex);
     }
     
-    public int getFlammability(IBlockAccess world, int x, int y, int z, int metadata, ForgeDirection face)
+    public int getFlammability(IBlockAccess world, int x, int y, int z,ForgeDirection face)
     {
-    	if(blockID == EDBlockManager.cardboard.blockID)
+    	if(world.getBlock(x, y, z) == EDBlockManager.cardboard)
     	{
     		if(face == ForgeDirection.UP || face == ForgeDirection.DOWN || face == ForgeDirection.NORTH || face == ForgeDirection.SOUTH || face == ForgeDirection.EAST || face == ForgeDirection.WEST)
     		{
@@ -264,6 +266,6 @@ public class EDBlockPane extends Block
     
     public boolean canPaneConnectTo(IBlockAccess access, int x, int y, int z, ForgeDirection dir)
     {
-        return canThisPaneConnectToThisBlockID(access.getBlockId(x+dir.offsetX, y+dir.offsetY, z+dir.offsetZ)) || access.isBlockSolidOnSide(x+dir.offsetX, y+dir.offsetY, z+dir.offsetZ, dir.getOpposite(), false);
+        return canThisPaneConnectToThisBlockID(access.getBlock(x+dir.offsetX, y+dir.offsetY, z+dir.offsetZ)) || access.isSideSolid(x+dir.offsetX, y+dir.offsetY, z+dir.offsetZ, dir.getOpposite(), false);
     }
 }

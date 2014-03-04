@@ -7,35 +7,39 @@ import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
 import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.common.ForgeDirection;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public class EDBlock extends MBlock
 {	
-	public EDBlock(int par1, Material material)
+	@Deprecated()
+	public EDBlock(Material material)
     {
-        super(par1, material);
+        super(material);
         this.setCreativeTab(EDBlockManager.tabDecorBlocks);
     }
 
     /**
      * Returns the ID of the items to drop on destruction.
      */
-    public int idDropped(int par1, Random par2Random, int par3)
+	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)    
     {
-        return this.blockID;
+        return Item.getItemFromBlock(this);
     }
+	
+	/*
     public boolean canDragonDestroy(World world, int x, int y, int z)
     {
         return blockID != obsidian.blockID && blockID != whiteStone.blockID && blockID != bedrock.blockID;
     }
-    public int getFlammability(IBlockAccess world, int x, int y, int z, int metadata, ForgeDirection face)
+    */
+    
+	public int getFlammability(IBlockAccess world, int x, int y, int z, ForgeDirection face)
     {
-    	if(blockID == EDBlockManager.woodPanel.blockID || blockID ==EDBlockManager.woodBeveled.blockID)
+    	if(world.getBlock(x, y, z) == EDBlockManager.woodPanel || world.getBlock(x, y, z) ==EDBlockManager.woodBeveled)
     	{
     		if(face == ForgeDirection.UP || face == ForgeDirection.DOWN || face == ForgeDirection.NORTH || face == ForgeDirection.SOUTH || face == ForgeDirection.EAST || face == ForgeDirection.WEST)
     		{

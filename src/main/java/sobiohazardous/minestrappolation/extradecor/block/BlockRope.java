@@ -11,23 +11,25 @@ import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
 import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
 import sobiohazardous.minestrappolation.extraores.lib.EOBlockManager;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockLadder;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.common.ForgeDirection;
 
-public class BlockRope extends Block
+public class BlockRope extends BlockLadder
 {
-    public BlockRope(int par1)
+    public BlockRope()
     {
-        super(par1, Material.cloth);
+        super();
     }
 
     /**
@@ -74,12 +76,6 @@ public class BlockRope extends Block
         return ExtraDecor.ropeRenderId;
     }
 
-
-    public static boolean isIdAFence(int par0)
-    {
-        return par0 == EDBlockManager.rope.blockID;
-    }
-
     @SideOnly(Side.CLIENT)
 
     /**
@@ -97,109 +93,95 @@ public class BlockRope extends Block
      * When this method is called, your block should register all the icons it needs with the given IconRegister. This
      * is the only chance you get to register icons.
      */
-    public void registerIcons(IconRegister par1IconRegister)
+    public void registerBlockIcons(IIconRegister par1IconRegister)
     {
         this.blockIcon = par1IconRegister.registerIcon("Minestrappolation:block_RopeCoilSide");
     }
     
-    @Override
-    public boolean isLadder(World world, int x, int y, int z, EntityLivingBase entity)
-    {
-        return true;
-    }
-    
-    public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, int par5)
-    {
-    	if(par1World.getBlockId(par2, par3 +1, par4) == 0)
-    	{
-    		par1World.setBlockToAir(par2, par3, par4);
-            par1World.scheduleBlockUpdate(par2, par3, par4, this.blockID, 4);
-            this.dropBlockAsItem(par1World, par2, par3, par4, par1World.getBlockMetadata(par2, par3, par4), 0);
-    	}
-    }
-    
-    public boolean canBlockStay(World par1World, int par2, int par3, int par4)
-    {
-    	if(par1World.getBlockId(par2, par3 +1, par4) == 0)
-    	{
-            par1World.scheduleBlockUpdate(par2, par3, par4, this.blockID, 4);
-    		return false;
-    	}
-    	return true;
-    }
-    public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random)
-    {
-    	if(par1World.getBlockId(par2, par3 +1, par4) == 0)
-    	{
-    		par1World.setBlockToAir(par2, par3, par4);
-            this.dropBlockAsItem(par1World, par2, par3, par4, par1World.getBlockMetadata(par2, par3, par4), 0);
-    	}
-    }
-    
-    
     public boolean canPlaceBlockAt(World par1World, int par2, int par3, int par4)
     {
-    	if(par1World.getBlockId(par2, par3+1, par4) == Block.glass.blockID){
+    	if(par1World.getBlock(par2, par3+1, par4) == Blocks.glass)
+    	{
     		return false;
     	}
-    	if(par1World.getBlockId(par2, par3+1, par4) == Block.torchWood.blockID){
+    	if(par1World.getBlock(par2, par3+1, par4) == Blocks.torch)
+    	{
     		return false;
     	}
-    	if(par1World.getBlockId(par2, par3+1, par4) == Block.torchRedstoneActive.blockID){
+    	if(par1World.getBlock(par2, par3+1, par4) == Blocks.redstone_torch)
+    	{
     		return false;
     	}
-    	if(par1World.getBlockId(par2, par3+1, par4) == Block.torchRedstoneIdle.blockID){
+    	if(par1World.getBlock(par2, par3+1, par4) == Blocks.redstone_torch)
+    	{
     		return false;
     	}
-    	if(par1World.getBlockId(par2, par3+1, par4) == Block.web.blockID){
+    	if(par1World.getBlock(par2, par3+1, par4) == Blocks.web)
+    	{
     		return false;
     	}
-    	if(par1World.getBlockId(par2, par3+1, par4) == Block.ladder.blockID){
+    	if(par1World.getBlock(par2, par3+1, par4) == Blocks.ladder)
+    	{
     		return false;
     	}
-    	if(par1World.getBlockId(par2, par3+1, par4) == Block.waterStill.blockID){
+    	if(par1World.getBlock(par2, par3+1, par4) == Blocks.water)
+    	{
     		return false;
     	}
-    	if(par1World.getBlockId(par2, par3+1, par4) == Block.waterMoving.blockID){
+    	if(par1World.getBlock(par2, par3+1, par4) == Blocks.water)
+    	{
     		return false;
     	}
-    	if(par1World.getBlockId(par2, par3+1, par4) == Block.stoneSingleSlab.blockID){
+    	if(par1World.getBlock(par2, par3+1, par4) == Blocks.stone_slab)
+    	{
     		return false;
     	}
-    	if(par1World.getBlockId(par2, par3+1, par4) == Block.woodSingleSlab.blockID){
+    	if(par1World.getBlock(par2, par3+1, par4) == Blocks.wooden_slab)
+    	{
     		return false;
     	}
-    	if(par1World.getBlockId(par2, par3+1, par4) == Block.lever.blockID){
+    	if(par1World.getBlock(par2, par3+1, par4) == Blocks.lever)
+    	{
     		return false;
     	}
-    	if(par1World.getBlockId(par2, par3+1, par4) == Block.cauldron.blockID){
+    	if(par1World.getBlock(par2, par3+1, par4) == Blocks.cauldron)
+    	{
     		return false;
     	}
-    	if(par1World.getBlockId(par2, par3+1, par4) == Block.signWall.blockID){
+    	if(par1World.getBlock(par2, par3+1, par4) == Blocks.standing_sign)
+    	{
     		return false;
     	}
-    	if(par1World.getBlockId(par2, par3+1, par4) == Block.trapdoor.blockID){
+    	if(par1World.getBlock(par2, par3+1, par4) == Blocks.trapdoor)
+    	{
     		return false;
     	}
-    	if(par1World.getBlockId(par2, par3+1, par4) == Block.vine.blockID){
+    	if(par1World.getBlock(par2, par3+1, par4) == Blocks.vine)
+    	{
     		return false;
     	}
-    	if(par1World.getBlockId(par2, par3+1, par4) == Block.skull.blockID){
+    	if(par1World.getBlock(par2, par3+1, par4) == Blocks.skull)
+    	{
     		return false;
     	}
-    	if(par1World.getBlockId(par2, par3+1, par4) == Block.hopperBlock.blockID){
+    	if(par1World.getBlock(par2, par3+1, par4) == Blocks.hopper)
+    	{
     		return false;
     	}
-    	if(par1World.getBlockId(par2, par3+1, par4) == Block.lavaStill.blockID){
+    	if(par1World.getBlock(par2, par3+1, par4) == Blocks.lava)   	
+    	{
     		return false;
     	}
-    	if(par1World.getBlockId(par2, par3+1, par4) == Block.lavaMoving.blockID){
+    	if(par1World.getBlock(par2, par3+1, par4) == Blocks.lava)
+    	{
     		return false;
     	}
-    	if(par1World.getBlockId(par2, par3+1, par4) == Block.fenceGate.blockID){
+    	if(par1World.getBlock(par2, par3+1, par4) == Blocks.fence_gate)
+    	{
     		return false;
     	}
-    	if(par1World.getBlockId(par2, par3+1, par4) == EDBlockManager.woodBoardsSingleSlab.blockID){
+    	if(par1World.getBlock(par2, par3+1, par4) == EDBlockManager.woodBoardsSingleSlab)
+    	{
     		return false;
     	}
 		return true;
@@ -209,26 +191,18 @@ public class BlockRope extends Block
     /**
      * Returns the ID of the items to drop on destruction.
      */
-    public int idDropped(int par1, Random par2Random, int par3)
+	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)    
     {
-        return EDBlockManager.itemRope.itemID;
+        return EDBlockManager.itemRope;
     }
     
     public void onBlockPlacedBy(World par1World, int par2, int par3, int par4, EntityLivingBase par5EntityLivingBase, ItemStack par6ItemStack)
     {
-    	if(par1World.getBlockId(par2, par3 +1, par4) == 0)
+    	if(Block.isEqualTo(par1World.getBlock(par2, par3 +1, par4), Block.getBlockById(0)))
     	{
     		par1World.setBlockToAir(par2, par3, par4);
-            par1World.scheduleBlockUpdate(par2, par3, par4, this.blockID, 4);
+            par1World.scheduleBlockUpdate(par2, par3, par4, this, 4);
             this.dropBlockAsItem(par1World, par2, par3, par4, par1World.getBlockMetadata(par2, par3, par4), 0);
     	}
-    }
-    
-    /**
-     * only called by clickMiddleMouseButton , and passed to inventory.setCurrentItem (along with isCreative)
-     */
-    public int idPicked(World par1World, int par2, int par3, int par4)
-    {
-    	return EDBlockManager.itemRope.itemID;
     }
 }

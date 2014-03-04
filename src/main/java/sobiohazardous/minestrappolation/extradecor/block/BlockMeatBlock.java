@@ -6,9 +6,9 @@ import net.minecraft.block.material.Material;
 
 public class BlockMeatBlock extends EDBlock
 {
-	public BlockMeatBlock(int id, String texture)
+	public BlockMeatBlock(String texture)
 	{
-		super(id, Material.cloth);
+		super(Material.cloth);
 		this.setCreativeTab(EDBlockManager.tabDecorBlocks);
 	}
 	

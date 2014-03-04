@@ -1,14 +1,15 @@
 package sobiohazardous.minestrappolation.extradecor.block;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+
 import java.util.List;
 
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
 import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -17,7 +18,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
@@ -25,11 +26,12 @@ public class BlockRefinedRoad extends Block
 {
 	public Entity entity;
 	public EntityLivingBase living;
-	private Icon top;
-	private Icon bottom;
-    public BlockRefinedRoad(int par1)
+	private IIcon top;
+	private IIcon bottom;
+	
+    public BlockRefinedRoad()
     {
-        super(par1, Material.ground);
+        super(Material.ground);
     }
 
     
@@ -44,15 +46,15 @@ public class BlockRefinedRoad extends Block
      * When this method is called, your block should register all the icons it needs with the given IconRegister. This
      * is the only chance you get to register icons.
      */
-    public void registerIcons(IconRegister par1IconRegister)
+    public void registerBlockIcons(IIconRegister par1IconRegister)
     {
-    	if(this.blockID == EDBlockManager.refinedRoad.blockID)
+    	if(this == EDBlockManager.refinedRoad)
     	{
     		this.blockIcon = par1IconRegister.registerIcon("Minestrappolation:block_RefinedRoadSide");
     		this.top = par1IconRegister.registerIcon("Minestrappolation:block_RefinedRoadTop");
     		this.bottom = par1IconRegister.registerIcon("Minestrappolation:block_RefinedRoadBottom");
     	}
-    	else if(this.blockID == EDBlockManager.refinedNetherroad.blockID)
+    	else if(this == EDBlockManager.refinedNetherroad)
     	{
     		this.blockIcon = par1IconRegister.registerIcon("Minestrappolation:block_RefinedNetherroadSide");
     		this.top = par1IconRegister.registerIcon("Minestrappolation:block_RefinedNetherroadTop");
@@ -66,7 +68,7 @@ public class BlockRefinedRoad extends Block
     	}
     }
     
-    public Icon getIcon(int i, int j)
+    public IIcon getIcon(int i, int j)
     {
     	if (i == 0)//bottom
             
@@ -94,14 +96,15 @@ public class BlockRefinedRoad extends Block
     	}
 		return blockIcon;
     }
+    
     public void onEntityWalking(World par1World, int par2, int par3, int par4, Entity par5Entity)
     {
-    	if(this.blockID == EDBlockManager.refinedRoad.blockID)
+    	if(this == EDBlockManager.refinedRoad)
     	{
     		par5Entity.motionX *= 1.6;
     		par5Entity.motionZ *= 1.6;
     	}
-    	else if(this.blockID == EDBlockManager.refinedNetherroad.blockID)
+    	else if(this == EDBlockManager.refinedNetherroad)
     	{
     		par5Entity.motionX *= 2.4;
     		par5Entity.motionZ *= 2.4;
