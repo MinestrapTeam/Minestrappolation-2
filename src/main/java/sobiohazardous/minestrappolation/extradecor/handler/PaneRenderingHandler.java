@@ -1,9 +1,5 @@
 package sobiohazardous.minestrappolation.extradecor.handler;
 
-import static net.minecraftforge.common.ForgeDirection.EAST;
-import static net.minecraftforge.common.ForgeDirection.NORTH;
-import static net.minecraftforge.common.ForgeDirection.SOUTH;
-import static net.minecraftforge.common.ForgeDirection.WEST;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
 import sobiohazardous.minestrappolation.extradecor.block.EDBlockPane;
@@ -11,8 +7,9 @@ import net.minecraft.block.Block;
 import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public class PaneRenderingHandler extends RenderBlocks implements ISimpleBlockRenderingHandler
 {
@@ -30,11 +27,6 @@ public class PaneRenderingHandler extends RenderBlocks implements ISimpleBlockRe
 		}
 	    return false;
 	 } 
-
-	public boolean shouldRender3DInInventory()
-	{
-	    return false;
-	}
 
 	public int getRenderId()
 	{
@@ -63,8 +55,8 @@ public class PaneRenderingHandler extends RenderBlocks implements ISimpleBlockRe
         }
 
         tessellator.setColorOpaque_F(f * f1, f * f2, f * f3);
-        Icon icon;
-        Icon icon1;
+        IIcon icon;
+        IIcon icon1;
 
         if (this.hasOverrideBlockTexture())
         {
@@ -98,10 +90,10 @@ public class PaneRenderingHandler extends RenderBlocks implements ISimpleBlockRe
         double d17 = (double)par2 + 0.5D + 0.0625D;
         double d18 = (double)par4 + 0.5D - 0.0625D;
         double d19 = (double)par4 + 0.5D + 0.0625D;
-        boolean flag = par1BlockPane.canPaneConnectTo(render.blockAccess,par2, par3, par4, NORTH);
-        boolean flag1 = par1BlockPane.canPaneConnectTo(render.blockAccess,par2, par3, par4, SOUTH);
-        boolean flag2 = par1BlockPane.canPaneConnectTo(render.blockAccess,par2, par3, par4, WEST);
-        boolean flag3 = par1BlockPane.canPaneConnectTo(render.blockAccess,par2, par3, par4, EAST);
+        boolean flag = par1BlockPane.canPaneConnectTo(render.blockAccess,par2, par3, par4, ForgeDirection.NORTH);
+        boolean flag1 = par1BlockPane.canPaneConnectTo(render.blockAccess,par2, par3, par4, ForgeDirection.SOUTH);
+        boolean flag2 = par1BlockPane.canPaneConnectTo(render.blockAccess,par2, par3, par4, ForgeDirection.WEST);
+        boolean flag3 = par1BlockPane.canPaneConnectTo(render.blockAccess,par2, par3, par4, ForgeDirection.EAST);
         boolean flag4 = par1BlockPane.shouldSideBeRendered(render.blockAccess, par2, par3 + 1, par4, 1);
         boolean flag5 = par1BlockPane.shouldSideBeRendered(render.blockAccess, par2, par3 - 1, par4, 0);
         double d20 = 0.01D;
@@ -479,4 +471,10 @@ public class PaneRenderingHandler extends RenderBlocks implements ISimpleBlockRe
 
         return true;
     }
+
+	@Override
+	public boolean shouldRender3DInInventory(int modelId)
+	{
+		return false;
+	}
 }

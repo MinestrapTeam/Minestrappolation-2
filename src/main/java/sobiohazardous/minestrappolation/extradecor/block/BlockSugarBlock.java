@@ -11,7 +11,7 @@ import net.minecraft.world.World;
 
 public class BlockSugarBlock extends BlockFalling
 {
-	public BlockSugarBlock(int id)
+	public BlockSugarBlock()
 	{
 		super(Material.ground);
 		this.setCreativeTab(EDBlockManager.tabDecorBlocks);

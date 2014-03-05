@@ -3,6 +3,7 @@ package sobiohazardous.minestrappolation.extradecor.bridge;
 import java.lang.reflect.Field;
 
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
 import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
@@ -31,7 +32,7 @@ public class EDBridgeRecipes
 			
 			GameRegistry.addRecipe(new ItemStack(EDBlockManager.bedrockBrick, 4), new Object[]
 					{
-				"SS", "SS", Character.valueOf('S'), Block.bedrock
+				"SS", "SS", Character.valueOf('S'), Blocks.bedrock
 					});
 		}
 	}

@@ -19,9 +19,11 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 
-public class EDBlockManager {
+public class EDBlockManager 
+{
 	
 	public static final Material materialOoze = new MaterialOoze(MapColor.foliageColor);
+	
 	//bridged blocks
 	public static Block bedrockBrick;
 	public static Block stonePillar;
@@ -76,8 +78,8 @@ public class EDBlockManager {
 	public static Block woodBoardsStairsBirch;
 	public static Block woodBoardsStairsSpruce;
 	public static Block woodBoardsStairsJungle;
-	public static BlockHalfSlab woodBoardsSingleSlab;
-	public static BlockHalfSlab woodBoardsDoubleSlab;
+	public static BlockSlab woodBoardsSingleSlab;
+	public static BlockSlab woodBoardsDoubleSlab;
 	
 	public static Block checkerTileStairs;
 	
@@ -100,81 +102,81 @@ public class EDBlockManager {
 	public static CreativeTabs tabDecorBlocks = new CreativeTabExtraDecorBlocks(CreativeTabs.getNextID(),"Extrappolated Decor");
 	public static void createBlocks()
 	{
-		stonePillar = (new BlockPillar(EDConfig.stonePillarId, "block_StonePillar", "block_StoneRefined")).setHardness(1.5F).setResistance(10F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("stonePillar");
-		stoneLamp = (new BlockStoneLamp(EDConfig.stoneLampId)).setHardness(1.5F).setResistance(8F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setLightValue(1.0F).setUnlocalizedName("stoneLamp");
-		stones = new BlockStones(EDConfig.stoneTileId).setHardness(1.5F).setResistance(10F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep);
+		stonePillar = (new BlockPillar("block_StonePillar", "block_StoneRefined")).setHardness(1.5F).setResistance(10F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundTypeStone).setBlockName("stonePillar");
+		stoneLamp = (new BlockStoneLamp()).setHardness(1.5F).setResistance(8F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundTypeStone).setLightLevel(1.0F).setBlockName("stoneLamp");
+		stones = new BlockStones().setHardness(1.5F).setResistance(10F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundTypeStone);
 		
-		Tiles = new BlockTiles(EDConfig.obsidianTileId).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep);
+		Tiles = new BlockTiles().setCreativeTab(tabDecorBlocks).setStepSound(Block.soundTypeStone);
 	
-		edgeStoneBrick = (new BlockEdgeStoneBrick(EDConfig.edgeStoneBrickId)).setHardness(1.5F).setResistance(10F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("block_edgeStoneBrick");
-		edgeStoneBrickCorner = (new BlockEdgeStoneCorner(EDConfig.edgeStoneCornerID)).setHardness(1.5F).setResistance(10F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("block_edgeStoneBrickCorner");
+		edgeStoneBrick = (new BlockEdgeStoneBrick()).setHardness(1.5F).setResistance(10F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundTypeStone).setBlockName("block_edgeStoneBrick");
+		edgeStoneBrickCorner = (new BlockEdgeStoneCorner()).setHardness(1.5F).setResistance(10F).setStepSound(Block.soundTypeStone).setBlockName("block_edgeStoneBrickCorner");
 	
-		snowBrick = (new BlockSnowBrick(EDConfig.snowBrickId)).setHardness(0.3F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundSnowFootstep).setUnlocalizedName("block_SnowBrick");
+		snowBrick = (new BlockSnowBrick()).setHardness(0.3F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundTypeSnow).setBlockName("block_SnowBrick");
 	
-		endstone = (new BlockEndStone(EDConfig.endstoneSmoothId)).setHardness(3.0F).setResistance(15.0F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("block_Endstone");
+		endstone = (new BlockEndStone()).setHardness(3.0F).setResistance(15.0F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundTypeStone).setBlockName("block_Endstone");
 	
-		glassRefined = (new BlockGlassRefined(EDConfig.glassRefinedId, Material.glass, false)).setHardness(0.3F).setStepSound(Block.soundGlassFootstep).setCreativeTab(tabDecorBlocks).setUnlocalizedName("glassRefined");
-		glassRefinedPane = (new EDBlockPane(EDConfig.glassRefinedPaneId, "block_ClearGlass", "block_ClearGlassTop", Material.glass, false)).setHardness(0.3F).setStepSound(Block.soundGlassFootstep).setCreativeTab(tabDecorBlocks).setUnlocalizedName("glassRefinedPane");
-		gunpowderBlock = (new BlockGunpowderBlock(EDConfig.gunpowderBlockId, Material.ground)).setHardness(0.6F).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("block_GunpowderBlock");
+		glassRefined = (new BlockGlassRefined(Material.glass, false)).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(tabDecorBlocks).setBlockName("glassRefined");
+		glassRefinedPane = (new EDBlockPane("block_ClearGlass", "block_ClearGlassTop", Material.glass, false)).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(tabDecorBlocks).setBlockName("glassRefinedPane");
+		gunpowderBlock = (new BlockGunpowderBlock(Material.ground)).setHardness(0.6F).setStepSound(Block.soundTypeGravel).setBlockName("block_GunpowderBlock");
 	
-		rope = (new BlockRope(EDConfig.ropeId)).setHardness(0.9F).setStepSound(Block.soundClothFootstep).setUnlocalizedName("rope");
-		itemRope = (new MItemBlockPlacer(EDConfig.itemRopeId, rope)).setUnlocalizedName("item_Rope").setCreativeTab(tabDecorBlocks);
-		ropeCoil = (new BlockRopeCoil(EDConfig.ropeCoilId)).setHardness(0.9F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundClothFootstep).setUnlocalizedName("ropeCoil");
+		rope = (new BlockRope()).setHardness(0.9F).setStepSound(Block.soundTypeCloth).setBlockName("rope");
+		itemRope = (new MItemBlockPlacer(rope)).setUnlocalizedName("item_Rope").setCreativeTab(tabDecorBlocks);
+		ropeCoil = (new BlockRopeCoil()).setHardness(0.9F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundTypeCloth).setBlockName("ropeCoil");
 	
-		oozeSlime = (new BlockOoze(EDConfig.oozeSlimeId, materialOoze)).setHardness(1F).setResistance(2000F).setStepSound(Block.soundClothFootstep).setUnlocalizedName("block_SlimeOoze");
+		oozeSlime = (new BlockOoze(materialOoze)).setHardness(1F).setResistance(2000F).setStepSound(Block.soundTypeCloth).setBlockName("block_SlimeOoze");
 	
-		woodPanel = (new BlockWoodPanel(EDConfig.woodPanelId)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("woodPanel");
+		woodPanel = (new BlockWoodPanel()).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setBlockName("woodPanel");
 		
-		woodBeveled = (new BlockWoodBeveled(EDConfig.woodBeveledId)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("woodBeveled");
+		woodBeveled = (new BlockWoodBeveled()).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setBlockName("woodBeveled");
 	
-		sandstoneBricks = (new BlockSandstoneBrick(EDConfig.sandstoneBrickId)).setHardness(1F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("sandstoneBrick");
-		sandstonePillar = new BlockPillar(EDConfig.sandstonePillarId, "block_SandstonePillarSide", "block_SandstonePillarTop").setUnlocalizedName("sandstonePillar").setHardness(1F).setStepSound(Block.soundStoneFootstep);
+		sandstoneBricks = (new BlockSandstoneBrick()).setHardness(1F).setStepSound(Block.soundTypeStone).setBlockName("sandstoneBrick");
+		sandstonePillar = new BlockPillar("block_SandstonePillarSide", "block_SandstonePillarTop").setBlockName("sandstonePillar").setHardness(1F).setStepSound(Block.soundTypeStone);
 	
-		woodBoards = new BlockWoodBoards(EDConfig.woodBoardsId).setHardness(2.0F).setResistance(5.0F).setUnlocalizedName("woodBoards").setStepSound(Block.soundWoodFootstep);
+		woodBoards = new BlockWoodBoards().setHardness(2.0F).setResistance(5.0F).setBlockName("woodBoards").setStepSound(Block.soundTypeWood);
 		//TODO add the rest of the boards after Extrapolated Nature
 
-		sugarBlock = new BlockSugarBlock(EDConfig.sugarBlockId).setHardness(0.6F).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("block_SugarBlock");
-		meatBlock = new BlockMeatBlock(EDConfig.meatBlockId, "block_MeatBlock").setHardness(0.8F).setStepSound(Block.soundClothFootstep).setUnlocalizedName("block_MeatBlock");
+		sugarBlock = new BlockSugarBlock().setHardness(0.6F).setStepSound(Block.soundTypeGravel).setBlockName("block_SugarBlock");
+		meatBlock = new BlockMeatBlock("block_MeatBlock").setHardness(0.8F).setStepSound(Block.soundTypeCloth).setBlockName("block_MeatBlock");
 	
-		magmaOoze = new BlockOoze(EDConfig.magmaOozeId, materialOoze).setHardness(1F).setResistance(2000F).setStepSound(Block.soundClothFootstep).setUnlocalizedName("block_MagmaOoze");
+		magmaOoze = new BlockOoze(materialOoze).setHardness(1F).setResistance(2000F).setStepSound(Block.soundTypeCloth).setBlockName("block_MagmaOoze");
 	
-		enderBlock = new BlockEnderblock(EDConfig.enderBlockId).setHardness(3.0F).setResistance(4.0F).setUnlocalizedName("block_EnderBlock").setStepSound(Block.soundGlassFootstep).setCreativeTab(tabDecorBlocks);
+		enderBlock = new BlockEnderblock().setHardness(3.0F).setResistance(4.0F).setBlockName("block_EnderBlock").setStepSound(Block.soundTypeGlass).setCreativeTab(tabDecorBlocks);
 	
-		crate = new BlockCrate(EDConfig.crateId).setHardness(2.5F).setStepSound(Block.soundWoodFootstep).setCreativeTab(tabDecorBlocks).setUnlocalizedName("crate");
-		barrel = new BlockBarrel(EDConfig.barrelId).setHardness(3F).setResistance(6.0F).setStepSound(Block.soundWoodFootstep).setCreativeTab(tabDecorBlocks).setUnlocalizedName("barrel");
+		crate = new BlockCrate().setHardness(2.5F).setStepSound(Block.soundTypeWood).setCreativeTab(tabDecorBlocks).setBlockName("crate");
+		barrel = new BlockBarrel().setHardness(3F).setResistance(6.0F).setStepSound(Block.soundTypeWood).setCreativeTab(tabDecorBlocks).setBlockName("barrel");
 	
-		cardboard = new EDBlockPane(EDConfig.cardboardId, "block_CardboardBlock", "block_CardboardEdge", Material.cloth, true).setHardness(0.3F).setUnlocalizedName("cardboard");
-		cardboardBlock = new BlockCardboard(EDConfig.cardboardBlockId, Material.cloth).setHardness(0.4F).setUnlocalizedName("block_CardboardBlock").setCreativeTab(tabDecorBlocks);
-		cardboardWet = new BlockCardboardWet(EDConfig.cardboardWetId, Material.cloth).setCreativeTab(tabDecorBlocks).setHardness(0.2F).setResistance(0.8F).setUnlocalizedName("cardboardWet");
+		cardboard = new EDBlockPane("block_CardboardBlock", "block_CardboardEdge", Material.cloth, true).setHardness(0.3F).setBlockName("cardboard");
+		cardboardBlock = new BlockCardboard(Material.cloth).setHardness(0.4F).setBlockName("block_CardboardBlock").setCreativeTab(tabDecorBlocks);
+		cardboardWet = new BlockCardboardWet(Material.cloth).setCreativeTab(tabDecorBlocks).setHardness(0.2F).setResistance(0.8F).setBlockName("cardboardWet");
 		
-		woodBoardsStairsOak = new EDBlockStairs(EDConfig.woodBoardsStairsOakId, woodBoards, 0).setUnlocalizedName("woodBoardsStairsOak").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setCreativeTab(tabDecorBlocks);
-		woodBoardsStairsBirch = new EDBlockStairs(EDConfig.woodBoardsStairsBirchId, woodBoards, 1).setUnlocalizedName("woodBoardsStairsBirch").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setCreativeTab(tabDecorBlocks);
-		woodBoardsStairsSpruce = new EDBlockStairs(EDConfig.woodBoardsStairsSpruceId, woodBoards, 2).setUnlocalizedName("woodBoardsStairsSpruce").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setCreativeTab(tabDecorBlocks);
-		woodBoardsStairsJungle = new EDBlockStairs(EDConfig.woodBoardsStairsJungleId, woodBoards, 3).setUnlocalizedName("woodBoardsStairsJungle").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setCreativeTab(tabDecorBlocks);
-		woodBoardsSingleSlab = (BlockHalfSlab) new BlockWoodBoardSlab(EDConfig.woodBoardsSingleSlabId, false).setUnlocalizedName("woodBoardsSingleSlab").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setLightOpacity(255);
-		woodBoardsDoubleSlab = (BlockHalfSlab) new BlockWoodBoardSlab(EDConfig.woodBoardsDoubleSlabId, true).setUnlocalizedName("woodBoardsSingleSlab").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setLightOpacity(255);
+		woodBoardsStairsOak = new EDBlockStairs(woodBoards, 0).setBlockName("woodBoardsStairsOak").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setCreativeTab(tabDecorBlocks);
+		woodBoardsStairsBirch = new EDBlockStairs(woodBoards, 1).setBlockName("woodBoardsStairsBirch").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setCreativeTab(tabDecorBlocks);
+		woodBoardsStairsSpruce = new EDBlockStairs(woodBoards, 2).setBlockName("woodBoardsStairsSpruce").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setCreativeTab(tabDecorBlocks);
+		woodBoardsStairsJungle = new EDBlockStairs(woodBoards, 3).setBlockName("woodBoardsStairsJungle").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setCreativeTab(tabDecorBlocks);
+		woodBoardsSingleSlab = (BlockSlab) new BlockWoodBoardSlab(false).setBlockName("woodBoardsSingleSlab").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setLightOpacity(255);
+		woodBoardsDoubleSlab = (BlockSlab) new BlockWoodBoardSlab( true).setBlockName("woodBoardsSingleSlab").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setLightOpacity(255);
 
-		checkerTileStairs = new EDBlockStairs(EDConfig.checkerTileStairsId, Tiles, 3).setUnlocalizedName("checkerTileStairs").setHardness(3F).setResistance(10.0F).setStepSound(Block.soundStoneFootstep).setCreativeTab(tabDecorBlocks);
+		checkerTileStairs = new EDBlockStairs(Tiles, 3).setBlockName("checkerTileStairs").setHardness(3F).setResistance(10.0F).setStepSound(Block.soundTypeStone).setCreativeTab(tabDecorBlocks);
 	
-		stainedBrick = (new BlockStainedBrick(EDConfig.stainedBrickId)).setHardness(2F).setResistance(10F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("stainedBrick");
+		stainedBrick = (new BlockStainedBrick()).setHardness(2F).setResistance(10F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundTypeStone).setBlockName("stainedBrick");
 	
-		cobbledRoad = (new BlockCobbledRoad(EDConfig.cobbledRoadId)).setHardness(1).setResistance(5F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("cobbledRoad");
-		infertileDirt = new MBlock(EDConfig.infertiledirtId,Material.grass).setCreativeTab(tabDecorBlocks).setUnlocalizedName("block_InfertileSoil").setHardness(.4F).setStepSound(Block.soundGrassFootstep);
-		refinedRoad = (new BlockRefinedRoad(EDConfig.refinedRoadID)).setHardness(2F).setResistance(5F).setUnlocalizedName("block_RefinedRoad").setStepSound(Block.soundStoneFootstep).setCreativeTab(tabDecorBlocks);
+		cobbledRoad = (new BlockCobbledRoad()).setHardness(1).setResistance(5F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundTypeStone).setBlockName("cobbledRoad");
+		infertileDirt = new MBlock(Material.grass).setCreativeTab(tabDecorBlocks).setBlockName("block_InfertileSoil").setHardness(.4F).setStepSound(Block.soundTypeGrass);
+		refinedRoad = (new BlockRefinedRoad()).setHardness(2F).setResistance(5F).setBlockName("block_RefinedRoad").setStepSound(Block.soundTypeStone).setCreativeTab(tabDecorBlocks);
 		
-		sandyRoad = (new BlockSandyRoad(EDConfig.sandyRoadId)).setHardness(0.8F).setResistance(4F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("sandyRoad");
-		sandstoneRoad = (new BlockSandyRoad(EDConfig.sandstoneRoadId)).setHardness(1).setResistance(4.5F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("sandstoneRoad");
-		gravelRoad = (new BlockSandyRoad(EDConfig.gravelRoadId)).setHardness(1.5F).setResistance(5F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("gravelRoad");
-		netherroad = (new BlockRefinedRoad(EDConfig.netherroadId)).setHardness(2.2F).setResistance(4F).setUnlocalizedName("netherroad").setStepSound(Block.soundStoneFootstep).setCreativeTab(tabDecorBlocks);
-		refinedNetherroad = (new BlockRefinedRoad(EDConfig.refinedNetherroadId)).setHardness(2.8F).setResistance(6F).setUnlocalizedName("refinedNetherroad").setStepSound(Block.soundStoneFootstep).setCreativeTab(tabDecorBlocks);
+		sandyRoad = (new BlockSandyRoad()).setHardness(0.8F).setResistance(4F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundTypeStone).setBlockName("sandyRoad");
+		sandstoneRoad = (new BlockSandyRoad()).setHardness(1).setResistance(4.5F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundTypeStone).setBlockName("sandstoneRoad");
+		gravelRoad = (new BlockSandyRoad()).setHardness(1.5F).setResistance(5F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundTypeStone).setBlockName("gravelRoad");
+		netherroad = (new BlockRefinedRoad()).setHardness(2.2F).setResistance(4F).setBlockName("netherroad").setStepSound(Block.soundTypeStone).setCreativeTab(tabDecorBlocks);
+		refinedNetherroad = (new BlockRefinedRoad()).setHardness(2.8F).setResistance(6F).setBlockName("refinedNetherroad").setStepSound(Block.soundTypeStone).setCreativeTab(tabDecorBlocks);
 
-		woodPlanksMossy = new BlockMossyWood(EDConfig.woodPlanksMossyId).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("woodPlanksMossy").setCreativeTab(tabDecorBlocks);
+		woodPlanksMossy = new BlockMossyWood().setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setBlockName("woodPlanksMossy").setCreativeTab(tabDecorBlocks);
 		
 		//Test
-		Goblet = new BlockGoblet(EDConfig.gobletId,Material.rock).setHardness(.5F);
-		Plate = new BlockPlate(EDConfig.plateId,Material.rock);
+		Goblet = new BlockGoblet(Material.rock).setHardness(.5F);
+		Plate = new BlockPlate(Material.rock);
 		
-		GlassDoor = (new BlockGlassDoor(EDConfig.glassDoorId,Material.glass)).setHardness(1F);
+		GlassDoor = (new BlockGlassDoor(Material.glass)).setHardness(1F);
 	}
 	
 	public static void loadVanillaOverwrites()
@@ -233,125 +235,13 @@ public class EDBlockManager {
 		GameRegistry.registerBlock(stones,"Stones");
 	}
 	
-	public static void addNames()
-	{
-		LanguageRegistry.addName(refinedRoad, "Refined Road");
-		LanguageRegistry.addName(infertileDirt, "Infertile Dirt");
-		LanguageRegistry.addName(edgeStoneBrick, "Edge Stone Bricks");
-		LanguageRegistry.addName(Tiles, "Tiles");
-		LanguageRegistry.addName(Plate, "Plate");
-		LanguageRegistry.addName(snowBrick, "Snow Bricks");
-		LanguageRegistry.addName(glassRefined, "Refined Glass");
-		LanguageRegistry.addName(glassRefinedPane, "Refined Glass Pane");
-		LanguageRegistry.addName(gunpowderBlock, "Block of Gunpowder");
-		LanguageRegistry.addName(itemRope, "Rope");
-		LanguageRegistry.addName(ropeCoil, "Rope Coil");
-		LanguageRegistry.addName(oozeSlime, "Slime Ooze");
-		LanguageRegistry.addName(oozeSlime, "Slime Ooze");
-		LanguageRegistry.instance().addStringLocalization("tile.stoneLamp.glowstone.name", "Glowstone Stone Lamp");
-		LanguageRegistry.instance().addStringLocalization("tile.stoneLamp.sunstone.name", "Sunstone Stone Lamp");
-		LanguageRegistry.instance().addStringLocalization("tile.woodPanel.oak.name", "Oak Wood Panel");
-		LanguageRegistry.instance().addStringLocalization("tile.woodPanel.birch.name", "Birch Wood Panel");
-		LanguageRegistry.instance().addStringLocalization("tile.woodPanel.spruce.name", "Spruce Wood Panel");
-		LanguageRegistry.instance().addStringLocalization("tile.woodPanel.jungle.name", "Jungle Wood Panel");
-		LanguageRegistry.instance().addStringLocalization("tile.woodBeveled.oak.name", "Beveled Oak Wood Panel");
-		LanguageRegistry.instance().addStringLocalization("tile.woodBeveled.birch.name", "Beveled Birch Wood Panel");
-		LanguageRegistry.instance().addStringLocalization("tile.woodBeveled.spruce.name", "Beveled Spruce Wood Panel");
-		LanguageRegistry.instance().addStringLocalization("tile.woodBeveled.jungle.name", "Beveled Jungle Wood Panel");
-		LanguageRegistry.instance().addStringLocalization("tile.sandstoneBrick.brick.name", "Sandstone Bricks");
-		LanguageRegistry.instance().addStringLocalization("tile.sandstoneBrick.chiseled.name", "Patterned Sandstone Bricks");
-		LanguageRegistry.instance().addStringLocalization("tile.sandstoneBrick.mossy.name", "Mossy Sandstone Bricks");
-		LanguageRegistry.instance().addStringLocalization("tile.sandstoneBrick.heiroglyph.name", "Sandstone Heiroglyphs");
-		LanguageRegistry.instance().addStringLocalization("tile.sandstoneBrick.heiroglyph_2.name", "Sandstone Heiroglyphs");
-		LanguageRegistry.addName(sandstonePillar, "Sandstone Pillar");
-		LanguageRegistry.instance().addStringLocalization("tile.woodBoards.oak.name", "Oak Wood Boards");
-		LanguageRegistry.instance().addStringLocalization("tile.woodBoards.birch.name", "Birch Wood Boards");
-		LanguageRegistry.instance().addStringLocalization("tile.woodBoards.spruce.name", "Spruce Wood Boards");
-		LanguageRegistry.instance().addStringLocalization("tile.woodBoards.jungle.name", "Jungle Wood Boards");
-		LanguageRegistry.addName(sugarBlock, "Block of Sugar");
-		LanguageRegistry.addName(meatBlock, "Block of Meat");
-		LanguageRegistry.addName(magmaOoze, "Magma Ooze");
-		LanguageRegistry.addName(enderBlock, "Ender Block");
-		LanguageRegistry.addName(crate, "Crate");
-		LanguageRegistry.addName(barrel, "Barrel");
-		//LanguageRegistry.addName(EDItemManager.cardboardItem, "Cardboard");
-		LanguageRegistry.addName(cardboardBlock, "Cardboard Block");
-		LanguageRegistry.addName(cardboardWet, "Wet Cardboard");
-		
-		LanguageRegistry.addName(woodBoardsStairsOak, "Oak Board Stairs");
-		LanguageRegistry.addName(woodBoardsStairsBirch, "Birch Board Stairs");
-		LanguageRegistry.addName(woodBoardsStairsSpruce, "Spruce Board Stairs");
-		LanguageRegistry.addName(woodBoardsStairsJungle, "Jungle Board Stairs");
-		LanguageRegistry.instance().addStringLocalization("tile.woodBoardsSingleSlab.oak.name", "Oak Board Slab");
-		LanguageRegistry.instance().addStringLocalization("tile.woodBoardsSingleSlab.birch.name", "Birch Board Slab");
-		LanguageRegistry.instance().addStringLocalization("tile.woodBoardsSingleSlab.spruce.name", "Spruce Board Slab");
-		LanguageRegistry.instance().addStringLocalization("tile.woodBoardsSingleSlab.jungle.name", "Jungle Board Slab");	
-		LanguageRegistry.addName(checkerTileStairs, "Checker Tile Stairs");
-		LanguageRegistry.instance().addStringLocalization("tile.stainedBrick.white.name", "White Stained Bricks");
-		LanguageRegistry.instance().addStringLocalization("tile.stainedBrick.lightGrey.name", "Light Grey Stained Bricks");
-		LanguageRegistry.instance().addStringLocalization("tile.stainedBrick.darkGrey.name", "Grey Stained Bricks");
-		LanguageRegistry.instance().addStringLocalization("tile.stainedBrick.black.name", "Black Stained Bricks");
-		LanguageRegistry.instance().addStringLocalization("tile.stainedBrick.brown.name", "Brown Stained Bricks");
-		LanguageRegistry.instance().addStringLocalization("tile.stainedBrick.pink.name", "Pink Stained Bricks");
-		LanguageRegistry.instance().addStringLocalization("tile.stainedBrick.red.name", "Red Stained Bricks");
-		LanguageRegistry.instance().addStringLocalization("tile.stainedBrick.orange.name", "Orange Stained Bricks");
-		LanguageRegistry.instance().addStringLocalization("tile.stainedBrick.yellow.name", "Yellow Stained Bricks");
-		LanguageRegistry.instance().addStringLocalization("tile.stainedBrick.lime.name", "Lime Stained Bricks");
-		LanguageRegistry.instance().addStringLocalization("tile.stainedBrick.green.name", "Green Stained Bricks");
-		LanguageRegistry.instance().addStringLocalization("tile.stainedBrick.cyan.name", "Cyan Stained Bricks");
-		LanguageRegistry.instance().addStringLocalization("tile.stainedBrick.lightBlue.name", "Light Blue Stained Bricks");
-		LanguageRegistry.instance().addStringLocalization("tile.stainedBrick.blue.name", "Blue Stained Bricks");
-		LanguageRegistry.instance().addStringLocalization("tile.stainedBrick.purple.name", "Purple Stained Bricks");
-		LanguageRegistry.instance().addStringLocalization("tile.stainedBrick.magenta.name", "Magenta Stained Bricks");
-		LanguageRegistry.addName(cobbledRoad, "Cobbled Road");
-		LanguageRegistry.addName(sandyRoad, "Sandy Road");
-		LanguageRegistry.addName(sandstoneRoad, "Sandstone Road");
-		LanguageRegistry.addName(gravelRoad, "Gravel Road");
-		LanguageRegistry.addName(netherroad, "Netherroad");
-		LanguageRegistry.addName(refinedNetherroad, "Refined Netherroad");
-		LanguageRegistry.instance().addStringLocalization("tile.woodPlanksMossy.Oak.name", "Mossy Oak Wood Planks");
-		LanguageRegistry.instance().addStringLocalization("tile.woodPlanksMossy.Birch.name", "Mossy Birch Wood Planks");
-		LanguageRegistry.instance().addStringLocalization("tile.woodPlanksMossy.Spruce.name", "Mossy Spruce Wood Planks");
-		LanguageRegistry.instance().addStringLocalization("tile.woodPlanksMossy.Jungle.name", "Mossy Jungle Wood Planks");
-		
-		LanguageRegistry.instance().addStringLocalization("tile.block_edgeStoneBrickCorner.0.name", "Corner 0");
-		LanguageRegistry.instance().addStringLocalization("tile.block_edgeStoneBrickCorner.1.name", "Corner 1");
-		LanguageRegistry.instance().addStringLocalization("tile.block_edgeStoneBrickCorner.2.name", "Corner 2");
-		LanguageRegistry.instance().addStringLocalization("tile.block_edgeStoneBrickCorner.3.name", "Corner 3");
-		
-		LanguageRegistry.instance().addStringLocalization("tile.block_edgeStoneBrickCorner.4.name", "End 0");
-		LanguageRegistry.instance().addStringLocalization("tile.block_edgeStoneBrickCorner.5.name", "End 1");
-		LanguageRegistry.instance().addStringLocalization("tile.block_edgeStoneBrickCorner.6.name", "End 2");
-		LanguageRegistry.instance().addStringLocalization("tile.block_edgeStoneBrickCorner.7.name", "End 3");
-		
-		LanguageRegistry.instance().addStringLocalization("tile.null.tile.name", "Stone Tiles");
-		LanguageRegistry.instance().addStringLocalization("tile.null.refined.name", "Refined Stone");
-		
-		LanguageRegistry.instance().addStringLocalization("tile.block_Endstone.smooth.name", "Smooth End Stone");
-		LanguageRegistry.instance().addStringLocalization("tile.block_Endstone.refined.name", "Refined End Stone");
-		LanguageRegistry.instance().addStringLocalization("tile.block_Endstone.brick.name", "End Stone Bricks");
-		
-		LanguageRegistry.instance().addStringLocalization("tile.null.obsidian.name", "Obsidian Tile");
-		LanguageRegistry.instance().addStringLocalization("tile.null.flint.name", "Flint Tile");
-		LanguageRegistry.instance().addStringLocalization("tile.null.nether.name", "Nether Quartz Tile");
-		LanguageRegistry.instance().addStringLocalization("tile.null.checker.name", "Checker Tiles");
-		LanguageRegistry.instance().addStringLocalization("tile.null.brick.name", "Patterned Bricks");
-		LanguageRegistry.instance().addStringLocalization("tile.null.fb.name", "Block of Flint");
-		LanguageRegistry.instance().addStringLocalization("tile.null.nb.name", "Patterned Nether Bricks");
-		
-		LanguageRegistry.instance().addStringLocalization("tile.stonePillar.name", "Stone Pillar");
-	
-		
-	}
-	
 	public static void loadBridgedBlocks() throws Exception
 	{
 		if(Loader.isModLoaded("ExtraOres"))
 		{
-			bedrockBrick = new BlockBedrockBrick(EDConfig.bedrockBrickID).setUnlocalizedName("block_BedrockBrick").setStepSound(Block.soundStoneFootstep).setResistance(100000000F).setHardness(80F).setCreativeTab(tabDecorBlocks);
+			bedrockBrick = new BlockBedrockBrick().setBlockName("block_BedrockBrick").setStepSound(Block.soundTypeStone).setResistance(100000000F).setHardness(80F).setCreativeTab(tabDecorBlocks);
 			GameRegistry.registerBlock(bedrockBrick,"block_BedrockBrick");
-			MinecraftForge.setBlockHarvestLevel(EDBlockManager.bedrockBrick, "pickaxe", 4);
-			LanguageRegistry.addName(bedrockBrick, "Bedrock Bricks");
+			bedrockBrick.setHarvestLevel("pickaxe", 4);
 		}
 	
 	}

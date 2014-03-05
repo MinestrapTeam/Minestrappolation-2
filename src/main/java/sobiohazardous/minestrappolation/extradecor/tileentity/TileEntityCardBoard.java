@@ -1,6 +1,5 @@
 package sobiohazardous.minestrappolation.extradecor.tileentity;
 
-
 import sobiohazardous.minestrappolation.api.util.MUtil;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
 import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
@@ -19,15 +18,10 @@ public class TileEntityCardBoard extends TileEntity
     public void updateEntity()
     {
     	if(!isDry(worldObj))
-    	{ 	
-    		
-            	this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.cardboardWet.blockID);
-
-    		
-    	}
-    
-    }
-    
+    	{ 		
+            	this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.cardboardWet); 		
+    	}  
+    } 
     
     public boolean isDry(World world)
     {

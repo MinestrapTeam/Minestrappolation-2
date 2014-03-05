@@ -1,6 +1,7 @@
 package sobiohazardous.minestrappolation.extradecor.tileentity;
 
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
@@ -30,7 +31,7 @@ public class TileEntityPlate extends TileEntity
 	
 	public void updateEntity()
 	{
-		render(true,new ItemStack(Item.bone));
+		render(true,new ItemStack(Items.bone));
 		
 	}
 }

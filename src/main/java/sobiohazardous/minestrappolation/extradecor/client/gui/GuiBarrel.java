@@ -27,8 +27,8 @@ public class GuiBarrel extends GuiContainer
 	@Override
     protected void drawGuiContainerForegroundLayer(int param1, int param2) 
 	{
-		fontRenderer.drawString("Barrel", 6, -2, 4210752);
-		fontRenderer.drawString(StatCollector.translateToLocal("container.inventory"), 6, ySize - 102, 4210752);
+		this.fontRendererObj.drawString("Barrel", 6, -2, 4210752);
+		this.fontRendererObj.drawString(StatCollector.translateToLocal("container.inventory"), 6, ySize - 102, 4210752);
 	}
 
 	@Override

@@ -59,7 +59,7 @@ public class BlockWoodBoardSlab extends BlockSlab
      */
     public void getSubBlocks(Item par1, CreativeTabs par2CreativeTabs, List par3List)
     {
-        if (par1 != EDBlockManager.woodBoardsDoubleSlab)
+        if (par1 != Item.getItemFromBlock(EDBlockManager.woodBoardsDoubleSlab))
         {
             for (int j = 0; j < 4; ++j)
             {

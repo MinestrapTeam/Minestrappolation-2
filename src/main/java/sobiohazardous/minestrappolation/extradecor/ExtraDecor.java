@@ -4,10 +4,8 @@ import sobiohazardous.minestrappolation.api.lib.MAPIReference;
 import sobiohazardous.minestrappolation.extradecor.block.*;
 import sobiohazardous.minestrappolation.extradecor.bridge.EDBridgeRecipes;
 import sobiohazardous.minestrappolation.extradecor.gen.EDOreGenerator;
-import sobiohazardous.minestrappolation.extradecor.handler.ClientPacketHandler;
 import sobiohazardous.minestrappolation.extradecor.handler.EDGuiHandler;
 import sobiohazardous.minestrappolation.extradecor.handler.EDPriestTradeHandler;
-import sobiohazardous.minestrappolation.extradecor.handler.ServerPacketHandler;
 import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
 import sobiohazardous.minestrappolation.extradecor.lib.EDConfig;
 import sobiohazardous.minestrappolation.extradecor.lib.EDItemManager;
@@ -30,9 +28,6 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.VillagerRegistry;
 
 /**
- * 
- * 
- * 
  * @author SoBiohazardous
  */
 @Mod ( modid = MAPIReference.MODID_ED, name=MAPIReference.MODNAME_ED, version=MAPIReference.VERSION_ED, dependencies = "required-after:Minestrappolation")
@@ -55,9 +50,7 @@ public class ExtraDecor
 		EDConfig.initilize(event);			
 		EDBlockManager.createBlocks();
 	    EDBlockManager.registerBlocks();
-	    EDBlockManager.addNames();
 	    EDItemManager.addItems();
-		EDItemManager.addItemNames();
 		EDRecipeManager.loadAllRecipes();
 		EDOreRegistry.addOreRecipes();
 		EDRecipeManager.removeRecipes();

@@ -16,16 +16,15 @@ public class GuiCrate extends GuiContainer
 	public static ResourceLocation crategui = new ResourceLocation("minestrappolation","gui/crate.png");
 
 	public GuiCrate(InventoryPlayer player_inventory, TileEntityCrate tile_entity)
-	{
-		
+	{		
 		super(new ContainerCrate(tile_entity, player_inventory));
 	}
 
 	@Override
     protected void drawGuiContainerForegroundLayer(int param1, int param2) 
 	{
-		fontRenderer.drawString("Crate", 6, 6, 4210752);
-		fontRenderer.drawString(StatCollector.translateToLocal("container.inventory"), 6, ySize - 111, 4210752);
+		this.fontRendererObj.drawString("Crate", 6, 6, 4210752);
+		this.fontRendererObj.drawString(StatCollector.translateToLocal("container.inventory"), 6, ySize - 111, 4210752);
 	}
 
 	@Override

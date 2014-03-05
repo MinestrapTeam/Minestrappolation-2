@@ -23,13 +23,10 @@ public class TileEntityCardboardWet extends TileEntity
     	{ 	
     		if(ticks == 1000)
     		{
-            	this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.cardboardBlock.blockID);
-
+            	this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.cardboardBlock);
     		}
-    	}
-    
+    	}  
     }
-    
     
     public boolean isDry(World world)
     {

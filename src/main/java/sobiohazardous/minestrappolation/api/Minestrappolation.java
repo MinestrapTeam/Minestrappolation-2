@@ -16,8 +16,12 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
 import net.minecraftforge.common.MinecraftForge;
 
+/**
+ * @author SoBiohazardous
+ */
 @Mod(modid = MAPIReference.MODID_MAPI, name = MAPIReference.MODNAME_MAPI, version = MAPIReference.VERSION_MAPI, dependencies = "required-after:" + BrewingAPI.MODID)
 public class Minestrappolation
 {	
@@ -46,7 +50,7 @@ public class Minestrappolation
 
 		FMLCommonHandler.instance().bus().register(new MAPIEventHandler());
 		
-		Block.getBlockFromName("bedrock").setHardness(80F);
+		Blocks.bedrock.setHardness(80F);
 
 		//NetworkRegistry.instance().registerConnectionHandler(new ConnectionHandler());
 		//NetworkRegistry.instance().registerGuiHandler(this, guiHandler);

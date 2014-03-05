@@ -10,7 +10,7 @@ import net.minecraft.item.Item;
 
 public class BlockSnowBrick extends MBlock
 {
-	public BlockSnowBrick(int id)
+	public BlockSnowBrick()
 	{
 		super(Material.craftedSnow);
 	}

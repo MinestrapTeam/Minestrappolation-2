@@ -55,7 +55,7 @@ public class EDOreGenerator implements IWorldGenerator
 			int j1 = rand.nextInt(80); //layer it spawns in
 			int k1 = chunkz + rand.nextInt(16);
 		
-		(new WorldGenSandstone(EDBlockManager.sandstoneBricks.blockID, 3, 6)).generate(world, rand, i1, j1, k1); //5 = how much in a vain
+		(new WorldGenSandstone(EDBlockManager.sandstoneBricks, 3)).generate(world, rand, i1, j1, k1); //5 = how much in a vain
 		}
 		
 		for(int l1 = 0; l1 <20; l1++) //5 = how much veins in a chunk (chunk = 16x16x128)
@@ -64,7 +64,7 @@ public class EDOreGenerator implements IWorldGenerator
 			int j1 = rand.nextInt(256); //layer it spawns in
 			int k1 = chunkz + rand.nextInt(16);
 		
-		(new WorldGenSandstone(EDBlockManager.sandstoneBricks.blockID, 4, 6)).generate(world, rand, i1, j1, k1); //5 = how much in a vain
+		(new WorldGenSandstone(EDBlockManager.sandstoneBricks, 4)).generate(world, rand, i1, j1, k1); //5 = how much in a vain
 		}
 		
 		for(int l1 = 0; l1 <20; l1++) //5 = how much veins in a chunk (chunk = 16x16x128)
@@ -73,7 +73,7 @@ public class EDOreGenerator implements IWorldGenerator
 			int j1 = rand.nextInt(60); //layer it spawns in
 			int k1 = chunkz + rand.nextInt(16);
 		
-		(new WorldGenSandstone(EDBlockManager.woodPlanksMossy.blockID, 0, 3)).generate(world, rand, i1, j1, k1); //5 = how much in a vain
+		(new WorldGenSandstone(EDBlockManager.woodPlanksMossy, 3)).generate(world, rand, i1, j1, k1); //5 = how much in a vain
 		}
 		
 	}

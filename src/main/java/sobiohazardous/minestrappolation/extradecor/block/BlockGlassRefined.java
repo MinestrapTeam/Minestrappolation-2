@@ -12,7 +12,7 @@ import net.minecraft.creativetab.CreativeTabs;
 
 public class BlockGlassRefined extends BlockBreakable
 {
-    public BlockGlassRefined(int par1, Material par2Material, boolean par3)
+    public BlockGlassRefined(Material par2Material, boolean par3)
     {
         super("glass", par2Material, par3);
         this.setCreativeTab(CreativeTabs.tabBlock);

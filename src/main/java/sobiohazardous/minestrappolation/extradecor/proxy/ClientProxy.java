@@ -7,7 +7,7 @@ import sobiohazardous.minestrappolation.extradecor.tileentity.RendererGoblet;
 import sobiohazardous.minestrappolation.extradecor.tileentity.RendererPlate;
 import sobiohazardous.minestrappolation.extradecor.tileentity.TileEntityGoblet;
 import sobiohazardous.minestrappolation.extradecor.tileentity.TileEntityPlate;
-import net.minecraft.src.ModLoader;
+import net.minecraft.item.Item;
 import net.minecraftforge.client.MinecraftForgeClient;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -31,7 +31,7 @@ public class ClientProxy extends CommonProxy
          */
     	ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGoblet.class, new RendererGoblet());
     	ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPlate.class, new RendererPlate());
-    	MinecraftForgeClient.registerItemRenderer(EDBlockManager.Plate.blockID, new ItemRendererPlate());
+    	MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(EDBlockManager.Plate), new ItemRendererPlate());
     	RenderingRegistry.registerBlockHandler(new PaneRenderingHandler());
     	RenderingRegistry.registerBlockHandler(new RopeRenderingHandler());
     }

@@ -26,12 +26,6 @@ public class RopeRenderingHandler extends RenderBlocks implements ISimpleBlockRe
 	 }
 
 	@Override
-	public boolean shouldRender3DInInventory()
-	{
-	    return false;
-	}
-
-	@Override
 	public int getRenderId()
 	{
 	     return ExtraDecor.ropeRenderId;
@@ -88,5 +82,11 @@ public class RopeRenderingHandler extends RenderBlocks implements ISimpleBlockRe
         par1BlockFence.setBlockBoundsBasedOnState(r.blockAccess, par2, par3, par4);
         return flag;
     }
+
+	@Override
+	public boolean shouldRender3DInInventory(int modelId) 
+	{
+		return false;
+	}
 	
 }

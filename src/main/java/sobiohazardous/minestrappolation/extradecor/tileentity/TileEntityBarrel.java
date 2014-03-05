@@ -12,7 +12,8 @@ public class TileEntityBarrel extends TileEntity implements IInventory
 {
 
 	private ItemStack[] inventory;
-
+	private String name;
+	
 	public TileEntityBarrel(){
 		inventory = new ItemStack[36];
 	}
@@ -78,68 +79,82 @@ public class TileEntityBarrel extends TileEntity implements IInventory
 	@Override
 	public boolean isUseableByPlayer(EntityPlayer player)
 	{
-		return worldObj.getBlockTileEntity(xCoord, yCoord, zCoord) == this && player.getDistanceSq(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5) < 64;
+		return worldObj.getTileEntity(xCoord, yCoord, zCoord) == this && player.getDistanceSq(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5) < 64;
 	}
 
-	@Override
-	public void openChest() {}
+
+	public void readFromNBT(NBTTagCompound p_145839_1_)
+    {
+        super.readFromNBT(p_145839_1_);
+        NBTTagList var2 = p_145839_1_.getTagList("Items", 10);
+        this.inventory = new ItemStack[this.getSizeInventory()];
+
+        if (p_145839_1_.hasKey("CustomName", 8))
+        {
+            this.name = p_145839_1_.getString("CustomName");
+        }
+
+        for (int var3 = 0; var3 < var2.tagCount(); ++var3)
+        {
+            NBTTagCompound var4 = var2.getCompoundTagAt(var3);
+            int var5 = var4.getByte("Slot") & 255;
+
+            if (var5 >= 0 && var5 < this.inventory.length)
+            {
+                this.inventory[var5] = ItemStack.loadItemStackFromNBT(var4);
+            }
+        }
+    }
+
+    public void writeToNBT(NBTTagCompound p_145841_1_)
+    {
+        super.writeToNBT(p_145841_1_);
+        NBTTagList var2 = new NBTTagList();
+
+        for (int var3 = 0; var3 < this.inventory.length; ++var3)
+        {
+            if (this.inventory[var3] != null)
+            {
+                NBTTagCompound var4 = new NBTTagCompound();
+                var4.setByte("Slot", (byte)var3);
+                this.inventory[var3].writeToNBT(var4);
+                var2.appendTag(var4);
+            }
+        }
+
+        p_145841_1_.setTag("Items", var2);
+
+        if (this.hasCustomInventoryName())
+        {
+            p_145841_1_.setString("CustomName", this.name);
+        }
+    }
 
 	@Override
-	public void closeChest() {}
-
-	@Override
-	public void readFromNBT(NBTTagCompound tagCompound){
-		super.readFromNBT(tagCompound);
-
-		NBTTagList tagList = tagCompound.getTagList("Inventory");
-
-		for(int i = 0; i < tagList.tagCount(); i++){
-			NBTTagCompound tag = (NBTTagCompound) tagList.tagAt(i);
-
-			byte slot = tag.getByte("Slot");
-
-			if(slot >= 0 && slot < inventory.length){
-				inventory[slot] = ItemStack.loadItemStackFromNBT(tag);
-			}
-		}
-	}
-
-	@Override
-	public void writeToNBT(NBTTagCompound tagCompound){
-		super.writeToNBT(tagCompound);
-
-		NBTTagList itemList = new NBTTagList();
-
-		for(int i = 0; i < inventory.length; i++){
-			ItemStack stack = inventory[i];
-
-			if(stack != null){
-				NBTTagCompound tag = new NBTTagCompound();
-
-				tag.setByte("Slot", (byte) i);
-				stack.writeToNBT(tag);
-				itemList.appendTag(tag);
-			}
-		}
-
-		tagCompound.setTag("Inventory", itemList);
-	}
-
-	@Override
-	public String getInvName()
+	public String getInventoryName()
 	{
-		return "tileEntityCrate";
-	}
-
-	@Override
-	public boolean isInvNameLocalized() 
-	{
-		return false;
+		return this.hasCustomInventoryName() ? this.name : "tileEntity.barrel";
 	}
 
 	@Override
 	public boolean isItemValidForSlot(int i, ItemStack itemstack) 
 	{
 		return true;
+	}
+
+	@Override
+	public void closeInventory() 
+	{
+	}
+
+	@Override
+	public boolean hasCustomInventoryName() 
+	{
+		return false;
+	}
+
+	@Override
+	public void openInventory() 
+	{		
 	}
 }
