@@ -5,6 +5,7 @@ import java.util.Random;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import sobiohazardous.minestrappolation.api.util.MAssetManager;
 import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
 import sobiohazardous.minestrappolation.extradecor.lib.EDItemManager;
 import sobiohazardous.minestrappolation.extradecor.tileentity.TileEntityGoblet;
@@ -35,9 +36,9 @@ public class BlockGoblet extends BlockContainer
 	@SideOnly(Side.CLIENT)
 
 
-	public void registerBlockIcon(IIconRegister iconRegister)
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon("Minestrappolation:block_CardboardBlock.png");
+		this.blockIcon = iconRegister.registerIcon(MAssetManager.getEDTexture("cardboard"));
 	}
 	
 	public IIcon getIcon(int i,int j)

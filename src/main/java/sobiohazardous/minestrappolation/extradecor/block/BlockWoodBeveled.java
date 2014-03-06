@@ -5,6 +5,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 import java.util.List;
 
+import sobiohazardous.minestrappolation.api.lib.MAPIReference;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
 import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
 import net.minecraft.block.Block;
@@ -22,7 +23,7 @@ public class BlockWoodBeveled extends Block
 {
     @SideOnly(Side.CLIENT)
     private IIcon[] iconArray;
-    public static final String[] panelTextures = new String[] {"Minestrappolation:block_BeveledOak", "Minestrappolation:block_BeveledBirch", "Minestrappolation:block_BeveledSpruce", "Minestrappolation:block_BeveledJungle"};
+    public static final String[] panelTextures = new String[] {MAPIReference.MODID_ED + ":bevelOak", MAPIReference.MODID_ED + ":bevelBirch", MAPIReference.MODID_ED + ":bevelSpruce", MAPIReference.MODID_ED + ":bevelJungle"};
     public static final String[] woodType = new String[] {"oak", "birch", "spruce", "jungle"};
     
     public BlockWoodBeveled()

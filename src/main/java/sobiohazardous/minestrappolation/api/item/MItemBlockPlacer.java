@@ -11,17 +11,18 @@ import net.minecraft.world.World;
 
 public class MItemBlockPlacer extends ItemBlock 
 {
-
+	@Deprecated
 	public MItemBlockPlacer(Block p_i45328_1_) 
 	{
 		super(p_i45328_1_);
 	}
 
+	/*
 	public void registerIcons(IIconRegister r)
 	{
 		itemIcon = r.registerIcon("Minestrappolation:" + this.getUnlocalizedName().substring(5));
 	}
-	
+	*/
 	//TODO test icons
 	
 

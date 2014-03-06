@@ -2,6 +2,7 @@ package sobiohazardous.minestrappolation.extradecor.tileentity;
 
 import org.lwjgl.opengl.GL11;
 
+import sobiohazardous.minestrappolation.api.lib.MAPIReference;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
@@ -23,19 +24,19 @@ public class RendererGoblet extends TileEntitySpecialRenderer {
 		int meta = t.getBlockMetadata();
 		switch(meta){
 		case 0:
-			texture = new ResourceLocation("minestrappolation:textures/blocks/block_Goblet.png");
+			texture = new ResourceLocation(MAPIReference.MODID_ED + ":textures/blocks/model/gobletEmpty.png");
 			break;
 		case 1:
-			texture = new ResourceLocation("minestrappolation:textures/blocks/block_GobletWater.png");
+			texture = new ResourceLocation(MAPIReference.MODID_ED + ":textures/blocks/model/gobletWater.png");
 			break;
 		case 2:
-			texture = new ResourceLocation("minestrappolation:textures/blocks/block_GobletMilk.png");
+			texture = new ResourceLocation(MAPIReference.MODID_ED + ":textures/blocks/model/gobletMilk.png");
 			break;
 		case 3:
-			texture = new ResourceLocation("minestrappolation:textures/blocks/block_GobletInvisibility.png");
+			texture = new ResourceLocation(MAPIReference.MODID_ED + ":textures/blocks/model/gobletInvisibility.png");
 			break;
 		case 4:
-			texture = new ResourceLocation("minestrappolation:textures/blocks/block_GobletRegeneration.png");
+			texture = new ResourceLocation(MAPIReference.MODID_ED + ":textures/blocks/model/gobletRegeneration.png");
 			break;
 			
 		}

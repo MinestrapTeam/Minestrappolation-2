@@ -6,10 +6,10 @@ import cpw.mods.fml.relauncher.SideOnly;
 import java.util.List;
 import java.util.Random;
 
+import sobiohazardous.minestrappolation.api.util.MAssetManager;
 import sobiohazardous.minestrappolation.api.util.MUtil;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
 import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
-import sobiohazardous.minestrappolation.extraores.lib.EOBlockManager;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLadder;
 import net.minecraft.block.material.Material;
@@ -95,7 +95,7 @@ public class BlockRope extends BlockLadder
      */
     public void registerBlockIcons(IIconRegister par1IconRegister)
     {
-        this.blockIcon = par1IconRegister.registerIcon("Minestrappolation:block_RopeCoilSide");
+        this.blockIcon = par1IconRegister.registerIcon(MAssetManager.getEDTexture("ropeSide"));
     }
     
     public boolean canPlaceBlockAt(World par1World, int par2, int par3, int par4)

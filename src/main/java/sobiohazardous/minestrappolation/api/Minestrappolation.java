@@ -4,6 +4,7 @@ import clashsoft.brewingapi.BrewingAPI;
 import sobiohazardous.minestrappolation.api.lib.MAPIBlocks;
 import sobiohazardous.minestrappolation.api.lib.MAPIConfig;
 import sobiohazardous.minestrappolation.api.tileentity.TileEntityStonecutter;
+import sobiohazardous.minestrappolation.api.util.MAssetManager;
 import sobiohazardous.minestrappolation.api.lib.MAPIReference;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
@@ -11,10 +12,12 @@ import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraftforge.common.MinecraftForge;
@@ -36,7 +39,7 @@ public class Minestrappolation
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
-	{	
+	{
 		MAPIConfig.initConfig(event);
 	}
 	
@@ -55,5 +58,12 @@ public class Minestrappolation
 		//NetworkRegistry.instance().registerConnectionHandler(new ConnectionHandler());
 		//NetworkRegistry.instance().registerGuiHandler(this, guiHandler);
 		proxy.registerRenderers();	
+	}
+	
+	@EventHandler
+	public void postLoad(FMLPostInitializationEvent evt)
+	{
+		System.out.println(Minecraft.getMinecraft().mcDataDir.toPath());
+
 	}
 }

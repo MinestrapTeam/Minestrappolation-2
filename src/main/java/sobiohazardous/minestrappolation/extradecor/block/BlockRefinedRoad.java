@@ -5,6 +5,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 import java.util.List;
 
+import sobiohazardous.minestrappolation.api.util.MAssetManager;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
 import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
 import net.minecraft.block.Block;
@@ -62,9 +63,9 @@ public class BlockRefinedRoad extends Block
     	}
     	else
     	{
-    		this.blockIcon = par1IconRegister.registerIcon("Minestrappolation:block_NetherroadSide");
-    		this.top = par1IconRegister.registerIcon("Minestrappolation:block_NetherroadTop");
-    		this.bottom = par1IconRegister.registerIcon("Minestrappolation:block_NetherroadBottom");
+    		this.blockIcon = par1IconRegister.registerIcon(MAssetManager.getEDTexture("roadNetherrackSide"));
+    		this.top = par1IconRegister.registerIcon(MAssetManager.getEDTexture("roadNetherrackTop"));
+    		this.bottom = par1IconRegister.registerIcon(MAssetManager.getEDTexture("roadNetherrackBottom"));
     	}
     }
     

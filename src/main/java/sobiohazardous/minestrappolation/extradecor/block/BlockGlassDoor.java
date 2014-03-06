@@ -5,6 +5,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 import java.util.Random;
 
+import sobiohazardous.minestrappolation.api.util.MAssetManager;
 import sobiohazardous.minestrappolation.extradecor.lib.EDItemManager;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -113,8 +114,8 @@ public class BlockGlassDoor extends Block
     {
         this.field_111044_a = new IIcon[2];
         this.field_111043_b = new IIcon[2];
-        this.field_111044_a[0] = par1IconRegister.registerIcon("Minestrappolation:block_DoorGlassUpper");
-        this.field_111043_b[0] = par1IconRegister.registerIcon("Minestrappolation:block_DoorGlassLower");
+        this.field_111044_a[0] = par1IconRegister.registerIcon(MAssetManager.getEDTexture("doorGlassUpper"));
+        this.field_111043_b[0] = par1IconRegister.registerIcon(MAssetManager.getEDTexture("doorGlassLower"));
         this.field_111044_a[1] = new IconFlipped(this.field_111044_a[0], true, false);
         this.field_111043_b[1] = new IconFlipped(this.field_111043_b[0], true, false);
     }

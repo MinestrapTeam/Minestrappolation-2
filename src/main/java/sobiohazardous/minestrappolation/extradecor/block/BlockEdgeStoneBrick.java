@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+import sobiohazardous.minestrappolation.api.util.MAssetManager;
 import sobiohazardous.minestrappolation.api.util.MUtil;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
 import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
@@ -39,9 +40,9 @@ public class BlockEdgeStoneBrick extends BlockContainer
 	
 	public void registerBlockIcons(IIconRegister par1IconRegister)
     {
-        this.blockIcon = par1IconRegister.registerIcon("Minestrappolation:block_EdgeStoneFull");
-        this.left = par1IconRegister.registerIcon("Minestrappolation:block_EdgeStoneLeft");
-        this.right = par1IconRegister.registerIcon("Minestrappolation:block_EdgeStoneRight");
+        this.blockIcon = par1IconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("EdgeStone_Bricks_0_Full"));
+        this.left = par1IconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("EdgeStone_Bricks_0_Left"));
+        this.right = par1IconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("EdgeStone_Bricks_0_Right"));
     }
     
     public IIcon getIcon(int i, int j)

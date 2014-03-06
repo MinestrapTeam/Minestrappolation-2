@@ -2,6 +2,7 @@ package sobiohazardous.minestrappolation.extradecor.block;
 
 import java.util.Random;
 
+import sobiohazardous.minestrappolation.api.util.MAssetManager;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
 import sobiohazardous.minestrappolation.extradecor.tileentity.TileEntityBarrel;
 import net.minecraft.block.Block;
@@ -61,8 +62,8 @@ public class BlockBarrel extends BlockFalling implements ITileEntityProvider
     
     public void registerBlockIcons(IIconRegister iconRegister)
 	{
-	         blockIcon = iconRegister.registerIcon("Minestrappolation:block_BarrelSide");
-	         this.top = iconRegister.registerIcon("Minestrappolation:block_BarrelTop");    
+	         blockIcon = iconRegister.registerIcon(MAssetManager.getEDTexture("barrelSide"));
+	         this.top = iconRegister.registerIcon(MAssetManager.getEDTexture("barrelTop"));    
 	}
     
     public void onBlockAdded(World p_149726_1_, int p_149726_2_, int p_149726_3_, int p_149726_4_)

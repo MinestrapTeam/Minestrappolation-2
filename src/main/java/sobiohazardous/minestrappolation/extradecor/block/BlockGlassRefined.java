@@ -5,6 +5,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 import java.util.Random;
 
+import sobiohazardous.minestrappolation.api.util.MAssetManager;
 import net.minecraft.block.BlockBreakable;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -63,6 +64,6 @@ public class BlockGlassRefined extends BlockBreakable
     
     public void registerBlockIcons(IIconRegister par1IconRegister)
     {
-        blockIcon = par1IconRegister.registerIcon("Minestrappolation:block_ClearGlass");
+        blockIcon = par1IconRegister.registerIcon(MAssetManager.getEDTexture("clearGlass"));
     } 
 }

@@ -2,6 +2,7 @@ package sobiohazardous.minestrappolation.extradecor.block;
 
 import java.util.List;
 
+import sobiohazardous.minestrappolation.api.util.MAssetManager;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -27,9 +28,9 @@ public class BlockStones extends Block
 	public void registerBlockIcons(IIconRegister par1IconRegister)
 	{
 		this.tile = par1IconRegister
-				.registerIcon("Minestrappolation:block_StoneTile");
+				.registerIcon(MAssetManager.getEDStonecutterTexture("Stone_Tiles_0_0"));
 		this.refined = par1IconRegister
-				.registerIcon("Minestrappolation:block_StoneRefined");
+				.registerIcon(MAssetManager.getEDStonecutterTexture("Stone_Refined_0_0"));
 	}
 	
 	public int damageDropped(int par1)

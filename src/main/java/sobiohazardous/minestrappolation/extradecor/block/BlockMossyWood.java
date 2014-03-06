@@ -5,6 +5,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 import java.util.List;
 
+import sobiohazardous.minestrappolation.api.util.MAssetManager;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -74,7 +75,7 @@ public class BlockMossyWood extends Block
 
         for (int i = 0; i < this.iconArray.length; ++i)
         {
-            this.iconArray[i] = par1IconRegister.registerIcon("minestrappolation:block_Mossy" + woodType[i] + "Planks");
+            this.iconArray[i] = par1IconRegister.registerIcon(MAssetManager.getEDTexture("mossyPlanks") + woodType[i]);
         }
     }
 }

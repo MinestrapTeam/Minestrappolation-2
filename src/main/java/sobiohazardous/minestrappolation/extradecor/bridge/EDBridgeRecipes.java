@@ -7,7 +7,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
 import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
-import sobiohazardous.minestrappolation.extraores.lib.EOBlockManager;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
 /**
@@ -19,7 +18,7 @@ public class EDBridgeRecipes
 {
 	private static boolean hasExtraOres = Loader.isModLoaded("ExtraOres");
 	
-	//static Block sunstone = GameRegistry.findBlock("ExtraOres", "Sunstone");
+	static Block sunstone = GameRegistry.findBlock("ExtraOres", "Sunstone");
 	
 	public static void loadBridgeRecipes() throws Exception
 	{	
@@ -27,7 +26,7 @@ public class EDBridgeRecipes
 		{
 			GameRegistry.addRecipe(new ItemStack(EDBlockManager.stoneLamp, 8,1), new Object[]
 					{
-				"SSS", "SGS", "SSS", Character.valueOf('S'), new ItemStack(EDBlockManager.stones,1,1), Character.valueOf('G'), EOBlockManager.Sunstone
+				"SSS", "SGS", "SSS", Character.valueOf('S'), new ItemStack(EDBlockManager.stones,1,1), Character.valueOf('G'), sunstone
 					});
 			
 			GameRegistry.addRecipe(new ItemStack(EDBlockManager.bedrockBrick, 4), new Object[]

@@ -6,6 +6,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import java.util.List;
 import java.util.Random;
 
+import sobiohazardous.minestrappolation.api.util.MAssetManager;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
 import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
 import net.minecraft.block.Block;
@@ -45,21 +46,21 @@ public class BlockSandyRoad extends BlockFalling
     {
     	if(this == EDBlockManager.sandyRoad)
     	{
-    		this.blockIcon = par1IconRegister.registerIcon("Minestrappolation:block_SandyRoadSide");
-    		this.top = par1IconRegister.registerIcon("Minestrappolation:block_SandyRoadTop");
-    		this.bottom = par1IconRegister.registerIcon("Minestrappolation:block_SandyRoadBottom");
+    		this.blockIcon = par1IconRegister.registerIcon(MAssetManager.getEDTexture("roadSandSide"));
+    		this.top = par1IconRegister.registerIcon(MAssetManager.getEDTexture("roadSandTop"));
+    		this.bottom = par1IconRegister.registerIcon(MAssetManager.getEDTexture("roadSandBottom"));
     	}
     	else if(this == EDBlockManager.sandstoneRoad)
     	{
-    		this.blockIcon = par1IconRegister.registerIcon("Minestrappolation:block_SandstoneRoadSide");
+    		this.blockIcon = par1IconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Sandstone_Road_Side_0"));
     		this.top = par1IconRegister.registerIcon("Minestrappolation:block_SandstoneRoadTop");
     		this.bottom = par1IconRegister.registerIcon("Minestrappolation:block_SandyRoadBottom");
     	}
     	else
     	{
-    		this.blockIcon = par1IconRegister.registerIcon("Minestrappolation:block_GravelRoadSide");
-    		this.top = par1IconRegister.registerIcon("Minestrappolation:block_GravelRoadTop");
-    		this.bottom = par1IconRegister.registerIcon("Minestrappolation:block_GravelRoadBottom");
+    		this.blockIcon = par1IconRegister.registerIcon(MAssetManager.getEDTexture("roadGravelSide"));
+    		this.top = par1IconRegister.registerIcon(MAssetManager.getEDTexture("roadGravelTop"));
+    		this.bottom = par1IconRegister.registerIcon(MAssetManager.getEDTexture("roadGravelBottom"));
     	}
     }
     

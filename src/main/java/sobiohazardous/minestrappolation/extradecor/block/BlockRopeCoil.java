@@ -5,6 +5,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 import java.util.List;
 
+import sobiohazardous.minestrappolation.api.util.MAssetManager;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLadder;
@@ -35,8 +36,8 @@ public class BlockRopeCoil extends BlockLadder
      */
     public void registerIcons(IIconRegister par1IconRegister)
     {
-        this.blockIcon = par1IconRegister.registerIcon("Minestrappolation:block_RopeCoilSide");
-        this.top = par1IconRegister.registerIcon("Minestrappolation:block_RopeCoilTop");
+        this.blockIcon = par1IconRegister.registerIcon(MAssetManager.getEDTexture("ropeSide"));
+        this.top = par1IconRegister.registerIcon(MAssetManager.getEDTexture("ropeTop"));
     }
     
     public IIcon getIcon(int i, int j)

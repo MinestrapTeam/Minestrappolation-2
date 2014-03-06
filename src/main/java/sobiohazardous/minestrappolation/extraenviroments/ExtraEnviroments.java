@@ -12,10 +12,8 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@NetworkMod(clientSideRequired = true, serverSideRequired = false)
 @Mod(modid="ExtraEnviroments", name="Extra Enviroments", version="B1.0")
 
 
@@ -40,8 +38,9 @@ public class ExtraEnviroments
 		EEItemManager.loadItems();
 		EEItemManager.loadItemNames();
 		
-		redwood = new BiomeGenRedwood(115).setBiomeName("redwood").setMinMaxHeight(.1F, 1F);
-		GameRegistry.addBiome(redwood);
+		redwood = new BiomeGenRedwood(115).setBiomeName("redwood");
+		//TODO Find alternative!
+		//GameRegistry.addBiome(redwood);
 	}
 	
 	@Mod.EventHandler

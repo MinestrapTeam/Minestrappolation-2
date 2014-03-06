@@ -34,11 +34,6 @@ public class BlockOoze extends EDBlock
     {
         return 1;
     }
-    
-    public void registerBlockIcons(IIconRegister r)
-	{
-		blockIcon = r.registerIcon("minestrappolation:" + this.getUnlocalizedName().substring(5));
-	}
 
     /**
      * Is this block (a) opaque and (b) a full 1m cube?  This determines whether or not to render the shared face of two

@@ -5,6 +5,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 import java.util.List;
 
+import sobiohazardous.minestrappolation.api.lib.MAPIReference;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
 import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
 import net.minecraft.block.Block;
@@ -20,7 +21,7 @@ public class BlockStoneLamp extends Block
 {
     @SideOnly(Side.CLIENT)
     private IIcon[] iconArray;
-    public static final String[] stoneLampTextures = new String[] {"Minestrappolation:block_StoneLampGlowstone", "Minestrappolation:block_StoneLampSunstone"};
+    public static final String[] stoneLampTextures = new String[] {MAPIReference.MODID_ED + ":/stoneCutter/Stone_LampGlowstone_0_0", MAPIReference.MODID_ED + ":/stoneCutter/Stone_LampGlowstone_0_0"};
     public static final String[] lampType = new String[] {"glowstone", "sunstone"};
     
     public BlockStoneLamp()

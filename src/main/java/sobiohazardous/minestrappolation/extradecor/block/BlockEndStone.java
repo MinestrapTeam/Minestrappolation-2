@@ -2,6 +2,7 @@ package sobiohazardous.minestrappolation.extradecor.block;
 
 import java.util.List;
 
+import sobiohazardous.minestrappolation.api.util.MAssetManager;
 import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -30,11 +31,11 @@ public class BlockEndStone extends Block
 	public void registerBlockIcons(IIconRegister par1IconRegister) 
 	{
 		this.brick = par1IconRegister
-				.registerIcon("Minestrappolation:block_EndstoneBrick");
+				.registerIcon(MAssetManager.getEDStonecutterTexture("Endstone_Bricks_0_0"));
 		this.refined = par1IconRegister
-				.registerIcon("Minestrappolation:block_EndstoneRefined");
+				.registerIcon(MAssetManager.getEDStonecutterTexture("Endstone_Refine_0_0"));
 		this.smooth = par1IconRegister
-				.registerIcon("Minestrappolation:block_EndstoneSmooth");
+				.registerIcon(MAssetManager.getEDStonecutterTexture("Endstone_Tiles_0_0"));
 	}
 	
 	public int damageDropped(int par1)

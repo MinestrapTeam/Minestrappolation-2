@@ -4,6 +4,7 @@ import java.util.Random;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import sobiohazardous.minestrappolation.api.util.MAssetManager;
 import sobiohazardous.minestrappolation.api.util.MUtil;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
 import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
@@ -82,9 +83,9 @@ public class BlockCardboardWet extends BlockContainer
     @Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		blockIcon = iconRegister.registerIcon("Minestrappolation:block_CardboardWetSide");
-		top = iconRegister.registerIcon("Minestrappolation:block_CardboardWetTop");
-		bottom = iconRegister.registerIcon("Minestrappolation:block_CardboardBlock");
+		blockIcon = iconRegister.registerIcon(MAssetManager.getEDTexture("cardboardWetSide"));
+		top = iconRegister.registerIcon(MAssetManager.getEDTexture("cardboardWetTop"));
+		bottom = iconRegister.registerIcon(MAssetManager.getEDTexture("cardboard"));
 	}
     
     public void onEntityWalking(World par1World, int par2, int par3, int par4, Entity par5Entity)

@@ -5,6 +5,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 import java.util.List;
 
+import sobiohazardous.minestrappolation.api.lib.MAPIReference;
+import sobiohazardous.minestrappolation.api.util.MAssetManager;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
 import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
 import net.minecraft.block.Block;
@@ -20,7 +22,8 @@ public class BlockStainedBrick extends Block
 {
     @SideOnly(Side.CLIENT)
     private IIcon[] iconArray;
-    public static final String[] stainedBrickTextures = new String[] {"Minestrappolation:block_WhiteStainedBrick", "Minestrappolation:block_LightGreyStainedBrick", "Minestrappolation:block_DarkGreyStainedBrick", "Minestrappolation:block_BlackStainedBrick", "Minestrappolation:block_BrownStainedBrick", "Minestrappolation:block_PinkStainedBrick", "Minestrappolation:block_RedStainedBrick", "Minestrappolation:block_OrangeStainedBrick", "Minestrappolation:block_YellowStainedBrick", "Minestrappolation:block_LimeStainedBrick", "Minestrappolation:block_GreenStainedBrick", "Minestrappolation:block_CyanStainedBrick", "Minestrappolation:block_LightBlueStainedBrick", "Minestrappolation:block_BlueStainedBrick", "Minestrappolation:block_PurpleStainedBrick", "Minestrappolation:block_MagentaStainedBrick"};
+    //public static final String[] stainedBrickTextures = new String[] {"Minestrappolation:block_WhiteStainedBrick", "Minestrappolation:block_LightGreyStainedBrick", "Minestrappolation:block_DarkGreyStainedBrick", "Minestrappolation:block_BlackStainedBrick", "Minestrappolation:block_BrownStainedBrick", "Minestrappolation:block_PinkStainedBrick", "Minestrappolation:block_RedStainedBrick", "Minestrappolation:block_OrangeStainedBrick", "Minestrappolation:block_YellowStainedBrick", "Minestrappolation:block_LimeStainedBrick", "Minestrappolation:block_GreenStainedBrick", "Minestrappolation:block_CyanStainedBrick", "Minestrappolation:block_LightBlueStainedBrick", "Minestrappolation:block_BlueStainedBrick", "Minestrappolation:block_PurpleStainedBrick", "Minestrappolation:block_MagentaStainedBrick"};
+    public static final String[] stainedBrickTextures = MAssetManager.getMaterialStringArray(MAPIReference.MODID_ED, "Clay", "Bricks");
     public static final String[] brickType = new String[] {"white", "lightGrey", "darkGrey", "black", "brown", "pink", "red", "orange", "yellow", "lime", "green", "cyan", "lightBlue", "blue", "purple", "magenta"};
     
     public BlockStainedBrick()

@@ -6,6 +6,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 import java.util.List;
 import java.util.Random;
 
+import sobiohazardous.minestrappolation.api.lib.MAPIReference;
+import sobiohazardous.minestrappolation.api.util.MAssetManager;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
 import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
 import sobiohazardous.minestrappolation.extradecor.lib.EDItemManager;
@@ -43,9 +45,9 @@ public class EDBlockPane extends Block
     public EDBlockPane(String texture, String edgeTexture, Material par4Material, boolean par5)
     {
         super(par4Material);
-        this.sideTextureIndex = "Minestrappolation:" + edgeTexture;
+        this.sideTextureIndex = MAssetManager.getEDTexture(edgeTexture);
         this.canDropItself = par5;
-        this.field_94402_c = "Minestrappolation:" + texture;
+        this.field_94402_c = MAssetManager.getEDTexture(texture);
     }
 
     /**

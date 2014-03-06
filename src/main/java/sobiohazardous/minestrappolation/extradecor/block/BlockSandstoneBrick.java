@@ -22,8 +22,8 @@ public class BlockSandstoneBrick extends Block
 {
     @SideOnly(Side.CLIENT)
     private IIcon[] iconArray;
-    public static final String[] brickTextures = new String[] {"Minestrappolation:block_SandstoneBrick", "Minestrappolation:block_SandstoneBrickChiseled", "Minestrappolation:block_SandstoneBrickMossy", "Minestrappolation:block_SandstoneHeiroglyph1", "Minestrappolation:block_SandstoneHeiroglyph2"};
-    public static final String[] sandType = new String[] {"brick", "chiseled", "mossy", "heiroglyph", "heiroglyph_2"};
+    public static final String[] brickTextures = new String[] {"extradecor:/stoneCutter/Sandstone_Bricks_0_0", "extradecor:/stoneCutter/Sandstone_PatternBricks_0_0", "extradecor:stoneCutter/Sandstone_BricksMossy_0_0", "extradecor:stoneCutter/Sandstone_Heiroglyph1_0_0", "extradecor:stoneCutter/Sandstone_Heiroglyph2_0_0"};
+    public static final String[] sandType = new String[] {"brick", "patterned", "mossy", "heiroglyph", "heiroglyph_2"};
     
     public BlockSandstoneBrick()
     {
@@ -74,7 +74,7 @@ public class BlockSandstoneBrick extends Block
      * When this method is called, your block should register all the icons it needs with the given IconRegister. This
      * is the only chance you get to register icons.
      */
-    public void registerIcons(IIconRegister par1IconRegister)
+    public void registerBlockIcons(IIconRegister par1IconRegister)
     {
         this.iconArray = new IIcon[brickTextures.length];
 

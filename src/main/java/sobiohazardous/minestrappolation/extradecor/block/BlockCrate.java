@@ -2,6 +2,7 @@ package sobiohazardous.minestrappolation.extradecor.block;
 
 import java.util.Random;
 
+import sobiohazardous.minestrappolation.api.util.MAssetManager;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
 import sobiohazardous.minestrappolation.extradecor.tileentity.TileEntityCrate;
 import net.minecraft.block.Block;
@@ -60,8 +61,8 @@ public class BlockCrate extends BlockFalling implements ITileEntityProvider
     
     public void registerBlockIcons(IIconRegister iconRegister)
 	{
-	         blockIcon = iconRegister.registerIcon("Minestrappolation:block_CrateSide");
-	         this.top = iconRegister.registerIcon("Minestrappolation:block_CrateTop");    
+	         blockIcon = iconRegister.registerIcon(MAssetManager.getEDTexture("crateSide"));
+	         this.top = iconRegister.registerIcon(MAssetManager.getEDTexture("crateTop"));    
 	}
     
     /**

@@ -3,6 +3,7 @@ package sobiohazardous.minestrappolation.extradecor.block;
 import java.util.List;
 
 import sobiohazardous.minestrappolation.api.block.MBlock;
+import sobiohazardous.minestrappolation.api.util.MAssetManager;
 import sobiohazardous.minestrappolation.extradecor.lib.EDConfig;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -90,15 +91,15 @@ public class BlockTiles extends Block
 	public void registerBlockIcons(IIconRegister par1IconRegister) 
 	{
 		this.ob = par1IconRegister
-				.registerIcon("Minestrappolation:block_ObsidianTile");
+				.registerIcon(MAssetManager.getEDStonecutterTexture("Obsidian_Tiles_0_0"));
 		this.flint = par1IconRegister
-				.registerIcon("Minestrappolation:block_FlintTile");
+				.registerIcon(MAssetManager.getEDStonecutterTexture("Flint_Tiles_0_0"));
 		this.nether = par1IconRegister
-				.registerIcon("Minestrappolation:block_NetherTile");
+				.registerIcon(MAssetManager.getEDStonecutterTexture("NetehrQuartz_Tiles_0_0"));
 		this.checker = par1IconRegister
-				.registerIcon("Minestrappolation:block_CheckerTile");
+				.registerIcon(MAssetManager.getEDStonecutterTexture("Flint-NetherQuartz_TileChecker_0_0"));
 		this.brick = par1IconRegister
-				.registerIcon("Minestrappolation:block_PatternBrick");
+				.registerIcon(MAssetManager.getEDStonecutterTexture("patternedbrick"));
 		this.fb = par1IconRegister
 				.registerIcon("Minestrappolation:block_FlintBlock");
 		this.nb = par1IconRegister

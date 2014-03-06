@@ -5,6 +5,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 import java.util.List;
 
+import sobiohazardous.minestrappolation.api.lib.MAPIReference;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
 import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
 import net.minecraft.block.Block;
@@ -22,7 +23,7 @@ public class BlockWoodBoards extends Block
 {
     @SideOnly(Side.CLIENT)
     private IIcon[] iconArray;
-    public static final String[] boardTextures = new String[] {"Minestrappolation:block_BoardsOak", "Minestrappolation:block_BoardsBirch", "Minestrappolation:block_BoardsSpruce", "Minestrappolation:block_BoardsJungle"};
+    public static final String[] boardTextures = new String[] {MAPIReference.MODID_ED + ":boardsOak", MAPIReference.MODID_ED + ":boardsBirch", MAPIReference.MODID_ED + ":boardsSpruce", MAPIReference.MODID_ED + ":boardsJungle"};
     public static final String[] woodType = new String[] {"oak", "birch", "spruce", "jungle"};
     
     public BlockWoodBoards()

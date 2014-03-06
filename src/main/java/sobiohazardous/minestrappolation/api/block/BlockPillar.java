@@ -32,8 +32,8 @@ public class BlockPillar extends Block
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		blockIcon = iconRegister.registerIcon("Minestrappolation:"+sidesImg);
-	    this.top = iconRegister.registerIcon("Minestrappolation:"+topImg);    
+		blockIcon = iconRegister.registerIcon(sidesImg);
+	    this.top = iconRegister.registerIcon(topImg);    
 	}
     
     /**

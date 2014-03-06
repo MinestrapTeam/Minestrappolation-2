@@ -2,6 +2,7 @@ package sobiohazardous.minestrappolation.extradecor.tileentity;
 
 import org.lwjgl.opengl.GL11;
 
+import sobiohazardous.minestrappolation.api.lib.MAPIReference;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
@@ -9,7 +10,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class RendererPlate extends TileEntitySpecialRenderer {
 	
-	ResourceLocation texture = new ResourceLocation("minestrappolation:textures/blocks/block_Plate.png");
+	ResourceLocation texture = new ResourceLocation(MAPIReference.MODID_ED + ":textures/blocks/model/plate.png");
 
 	private ModelPlate model;
 	public RendererPlate() {

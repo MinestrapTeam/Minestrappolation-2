@@ -2,10 +2,9 @@ package sobiohazardous.minestrappolation.extradecor.block;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import sobiohazardous.minestrappolation.api.util.MAssetManager;
 import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
 import sobiohazardous.minestrappolation.extradecor.tileentity.TileEntityPlate;
-import sobiohazardous.minestrappolation.extraores.ExtraOres;
-import sobiohazardous.minestrappolation.extraores.tileentity.TileEntityMelter;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -27,7 +26,7 @@ public class BlockPlate extends BlockContainer
 	public void registerBlockIcons(IIconRegister par1IconRegister) 
 	{
 		this.blockIcon = par1IconRegister
-				.registerIcon("Minestrappolation:block_StoneTile");
+				.registerIcon(MAssetManager.getEDStonecutterTexture("Stone_Tiles_0_0"));
 	}
 	
 	public int damageDropped(int par1)

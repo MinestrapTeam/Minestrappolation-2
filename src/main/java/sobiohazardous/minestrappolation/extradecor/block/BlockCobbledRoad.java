@@ -5,6 +5,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 import java.util.List;
 
+import sobiohazardous.minestrappolation.api.util.MAssetManager;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -42,9 +43,9 @@ public class BlockCobbledRoad extends Block
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister par1IconRegister)
     {
-        this.blockIcon = par1IconRegister.registerIcon("Minestrappolation:block_CobbledRoadSide");
-        this.top = par1IconRegister.registerIcon("Minestrappolation:block_CobbledRoadTop");
-        this.bottom = par1IconRegister.registerIcon("Minestrappolation:block_CobbledRoadBottom");
+        this.blockIcon = par1IconRegister.registerIcon(MAssetManager.getEDTexture("roadCobbledSide"));
+        this.top = par1IconRegister.registerIcon(MAssetManager.getEDTexture("roadCobbledTop"));
+        this.bottom = par1IconRegister.registerIcon(MAssetManager.getEDTexture("roadCobbledBottom"));
     }
     
     public IIcon getIcon(int i, int j)
