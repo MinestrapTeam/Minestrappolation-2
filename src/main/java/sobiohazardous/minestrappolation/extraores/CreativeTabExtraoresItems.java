@@ -15,14 +15,13 @@ public final class CreativeTabExtraoresItems extends CreativeTabs
         {
                 super(par1, par2Str);
         }
-        @SideOnly(Side.CLIENT)
-        public int getTabIconItemIndex()
-        {
-                return EOItemManager.CopperIngot.itemID;
-        }
-   
+
         public String getTranslatedTabLabel()
         {
          return "Extrapolated Ores - Items";
         }
+		@Override
+		public Item getTabIconItem() {
+			return EOItemManager.CopperIngot;
+		}
 }

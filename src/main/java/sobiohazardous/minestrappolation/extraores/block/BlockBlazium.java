@@ -4,24 +4,27 @@ import java.util.Random;
 
 
 
+
+
+import sobiohazardous.minestrappolation.api.block.MBlock;
 import sobiohazardous.minestrappolation.extraores.lib.EOBlockManager;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.monster.EntityBlaze;
 import net.minecraft.entity.monster.EntitySnowman;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.src.*;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
-public class BlockBlazium extends Block
+public class BlockBlazium extends MBlock
 {
-	public BlockBlazium(int par1, Material par3Material)
+	public BlockBlazium()
     {
-        super(par1, par3Material);
+        super(Material.iron);
         this.setCreativeTab(CreativeTabs.tabBlock);
     }
     
@@ -33,9 +36,9 @@ public class BlockBlazium extends Block
     /**
      * Returns the ID of the items to drop on destruction.
      */
-    public int idDropped(int par1, Random par2Random, int par3)
+    public Item getItemDropped(int par1, Random par2Random, int par3)
     {
-        return this.blockID;
+        return Item.getItemFromBlock(EOBlockManager.BlaziumBlock);
     }
 
     /**

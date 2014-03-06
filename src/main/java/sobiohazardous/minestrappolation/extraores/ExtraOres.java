@@ -38,16 +38,12 @@ import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
-import cpw.mods.fml.common.TickType;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.network.NetworkMod;
-import cpw.mods.fml.common.network.NetworkMod.SidedPacketHandler;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.TickRegistry;
 import cpw.mods.fml.common.registry.VillagerRegistry;
 import cpw.mods.fml.relauncher.Side;
 
@@ -58,9 +54,7 @@ import cpw.mods.fml.relauncher.Side;
  * @author SoBiohazardous
  */
 
-@NetworkMod(clientSideRequired = true, serverSideRequired = true,
-clientPacketHandlerSpec = @SidedPacketHandler(channels = {"extraoresCChan"}, packetHandler = ClientPacketHandler.class),
-serverPacketHandlerSpec = @SidedPacketHandler(channels = {"extraoresSChan"}, packetHandler = ServerPacketHandler.class))
+
 @Mod ( modid = "ExtraOres", name="Extrapolated Ores", version="B1.4.5", dependencies = "required-after:Minestrappolation")
 public class ExtraOres 
 {	
@@ -81,7 +75,8 @@ public class ExtraOres
     public void myNewPreLoadMethod(FMLPreInitializationEvent evt)	
 	{    
 		//MinecraftForge.EVENT_BUS.register(new EOBucketHandler());
-	    Block.bedrock.setHardness(80F);
+		// TODO fix this
+	    //Block.bedrock.setHardness(80F);
 	    eoFluid = new EOFluids("EO Fluid").setViscosity(6500).setDensity(3);
 		EOConfig.initilize(evt);
 	    	    
@@ -109,7 +104,7 @@ public class ExtraOres
 		EntityRegistry.registerModEntity(EntityGrenadeImpact.class, "GrenadeImpact", 4, this, 40, 3, true);
 		EntityRegistry.registerModEntity(EntityGrenadeSticky.class, "GrenadeSticky", 5, this, 40, 3, true);
 
-		GameRegistry.registerWorldGenerator(new EOOreGenerator());
+		GameRegistry.registerWorldGenerator(new EOOreGenerator(),0);
 		EOItemManager.addItemsToChests();
 	}
 	
@@ -118,9 +113,7 @@ public class ExtraOres
     {		
 		
         proxy.registerRenderThings(); //this allows seperate renderings for server and client
-        TickRegistry.registerTickHandler(new ClientTickHandler(EnumSet.of(TickType.CLIENT)), Side.CLIENT);
-        TickRegistry.registerTickHandler(new PlayerTickHandler(EnumSet.of(TickType.PLAYER)), Side.SERVER);
-
+ 
         GameRegistry.registerFuelHandler(new EOFuelHandler());
     	GameRegistry.registerTileEntity(TileEntityMelter.class, "tileEntityMelter");
     	
@@ -129,9 +122,9 @@ public class ExtraOres
 		VillagerRegistry.instance().registerVillageTradeHandler(3, new BlacksmithTradeHandler());
 		VillagerRegistry.instance().registerVillageTradeHandler(2, new PriestTradeHandler());
 		
-		
-		NetworkRegistry.instance().registerGuiHandler(this, guiHandler);
-		NetworkRegistry.instance().registerConnectionHandler(new sobiohazardous.minestrappolation.extraores.handler.NetworkHandler());
+		// TODO find another way to make both work
+		//NetworkRegistry.instance().registerGuiHandler(this, guiHandler);
+		//NetworkRegistry.instance().registerConnectionHandler(new sobiohazardous.minestrappolation.extraores.handler.NetworkHandler());
 		
 	}
 	
