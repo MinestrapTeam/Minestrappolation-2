@@ -9,9 +9,9 @@ import sobiohazardous.minestrappolation.extramobdrops.lib.EMDItemManager;
 public class ItemCookedLambchop extends MItemFood
 {
 
-	public ItemCookedLambchop(int id, int healAmt, float sat) 
+	public ItemCookedLambchop(int healAmt, float sat) 
 	{
-		super(id, healAmt, sat);
+		super(healAmt, sat);
 	}
 	
     public ItemStack onEaten(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)

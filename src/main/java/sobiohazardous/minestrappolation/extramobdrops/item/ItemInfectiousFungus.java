@@ -10,9 +10,9 @@ import sobiohazardous.minestrappolation.extramobdrops.lib.EMDPotionManager;
 
 public class ItemInfectiousFungus extends MItemFood
 {
-	public ItemInfectiousFungus(int id, int healAmt, float sat) 
+	public ItemInfectiousFungus(int healAmt, float sat) 
 	{
-		super(id, healAmt, sat);
+		super(healAmt, sat);
 	}
 	
 	public void onFoodEaten(ItemStack itemStack, World world, EntityPlayer entityPlayer)

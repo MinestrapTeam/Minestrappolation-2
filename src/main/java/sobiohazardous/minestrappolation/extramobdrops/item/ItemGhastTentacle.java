@@ -7,13 +7,13 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 import sobiohazardous.minestrappolation.api.item.MItemFood;
-import sobiohazardous.minestrappolation.extramobdrops.handler.PlayerTickHandler;
+import sobiohazardous.minestrappolation.extramobdrops.handler.EMDPlayerTickHandler;
 
 public class ItemGhastTentacle extends MItemFood
 {
-	public ItemGhastTentacle(int id) 
+	public ItemGhastTentacle() 
 	{
-		super(id, 0, 0.0f);
+		super(0, 0.0f);
 		this.setAlwaysEdible();
 	}
 	
@@ -31,8 +31,8 @@ public class ItemGhastTentacle extends MItemFood
     		}
     	}
     	
-    	player.addPotionEffect(new PotionEffect(Potion.confusion.id, PlayerTickHandler.gTime * 20));
+    	player.addPotionEffect(new PotionEffect(Potion.confusion.id, EMDPlayerTickHandler.gTime * 20));
     	//nether neutrality
-    	PlayerTickHandler.gTentacleEffect = true;			
+    	EMDPlayerTickHandler.gTentacleEffect = true;			
     }
 }

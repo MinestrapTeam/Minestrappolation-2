@@ -3,16 +3,17 @@ package sobiohazardous.minestrappolation.extramobdrops.item;
 import sobiohazardous.minestrappolation.api.item.MItem;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
+import net.minecraft.init.Items;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ArrowLooseEvent;
@@ -22,11 +23,11 @@ public class ItemHorseHairBow extends MItem
 {
     public static final String[] bowPullIconNameArray = new String[] {"pulling_0", "pulling_1", "pulling_2"};
     @SideOnly(Side.CLIENT)
-    private Icon[] iconArray;
+    private IIcon[] iconArray;
 
-    public ItemHorseHairBow(int par1)
+    public ItemHorseHairBow()
     {
-        super(par1);
+        super();
         this.maxStackSize = 1;
         this.setMaxDamage(500);
     }
@@ -48,7 +49,7 @@ public class ItemHorseHairBow extends MItem
 
         boolean flag = par3EntityPlayer.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, par1ItemStack) > 0;
 
-        if (flag || par3EntityPlayer.inventory.hasItem(Item.arrow.itemID))
+        if (flag || par3EntityPlayer.inventory.hasItem(Items.arrow))
         {
             float f = (float)j / 20.0F;
             f = (f * f + f * 2.0F) / 3.0F;
@@ -98,7 +99,7 @@ public class ItemHorseHairBow extends MItem
             }
             else
             {
-                par3EntityPlayer.inventory.consumeInventoryItem(Item.arrow.itemID);
+                par3EntityPlayer.inventory.consumeInventoryItem(Items.arrow);
             }
 
             if (!par2World.isRemote)
@@ -141,7 +142,7 @@ public class ItemHorseHairBow extends MItem
             return event.result;
         }
 
-        if (par3EntityPlayer.capabilities.isCreativeMode || par3EntityPlayer.inventory.hasItem(Item.arrow.itemID))
+        if (par3EntityPlayer.capabilities.isCreativeMode || par3EntityPlayer.inventory.hasItem(Items.arrow))
         {
             par3EntityPlayer.setItemInUse(par1ItemStack, this.getMaxItemUseDuration(par1ItemStack));
         }
@@ -158,10 +159,10 @@ public class ItemHorseHairBow extends MItem
     }
 
     @SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister par1IconRegister)
+    public void registerIcons(IIconRegister par1IconRegister)
     {
         this.itemIcon = par1IconRegister.registerIcon("Minestrappolation:" + "horsehair_bow" + "_standby");
-        this.iconArray = new Icon[bowPullIconNameArray.length];
+        this.iconArray = new IIcon[bowPullIconNameArray.length];
 
         for (int i = 0; i < this.iconArray.length; ++i)
         {
@@ -181,7 +182,7 @@ public class ItemHorseHairBow extends MItem
     }
     */
     
-   public Icon getIcon(ItemStack stack, int renderPass, EntityPlayer player, ItemStack usingItem, int useRemaining)
+   public IIcon getIcon(ItemStack stack, int renderPass, EntityPlayer player, ItemStack usingItem, int useRemaining)
    {
 	   if(player.getItemInUse() == null) return this.itemIcon;
 	   int Pulling = stack.getMaxItemUseDuration() - useRemaining;

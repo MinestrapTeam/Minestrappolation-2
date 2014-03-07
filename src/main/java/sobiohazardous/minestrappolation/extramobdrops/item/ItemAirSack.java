@@ -7,9 +7,9 @@ import sobiohazardous.minestrappolation.api.item.MItemFood;
 
 public class ItemAirSack extends MItemFood
 {
-	public ItemAirSack(int id) 
+	public ItemAirSack() 
 	{
-		super(id, 0, 0);
+		super(0, 0);
 	}
 	
 	protected void onFoodEaten(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)

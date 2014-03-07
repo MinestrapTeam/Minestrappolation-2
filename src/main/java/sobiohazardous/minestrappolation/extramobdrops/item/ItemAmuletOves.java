@@ -7,9 +7,9 @@ import sobiohazardous.minestrappolation.api.item.MItem;
 
 public class ItemAmuletOves extends MItem
 {
-	public ItemAmuletOves(int id) 
+	public ItemAmuletOves() 
 	{
-		super(id);
+		super();
 	}
 
 	@SideOnly(Side.CLIENT)

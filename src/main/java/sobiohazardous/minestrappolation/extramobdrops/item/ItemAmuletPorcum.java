@@ -14,9 +14,9 @@ public class ItemAmuletPorcum extends MItem
 {
 	int tick = 0;
 
-	public ItemAmuletPorcum(int id) 
+	public ItemAmuletPorcum() 
 	{
-		super(id);
+		super();
 		this.setMaxDamage(50);
 		this.setMaxStackSize(1);
 	}
@@ -27,7 +27,7 @@ public class ItemAmuletPorcum extends MItem
     	Random rand = new Random();
     	int randnum = rand.nextInt(61);
     	tick++;
-    	if(player.inventory.hasItem(this.itemID))
+    	if(player.inventory.hasItem(this))
     	{
     		if(tick > 60)
     		{

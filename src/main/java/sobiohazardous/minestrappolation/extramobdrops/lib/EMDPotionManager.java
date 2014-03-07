@@ -9,6 +9,7 @@ import clashsoft.brewingapi.brewing.PotionType;
 import sobiohazardous.minestrappolation.api.potion.MPotion;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
@@ -46,13 +47,13 @@ public class EMDPotionManager implements IPotionEffectHandler
 		if (effect.getPotionID() == EMDPotionManager.infectious.id)
 		{
 			//check if grass is below, then place mycellium below
-			if(entity.worldObj.getBlockId((int)entity.posX-1, (int)entity.posY - 1, (int)entity.posZ-1) == Block.grass.blockID)
+			if(entity.worldObj.getBlock((int)entity.posX-1, (int)entity.posY - 1, (int)entity.posZ-1) == Blocks.grass)
 			{
-				entity.worldObj.setBlock((int)entity.posX-1, (int)entity.posY - 2, (int)entity.posZ-1, Block.mycelium.blockID);		
+				entity.worldObj.setBlock((int)entity.posX-1, (int)entity.posY - 2, (int)entity.posZ-1, Blocks.mycelium);		
 			}
 				
 			//check if mycellium is below, then add potion of regen.
-			if(entity.worldObj.getBlockId((int)entity.posX-1, (int)entity.posY - 1, (int)entity.posZ-1) == Block.mycelium.blockID)
+			if(entity.worldObj.getBlock((int)entity.posX-1, (int)entity.posY - 1, (int)entity.posZ-1) == Blocks.mycelium)
 			{
 				entity.addPotionEffect(new PotionEffect(Potion.regeneration.id, 2 * 20, 1));
 			}

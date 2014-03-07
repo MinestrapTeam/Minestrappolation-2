@@ -9,7 +9,7 @@ public class EMDFuelHandler implements IFuelHandler
 	@Override
 	public int getBurnTime(ItemStack fuel) 
 	{
-		if(fuel.itemID == EMDItemManager.guano.itemID)
+		if(fuel.getItem() == EMDItemManager.guano)
 		{
 			return 2000;
 		}

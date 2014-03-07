@@ -24,13 +24,6 @@ public class MItemSword extends ItemSword
         this.setCreativeTab(null);
 	}
 	
-	/*
-	public void registerIcons(IIconRegister r)
-	{
-		itemIcon = r.registerIcon("minestrappolation:" + this.getUnlocalizedName().substring(5));
-	}
-	*/
-	
 	/**
      * Current implementations of this method in child classes do not use the entry argument beside ev. They just raise
      * the damage on the stack.
@@ -47,7 +40,8 @@ public class MItemSword extends ItemSword
     
     public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)
     {
-		if(MAPIConfig.showDur == true){
+		if(MAPIConfig.showDur == true)
+		{
 			 par3List.add(EnumChatFormatting.GREEN+"Durability: "+EnumChatFormatting.RED+Integer.toString(getMaxDamage()-par1ItemStack.getItemDamage()+1)+"/"+Integer.toString(getMaxDamage()+1));
 		}	 
     }

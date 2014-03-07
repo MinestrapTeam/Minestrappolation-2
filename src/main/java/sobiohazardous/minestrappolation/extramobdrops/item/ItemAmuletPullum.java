@@ -11,9 +11,9 @@ import sobiohazardous.minestrappolation.api.item.MItem;
 
 public class ItemAmuletPullum extends MItem
 {
-	public ItemAmuletPullum(int id) 
+	public ItemAmuletPullum() 
 	{
-		super(id);
+		super();
 		this.setMaxDamage(50);
 		this.setMaxStackSize(1);
 	}
@@ -22,7 +22,7 @@ public class ItemAmuletPullum extends MItem
     {
     	EntityPlayer player = (EntityPlayer)par3Entity;
     	double rand = Math.random();
-    	if(player.inventory.hasItem(this.itemID))
+    	if(player.inventory.hasItem(this))
     	{
     		if(rand < 0.33)
     		{

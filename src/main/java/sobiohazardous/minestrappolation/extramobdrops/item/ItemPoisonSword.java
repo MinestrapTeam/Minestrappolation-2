@@ -2,10 +2,9 @@ package sobiohazardous.minestrappolation.extramobdrops.item;
 
 import java.util.List;
 
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
@@ -16,11 +15,11 @@ import sobiohazardous.minestrappolation.api.item.MItemSword;
 public class ItemPoisonSword extends MItemSword
 {
 	private float poisonLevel = 4;
-	private int normSword;
+	private Item normSword;
 	
-	public ItemPoisonSword(int par1, EnumToolMaterial par2EnumToolMaterial, int normalSword) 
+	public ItemPoisonSword(ToolMaterial par2EnumToolMaterial, Item normalSword) 
 	{
-		super(par1, par2EnumToolMaterial, false);
+		super(par2EnumToolMaterial, false);
 		this.normSword = normalSword;
 	}
 
@@ -35,7 +34,8 @@ public class ItemPoisonSword extends MItemSword
     	if(poisonLevel == 1)
     	{
     		EntityPlayer player = (EntityPlayer)par3EntityLivingBase;
-    		player.inventory.changeCurrentItem(normSword);
+    		//changes the current item?
+    		player.inventory.func_70439_a(normSword, 0);
     	}
     	
         par1ItemStack.damageItem(1, par3EntityLivingBase);
@@ -48,7 +48,7 @@ public class ItemPoisonSword extends MItemSword
     	par3List.add(EnumChatFormatting.GREEN + "Poisoned +" + (int)poisonLevel);
     }    
     
-    public void registerIcons(IconRegister par1IconRegister)
+    public void registerIcons(IIconRegister par1IconRegister)
     {
         this.itemIcon = par1IconRegister.registerIcon(this.getIconString());
     }

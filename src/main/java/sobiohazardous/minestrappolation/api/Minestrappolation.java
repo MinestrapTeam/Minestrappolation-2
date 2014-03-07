@@ -52,6 +52,7 @@ public class Minestrappolation
 		MAPIBlocks.loadBlocks();
 
 		FMLCommonHandler.instance().bus().register(new MAPIEventHandler());
+		//MinecraftForge.EVENT_BUS.register(new MAPIEventHandler());
 		
 		Blocks.bedrock.setHardness(80F);
 

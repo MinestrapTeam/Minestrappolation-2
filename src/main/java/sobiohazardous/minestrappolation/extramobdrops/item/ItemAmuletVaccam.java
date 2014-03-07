@@ -14,9 +14,9 @@ public class ItemAmuletVaccam extends MItem
 {
 	Random rand = new Random();
 
-	public ItemAmuletVaccam(int id) 
+	public ItemAmuletVaccam() 
 	{
-		super(id);
+		super();
 		this.setMaxDamage(50);
 		this.setMaxStackSize(1);
 	}

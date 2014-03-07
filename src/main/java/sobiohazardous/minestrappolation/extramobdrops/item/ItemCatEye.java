@@ -9,9 +9,9 @@ import sobiohazardous.minestrappolation.api.item.MItemFood;
 
 public class ItemCatEye extends MItemFood
 {
-	public ItemCatEye(int id, int healAmt, float sat) 
+	public ItemCatEye(int healAmt, float sat) 
 	{
-		super(id, healAmt, sat);
+		super(healAmt, sat);
 	}
 	
 	public void onFoodEaten(ItemStack itemStack, World world, EntityPlayer entityPlayer)

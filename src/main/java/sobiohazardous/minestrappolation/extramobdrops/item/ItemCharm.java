@@ -4,27 +4,27 @@ import java.util.List;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-
 import sobiohazardous.minestrappolation.api.item.MItem;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.block.Block;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 
 public class ItemCharm extends Item
 {
     public static final String[] geneNames = new String[] {"pig", "cow", "chicken", "sheep", "horse"};
     @SideOnly(Side.CLIENT)
-    private Icon[] geneIcons;
+    private IIcon[] geneIcons;
     
-	public ItemCharm(int par1) 
+	public ItemCharm() 
 	{
-		super(par1);
+		super();
 	}
 	
-	public Icon getIconFromDamage(int par1)
+	public IIcon getIconFromDamage(int par1)
     {
         int j = MathHelper.clamp_int(par1, 0, 4);
         return this.geneIcons[j];
@@ -39,7 +39,7 @@ public class ItemCharm extends Item
 	/**
      * returns a list of items with the same ID, but different meta (eg: dye returns 16 items)
      */
-    public void getSubItems(int par1, CreativeTabs par2CreativeTabs, List par3List)
+    public void getSubItems(Item par1, CreativeTabs par2CreativeTabs, List par3List)
     {
         for (int j = 0; j < 5; ++j)
         {
@@ -47,9 +47,9 @@ public class ItemCharm extends Item
         }
     }
     
-    public void registerIcons(IconRegister par1IconRegister)
+    public void registerIcons(IIconRegister par1IconRegister)
     {
-        this.geneIcons = new Icon[geneNames.length];
+        this.geneIcons = new IIcon[geneNames.length];
 
         for (int i = 0; i < geneNames.length; ++i)
         {

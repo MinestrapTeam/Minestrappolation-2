@@ -8,10 +8,9 @@ import sobiohazardous.minestrappolation.api.item.MItemSword;
 import sobiohazardous.minestrappolation.extramobdrops.CreativeTabExtraMobDropsItems;
 import sobiohazardous.minestrappolation.extramobdrops.item.*;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
+import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.potion.Potion;
-import net.minecraftforge.common.EnumHelper;
 
 public class EMDItemManager 
 {
@@ -133,21 +132,21 @@ public class EMDItemManager
 	public static Item horseHairFibre;	
 	public static Item horseHairBow;
 	
-	public static EnumToolMaterial toolMaterialWoodH = EnumHelper.addToolMaterial("ToolWoodH", 0, 59, 2.0F, 2.0F, 15);
-	public static EnumToolMaterial toolMaterialStoneH = EnumHelper.addToolMaterial("ToolStoneH", 1, 131, 4.0F, 3.0F, 5);
-	public static EnumToolMaterial toolMaterialIronH = EnumHelper.addToolMaterial("ToolIronH", 2, 250, 6.0F, 4.0F, 14);
-	public static EnumToolMaterial toolMaterialDiamondH = EnumHelper.addToolMaterial("ToolDiamondH", 3, 1561, 8.0F, 5.0F, 10);
-	public static EnumToolMaterial toolMaterialGoldH = EnumHelper.addToolMaterial("ToolGoldH", 0, 32, 12.0F, 2.0F, 22);
+	public static ToolMaterial toolMaterialWoodH = EnumHelper.addToolMaterial("ToolWoodH", 0, 59, 2.0F, 2.0F, 15);
+	public static ToolMaterial toolMaterialStoneH = EnumHelper.addToolMaterial("ToolStoneH", 1, 131, 4.0F, 3.0F, 5);
+	public static ToolMaterial toolMaterialIronH = EnumHelper.addToolMaterial("ToolIronH", 2, 250, 6.0F, 4.0F, 14);
+	public static ToolMaterial toolMaterialDiamondH = EnumHelper.addToolMaterial("ToolDiamondH", 3, 1561, 8.0F, 5.0F, 10);
+	public static ToolMaterial toolMaterialGoldH = EnumHelper.addToolMaterial("ToolGoldH", 0, 32, 12.0F, 2.0F, 22);
 	
-	public static EnumToolMaterial toolMaterialSandstoneH = EnumHelper.addToolMaterial("ToolSandstoneH", 1, 111, 4.5F, 4, 6);
-	public static EnumToolMaterial toolMaterialGraniteH = EnumHelper.addToolMaterial("ToolGraniteH", 1, 199, 4.3F, 4, 4);
-	public static EnumToolMaterial toolMaterialCopperH = EnumHelper.addToolMaterial("ToolCopperH", 1, 139, 5.0F, 4, 10);
-	public static EnumToolMaterial toolMaterialSteelH = EnumHelper.addToolMaterial("ToolSteelH", 2, 300, 7.5F, 5, 15);
-	public static EnumToolMaterial toolMaterialBronzeH = EnumHelper.addToolMaterial("ToolBronzeH", 2, 1501, 6.5F, 4, 8);
-	public static EnumToolMaterial toolMaterialMeuroditeH = EnumHelper.addToolMaterial("ToolMeuroditeH", 2, 805, 7.0F, 4, 15);
-	public static EnumToolMaterial toolMaterialToriteH = EnumHelper.addToolMaterial("ToolToriteH", 2, 699, 6.0F, 5, 20);
-	public static EnumToolMaterial toolMaterialBlaziumH = EnumHelper.addToolMaterial("ToolBlaziumH", 2, 799, 8.0F, 5, 18);
-	public static EnumToolMaterial toolMaterialTitaniumH = EnumHelper.addToolMaterial("ToolTitaniumH", 4, 2999, 10.0F, 6, 11);
+	public static ToolMaterial toolMaterialSandstoneH = EnumHelper.addToolMaterial("ToolSandstoneH", 1, 111, 4.5F, 4, 6);
+	public static ToolMaterial toolMaterialGraniteH = EnumHelper.addToolMaterial("ToolGraniteH", 1, 199, 4.3F, 4, 4);
+	public static ToolMaterial toolMaterialCopperH = EnumHelper.addToolMaterial("ToolCopperH", 1, 139, 5.0F, 4, 10);
+	public static ToolMaterial toolMaterialSteelH = EnumHelper.addToolMaterial("ToolSteelH", 2, 300, 7.5F, 5, 15);
+	public static ToolMaterial toolMaterialBronzeH = EnumHelper.addToolMaterial("ToolBronzeH", 2, 1501, 6.5F, 4, 8);
+	public static ToolMaterial toolMaterialMeuroditeH = EnumHelper.addToolMaterial("ToolMeuroditeH", 2, 805, 7.0F, 4, 15);
+	public static ToolMaterial toolMaterialToriteH = EnumHelper.addToolMaterial("ToolToriteH", 2, 699, 6.0F, 5, 20);
+	public static ToolMaterial toolMaterialBlaziumH = EnumHelper.addToolMaterial("ToolBlaziumH", 2, 799, 8.0F, 5, 18);
+	public static ToolMaterial toolMaterialTitaniumH = EnumHelper.addToolMaterial("ToolTitaniumH", 4, 2999, 10.0F, 6, 11);
 	
 	public static CreativeTabs tabItems = new CreativeTabExtraMobDropsItems(CreativeTabs.getNextID(), "Extrappolated Mob Drops - Items");
 
@@ -208,11 +207,11 @@ public class EMDItemManager
 		legSpider = new MItem(EMDConfig.legSpiderId).setUnlocalizedName("spider_leg").setCreativeTab(tabItems);
 		poisonSack = new MItem(EMDConfig.poisonSackId).setUnlocalizedName("poison_sack").setCreativeTab(tabItems);
 		
-		swordPoisonWood = new ItemPoisonSword(EMDConfig.swordPoisonWoodId, EnumToolMaterial.WOOD, Item.swordWood.itemID).setUnlocalizedName("woodSwordPoison").setTextureName("wood_sword").setCreativeTab(tabItems);
-		swordPoisonStone = new ItemPoisonSword(EMDConfig.swordPoisonStoneId, EnumToolMaterial.STONE, Item.swordStone.itemID).setUnlocalizedName("stoneSwordPoison").setTextureName("stone_sword").setCreativeTab(tabItems);
-		swordPoisonIron = new ItemPoisonSword(EMDConfig.swordPoisonIronId, EnumToolMaterial.IRON, Item.swordIron.itemID).setUnlocalizedName("ironSwordPoison").setTextureName("iron_sword").setCreativeTab(tabItems);
-		swordPoisonDiamond = new ItemPoisonSword(EMDConfig.swordPoisonDiamondId, EnumToolMaterial.EMERALD, Item.swordDiamond.itemID).setUnlocalizedName("diamondSwordPoison").setTextureName("diamond_sword").setCreativeTab(tabItems);
-		swordPoisonGold = new ItemPoisonSword(EMDConfig.swordPoisonGoldId, EnumToolMaterial.GOLD, Item.swordGold.itemID).setUnlocalizedName("goldSwordPoison").setTextureName("gold_sword").setCreativeTab(tabItems);
+		swordPoisonWood = new ItemPoisonSword(EMDConfig.swordPoisonWoodId, ToolMaterial.WOOD, Item.swordWood.itemID).setUnlocalizedName("woodSwordPoison").setTextureName("wood_sword").setCreativeTab(tabItems);
+		swordPoisonStone = new ItemPoisonSword(EMDConfig.swordPoisonStoneId, ToolMaterial.STONE, Item.swordStone.itemID).setUnlocalizedName("stoneSwordPoison").setTextureName("stone_sword").setCreativeTab(tabItems);
+		swordPoisonIron = new ItemPoisonSword(EMDConfig.swordPoisonIronId, ToolMaterial.IRON, Item.swordIron.itemID).setUnlocalizedName("ironSwordPoison").setTextureName("iron_sword").setCreativeTab(tabItems);
+		swordPoisonDiamond = new ItemPoisonSword(EMDConfig.swordPoisonDiamondId, ToolMaterial.EMERALD, Item.swordDiamond.itemID).setUnlocalizedName("diamondSwordPoison").setTextureName("diamond_sword").setCreativeTab(tabItems);
+		swordPoisonGold = new ItemPoisonSword(EMDConfig.swordPoisonGoldId, ToolMaterial.GOLD, Item.swordGold.itemID).setUnlocalizedName("goldSwordPoison").setTextureName("gold_sword").setCreativeTab(tabItems);
 		
 		guano = new ItemGuano(EMDConfig.guanoId).setUnlocalizedName("guano").setCreativeTab(tabItems);
 		carcassSilverfish = new MItem(EMDConfig.carcassSilverfishId).setUnlocalizedName("silverfish_carcass").setCreativeTab(tabItems);

@@ -9,9 +9,9 @@ import sobiohazardous.minestrappolation.api.item.MItemFood;
 
 public class ItemEnderCore extends MItemFood
 {
-	public ItemEnderCore(int id, int healAmt, float sat) 
+	public ItemEnderCore(int healAmt, float sat) 
 	{
-		super(id, healAmt, sat);
+		super(healAmt, sat);
 		this.setMaxStackSize(16);
 		this.setAlwaysEdible();
 	}
