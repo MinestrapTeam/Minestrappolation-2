@@ -17,12 +17,12 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "2.0"
-group= "sobiohazardous.minestrappolation" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "Minestrappolation"
+version = "1.0"
+group= "com.yourname.modid" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "modid"
 
 minecraft {
-    version = "1.7.2-10.12.0.1031"
+    version = "1.7.2-10.12.0.1039"
     assetDir = "eclipse/assets"
 }
 processResources
