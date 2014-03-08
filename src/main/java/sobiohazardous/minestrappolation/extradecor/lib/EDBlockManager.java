@@ -7,6 +7,7 @@ import sobiohazardous.minestrappolation.api.block.BlockPillar;
 import sobiohazardous.minestrappolation.api.block.MBlock;
 import sobiohazardous.minestrappolation.api.item.MItemBlockPlacer;
 import sobiohazardous.minestrappolation.api.item.MItem;
+import sobiohazardous.minestrappolation.api.lib.MAPIReference;
 import sobiohazardous.minestrappolation.api.util.MAssetManager;
 import sobiohazardous.minestrappolation.extradecor.CreativeTabExtraDecorBlocks;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
@@ -198,7 +199,7 @@ public class EDBlockManager
 		GameRegistry.registerBlock(glassRefined, "glassRefined");
 		GameRegistry.registerBlock(glassRefinedPane, "glassRefinedPane");
 		GameRegistry.registerBlock(gunpowderBlock, "gunpowderBlock");
-		GameRegistry.registerBlock(rope, "rope");
+		GameRegistry.registerBlock(rope, MItemBlockPlacer.class, "rope");
 		GameRegistry.registerBlock(ropeCoil, "ropeCoil");
 		GameRegistry.registerBlock(woodPanel, "woodPanel");
 		GameRegistry.registerBlock(woodBeveled, "woodBeveled");
@@ -239,7 +240,7 @@ public class EDBlockManager
 	
 	public static void loadBridgedBlocks() throws Exception
 	{
-		if(Loader.isModLoaded("ExtraOres"))
+		if(Loader.isModLoaded(MAPIReference.MODID_EO))
 		{
 			bedrockBrick = new BlockBedrockBrick().setBlockName("BedrockBrick").setStepSound(Block.soundTypeStone).setResistance(100000000F).setHardness(80F).setCreativeTab(tabDecorBlocks).setBlockTextureName(MAssetManager.getEDStonecutterTexture("Bedrock_Tiles_0_0"));
 			GameRegistry.registerBlock(bedrockBrick,"BedrockBrick");

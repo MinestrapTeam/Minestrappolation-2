@@ -19,5 +19,8 @@ public class MAPIReference
 	public static final String MODID_EMD = "ExtraMobDrops";
 	public static final String MODNAME_EMD = "Extrapolated Mob Drops";
 	public static final String VERSION_EMD = "1.0";
-
+	
+	public static final String MODID_EE = "ExtraEnviroments";
+	public static final String MODNAME_EE = "Extrapolated Enviroments";
+	public static final String VERSION_EE = "1.0";
 }

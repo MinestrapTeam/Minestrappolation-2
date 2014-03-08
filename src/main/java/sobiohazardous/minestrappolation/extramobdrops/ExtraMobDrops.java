@@ -25,9 +25,6 @@ import sobiohazardous.minestrappolation.extramobdrops.lib.EMDPotionManager;
 import sobiohazardous.minestrappolation.extramobdrops.lib.EMDRecipeManager;
 
 /**
- * 
- * 
- * 
  * @author SoBiohazardous
  */
 @Mod ( modid = MAPIReference.MODID_EMD, name=MAPIReference.MODNAME_EMD, version=MAPIReference.VERSION_EMD, dependencies = "required-after:Minestrappolation")
@@ -44,7 +41,6 @@ public class ExtraMobDrops
 		//Lib init
 		EMDConfig.initConfig(e);
 		EMDItemManager.loadItems();		
-		EMDItemManager.loadNames();
 		EMDRecipeManager.loadRecipes();			
 	}
 	
@@ -61,6 +57,12 @@ public class ExtraMobDrops
 		EMDPotionManager.loadPotions();
 		EMDPotionManager.loadBrewingRecipes();
 		
+		
+	}
+
+	@Mod.EventHandler
+	public void postLoad(FMLPostInitializationEvent e)
+	{
 		try
 		{
 			EMDRecipeManager.loadBridgeRecipes();
@@ -71,11 +73,5 @@ public class ExtraMobDrops
 			System.err.println("ExtraMobDrops: Could not load bridge recipes/items. Heres why: ");
 			ex.printStackTrace();
 		}		
-	}
-
-	@Mod.EventHandler
-	public void postLoad(FMLPostInitializationEvent e)
-	{
-		
 	}
 }

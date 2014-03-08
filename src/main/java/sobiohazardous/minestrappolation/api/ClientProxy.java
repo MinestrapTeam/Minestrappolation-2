@@ -9,9 +9,7 @@ import net.minecraft.client.renderer.texture.ITextureObject;
 import net.minecraft.util.ResourceLocation;
 
 public class ClientProxy extends CommonProxy
-{
-public static int	splashpotioncolor;
-	
+{	
 	@Override
 	public void registerRenderers()
 	{
@@ -21,14 +19,13 @@ public static int	splashpotioncolor;
 	
 	public static void addDevCapes() 
 	{
-		String capeURL = "https://raw.github.com/SoBiohazardous/Minestrappolation-Recode/master/src/main/resources/cape_dev.png";
+		String capeURL = "https://raw.github.com/SoBiohazardous/Minestrappolation-Recode/master/src/main/resources/assets/minestrappolation/textures/misc/cape_dev.png";
 		String[] devs = {"SoBiohazardous", "Delocuro", "triplg3", "thewerty1124"};
 
 		ThreadDownloadImageData image = new ThreadDownloadImageData(capeURL, null, null);
 
 		for (String username : devs) 
 		{
-
 			Minecraft.getMinecraft().renderEngine.loadTexture(new ResourceLocation("cloaks/" + username), (ITextureObject) image);
 		}
 	}

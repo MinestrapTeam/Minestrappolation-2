@@ -1,5 +1,6 @@
 package sobiohazardous.minestrappolation.extradecor.lib;
 
+import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import sobiohazardous.minestrappolation.api.item.MItem;
 import sobiohazardous.minestrappolation.api.item.MItemBlockPlacer;
@@ -36,9 +37,12 @@ public class EDItemManager
 	{
 		cardboardItem = new MItemBlockPlacer(EDBlockManager.cardboard).setCreativeTab(EDBlockManager.tabDecorBlocks).setUnlocalizedName("item_Cardboard");
 		sandstoneBrickItem = new MItem().setUnlocalizedName("item_SandstoneBrick").setCreativeTab(EDBlockManager.tabDecorBlocks);
+		GameRegistry.registerItem(sandstoneBrickItem, "sandstoneBrickItem");
 		stoneBrickItem = new MItem().setUnlocalizedName("item_StoneBrick").setCreativeTab(EDBlockManager.tabDecorBlocks);
+		GameRegistry.registerItem(stoneBrickItem, "stoneBrickItem");
 		gobletItem = new MItemBlockPlacer(EDBlockManager.Goblet).setCreativeTab(EDBlockManager.tabDecorBlocks).setUnlocalizedName("item_GobletEmpty");
 		gDoor = new ItemGDoor(Material.glass).setUnlocalizedName("item_GlassDoor");
+		GameRegistry.registerItem(gDoor, "glassDoorItem");
 	}
 	
 	public static void setHarvestLevels()

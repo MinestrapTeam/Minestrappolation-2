@@ -1,6 +1,7 @@
 package sobiohazardous.minestrappolation.extraenviroments;
 
 import net.minecraft.world.biome.BiomeGenBase;
+import sobiohazardous.minestrappolation.api.lib.MAPIReference;
 import sobiohazardous.minestrappolation.extraenviroments.lib.EEBlockManager;
 import sobiohazardous.minestrappolation.extraenviroments.lib.EEConfig;
 import sobiohazardous.minestrappolation.extraenviroments.lib.EEItemManager;
@@ -14,9 +15,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@Mod(modid="ExtraEnviroments", name="Extra Enviroments", version="B1.0")
-
-
+@Mod(modid=MAPIReference.MODID_EE, name=MAPIReference.MODNAME_EE, version=MAPIReference.VERSION_EE)
 public class ExtraEnviroments 
 {
 	@Instance("ExtraEnviroments")

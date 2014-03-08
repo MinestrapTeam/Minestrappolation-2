@@ -64,7 +64,5 @@ public class Minestrappolation
 	@EventHandler
 	public void postLoad(FMLPostInitializationEvent evt)
 	{
-		System.out.println(Minecraft.getMinecraft().mcDataDir.toPath());
-
 	}
 }

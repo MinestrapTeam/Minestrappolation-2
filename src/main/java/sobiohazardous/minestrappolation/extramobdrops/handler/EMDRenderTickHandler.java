@@ -2,6 +2,7 @@ package sobiohazardous.minestrappolation.extramobdrops.handler;
 
 import org.lwjgl.opengl.GL11;
 
+import sobiohazardous.minestrappolation.api.util.MAssetManager;
 import sobiohazardous.minestrappolation.extramobdrops.lib.EMDItemManager;
 import sobiohazardous.minestrappolation.extramobdrops.tileentity.ModelHangGlider;
 import net.minecraft.client.Minecraft;
@@ -30,17 +31,17 @@ public class EMDRenderTickHandler
 	@SubscribeEvent
 	public void onRenderTick(RenderTickEvent event)
 	{
+		/*
 		if (event.phase == Phase.START)
 		{
 			WorldClient world = mc.theWorld;
-			for(int i = 0; i < world.playerEntities.size(); i++)
-	         {
-				EntityPlayer player = (EntityPlayer)world.playerEntities.get(i);
+			
+				EntityPlayer player = mc.thePlayer;
 	            if(player.inventory.getCurrentItem() != EMDItemManager.hangGlider.getContainerItem(null))
 	            {	
 	            	GL11.glPushMatrix();
 	         		ModelHangGlider m = new ModelHangGlider();		
-	         		Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation("minestrappolation:textures/misc/HangGlider.png"));
+	         		Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation(MAssetManager.getEMDTexture("textures/misc/hangGlider.png")));
 	         		int tick = 0;
 	         		tick++;
 	         		float rotateYaw = EMDEventHandler.interpolateRotation(player.prevRotationYaw, player.rotationYaw, tick);
@@ -50,7 +51,8 @@ public class EMDRenderTickHandler
 	         		m.render(0.0625F);
 	         		GL11.glPopMatrix();		
 	         	}		
-	         }
+	         
 		}
+		*/
 	}
 }

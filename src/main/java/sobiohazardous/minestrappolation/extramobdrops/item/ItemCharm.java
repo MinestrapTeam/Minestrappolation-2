@@ -5,6 +5,7 @@ import java.util.List;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import sobiohazardous.minestrappolation.api.item.MItem;
+import sobiohazardous.minestrappolation.api.lib.MAPIReference;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -15,7 +16,7 @@ import net.minecraft.util.MathHelper;
 
 public class ItemCharm extends Item
 {
-    public static final String[] geneNames = new String[] {"pig", "cow", "chicken", "sheep", "horse"};
+    public static final String[] geneNames = new String[] {"Pig", "Cow", "Chicken", "Sheep", "Horse"};
     @SideOnly(Side.CLIENT)
     private IIcon[] geneIcons;
     
@@ -53,7 +54,7 @@ public class ItemCharm extends Item
 
         for (int i = 0; i < geneNames.length; ++i)
         {
-            this.geneIcons[i] = par1IconRegister.registerIcon("Minestrappolation:" + geneNames[i] + "_" + this.getUnlocalizedName().substring(5));
+            this.geneIcons[i] = par1IconRegister.registerIcon(MAPIReference.MODID_EMD + ":charm" + geneNames[i]);
         }
     }
 }
