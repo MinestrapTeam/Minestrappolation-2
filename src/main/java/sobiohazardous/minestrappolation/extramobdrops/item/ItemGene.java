@@ -2,6 +2,7 @@ package sobiohazardous.minestrappolation.extramobdrops.item;
 
 import java.util.List;
 
+import sobiohazardous.minestrappolation.api.lib.MAPIReference;
 import sobiohazardous.minestrappolation.extramobdrops.lib.EMDItemManager;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -14,7 +15,7 @@ import net.minecraft.util.MathHelper;
 
 public class ItemGene extends Item
 {
-    public static final String[] geneNames = new String[] {"pig", "cow", "chicken", "sheep", "horse", "mooshroom", "squid", "ocelot", "wolf", "bat"};
+    public static final String[] geneNames = new String[] {"Pig", "Cow", "Chicken", "Sheep", "Horse", "Mooshroom", "Squid", "Ocelot", "Wolf", "Bat"};
     @SideOnly(Side.CLIENT)
     private IIcon[] geneIcons;
 
@@ -55,7 +56,7 @@ public class ItemGene extends Item
 
         for (int i = 0; i < geneNames.length; ++i)
         {
-            this.geneIcons[i] = par1IconRegister.registerIcon("Minestrappolation:" + geneNames[i] + "_" + this.getUnlocalizedName().substring(5));
+            this.geneIcons[i] = par1IconRegister.registerIcon(MAPIReference.MODID_EMD + ":gene" + geneNames[i]);
         }
     }
 }

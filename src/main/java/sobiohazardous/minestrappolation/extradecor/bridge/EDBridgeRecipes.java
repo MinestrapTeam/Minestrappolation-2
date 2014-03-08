@@ -5,6 +5,7 @@ import java.lang.reflect.Field;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
+import sobiohazardous.minestrappolation.api.lib.MAPIReference;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
 import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
 import cpw.mods.fml.common.Loader;
@@ -16,9 +17,9 @@ import cpw.mods.fml.common.registry.GameRegistry;
  */
 public class EDBridgeRecipes 
 {
-	private static boolean hasExtraOres = Loader.isModLoaded("ExtraOres");
+	private static boolean hasExtraOres = Loader.isModLoaded(MAPIReference.MODID_EO);
 	
-	static Block sunstone = GameRegistry.findBlock("ExtraOres", "Sunstone");
+	static Block sunstone = GameRegistry.findBlock(MAPIReference.MODID_EO, "Sunstone");
 	
 	public static void loadBridgeRecipes() throws Exception
 	{	

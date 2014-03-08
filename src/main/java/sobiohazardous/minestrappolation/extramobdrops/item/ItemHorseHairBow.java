@@ -1,6 +1,7 @@
 package sobiohazardous.minestrappolation.extramobdrops.item;
 
 import sobiohazardous.minestrappolation.api.item.MItem;
+import sobiohazardous.minestrappolation.api.lib.MAPIReference;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -21,7 +22,7 @@ import net.minecraftforge.event.entity.player.ArrowNockEvent;
 
 public class ItemHorseHairBow extends MItem
 {
-    public static final String[] bowPullIconNameArray = new String[] {"pulling_0", "pulling_1", "pulling_2"};
+    public static final String[] bowPullIconNameArray = new String[] {"0", "1", "2"};
     @SideOnly(Side.CLIENT)
     private IIcon[] iconArray;
 
@@ -161,12 +162,12 @@ public class ItemHorseHairBow extends MItem
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister par1IconRegister)
     {
-        this.itemIcon = par1IconRegister.registerIcon("Minestrappolation:" + "horsehair_bow" + "_standby");
+        this.itemIcon = par1IconRegister.registerIcon(MAPIReference.MODID_EMD + ":horseHairBow");
         this.iconArray = new IIcon[bowPullIconNameArray.length];
 
         for (int i = 0; i < this.iconArray.length; ++i)
         {
-            this.iconArray[i] = par1IconRegister.registerIcon("Minestrappolation:"  + "horsehair_bow" + "_" + bowPullIconNameArray[i]);
+            this.iconArray[i] = par1IconRegister.registerIcon(MAPIReference.MODID_EMD + "horseHairBow" + bowPullIconNameArray[i]);
         }
     }
 

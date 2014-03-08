@@ -9,7 +9,7 @@ import net.minecraft.util.IChatComponent;
 public class ChatMessageHandler 
 {
 
-    private static final IChatComponent minestrapChatComponent = createSckChatComponent("MINESTRAPPOLATION");
+    private static final IChatComponent minestrapChatComponent = createSckChatComponent("");
 
     public static void iCommandSenderReply(ICommandSender player, String message) 
     {
