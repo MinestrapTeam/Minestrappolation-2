@@ -6,16 +6,15 @@ import clashsoft.cslib.util.CSArrays;
 
 public class ArraySet<E> extends AbstractSet<E>
 {
-	private static final int MAX_ARRAY_SIZE = Integer.MAX_VALUE - 8;
+	private static final int	MAX_ARRAY_SIZE	= Integer.MAX_VALUE - 8;
 	
-	private Object[]	entries;
+	private Object[]			entries;
 	
-	private int			initialCapacity;
-	private int			size			= 0;
+	private int					initialCapacity;
+	private int					size			= 0;
 	
-	private int			currentIndex	= 0;
+	private int					currentIndex	= 0;
 	
-
 	private transient Object[]	toArray;
 	
 	public ArraySet()
@@ -132,22 +131,21 @@ public class ArraySet<E> extends AbstractSet<E>
 		if (minCapacity - this.entries.length > 0)
 		{
 			int oldCapacity = entries.length;
-	        int newCapacity = oldCapacity + (oldCapacity >> 1);
-	        if (newCapacity - minCapacity < 0)
-	            newCapacity = initialCapacity;
-	        if (newCapacity - MAX_ARRAY_SIZE > 0)
-	            newCapacity = hugeCapacity(minCapacity);
-	        this.entries = Arrays.copyOf(entries, newCapacity);
+			int newCapacity = oldCapacity + (oldCapacity >> 1);
+			if (newCapacity - minCapacity < 0)
+				newCapacity = initialCapacity;
+			if (newCapacity - MAX_ARRAY_SIZE > 0)
+				newCapacity = hugeCapacity(minCapacity);
+			this.entries = Arrays.copyOf(entries, newCapacity);
 		}
 	}
 	
-	private static int hugeCapacity(int minCapacity) {
-        if (minCapacity < 0) // overflow
-            throw new OutOfMemoryError();
-        return (minCapacity > MAX_ARRAY_SIZE) ?
-            Integer.MAX_VALUE :
-            MAX_ARRAY_SIZE;
-    }
+	private static int hugeCapacity(int minCapacity)
+	{
+		if (minCapacity < 0) // overflow
+			throw new OutOfMemoryError();
+		return (minCapacity > MAX_ARRAY_SIZE) ? Integer.MAX_VALUE : MAX_ARRAY_SIZE;
+	}
 	
 	protected int nextIndex()
 	{

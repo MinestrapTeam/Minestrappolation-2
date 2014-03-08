@@ -1,12 +1,9 @@
 package clashsoft.cslib.collections;
 
 import java.lang.reflect.Array;
-import java.lang.reflect.Field;
-import java.lang.reflect.ParameterizedType;
 import java.util.*;
 
 import clashsoft.cslib.util.CSArrays;
-import clashsoft.cslib.util.CSLog;
 
 /**
  * The class CSCollections.
@@ -17,9 +14,6 @@ import clashsoft.cslib.util.CSLog;
  */
 public class CSCollections
 {
-	/** Hacky way to get the component type of a list **/
-	public static Collection<?>	tempCollection;
-	
 	/**
 	 * Creates a new list from the given {@code array}
 	 * 
@@ -66,19 +60,20 @@ public class CSCollections
 	 */
 	public static Class getComponentType(Collection collection)
 	{
-		tempCollection = collection;
-		try
+		Class type = null;
+		for (Object o : collection)
 		{
-			Field tempCollectionField = CSCollections.class.getDeclaredField("tempCollection");
-			ParameterizedType tempCollectionType = (ParameterizedType) tempCollectionField.getGenericType();
-			Class tempCollectionClass = (Class) tempCollectionType.getActualTypeArguments()[0];
-			return tempCollectionClass;
+			Class c = o.getClass();
+			if (type == null)
+			{
+				type = c;
+			}
+			else if (c.isAssignableFrom(type))
+			{
+				type = c;
+			}
 		}
-		catch (Exception ex)
-		{
-			CSLog.error(ex);
-		}
-		return Object.class;
+		return type;
 	}
 	
 	/**

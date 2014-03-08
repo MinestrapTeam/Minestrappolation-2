@@ -35,6 +35,11 @@ public class CSReflection
 	
 	public static String getCallerClassName()
 	{
+		return getCaller().getClassName();
+	}
+	
+	public static StackTraceElement getCaller()
+	{
 		StackTraceElement[] stElements = Thread.currentThread().getStackTrace();
 		String callerClassName = null;
 		
@@ -48,7 +53,7 @@ public class CSReflection
 				if (callerClassName == null)
 					callerClassName = className;
 				else if (!callerClassName.equals(className))
-					return ste.getClassName();
+					return ste;
 			}
 		}
 		

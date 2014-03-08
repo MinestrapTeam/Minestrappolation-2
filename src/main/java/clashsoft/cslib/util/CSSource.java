@@ -139,6 +139,89 @@ public class CSSource extends CSString
 		return new int[] { depth1, depth2, depth3, depth4, other };
 	}
 	
+	public static List<String> codeSplit(String text, char split)
+	{
+		int len = text.length();
+		
+		List<String> result = new ArrayList<String>();
+		
+		int depth1 = 0; // Depth of ( )
+		int depth2 = 0; // Depth of [ ]
+		int depth3 = 0; // Depth of { }
+		int depth4 = 0; // Depth of < >
+		
+		boolean quote = false;
+		int index = 0;
+		char current = 0;
+		char last = 0;
+		
+		for (int i = 0; i < len;)
+		{
+			int i0 = i + 1;
+			current = text.charAt(i);
+			
+			if (last != '\\')
+			{
+				if (current == '"')
+				{
+					quote = !quote;
+				}
+				else if (!quote)
+				{
+					if (current == '(')
+					{
+						depth1++;
+					}
+					else if (current == ')')
+					{
+						depth1--;
+					}
+					else if (current == '[')
+					{
+						depth2++;
+					}
+					else if (current == ']')
+					{
+						depth2--;
+					}
+					else if (current == '{')
+					{
+						depth3++;
+					}
+					else if (current == '}')
+					{
+						depth3--;
+					}
+					else if (current == '<')
+					{
+						depth4++;
+					}
+					else if (current == '>')
+					{
+						depth4--;
+					}
+					
+				}
+				
+				if (!quote && depth1 == 0 && depth2 == 0 && depth3 == 0 && depth4 == 0)
+				{
+					if (current == split)
+					{
+						result.add(text.substring(index, i));
+						index = i0;
+					}
+					else if (i0 == len)
+					{
+						result.add(text.substring(index, i0));
+					}
+				}
+			}
+			last = current;
+			i = i0;
+		}
+		return result;
+	}
+	
 	/**
 	 * Strips comments from Java source code.
 	 * 
