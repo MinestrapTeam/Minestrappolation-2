@@ -1,15 +1,19 @@
 package sobiohazardous.minestrappolation.extramobdrops.handler;
 
+import io.netty.buffer.ByteBuf;
+
 import java.util.Collection;
 
 import org.lwjgl.opengl.GL11;
 
+import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import sobiohazardous.minestrappolation.extramobdrops.lib.EMDItemManager;
 import sobiohazardous.minestrappolation.extramobdrops.lib.EMDPotionManager;
 import sobiohazardous.minestrappolation.extramobdrops.tileentity.ModelHangGlider;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.entity.boss.EntityWither;
 import net.minecraft.entity.monster.*;
 import net.minecraft.entity.passive.*;
@@ -17,11 +21,13 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.network.play.client.C17PacketCustomPayload;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.RenderPlayerEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
+import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.EntityInteractEvent;
@@ -369,18 +375,14 @@ public class EMDEventHandler
 	
 	/*
 	@SubscribeEvent
-	public void renderPlayer (RenderPlayerEvent.Pre evt)
+	public void renderPlayer(RenderPlayerEvent.Pre evt)
 	{
-		//add if statements to check if holding item
-		//bind the model texture (this is hard)
-		//rotate model above player (GL11)
-		//make the players hands move upward
-		if(evt.entityPlayer.inventory.getCurrentItem() != EMDItemManager.hangGlider.getContainerItemStack(null))
-		{
-			
+		
+		if(evt.entityPlayer.inventory.getCurrentItem() != EMDItemManager.hangGlider.getContainerItem(null))
+		{		
 			GL11.glPushMatrix();
 			ModelHangGlider m = new ModelHangGlider();		
-			Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation("minestrappolation:textures/misc/HangGlider.png"));
+			Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation("extramobdrops:textures/misc/hangGlider.png"));
 			int tick = 0;
 			tick++;
 			float rotateYaw = this.interpolateRotation(evt.entityPlayer.prevRotationYaw, evt.entityPlayer.rotationYaw, tick);
@@ -388,9 +390,9 @@ public class EMDEventHandler
 			GL11.glRotatef(180F, 0, 0, 1);
 			GL11.glTranslatef(0, 0, -0.5F);				
 			m.render(0.0625F);
-			GL11.glPopMatrix();
-			
-		}		
+			GL11.glPopMatrix();			
+		}	
+		
 	}
 	*/
 	

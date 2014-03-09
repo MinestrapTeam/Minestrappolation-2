@@ -5,6 +5,8 @@ import java.io.DataOutputStream;
 import java.util.Random;
 
 import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.network.handshake.NetworkDispatcher;
 import cpw.mods.fml.relauncher.Side;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityClientPlayerMP;
@@ -15,6 +17,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import sobiohazardous.minestrappolation.api.item.MItem;
+import sobiohazardous.minestrappolation.extramobdrops.entity.EntityHangGlider;
 import sobiohazardous.minestrappolation.extramobdrops.lib.EMDItemManager;
 
 public class ItemHangGlider extends MItem
@@ -28,8 +31,19 @@ public class ItemHangGlider extends MItem
 		this.setMaxDamage(25);
 	}
 
+	public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, int i, int j, int k, int par7, float par8, float par9, float par10)
+	{
+		if(!world.isRemote)
+		{
+			EntityHangGlider entity = new EntityHangGlider(world, i, j, k, player, itemStack);
+			world.spawnEntityInWorld(entity);
+			return true;
+		}
+		return false;
+	}
     public void onUpdate(ItemStack par1ItemStack, World par2World, Entity par3Entity, int par4, boolean par5)
     {    	
+    	/*
     	EntityPlayer player = (EntityPlayer)par3Entity; 
     	if(player.inventory.getCurrentItem() != EMDItemManager.hangGlider.getContainerItem(par1ItemStack) && player.onGround == false && player.isInWater() == false)
     	{
@@ -69,19 +83,18 @@ public class ItemHangGlider extends MItem
     			player.motionZ = 0;
     			checking = false;
     			initCheck = true;
-    		}   						
-    		
+    		}   			
     		//wall colision
-    		/*if((Math.abs(prev2XMotion) > 0.3 || Math.abs(prev2ZMotion) > 0.3 || (Math.abs(prev2XMotion) > 0.3 && Math.abs(prev2ZMotion) > 0.3)) && player.isCollidedHorizontally && Math.abs(player.motionY) > 0.13)
+    		if((Math.abs(prev2XMotion) > 0.3 || Math.abs(prev2ZMotion) > 0.3 || (Math.abs(prev2XMotion) > 0.3 && Math.abs(prev2ZMotion) > 0.3)) && player.isCollidedHorizontally && Math.abs(player.motionY) > 0.13)
     		{
     			par1ItemStack.damageItem(1, Minecraft.getMinecraft().thePlayer);
-    		}*/
+    		}
     		//System.out.println("Checking" + checking);
     		//System.out.println("InitChecking" + initCheck);
     		//System.out.println("SpeedZ" + player.motionZ);
-    		//System.out.println("SpeedX" + player.motionX);
+    		//System.out.println("SpeedX" + player.motionX);			
     	}
-    	
+    	*/
     }
     
 }

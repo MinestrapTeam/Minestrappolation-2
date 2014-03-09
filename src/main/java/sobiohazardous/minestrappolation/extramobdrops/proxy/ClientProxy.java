@@ -2,7 +2,8 @@ package sobiohazardous.minestrappolation.extramobdrops.proxy;
 
 import java.util.EnumSet;
 
-import sobiohazardous.minestrappolation.extramobdrops.handler.EMDRenderTickHandler;
+import sobiohazardous.minestrappolation.extramobdrops.entity.EntityHangGlider;
+import sobiohazardous.minestrappolation.extramobdrops.tileentity.RenderHangGlider;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.player.EntityPlayer;
@@ -15,7 +16,8 @@ public class ClientProxy extends CommonProxy
     @Override
     public void registerRenderThings()
     {   
-    	FMLCommonHandler.instance().bus().register(new EMDRenderTickHandler(Minecraft.getMinecraft()));
+    	super.registerRenderThings();
+    	RenderingRegistry.registerEntityRenderingHandler(EntityHangGlider.class, new RenderHangGlider());
     }
     
    public static int addArmor(String armor)
