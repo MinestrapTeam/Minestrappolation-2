@@ -8,6 +8,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
+import net.minecraft.item.Item;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
@@ -16,7 +17,7 @@ public class BlockSoulOre extends MBlock
 	Random rand = new Random();
     public BlockSoulOre(int par1)
     {
-        super(par1, Material.sand);
+        super(Material.sand);
         this.setCreativeTab(EOBlockManager.tabOresBlocks);
     }
 
@@ -44,13 +45,13 @@ public class BlockSoulOre extends MBlock
         par5Entity.motionZ *= 0.4D;
     }
     
-    public int idDropped(int par1, Random par2Random, int par3)
+    public Item getItemDropped(int par1, Random par2Random, int par3)
     {
-    	return EOBlockManager.SoulGem.itemID;
+    	return EOBlockManager.SoulGem;
     }
     
     public void onBlockDestroyedByPlayer(World par1World, int par2, int par3, int par4, int par5) 
     {
-     this.dropXpOnBlockBreak(par1World, par2, par3, par4, rand.nextInt(6)+4); /* the 1 means it drops 1 xp, change it to 20, 100, as much as you want.*/
+    	this.dropXpOnBlockBreak(par1World, par2, par3, par4, rand.nextInt(6)+4); /* the 1 means it drops 1 xp, change it to 20, 100, as much as you want.*/
     }
 }

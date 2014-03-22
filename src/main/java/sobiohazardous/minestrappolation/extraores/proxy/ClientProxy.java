@@ -11,9 +11,7 @@ import sobiohazardous.minestrappolation.extraores.entity.EntityGrenadeSticky;
 import sobiohazardous.minestrappolation.extraores.entity.EntityNukePrimed;
 import sobiohazardous.minestrappolation.extraores.entity.EntityInstantExplosion;
 import sobiohazardous.minestrappolation.extraores.handler.RenderingHandler;
-import sobiohazardous.minestrappolation.extraores.lib.EOBlockRegister;
 import sobiohazardous.minestrappolation.extraores.lib.EOItemManager;
-import net.minecraft.src.ModLoader;
 import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -24,19 +22,10 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 public class ClientProxy extends CommonProxy
 {
 	public static String armorPrefix;
-    /*
-     * Anything you've put in CommonProxy, you can override here to implement it differently on Clients.
-     * Obvious applications include Rendering and Sound effects
-     * Hint: Client has access to Classes and Methods a Server doesn't know
-     */ 
     
     @Override
     public void registerRenderThings()
     {
-        /* Register Renderers for Blocks, Entities ... etc 
-         * use RenderingRegistry.registerEntityRenderingHandler for entities
-         * look at RenderingRegistry for more
-         */
 		RenderingRegistry.registerBlockHandler(new RenderingHandler());
 				
 		RenderingRegistry.registerEntityRenderingHandler(EntityNukePrimed.class, new RenderNukePrimed());

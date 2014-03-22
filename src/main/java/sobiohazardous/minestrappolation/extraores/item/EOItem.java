@@ -5,9 +5,9 @@ import sobiohazardous.minestrappolation.extraores.lib.EOItemManager;
 
 public class EOItem extends MItem
 {       
-	public EOItem(int i)
+	public EOItem()
     {
-		super(i);
+		super();
         this.setCreativeTab(EOItemManager.tabOresItems);	
     }                      		
 }

@@ -4,9 +4,10 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
 import sobiohazardous.minestrappolation.api.block.MBlock;
@@ -15,18 +16,18 @@ import sobiohazardous.minestrappolation.extraores.lib.EOItemManager;
 
 public class EOBlock extends MBlock
 {
-	public EOBlock(int par1, Material par3Material)
+	public EOBlock(Material par3Material)
     {
-        super(par1, par3Material);
+        super(par3Material);
         this.setCreativeTab(CreativeTabs.tabBlock);
     }
 
     /**
      * Returns the ID of the items to drop on destruction.
      */
-    public int idDropped(int par1, Random par2Random, int par3)
+    public Item getItemDropped(int par1, Random par2Random, int par3)
     {
-        return this.blockID == EOBlockManager.RadiantQuartzOre.blockID ? EOBlockManager.RadiantQuartz.itemID : this.blockID == EOBlockManager.BlaziumOre.blockID ? Item.blazePowder.itemID : (this.blockID == EOBlockManager.SunstoneOre.blockID ? EOItemManager.SunstoneDust.itemID : (this.blockID == EOBlockManager.SoulOre.blockID ? EOBlockManager.SoulGem.itemID : (this.blockID == EOBlockManager.PlutoniumOre.blockID ? EOItemManager.Plutonium.itemID : (this.blockID == EOBlockManager.UraniumOre.blockID ? EOItemManager.Uranium.itemID : (this.blockID == EOBlockManager.Quartzite.blockID ? EOItemManager.PinkQuartz.itemID : this.blockID == EOBlockManager.meuroditeOre.blockID ? EOItemManager.meuroditeIngot.itemID : this.blockID)))));
+        return this == EOBlockManager.RadiantQuartzOre ? EOBlockManager.RadiantQuartz : this == EOBlockManager.BlaziumOre ? Items.blaze_powder : (this == EOBlockManager.SunstoneOre ? EOItemManager.SunstoneDust : (this == EOBlockManager.SoulOre ? EOBlockManager.SoulGem : (this == EOBlockManager.PlutoniumOre ? EOItemManager.Plutonium : (this == EOBlockManager.UraniumOre ? EOItemManager.Uranium : (this == EOBlockManager.Quartzite ? EOItemManager.PinkQuartz : this == EOBlockManager.meuroditeOre ? EOItemManager.meuroditeIngot : Item.getItemFromBlock(this))))));
     }
 
     /**
@@ -34,12 +35,12 @@ public class EOBlock extends MBlock
      */
     public int quantityDropped(Random par1Random)
     {
-    	return this.blockID == EOBlockManager.RadiantQuartzOre.blockID ? 1 : this.blockID == EOBlockManager.BlaziumOre.blockID ? 1 + par1Random.nextInt(3) : (this.blockID == EOBlockManager.SunstoneOre.blockID ? 2 + par1Random.nextInt(4) : (this.blockID == EOBlockManager.SoulOre.blockID ? 2 + par1Random.nextInt(3) : (this.blockID == EOBlockManager.PlutoniumOre.blockID ? 1 + par1Random.nextInt(2) : (this.blockID == EOBlockManager.UraniumOre.blockID ? 1 + par1Random.nextInt(2) : (this.blockID == EOBlockManager.Quartzite.blockID ? 2 + par1Random.nextInt(3) : 1)))));
+    	return this == EOBlockManager.RadiantQuartzOre ? 1 : this == EOBlockManager.BlaziumOre ? 1 + par1Random.nextInt(3) : (this == EOBlockManager.SunstoneOre ? 2 + par1Random.nextInt(4) : (this == EOBlockManager.SoulOre ? 2 + par1Random.nextInt(3) : (this == EOBlockManager.PlutoniumOre ? 1 + par1Random.nextInt(2) : (this == EOBlockManager.UraniumOre ? 1 + par1Random.nextInt(2) : (this == EOBlockManager.Quartzite ? 2 + par1Random.nextInt(3) : 1)))));
     }
 
     public int quantityDroppedWithBonus(int par1, Random par2Random)
     {
-        if (par1 > 0 && this.blockID != this.idDropped(0, par2Random, par1))
+        if (par1 > 0 && Item.getItemFromBlock(this) != this.getItemDropped(0, par2Random, par1))
         {
             int var3 = par2Random.nextInt(par1 + 2) - 1;
 
@@ -66,7 +67,7 @@ public class EOBlock extends MBlock
     //code for Soul Ore slow effect
     public void onEntityCollidedWithBlock(World par1World, int par2, int par3, int par4, Entity par5Entity)
     {
-        if(blockID == EOBlockManager.SoulOre.blockID)
+        if(this == EOBlockManager.SoulOre)
         {
         	par5Entity.motionX *= 0.4D;
             par5Entity.motionZ *= 0.4D;
@@ -77,11 +78,15 @@ public class EOBlock extends MBlock
         	par5Entity.motionZ *= 1D;
         }
     }
+    
+    //TODO: READ BELOW
+    /* **METHODS DON'T EXIST. PLEASE FIND ALTERNATIVE!
     //Makes Extra Ores Bedrock and Invincium impervious to the Ender Dragon.
     public boolean canDragonDestroy(World world, int x, int y, int z)
     {
         return blockID != obsidian.blockID && blockID != whiteStone.blockID && blockID != bedrock.blockID;
     }
+    
     //Allows for "Ingot Blocks" to be used in Beacon base.
     public boolean isBeaconBase(World worldObj, int x, int y, int z, int beaconX, int beaconY, int beaconZ)
     {
@@ -89,7 +94,6 @@ public class EOBlock extends MBlock
     }
     //code for Soul Ore's "sink" effect.
     
-    /*
     public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int par2, int par3, int par4)
     {
         if (blockID == 216)
@@ -108,16 +112,20 @@ public class EOBlock extends MBlock
     Random rand = new Random();
     public void onBlockDestroyedByPlayer(World par1World, int par2, int par3, int par4, int par5) 
     {
-    	if(blockID == EOBlockManager.Quartzite.blockID){
+    	if(this == EOBlockManager.Quartzite)
+    	{
     		this.dropXpOnBlockBreak(par1World, par2, par3, par4, 1); /* the 1 means it drops 1 xp, change it to 20, 100, as much as you want.*/
     	}
-    	if(blockID == EOBlockManager.RadiantQuartzOre.blockID){
+    	if(this == EOBlockManager.RadiantQuartzOre)
+    	{
     		this.dropXpOnBlockBreak(par1World, par2, par3, par4, rand.nextInt(9)+4); /* the 1 means it drops 1 xp, change it to 20, 100, as much as you want.*/
     	}
-    	if(blockID == EOBlockManager.meuroditeOre.blockID){
+    	if(this == EOBlockManager.meuroditeOre)
+    	{
     		this.dropXpOnBlockBreak(par1World, par2, par3, par4, rand.nextInt(5)+2); /* the 1 means it drops 1 xp, change it to 20, 100, as much as you want.*/
     	}
-    	if(blockID == EOBlockManager.SoulOre.blockID){
+    	if(this == EOBlockManager.SoulOre)
+    	{
     		this.dropXpOnBlockBreak(par1World, par2, par3, par4, rand.nextInt(10)+6); /* the 1 means it drops 1 xp, change it to 20, 100, as much as you want.*/
     	}
      

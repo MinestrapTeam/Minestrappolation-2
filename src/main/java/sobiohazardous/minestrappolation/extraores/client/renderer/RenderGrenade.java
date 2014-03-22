@@ -10,7 +10,7 @@ import net.minecraft.entity.projectile.EntityPotion;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemPotion;
 import net.minecraft.potion.PotionHelper;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
@@ -40,7 +40,7 @@ public class RenderGrenade extends Render
      */
     public void doRender(Entity par1Entity, double par2, double par4, double par6, float par8, float par9)
     {
-        Icon icon = this.field_94151_a.getIconFromDamage(this.field_94150_f);
+        IIcon icon = this.field_94151_a.getIconFromDamage(this.field_94150_f);
 
         if (icon != null)
         {
@@ -78,7 +78,7 @@ public class RenderGrenade extends Render
         return TextureMap.locationItemsTexture;
     }
 
-    private void func_77026_a(Tessellator par1Tessellator, Icon par2Icon)
+    private void func_77026_a(Tessellator par1Tessellator, IIcon par2Icon)
     {
         float f = par2Icon.getMinU();
         float f1 = par2Icon.getMaxU();

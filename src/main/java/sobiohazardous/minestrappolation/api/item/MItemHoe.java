@@ -26,13 +26,6 @@ public class MItemHoe extends ItemHoe
         this.setCreativeTab(null);
     }
 	
-	/*
-	public void registerIcons(IconRegister r)
-	{
-		itemIcon = r.registerIcon("minestrappolation:" + this.getUnlocalizedName().substring(5));
-	}
-	*/
-	
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)
     {
 		if(MAPIConfig.showDur == true)

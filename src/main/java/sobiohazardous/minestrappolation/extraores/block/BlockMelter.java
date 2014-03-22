@@ -6,25 +6,27 @@ import cpw.mods.fml.relauncher.SideOnly;
 import java.util.List;
 import java.util.Random;
 
+import sobiohazardous.minestrappolation.api.util.MAssetManager;
 import sobiohazardous.minestrappolation.extraores.ExtraOres;
 import sobiohazardous.minestrappolation.extraores.lib.EOBlockManager;
 import sobiohazardous.minestrappolation.extraores.tileentity.TileEntityMelter;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.EnumChatFormatting;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
@@ -44,22 +46,22 @@ public class BlockMelter extends BlockContainer
      */
     private static boolean keepFurnaceInventory = false;
     @SideOnly(Side.CLIENT)
-    private Icon field_94458_cO;
+    private IIcon field_94458_cO;
     @SideOnly(Side.CLIENT)
-    private Icon field_94459_cP;
+    private IIcon field_94459_cP;
 
-    public BlockMelter(int par1, boolean par2)
+    public BlockMelter(boolean par2)
     {
-        super(par1, Material.rock);
+        super(Material.rock);
         this.isActive = par2;
     }
 
     /**
      * Returns the ID of the items to drop on destruction.
      */
-    public int idDropped(int par1, Random par2Random, int par3)
+    public Item getItemDropped(int par1, Random par2Random, int par3)
     {
-        return EOBlockManager.melterIdle.blockID;
+        return Item.getItemFromBlock(EOBlockManager.melterIdle);
     }
 
     /**
@@ -74,62 +76,68 @@ public class BlockMelter extends BlockContainer
     /**
      * set a blocks direction
      */
-    private void setDefaultDirection(World par1World, int par2, int par3, int par4)
+    private void setDefaultDirection(World p_149930_1_, int p_149930_2_, int p_149930_3_, int p_149930_4_)
     {
-        if (!par1World.isRemote)
+        if (!p_149930_1_.isRemote)
         {
-            int l = par1World.getBlockId(par2, par3, par4 - 1);
-            int i1 = par1World.getBlockId(par2, par3, par4 + 1);
-            int j1 = par1World.getBlockId(par2 - 1, par3, par4);
-            int k1 = par1World.getBlockId(par2 + 1, par3, par4);
-            byte b0 = 3;
+            Block var5 = p_149930_1_.getBlock(p_149930_2_, p_149930_3_, p_149930_4_ - 1);
+            Block var6 = p_149930_1_.getBlock(p_149930_2_, p_149930_3_, p_149930_4_ + 1);
+            Block var7 = p_149930_1_.getBlock(p_149930_2_ - 1, p_149930_3_, p_149930_4_);
+            Block var8 = p_149930_1_.getBlock(p_149930_2_ + 1, p_149930_3_, p_149930_4_);
+            byte var9 = 3;
 
-            if (Block.opaqueCubeLookup[l] && !Block.opaqueCubeLookup[i1])
+            if (var5.func_149730_j() && !var6.func_149730_j())
             {
-                b0 = 3;
+                var9 = 3;
             }
 
-            if (Block.opaqueCubeLookup[i1] && !Block.opaqueCubeLookup[l])
+            if (var6.func_149730_j() && !var5.func_149730_j())
             {
-                b0 = 2;
+                var9 = 2;
             }
 
-            if (Block.opaqueCubeLookup[j1] && !Block.opaqueCubeLookup[k1])
+            if (var7.func_149730_j() && !var8.func_149730_j())
             {
-                b0 = 1;
+                var9 = 5;
             }
 
-            if (Block.opaqueCubeLookup[k1] && !Block.opaqueCubeLookup[j1])
+            if (var8.func_149730_j() && !var7.func_149730_j())
             {
-                b0 = 4;
+                var9 = 4;
             }
 
-            par1World.setBlockMetadataWithNotify(par2, par3, par4, b0, 2);
+            p_149930_1_.setBlockMetadataWithNotify(p_149930_2_, p_149930_3_, p_149930_4_, var9, 2);
         }
     }
     
-    public void onBlockPlacedBy(World par1World, int par2, int par3, int par4, EntityLivingBase par5EntityLivingBase, ItemStack par6ItemStack)
+    
+    public void onBlockPlacedBy(World p_149689_1_, int p_149689_2_, int p_149689_3_, int p_149689_4_, EntityLivingBase p_149689_5_, ItemStack p_149689_6_)
     {
-        int l = MathHelper.floor_double((double)(par5EntityLivingBase.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
+        int var7 = MathHelper.floor_double((double)(p_149689_5_.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
 
-        if (l == 0)
+        if (var7 == 0)
         {
-            par1World.setBlockMetadataWithNotify(par2, par3, par4, 2, 2);
+            p_149689_1_.setBlockMetadataWithNotify(p_149689_2_, p_149689_3_, p_149689_4_, 2, 2);
         }
 
-        if (l == 1)
+        if (var7 == 1)
         {
-            par1World.setBlockMetadataWithNotify(par2, par3, par4, 5, 2);
+            p_149689_1_.setBlockMetadataWithNotify(p_149689_2_, p_149689_3_, p_149689_4_, 5, 2);
         }
 
-        if (l == 2)
+        if (var7 == 2)
         {
-            par1World.setBlockMetadataWithNotify(par2, par3, par4, 3, 2);
+            p_149689_1_.setBlockMetadataWithNotify(p_149689_2_, p_149689_3_, p_149689_4_, 3, 2);
         }
 
-        if (l == 3)
+        if (var7 == 3)
         {
-            par1World.setBlockMetadataWithNotify(par2, par3, par4, 4, 2);
+            p_149689_1_.setBlockMetadataWithNotify(p_149689_2_, p_149689_3_, p_149689_4_, 4, 2);
+        }
+
+        if (p_149689_6_.hasDisplayName())
+        {
+            ((TileEntityFurnace)p_149689_1_.getTileEntity(p_149689_2_, p_149689_3_, p_149689_4_)).func_145951_a(p_149689_6_.getDisplayName());
         }
     }
 
@@ -138,7 +146,7 @@ public class BlockMelter extends BlockContainer
     /**
      * From the specified side and block metadata retrieves the blocks texture. Args: side, metadata
      */
-    public Icon getIcon(int par1, int par2)
+    public IIcon getIcon(int par1, int par2)
     {
         return par1 == 1 ? this.field_94458_cO : (par1 == 0 ? this.field_94458_cO : (par1 != par2 ? this.blockIcon : this.field_94459_cP));
     }
@@ -149,11 +157,11 @@ public class BlockMelter extends BlockContainer
      * When this method is called, your block should register all the icons it needs with the given IconRegister. This
      * is the only chance you get to register icons.
      */
-    public void registerIcons(IconRegister par1IconRegister)
+    public void registerBlockIcons(IIconRegister par1IconRegister)
     {
-        this.blockIcon = par1IconRegister.registerIcon("Minestrappolation:block_MelterSide");
-        this.field_94459_cP = par1IconRegister.registerIcon(this.isActive ? "Minestrappolation:block_MelterFrontActive" : "Minestrappolation:block_MelterFrontInactive");
-        this.field_94458_cO = par1IconRegister.registerIcon("Minestrappolation:block_MelterTop");
+        this.blockIcon = par1IconRegister.registerIcon(MAssetManager.getEOTexture("melterSide"));
+        this.field_94459_cP = par1IconRegister.registerIcon(this.isActive ? MAssetManager.getEOTexture("melterFrontOn") : MAssetManager.getEOTexture("melterFrontOff"));
+        this.field_94458_cO = par1IconRegister.registerIcon(MAssetManager.getEOTexture("melterTop"));
     }
 
     /**
@@ -167,7 +175,7 @@ public class BlockMelter extends BlockContainer
         }
         else
         {
-            TileEntityMelter tileentityfurnace = (TileEntityMelter)par1World.getBlockTileEntity(par2, par3, par4);
+            TileEntityMelter tileentityfurnace = (TileEntityMelter)par1World.getTileEntity(par2, par3, par4);
 
             if (tileentityfurnace != null)
             {
@@ -184,18 +192,18 @@ public class BlockMelter extends BlockContainer
     public static void updateFurnaceBlockState(boolean par0, World par1World, int par2, int par3, int par4)
     {
         int l = par1World.getBlockMetadata(par2, par3, par4);
-        TileEntity tileentity = par1World.getBlockTileEntity(par2, par3, par4);
+        TileEntity tileentity = par1World.getTileEntity(par2, par3, par4);
         keepFurnaceInventory = true;
 
         if (par0)
         {
         	System.out.println("is active");
-            par1World.setBlock(par2, par3, par4, EOBlockManager.melterBurning.blockID);
+            par1World.setBlock(par2, par3, par4, EOBlockManager.melterBurning);
         }
         else
         {
         	System.out.println("inactive");
-            par1World.setBlock(par2, par3, par4, EOBlockManager.melterIdle.blockID);
+            par1World.setBlock(par2, par3, par4, EOBlockManager.melterIdle);
         }
 
         keepFurnaceInventory = false;
@@ -204,7 +212,7 @@ public class BlockMelter extends BlockContainer
         if (tileentity != null)
         {
             tileentity.validate();
-            par1World.setBlockTileEntity(par2, par3, par4, tileentity);
+            par1World.setTileEntity(par2, par3, par4, tileentity);
         }
     }
 
@@ -250,7 +258,7 @@ public class BlockMelter extends BlockContainer
     /**
      * Returns a new instance of a block's tile entity class. Called on placing the block.
      */
-    public TileEntity createNewTileEntity(World par1World)
+    public TileEntity createNewTileEntity(World par1World, int arg)
     {
         return new TileEntityMelter();
     }
@@ -291,11 +299,11 @@ public class BlockMelter extends BlockContainer
     /**
      * ejects contained items into the world, and notifies neighbours of an update, as appropriate
      */
-    public void breakBlock(World par1World, int par2, int par3, int par4, int par5, int par6)
+    public void breakBlock(World par1World, int par2, int par3, int par4, Block par5, int par6)
     {
         if (!keepFurnaceInventory)
         {
-            TileEntityMelter tileentityfurnace = (TileEntityMelter)par1World.getBlockTileEntity(par2, par3, par4);
+            TileEntityMelter tileentityfurnace = (TileEntityMelter)par1World.getTileEntity(par2, par3, par4);
 
             if (tileentityfurnace != null)
             {
@@ -319,7 +327,7 @@ public class BlockMelter extends BlockContainer
                             }
 
                             itemstack.stackSize -= k1;
-                            EntityItem entityitem = new EntityItem(par1World, (double)((float)par2 + f), (double)((float)par3 + f1), (double)((float)par4 + f2), new ItemStack(itemstack.itemID, k1, itemstack.getItemDamage()));
+                            EntityItem entityitem = new EntityItem(par1World, (double)((float)par2 + f), (double)((float)par3 + f1), (double)((float)par4 + f2), new ItemStack(itemstack.getItem(), k1, itemstack.getItemDamage()));
 
                             if (itemstack.hasTagCompound())
                             {
@@ -335,7 +343,7 @@ public class BlockMelter extends BlockContainer
                     }
                 }
 
-                par1World.func_96440_m(par2, par3, par4, par5);
+                par1World.func_147453_f(par2, par3, par4, par5);
             }
         }
 

@@ -4,39 +4,34 @@ import java.util.Random;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-
+import sobiohazardous.minestrappolation.api.util.MAssetManager;
 import sobiohazardous.minestrappolation.extraores.ExtraOres;
-
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockFlowing;
-import net.minecraft.block.BlockFluid;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.util.Icon;
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.util.IIcon;
 import net.minecraftforge.fluids.BlockFluidClassic;
 
 public class BlockMagma extends BlockFluidClassic
-{  
-	protected Icon[] iconArray;
+{
+	protected IIcon[] iconArray;
 
-    public BlockMagma(int par1) 
-    {
-    	super(par1, ExtraOres.eoFluid, Material.lava);
-    	this.setLightValue(.5F);
-     }
-    
-    @Override
-	public void registerIcons(IconRegister r)
+	public BlockMagma(int par1)
 	{
-		this.iconArray = new Icon[]
-    			{
-            r.registerIcon("minestrappolation:block_MagmaStill"),
-            r.registerIcon("minestrappolation:block_MagmaFlow") };
-    }
-    
-    @Override
-	public Icon getIcon(int side, int meta)
+		super(ExtraOres.eoFluid, Material.lava);
+		this.setLightLevel(.5F);
+	}
+
+	@Override
+	public void registerBlockIcons(IIconRegister r)
 	{
-		return meta == 1 ? iconArray[0] : iconArray[1];		
+		this.iconArray = new IIcon[]
+		{ r.registerIcon(MAssetManager.getEOTexture("liquid/magmaStill")), r.registerIcon(MAssetManager.getEOTexture("liquid/magmaFlow")) };
+	}
+
+	@Override
+	public IIcon getIcon(int side, int meta)
+	{
+		return meta == 1 ? iconArray[0] : iconArray[1];
 	}
 }

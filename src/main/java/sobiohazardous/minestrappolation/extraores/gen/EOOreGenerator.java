@@ -57,7 +57,7 @@ public class EOOreGenerator implements IWorldGenerator
 			int j1 = rand.nextInt(28); //layer it spawns in
 			int k1 = chunkz + rand.nextInt(16);
 		
-		(new WorldGenMinable(EOBlockManager.meuroditeOre.blockID, 5)).generate(world, rand, i1, j1, k1); //5 = how much in a vain
+		(new WorldGenMinable(EOBlockManager.meuroditeOre, 5)).generate(world, rand, i1, j1, k1); //5 = how much in a vain
 		}
 		//Uranium Ore
 		for(int o = 0; o<8; o++)
@@ -66,7 +66,7 @@ public class EOOreGenerator implements IWorldGenerator
 			int j2 = rand.nextInt(32); 
 			int k2 = chunkz + rand.nextInt(16);
 		
-		(new WorldGenMinable(EOBlockManager.UraniumOre.blockID, 3)).generate(world, rand, i2, j2, k2); 
+		(new WorldGenMinable(EOBlockManager.UraniumOre, 3)).generate(world, rand, i2, j2, k2); 
 		}
 
 		//Plutonium Ore
@@ -76,7 +76,7 @@ public class EOOreGenerator implements IWorldGenerator
 			int j3 = rand.nextInt(32); 
 			int k3 = chunkz + rand.nextInt(16);
 		
-		(new WorldGenMinable(EOBlockManager.PlutoniumOre.blockID, 3)).generate(world, rand, i3, j3, k3);
+		(new WorldGenMinable(EOBlockManager.PlutoniumOre, 3)).generate(world, rand, i3, j3, k3);
 		}
 		//Titanium Ore
 		for(int q = 0; q<8; q++)
@@ -85,7 +85,7 @@ public class EOOreGenerator implements IWorldGenerator
 			int j4 = rand.nextInt(16); 
 			int k4 = chunkz + rand.nextInt(16);
 		
-		(new WorldGenMinable(EOBlockManager.TitaniumOre.blockID, 3)).generate(world, rand, i4, j4, k4);
+		(new WorldGenMinable(EOBlockManager.TitaniumOre, 3)).generate(world, rand, i4, j4, k4);
 		}
 		//torite ore
 		BiomeGenBase biome2 = world.getWorldChunkManager().getBiomeGenAt(chunkx, chunkz);
@@ -97,7 +97,7 @@ public class EOOreGenerator implements IWorldGenerator
 		    	int j5 = rand.nextInt(30); 
 		    	int k5 = chunkz + rand.nextInt(16);
 		
-		    (new WorldGenMinable(EOBlockManager.ToriteOre.blockID, 4)).generate(world, rand, i5, j5, k5);
+		    (new WorldGenMinable(EOBlockManager.ToriteOre, 4)).generate(world, rand, i5, j5, k5);
 		    }
 		}
 		//sunstone ore
@@ -107,7 +107,7 @@ public class EOOreGenerator implements IWorldGenerator
 			int j5 = rand.nextInt(42); 
 			int k5 = chunkz + rand.nextInt(16);
 		
-		(new WorldGenMinable(EOBlockManager.SunstoneOre.blockID, 3)).generate(world, rand, i5, j5, k5);
+		(new WorldGenMinable(EOBlockManager.SunstoneOre, 3)).generate(world, rand, i5, j5, k5);
 		}
 		//granite
 		for(int h = 0; h<12; h++)
@@ -116,7 +116,7 @@ public class EOOreGenerator implements IWorldGenerator
 			int j5 = rand.nextInt(256); 
 			int k5 = chunkz + rand.nextInt(16);
 		
-		(new WorldGenMinable(EOBlockManager.Granite.blockID, 50)).generate(world, rand, i5, j5, k5);
+		(new WorldGenMinable(EOBlockManager.Granite, 50)).generate(world, rand, i5, j5, k5);
 		}
 		//quartzite
 		for(int h = 0; h<12; h++)
@@ -134,7 +134,7 @@ public class EOOreGenerator implements IWorldGenerator
 			int j5 = rand.nextInt(1 + 64); 
 			int k5 = chunkz + rand.nextInt(16);
 		
-		(new WorldGenMinable(EOBlockManager.CopperOre.blockID, 10)).generate(world, rand, i5, j5, k5);
+		(new WorldGenMinable(EOBlockManager.CopperOre, 10)).generate(world, rand, i5, j5, k5);
 		}	
 		//tin ore
 		for(int h = 0; h<14; h++)
@@ -143,7 +143,7 @@ public class EOOreGenerator implements IWorldGenerator
 			int j5 = rand.nextInt(1 + 64); 
 			int k5 = chunkz + rand.nextInt(16);
 		
-		(new WorldGenMinable(EOBlockManager.TinOre.blockID, 11)).generate(world, rand, i5, j5, k5);
+		(new WorldGenMinable(EOBlockManager.TinOre, 11)).generate(world, rand, i5, j5, k5);
 		}	
 		//invincium
 		for(int h = 0; h<400; h++)
@@ -152,7 +152,7 @@ public class EOOreGenerator implements IWorldGenerator
 			int j5 = rand.nextInt(1); 
 			int k5 = chunkz + rand.nextInt(16);
 		
-		(new WorldGenInvincium(EOBlockManager.Invincium.blockID, 20)).generate(world, rand, i5, j5, k5);
+		(new WorldGenInvincium(EOBlockManager.Invincium, 20)).generate(world, rand, i5, j5, k5);
 		}	
 		//Radiant Quartz
 		for(int q = 0; q<9; q++)
@@ -161,7 +161,7 @@ public class EOOreGenerator implements IWorldGenerator
 			int j4 = rand.nextInt(256); 
 			int k4 = chunkz + rand.nextInt(16);
 		
-		(new WorldGenMinable(EOBlockManager.RadiantQuartzOre.blockID , 3)).generate(world, rand, i4, j4, k4);
+		(new WorldGenMinable(EOBlockManager.RadiantQuartzOre , 3)).generate(world, rand, i4, j4, k4);
 		}
 	}
 	public void generateNether(World world, Random rand, int chunkx, int chunkz)
@@ -173,7 +173,7 @@ public class EOOreGenerator implements IWorldGenerator
 			int j5 = rand.nextInt(256);
 			int k5 = chunkz + rand.nextInt(16);
 			
-			(new WorldGenNether(EOBlockManager.BlaziumOre.blockID, 13)).generate(world, rand, i5, j5, k5);
+			(new WorldGenNether(EOBlockManager.BlaziumOre, 13)).generate(world, rand, i5, j5, k5);
 		}
 		//soul ore
 		for(int h = 0; h<28; h++)
@@ -182,7 +182,7 @@ public class EOOreGenerator implements IWorldGenerator
 			int j5 = rand.nextInt(256);
 			int k5 = chunkz + rand.nextInt(16);
 			
-			(new WorldGenSoulSand(EOBlockManager.SoulOre.blockID, 15)).generate(world,rand, i5, j5, k5);
+			(new WorldGenSoulSand(EOBlockManager.SoulOre, 15)).generate(world,rand, i5, j5, k5);
 		}
 		//invincium
 		for(int h = 0; h<400; h++)
@@ -191,7 +191,7 @@ public class EOOreGenerator implements IWorldGenerator
 			int j5 = rand.nextInt(1); 
 			int k5 = chunkz + rand.nextInt(16);
 				
-		(new WorldGenInvincium(EOBlockManager.Invincium.blockID, 20)).generate(world, rand, i5, j5, k5);
+		(new WorldGenInvincium(EOBlockManager.Invincium, 20)).generate(world, rand, i5, j5, k5);
 		}
 	}
 

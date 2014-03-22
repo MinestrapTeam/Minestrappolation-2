@@ -2,28 +2,28 @@ package sobiohazardous.minestrappolation.extraores.block;
 
 import java.util.Random;
 
+import sobiohazardous.minestrappolation.api.util.MAssetManager;
 import sobiohazardous.minestrappolation.extraores.ExtraOres;
-
-
 import sobiohazardous.minestrappolation.extraores.lib.EOItemManager;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
 import net.minecraft.src.*;
 import net.minecraft.util.MathHelper;
 
 public class BlockSunstone extends Block
 {
-    public BlockSunstone(int par1, Material par3Material)
+    public BlockSunstone( Material par3Material)
     {
-        super(par1, par3Material);
+        super(par3Material);
         this.setCreativeTab(CreativeTabs.tabBlock);
     }
     
-    public void registerIcons(IconRegister iconRegister)
+    public void registerBlockIcons(IIconRegister iconRegister)
     {
-             blockIcon = iconRegister.registerIcon("Minestrappolation:block_Sunstone");
+    	blockIcon = iconRegister.registerIcon(MAssetManager.getEOTexture("blockSunstone"));
     }
 
     /**
@@ -45,8 +45,8 @@ public class BlockSunstone extends Block
     /**
      * Returns the ID of the items to drop on destruction.
      */
-    public int idDropped(int par1, Random par2Random, int par3)
+    public Item getItemDropped(int par1, Random par2Random, int par3)
     {
-        return EOItemManager.SunstoneDust.itemID;
+        return EOItemManager.SunstoneDust;
     }
 }

@@ -7,9 +7,9 @@ import net.minecraft.world.World;
 
 public class ItemSoulGem extends EItemFoiled
 {
-	public ItemSoulGem(int id) 
+	public ItemSoulGem() 
 	{
-		super(id);
+		super();
 	}
 
     public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)

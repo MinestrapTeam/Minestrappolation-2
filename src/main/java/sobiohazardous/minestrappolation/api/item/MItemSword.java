@@ -13,14 +13,13 @@ import net.minecraft.util.EnumChatFormatting;
 
 public class MItemSword extends ItemSword
 {
-	private boolean ignitesMob;
+	private boolean ignitesMob = false;
     private final ToolMaterial toolMaterial;
 
-	public MItemSword(ToolMaterial par2EnumToolMaterial, boolean ignitesMob) 
+	public MItemSword(ToolMaterial par2EnumToolMaterial) 
 	{
 		super(par2EnumToolMaterial);
         this.toolMaterial = par2EnumToolMaterial;
-        this.ignitesMob = ignitesMob;
         this.setCreativeTab(null);
 	}
 	
@@ -33,8 +32,12 @@ public class MItemSword extends ItemSword
     	if(ignitesMob)
     	{
     		par2EntityLivingBase.setFire(10);
+            par1ItemStack.damageItem(2, par3EntityLivingBase);
     	}
-        par1ItemStack.damageItem(1, par3EntityLivingBase);
+    	else
+    	{
+    		par1ItemStack.damageItem(1, par3EntityLivingBase);
+    	}
         return true;
     }
     
@@ -44,5 +47,10 @@ public class MItemSword extends ItemSword
 		{
 			 par3List.add(EnumChatFormatting.GREEN+"Durability: "+EnumChatFormatting.RED+Integer.toString(getMaxDamage()-par1ItemStack.getItemDamage()+1)+"/"+Integer.toString(getMaxDamage()+1));
 		}	 
+    }
+    
+    public void setIgnitesMob(boolean ignitesMob)
+    {
+    	this.ignitesMob = true;
     }
 }

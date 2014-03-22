@@ -1,25 +1,23 @@
-package sobiohazardous.minestrappolation.api.item;
+package sobiohazardous.minestrappolation.extraores.item;
 
-import sobiohazardous.minestrappolation.api.lib.MAPIReference;
-import net.minecraft.client.renderer.texture.IIconRegister;
+import sobiohazardous.minestrappolation.api.util.MAssetManager;
+import sobiohazardous.minestrappolation.extraores.lib.EOItemManager;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.world.World;
 
-public class MItemArmor extends ItemArmor
-{	
-	public MItemArmor(ArmorMaterial par2EnumArmorMaterial, int par3, int par4) 
-	{
-		super(par2EnumArmorMaterial, par3, par4);
-        this.setCreativeTab(null);
-	}
+public class EOItemArmor extends ItemArmor
+{
+	private int tick = 0;
 	
-	/*
-	public void registerIcons(IIconRegister r)
+	public EOItemArmor(ArmorMaterial armorMat, int p_i45325_2_, int p_i45325_3_)
 	{
-		itemIcon = r.registerIcon("Minestrappolation:" + this.getUnlocalizedName().substring(5));
+		super(armorMat, p_i45325_2_, p_i45325_3_);
 	}
-	*/
 	
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) 
 	{
@@ -37,6 +35,6 @@ public class MItemArmor extends ItemArmor
         {
         	layer="2";
         }
-        return MAPIReference.MODID_EO + ":armor/"+material+layer+".png";
+        return MAssetManager.getEOTexture("/"+material+"_layer_"+layer+type+".png");
 	}
 }

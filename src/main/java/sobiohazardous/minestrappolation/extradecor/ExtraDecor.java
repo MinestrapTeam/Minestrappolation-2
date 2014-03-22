@@ -61,8 +61,7 @@ public class ExtraDecor
 	public void load(FMLInitializationEvent event)
 	{
 		EDOreRegistry.oreRegistration();
-		//TODO find alternative
-		//NetworkRegistry.instance().registerGuiHandler(this, new EDGuiHandler());	
+		NetworkRegistry.INSTANCE.registerGuiHandler(this, new EDGuiHandler());
 		EDTileEntityManager.registerTileEntitys();		
 		//TODO Find alternative
 		//MinecraftForge.setToolClass(Items.shears, "shears", 0);

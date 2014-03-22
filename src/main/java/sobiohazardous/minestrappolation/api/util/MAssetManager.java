@@ -7,6 +7,11 @@ import java.util.List;
 import net.minecraft.client.Minecraft;
 import sobiohazardous.minestrappolation.api.lib.MAPIReference;
 
+/**
+ * 
+ * @author SoBiohazardous
+ *
+ */
 public class MAssetManager 
 {
 	private static boolean isBuild = false;

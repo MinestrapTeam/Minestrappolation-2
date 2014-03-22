@@ -4,24 +4,26 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.item.Item;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import sobiohazardous.minestrappolation.api.util.MAssetManager;
 import sobiohazardous.minestrappolation.extraores.lib.EOBlockManager;
 import sobiohazardous.minestrappolation.extraores.lib.EOItemManager;
 
 public class BlockSunstoneOre extends Block
 {
 	Random rand = new Random();
-    public BlockSunstoneOre(int par1)
+    public BlockSunstoneOre()
     {
-        super(par1, Material.rock);
+        super(Material.rock);
         this.setCreativeTab(EOBlockManager.tabOresBlocks);
     }
     
-    public void registerIcons(IconRegister iconRegister)
+    public void registerBlockIcons(IIconRegister iconRegister)
     {
-             blockIcon = iconRegister.registerIcon("Minestrappolation:block_SunstoneOre");
+    	blockIcon = iconRegister.registerIcon(MAssetManager.getEOTexture("oreSunstone"));
     }
     
     /**
@@ -43,13 +45,13 @@ public class BlockSunstoneOre extends Block
     /**
      * Returns the ID of the items to drop on destruction.
      */
-    public int idDropped(int par1, Random par2Random, int par3)
+    public Item getItemDropped(int par1, Random par2Random, int par3)
     {
-        return EOItemManager.SunstoneDust.itemID;
+        return EOItemManager.SunstoneDust;
     }
     
     public void onBlockDestroyedByPlayer(World par1World, int par2, int par3, int par4, int par5) 
     {
-     this.dropXpOnBlockBreak(par1World, par2, par3, par4, rand.nextInt(5)+3); /* the 1 means it drops 1 xp, change it to 20, 100, as much as you want.*/
+    	this.dropXpOnBlockBreak(par1World, par2, par3, par4, rand.nextInt(5)+3); /* the 1 means it drops 1 xp, change it to 20, 100, as much as you want.*/
     }
 }

@@ -8,15 +8,15 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class EItemFoiled extends EOItem
 {
-		public EItemFoiled(int i)
-        {
-                super(i);
-                this.setCreativeTab(EOItemManager.tabOresItems);
-        }
+	public EItemFoiled()
+	{
+		super();
+		this.setCreativeTab(EOItemManager.tabOresItems);
+	}
 
-        @SideOnly(Side.CLIENT)
-        public boolean hasEffect(ItemStack par1ItemStack)
-        {
-            return true;
-        }
+	@SideOnly(Side.CLIENT)
+	public boolean hasEffect(ItemStack par1ItemStack)
+	{
+		return true;
+	}
 }

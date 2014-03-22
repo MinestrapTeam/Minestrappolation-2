@@ -3,6 +3,7 @@ package sobiohazardous.minestrappolation.extraores.handler;
 import java.util.Random;
 
 import net.minecraft.entity.passive.EntityVillager;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.village.MerchantRecipe;
@@ -18,30 +19,30 @@ public class PriestTradeHandler implements IVillageTradeHandler
 	{
 		recipes.add(new MerchantRecipe(
 	       new ItemStack(EOItemManager.SunstoneDust, 11),
-	       new ItemStack(Item.emerald, 1)));
+	       new ItemStack(Items.emerald, 1)));
 		
 		recipes.add(new MerchantRecipe(
 			       new ItemStack(EOBlockManager.SoulGem, 3),
-			       new ItemStack(Item.emerald, 1)));
+			       new ItemStack(Items.emerald, 1)));
 		
 		recipes.add(new MerchantRecipe(
 			       new ItemStack(EOItemManager.BlaziumIngot, 5),
-			       new ItemStack(Item.emerald, 1)));
+			       new ItemStack(Items.emerald, 1)));
 		
 		recipes.add(new MerchantRecipe(
 			       new ItemStack(EOItemManager.ToriteIngot, 6),
-			       new ItemStack(Item.emerald, 1)));
+			       new ItemStack(Items.emerald, 1)));
 		
 		recipes.add(new MerchantRecipe(
 			       new ItemStack(EOItemManager.PinkQuartz, 18),
-			       new ItemStack(Item.emerald, 1)));
+			       new ItemStack(Items.emerald, 1)));
 		
 		recipes.add(new MerchantRecipe(
 			       new ItemStack(EOBlockManager.RadiantQuartz, 2),
-			       new ItemStack(Item.emerald, 1)));
+			       new ItemStack(Items.emerald, 1)));
 		
 		recipes.add(new MerchantRecipe(
-			       new ItemStack(Item.emerald, 5),
+			       new ItemStack(Items.emerald, 5),
 			       new ItemStack(EOBlockManager.SoulBottle, 1)));
 	}
 }

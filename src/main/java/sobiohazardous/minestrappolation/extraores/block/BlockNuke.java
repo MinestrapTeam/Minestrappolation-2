@@ -5,12 +5,13 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 import java.util.Random;
 
+import sobiohazardous.minestrappolation.api.util.MAssetManager;
 import sobiohazardous.minestrappolation.extraores.ExtraOres;
 import sobiohazardous.minestrappolation.extraores.entity.EntityNukePrimed;
 import sobiohazardous.minestrappolation.extraores.lib.EOBlockManager;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -19,33 +20,33 @@ import net.minecraft.entity.item.EntityTNTPrimed;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.item.Item;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 
 public class BlockNuke extends Block
 {
     @SideOnly(Side.CLIENT)
-    private Icon top;
+    private IIcon top;
     @SideOnly(Side.CLIENT)
-    private Icon bottom;
+    private IIcon bottom;
 
-    public BlockNuke(int par1)
+    public BlockNuke()
     {
-        super(par1, Material.tnt);
+        super(Material.tnt);
         this.setCreativeTab(EOBlockManager.tabOresBlocks);
     }
 
     @SideOnly(Side.CLIENT)
 
-    public void registerIcons(IconRegister iconRegister)
+    public void registerIcons(IIconRegister iconRegister)
 	{
-	         blockIcon = iconRegister.registerIcon("Minestrappolation:block_NukeSide");
-	         this.top = iconRegister.registerIcon("Minestrappolation:block_NukeTop");
-	         this.bottom = iconRegister.registerIcon("Minestrappolation:block_NukeBottom");
+	         blockIcon = iconRegister.registerIcon(MAssetManager.getEOStoncutterTexture("nukeSide"));
+	         this.top = iconRegister.registerIcon(MAssetManager.getEOStoncutterTexture("nukeTop"));
+	         this.bottom = iconRegister.registerIcon(MAssetManager.getEOStoncutterTexture("nukeBottom"));
 	}
     
-    public Icon getIcon(int i, int j)
+    public IIcon getIcon(int i, int j)
     {
     	if (i == 0)//bottom
             

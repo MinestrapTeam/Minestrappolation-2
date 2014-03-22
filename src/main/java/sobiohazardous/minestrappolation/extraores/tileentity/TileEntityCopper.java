@@ -26,7 +26,7 @@ public class TileEntityCopper extends TileEntity
     	if(this.daysPassed >= EOConfig.daysUntilTarnish)
         {
     		//System.out.println(EOConfig.daysUntilTarnish);
-        	this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EOBlockManager.CopperBlockTarnished.blockID);
+        	this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EOBlockManager.CopperBlockTarnished);
         }
     }
 }

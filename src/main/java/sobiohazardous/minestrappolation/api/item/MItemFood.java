@@ -9,11 +9,4 @@ public class MItemFood extends ItemFood
 	{
 		super(healAmt, sat, false);
 	}
-	
-	/*
-	public void registerIcons(IconRegister r)
-	{
-		itemIcon = r.registerIcon("Minestrappolation:" + this.getUnlocalizedName().substring(5));
-	}
-	*/
 }

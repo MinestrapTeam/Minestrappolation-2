@@ -3,6 +3,7 @@ package sobiohazardous.minestrappolation.extraores.block;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.minecraft.block.Block;
 import net.minecraft.src.*;
 import net.minecraft.world.ChunkPosition;
 import net.minecraft.world.World;
@@ -26,7 +27,7 @@ class BlockPlateLogic
         trackX = par3;
         trackY = par4;
         trackZ = par5;
-        int i = par2World.getBlockId(par3, par4, par5);
+        Block i = par2World.getBlock(par3, par4, par5);
         int j = par2World.getBlockMetadata(par3, par4, par5);
     }
 
@@ -128,14 +129,14 @@ class BlockPlateLogic
         //    return new PlateLogic(tinplate, worldObj, par1ChunkPosition.x, par1ChunkPosition.y, par1ChunkPosition.z);
         //}
 
-        if (BlockPlate.isRailBlockAt(worldObj, par1ChunkPosition.x, par1ChunkPosition.y + 1, par1ChunkPosition.z))
+        if (BlockPlate.isRailBlockAt(worldObj, par1ChunkPosition.chunkPosX, par1ChunkPosition.chunkPosY + 1, par1ChunkPosition.chunkPosZ))
         {
-            return new BlockPlateLogic(tinplate, worldObj, par1ChunkPosition.x, par1ChunkPosition.y + 1, par1ChunkPosition.z);
+            return new BlockPlateLogic(tinplate, worldObj, par1ChunkPosition.chunkPosX, par1ChunkPosition.chunkPosY + 1, par1ChunkPosition.chunkPosZ);
         }
 
-        if (BlockPlate.isRailBlockAt(worldObj, par1ChunkPosition.x, par1ChunkPosition.y - 1, par1ChunkPosition.z))
+        if (BlockPlate.isRailBlockAt(worldObj, par1ChunkPosition.chunkPosX, par1ChunkPosition.chunkPosY - 1, par1ChunkPosition.chunkPosZ))
         {
-            return new BlockPlateLogic(tinplate, worldObj, par1ChunkPosition.x, par1ChunkPosition.y - 1, par1ChunkPosition.z);
+            return new BlockPlateLogic(tinplate, worldObj, par1ChunkPosition.chunkPosX, par1ChunkPosition.chunkPosY - 1, par1ChunkPosition.chunkPosZ);
         }
         else
         {
@@ -149,7 +150,7 @@ class BlockPlateLogic
         {
             ChunkPosition chunkposition = (ChunkPosition)connectedTracks.get(i);
 
-            if (chunkposition.x == par1RailLogic.trackX && chunkposition.z == par1RailLogic.trackZ)
+            if (chunkposition.chunkPosX == par1RailLogic.trackX && chunkposition.chunkPosZ == par1RailLogic.trackZ)
             {
                 return true;
             }
@@ -167,7 +168,7 @@ class BlockPlateLogic
         {
             ChunkPosition chunkposition = (ChunkPosition)connectedTracks.get(i);
 
-            if (chunkposition.x == par1 && chunkposition.z == par3)
+            if (chunkposition.chunkPosX == par1 && chunkposition.chunkPosZ == par3)
             {
                 return true;
             }
@@ -224,7 +225,7 @@ class BlockPlateLogic
         }
 
         ChunkPosition chunkposition = (ChunkPosition)connectedTracks.get(0);
-        return par1RailLogic.trackY != trackY || chunkposition.y != trackY ? true : true;
+        return par1RailLogic.trackY != trackY || chunkposition.chunkPosY != trackY ? true : true;
     }
 
     /**

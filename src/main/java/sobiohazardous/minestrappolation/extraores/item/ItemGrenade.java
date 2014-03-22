@@ -1,6 +1,5 @@
 package sobiohazardous.minestrappolation.extraores.item;
 
-import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -10,10 +9,9 @@ import sobiohazardous.minestrappolation.extraores.lib.EOItemManager;
 
 public class ItemGrenade extends Item
 {
-    public static String texture = "Minestrappolation:item_NukeGrenade";
-	public ItemGrenade(int par1)
+	public ItemGrenade()
     {
-        super(par1);
+        super();
         this.maxStackSize = 16;
         this.setCreativeTab(EOItemManager.tabOresItems);
     }
@@ -37,9 +35,5 @@ public class ItemGrenade extends Item
 
         return par1ItemStack;
     }
-    
-    public void registerIcons(IconRegister iconRegister)
-	{
-	         itemIcon = iconRegister.registerIcon(texture);
-	}
+
 }

@@ -6,19 +6,17 @@ import cpw.mods.fml.common.IFuelHandler;
 
 public class EOFuelHandler implements IFuelHandler 
 {
-
 	@Override
 	public int getBurnTime(ItemStack fuel) 
 	{
-		if(fuel.itemID == EOItemManager.Plutonium.itemID)
+		if(fuel.getItem() == EOItemManager.Plutonium)
 		{
 			return 35000;
 		}
-		if(fuel.itemID == EOItemManager.Uranium.itemID)
+		if(fuel.getItem() == EOItemManager.Uranium)
 		{
 			return 30000;
 		}
 		return 0;
 	}
-
 }

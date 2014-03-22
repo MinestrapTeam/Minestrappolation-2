@@ -6,9 +6,9 @@ import sobiohazardous.minestrappolation.extraores.lib.EOBlockManager;
 
 public class EOBlockStairs extends BlockStairs
 {
-	public EOBlockStairs(int id, Block block, int blockmeta)
+	public EOBlockStairs(Block block, int blockmeta)
 	{
-		super(id, block, blockmeta);
+		super(block, blockmeta);
 		this.setCreativeTab(EOBlockManager.tabOresBlocks);
 		this.setLightOpacity(255);
 	}

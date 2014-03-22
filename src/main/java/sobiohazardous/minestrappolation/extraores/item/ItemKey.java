@@ -9,13 +9,14 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 import sobiohazardous.minestrappolation.api.item.MItem;
+import sobiohazardous.minestrappolation.api.util.ChatMessageHandler;
 import sobiohazardous.minestrappolation.extraores.tileentity.TileEntityLocked;
 
 public class ItemKey extends MItem
 {
-	public ItemKey(int id) 
+	public ItemKey() 
 	{
-		super(id);
+		super();
 	}
 
     public void onCreated(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
@@ -35,12 +36,12 @@ public class ItemKey extends MItem
     	
     	if(par1ItemStack.stackTagCompound != null)
     	{
-    		if(par2EntityPlayer.getEntityName() != par1ItemStack.stackTagCompound.getString("player"))
+    		if(par2EntityPlayer.getDisplayName() != par1ItemStack.stackTagCompound.getString("player"))
     		{
     			par3List.add(EnumChatFormatting.GRAY + "Owner: " + EnumChatFormatting.RED + par1ItemStack.stackTagCompound.getString("player"));
     		}    	
     		
-    		if(par2EntityPlayer.getEntityName() == par1ItemStack.stackTagCompound.getString("player"))
+    		if(par2EntityPlayer.getDisplayName() == par1ItemStack.stackTagCompound.getString("player"))
     		{
     			par3List.add(EnumChatFormatting.GRAY + "Owner: " + EnumChatFormatting.GREEN + par1ItemStack.stackTagCompound.getString("player"));
     		}
@@ -50,7 +51,7 @@ public class ItemKey extends MItem
     
     public boolean onItemUse(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, World par3World, int par4, int par5, int par6, int par7, float par8, float par9, float par10)
     {
-    	TileEntityLocked te = (TileEntityLocked)par3World.getBlockTileEntity(par4, par5, par6);    	
+    	TileEntityLocked te = (TileEntityLocked)par3World.getTileEntity(par4, par5, par6);    	
     	
     	if(par1ItemStack.stackTagCompound == null)
     	{
@@ -64,7 +65,7 @@ public class ItemKey extends MItem
     	}
     	else
     	{
-    		par2EntityPlayer.addChatMessage("Not locked or not valid for lock.");
+    		ChatMessageHandler.sendChatToPlayer(par2EntityPlayer, "Not locked or not valid for lock.");
     	}
     	
     	return false;
@@ -74,6 +75,6 @@ public class ItemKey extends MItem
 	{
 		NBTTagCompound nbt = new NBTTagCompound();
 		item.stackTagCompound = nbt;
-		nbt.setString("player", player.getEntityName());
+		nbt.setString("player", player.getDisplayName());
 	}
 }
