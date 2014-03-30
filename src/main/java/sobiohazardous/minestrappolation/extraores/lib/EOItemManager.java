@@ -2,6 +2,7 @@ package sobiohazardous.minestrappolation.extraores.lib;
 
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
@@ -17,49 +18,42 @@ import sobiohazardous.minestrappolation.api.item.MItemHoe;
 import sobiohazardous.minestrappolation.api.item.MItemPickaxe;
 import sobiohazardous.minestrappolation.api.item.MItemShovel;
 import sobiohazardous.minestrappolation.api.item.MItemSword;
+import sobiohazardous.minestrappolation.api.util.MAssetManager;
 import sobiohazardous.minestrappolation.extraores.CreativeTabExtraoresItems;
 import sobiohazardous.minestrappolation.extraores.ExtraOres;
-import sobiohazardous.minestrappolation.extraores.item.BlaziumToolAxe;
-import sobiohazardous.minestrappolation.extraores.item.BlaziumToolHoe;
-import sobiohazardous.minestrappolation.extraores.item.BlaziumToolPickaxe;
-import sobiohazardous.minestrappolation.extraores.item.BlaziumToolShovel;
-import sobiohazardous.minestrappolation.extraores.item.BlaziumToolSword;
 import sobiohazardous.minestrappolation.extraores.item.EOItem;
 import sobiohazardous.minestrappolation.extraores.item.EOItemBucket;
 import sobiohazardous.minestrappolation.extraores.item.ItemGrenade;
 import sobiohazardous.minestrappolation.extraores.item.ItemGrenadeImpact;
 import sobiohazardous.minestrappolation.extraores.item.ItemGrenadeSticky;
-import sobiohazardous.minestrappolation.extraores.item.ItemBedrockBreakablePickaxe;
 import sobiohazardous.minestrappolation.extraores.item.ItemKey;
 import sobiohazardous.minestrappolation.extraores.item.ItemLock;
 import sobiohazardous.minestrappolation.extraores.item.ToriteToolAxe;
-import sobiohazardous.minestrappolation.extraores.item.ToriteToolHoe;
 import sobiohazardous.minestrappolation.extraores.item.ToriteToolPickaxe;
 import sobiohazardous.minestrappolation.extraores.item.ToriteToolShovel;
-import sobiohazardous.minestrappolation.extraores.item.ToriteToolSword;
 
 public class EOItemManager 
 {
 	public static CreativeTabs tabOresItems = new CreativeTabExtraoresItems(CreativeTabs.getNextID(), "Extrappolated Ores - Items");
 	
-	static ArmorMaterial MaterialMeurodite = EnumHelper.addArmorMaterial("Meurodite", 18, new int[]{2, 7, 6, 2}, 15);
-	static ArmorMaterial MaterialTitanium = EnumHelper.addArmorMaterial("Titanium", 66, new int[]{4, 10, 8, 5}, 11);
-	static ArmorMaterial MaterialTorite = EnumHelper.addArmorMaterial("Torite", 17, new int[]{2, 8, 6, 2}, 20);
-	static ArmorMaterial MaterialBlazium = EnumHelper.addArmorMaterial("Blazium", 25, new int[]{3, 7, 6, 3}, 18);
-	static ArmorMaterial MaterialTin = EnumHelper.addArmorMaterial("Tin", 5, new int[]{2, 4, 3, 2}, 5);
-	static ArmorMaterial MaterialBronze = EnumHelper.addArmorMaterial("Bronze", 30, new int[]{3, 7, 5, 2}, 8);
-	static ArmorMaterial MaterialSteel  = EnumHelper.addArmorMaterial("Steel", 17, new int[]{3, 8, 6, 3}, 15);
-	static ArmorMaterial MaterialBPMeurodite = EnumHelper.addArmorMaterial("Meurodite", 36, new int[]{2, 7, 6, 2}, 15);
-	static ArmorMaterial MaterialBPTitanium = EnumHelper.addArmorMaterial("Titanium", 132, new int[]{4, 10, 8, 5}, 11);
-	static ArmorMaterial MaterialBPTorite = EnumHelper.addArmorMaterial("Torite", 34, new int[]{2, 8, 6, 2}, 20);
-	static ArmorMaterial MaterialBPBlazium = EnumHelper.addArmorMaterial("Blazium", 50, new int[]{3, 7, 6, 3}, 18);
-	static ArmorMaterial MaterialBPTin = EnumHelper.addArmorMaterial("Tin", 10, new int[]{2, 4, 3, 2}, 5);
-	static ArmorMaterial MaterialBPSteel  = EnumHelper.addArmorMaterial("Steel", 34, new int[]{3, 8, 6, 3}, 15);
-	static ArmorMaterial MaterialBPCloth = EnumHelper.addArmorMaterial("BOCloth", 10, new int[]{1, 3, 2, 1}, 15);
-	static ArmorMaterial MaterialBPChain = EnumHelper.addArmorMaterial("BPChain", 30, new int[]{2, 5, 4, 1}, 12);
-	static ArmorMaterial MaterialBPIron = EnumHelper.addArmorMaterial("BPIron", 30, new int[]{2, 6, 5, 2}, 9);
-	static ArmorMaterial MaterialBPGold = EnumHelper.addArmorMaterial("BPGold", 14, new int[]{2, 5, 3, 1}, 25);
-	static ArmorMaterial MaterialBPDiamond = EnumHelper.addArmorMaterial("BPDiamond", 66, new int[]{3, 8, 6, 3}, 10);
+	static ArmorMaterial MaterialMeurodite = EnumHelper.addArmorMaterial("meurodite", 18, new int[]{2, 7, 6, 2}, 15);
+	static ArmorMaterial MaterialTitanium = EnumHelper.addArmorMaterial("titanium", 66, new int[]{4, 10, 8, 5}, 11);
+	static ArmorMaterial MaterialTorite = EnumHelper.addArmorMaterial("torite", 17, new int[]{2, 8, 6, 2}, 20);
+	static ArmorMaterial MaterialBlazium = EnumHelper.addArmorMaterial("blazium", 25, new int[]{3, 7, 6, 3}, 18);
+	static ArmorMaterial MaterialTin = EnumHelper.addArmorMaterial("tin", 5, new int[]{2, 4, 3, 2}, 5);
+	static ArmorMaterial MaterialBronze = EnumHelper.addArmorMaterial("bronze", 30, new int[]{3, 7, 5, 2}, 8);
+	static ArmorMaterial MaterialSteel  = EnumHelper.addArmorMaterial("steel", 17, new int[]{3, 8, 6, 3}, 15);
+	static ArmorMaterial MaterialBPMeurodite = EnumHelper.addArmorMaterial("meuroditeBronze", 36, new int[]{2, 7, 6, 2}, 15);
+	static ArmorMaterial MaterialBPTitanium = EnumHelper.addArmorMaterial("titaniumBronze", 132, new int[]{4, 10, 8, 5}, 11);
+	static ArmorMaterial MaterialBPTorite = EnumHelper.addArmorMaterial("toriteBronze", 34, new int[]{2, 8, 6, 2}, 20);
+	static ArmorMaterial MaterialBPBlazium = EnumHelper.addArmorMaterial("blaziumBronze", 50, new int[]{3, 7, 6, 3}, 18);
+	static ArmorMaterial MaterialBPTin = EnumHelper.addArmorMaterial("tinBronze", 10, new int[]{2, 4, 3, 2}, 5);
+	static ArmorMaterial MaterialBPSteel  = EnumHelper.addArmorMaterial("steelBronze", 34, new int[]{3, 8, 6, 3}, 15);
+	static ArmorMaterial MaterialBPCloth = EnumHelper.addArmorMaterial("leatherBronze", 10, new int[]{1, 3, 2, 1}, 15);
+	static ArmorMaterial MaterialBPChain = EnumHelper.addArmorMaterial("chainBronze", 30, new int[]{2, 5, 4, 1}, 12);
+	static ArmorMaterial MaterialBPIron = EnumHelper.addArmorMaterial("ironBronze", 30, new int[]{2, 6, 5, 2}, 9);
+	static ArmorMaterial MaterialBPGold = EnumHelper.addArmorMaterial("goldBronze", 14, new int[]{2, 5, 3, 1}, 25);
+	static ArmorMaterial MaterialBPDiamond = EnumHelper.addArmorMaterial("diamondBronze", 66, new int[]{3, 8, 6, 3}, 10);
 	
 	public static ToolMaterial toolMaterialMeurodite = EnumHelper.addToolMaterial("ToolMeurodite", 2, 805, 7.0F, 2, 15);
 	public static ToolMaterial toolMaterialTitanium = EnumHelper.addToolMaterial("ToolTitanium", 4, 2999, 10.0F, 5, 10);
@@ -348,261 +342,261 @@ public class EOItemManager
 	
 	public static void addItems()
 	{
-		meuroditeIngot = (new EOItem(EOConfig.meuroditeIngotId)).setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditeIngot");
-		meuroditeSword = (new MItemSword(EOConfig.meuroditeSwordId, toolMaterialMeurodite, false)).setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditeSword");
-		meuroditePickaxe = (new MItemPickaxe(EOConfig.meuroditePickaxeId, toolMaterialMeurodite)).setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditePickaxe");
-		meuroditeShovel = (new MItemShovel(EOConfig.meuroditeShovelId, toolMaterialMeurodite)).setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditeShovel");
-		meuroditeHoe = (new MItemHoe(EOConfig.meuroditeHoeId, toolMaterialMeurodite)).setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditeHoe");
-		meuroditeAxe = (new MItemAxe(EOConfig.meuroditeAxeId, toolMaterialMeurodite)).setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditeAxe");
+		meuroditeIngot = (new EOItem()).setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditeIngot").setTextureName(MAssetManager.getEOTexture("ingotMeurodite"));
+		meuroditeSword = (new MItemSword(toolMaterialMeurodite)).setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditeSword").setTextureName(MAssetManager.getEOTexture("weaponSwordMeurodite"));
+		meuroditePickaxe = (new MItemPickaxe(toolMaterialMeurodite)).setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditePickaxe").setTextureName(MAssetManager.getEOTexture("toolPickMeurodite"));
+		meuroditeShovel = (new MItemShovel(toolMaterialMeurodite)).setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditeShovel").setTextureName(MAssetManager.getEOTexture("toolShovelMeurodite"));
+		meuroditeHoe = (new MItemHoe(toolMaterialMeurodite)).setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditeHoe").setTextureName(MAssetManager.getEOTexture("toolHoeMeurodite"));
+		meuroditeAxe = (new MItemAxe(toolMaterialMeurodite)).setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditeAxe").setTextureName(MAssetManager.getEOTexture("toolAxeMeurodite"));
 
-		TinPlateItem = (new MItemBlockPlacer(EOConfig.tinPlateItemId, EOBlockManager.TinPlate)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TinPlate");
-		meuroditePlateItem = (new MItemBlockPlacer(EOConfig.meuroditePlateItemID, EOBlockManager.meuroditePlate)).setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditePlate");
-		BronzePlateItem = (new MItemBlockPlacer(EOConfig.bronzePlateItemId, EOBlockManager.BronzePlate)).setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzePlate");
-		SteelPlateItem = (new MItemBlockPlacer(EOConfig.steelPlateItemId, EOBlockManager.SteelPlate)).setCreativeTab(tabOresItems).setUnlocalizedName("item_SteelPlate");
-		CopperSword = (new MItemSword(EOConfig.copperSwordId,toolMaterialCopper, false)).setCreativeTab(tabOresItems).setUnlocalizedName("item_CopperSword");
-		CopperPickaxe = (new MItemPickaxe(EOConfig.copperPickaxeId,toolMaterialCopper)).setCreativeTab(tabOresItems).setUnlocalizedName("item_CopperPickaxe");
-		CopperShovel = (new MItemShovel(EOConfig.copperShovelId,toolMaterialCopper)).setCreativeTab(tabOresItems).setUnlocalizedName("item_CopperShovel");
-		CopperHoe = (new MItemHoe(EOConfig.copperHoeId,toolMaterialCopper)).setCreativeTab(tabOresItems).setUnlocalizedName("item_CopperHoe");
-		CopperAxe = (new MItemAxe(EOConfig.copperAxeId,toolMaterialCopper)).setCreativeTab(tabOresItems).setUnlocalizedName("item_CopperAxe");
+		TinPlateItem = (new MItemBlockPlacer(EOBlockManager.TinPlate)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TinPlate").setTextureName(MAssetManager.getEOTexture("platingTin"));
+		meuroditePlateItem = (new MItemBlockPlacer(EOBlockManager.meuroditePlate)).setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditePlate").setTextureName(MAssetManager.getEOTexture("platingMeurodite"));
+		BronzePlateItem = (new MItemBlockPlacer(EOBlockManager.BronzePlate)).setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzePlate").setTextureName(MAssetManager.getEOTexture("platingBronze"));
+		SteelPlateItem = (new MItemBlockPlacer( EOBlockManager.SteelPlate)).setCreativeTab(tabOresItems).setUnlocalizedName("item_SteelPlate").setTextureName(MAssetManager.getEOTexture("platingSteel"));
+		CopperSword = (new MItemSword(toolMaterialCopper)).setCreativeTab(tabOresItems).setUnlocalizedName("item_CopperSword").setTextureName(MAssetManager.getEOTexture("weaponSwordCopper"));
+		CopperPickaxe = (new MItemPickaxe(toolMaterialCopper)).setCreativeTab(tabOresItems).setUnlocalizedName("item_CopperPickaxe").setTextureName(MAssetManager.getEOTexture("toolPickCopper"));
+		CopperShovel = (new MItemShovel(toolMaterialCopper)).setCreativeTab(tabOresItems).setUnlocalizedName("item_CopperShovel").setTextureName(MAssetManager.getEOTexture("toolShovelCopper"));
+		CopperHoe = (new MItemHoe(toolMaterialCopper)).setCreativeTab(tabOresItems).setUnlocalizedName("item_CopperHoe").setTextureName(MAssetManager.getEOTexture("toolHoeCopper"));
+		CopperAxe = (new MItemAxe(toolMaterialCopper)).setCreativeTab(tabOresItems).setUnlocalizedName("item_CopperAxe").setTextureName(MAssetManager.getEOTexture("toolAxeCopper"));
 
-		BlaziumIngot = (new EOItem(EOConfig.blaziumIngotId)).setCreativeTab(tabOresItems).setUnlocalizedName("item_BlaziumIngot");
-		BlazeShard = (new EOItem(EOConfig.blaziumShardId)).setCreativeTab(tabOresItems).setUnlocalizedName("item_BlazeShard");
+		BlaziumIngot = (new EOItem()).setCreativeTab(tabOresItems).setUnlocalizedName("item_BlaziumIngot").setTextureName(MAssetManager.getEOTexture("ingotBlazium"));
+		BlazeShard = (new EOItem()).setCreativeTab(tabOresItems).setUnlocalizedName("item_BlazeShard").setTextureName(MAssetManager.getEOTexture("dustBlazium"));
 	
-		BlaziumSword = (new MItemSword(EOConfig.blaziumSwordId, toolMaterialBlazium, true)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireSword");
-		BlaziumPickaxe = (new BlaziumToolPickaxe(EOConfig.blaziumPickaxeId, toolMaterialBlazium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FirePickaxe");
-		BlaziumShovel = (new BlaziumToolShovel(EOConfig.blaziumShovelId,toolMaterialBlazium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireShovel");
-		BlaziumHoe = (new MItemHoe(EOConfig.blaziumHoeId,toolMaterialBlazium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireHoe");
-		BlaziumAxe = (new BlaziumToolAxe(EOConfig.blaziumAxeId,toolMaterialBlazium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireAxe");
+		BlaziumSword = (new MItemSword(toolMaterialBlazium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireSword").setTextureName(MAssetManager.getEOTexture("weaponSwordFire"));
+		BlaziumPickaxe = (new MItemPickaxe(toolMaterialBlazium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FirePickaxe").setTextureName(MAssetManager.getEOTexture("toolPickFire"));
+		BlaziumShovel = (new MItemShovel(toolMaterialBlazium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireShovel").setTextureName(MAssetManager.getEOTexture("toolShovelFire"));
+		BlaziumHoe = (new MItemHoe(toolMaterialBlazium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireHoe").setTextureName(MAssetManager.getEOTexture("toolHoeFire"));
+		BlaziumAxe = (new MItemAxe(toolMaterialBlazium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireAxe").setTextureName(MAssetManager.getEOTexture("toolAxeFire"));
 		
-		BlaziumHelmet = (new MItemArmor(EOConfig.blaziumHelmetId, MaterialBlazium, ExtraOres.proxy.addArmor("fire"), 0, "fire_1", "fire_2")).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireHelmet");
-		BlaziumChest = (new MItemArmor(EOConfig.blaziumChestId,MaterialBlazium, ExtraOres.proxy.addArmor("fire"), 1, "fire_1", "fire_2")).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireChestplate");
-		BlaziumPants = (new MItemArmor(EOConfig.blaziumPantsId,MaterialBlazium, ExtraOres.proxy.addArmor("fire"),2, "fire_1", "fire_2")).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireLeggings");
-		BlaziumBoots = (new MItemArmor(EOConfig.blaziumBootsId,MaterialBlazium, ExtraOres.proxy.addArmor("fire"),3, "fire_1", "fire_2")).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireBoots");
+		BlaziumHelmet = (new MItemArmor(MaterialBlazium, ExtraOres.proxy.addArmor("fire"), 0)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireHelmet").setTextureName(MAssetManager.getEOTexture("armorHelmFire"));
+		BlaziumChest = (new MItemArmor(MaterialBlazium, ExtraOres.proxy.addArmor("fire"), 1)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireChestplate").setTextureName(MAssetManager.getEOTexture("armorChestFire"));
+		BlaziumPants = (new MItemArmor(MaterialBlazium, ExtraOres.proxy.addArmor("fire"),2)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireLeggings").setTextureName(MAssetManager.getEOTexture("armorLegsFire"));
+		BlaziumBoots = (new MItemArmor(MaterialBlazium, ExtraOres.proxy.addArmor("fire"),3)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireBoots").setTextureName(MAssetManager.getEOTexture("armorBootsFire"));
 	
-		CoalIronIngot = (new EOItem(EOConfig.coalIronIngotId)).setCreativeTab(tabOresItems).setUnlocalizedName("item_CoalIronIngot");
-		SteelIngot = (new EOItem(EOConfig.steelIngotId)).setCreativeTab(tabOresItems).setUnlocalizedName("item_SteelIngot");
+		CoalIronIngot = (new EOItem()).setCreativeTab(tabOresItems).setUnlocalizedName("item_CoalIronIngot").setTextureName(MAssetManager.getEOTexture("ingotCoalIron"));
+		SteelIngot = (new EOItem()).setCreativeTab(tabOresItems).setUnlocalizedName("item_SteelIngot").setTextureName(MAssetManager.getEOTexture("ingotSteel"));
 		
-		SteelPickaxe = (new MItemPickaxe(EOConfig.steelPickaxeId,toolMaterialSteel)).setCreativeTab(tabOresItems).setUnlocalizedName("item_SteelPickaxe");
-		SteelShovel = (new MItemShovel(EOConfig.steelShovelId,toolMaterialSteel)).setCreativeTab(tabOresItems).setUnlocalizedName("item_SteelShovel");
-		ToriteSword = (new ToriteToolSword(EOConfig.toriteSwordId, toolMaterialTorite, false)).setCreativeTab(tabOresItems).setUnlocalizedName("item_ToriteSword");
-		ToritePickaxe = (new ToriteToolPickaxe(EOConfig.toritePickaxeId, toolMaterialTorite)).setCreativeTab(tabOresItems).setUnlocalizedName("item_ToritePickaxe");
-		ToriteShovel = (new ToriteToolShovel(EOConfig.toriteShovelId, toolMaterialTorite)).setCreativeTab(tabOresItems).setUnlocalizedName("item_ToriteShovel");
-		ToriteHoe = (new ToriteToolHoe(EOConfig.toriteHoeId,toolMaterialTorite)).setCreativeTab(tabOresItems).setUnlocalizedName("item_ToriteHoe");
-		ToriteAxe = (new ToriteToolAxe(EOConfig.toriteAxeId,toolMaterialTorite)).setCreativeTab(tabOresItems).setUnlocalizedName("item_ToriteAxe");
-		TitaniumIngot = (new EOItem(EOConfig.titaniumIngotId)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumIngot");
+		SteelPickaxe = (new MItemPickaxe(toolMaterialSteel)).setCreativeTab(tabOresItems).setUnlocalizedName("item_SteelPickaxe").setTextureName(MAssetManager.getEOTexture("toolPickSteel"));
+		SteelShovel = (new MItemShovel(toolMaterialSteel)).setCreativeTab(tabOresItems).setUnlocalizedName("item_SteelShovel").setTextureName(MAssetManager.getEOTexture("toolShovelSteel"));
+		ToriteSword = (new MItemSword(toolMaterialTorite)).setCreativeTab(tabOresItems).setUnlocalizedName("item_ToriteSword").setTextureName(MAssetManager.getEOTexture("weaponSwordTorite"));
+		ToritePickaxe = (new ToriteToolPickaxe(toolMaterialTorite)).setCreativeTab(tabOresItems).setUnlocalizedName("item_ToritePickaxe").setTextureName(MAssetManager.getEOTexture("toolPickTorite"));
+		ToriteShovel = (new ToriteToolShovel(toolMaterialTorite)).setCreativeTab(tabOresItems).setUnlocalizedName("item_ToriteShovel");
+		ToriteHoe = (new MItemHoe(toolMaterialTorite)).setCreativeTab(tabOresItems).setUnlocalizedName("item_ToriteHoe").setTextureName(MAssetManager.getEOTexture("toolHoeTorite"));
+		ToriteAxe = (new ToriteToolAxe(toolMaterialTorite)).setCreativeTab(tabOresItems).setUnlocalizedName("item_ToriteAxe").setTextureName(MAssetManager.getEOTexture("toolAxeTorite"));
+		TitaniumIngot = (new EOItem()).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumIngot").setTextureName(MAssetManager.getEOTexture("ingotTitanium"));
 		
-		TitaniumSword = (new MItemSword(EOConfig.titaniumSwordId, toolMaterialTitanium, false)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumSword");
-		TitaniumPickaxe = (new ItemBedrockBreakablePickaxe(EOConfig.titaniumPickaxeId, toolMaterialTitanium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumPickaxe");
-		TitaniumShovel = (new MItemShovel(EOConfig.titaniumShovelId, toolMaterialTitanium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumShovel");
-		TitaniumHoe = (new MItemHoe(EOConfig.titaniumHoeId,toolMaterialTitanium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumHoe");
-		TitaniumAxe = (new MItemAxe(EOConfig.titaniumAxeId,toolMaterialTitanium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumAxe");
-		meuroditeHelmet = (new MItemArmor(EOConfig.meuroditeHelmetId, MaterialMeurodite, ExtraOres.proxy.addArmor("Meurodite"), 0, "meurodite_1", "meurodite_2")).setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditeHelmet");
-		meuroditeChest = (new MItemArmor(EOConfig.meuroditeChestId, MaterialMeurodite, ExtraOres.proxy.addArmor("Meurodite"), 1, "meurodite_1", "meurodite_2")).setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditeChestplate");
-		meuroditePants = (new MItemArmor(EOConfig.meuroditePantsId,MaterialMeurodite, ExtraOres.proxy.addArmor("Meurodite"),2, "meurodite_1", "meurodite_2")).setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditeLeggings");
-		meuroditeBoots = (new MItemArmor(EOConfig.meuroditeBootsId, MaterialMeurodite, ExtraOres.proxy.addArmor("Meurodite"),3, "meurodite_1", "meurodite_2")).setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditeBoots");
+		TitaniumSword = (new MItemSword(toolMaterialTitanium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumSword").setTextureName(MAssetManager.getEOTexture("weaponSwordTitanium"));
+		TitaniumPickaxe = (new MItemPickaxe(toolMaterialTitanium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumPickaxe").setTextureName(MAssetManager.getEOTexture("toolPickTitanium"));
+		TitaniumShovel = (new MItemShovel(toolMaterialTitanium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumShovel").setTextureName(MAssetManager.getEOTexture("toolShovelTitanium"));
+		TitaniumHoe = (new MItemHoe(toolMaterialTitanium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumHoe").setTextureName(MAssetManager.getEOTexture("toolHoeTitanium"));
+		TitaniumAxe = (new MItemAxe(toolMaterialTitanium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumAxe").setTextureName(MAssetManager.getEOTexture("toolAxeTitanium"));
+		meuroditeHelmet = (new MItemArmor(MaterialMeurodite, ExtraOres.proxy.addArmor("Meurodite"), 0)).setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditeHelmet").setTextureName(MAssetManager.getEOTexture("armorHelmMeurodite"));
+		meuroditeChest = (new MItemArmor(MaterialMeurodite, ExtraOres.proxy.addArmor("Meurodite"), 1)).setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditeChestplate").setTextureName(MAssetManager.getEOTexture("armorChestMeurodite"));
+		meuroditePants = (new MItemArmor(MaterialMeurodite, ExtraOres.proxy.addArmor("Meurodite"),2)).setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditeLeggings").setTextureName(MAssetManager.getEOTexture("armorLegsMeurodite"));
+		meuroditeBoots = (new MItemArmor(MaterialMeurodite, ExtraOres.proxy.addArmor("Meurodite"),3)).setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditeBoots").setTextureName(MAssetManager.getEOTexture("armorBootsMeurodite"));
 			
-		TitaniumHelmet = (new MItemArmor(EOConfig.titaniumHelmetId, MaterialTitanium, ExtraOres.proxy.addArmor("titanium"), 0, "titanium_1", "titanium_2")).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumHelmet");
-		TitaniumChest = (new MItemArmor(EOConfig.titaniumChestId,MaterialTitanium, ExtraOres.proxy.addArmor("titanium"), 1, "titanium_1", "titanium_2")).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumChestplate");
-		TitaniumPants = (new MItemArmor(EOConfig.titaniumPantsId, MaterialTitanium, ExtraOres.proxy.addArmor("titanium"),2, "titanium_1", "titanium_2")).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumLeggings");
-		TitaniumBoots = (new MItemArmor(EOConfig.titaniumBootsId,MaterialTitanium, ExtraOres.proxy.addArmor("titanium"),3, "titanium_1", "titanium_2")).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumBoots");
+		TitaniumHelmet = (new MItemArmor(MaterialTitanium, ExtraOres.proxy.addArmor("titanium"), 0)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumHelmet").setTextureName(MAssetManager.getEOTexture("armorHelmTitanium"));
+		TitaniumChest = (new MItemArmor(MaterialTitanium, ExtraOres.proxy.addArmor("titanium"), 1)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumChestplate").setTextureName(MAssetManager.getEOTexture("armorChestTitanium"));
+		TitaniumPants = (new MItemArmor(MaterialTitanium, ExtraOres.proxy.addArmor("titanium"),2)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumLeggings").setTextureName(MAssetManager.getEOTexture("armorLegsTitanium"));
+		TitaniumBoots = (new MItemArmor(MaterialTitanium, ExtraOres.proxy.addArmor("titanium"),3)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumBoots").setTextureName(MAssetManager.getEOTexture("armorBootsTitanium"));
 		
-		ToriteHelmet = (new MItemArmor(EOConfig.toriteHelmetId,MaterialTorite, ExtraOres.proxy.addArmor("torite"), 0, "torite_1", "torite_2")).setCreativeTab(tabOresItems).setUnlocalizedName("item_ToriteHelmet");
-		ToriteChest = (new MItemArmor(EOConfig.toriteChestId,MaterialTorite, ExtraOres.proxy.addArmor("torite"), 1, "torite_1", "torite_2")).setCreativeTab(tabOresItems).setUnlocalizedName("item_ToriteChestplate");
-		ToritePants = (new MItemArmor(EOConfig.toritePantsId,MaterialTorite, ExtraOres.proxy.addArmor("torite"),2, "torite_1", "torite_2")).setCreativeTab(tabOresItems).setUnlocalizedName("item_ToriteLeggings");
-		ToriteBoots = (new MItemArmor(EOConfig.toriteBootsId,MaterialTorite, ExtraOres.proxy.addArmor("torite"),3, "torite_1", "torite_2")).setCreativeTab(tabOresItems).setUnlocalizedName("item_ToriteBoots");
-		SandstonePickaxe = (new MItemPickaxe(EOConfig.sandstonePickaxeId, toolMaterialSandstone)).setCreativeTab(tabOresItems).setUnlocalizedName("item_SandstonePickaxe");
-		SandstoneShovel = (new MItemShovel(EOConfig.sandstoneShovelId,toolMaterialSandstone)).setCreativeTab(tabOresItems).setUnlocalizedName("item_SandstoneShovel");
-		SandstoneAxe = (new MItemAxe(EOConfig.sandstoneAxeId, toolMaterialSandstone)).setCreativeTab(tabOresItems).setUnlocalizedName("item_SandstoneAxe");
-		SandstoneHoe = (new MItemHoe(EOConfig.sandstoneHoeId,toolMaterialSandstone)).setCreativeTab(tabOresItems).setUnlocalizedName("item_SandstoneHoe");
-		SandstoneSword = (new MItemSword(EOConfig.sandstoneSwordId,toolMaterialSandstone, false)).setCreativeTab(tabOresItems).setUnlocalizedName("item_SandstoneSword");
-		SteelAxe = (new MItemAxe(EOConfig.steelAxeId,toolMaterialSteel)).setCreativeTab(tabOresItems).setUnlocalizedName("item_SteelAxe");
-		SteelHoe = (new MItemHoe(EOConfig.steelHoeId,toolMaterialSteel)).setCreativeTab(tabOresItems).setUnlocalizedName("item_SteelHoe");
-		SteelSword = (new MItemSword(EOConfig.steelSwordId,toolMaterialSteel, false)).setCreativeTab(tabOresItems).setUnlocalizedName("item_SteelSword");
+		ToriteHelmet = (new MItemArmor(MaterialTorite, ExtraOres.proxy.addArmor("torite"), 0)).setCreativeTab(tabOresItems).setUnlocalizedName("item_ToriteHelmet").setTextureName(MAssetManager.getEOTexture("armorHelmTorite"));
+		ToriteChest = (new MItemArmor(MaterialTorite, ExtraOres.proxy.addArmor("torite"), 1)).setCreativeTab(tabOresItems).setUnlocalizedName("item_ToriteChestplate").setTextureName(MAssetManager.getEOTexture("armorChestTorite"));
+		ToritePants = (new MItemArmor(MaterialTorite, ExtraOres.proxy.addArmor("torite"),2)).setCreativeTab(tabOresItems).setUnlocalizedName("item_ToriteLeggings").setTextureName(MAssetManager.getEOTexture("armorLegsTorite"));
+		ToriteBoots = (new MItemArmor(MaterialTorite, ExtraOres.proxy.addArmor("torite"),3)).setCreativeTab(tabOresItems).setUnlocalizedName("item_ToriteBoots").setTextureName(MAssetManager.getEOTexture("armorBootsTorite"));
+		SandstonePickaxe = (new MItemPickaxe(toolMaterialSandstone)).setCreativeTab(tabOresItems).setUnlocalizedName("item_SandstonePickaxe").setTextureName(MAssetManager.getEOTexture("toolPickSandstone"));
+		SandstoneShovel = (new MItemShovel(toolMaterialSandstone)).setCreativeTab(tabOresItems).setUnlocalizedName("item_SandstoneShovel").setTextureName(MAssetManager.getEOTexture("toolShovelSandstone"));
+		SandstoneAxe = (new MItemAxe( toolMaterialSandstone)).setCreativeTab(tabOresItems).setUnlocalizedName("item_SandstoneAxe").setTextureName(MAssetManager.getEOTexture("toolAxeSandstone"));
+		SandstoneHoe = (new MItemHoe(toolMaterialSandstone)).setCreativeTab(tabOresItems).setUnlocalizedName("item_SandstoneHoe").setTextureName(MAssetManager.getEOTexture("toolHoeSandstone"));
+		SandstoneSword = (new MItemSword(toolMaterialSandstone)).setCreativeTab(tabOresItems).setUnlocalizedName("item_SandstoneSword").setTextureName(MAssetManager.getEOTexture("weaponSwordSandstone"));
+		SteelAxe = (new MItemAxe(toolMaterialSteel)).setCreativeTab(tabOresItems).setUnlocalizedName("item_SteelAxe").setTextureName(MAssetManager.getEOTexture("toolAxeSteel"));
+		SteelHoe = (new MItemHoe(toolMaterialSteel)).setCreativeTab(tabOresItems).setUnlocalizedName("item_SteelHoe").setTextureName(MAssetManager.getEOTexture("toolHoeSteel"));
+		SteelSword = (new MItemSword(toolMaterialSteel)).setCreativeTab(tabOresItems).setUnlocalizedName("item_SteelSword").setTextureName(MAssetManager.getEOTexture("weaponSwordSteel"));
 		
-		SteelHelmet = (new MItemArmor(EOConfig.steelHelmetId, MaterialSteel, ExtraOres.proxy.addArmor("steel"), 0, "steel_1", "steel_2")).setCreativeTab(tabOresItems).setUnlocalizedName("item_SteelHelmet");
-		SteelChest = (new MItemArmor(EOConfig.steelChestId,MaterialSteel, ExtraOres.proxy.addArmor("steel"), 1, "steel_1", "steel_2")).setCreativeTab(tabOresItems).setUnlocalizedName("item_SteelChestplate");
-		SteelPants = (new MItemArmor(EOConfig.steelPantsId,MaterialSteel, ExtraOres.proxy.addArmor("steel"), 2, "steel_1", "steel_2")).setCreativeTab(tabOresItems).setUnlocalizedName("item_SteelLeggings");
-		SteelBoots = (new MItemArmor(EOConfig.steelBootsId,MaterialSteel, ExtraOres.proxy.addArmor("steel"), 3, "steel_1", "steel_2")).setCreativeTab(tabOresItems).setUnlocalizedName("item_SteelBoots");
+		SteelHelmet = (new MItemArmor(MaterialSteel, ExtraOres.proxy.addArmor("steel"), 0)).setCreativeTab(tabOresItems).setUnlocalizedName("item_SteelHelmet").setTextureName(MAssetManager.getEOTexture("armorHelmSteel"));
+		SteelChest = (new MItemArmor(MaterialSteel, ExtraOres.proxy.addArmor("steel"), 1)).setCreativeTab(tabOresItems).setUnlocalizedName("item_SteelChestplate").setTextureName(MAssetManager.getEOTexture("armorChestSteel"));
+		SteelPants = (new MItemArmor(MaterialSteel, ExtraOres.proxy.addArmor("steel"), 2)).setCreativeTab(tabOresItems).setUnlocalizedName("item_SteelLeggings").setTextureName(MAssetManager.getEOTexture("armorLegsSteel"));
+		SteelBoots = (new MItemArmor(MaterialSteel, ExtraOres.proxy.addArmor("steel"), 3)).setCreativeTab(tabOresItems).setUnlocalizedName("item_SteelBoots").setTextureName(MAssetManager.getEOTexture("armorBootsSteel"));
 		
-		BronzeIngot = (new EOItem(EOConfig.bronzeIngotId)).setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzeIngot");
-		BronzePickaxe = (new MItemPickaxe(EOConfig.bronzePickaxeId,toolMaterialBronze)).setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzePickaxe");
-		BronzeShovel = (new MItemShovel(EOConfig.bronzeShovelId,toolMaterialBronze)).setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzeShovel");
-		BronzeAxe = (new MItemAxe(EOConfig.bronzeAxeId,toolMaterialBronze)).setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzeAxe");
-		BronzeHoe = (new MItemHoe(EOConfig.bronzeHoeId, toolMaterialBronze)).setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzeHoe");
-		BronzeSword = (new MItemSword(EOConfig.bronzeSwordId, toolMaterialBronze, false)).setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzeSword");
-		BronzeHelmet = (new MItemArmor(EOConfig.bronzeHelmetId, MaterialBronze, ExtraOres.proxy.addArmor("bronze"), 0, "bronze_1", "bronze_2")).setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzeHelmet");
-		BronzeChest = (new MItemArmor(EOConfig.bronzeChestId,MaterialBronze, ExtraOres.proxy.addArmor("bronze"), 1, "bronze_1", "bronze_2")).setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzeChestplate");
-		BronzePants = (new MItemArmor(EOConfig.bronzePantsId,MaterialBronze, ExtraOres.proxy.addArmor("bronze"),2, "bronze_1", "bronze_2")).setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzeLeggings");
-		BronzeBoots = (new MItemArmor(EOConfig.bronzeBootsId,MaterialBronze, ExtraOres.proxy.addArmor("bronze"),3, "bronze_1", "bronze_2")).setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzeBoots");
+		BronzeIngot = (new EOItem()).setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzeIngot");
+		BronzePickaxe = (new MItemPickaxe(toolMaterialBronze)).setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzePickaxe");
+		BronzeShovel = (new MItemShovel(toolMaterialBronze)).setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzeShovel");
+		BronzeAxe = (new MItemAxe(toolMaterialBronze)).setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzeAxe");
+		BronzeHoe = (new MItemHoe(toolMaterialBronze)).setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzeHoe");
+		BronzeSword = (new MItemSword(toolMaterialBronze)).setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzeSword");
+		BronzeHelmet = (new MItemArmor(MaterialBronze, ExtraOres.proxy.addArmor("bronze"), 0)).setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzeHelmet");
+		BronzeChest = (new MItemArmor(MaterialBronze, ExtraOres.proxy.addArmor("bronze"), 1)).setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzeChestplate");
+		BronzePants = (new MItemArmor(MaterialBronze, ExtraOres.proxy.addArmor("bronze"),2)).setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzeLeggings");
+		BronzeBoots = (new MItemArmor(MaterialBronze, ExtraOres.proxy.addArmor("bronze"),3)).setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzeBoots");
 		
-		grenade = (new ItemGrenade(EOConfig.grenadeId)).setUnlocalizedName("grenade");
-		grenadeImpact = (new ItemGrenadeImpact(EOConfig.grenadeImpactId)).setUnlocalizedName("grenadeImpact");
-		grenadeSticky = (new ItemGrenadeSticky(EOConfig.grenadeStickyId)).setUnlocalizedName("grenadeSticky");		
+		grenade = (new ItemGrenade()).setUnlocalizedName("grenade");
+		grenadeImpact = (new ItemGrenadeImpact()).setUnlocalizedName("grenadeImpact");
+		grenadeSticky = (new ItemGrenadeSticky()).setUnlocalizedName("grenadeSticky");		
 		
-		BPMeuroditeSword = (new MItemSword(EOConfig.BPmeuroditeSwordId, toolMaterialBPMeurodite, false)).setUnlocalizedName("item_BronzePlatedMeuroditeSword");
-		BPMeuroditePickaxe = (new MItemPickaxe(EOConfig.BPmeuroditePickaxeId, toolMaterialBPMeurodite)).setUnlocalizedName("item_BronzePlatedMeuroditePickaxe");
-		BPMeuroditeShovel = (new MItemShovel(EOConfig.BPmeuroditeShovelId, toolMaterialBPMeurodite)).setUnlocalizedName("item_BronzePlatedMeuroditeShovel");
-		BPMeuroditeHoe = (new MItemHoe(EOConfig.BPmeuroditeHoeId, toolMaterialBPMeurodite)).setUnlocalizedName("item_BronzePlatedMeuroditeHoe");
-		BPMeuroditeAxe = (new MItemAxe(EOConfig.BPmeuroditeAxeId, toolMaterialBPMeurodite)).setUnlocalizedName("item_BronzePlatedMeuroditeAxe");
+		BPMeuroditeSword = (new MItemSword(toolMaterialBPMeurodite)).setUnlocalizedName("item_BronzePlatedMeuroditeSword");
+		BPMeuroditePickaxe = (new MItemPickaxe(toolMaterialBPMeurodite)).setUnlocalizedName("item_BronzePlatedMeuroditePickaxe");
+		BPMeuroditeShovel = (new MItemShovel(toolMaterialBPMeurodite)).setUnlocalizedName("item_BronzePlatedMeuroditeShovel");
+		BPMeuroditeHoe = (new MItemHoe(toolMaterialBPMeurodite)).setUnlocalizedName("item_BronzePlatedMeuroditeHoe");
+		BPMeuroditeAxe = (new MItemAxe(toolMaterialBPMeurodite)).setUnlocalizedName("item_BronzePlatedMeuroditeAxe");
 	
-		BPMeuroditeHelmet = (new MItemArmor(EOConfig.BPmeuroditeHelmetId, MaterialBPMeurodite, ExtraOres.proxy.addArmor("BPMeurodite"), 0, "meurodite_plated_1", "meurodite_plated_2")).setUnlocalizedName("item_BronzePlatedMeuroditeHelmet");
-		BPMeuroditeChest = (new MItemArmor(EOConfig.BPmeuroditeChestId, MaterialBPMeurodite, ExtraOres.proxy.addArmor("BPMeurodite"), 1, "meurodite_plated_1", "meurodite_plated_2")).setUnlocalizedName("item_BronzePlatedMeuroditeChestplate");
-		BPMeuroditePants = (new MItemArmor(EOConfig.BPmeuroditePantsId,MaterialBPMeurodite, ExtraOres.proxy.addArmor("BPMeurodite"),2, "meurodite_plated_1", "meurodite_plated_2")).setUnlocalizedName("item_BronzePlatedMeuroditeLeggings");
-		BPMeuroditeBoots = (new MItemArmor(EOConfig.BPmeuroditeBootsId, MaterialBPMeurodite, ExtraOres.proxy.addArmor("BPMeurodite"),3, "meurodite_plated_1", "meurodite_plated_2")).setUnlocalizedName("item_BronzePlatedMeuroditeBoots");
+		BPMeuroditeHelmet = (new MItemArmor(MaterialBPMeurodite, ExtraOres.proxy.addArmor("BPMeurodite"), 0)).setUnlocalizedName("item_BronzePlatedMeuroditeHelmet");
+		BPMeuroditeChest = (new MItemArmor(MaterialBPMeurodite, ExtraOres.proxy.addArmor("BPMeurodite"), 1)).setUnlocalizedName("item_BronzePlatedMeuroditeChestplate");
+		BPMeuroditePants = (new MItemArmor(MaterialBPMeurodite, ExtraOres.proxy.addArmor("BPMeurodite"),2)).setUnlocalizedName("item_BronzePlatedMeuroditeLeggings");
+		BPMeuroditeBoots = (new MItemArmor(MaterialBPMeurodite, ExtraOres.proxy.addArmor("BPMeurodite"),3)).setUnlocalizedName("item_BronzePlatedMeuroditeBoots");
 		
-		BPTitaniumSword = (new MItemSword(EOConfig.BPTitaniumSwordId, toolMaterialBPTitanium, false)).setUnlocalizedName("item_BronzePlatedTitaniumSword");
-		BPTitaniumPickaxe = (new ItemBedrockBreakablePickaxe(EOConfig.BPTitaniumPickaxeId, toolMaterialBPTitanium)).setUnlocalizedName("item_BronzePlatedTitaniumPickaxe");
-		BPTitaniumShovel = (new MItemShovel(EOConfig.BPTitaniumShovelId, toolMaterialBPTitanium)).setUnlocalizedName("item_BronzePlatedTitaniumShovel");
-		BPTitaniumHoe = (new MItemHoe(EOConfig.BPTitaniumHoeId,toolMaterialBPTitanium)).setUnlocalizedName("item_BronzePlatedTitaniumHoe");
-		BPTitaniumAxe = (new MItemAxe(EOConfig.BPTitaniumAxeId,toolMaterialBPTitanium)).setUnlocalizedName("item_BronzePlatedTitaniumAxe");
+		BPTitaniumSword = (new MItemSword(toolMaterialBPTitanium)).setUnlocalizedName("item_BronzePlatedTitaniumSword");
+		BPTitaniumPickaxe = (new MItemPickaxe(toolMaterialBPTitanium)).setUnlocalizedName("item_BronzePlatedTitaniumPickaxe");
+		BPTitaniumShovel = (new MItemShovel(toolMaterialBPTitanium)).setUnlocalizedName("item_BronzePlatedTitaniumShovel");
+		BPTitaniumHoe = (new MItemHoe(toolMaterialBPTitanium)).setUnlocalizedName("item_BronzePlatedTitaniumHoe");
+		BPTitaniumAxe = (new MItemAxe(toolMaterialBPTitanium)).setUnlocalizedName("item_BronzePlatedTitaniumAxe");
 	
-		BPTitaniumHelmet = (new MItemArmor(EOConfig.BPTitaniumHelmetId, MaterialBPTitanium, ExtraOres.proxy.addArmor("BPtitanium"), 0, "titanium_plated_1", "titanium_plated_2")).setUnlocalizedName("item_BronzePlatedTitaniumHelmet");
-		BPTitaniumChest = (new MItemArmor(EOConfig.BPTitaniumChestId,MaterialBPTitanium, ExtraOres.proxy.addArmor("BPtitanium"), 1, "titanium_plated_1", "titanium_plated_2")).setUnlocalizedName("item_BronzePlatedTitaniumChestplate");
-		BPTitaniumPants = (new MItemArmor(EOConfig.BPTitaniumPantsId, MaterialBPTitanium, ExtraOres.proxy.addArmor("BPtitanium"),2, "titanium_plated_1", "titanium_plated_2")).setUnlocalizedName("item_BronzePlatedTitaniumLeggings");
-		BPTitaniumBoots = (new MItemArmor(EOConfig.BPTitaniumBootsId,MaterialBPTitanium, ExtraOres.proxy.addArmor("BPtitanium"),3, "titanium_plated_1", "titanium_plated_2")).setUnlocalizedName("item_BronzePlatedTitaniumBoots");
+		BPTitaniumHelmet = (new MItemArmor(MaterialBPTitanium, ExtraOres.proxy.addArmor("BPtitanium"), 0)).setUnlocalizedName("item_BronzePlatedTitaniumHelmet");
+		BPTitaniumChest = (new MItemArmor(MaterialBPTitanium, ExtraOres.proxy.addArmor("BPtitanium"), 1)).setUnlocalizedName("item_BronzePlatedTitaniumChestplate");
+		BPTitaniumPants = (new MItemArmor(MaterialBPTitanium, ExtraOres.proxy.addArmor("BPtitanium"),2)).setUnlocalizedName("item_BronzePlatedTitaniumLeggings");
+		BPTitaniumBoots = (new MItemArmor(MaterialBPTitanium, ExtraOres.proxy.addArmor("BPtitanium"),3)).setUnlocalizedName("item_BronzePlatedTitaniumBoots");
 		
-		BPToriteSword = (new ToriteToolSword(EOConfig.BPToriteSwordId, toolMaterialBPTorite, false)).setUnlocalizedName("item_BronzePlatedToriteSword");
-		BPToritePickaxe = (new ToriteToolPickaxe(EOConfig.BPToritePickaxeId, toolMaterialBPTorite)).setUnlocalizedName("item_BronzePlatedToritePickaxe");
-		BPToriteShovel = (new ToriteToolShovel(EOConfig.BPToriteShovelId, toolMaterialBPTorite)).setUnlocalizedName("item_BronzePlatedToriteShovel");
-		BPToriteHoe = (new ToriteToolHoe(EOConfig.BPToriteHoeId,toolMaterialBPTorite)).setUnlocalizedName("item_BronzePlatedToriteHoe");
-		BPToriteAxe = (new ToriteToolAxe(EOConfig.BPToriteAxeId,toolMaterialBPTorite)).setUnlocalizedName("item_BronzePlatedToriteAxe");
+		BPToriteSword = (new MItemSword(toolMaterialBPTorite)).setUnlocalizedName("item_BronzePlatedToriteSword");
+		BPToritePickaxe = (new ToriteToolPickaxe(toolMaterialBPTorite)).setUnlocalizedName("item_BronzePlatedToritePickaxe");
+		BPToriteShovel = (new ToriteToolShovel(toolMaterialBPTorite)).setUnlocalizedName("item_BronzePlatedToriteShovel");
+		BPToriteHoe = (new MItemHoe(toolMaterialBPTorite)).setUnlocalizedName("item_BronzePlatedToriteHoe");
+		BPToriteAxe = (new ToriteToolAxe(toolMaterialBPTorite)).setUnlocalizedName("item_BronzePlatedToriteAxe");
 		
-		BPToriteHelmet = (new MItemArmor(EOConfig.BPToriteHelmetId,MaterialBPTorite, ExtraOres.proxy.addArmor("BPtorite"), 0, "torite_plated_1", "torite_plated_2")).setUnlocalizedName("item_BronzePlatedToriteHelmet");
-		BPToriteChest = (new MItemArmor(EOConfig.BPToriteChestId,MaterialBPTorite, ExtraOres.proxy.addArmor("BPtorite"), 1, "torite_plated_1", "torite_plated_2")).setUnlocalizedName("item_BronzePlatedToriteChestplate");
-		BPToritePants = (new MItemArmor(EOConfig.BPToritePantsId,MaterialBPTorite, ExtraOres.proxy.addArmor("BPtorite"),2, "torite_plated_1", "torite_plated_2")).setUnlocalizedName("item_BronzePlatedToriteLeggings");
-		BPToriteBoots = (new MItemArmor(EOConfig.BPToriteBootsId,MaterialBPTorite, ExtraOres.proxy.addArmor("BPtorite"),3, "torite_plated_1", "torite_plated_2")).setUnlocalizedName("item_BronzePlatedToriteBoots");
+		BPToriteHelmet = (new MItemArmor(MaterialBPTorite, ExtraOres.proxy.addArmor("BPtorite"), 0)).setUnlocalizedName("item_BronzePlatedToriteHelmet");
+		BPToriteChest = (new MItemArmor(MaterialBPTorite, ExtraOres.proxy.addArmor("BPtorite"), 1)).setUnlocalizedName("item_BronzePlatedToriteChestplate");
+		BPToritePants = (new MItemArmor(MaterialBPTorite, ExtraOres.proxy.addArmor("BPtorite"),2)).setUnlocalizedName("item_BronzePlatedToriteLeggings");
+		BPToriteBoots = (new MItemArmor(MaterialBPTorite, ExtraOres.proxy.addArmor("BPtorite"),3)).setUnlocalizedName("item_BronzePlatedToriteBoots");
 		
-		BPBlaziumSword = (new MItemSword(EOConfig.BPBlaziumSwordId, toolMaterialBPBlazium, true)).setUnlocalizedName("item_BronzePlatedFireSword");
-		BPBlaziumPickaxe = (new BlaziumToolPickaxe(EOConfig.BPBlaziumPickaxeId, toolMaterialBPBlazium)).setUnlocalizedName("item_BronzePlatedFirePickaxe");
-		BPBlaziumShovel = (new BlaziumToolShovel(EOConfig.BPBlaziumShovelId,toolMaterialBPBlazium)).setUnlocalizedName("item_BronzePlatedFireShovel");
-		BPBlaziumHoe = (new MItemHoe(EOConfig.BPBlaziumHoeId,toolMaterialBPBlazium)).setUnlocalizedName("item_BronzePlatedFireHoe");
-		BPBlaziumAxe = (new BlaziumToolAxe(EOConfig.BPBlaziumAxeId,toolMaterialBPBlazium)).setUnlocalizedName("item_BronzePlatedFireAxe");
+		BPBlaziumSword = (new MItemSword(toolMaterialBPBlazium)).setUnlocalizedName("item_BronzePlatedFireSword");
+		BPBlaziumPickaxe = (new MItemPickaxe(toolMaterialBPBlazium)).setUnlocalizedName("item_BronzePlatedFirePickaxe");
+		BPBlaziumShovel = (new MItemShovel(toolMaterialBPBlazium)).setUnlocalizedName("item_BronzePlatedFireShovel");
+		BPBlaziumHoe = (new MItemHoe(toolMaterialBPBlazium)).setUnlocalizedName("item_BronzePlatedFireHoe");
+		BPBlaziumAxe = (new MItemAxe(toolMaterialBPBlazium)).setUnlocalizedName("item_BronzePlatedFireAxe");
 		
-		BPBlaziumHelmet = (new MItemArmor(EOConfig.BPBlaziumHelmetId, MaterialBPBlazium, ExtraOres.proxy.addArmor("BPfire"), 0, "fire_plated_1", "fire_plated_2")).setUnlocalizedName("item_BronzePlatedFireHelmet");
-		BPBlaziumChest = (new MItemArmor(EOConfig.BPBlaziumChestId,MaterialBPBlazium, ExtraOres.proxy.addArmor("BPfire"), 1, "fire_plated_1", "fire_plated_2")).setUnlocalizedName("item_BronzePlatedFireChestplate");
-		BPBlaziumPants = (new MItemArmor(EOConfig.BPBlaziumPantsId,MaterialBPBlazium, ExtraOres.proxy.addArmor("BPfire"),2, "fire_plated_1", "fire_plated_2")).setUnlocalizedName("item_BronzePlatedFireLeggings");
-		BPBlaziumBoots = (new MItemArmor(EOConfig.BPBlaziumBootsId,MaterialBPBlazium, ExtraOres.proxy.addArmor("BPfire"),3, "fire_plated_1", "fire_plated_2")).setUnlocalizedName("item_BronzePlatedFireBoots");
+		BPBlaziumHelmet = (new MItemArmor(MaterialBPBlazium, ExtraOres.proxy.addArmor("BPfire"), 0)).setUnlocalizedName("item_BronzePlatedFireHelmet");
+		BPBlaziumChest = (new MItemArmor(MaterialBPBlazium, ExtraOres.proxy.addArmor("BPfire"), 1)).setUnlocalizedName("item_BronzePlatedFireChestplate");
+		BPBlaziumPants = (new MItemArmor(MaterialBPBlazium, ExtraOres.proxy.addArmor("BPfire"),2)).setUnlocalizedName("item_BronzePlatedFireLeggings");
+		BPBlaziumBoots = (new MItemArmor(MaterialBPBlazium, ExtraOres.proxy.addArmor("BPfire"),3)).setUnlocalizedName("item_BronzePlatedFireBoots");
 		
-		BPCopperSword = (new MItemSword(EOConfig.BPCopperSwordId,toolMaterialBPCopper, false)).setUnlocalizedName("item_BronzePlatedCopperSword");
-		BPCopperPickaxe = (new MItemPickaxe(EOConfig.BPCopperPickaxeId,toolMaterialBPCopper)).setUnlocalizedName("item_BronzePlatedCopperPickaxe");
-		BPCopperShovel = (new MItemShovel(EOConfig.BPCopperShovelId,toolMaterialBPCopper)).setUnlocalizedName("item_BronzePlatedCopperShovel");
-		BPCopperHoe = (new MItemHoe(EOConfig.BPCopperHoeId,toolMaterialBPCopper)).setUnlocalizedName("item_BronzePlatedCopperHoe");
-		BPCopperAxe = (new MItemAxe(EOConfig.BPCopperAxeId,toolMaterialBPCopper)).setUnlocalizedName("item_BronzePlatedCopperAxe");
+		BPCopperSword = (new MItemSword(toolMaterialBPCopper)).setUnlocalizedName("item_BronzePlatedCopperSword");
+		BPCopperPickaxe = (new MItemPickaxe(toolMaterialBPCopper)).setUnlocalizedName("item_BronzePlatedCopperPickaxe");
+		BPCopperShovel = (new MItemShovel(toolMaterialBPCopper)).setUnlocalizedName("item_BronzePlatedCopperShovel");
+		BPCopperHoe = (new MItemHoe(toolMaterialBPCopper)).setUnlocalizedName("item_BronzePlatedCopperHoe");
+		BPCopperAxe = (new MItemAxe(toolMaterialBPCopper)).setUnlocalizedName("item_BronzePlatedCopperAxe");
 		
-		BPTinHelmet = (new MItemArmor(EOConfig.BPTinHelmetId, MaterialBPTin, ExtraOres.proxy.addArmor("BPtin"), 0, "tin_plated_1", "tin_plated_2")).setUnlocalizedName("item_BronzePlatedTinHelmet");
-		BPTinChest = (new MItemArmor(EOConfig.BPTinChestId,MaterialBPTin, ExtraOres.proxy.addArmor("BPtin"), 1, "tin_plated_1", "tin_plated_2")).setUnlocalizedName("item_BronzePlatedTinChestplate");
-		BPTinPants = (new MItemArmor(EOConfig.BPTinPantsId,MaterialBPTin, ExtraOres.proxy.addArmor("BPtin"),2, "tin_plated_1", "tin_plated_2")).setUnlocalizedName("item_BronzePlatedTinLeggings");
-		BPTinBoots = (new MItemArmor(EOConfig.BPTinBootsId,MaterialBPTin, ExtraOres.proxy.addArmor("BPtin"),3, "tin_plated_1", "tin_plated_2")).setUnlocalizedName("item_BronzePlatedTinBoots");
+		BPTinHelmet = (new MItemArmor(MaterialBPTin, ExtraOres.proxy.addArmor("BPtin"), 0)).setUnlocalizedName("item_BronzePlatedTinHelmet");
+		BPTinChest = (new MItemArmor(MaterialBPTin, ExtraOres.proxy.addArmor("BPtin"), 1)).setUnlocalizedName("item_BronzePlatedTinChestplate");
+		BPTinPants = (new MItemArmor(MaterialBPTin, ExtraOres.proxy.addArmor("BPtin"),2)).setUnlocalizedName("item_BronzePlatedTinLeggings");
+		BPTinBoots = (new MItemArmor(MaterialBPTin, ExtraOres.proxy.addArmor("BPtin"),3)).setUnlocalizedName("item_BronzePlatedTinBoots");
 		
-		BPSteelPickaxe = (new MItemPickaxe(EOConfig.BPSteelPickaxeId,toolMaterialBPSteel)).setUnlocalizedName("item_BronzePlatedSteelPickaxe");
-		BPSteelShovel = (new MItemShovel(EOConfig.BPSteelShovelId,toolMaterialBPSteel)).setUnlocalizedName("item_BronzePlatedSteelShovel");
-		BPSteelAxe = (new MItemAxe(EOConfig.BPSteelAxeId,toolMaterialBPSteel)).setUnlocalizedName("item_BronzePlatedSteelAxe");
-		BPSteelHoe = (new MItemHoe(EOConfig.BPSteelHoeId,toolMaterialBPSteel)).setUnlocalizedName("item_BronzePlatedSteelHoe");
-		BPSteelSword = (new MItemSword(EOConfig.BPSteelSwordId,toolMaterialBPSteel, false)).setUnlocalizedName("item_BronzePlatedSteelSword");
+		BPSteelPickaxe = (new MItemPickaxe(toolMaterialBPSteel)).setUnlocalizedName("item_BronzePlatedSteelPickaxe");
+		BPSteelShovel = (new MItemShovel(toolMaterialBPSteel)).setUnlocalizedName("item_BronzePlatedSteelShovel");
+		BPSteelAxe = (new MItemAxe(toolMaterialBPSteel)).setUnlocalizedName("item_BronzePlatedSteelAxe");
+		BPSteelHoe = (new MItemHoe(toolMaterialBPSteel)).setUnlocalizedName("item_BronzePlatedSteelHoe");
+		BPSteelSword = (new MItemSword(toolMaterialBPSteel)).setUnlocalizedName("item_BronzePlatedSteelSword");
 		
-		BPSteelHelmet = (new MItemArmor(EOConfig.BPSteelHelmetId, MaterialBPSteel, ExtraOres.proxy.addArmor("BPsteel"), 0, "steel_plated_1", "steel_plated_2")).setUnlocalizedName("item_BronzePlatedSteelHelmet");
-		BPSteelChest = (new MItemArmor(EOConfig.BPSteelChestId,MaterialBPSteel, ExtraOres.proxy.addArmor("BPsteel"), 1, "steel_plated_1", "steel_plated_2")).setUnlocalizedName("item_BronzePlatedSteelChestplate");
-		BPSteelPants = (new MItemArmor(EOConfig.BPSteelPantsId,MaterialBPSteel, ExtraOres.proxy.addArmor("BPsteel"), 2, "steel_plated_1", "steel_plated_2")).setUnlocalizedName("item_BronzePlatedSteelLeggings");
-		BPSteelBoots = (new MItemArmor(EOConfig.BPSteelBootsId,MaterialBPSteel, ExtraOres.proxy.addArmor("BPsteel"), 3, "steel_plated_1", "steel_plated_2")).setUnlocalizedName("item_BronzePlatedSteelBoots");
+		BPSteelHelmet = (new MItemArmor(MaterialBPSteel, ExtraOres.proxy.addArmor("BPsteel"), 0)).setUnlocalizedName("item_BronzePlatedSteelHelmet");
+		BPSteelChest = (new MItemArmor(MaterialBPSteel, ExtraOres.proxy.addArmor("BPsteel"), 1)).setUnlocalizedName("item_BronzePlatedSteelChestplate");
+		BPSteelPants = (new MItemArmor(MaterialBPSteel, ExtraOres.proxy.addArmor("BPsteel"), 2)).setUnlocalizedName("item_BronzePlatedSteelLeggings");
+		BPSteelBoots = (new MItemArmor(MaterialBPSteel, ExtraOres.proxy.addArmor("BPsteel"), 3)).setUnlocalizedName("item_BronzePlatedSteelBoots");
 		
-		BPSandstonePickaxe = (new MItemPickaxe(EOConfig.BPSandstonePickaxeId, toolMaterialBPSandstone)).setUnlocalizedName("item_BronzePlatedSandstonePickaxe");
-		BPSandstoneShovel = (new MItemShovel(EOConfig.BPSandstoneShovelId,toolMaterialBPSandstone)).setUnlocalizedName("item_BronzePlatedSandstoneShovel");
-		BPSandstoneAxe = (new MItemAxe(EOConfig.BPSandstoneAxeId, toolMaterialBPSandstone)).setUnlocalizedName("item_BronzePlatedSandstoneAxe");
-		BPSandstoneHoe = (new MItemHoe(EOConfig.BPSandstoneHoeId,toolMaterialBPSandstone)).setUnlocalizedName("item_BronzePlatedSandstoneHoe");
-		BPSandstoneSword = (new MItemSword(EOConfig.BPSandstoneSwordId,toolMaterialBPSandstone, false)).setUnlocalizedName("item_BronzePlatedSandstoneSword");
+		BPSandstonePickaxe = (new MItemPickaxe(toolMaterialBPSandstone)).setUnlocalizedName("item_BronzePlatedSandstonePickaxe");
+		BPSandstoneShovel = (new MItemShovel(toolMaterialBPSandstone)).setUnlocalizedName("item_BronzePlatedSandstoneShovel");
+		BPSandstoneAxe = (new MItemAxe( toolMaterialBPSandstone)).setUnlocalizedName("item_BronzePlatedSandstoneAxe");
+		BPSandstoneHoe = (new MItemHoe(toolMaterialBPSandstone)).setUnlocalizedName("item_BronzePlatedSandstoneHoe");
+		BPSandstoneSword = (new MItemSword(toolMaterialBPSandstone)).setUnlocalizedName("item_BronzePlatedSandstoneSword");
 		
-		BPBedrockPickaxe = (new ItemBedrockBreakablePickaxe(EOConfig.BPBedrockPickaxeId, toolMaterialBPBedrock)).setUnlocalizedName("item_BronzePlatedBedrockPickaxe");
-		BPBedrockShovel = (new MItemShovel(EOConfig.BPBedrockShovelId,toolMaterialBPBedrock)).setUnlocalizedName("item_BronzePlatedBedrockShovel");
-		BPBedrockAxe = (new MItemAxe(EOConfig.BPBedrockAxeId,toolMaterialBPBedrock)).setUnlocalizedName("item_BronzePlatedBedrockAxe");
-		BPBedrockHoe = (new MItemHoe(EOConfig.BPBedrockHoeId,toolMaterialBPBedrock)).setUnlocalizedName("item_BronzePlatedBedrockHoe");
+		BPBedrockPickaxe = (new MItemPickaxe(toolMaterialBPBedrock)).setUnlocalizedName("item_BronzePlatedBedrockPickaxe");
+		BPBedrockShovel = (new MItemShovel(toolMaterialBPBedrock)).setUnlocalizedName("item_BronzePlatedBedrockShovel");
+		BPBedrockAxe = (new MItemAxe(toolMaterialBPBedrock)).setUnlocalizedName("item_BronzePlatedBedrockAxe");
+		BPBedrockHoe = (new MItemHoe(toolMaterialBPBedrock)).setUnlocalizedName("item_BronzePlatedBedrockHoe");
 		
-		BPGranitePickaxe = (new MItemPickaxe(EOConfig.BPGranitePickaxeId,toolMaterialBPGranite)).setUnlocalizedName("item_BronzePlatedGranitePickaxe");
-		BPGraniteShovel = (new MItemShovel(EOConfig.BPGraniteShovelId,toolMaterialBPGranite)).setUnlocalizedName( "item_BronzePlatedGraniteShovel");
-		BPGraniteAxe = (new MItemAxe(EOConfig.BPGraniteAxeId,toolMaterialBPGranite)).setUnlocalizedName("item_BronzePlatedGraniteAxe");
-		BPGraniteHoe = (new MItemHoe(EOConfig.BPGraniteHoeId,toolMaterialBPGranite)).setUnlocalizedName("item_BronzePlatedGraniteHoe");
-		BPGraniteSword = (new MItemSword(EOConfig.BPGraniteSwordId,toolMaterialBPGranite, false)).setUnlocalizedName("item_BronzePlatedGraniteSword");
+		BPGranitePickaxe = (new MItemPickaxe(toolMaterialBPGranite)).setUnlocalizedName("item_BronzePlatedGranitePickaxe");
+		BPGraniteShovel = (new MItemShovel(toolMaterialBPGranite)).setUnlocalizedName( "item_BronzePlatedGraniteShovel");
+		BPGraniteAxe = (new MItemAxe(toolMaterialBPGranite)).setUnlocalizedName("item_BronzePlatedGraniteAxe");
+		BPGraniteHoe = (new MItemHoe(toolMaterialBPGranite)).setUnlocalizedName("item_BronzePlatedGraniteHoe");
+		BPGraniteSword = (new MItemSword(toolMaterialBPGranite)).setUnlocalizedName("item_BronzePlatedGraniteSword");
 		
-		BPWoodPickaxe = (new MItemPickaxe(EOConfig.BPWoodPickaxeId,toolMaterialBPWood)).setUnlocalizedName("item_BronzePlatedWoodPickaxe");
-		BPWoodShovel = (new MItemShovel(EOConfig.BPWoodShovelId,toolMaterialBPWood)).setUnlocalizedName("item_BronzePlatedWoodShovel");
-		BPWoodAxe = (new MItemAxe(EOConfig.BPWoodAxeId,toolMaterialBPWood)).setUnlocalizedName("item_BronzePlatedWoodAxe");
-		BPWoodHoe = (new MItemHoe(EOConfig.BPWoodHoeId,toolMaterialBPWood)).setUnlocalizedName("item_BronzePlatedWoodHoe");
-		BPWoodSword = (new MItemSword(EOConfig.BPWoodSwordId,toolMaterialBPWood, false)).setUnlocalizedName("item_BronzePlatedWoodSword");
+		BPWoodPickaxe = (new MItemPickaxe(toolMaterialBPWood)).setUnlocalizedName("item_BronzePlatedWoodPickaxe");
+		BPWoodShovel = (new MItemShovel(toolMaterialBPWood)).setUnlocalizedName("item_BronzePlatedWoodShovel");
+		BPWoodAxe = (new MItemAxe(toolMaterialBPWood)).setUnlocalizedName("item_BronzePlatedWoodAxe");
+		BPWoodHoe = (new MItemHoe(toolMaterialBPWood)).setUnlocalizedName("item_BronzePlatedWoodHoe");
+		BPWoodSword = (new MItemSword(toolMaterialBPWood)).setUnlocalizedName("item_BronzePlatedWoodSword");
 		
-		BPClothHelmet = (new MItemArmor(EOConfig.BPClothHelmetId, MaterialBPCloth, ExtraOres.proxy.addArmor("BPcloth"), 0,"cloth_plated_1", "cloth_plated_2")).setUnlocalizedName("item_BronzePlatedLeatherHelmet");
-		BPClothChest = (new MItemArmor(EOConfig.BPClothChestId,MaterialBPCloth, ExtraOres.proxy.addArmor("BPcloth"), 1,"cloth_plated_1", "cloth_plated_2")).setUnlocalizedName("item_BronzePlatedLeatherChestplate");
-		BPClothPants = (new MItemArmor(EOConfig.BPClothPantsId,MaterialBPCloth, ExtraOres.proxy.addArmor("BPcloth"), 2,"cloth_plated_1", "cloth_plated_2")).setUnlocalizedName("item_BronzePlatedLeatherLeggings");
-		BPClothBoots = (new MItemArmor(EOConfig.BPClothBootsId,MaterialBPCloth, ExtraOres.proxy.addArmor("BPcloth"), 3,"cloth_plated_1", "cloth_plated_2")).setUnlocalizedName("item_BronzePlatedLeatherBoots");
+		BPClothHelmet = (new MItemArmor(MaterialBPCloth, ExtraOres.proxy.addArmor("BPcloth"), 0)).setUnlocalizedName("item_BronzePlatedLeatherHelmet");
+		BPClothChest = (new MItemArmor(MaterialBPCloth, ExtraOres.proxy.addArmor("BPcloth"), 1)).setUnlocalizedName("item_BronzePlatedLeatherChestplate");
+		BPClothPants = (new MItemArmor(MaterialBPCloth, ExtraOres.proxy.addArmor("BPcloth"), 2)).setUnlocalizedName("item_BronzePlatedLeatherLeggings");
+		BPClothBoots = (new MItemArmor(MaterialBPCloth, ExtraOres.proxy.addArmor("BPcloth"), 3)).setUnlocalizedName("item_BronzePlatedLeatherBoots");
 		
-		BPStonePickaxe = (new MItemPickaxe(EOConfig.BPStonePickaxeId,toolMaterialBPStone)).setUnlocalizedName("item_BronzePlatedStonePickaxe");
-		BPStoneShovel = (new MItemShovel(EOConfig.BPStoneShovelId,toolMaterialBPStone)).setUnlocalizedName("item_BronzePlatedStoneShovel");
-		BPStoneAxe = (new MItemAxe(EOConfig.BPStoneAxeId,toolMaterialBPStone)).setUnlocalizedName( "item_BronzePlatedStoneAxe");
-		BPStoneHoe = (new MItemHoe(EOConfig.BPStoneHoeId,toolMaterialBPStone)).setUnlocalizedName("item_BronzePlatedStoneHoe");
-		BPStoneSword = (new MItemSword(EOConfig.BPStoneSwordId,toolMaterialBPStone, false)).setUnlocalizedName("item_BronzePlatedStoneSword");
+		BPStonePickaxe = (new MItemPickaxe(toolMaterialBPStone)).setUnlocalizedName("item_BronzePlatedStonePickaxe");
+		BPStoneShovel = (new MItemShovel(toolMaterialBPStone)).setUnlocalizedName("item_BronzePlatedStoneShovel");
+		BPStoneAxe = (new MItemAxe(toolMaterialBPStone)).setUnlocalizedName( "item_BronzePlatedStoneAxe");
+		BPStoneHoe = (new MItemHoe(toolMaterialBPStone)).setUnlocalizedName("item_BronzePlatedStoneHoe");
+		BPStoneSword = (new MItemSword(toolMaterialBPStone)).setUnlocalizedName("item_BronzePlatedStoneSword");
 		
-		BPChainHelmet = (new MItemArmor(EOConfig.BPChainHelmetId, MaterialBPChain, ExtraOres.proxy.addArmor("BPchain"), 0, "chain_plated_1", "chain_plated_2")).setUnlocalizedName("item_BronzePlatedChainHelmet");
-		BPChainChest = (new MItemArmor(EOConfig.BPChainChestId,MaterialBPChain, ExtraOres.proxy.addArmor("BPchain"), 1, "chain_plated_1", "chain_plated_2")).setUnlocalizedName("item_BronzePlatedChainChestplate");
-		BPChainPants = (new MItemArmor(EOConfig.BPChainPantsId,MaterialBPChain, ExtraOres.proxy.addArmor("BPchain"), 2, "chain_plated_1", "chain_plated_2")).setUnlocalizedName("item_BronzePlatedChainLeggings");
-		BPChainBoots = (new MItemArmor(EOConfig.BPChainBootsId,MaterialBPChain, ExtraOres.proxy.addArmor("BPchain"), 3, "chain_plated_1", "chain_plated_2")).setUnlocalizedName("item_BronzePlatedChainBoots");
-		Uranium = (new EOItem(EOConfig.uraniumId)).setCreativeTab(tabOresItems).setUnlocalizedName("item_Uranium");
+		BPChainHelmet = (new MItemArmor(MaterialBPChain, ExtraOres.proxy.addArmor("BPchain"), 0)).setUnlocalizedName("item_BronzePlatedChainHelmet");
+		BPChainChest = (new MItemArmor(MaterialBPChain, ExtraOres.proxy.addArmor("BPchain"), 1)).setUnlocalizedName("item_BronzePlatedChainChestplate");
+		BPChainPants = (new MItemArmor(MaterialBPChain, ExtraOres.proxy.addArmor("BPchain"), 2)).setUnlocalizedName("item_BronzePlatedChainLeggings");
+		BPChainBoots = (new MItemArmor(MaterialBPChain, ExtraOres.proxy.addArmor("BPchain"), 3)).setUnlocalizedName("item_BronzePlatedChainBoots");
+		Uranium = (new EOItem()).setCreativeTab(tabOresItems).setUnlocalizedName("item_Uranium");
 
-		ToriteIngot = (new EOItem(EOConfig.toriteIngotId)).setCreativeTab(tabOresItems).setUnlocalizedName("item_ToriteIngot");
-		PinkQuartz = (new EOItem(EOConfig.pinkQuartzId)).setCreativeTab(tabOresItems).setUnlocalizedName("item_PinkQuartz");
-		CopperIngot = (new EOItem(EOConfig.copperBlockId)).setCreativeTab(tabOresItems).setUnlocalizedName("item_CopperIngot");
-		TinIngot = (new EOItem(EOConfig.tinIngotId)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TinIngot");
-		Plutonium = (new EOItem(EOConfig.plutoniumOreId)).setCreativeTab(tabOresItems).setUnlocalizedName("item_Plutonium");
-		TinHelmet = (new MItemArmor(EOConfig.tinHelmetId, MaterialTin, ExtraOres.proxy.addArmor("tin"), 0, "tin_1", "tin_2")).setCreativeTab(tabOresItems).setUnlocalizedName("item_TinHelmet");
-		TinChest = (new MItemArmor(EOConfig.tinChestId,MaterialTin, ExtraOres.proxy.addArmor("tin"), 1, "tin_1", "tin_2")).setCreativeTab(tabOresItems).setUnlocalizedName("item_TinChestplate");
-		TinPants = (new MItemArmor(EOConfig.tinPantsId,MaterialTin, ExtraOres.proxy.addArmor("tin"),2, "tin_1", "tin_2")).setCreativeTab(tabOresItems).setUnlocalizedName("item_TinLeggings");
-		TinBoots = (new MItemArmor(EOConfig.tinBootsId,MaterialTin, ExtraOres.proxy.addArmor("tin"),3, "tin_1", "tin_2")).setCreativeTab(tabOresItems).setUnlocalizedName("item_TinBoots");
-		BedrockPickaxe = (new ItemBedrockBreakablePickaxe(EOConfig.bedrockPickaxeId, toolMaterialBedrock)).setCreativeTab(tabOresItems).setUnlocalizedName("item_BedrockPickaxe");
-		BedrockShovel = (new MItemShovel(EOConfig.bedrockShovelId,toolMaterialBedrock)).setCreativeTab(tabOresItems).setUnlocalizedName( "item_BedrockShovel");
-		BedrockAxe = (new MItemAxe(EOConfig.bedrockAxeId,toolMaterialBedrock)).setCreativeTab(tabOresItems).setUnlocalizedName("item_BedrockAxe");
-		BedrockHoe = (new MItemHoe(EOConfig.bedrockHoeId,toolMaterialBedrock)).setCreativeTab(tabOresItems).setUnlocalizedName("item_BedrockHoe");
+		ToriteIngot = (new EOItem()).setCreativeTab(tabOresItems).setUnlocalizedName("item_ToriteIngot");
+		PinkQuartz = (new EOItem()).setCreativeTab(tabOresItems).setUnlocalizedName("item_PinkQuartz");
+		CopperIngot = (new EOItem()).setCreativeTab(tabOresItems).setUnlocalizedName("item_CopperIngot");
+		TinIngot = (new EOItem()).setCreativeTab(tabOresItems).setUnlocalizedName("item_TinIngot");
+		Plutonium = (new EOItem()).setCreativeTab(tabOresItems).setUnlocalizedName("item_Plutonium");
+		TinHelmet = (new MItemArmor(MaterialTin, ExtraOres.proxy.addArmor("tin"), 0)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TinHelmet");
+		TinChest = (new MItemArmor(MaterialTin, ExtraOres.proxy.addArmor("tin"), 1)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TinChestplate");
+		TinPants = (new MItemArmor(MaterialTin, ExtraOres.proxy.addArmor("tin"),2)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TinLeggings");
+		TinBoots = (new MItemArmor(MaterialTin, ExtraOres.proxy.addArmor("tin"),3)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TinBoots");
+		BedrockPickaxe = (new MItemPickaxe(toolMaterialBedrock)).setCreativeTab(tabOresItems).setUnlocalizedName("item_BedrockPickaxe");
+		BedrockShovel = (new MItemShovel(toolMaterialBedrock)).setCreativeTab(tabOresItems).setUnlocalizedName( "item_BedrockShovel");
+		BedrockAxe = (new MItemAxe(toolMaterialBedrock)).setCreativeTab(tabOresItems).setUnlocalizedName("item_BedrockAxe");
+		BedrockHoe = (new MItemHoe(toolMaterialBedrock)).setCreativeTab(tabOresItems).setUnlocalizedName("item_BedrockHoe");
 		
-		GranitePickaxe = (new MItemPickaxe(EOConfig.granitePickaxeId,toolMaterialGranite)).setCreativeTab(tabOresItems).setUnlocalizedName("item_GranitePickaxe");
-		GraniteShovel = (new MItemShovel(EOConfig.graniteShovelId,toolMaterialGranite)).setCreativeTab(tabOresItems).setUnlocalizedName("item_GraniteShovel");
-		GraniteAxe = (new MItemAxe(EOConfig.graniteAxeId,toolMaterialGranite)).setCreativeTab(tabOresItems).setUnlocalizedName("item_GraniteAxe");
-		GraniteHoe = (new MItemHoe(EOConfig.graniteHoeId,toolMaterialGranite)).setCreativeTab(tabOresItems).setUnlocalizedName("item_GraniteHoe");
-		GraniteSword = (new MItemSword(EOConfig.graniteSwordId,toolMaterialGranite, false)).setCreativeTab(tabOresItems).setUnlocalizedName("item_GraniteSword");
-		SunstoneDust = (new EOItem(EOConfig.sunstoneDustId)).setCreativeTab(tabOresItems).setUnlocalizedName("item_SunstoneShard");
+		GranitePickaxe = (new MItemPickaxe(toolMaterialGranite)).setCreativeTab(tabOresItems).setUnlocalizedName("item_GranitePickaxe");
+		GraniteShovel = (new MItemShovel(toolMaterialGranite)).setCreativeTab(tabOresItems).setUnlocalizedName("item_GraniteShovel");
+		GraniteAxe = (new MItemAxe(toolMaterialGranite)).setCreativeTab(tabOresItems).setUnlocalizedName("item_GraniteAxe");
+		GraniteHoe = (new MItemHoe(toolMaterialGranite)).setCreativeTab(tabOresItems).setUnlocalizedName("item_GraniteHoe");
+		GraniteSword = (new MItemSword(toolMaterialGranite)).setCreativeTab(tabOresItems).setUnlocalizedName("item_GraniteSword");
+		SunstoneDust = (new EOItem()).setCreativeTab(tabOresItems).setUnlocalizedName("item_SunstoneShard");
 	
-		BPIronPickaxe = (new MItemPickaxe(EOConfig.BPIronPickaxeId,toolMaterialBPIron)).setUnlocalizedName("item_BronzePlatedIronPickaxe");
-		BPIronShovel = (new MItemShovel(EOConfig.BPIronShovelId,toolMaterialBPIron)).setUnlocalizedName("item_BronzePlatedIronShovel");
-		BPIronAxe = (new MItemAxe(EOConfig.BPIronAxeId,toolMaterialBPIron)).setUnlocalizedName("item_BronzePlatedIronAxe");
-		BPIronHoe = (new MItemHoe(EOConfig.BPIronHoeId,toolMaterialBPIron)).setUnlocalizedName("item_BronzePlatedIronHoe");
-		BPIronSword = (new MItemSword(EOConfig.BPIronSwordId,toolMaterialBPIron, false)).setUnlocalizedName("item_BronzePlatedIronSword");
+		BPIronPickaxe = (new MItemPickaxe(toolMaterialBPIron)).setUnlocalizedName("item_BronzePlatedIronPickaxe");
+		BPIronShovel = (new MItemShovel(toolMaterialBPIron)).setUnlocalizedName("item_BronzePlatedIronShovel");
+		BPIronAxe = (new MItemAxe(toolMaterialBPIron)).setUnlocalizedName("item_BronzePlatedIronAxe");
+		BPIronHoe = (new MItemHoe(toolMaterialBPIron)).setUnlocalizedName("item_BronzePlatedIronHoe");
+		BPIronSword = (new MItemSword(toolMaterialBPIron)).setUnlocalizedName("item_BronzePlatedIronSword");
 		
-		BPIronHelmet = (new MItemArmor(EOConfig.BPIronHelmetId, MaterialBPIron, ExtraOres.proxy.addArmor("BPiron"), 0, "iron_plated_1", "iron_plated_2")).setUnlocalizedName("item_BronzePlatedIronHelmet");
-		BPIronChest = (new MItemArmor(EOConfig.BPIronChestId,MaterialBPIron, ExtraOres.proxy.addArmor("BPiron"), 1, "iron_plated_1", "iron_plated_2")).setUnlocalizedName("item_BronzePlatedIronChestplate");
-		BPIronPants = (new MItemArmor(EOConfig.BPIronPantsId,MaterialBPIron, ExtraOres.proxy.addArmor("BPiron"), 2, "iron_plated_1", "iron_plated_2")).setUnlocalizedName("item_BronzePlatedIronLeggings");
-		BPIronBoots = (new MItemArmor(EOConfig.BPIronBootsId,MaterialBPIron, ExtraOres.proxy.addArmor("BPiron"), 3, "iron_plated_1", "iron_plated_2")).setUnlocalizedName("item_BronzePlatedIronBoots");
+		BPIronHelmet = (new MItemArmor( MaterialBPIron, ExtraOres.proxy.addArmor("BPiron"), 0)).setUnlocalizedName("item_BronzePlatedIronHelmet");
+		BPIronChest = (new MItemArmor(MaterialBPIron, ExtraOres.proxy.addArmor("BPiron"), 1)).setUnlocalizedName("item_BronzePlatedIronChestplate");
+		BPIronPants = (new MItemArmor(MaterialBPIron, ExtraOres.proxy.addArmor("BPiron"), 2)).setUnlocalizedName("item_BronzePlatedIronLeggings");
+		BPIronBoots = (new MItemArmor(MaterialBPIron, ExtraOres.proxy.addArmor("BPiron"), 3)).setUnlocalizedName("item_BronzePlatedIronBoots");
 		
-		BPGoldPickaxe = (new MItemPickaxe(EOConfig.BPGoldPickaxeId,toolMaterialBPGold)).setUnlocalizedName("item_BronzePlatedGoldPickaxe");
-		BPGoldShovel = (new MItemShovel(EOConfig.BPGoldShovelId,toolMaterialBPGold)).setUnlocalizedName("item_BronzePlatedGoldShovel");
-		BPGoldAxe = (new MItemAxe(EOConfig.BPGoldAxeId,toolMaterialBPGold)).setUnlocalizedName("item_BronzePlatedGoldAxe");
-		BPGoldHoe = (new MItemHoe(EOConfig.BPGoldHoeId,toolMaterialBPGold)).setUnlocalizedName("item_BronzePlatedGoldHoe");
-		BPGoldSword = (new MItemSword(EOConfig.BPGoldSwordId,toolMaterialBPGold, false)).setUnlocalizedName("item_BronzePlatedGoldSword");
+		BPGoldPickaxe = (new MItemPickaxe(toolMaterialBPGold)).setUnlocalizedName("item_BronzePlatedGoldPickaxe");
+		BPGoldShovel = (new MItemShovel(toolMaterialBPGold)).setUnlocalizedName("item_BronzePlatedGoldShovel");
+		BPGoldAxe = (new MItemAxe(toolMaterialBPGold)).setUnlocalizedName("item_BronzePlatedGoldAxe");
+		BPGoldHoe = (new MItemHoe(toolMaterialBPGold)).setUnlocalizedName("item_BronzePlatedGoldHoe");
+		BPGoldSword = (new MItemSword(toolMaterialBPGold)).setUnlocalizedName("item_BronzePlatedGoldSword");
 		
-		BPGoldHelmet = (new MItemArmor(EOConfig.BPGoldHelmetId, MaterialBPGold, ExtraOres.proxy.addArmor("BPgold"), 0, "gold_plated_1", "gold_plated_2")).setUnlocalizedName("item_BronzePlatedGoldHelmet");
-		BPGoldChest = (new MItemArmor(EOConfig.BPGoldChestId,MaterialBPGold, ExtraOres.proxy.addArmor("BPgold"), 1, "gold_plated_1", "gold_plated_2")).setUnlocalizedName("item_BronzePlatedGoldChestplate");
-		BPGoldPants = (new MItemArmor(EOConfig.BPGoldPantsId,MaterialBPGold, ExtraOres.proxy.addArmor("BPgold"), 2, "gold_plated_1", "gold_plated_2")).setUnlocalizedName("item_BronzePlatedGoldLeggings");
-		BPGoldBoots = (new MItemArmor(EOConfig.BPGoldBootsId,MaterialBPGold, ExtraOres.proxy.addArmor("BPgold"), 3, "gold_plated_1", "gold_plated_2")).setUnlocalizedName("item_BronzePlatedGoldBoots");
+		BPGoldHelmet = (new MItemArmor(MaterialBPGold, ExtraOres.proxy.addArmor("BPgold"), 0)).setUnlocalizedName("item_BronzePlatedGoldHelmet");
+		BPGoldChest = (new MItemArmor(MaterialBPGold, ExtraOres.proxy.addArmor("BPgold"), 1)).setUnlocalizedName("item_BronzePlatedGoldChestplate");
+		BPGoldPants = (new MItemArmor(MaterialBPGold, ExtraOres.proxy.addArmor("BPgold"), 2)).setUnlocalizedName("item_BronzePlatedGoldLeggings");
+		BPGoldBoots = (new MItemArmor(MaterialBPGold, ExtraOres.proxy.addArmor("BPgold"), 3)).setUnlocalizedName("item_BronzePlatedGoldBoots");
 		
-		BPDiamondPickaxe = (new MItemPickaxe(EOConfig.BPDiamondPickaxeId,toolMaterialBPEmerald)).setUnlocalizedName("item_BronzePlatedDiamondPickaxe");
-		BPDiamondShovel = (new MItemShovel(EOConfig.BPDiamondShovelId,toolMaterialBPEmerald)).setUnlocalizedName("item_BronzePlatedDiamondShovel");
-		BPDiamondAxe = (new MItemAxe(EOConfig.BPDiamondAxeId,toolMaterialBPEmerald)).setUnlocalizedName("item_BronzePlatedDiamondAxe");
-		BPDiamondHoe = (new MItemHoe(EOConfig.BPDiamondHoeId,toolMaterialBPEmerald)).setUnlocalizedName("item_BronzePlatedDiamondHoe");
-		BPDiamondSword = (new MItemSword(EOConfig.BPDiamondSwordId,toolMaterialBPEmerald, false)).setUnlocalizedName("item_BronzePlatedDiamondSword");
+		BPDiamondPickaxe = (new MItemPickaxe(toolMaterialBPEmerald)).setUnlocalizedName("item_BronzePlatedDiamondPickaxe");
+		BPDiamondShovel = (new MItemShovel(toolMaterialBPEmerald)).setUnlocalizedName("item_BronzePlatedDiamondShovel");
+		BPDiamondAxe = (new MItemAxe(toolMaterialBPEmerald)).setUnlocalizedName("item_BronzePlatedDiamondAxe");
+		BPDiamondHoe = (new MItemHoe(toolMaterialBPEmerald)).setUnlocalizedName("item_BronzePlatedDiamondHoe");
+		BPDiamondSword = (new MItemSword(toolMaterialBPEmerald)).setUnlocalizedName("item_BronzePlatedDiamondSword");
 		
-		BPDiamondHelmet = (new MItemArmor(EOConfig.BPDiamondHelmetId, MaterialBPDiamond, ExtraOres.proxy.addArmor("BPdiamond"), 0, "diamond_plated_1", "diamond_plated_2")).setUnlocalizedName("item_BronzePlatedDiamondHelmet");
-		BPDiamondChest = (new MItemArmor(EOConfig.BPDiamondChestId,MaterialBPDiamond, ExtraOres.proxy.addArmor("BPdiamond"), 1, "diamond_plated_1", "diamond_plated_2")).setUnlocalizedName("item_BronzePlatedDiamondChestplate");
-		BPDiamondPants = (new MItemArmor(EOConfig.BPDiamondPantsId,MaterialBPDiamond, ExtraOres.proxy.addArmor("BPdiamond"), 2, "diamond_plated_1", "diamond_plated_2")).setUnlocalizedName("item_BronzePlatedDiamondLeggings");
-		BPDiamondBoots = (new MItemArmor(EOConfig.BPDiamondBootsId,MaterialBPDiamond, ExtraOres.proxy.addArmor("BPdiamond"), 3, "diamond_plated_1", "diamond_plated_2")).setUnlocalizedName("item_BronzePlatedDiamondBoots");		
+		BPDiamondHelmet = (new MItemArmor( MaterialBPDiamond, ExtraOres.proxy.addArmor("BPdiamond"), 0)).setUnlocalizedName("item_BronzePlatedDiamondHelmet");
+		BPDiamondChest = (new MItemArmor(MaterialBPDiamond, ExtraOres.proxy.addArmor("BPdiamond"), 1)).setUnlocalizedName("item_BronzePlatedDiamondChestplate");
+		BPDiamondPants = (new MItemArmor(MaterialBPDiamond, ExtraOres.proxy.addArmor("BPdiamond"), 2)).setUnlocalizedName("item_BronzePlatedDiamondLeggings");
+		BPDiamondBoots = (new MItemArmor(MaterialBPDiamond, ExtraOres.proxy.addArmor("BPdiamond"), 3)).setUnlocalizedName("item_BronzePlatedDiamondBoots");		
 
 		//bucketMagma = new EOItemBucket(EOConfig.bucketMagmaId, ExtraOres.eoFluid.getBlockID()).setUnlocalizedName("item_MagmaBucket");
 		
-		steelKey = new ItemKey(EOConfig.steelKeyId).setUnlocalizedName("item_SteelKey").setCreativeTab(tabOresItems);
-		steelLock = new ItemLock(EOConfig.steelLockId).setUnlocalizedName("item_SteelLock").setCreativeTab(tabOresItems);
+		steelKey = new ItemKey().setUnlocalizedName("item_SteelKey").setCreativeTab(tabOresItems);
+		steelLock = new ItemLock().setUnlocalizedName("item_SteelLock").setCreativeTab(tabOresItems);
 	}
 	
 	public static void addItemsToChests()
@@ -663,37 +657,41 @@ public class EOItemManager
 		ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH).addItem(new WeightedRandomChestContent(new ItemStack(CoalIronIngot),1,5,17));
 		ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH).addItem(new WeightedRandomChestContent(new ItemStack(SteelIngot),1,5,17));
 		
-		//shovels
-				MinecraftForge.setToolClass(BPGoldShovel, "shovel", 0);
-				MinecraftForge.setToolClass(BPIronShovel, "shovel", 2);
-				MinecraftForge.setToolClass(BPDiamondShovel, "shovel", 3);
-				MinecraftForge.setToolClass(BPWoodShovel, "shovel", 0);
-				MinecraftForge.setToolClass(BPStoneShovel, "shovel", 1);
-				MinecraftForge.setToolClass(GraniteShovel, "shovel", 1);
-				MinecraftForge.setToolClass(BPGraniteShovel, "shovel", 1);
-				MinecraftForge.setToolClass(meuroditeShovel, "shovel", 2);
-				MinecraftForge.setToolClass(BPMeuroditeShovel, "shovel", 2);
-				MinecraftForge.setToolClass(BedrockShovel, "shovel", 4);
-				MinecraftForge.setToolClass(BPBedrockShovel, "shovel", 4);
-				MinecraftForge.setToolClass(BronzeShovel, "shovel", 2);
-				MinecraftForge.setToolClass(SteelShovel, "shovel", 2);
-				MinecraftForge.setToolClass(BPSteelShovel, "shovel", 2);
-				MinecraftForge.setToolClass(CopperShovel, "shovel", 1);
-				MinecraftForge.setToolClass(BPCopperShovel, "shovel", 1);
-				MinecraftForge.setToolClass(BlaziumShovel, "shovel", 2);
-				MinecraftForge.setToolClass(BPBlaziumShovel, "shovel", 2);
-				MinecraftForge.setToolClass(ToriteShovel, "shovel", 2);
-				MinecraftForge.setToolClass(BPToriteShovel, "shovel", 2);
-				MinecraftForge.setToolClass(TitaniumShovel, "shovel", 4);
-				MinecraftForge.setToolClass(BPTitaniumShovel, "shovel", 4);
-				MinecraftForge.setToolClass(meuroditeShovel, "shovel", 2);
-				MinecraftForge.setToolClass(BPMeuroditeShovel, "shovel", 2);
-				MinecraftForge.setToolClass(SandstoneShovel, "shovel", 1);
-				MinecraftForge.setToolClass(BPSandstoneShovel, "shovel", 1);
+		//TODO find alternative
+		/*
+		MinecraftForge.setToolClass(BPGoldShovel, "shovel", 0);
+		MinecraftForge.setToolClass(BPIronShovel, "shovel", 2);
+		MinecraftForge.setToolClass(BPDiamondShovel, "shovel", 3);
+		MinecraftForge.setToolClass(BPWoodShovel, "shovel", 0);
+		MinecraftForge.setToolClass(BPStoneShovel, "shovel", 1);
+		MinecraftForge.setToolClass(GraniteShovel, "shovel", 1);
+		MinecraftForge.setToolClass(BPGraniteShovel, "shovel", 1);
+		MinecraftForge.setToolClass(meuroditeShovel, "shovel", 2);
+		MinecraftForge.setToolClass(BPMeuroditeShovel, "shovel", 2);
+		MinecraftForge.setToolClass(BedrockShovel, "shovel", 4);
+		MinecraftForge.setToolClass(BPBedrockShovel, "shovel", 4);
+		MinecraftForge.setToolClass(BronzeShovel, "shovel", 2);
+		MinecraftForge.setToolClass(SteelShovel, "shovel", 2);
+		MinecraftForge.setToolClass(BPSteelShovel, "shovel", 2);
+		MinecraftForge.setToolClass(CopperShovel, "shovel", 1);
+		MinecraftForge.setToolClass(BPCopperShovel, "shovel", 1);
+		MinecraftForge.setToolClass(BlaziumShovel, "shovel", 2);
+		MinecraftForge.setToolClass(BPBlaziumShovel, "shovel", 2);
+		MinecraftForge.setToolClass(ToriteShovel, "shovel", 2);
+		MinecraftForge.setToolClass(BPToriteShovel, "shovel", 2);
+		MinecraftForge.setToolClass(TitaniumShovel, "shovel", 4);
+		MinecraftForge.setToolClass(BPTitaniumShovel, "shovel", 4);
+		MinecraftForge.setToolClass(meuroditeShovel, "shovel", 2);
+		MinecraftForge.setToolClass(BPMeuroditeShovel, "shovel", 2);
+		MinecraftForge.setToolClass(SandstoneShovel, "shovel", 1);
+		MinecraftForge.setToolClass(BPSandstoneShovel, "shovel", 1);
+		*/
 	}
 
 	public static void setHarvestLevels()
 	{
+		//TODO find alternative
+		/*
 		MinecraftForge.setToolClass(BPGoldPickaxe, "pickaxe", 0);
 		MinecraftForge.setToolClass(BPIronPickaxe, "pickaxe", 2);
 		MinecraftForge.setToolClass(BPDiamondPickaxe, "pickaxe", 3);
@@ -720,54 +718,57 @@ public class EOItemManager
 		MinecraftForge.setToolClass(BPMeuroditePickaxe, "pickaxe", 2);
 		MinecraftForge.setToolClass(SandstonePickaxe, "pickaxe", 1);
 		MinecraftForge.setToolClass(BPSandstonePickaxe, "pickaxe", 1);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.CopperOre, "pickaxe", 0);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.CopperBlock, "pickaxe", 0);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.TinOre, "pickaxe", 1);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.TinBlock, "pickaxe", 1);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.meuroditeOre, "pickaxe", 2);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.meuroditeBlock, "pickaxe", 2);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.ToriteOre, "pickaxe", 2);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.ToriteBlock, "pickaxe", 2);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.TitaniumOre, "pickaxe", 3);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.TitaniumBlock, "pickaxe", 3);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.UraniumOre, "pickaxe", 2);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.PlutoniumOre, "pickaxe", 2);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.SunstoneOre, "pickaxe", 2);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.Granite, "pickaxe", 1);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.GraniteBrick, "pickaxe", 1);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.Quartzite, "pickaxe", 1);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.QuartziteTile, "pickaxe", 1);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.SmoothQuartzite, "pickaxe", 1);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.PillarQuartzite, "pickaxe", 1);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.ChiseledQuartzite, "pickaxe", 1);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.SmoothQuartzTile, "pickaxe", 1);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.BlaziumOre, "pickaxe", 2);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.BlaziumBlock, "pickaxe", 2);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.SoulOre, "shovel", 2);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.TinPlatedCobble, "pickaxe", 1);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.TinPlatedMossy, "pickaxe", 1);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.TinPlatedStoneBrick, "pickaxe", 1);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.TinPlatedChiseled, "pickaxe", 1);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.TinPlatedGranite, "pickaxe", 1);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.BronzeBlock, "pickaxe", 1);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.BronzePlatedCobble, "pickaxe", 2);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.BronzePlatedMossy, "pickaxe", 2);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.BronzePlatedStoneBrick, "pickaxe", 2);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.BronzePlatedChiseled, "pickaxe", 2);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.BronzePlatedGranite, "pickaxe", 2);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.SteelPlatedCobble, "pickaxe", 1);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.SteelPlatedMossy, "pickaxe", 1);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.SteelPlatedStoneBrick, "pickaxe", 1);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.SteelPlatedChiseled, "pickaxe", 1);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.SteelPlatedGranite, "pickaxe", 1);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.RawUraniumBlock, "pickaxe", 0);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.RawPlutoniumBlock, "pickaxe", 0);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.SmoothRadiantQuartz, "pickaxe", 3);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.PillarRadiantQuartz, "pickaxe", 3);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.ChiseledRadiantQuartz, "pickaxe", 3);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.RadiantQuartzOre, "pickaxe", 3);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.Godstone, "pickaxe", 2);
-		MinecraftForge.setBlockHarvestLevel(Block.bedrock, "pickaxe", 4);
-		MinecraftForge.setBlockHarvestLevel(EOBlockManager.soulBlock, "pickaxe", 4);
+		*/
+		
+		//TODO Why aren't these in the instantiation? 
+		EOBlockManager.CopperOre.setHarvestLevel("pickaxe", 0);
+		EOBlockManager.CopperBlock.setHarvestLevel("pickaxe", 0);
+		EOBlockManager.TinOre.setHarvestLevel("pickaxe", 1);
+		EOBlockManager.TinBlock.setHarvestLevel("pickaxe", 1);
+		EOBlockManager.meuroditeOre.setHarvestLevel("pickaxe", 2);
+		EOBlockManager.meuroditeBlock.setHarvestLevel("pickaxe", 2);
+		EOBlockManager.ToriteOre.setHarvestLevel("pickaxe", 2);
+		EOBlockManager.ToriteBlock.setHarvestLevel("pickaxe", 2);
+		EOBlockManager.TitaniumOre.setHarvestLevel("pickaxe", 3);
+		EOBlockManager.TitaniumBlock.setHarvestLevel("pickaxe", 3);
+		EOBlockManager.UraniumOre.setHarvestLevel("pickaxe", 2);
+		EOBlockManager.PlutoniumOre.setHarvestLevel("pickaxe", 2);
+		EOBlockManager.SunstoneOre.setHarvestLevel("pickaxe", 2);
+		EOBlockManager.Granite.setHarvestLevel("pickaxe", 1);
+		EOBlockManager.GraniteBrick.setHarvestLevel("pickaxe", 1);
+		EOBlockManager.Quartzite.setHarvestLevel("pickaxe", 1);
+		EOBlockManager.QuartziteTile.setHarvestLevel("pickaxe", 1);
+		EOBlockManager.SmoothQuartzite.setHarvestLevel("pickaxe", 1);
+		EOBlockManager.PillarQuartzite.setHarvestLevel("pickaxe", 1);
+		EOBlockManager.ChiseledQuartzite.setHarvestLevel("pickaxe", 1);
+		EOBlockManager.SmoothQuartzTile.setHarvestLevel("pickaxe", 1);
+		EOBlockManager.BlaziumOre.setHarvestLevel("pickaxe", 2);
+		EOBlockManager.BlaziumBlock.setHarvestLevel("pickaxe", 2);
+		EOBlockManager.SoulOre.setHarvestLevel("shovel", 2);
+		EOBlockManager.TinPlatedCobble.setHarvestLevel("pickaxe", 1);
+		EOBlockManager.TinPlatedMossy.setHarvestLevel("pickaxe", 1);
+		EOBlockManager.TinPlatedStoneBrick.setHarvestLevel("pickaxe", 1);
+		EOBlockManager.TinPlatedChiseled.setHarvestLevel("pickaxe", 1);
+		EOBlockManager.TinPlatedGranite.setHarvestLevel("pickaxe", 1);
+		EOBlockManager.BronzeBlock.setHarvestLevel("pickaxe", 1);
+		EOBlockManager.BronzePlatedCobble.setHarvestLevel("pickaxe", 2);
+		EOBlockManager.BronzePlatedMossy.setHarvestLevel("pickaxe", 2);
+		EOBlockManager.BronzePlatedStoneBrick.setHarvestLevel("pickaxe", 2);
+		EOBlockManager.BronzePlatedChiseled.setHarvestLevel("pickaxe", 2);
+		EOBlockManager.BronzePlatedGranite.setHarvestLevel("pickaxe", 2);
+		EOBlockManager.SteelPlatedCobble.setHarvestLevel("pickaxe", 1);
+		EOBlockManager.SteelPlatedMossy.setHarvestLevel("pickaxe", 1);
+		EOBlockManager.SteelPlatedStoneBrick.setHarvestLevel("pickaxe", 1);
+		EOBlockManager.SteelPlatedChiseled.setHarvestLevel("pickaxe", 1);
+		EOBlockManager.SteelPlatedGranite.setHarvestLevel("pickaxe", 1);
+		EOBlockManager.RawUraniumBlock.setHarvestLevel("pickaxe", 0);
+		EOBlockManager.RawPlutoniumBlock.setHarvestLevel("pickaxe", 0);
+		EOBlockManager.SmoothRadiantQuartz.setHarvestLevel("pickaxe", 3);
+		EOBlockManager.PillarRadiantQuartz.setHarvestLevel("pickaxe", 3);
+		EOBlockManager.ChiseledRadiantQuartz.setHarvestLevel("pickaxe", 3);
+		EOBlockManager.RadiantQuartzOre.setHarvestLevel("pickaxe", 3);
+		EOBlockManager.Godstone.setHarvestLevel("pickaxe", 2);
+		Blocks.bedrock.setHarvestLevel("pickaxe", 4);
+		EOBlockManager.soulBlock.setHarvestLevel("pickaxe", 4);
 	}
 }
