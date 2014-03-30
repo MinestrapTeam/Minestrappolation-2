@@ -5,9 +5,10 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
-public class EOIngotAndOreRegistration {
-	
-	public static void registerOresAndIngots(){
+public class EOIngotAndOreRegistration 
+{
+	public static void registerOresAndIngots()
+	{
 		add("ingotCopper",EOItemManager.CopperIngot);
 		add("oreCopper",EOBlockManager.CopperOre);
 		add("ingotTin",EOItemManager.TinIngot);
@@ -39,11 +40,13 @@ public class EOIngotAndOreRegistration {
 		add("gemSoul",EOBlockManager.SoulGem);
 	}
 	
-	private static void add(String name,Item item){
+	private static void add(String name,Item item)
+	{
 		OreDictionary.registerOre(name, new ItemStack(item));
 	}
 	
-	private static void add(String name,Block block){
+	private static void add(String name,Block block)
+	{
 		OreDictionary.registerOre(name, new ItemStack(block));
 	}
 

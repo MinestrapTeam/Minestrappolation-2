@@ -4,6 +4,7 @@ import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import sobiohazardous.minestrappolation.api.block.MBlock;
+import sobiohazardous.minestrappolation.api.util.MAssetManager;
 import sobiohazardous.minestrappolation.extraores.CreativeTabExtraoresBlocks;
 import sobiohazardous.minestrappolation.extraores.ExtraOres;
 import sobiohazardous.minestrappolation.extraores.block.BlockBlazium;
@@ -215,8 +216,8 @@ public class EOBlockManager
 	
 	public static void addBlocks()
 	{
-		meuroditeOre = (new EOBlock(EOConfig.meuroditeOreId, Material.rock)).setHardness(5F).setCreativeTab(tabOresBlocks).setResistance(10F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("block_MeuroditeOre");
-		meuroditeBlock = (new EOBlock(EOConfig.meuroditeBlockId, Material.iron)).setHardness(5F).setCreativeTab(tabOresBlocks).setResistance(10F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("block_Meurodite");
+		meuroditeOre = (new EOBlock(Material.rock)).setHardness(5F).setCreativeTab(tabOresBlocks).setResistance(10F).setStepSound(Block.soundTypeStone).setBlockName("oreMeurodite").setBlockTextureName(MAssetManager.getEOTexture("oreMeurodite"));
+		meuroditeBlock = (new EOBlock(Material.iron)).setHardness(5F).setCreativeTab(tabOresBlocks).setResistance(10F).setStepSound(Block.soundTypeStone).setBlockName("blockMeurodite").setBlockTextureName(MAssetManager.getEOTexture("blockMeurodite"));
 			
 		UraniumOre = (new BlockUraniumOre(EOConfig.uraniumOreId, Material.rock)).setHardness(5F).setResistance(10F).setCreativeTab(tabOresBlocks).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("UraniumOre");
 	
@@ -381,6 +382,7 @@ public class EOBlockManager
 	
 	public static void addSlabs()
 	{
+		/*
 		Item.itemsList[RadiantQuartzSingleSlab.blockID] = (new ItemSlab(RadiantQuartzSingleSlab.blockID - 256, (BlockSlab)RadiantQuartzSingleSlab, (BlockSlab)RadiantQuartzDoubleSlab, false));
 		Item.itemsList[PinkQuartzSingleSlab.blockID] = (new ItemSlab(PinkQuartzSingleSlab.blockID - 256, (BlockSlab)PinkQuartzSingleSlab, (BlockSlab)PinkQuartzDoubleSlab, false));
 		Item.itemsList[graniteBrickSingleSlab.blockID] = (new ItemSlab(graniteBrickSingleSlab.blockID - 256, (BlockSlab)graniteBrickSingleSlab, (BlockSlab)graniteBrickDoubleSlab, false));
@@ -393,13 +395,13 @@ public class EOBlockManager
 		Item.itemsList[tinPlatedGraniteBrickSingleSlab.blockID] = (new ItemSlab(tinPlatedGraniteBrickSingleSlab.blockID - 256, (BlockSlab)tinPlatedGraniteBrickSingleSlab, (BlockSlab)tinPlatedGraniteBrickDoubleSlab, false));
 		Item.itemsList[steelPlatedGraniteBrickSingleSlab.blockID] = (new ItemSlab(steelPlatedGraniteBrickSingleSlab.blockID - 256, (BlockSlab)steelPlatedGraniteBrickSingleSlab, (BlockSlab)steelPlatedGraniteBrickDoubleSlab, false));
 		Item.itemsList[bronzePlatedGraniteBrickSingleSlab.blockID] = (new ItemSlab(bronzePlatedGraniteBrickSingleSlab.blockID - 256, (BlockSlab)bronzePlatedGraniteBrickSingleSlab, (BlockSlab)bronzePlatedGraniteBrickDoubleSlab, false));
+		*/
 	}
 	
 	public static void loadBridgedBlocks() throws Exception{
 		if(Loader.isModLoaded("ExtraDecor")){
 			glowGlass = new BlockGlowGlass(EOConfig.glowGlassID,Material.glass,true).setUnlocalizedName("block_GlowGlass").setLightValue(0.7F).setStepSound(Block.soundGlassFootstep).setHardness(.8F);
 			GameRegistry.registerBlock(glowGlass,"block_GlowGlass");
-			LanguageRegistry.addName(glowGlass, "Glow Glass");
 		}
 	
 	}
