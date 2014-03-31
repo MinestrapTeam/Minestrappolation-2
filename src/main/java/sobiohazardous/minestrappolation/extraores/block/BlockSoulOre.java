@@ -15,7 +15,7 @@ import net.minecraft.world.World;
 public class BlockSoulOre extends MBlock
 {
 	Random rand = new Random();
-    public BlockSoulOre(int par1)
+    public BlockSoulOre()
     {
         super(Material.sand);
         this.setCreativeTab(EOBlockManager.tabOresBlocks);

@@ -541,7 +541,7 @@ public class EOItemManager
 
 		ToriteIngot = (new EOItem()).setCreativeTab(tabOresItems).setUnlocalizedName("item_ToriteIngot");
 		PinkQuartz = (new EOItem()).setCreativeTab(tabOresItems).setUnlocalizedName("item_PinkQuartz");
-		CopperIngot = (new EOItem()).setCreativeTab(tabOresItems).setUnlocalizedName("item_CopperIngot");
+		CopperIngot = (new EOItem()).setCreativeTab(tabOresItems).setUnlocalizedName("item_CopperIngot").setTextureName(MAssetManager.getEOTexture("ingotCopper"));
 		TinIngot = (new EOItem()).setCreativeTab(tabOresItems).setUnlocalizedName("item_TinIngot");
 		Plutonium = (new EOItem()).setCreativeTab(tabOresItems).setUnlocalizedName("item_Plutonium");
 		TinHelmet = (new MItemArmor(MaterialTin, ExtraOres.proxy.addArmor("tin"), 0)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TinHelmet");

@@ -5,6 +5,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 
 public final class MAPICreativeTab extends CreativeTabs
@@ -21,6 +22,6 @@ public final class MAPICreativeTab extends CreativeTabs
 		@Override
 		public Item getTabIconItem() 
 		{
-			return Item.getItemFromBlock(MAPIBlocks.stoneCutter);
+			return Item.getItemFromBlock(Blocks.stone);
 		}
 }
