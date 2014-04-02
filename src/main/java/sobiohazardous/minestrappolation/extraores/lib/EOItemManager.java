@@ -1,5 +1,6 @@
 package sobiohazardous.minestrappolation.extraores.lib;
 
+import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
@@ -343,13 +344,20 @@ public class EOItemManager
 	public static void addItems()
 	{
 		meuroditeIngot = (new EOItem()).setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditeIngot").setTextureName(MAssetManager.getEOTexture("ingotMeurodite"));
+		GameRegistry.registerItem(meuroditeIngot, "ingotMeurodite");
 		meuroditeSword = (new MItemSword(toolMaterialMeurodite)).setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditeSword").setTextureName(MAssetManager.getEOTexture("weaponSwordMeurodite"));
+		GameRegistry.registerItem(meuroditeSword, "weaponSwordMeurodite");
 		meuroditePickaxe = (new MItemPickaxe(toolMaterialMeurodite)).setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditePickaxe").setTextureName(MAssetManager.getEOTexture("toolPickMeurodite"));
+		GameRegistry.registerItem(meuroditePickaxe, "toolPickMeurodite");
 		meuroditeShovel = (new MItemShovel(toolMaterialMeurodite)).setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditeShovel").setTextureName(MAssetManager.getEOTexture("toolShovelMeurodite"));
+		GameRegistry.registerItem(meuroditeShovel, "toolShovelMeurodite");
 		meuroditeHoe = (new MItemHoe(toolMaterialMeurodite)).setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditeHoe").setTextureName(MAssetManager.getEOTexture("toolHoeMeurodite"));
+		GameRegistry.registerItem(meuroditeHoe, "toolHoeMeurodite");
 		meuroditeAxe = (new MItemAxe(toolMaterialMeurodite)).setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditeAxe").setTextureName(MAssetManager.getEOTexture("toolAxeMeurodite"));
-
+		GameRegistry.registerItem(meuroditeAxe, "meuroditeAxe");
+		
 		TinPlateItem = (new MItemBlockPlacer(EOBlockManager.TinPlate)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TinPlate").setTextureName(MAssetManager.getEOTexture("platingTin"));
+		GameRegistry.registerItem(TinPlateItem, "itemTinPlate");
 		meuroditePlateItem = (new MItemBlockPlacer(EOBlockManager.meuroditePlate)).setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditePlate").setTextureName(MAssetManager.getEOTexture("platingMeurodite"));
 		BronzePlateItem = (new MItemBlockPlacer(EOBlockManager.BronzePlate)).setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzePlate").setTextureName(MAssetManager.getEOTexture("platingBronze"));
 		SteelPlateItem = (new MItemBlockPlacer( EOBlockManager.SteelPlate)).setCreativeTab(tabOresItems).setUnlocalizedName("item_SteelPlate").setTextureName(MAssetManager.getEOTexture("platingSteel"));
