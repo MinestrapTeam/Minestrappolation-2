@@ -611,7 +611,7 @@ public class EORecipeManager
 				});
 		
 	
-		
+		/*
 		
 		GameRegistry.addRecipe(new ItemStack(EOItemManager.BPMeuroditePickaxe, 1), new Object[]
 				{
@@ -1105,7 +1105,7 @@ public class EORecipeManager
 			"PPP", "PIP", "PPP", Character.valueOf('P'), EOItemManager.BronzePlateItem, Character.valueOf('I'), Items.diamond_boots
 				});
 		
-		
+		*/
 		
 		
 		

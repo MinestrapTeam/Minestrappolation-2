@@ -63,7 +63,7 @@ public class ExtraOres
 	
 	public static Fluid eoFluid;
 	@Mod.EventHandler
-    public void myNewPreLoadMethod(FMLPreInitializationEvent evt)	
+    public void preLoad(FMLPreInitializationEvent evt)	
 	{    
 		//MinecraftForge.EVENT_BUS.register(new EOBucketHandler());
 	    Blocks.bedrock.setHardness(80F);
@@ -78,7 +78,6 @@ public class ExtraOres
 		EOItemManager.addItems();
 		EOIngotAndOreRegistration.registerOresAndIngots();
 		EORecipeManager.loadRecipes();
-		EOBlockManager.registerBlocks();
 		EOItemManager.setHarvestLevels();
 		// FluidContainerRegistry.registerFluidContainer(eoFluid, new ItemStack(EOItemManager.bucketMagma), new ItemStack(Item.bucketEmpty));
 		EntityRegistry.registerModEntity(EntityInstantExplosion.class, "Plutonium", 4, this, 350, 5, false);
@@ -92,7 +91,7 @@ public class ExtraOres
 	}
 	
 	@Mod.EventHandler
-    public void loadNew(FMLInitializationEvent event)
+    public void load(FMLInitializationEvent event)
     {				
         proxy.registerRenderThings();
  
@@ -108,7 +107,7 @@ public class ExtraOres
 	}
 	
 	@Mod.EventHandler
-    public void myNewPostLoadMethod(FMLPostInitializationEvent evt)
+    public void postLoad(FMLPostInitializationEvent evt)
     {
 		EOBlockManager.addSlabs();
     }
