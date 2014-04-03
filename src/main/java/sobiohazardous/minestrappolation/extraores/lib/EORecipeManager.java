@@ -1270,6 +1270,9 @@ public class EORecipeManager
 				{
 			"PPP", "PIP", "PPP", Character.valueOf('P'), EOBlockManager.BronzePlate, Character.valueOf('I'), EOItemManager.meuroditePickaxe
 				});
+		
+		//TODO add rest of bp tools recipes!
+		//TODO add bp armor
 	}
 	
 	public static void loadBridgedRecipes() throws Exception

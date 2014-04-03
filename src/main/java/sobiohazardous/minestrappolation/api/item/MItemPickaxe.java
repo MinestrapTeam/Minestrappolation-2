@@ -13,6 +13,7 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTool;
@@ -71,7 +72,15 @@ public class MItemPickaxe extends ItemPickaxe
 	{
 		if (MAPIConfig.showDur == true)
 		{
-			par3List.add(EnumChatFormatting.GREEN + "Durability: " + EnumChatFormatting.RED + Integer.toString(getMaxDamage() - par1ItemStack.getItemDamage() + 1) + "/" + Integer.toString(getMaxDamage() + 1));
+			if(par1ItemStack.stackTagCompound != null && par1ItemStack.stackTagCompound.getBoolean("bronzePlating"))
+			{
+				par3List.add(EnumChatFormatting.GREEN + "Durability: " + EnumChatFormatting.RED + Integer.toString(this.toolMaterial.getMaxUses() - par1ItemStack.getItemDamage() + 1) + "/" + Integer.toString(this.toolMaterial.getMaxUses() + 1));
+				par3List.add(EnumChatFormatting.GOLD + "Bronze Plated");
+			}
+			else
+			{
+				par3List.add(EnumChatFormatting.GREEN + "Durability: " + EnumChatFormatting.RED + Integer.toString(this.toolMaterial.getMaxUses() - par1ItemStack.getItemDamage() + 1) + "/" + Integer.toString(this.toolMaterial.getMaxUses() + 1));
+			}
 		}
 	}
 
@@ -138,16 +147,26 @@ public class MItemPickaxe extends ItemPickaxe
 	{
 		this.ignites = true;
 	}
-	
-	public void onUpdate(ItemStack par1ItemStack, World par2World, Entity par3Entity, int par4, boolean par5)
-	{
-		//createNBTs(par1ItemStack.stackTagCompound);
-		//this.bronzePlated = par1ItemStack.stackTagCompound.getBoolean("bronzePlated");
-		if(par1ItemStack.stackTagCompound.getBoolean("bronzePlated"))
+
+    public void onCreated(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
+    {
+    	if(par1ItemStack.stackTagCompound != null && par1ItemStack.stackTagCompound.getBoolean("bronzePlated"))
 		{
 			this.toolMaterial = this.bronzePlateMat;
 		}
-		if(!par1ItemStack.stackTagCompound.getBoolean("bronzePlated"))
+		else
+		{
+			this.toolMaterial = this.norm;
+		}
+    }
+    
+	public void onUpdate(ItemStack par1ItemStack, World par2World, Entity par3Entity, int par4, boolean par5)
+	{
+		if(par1ItemStack.stackTagCompound != null && par1ItemStack.stackTagCompound.getBoolean("bronzePlated"))
+		{
+			this.toolMaterial = this.bronzePlateMat;
+		}
+		else
 		{
 			this.toolMaterial = this.norm;
 		}
