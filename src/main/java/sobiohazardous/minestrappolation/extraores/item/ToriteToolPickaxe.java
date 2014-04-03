@@ -13,9 +13,9 @@ import net.minecraft.world.World;
 
 public class ToriteToolPickaxe extends MItemPickaxe
 {      
-    public ToriteToolPickaxe(ToolMaterial par2EnumToolMaterial)
+    public ToriteToolPickaxe(ToolMaterial par2EnumToolMaterial, ToolMaterial bronzeMat)
 	{
-		super(par2EnumToolMaterial);
+		super(par2EnumToolMaterial, bronzeMat);
 	}
     
     /**

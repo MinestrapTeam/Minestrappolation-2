@@ -209,7 +209,7 @@ public class EOItemManager
 		GameRegistry.registerItem(meuroditeIngot, "ingotMeurodite");
 		meuroditeSword = (new MItemSword(toolMaterialMeurodite)).setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditeSword").setTextureName(MAssetManager.getEOTexture("weaponSwordMeurodite"));
 		GameRegistry.registerItem(meuroditeSword, "weaponSwordMeurodite");
-		meuroditePickaxe = (new MItemPickaxe(toolMaterialMeurodite)).setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditePickaxe").setTextureName(MAssetManager.getEOTexture("toolPickMeurodite"));
+		meuroditePickaxe = (new MItemPickaxe(toolMaterialMeurodite, toolMaterialBPMeurodite)).setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditePickaxe").setTextureName(MAssetManager.getEOTexture("toolPickMeurodite"));
 		GameRegistry.registerItem(meuroditePickaxe, "toolPickMeurodite");
 		meuroditeShovel = (new MItemShovel(toolMaterialMeurodite)).setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditeShovel").setTextureName(MAssetManager.getEOTexture("toolShovelMeurodite"));
 		GameRegistry.registerItem(meuroditeShovel, "toolShovelMeurodite");
@@ -228,7 +228,7 @@ public class EOItemManager
 		//GameRegistry.registerItem(SteelPlateItem, "itemSteelPlate");
 		CopperSword = (new MItemSword(toolMaterialCopper)).setCreativeTab(tabOresItems).setUnlocalizedName("item_CopperSword").setTextureName(MAssetManager.getEOTexture("weaponSwordCopper"));
 		GameRegistry.registerItem(CopperSword, "weaponSwordCopper");
-		CopperPickaxe = (new MItemPickaxe(toolMaterialCopper)).setCreativeTab(tabOresItems).setUnlocalizedName("item_CopperPickaxe").setTextureName(MAssetManager.getEOTexture("toolPickCopper"));
+		CopperPickaxe = (new MItemPickaxe(toolMaterialCopper, toolMaterialBPCopper)).setCreativeTab(tabOresItems).setUnlocalizedName("item_CopperPickaxe").setTextureName(MAssetManager.getEOTexture("toolPickCopper"));
 		GameRegistry.registerItem(CopperPickaxe, "toolPickCopper");
 		CopperShovel = (new MItemShovel(toolMaterialCopper)).setCreativeTab(tabOresItems).setUnlocalizedName("item_CopperShovel").setTextureName(MAssetManager.getEOTexture("toolShovelCopper"));
 		GameRegistry.registerItem(CopperShovel, "toolShovelCopper");
@@ -244,7 +244,7 @@ public class EOItemManager
 		
 		BlaziumSword = (new MItemSword(toolMaterialBlazium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireSword").setTextureName(MAssetManager.getEOTexture("weaponSwordFire"));
 		GameRegistry.registerItem(BlaziumSword, "weaponSwordBlazium");
-		BlaziumPickaxe = (new MItemPickaxe(toolMaterialBlazium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FirePickaxe").setTextureName(MAssetManager.getEOTexture("toolPickFire"));
+		BlaziumPickaxe = (new MItemPickaxe(toolMaterialBlazium, toolMaterialBPBlazium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FirePickaxe").setTextureName(MAssetManager.getEOTexture("toolPickFire"));
 		GameRegistry.registerItem(BlaziumPickaxe, "toolPickBlazium");
 		BlaziumShovel = (new MItemShovel(toolMaterialBlazium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireShovel").setTextureName(MAssetManager.getEOTexture("toolShovelFire"));
 		GameRegistry.registerItem(BlaziumShovel, "toolShovelBlazium");
@@ -276,13 +276,13 @@ public class EOItemManager
 		SteelIngot = (new EOItem()).setCreativeTab(tabOresItems).setUnlocalizedName("item_SteelIngot").setTextureName(MAssetManager.getEOTexture("ingotSteel"));
 		GameRegistry.registerItem(SteelIngot, "ingotSteel");
 		
-		SteelPickaxe = (new MItemPickaxe(toolMaterialSteel)).setCreativeTab(tabOresItems).setUnlocalizedName("item_SteelPickaxe").setTextureName(MAssetManager.getEOTexture("toolPickSteel"));
+		SteelPickaxe = (new MItemPickaxe(toolMaterialSteel, toolMaterialBPSteel)).setCreativeTab(tabOresItems).setUnlocalizedName("item_SteelPickaxe").setTextureName(MAssetManager.getEOTexture("toolPickSteel"));
 		GameRegistry.registerItem(SteelPickaxe, "toolPickSteel");
 		SteelShovel = (new MItemShovel(toolMaterialSteel)).setCreativeTab(tabOresItems).setUnlocalizedName("item_SteelShovel").setTextureName(MAssetManager.getEOTexture("toolShovelSteel"));
 		GameRegistry.registerItem(SteelShovel, "toolShovelSteel");
 		ToriteSword = (new MItemSword(toolMaterialTorite)).setCreativeTab(tabOresItems).setUnlocalizedName("item_ToriteSword").setTextureName(MAssetManager.getEOTexture("weaponSwordTorite"));
 		GameRegistry.registerItem(ToriteSword, "weaponSwordTorite");
-		ToritePickaxe = (new ToriteToolPickaxe(toolMaterialTorite)).setCreativeTab(tabOresItems).setUnlocalizedName("item_ToritePickaxe").setTextureName(MAssetManager.getEOTexture("toolPickTorite"));
+		ToritePickaxe = (new ToriteToolPickaxe(toolMaterialTorite, toolMaterialBPTorite)).setCreativeTab(tabOresItems).setUnlocalizedName("item_ToritePickaxe").setTextureName(MAssetManager.getEOTexture("toolPickTorite"));
 		GameRegistry.registerItem(ToritePickaxe, "toolPickTorite");
 		ToriteShovel = (new ToriteToolShovel(toolMaterialTorite)).setCreativeTab(tabOresItems).setUnlocalizedName("item_ToriteShovel");
 		GameRegistry.registerItem(ToriteShovel, "toolShovelTorite");
@@ -295,7 +295,7 @@ public class EOItemManager
 		
 		TitaniumSword = (new MItemSword(toolMaterialTitanium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumSword").setTextureName(MAssetManager.getEOTexture("weaponSwordTitanium"));
 		GameRegistry.registerItem(TitaniumSword, "weaponSwordTitanium");
-		TitaniumPickaxe = (new MItemPickaxe(toolMaterialTitanium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumPickaxe").setTextureName(MAssetManager.getEOTexture("toolPickTitanium"));
+		TitaniumPickaxe = (new MItemPickaxe(toolMaterialTitanium, toolMaterialBPTitanium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumPickaxe").setTextureName(MAssetManager.getEOTexture("toolPickTitanium"));
 		GameRegistry.registerItem(TitaniumPickaxe, "toolPickTitanium");
 		TitaniumShovel = (new MItemShovel(toolMaterialTitanium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumShovel").setTextureName(MAssetManager.getEOTexture("toolShovelTitanium"));
 		GameRegistry.registerItem(TitaniumShovel, "toolShovelTitanium");
@@ -337,7 +337,7 @@ public class EOItemManager
 		PinkQuartz = new EOItem().setUnlocalizedName("quartzDesert").setTextureName(MAssetManager.getEOTexture("gemDesertQuartz"));
 		GameRegistry.registerItem(PinkQuartz, "quartzPink");
 		
-		SandstonePickaxe = (new MItemPickaxe(toolMaterialSandstone)).setCreativeTab(tabOresItems).setUnlocalizedName("item_SandstonePickaxe").setTextureName(MAssetManager.getEOTexture("toolPickSandstone"));
+		SandstonePickaxe = (new MItemPickaxe(toolMaterialSandstone, toolMaterialBPSandstone)).setCreativeTab(tabOresItems).setUnlocalizedName("item_SandstonePickaxe").setTextureName(MAssetManager.getEOTexture("toolPickSandstone"));
 		GameRegistry.registerItem(SandstonePickaxe, "toolPickSandstone");
 		SandstoneShovel = (new MItemShovel(toolMaterialSandstone)).setCreativeTab(tabOresItems).setUnlocalizedName("item_SandstoneShovel").setTextureName(MAssetManager.getEOTexture("toolShovelSandstone"));
 		GameRegistry.registerItem(SandstoneShovel, "toolShovelSandstone");
@@ -365,7 +365,7 @@ public class EOItemManager
 		
 		BronzeIngot = (new EOItem()).setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzeIngot");
 		GameRegistry.registerItem(BronzeIngot, "ingotBronze");
-		BronzePickaxe = (new MItemPickaxe(toolMaterialBronze)).setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzePickaxe");
+		BronzePickaxe = (new MItemPickaxe(toolMaterialBronze, null)).setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzePickaxe");
 		GameRegistry.registerItem(BronzePickaxe, "toolPickBronze");
 		BronzeShovel = (new MItemShovel(toolMaterialBronze)).setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzeShovel");
 		GameRegistry.registerItem(BronzeShovel, "toolShovelBronze");

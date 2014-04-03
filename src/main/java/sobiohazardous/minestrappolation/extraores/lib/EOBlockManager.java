@@ -55,6 +55,7 @@ import net.minecraft.block.BlockSlab;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemSlab;
 
 public class EOBlockManager 
@@ -274,14 +275,15 @@ public class EOBlockManager
 		GameRegistry.registerBlock(TinOre, "oreTin");
 		TinBlock = (new EOBlock(Material.iron)).setHardness(3F).setResistance(2F).setCreativeTab(tabOresBlocks).setStepSound(Block.soundTypeStone).setBlockName("blockTin").setBlockTextureName(MAssetManager.getEOTexture("blockTin"));
 		GameRegistry.registerBlock(TinBlock, "blockTin");
-		TinPlate = (new BlockPlate()).setHardness(0.7F).setStepSound(Block.soundTypeStone).setBlockName("platingTin").setBlockTextureName(MAssetManager.getEOTexture("blockTin"));
-		GameRegistry.registerBlock(TinPlate, "plateTin");
-		BronzePlate = (new BlockPlate()).setHardness(0.7F).setStepSound(Block.soundTypeStone).setBlockName("platingBronze").setBlockTextureName(MAssetManager.getEOTexture("blockBronze"));
+		TinPlate = (new BlockPlate()).setHardness(0.7F).setCreativeTab(tabOresBlocks).setStepSound(Block.soundTypeStone).setBlockName("platingTin").setBlockTextureName(MAssetManager.getEOTexture("blockTin"));
+		GameRegistry.registerBlock(TinPlate, ItemBlock.class, "plateTin");
+		BronzePlate = (new BlockPlate()).setHardness(0.7F).setCreativeTab(tabOresBlocks).setStepSound(Block.soundTypeStone).setBlockName("platingBronze").setBlockTextureName(MAssetManager.getEOTexture("blockBronze"));
 		GameRegistry.registerBlock(BronzePlate, "plateBronze");
-		SteelPlate = (new BlockPlate()).setHardness(0.7F).setStepSound(Block.soundTypeStone).setBlockName("platingSteel").setBlockTextureName(MAssetManager.getEOTexture("blockSteelTop"));
-		GameRegistry.registerBlock(SteelPlate, "plateSteel");
-		meuroditePlate = (new BlockPlate()).setHardness(0.7F).setStepSound(Block.soundTypeStone).setBlockName("platingMeurodite").setBlockTextureName(MAssetManager.getEOTexture("blockMeurodite"));
-		GameRegistry.registerBlock(meuroditePlate, "plateMeurodite");
+		SteelPlate = (new BlockPlate()).setHardness(0.7F).setCreativeTab(tabOresBlocks).setStepSound(Block.soundTypeStone).setBlockName("platingSteel").setBlockTextureName(MAssetManager.getEOTexture("blockSteelTop"));
+		GameRegistry.registerBlock(SteelPlate, ItemBlock.class, "plateSteel");
+		//TODO Add proper itemblock classes
+		meuroditePlate = (new BlockPlate()).setHardness(0.7F).setCreativeTab(tabOresBlocks).setStepSound(Block.soundTypeStone).setBlockName("platingMeurodite").setBlockTextureName(MAssetManager.getEOTexture("blockMeurodite"));
+		GameRegistry.registerBlock(meuroditePlate, ItemBlock.class,"plateMeurodite");
 		SteelBlock = (new BlockSteel()).setHardness(6F).setResistance(10F).setStepSound(Block.soundTypeStone).setCreativeTab(tabOresBlocks).setBlockName("blockSteel").setBlockTextureName(MAssetManager.getEOTexture("blockSteelTop"));
 		GameRegistry.registerBlock(SteelBlock, "blockSteel");
 		SoulOre = (new BlockSoulOre()).setHardness(2F).setResistance(3F).setCreativeTab(tabOresBlocks).setStepSound(Block.soundTypeStone).setBlockName("oreSoulGem").setBlockTextureName(MAssetManager.getEOTexture("oreSoulGem"));

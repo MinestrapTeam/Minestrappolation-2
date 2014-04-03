@@ -78,6 +78,7 @@ public class ExtraOres
 		EOItemManager.addItems();
 		EOIngotAndOreRegistration.registerOresAndIngots();
 		EORecipeManager.loadRecipes();
+		EORecipeManager.loadPlatedRecipes();
 		EOItemManager.setHarvestLevels();
 		// FluidContainerRegistry.registerFluidContainer(eoFluid, new ItemStack(EOItemManager.bucketMagma), new ItemStack(Item.bucketEmpty));
 		EntityRegistry.registerModEntity(EntityInstantExplosion.class, "Plutonium", 4, this, 350, 5, false);

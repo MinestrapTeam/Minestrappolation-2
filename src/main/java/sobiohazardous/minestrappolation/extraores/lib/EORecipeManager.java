@@ -5,6 +5,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -611,12 +612,10 @@ public class EORecipeManager
 				});
 		
 	
-		/*
 		
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.BPMeuroditePickaxe, 1), new Object[]
-				{
-			"PPP", "PIP", "PPP", Character.valueOf('P'), EOItemManager.BronzePlateItem, Character.valueOf('I'), EOItemManager.meuroditePickaxe
-				});
+		
+		
+		/*
 		GameRegistry.addRecipe(new ItemStack(EOItemManager.BPMeuroditeAxe, 1), new Object[]
 				{
 			"PPP", "PIP", "PPP", Character.valueOf('P'), EOItemManager.BronzePlateItem, Character.valueOf('I'), EOItemManager.meuroditeAxe
@@ -1259,6 +1258,18 @@ public class EORecipeManager
         GameRegistry.addSmelting(EOBlockManager.RadiantQuartzOre, new ItemStack(EOBlockManager.RadiantQuartz, 1), 0.8F);
         GameRegistry.addSmelting(EOBlockManager.SoulOre, new ItemStack(EOBlockManager.SoulGem, 1), 0.8F);
 
+	}
+	
+	public static void loadPlatedRecipes()
+	{
+		ItemStack pick = new ItemStack(EOItemManager.meuroditePickaxe, 1);
+		pick.stackTagCompound = new NBTTagCompound();
+		pick.stackTagCompound.setBoolean("bronzePlated", true);
+		
+		GameRegistry.addRecipe(pick, new Object[]
+				{
+			"PPP", "PIP", "PPP", Character.valueOf('P'), EOBlockManager.BronzePlate, Character.valueOf('I'), EOItemManager.meuroditePickaxe
+				});
 	}
 	
 	public static void loadBridgedRecipes() throws Exception
