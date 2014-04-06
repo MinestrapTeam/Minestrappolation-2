@@ -5,13 +5,17 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 
 public class MItemArmor extends ItemArmor
-{	
-	public MItemArmor(ArmorMaterial par2EnumArmorMaterial, int par3, int par4) 
+{		
+	private String armorPrefix;
+	
+	public MItemArmor(ArmorMaterial par2EnumArmorMaterial, int par3, int par4, String armorPrefix) 
 	{
 		super(par2EnumArmorMaterial, par3, par4);
         this.setCreativeTab(null);
+        this.armorPrefix = armorPrefix;
 	}
 	
 	/*
@@ -27,16 +31,13 @@ public class MItemArmor extends ItemArmor
         //type will be either null or overlay (cloth armor)
         //can use stack.stackTagCompound.getString("matName") for material, etc.
         String layer = "1";
-        String material = stack.stackTagCompound.getString("matName").toLowerCase();
-        if(type == null) 
-        {
-        	type = "";
-            material = "iron";
-        }
+      
+        String material = armorPrefix;
+        
         if(slot == 2) 
         {
         	layer="2";
         }
-        return MAPIReference.MODID_EO + ":armor/"+material+layer+".png";
+        return MAPIReference.MODID_EO + ":textures/armor/"+material+layer+".png";
 	}
 }

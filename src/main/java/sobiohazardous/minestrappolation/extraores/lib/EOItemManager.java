@@ -44,6 +44,7 @@ public class EOItemManager
 	static ArmorMaterial MaterialTin = EnumHelper.addArmorMaterial("tin", 5, new int[]{2, 4, 3, 2}, 5);
 	static ArmorMaterial MaterialBronze = EnumHelper.addArmorMaterial("bronze", 30, new int[]{3, 7, 5, 2}, 8);
 	static ArmorMaterial MaterialSteel  = EnumHelper.addArmorMaterial("steel", 17, new int[]{3, 8, 6, 3}, 15);
+	
 	static ArmorMaterial MaterialBPMeurodite = EnumHelper.addArmorMaterial("meuroditeBronze", 36, new int[]{2, 7, 6, 2}, 15);
 	static ArmorMaterial MaterialBPTitanium = EnumHelper.addArmorMaterial("titaniumBronze", 132, new int[]{4, 10, 8, 5}, 11);
 	static ArmorMaterial MaterialBPTorite = EnumHelper.addArmorMaterial("toriteBronze", 34, new int[]{2, 8, 6, 2}, 20);
@@ -66,6 +67,7 @@ public class EOItemManager
 	public static ToolMaterial toolMaterialSteel = EnumHelper.addToolMaterial("ToolSteel", 2, 300, 7.5F, 3, 15);
 	public static ToolMaterial toolMaterialBedrock = EnumHelper.addToolMaterial("ToolBedrock", 5, 6247, 7F, 2, 5);
 	public static ToolMaterial toolMaterialGranite = EnumHelper.addToolMaterial("ToolGranite", 1, 199, 4.3F, 2, 4);
+	
 	public static ToolMaterial toolMaterialBPMeurodite = EnumHelper.addToolMaterial("ToolBPMeurodite", 2, 1610, 7.0F, 2, 15);
 	public static ToolMaterial toolMaterialBPTitanium = EnumHelper.addToolMaterial("ToolBPTitanium", 4, 5998, 10.0F, 5, 10);
 	public static ToolMaterial toolMaterialBPTorite = EnumHelper.addToolMaterial("ToolBPTorite", 2, 1398, 6.0F, 3, 20);
@@ -262,13 +264,13 @@ public class EOItemManager
 		Uranium = new EOItem().setUnlocalizedName("uranium").setCreativeTab(tabOresItems).setTextureName(MAssetManager.getEOTexture("dustUranium"));
 		GameRegistry.registerItem(Uranium, "dustUranium");
 		
-		BlaziumHelmet = (new MItemArmor(MaterialBlazium, ExtraOres.proxy.addArmor("fire"), 0)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireHelmet").setTextureName(MAssetManager.getEOTexture("armorHelmFire"));
+		BlaziumHelmet = (new MItemArmor(MaterialBlazium, ExtraOres.proxy.addArmor("fire"), 0, "fire")).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireHelmet").setTextureName(MAssetManager.getEOTexture("armorHelmFire"));
 		GameRegistry.registerItem(BlaziumHelmet, "armorHelmetBlazium");
-		BlaziumChest = (new MItemArmor(MaterialBlazium, ExtraOres.proxy.addArmor("fire"), 1)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireChestplate").setTextureName(MAssetManager.getEOTexture("armorChestFire"));
+		BlaziumChest = (new MItemArmor(MaterialBlazium, ExtraOres.proxy.addArmor("fire"), 1, "fire")).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireChestplate").setTextureName(MAssetManager.getEOTexture("armorChestFire"));
 		GameRegistry.registerItem(BlaziumChest, "armorChestBlazium");
-		BlaziumPants = (new MItemArmor(MaterialBlazium, ExtraOres.proxy.addArmor("fire"),2)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireLeggings").setTextureName(MAssetManager.getEOTexture("armorLegsFire"));
+		BlaziumPants = (new MItemArmor(MaterialBlazium, ExtraOres.proxy.addArmor("fire"),2, "fire")).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireLeggings").setTextureName(MAssetManager.getEOTexture("armorLegsFire"));
 		GameRegistry.registerItem(BlaziumPants, "armorPantsBlazium");
-		BlaziumBoots = (new MItemArmor(MaterialBlazium, ExtraOres.proxy.addArmor("fire"),3)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireBoots").setTextureName(MAssetManager.getEOTexture("armorBootsFire"));
+		BlaziumBoots = (new MItemArmor(MaterialBlazium, ExtraOres.proxy.addArmor("fire"),3, "fire")).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireBoots").setTextureName(MAssetManager.getEOTexture("armorBootsFire"));
 		GameRegistry.registerItem(BlaziumBoots, "armorBootsBlazium");
 		
 		CoalIronIngot = (new EOItem()).setCreativeTab(tabOresItems).setUnlocalizedName("item_CoalIronIngot").setTextureName(MAssetManager.getEOTexture("ingotCoalIron"));
@@ -303,31 +305,31 @@ public class EOItemManager
 		GameRegistry.registerItem(TitaniumHoe, "toolHoeTitanium");
 		TitaniumAxe = (new MItemAxe(toolMaterialTitanium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumAxe").setTextureName(MAssetManager.getEOTexture("toolAxeTitanium"));
 		GameRegistry.registerItem(TitaniumAxe, "toolAxeTitanium");
-		meuroditeHelmet = (new MItemArmor(MaterialMeurodite, ExtraOres.proxy.addArmor("Meurodite"), 0)).setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditeHelmet").setTextureName(MAssetManager.getEOTexture("armorHelmMeurodite"));
+		meuroditeHelmet = (new MItemArmor(MaterialMeurodite, ExtraOres.proxy.addArmor("Meurodite"), 0, "meurodite")).setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditeHelmet").setTextureName(MAssetManager.getEOTexture("armorHelmMeurodite"));
 		GameRegistry.registerItem(meuroditeHelmet, "armorHelmetMeirodite");
-		meuroditeChest = (new MItemArmor(MaterialMeurodite, ExtraOres.proxy.addArmor("Meurodite"), 1)).setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditeChestplate").setTextureName(MAssetManager.getEOTexture("armorChestMeurodite"));
+		meuroditeChest = (new MItemArmor(MaterialMeurodite, ExtraOres.proxy.addArmor("Meurodite"), 1, "meurodite")).setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditeChestplate").setTextureName(MAssetManager.getEOTexture("armorChestMeurodite"));
 		GameRegistry.registerItem(meuroditeChest, "armorChestMeurodite");
-		meuroditePants = (new MItemArmor(MaterialMeurodite, ExtraOres.proxy.addArmor("Meurodite"),2)).setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditeLeggings").setTextureName(MAssetManager.getEOTexture("armorLegsMeurodite"));
+		meuroditePants = (new MItemArmor(MaterialMeurodite, ExtraOres.proxy.addArmor("Meurodite"),2, "meurodite")).setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditeLeggings").setTextureName(MAssetManager.getEOTexture("armorLegsMeurodite"));
 		GameRegistry.registerItem(meuroditePants, "armorPantsMeurodite");
-		meuroditeBoots = (new MItemArmor(MaterialMeurodite, ExtraOres.proxy.addArmor("Meurodite"),3)).setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditeBoots").setTextureName(MAssetManager.getEOTexture("armorBootsMeurodite"));
+		meuroditeBoots = (new MItemArmor(MaterialMeurodite, ExtraOres.proxy.addArmor("Meurodite"),3, "meurodite")).setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditeBoots").setTextureName(MAssetManager.getEOTexture("armorBootsMeurodite"));
 		GameRegistry.registerItem(meuroditeBoots, "armorBootsMeurodite");
 		
-		TitaniumHelmet = (new MItemArmor(MaterialTitanium, ExtraOres.proxy.addArmor("titanium"), 0)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumHelmet").setTextureName(MAssetManager.getEOTexture("armorHelmTitanium"));
+		TitaniumHelmet = (new MItemArmor(MaterialTitanium, ExtraOres.proxy.addArmor("titanium"), 0, "meurodite")).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumHelmet").setTextureName(MAssetManager.getEOTexture("armorHelmTitanium"));
 		GameRegistry.registerItem(TitaniumHelmet, "armorHelmetTitanium");
-		TitaniumChest = (new MItemArmor(MaterialTitanium, ExtraOres.proxy.addArmor("titanium"), 1)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumChestplate").setTextureName(MAssetManager.getEOTexture("armorChestTitanium"));
+		TitaniumChest = (new MItemArmor(MaterialTitanium, ExtraOres.proxy.addArmor("titanium"), 1, "meurodite")).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumChestplate").setTextureName(MAssetManager.getEOTexture("armorChestTitanium"));
 		GameRegistry.registerItem(TitaniumChest, "armorChestTitanium");
-		TitaniumPants = (new MItemArmor(MaterialTitanium, ExtraOres.proxy.addArmor("titanium"),2)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumLeggings").setTextureName(MAssetManager.getEOTexture("armorLegsTitanium"));
+		TitaniumPants = (new MItemArmor(MaterialTitanium, ExtraOres.proxy.addArmor("titanium"),2, "meurodite")).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumLeggings").setTextureName(MAssetManager.getEOTexture("armorLegsTitanium"));
 		GameRegistry.registerItem(TitaniumPants, "armorPantsTitanium");
-		TitaniumBoots = (new MItemArmor(MaterialTitanium, ExtraOres.proxy.addArmor("titanium"),3)).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumBoots").setTextureName(MAssetManager.getEOTexture("armorBootsTitanium"));
+		TitaniumBoots = (new MItemArmor(MaterialTitanium, ExtraOres.proxy.addArmor("titanium"),3, "meurodite")).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumBoots").setTextureName(MAssetManager.getEOTexture("armorBootsTitanium"));
 		GameRegistry.registerItem(TitaniumBoots, "armorBootsTitanium");
 		
-		ToriteHelmet = (new MItemArmor(MaterialTorite, ExtraOres.proxy.addArmor("torite"), 0)).setCreativeTab(tabOresItems).setUnlocalizedName("item_ToriteHelmet").setTextureName(MAssetManager.getEOTexture("armorHelmTorite"));
+		ToriteHelmet = (new MItemArmor(MaterialTorite, ExtraOres.proxy.addArmor("torite"), 0, "torite")).setCreativeTab(tabOresItems).setUnlocalizedName("item_ToriteHelmet").setTextureName(MAssetManager.getEOTexture("armorHelmTorite"));
 		GameRegistry.registerItem(ToriteHelmet, "armorHelmetTorite");
-		ToriteChest = (new MItemArmor(MaterialTorite, ExtraOres.proxy.addArmor("torite"), 1)).setCreativeTab(tabOresItems).setUnlocalizedName("item_ToriteChestplate").setTextureName(MAssetManager.getEOTexture("armorChestTorite"));
+		ToriteChest = (new MItemArmor(MaterialTorite, ExtraOres.proxy.addArmor("torite"), 1, "torite")).setCreativeTab(tabOresItems).setUnlocalizedName("item_ToriteChestplate").setTextureName(MAssetManager.getEOTexture("armorChestTorite"));
 		GameRegistry.registerItem(ToriteChest, "armorChestTorite");
-		ToritePants = (new MItemArmor(MaterialTorite, ExtraOres.proxy.addArmor("torite"),2)).setCreativeTab(tabOresItems).setUnlocalizedName("item_ToriteLeggings").setTextureName(MAssetManager.getEOTexture("armorLegsTorite"));
+		ToritePants = (new MItemArmor(MaterialTorite, ExtraOres.proxy.addArmor("torite"),2, "torite")).setCreativeTab(tabOresItems).setUnlocalizedName("item_ToriteLeggings").setTextureName(MAssetManager.getEOTexture("armorLegsTorite"));
 		GameRegistry.registerItem(ToritePants, "armorPantsTorite");
-		ToriteBoots = (new MItemArmor(MaterialTorite, ExtraOres.proxy.addArmor("torite"),3)).setCreativeTab(tabOresItems).setUnlocalizedName("item_ToriteBoots").setTextureName(MAssetManager.getEOTexture("armorBootsTorite"));
+		ToriteBoots = (new MItemArmor(MaterialTorite, ExtraOres.proxy.addArmor("torite"),3, "torite")).setCreativeTab(tabOresItems).setUnlocalizedName("item_ToriteBoots").setTextureName(MAssetManager.getEOTexture("armorBootsTorite"));
 		GameRegistry.registerItem(ToriteBoots, "armorBootsTorite");
 		
 		TinIngot = new EOItem().setUnlocalizedName("ingotTin").setTextureName(MAssetManager.getEOTexture("ingotTin"));
@@ -354,13 +356,13 @@ public class EOItemManager
 		SteelSword = (new MItemSword(toolMaterialSteel)).setCreativeTab(tabOresItems).setUnlocalizedName("item_SteelSword").setTextureName(MAssetManager.getEOTexture("weaponSwordSteel"));
 		GameRegistry.registerItem(SteelSword, "weaponSwordSteel");
 		
-		SteelHelmet = (new MItemArmor(MaterialSteel, ExtraOres.proxy.addArmor("steel"), 0)).setCreativeTab(tabOresItems).setUnlocalizedName("item_SteelHelmet").setTextureName(MAssetManager.getEOTexture("armorHelmSteel"));
+		SteelHelmet = (new MItemArmor(MaterialSteel, ExtraOres.proxy.addArmor("steel"), 0, "steel")).setCreativeTab(tabOresItems).setUnlocalizedName("item_SteelHelmet").setTextureName(MAssetManager.getEOTexture("armorHelmSteel"));
 		GameRegistry.registerItem(SteelHelmet, "armorHelmetSteel");
-		SteelChest = (new MItemArmor(MaterialSteel, ExtraOres.proxy.addArmor("steel"), 1)).setCreativeTab(tabOresItems).setUnlocalizedName("item_SteelChestplate").setTextureName(MAssetManager.getEOTexture("armorChestSteel"));
+		SteelChest = (new MItemArmor(MaterialSteel, ExtraOres.proxy.addArmor("steel"), 1, "steel")).setCreativeTab(tabOresItems).setUnlocalizedName("item_SteelChestplate").setTextureName(MAssetManager.getEOTexture("armorChestSteel"));
 		GameRegistry.registerItem(SteelChest, "armorChestSteel");
-		SteelPants = (new MItemArmor(MaterialSteel, ExtraOres.proxy.addArmor("steel"), 2)).setCreativeTab(tabOresItems).setUnlocalizedName("item_SteelLeggings").setTextureName(MAssetManager.getEOTexture("armorLegsSteel"));
+		SteelPants = (new MItemArmor(MaterialSteel, ExtraOres.proxy.addArmor("steel"), 2, "steel")).setCreativeTab(tabOresItems).setUnlocalizedName("item_SteelLeggings").setTextureName(MAssetManager.getEOTexture("armorLegsSteel"));
 		GameRegistry.registerItem(SteelPants, "armorPantsSteel");
-		SteelBoots = (new MItemArmor(MaterialSteel, ExtraOres.proxy.addArmor("steel"), 3)).setCreativeTab(tabOresItems).setUnlocalizedName("item_SteelBoots").setTextureName(MAssetManager.getEOTexture("armorBootsSteel"));
+		SteelBoots = (new MItemArmor(MaterialSteel, ExtraOres.proxy.addArmor("steel"), 3, "steel")).setCreativeTab(tabOresItems).setUnlocalizedName("item_SteelBoots").setTextureName(MAssetManager.getEOTexture("armorBootsSteel"));
 		GameRegistry.registerItem(SteelBoots, "armorBootsSteel");
 		
 		BronzeIngot = (new EOItem()).setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzeIngot");
@@ -375,13 +377,13 @@ public class EOItemManager
 		GameRegistry.registerItem(BronzeHoe, "toolHoeBronze");
 		BronzeSword = (new MItemSword(toolMaterialBronze)).setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzeSword");
 		GameRegistry.registerItem(BronzeSword, "weaponSwordBronze");
-		BronzeHelmet = (new MItemArmor(MaterialBronze, ExtraOres.proxy.addArmor("bronze"), 0)).setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzeHelmet");
+		BronzeHelmet = (new MItemArmor(MaterialBronze, ExtraOres.proxy.addArmor("bronze"), 0, "bronze")).setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzeHelmet");
 		GameRegistry.registerItem(BronzeHelmet, "armorHelmetBronze");
-		BronzeChest = (new MItemArmor(MaterialBronze, ExtraOres.proxy.addArmor("bronze"), 1)).setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzeChestplate");
+		BronzeChest = (new MItemArmor(MaterialBronze, ExtraOres.proxy.addArmor("bronze"), 1, "bronze")).setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzeChestplate");
 		GameRegistry.registerItem(BronzeChest, "armorChestBronze");
-		BronzePants = (new MItemArmor(MaterialBronze, ExtraOres.proxy.addArmor("bronze"),2)).setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzeLeggings");
+		BronzePants = (new MItemArmor(MaterialBronze, ExtraOres.proxy.addArmor("bronze"),2, "bronze")).setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzeLeggings");
 		GameRegistry.registerItem(BronzePants, "armorPantsBronze");
-		BronzeBoots = (new MItemArmor(MaterialBronze, ExtraOres.proxy.addArmor("bronze"),3)).setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzeBoots");
+		BronzeBoots = (new MItemArmor(MaterialBronze, ExtraOres.proxy.addArmor("bronze"),3, "bronze")).setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzeBoots");
 		GameRegistry.registerItem(BronzeBoots, "armorBootsBronze");
 		
 		grenade = (new ItemGrenade()).setUnlocalizedName("grenade");
