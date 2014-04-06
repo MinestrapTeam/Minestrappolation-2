@@ -25,10 +25,12 @@ public class MItemAxe extends ItemAxe
 	private ToolMaterial norm;
 	private ToolMaterial bronzePlateMat;
 
-	public MItemAxe(ToolMaterial par2EnumToolMaterial)
+	public MItemAxe(ToolMaterial par2EnumToolMaterial, ToolMaterial bronzeMaterial)
 	{
 		super(par2EnumToolMaterial);
 		this.setCreativeTab(null);
+		this.bronzePlateMat = bronzeMaterial;
+		this.norm = par2EnumToolMaterial;
 	}
 
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)

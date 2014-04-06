@@ -5,14 +5,15 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.world.World;
 import sobiohazardous.minestrappolation.api.item.MItemShovel;
 
 public class ToriteToolShovel extends MItemShovel
 {
-    public ToriteToolShovel(ToolMaterial par2EnumToolMaterial)
+    public ToriteToolShovel(ToolMaterial par2EnumToolMaterial, ToolMaterial bronzeMaterial)
 	{
-		super(par2EnumToolMaterial);
+		super(par2EnumToolMaterial, bronzeMaterial);
 	} 
 	
     /**

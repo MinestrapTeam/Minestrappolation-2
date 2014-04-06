@@ -26,11 +26,13 @@ public class MItemSword extends ItemSword
 	private ToolMaterial norm;
 	private ToolMaterial bronzePlateMat;
 
-	public MItemSword(ToolMaterial par2EnumToolMaterial)
+	public MItemSword(ToolMaterial par2EnumToolMaterial, ToolMaterial bronzePlateMat)
 	{
 		super(par2EnumToolMaterial);
 		this.toolMaterial = par2EnumToolMaterial;
 		this.setCreativeTab(null);
+		this.norm = par2EnumToolMaterial;
+		this.bronzePlateMat = bronzePlateMat;
 	}
 
 	/**

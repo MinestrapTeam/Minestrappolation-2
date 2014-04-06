@@ -19,7 +19,7 @@ public class ItemPoisonSword extends MItemSword
 	
 	public ItemPoisonSword(ToolMaterial par2EnumToolMaterial, Item normalSword) 
 	{
-		super(par2EnumToolMaterial);
+		super(par2EnumToolMaterial, null);
 		this.normSword = normalSword;
 	}
 

@@ -11,9 +11,9 @@ import net.minecraft.world.World;
 
 public class ToriteToolAxe extends MItemAxe
 {
-    public ToriteToolAxe(ToolMaterial par2EnumToolMaterial)
+    public ToriteToolAxe(ToolMaterial par2EnumToolMaterial, ToolMaterial bronzeMaterial)
 	{
-		super(par2EnumToolMaterial);
+		super(par2EnumToolMaterial, bronzeMaterial);
 	}
 
 	public EnumAction getItemUseAction(ItemStack par1ItemStack)

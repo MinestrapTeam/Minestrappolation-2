@@ -187,15 +187,15 @@ public class EMDItemManager
 		horn = new MItem().setUnlocalizedName("horn").setCreativeTab(tabItems).setTextureName(MAssetManager.getEMDTexture("horn"));
 		GameRegistry.registerItem(horn, "horn");
 		
-		hornSwordWood = new MItemSword(toolMaterialWoodH).setUnlocalizedName("horned_wood_sword").setTextureName(MAssetManager.getEMDTexture("weaponSwordWoodHorned")).setCreativeTab(tabItems);
+		hornSwordWood = new MItemSword(toolMaterialWoodH,null).setUnlocalizedName("horned_wood_sword").setTextureName(MAssetManager.getEMDTexture("weaponSwordWoodHorned")).setCreativeTab(tabItems);
 		GameRegistry.registerItem(hornSwordWood, "hornSwordWood");
-		hornSwordStone = new MItemSword(toolMaterialStoneH).setUnlocalizedName("horned_stone_sword").setTextureName(MAssetManager.getEMDTexture("weaponSwordStoneHorned")).setCreativeTab(tabItems);
+		hornSwordStone = new MItemSword(toolMaterialStoneH,null).setUnlocalizedName("horned_stone_sword").setTextureName(MAssetManager.getEMDTexture("weaponSwordStoneHorned")).setCreativeTab(tabItems);
 		GameRegistry.registerItem(hornSwordStone, "hornSwordStone");
-		hornSwordIron = new MItemSword(toolMaterialIronH).setUnlocalizedName("horned_iron_sword").setTextureName(MAssetManager.getEMDTexture("weaponSwordIronHorned")).setCreativeTab(tabItems);
+		hornSwordIron = new MItemSword(toolMaterialIronH,null).setUnlocalizedName("horned_iron_sword").setTextureName(MAssetManager.getEMDTexture("weaponSwordIronHorned")).setCreativeTab(tabItems);
 		GameRegistry.registerItem(hornSwordIron, "hornSwordIron");
-		hornSwordDiamond = new MItemSword(toolMaterialDiamondH).setUnlocalizedName("horned_diamond_sword").setTextureName(MAssetManager.getEMDTexture("weaponSwordDiamondHorned")).setCreativeTab(tabItems);
+		hornSwordDiamond = new MItemSword(toolMaterialDiamondH,null).setUnlocalizedName("horned_diamond_sword").setTextureName(MAssetManager.getEMDTexture("weaponSwordDiamondHorned")).setCreativeTab(tabItems);
 		GameRegistry.registerItem(hornSwordDiamond, "hornSwordDiamond");
-		hornSwordGold = new MItemSword(toolMaterialGoldH).setUnlocalizedName("horned_gold_sword").setTextureName(MAssetManager.getEMDTexture("weaponSwordGoldHorned")).setCreativeTab(tabItems);
+		hornSwordGold = new MItemSword(toolMaterialGoldH,null).setUnlocalizedName("horned_gold_sword").setTextureName(MAssetManager.getEMDTexture("weaponSwordGoldHorned")).setCreativeTab(tabItems);
 		GameRegistry.registerItem(hornSwordGold, "hornSwordGold");
 		
 		beakChicken = new MItem().setUnlocalizedName("chicken_beak").setCreativeTab(tabItems).setTextureName(MAssetManager.getEMDTexture("chickenBeak"));
@@ -326,15 +326,15 @@ public class EMDItemManager
 	{
 		if(Loader.isModLoaded(MAPIReference.MODID_EO))
 		{
-			hornSandstone = new MItemSword(toolMaterialSandstoneH).setUnlocalizedName("horned_sandstone_sword").setCreativeTab(tabItems);
-			hornGranite= new MItemSword(toolMaterialGraniteH).setUnlocalizedName("horned_granite_sword").setCreativeTab(tabItems);
-			hornCopper= new MItemSword(toolMaterialCopperH).setUnlocalizedName("horned_copper_sword").setCreativeTab(tabItems);
-			hornSteel= new MItemSword(toolMaterialSteelH).setUnlocalizedName("horned_steel_sword").setCreativeTab(tabItems);
-			hornBronze= new MItemSword(toolMaterialBronzeH).setUnlocalizedName("horned_bronze_sword").setCreativeTab(tabItems);
-			hornMeurodite= new MItemSword( toolMaterialMeuroditeH).setUnlocalizedName("horned_meurodite_sword").setCreativeTab(tabItems);
-			hornTorite= new MItemSword(toolMaterialToriteH).setUnlocalizedName("horned_torite_sword").setCreativeTab(tabItems);
-			hornBlazium= new MItemSword(toolMaterialBlaziumH).setUnlocalizedName("horned_fire_sword").setCreativeTab(tabItems);
-			hornTitanium= new MItemSword(toolMaterialTitaniumH).setUnlocalizedName("horned_titanium_sword").setCreativeTab(tabItems);
+			hornSandstone = new MItemSword(toolMaterialSandstoneH,null).setUnlocalizedName("horned_sandstone_sword").setCreativeTab(tabItems);
+			hornGranite= new MItemSword(toolMaterialGraniteH,null).setUnlocalizedName("horned_granite_sword").setCreativeTab(tabItems);
+			hornCopper= new MItemSword(toolMaterialCopperH,null).setUnlocalizedName("horned_copper_sword").setCreativeTab(tabItems);
+			hornSteel= new MItemSword(toolMaterialSteelH,null).setUnlocalizedName("horned_steel_sword").setCreativeTab(tabItems);
+			hornBronze= new MItemSword(toolMaterialBronzeH,null).setUnlocalizedName("horned_bronze_sword").setCreativeTab(tabItems);
+			hornMeurodite= new MItemSword( toolMaterialMeuroditeH,null).setUnlocalizedName("horned_meurodite_sword").setCreativeTab(tabItems);
+			hornTorite= new MItemSword(toolMaterialToriteH,null).setUnlocalizedName("horned_torite_sword").setCreativeTab(tabItems);
+			hornBlazium= new MItemSword(toolMaterialBlaziumH,null).setUnlocalizedName("horned_fire_sword").setCreativeTab(tabItems);
+			hornTitanium= new MItemSword(toolMaterialTitaniumH,null).setUnlocalizedName("horned_titanium_sword").setCreativeTab(tabItems);
 			
 			//swordPosionSandstone = new ItemPoisonSword(sobiohazardous.minestrappolation.extraores.lib.EOItemManager.toolMaterialSandstone, sobiohazardous.minestrappolation.extraores.lib.EOItemManager.SandstoneSword ).setUnlocalizedName("sandstoneSwordPoison").setTextureName("minestrappolation:item_SandstoneSword").setCreativeTab(tabItems);
 			//swordPosionGranite = new ItemPoisonSword(sobiohazardous.minestrappolation.extraores.lib.EOItemManager.toolMaterialGranite, sobiohazardous.minestrappolation.extraores.lib.EOItemManager.GraniteSword ).setUnlocalizedName("graniteSwordPoison").setTextureName("minestrappolation:item_GraniteSword").setCreativeTab(tabItems);

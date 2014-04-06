@@ -146,10 +146,12 @@ public class BlockPlate extends MBlock
 		}
 	}
 
+	/*
     public Item getItemDropped(int par1, Random par2Random, int par3)
 	{
 		return Item.getItemFromBlock(this) == Item.getItemFromBlock(EOBlockManager.TinPlate) ? EOItemManager.TinPlateItem : (Item.getItemFromBlock(this) == Item.getItemFromBlock(EOBlockManager.BronzePlate) ? EOItemManager.BronzePlateItem : (Item.getItemFromBlock(this) == Item.getItemFromBlock(EOBlockManager.SteelPlate) ? EOItemManager.SteelPlateItem : Item.getItemFromBlock(this)));
 	}
+	*/
 
 	public int quantityDropped(Random par1Random)
 	{

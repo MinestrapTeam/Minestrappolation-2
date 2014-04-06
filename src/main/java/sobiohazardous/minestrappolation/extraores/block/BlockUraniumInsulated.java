@@ -39,7 +39,7 @@ public class BlockUraniumInsulated extends Block
 		this.setCreativeTab(CreativeTabs.tabBlock);
 	}
 
-	public void registerIcons(IIconRegister iconRegister)
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		blockIcon = iconRegister.registerIcon(MAssetManager.getEOTexture("uraniumInsulatedSide"));
 		topbottom = iconRegister.registerIcon("iron_block");

@@ -3,7 +3,6 @@ package sobiohazardous.minestrappolation.extradecor.lib;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import sobiohazardous.minestrappolation.api.item.MItem;
-import sobiohazardous.minestrappolation.api.item.MItemBlockPlacer;
 import sobiohazardous.minestrappolation.extradecor.block.Block100;
 import sobiohazardous.minestrappolation.extradecor.block.BlockEdgeStoneCorner;
 import sobiohazardous.minestrappolation.extradecor.block.BlockEndStone;
@@ -22,6 +21,7 @@ import sobiohazardous.minestrappolation.extradecor.item.ItemGDoor;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemReed;
 import net.minecraft.item.ItemSlab;
 import net.minecraftforge.common.MinecraftForge;
 
@@ -35,12 +35,12 @@ public class EDItemManager
 	
 	public static void addItems()
 	{
-		cardboardItem = new MItemBlockPlacer(EDBlockManager.cardboard).setCreativeTab(EDBlockManager.tabDecorBlocks).setUnlocalizedName("item_Cardboard");
+		cardboardItem = new ItemReed(EDBlockManager.cardboard).setCreativeTab(EDBlockManager.tabDecorBlocks).setUnlocalizedName("item_Cardboard");
 		sandstoneBrickItem = new MItem().setUnlocalizedName("item_SandstoneBrick").setCreativeTab(EDBlockManager.tabDecorBlocks);
 		GameRegistry.registerItem(sandstoneBrickItem, "sandstoneBrickItem");
 		stoneBrickItem = new MItem().setUnlocalizedName("item_StoneBrick").setCreativeTab(EDBlockManager.tabDecorBlocks);
 		GameRegistry.registerItem(stoneBrickItem, "stoneBrickItem");
-		gobletItem = new MItemBlockPlacer(EDBlockManager.Goblet).setCreativeTab(EDBlockManager.tabDecorBlocks).setUnlocalizedName("item_GobletEmpty");
+		gobletItem = new ItemReed(EDBlockManager.Goblet).setCreativeTab(EDBlockManager.tabDecorBlocks).setUnlocalizedName("item_GobletEmpty");
 		gDoor = new ItemGDoor(Material.glass).setUnlocalizedName("item_GlassDoor");
 		GameRegistry.registerItem(gDoor, "glassDoorItem");
 	}

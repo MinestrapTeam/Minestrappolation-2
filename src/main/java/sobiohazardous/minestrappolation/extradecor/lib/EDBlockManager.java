@@ -5,7 +5,6 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import sobiohazardous.minestrappolation.api.block.BlockPillar;
 import sobiohazardous.minestrappolation.api.block.MBlock;
-import sobiohazardous.minestrappolation.api.item.MItemBlockPlacer;
 import sobiohazardous.minestrappolation.api.item.MItem;
 import sobiohazardous.minestrappolation.api.lib.MAPIReference;
 import sobiohazardous.minestrappolation.api.util.MAssetManager;
@@ -19,6 +18,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemReed;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 
@@ -122,7 +122,7 @@ public class EDBlockManager
 		gunpowderBlock = (new BlockGunpowderBlock(Material.ground)).setHardness(0.6F).setStepSound(Block.soundTypeGravel).setBlockName("GunpowderBlock").setBlockTextureName(MAssetManager.getEDTexture("blockGunpowder"));
 	
 		rope = (new BlockRope()).setHardness(0.9F).setStepSound(Block.soundTypeCloth).setBlockName("rope");
-		itemRope = (new MItemBlockPlacer(rope)).setUnlocalizedName("rope").setCreativeTab(tabDecorBlocks).setTextureName(MAssetManager.getEDTexture("rope"));
+		itemRope = (new ItemReed(rope)).setUnlocalizedName("rope").setCreativeTab(tabDecorBlocks).setTextureName(MAssetManager.getEDTexture("rope"));
 		ropeCoil = (new BlockRopeCoil()).setHardness(0.9F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundTypeCloth).setBlockName("ropeCoil");
 	
 		oozeSlime = (new BlockOoze(materialOoze)).setHardness(1F).setResistance(2000F).setStepSound(Block.soundTypeCloth).setBlockName("SlimeOoze").setBlockTextureName(MAssetManager.getEDTexture("oozeSlime"));
@@ -199,7 +199,7 @@ public class EDBlockManager
 		GameRegistry.registerBlock(glassRefined, "glassRefined");
 		GameRegistry.registerBlock(glassRefinedPane, "glassRefinedPane");
 		GameRegistry.registerBlock(gunpowderBlock, "gunpowderBlock");
-		GameRegistry.registerBlock(rope, MItemBlockPlacer.class, "rope");
+		GameRegistry.registerBlock(rope, "rope");
 		GameRegistry.registerBlock(ropeCoil, "ropeCoil");
 		GameRegistry.registerBlock(woodPanel, "woodPanel");
 		GameRegistry.registerBlock(woodBeveled, "woodBeveled");

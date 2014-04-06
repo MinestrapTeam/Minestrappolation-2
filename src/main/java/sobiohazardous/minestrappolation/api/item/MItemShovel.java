@@ -27,10 +27,12 @@ public class MItemShovel extends ItemSpade
 	private ToolMaterial norm;
 	private ToolMaterial bronzePlateMat;
 
-	public MItemShovel(ToolMaterial par2EnumToolMaterial)
+	public MItemShovel(ToolMaterial par2EnumToolMaterial, ToolMaterial bronzeMaterial)
 	{
 		super(par2EnumToolMaterial);
 		this.setCreativeTab(null);
+		this.bronzePlateMat = bronzeMaterial;
+		this.norm = par2EnumToolMaterial;
 	}
 
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)

@@ -11,6 +11,7 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import sobiohazardous.minestrappolation.api.util.MAssetManager;
 import sobiohazardous.minestrappolation.extraores.lib.EOBlockManager;
 
 public class SteelPlatedGraniteBrickSlab extends BlockSlab
@@ -27,7 +28,7 @@ public class SteelPlatedGraniteBrickSlab extends BlockSlab
 
 	public void registerBlockIcons(IIconRegister par1IconRegister)
 	{
-		this.blockIcon = par1IconRegister.registerIcon("Minestrappolation:block_SteelGraniteBrick");
+		this.blockIcon = par1IconRegister.registerIcon(MAssetManager.getEOStoncutterTexture("Granite_Bricks_0_Steel"));
 	}
 
 	public Item getItemDropped(int par1, Random par2Random, int par3)
