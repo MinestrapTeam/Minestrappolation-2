@@ -66,7 +66,23 @@ public class MItemArmor extends ItemArmor
 	public void registerIcons(IIconRegister par1IconRegister)
 	{
 		itemIcon = par1IconRegister.registerIcon(this.getIconString());
-		overlayIcon = par1IconRegister.registerIcon(MAssetManager.getEOTexture("overlayToolPickBeonze"));
+		
+		if(this.renderIndex == 0)
+		{
+			overlayIcon = par1IconRegister.registerIcon(MAssetManager.getEOTexture("overlayArmorHelmBronze"));
+		}
+		else if(this.renderIndex == 1)
+		{
+			overlayIcon = par1IconRegister.registerIcon(MAssetManager.getEOTexture("overlayArmorChestBronze"));
+		}
+		else if(this.renderIndex == 2)
+		{
+			overlayIcon = par1IconRegister.registerIcon(MAssetManager.getEOTexture("overlayArmorLegsBronze"));
+		}
+		else
+		{
+			overlayIcon = par1IconRegister.registerIcon(MAssetManager.getEOTexture("overlayArmorBootsBronze"));
+		}
 	}
 
 	public IIcon getIcon(ItemStack stack, int renderPass)
@@ -98,10 +114,6 @@ public class MItemArmor extends ItemArmor
 
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type)
 	{
-		// slot will tell us helmet vs. boots
-		// type will be either null or overlay (cloth armor)
-		// can use stack.stackTagCompound.getString("matName") for material,
-		// etc.
 		String layer = "1";
 
 		String material = armorPrefix;

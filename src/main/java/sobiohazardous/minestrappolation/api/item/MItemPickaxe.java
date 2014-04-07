@@ -72,14 +72,18 @@ public class MItemPickaxe extends ItemPickaxe
 	{
 		if (MAPIConfig.showDur == true)
 		{
+			if(par1ItemStack.stackTagCompound == null)
+	    	{
+	    		par1ItemStack.stackTagCompound = new NBTTagCompound();
+	    	}
 			if(par1ItemStack.stackTagCompound != null && par1ItemStack.stackTagCompound.getBoolean("bronzePlating"))
 			{
-				par3List.add(EnumChatFormatting.GREEN + "Durability: " + EnumChatFormatting.RED + Integer.toString(this.toolMaterial.getMaxUses() - par1ItemStack.getItemDamage() + 1) + "/" + Integer.toString(this.toolMaterial.getMaxUses() + 1));
+				par3List.add(EnumChatFormatting.GREEN + "Durability: " + EnumChatFormatting.RED + Integer.toString(par1ItemStack.stackTagCompound.getInteger("dur") - par1ItemStack.getItemDamage() + 1) + "/" + Integer.toString(par1ItemStack.stackTagCompound.getInteger("dur") + 1));
 				par3List.add(EnumChatFormatting.GOLD + "Bronze Plated");
-			}
+			}		
 			else
 			{
-				par3List.add(EnumChatFormatting.GREEN + "Durability: " + EnumChatFormatting.RED + Integer.toString(this.toolMaterial.getMaxUses() - par1ItemStack.getItemDamage() + 1) + "/" + Integer.toString(this.toolMaterial.getMaxUses() + 1));
+				par3List.add(EnumChatFormatting.GREEN + "Durability: " + EnumChatFormatting.RED + Integer.toString(par1ItemStack.stackTagCompound.getInteger("dur") - par1ItemStack.getItemDamage() + 1) + "/" + Integer.toString(par1ItemStack.stackTagCompound.getInteger("dur") + 1));			
 			}
 		}
 	}
@@ -153,10 +157,16 @@ public class MItemPickaxe extends ItemPickaxe
     	if(par1ItemStack.stackTagCompound != null && par1ItemStack.stackTagCompound.getBoolean("bronzePlated"))
 		{
 			this.toolMaterial = this.bronzePlateMat;
+    		par1ItemStack.stackTagCompound.setInteger("dur", this.bronzePlateMat.getMaxUses());
 		}
+    	else if(par1ItemStack.stackTagCompound == null)
+    	{
+    		par1ItemStack.stackTagCompound = new NBTTagCompound();
+    	}
 		else
 		{
 			this.toolMaterial = this.norm;
+    		par1ItemStack.stackTagCompound.setInteger("dur", this.norm.getMaxUses());
 		}
     }
     
@@ -165,10 +175,16 @@ public class MItemPickaxe extends ItemPickaxe
 		if(par1ItemStack.stackTagCompound != null && par1ItemStack.stackTagCompound.getBoolean("bronzePlated"))
 		{
 			this.toolMaterial = this.bronzePlateMat;
+    		par1ItemStack.stackTagCompound.setInteger("dur", this.bronzePlateMat.getMaxUses());
 		}
+		else if(par1ItemStack.stackTagCompound == null)
+    	{
+    		par1ItemStack.stackTagCompound = new NBTTagCompound();
+    	}
 		else
 		{
 			this.toolMaterial = this.norm;
+    		par1ItemStack.stackTagCompound.setInteger("dur", this.norm.getMaxUses());
 		}
 	}
 
@@ -200,16 +216,4 @@ public class MItemPickaxe extends ItemPickaxe
 			return itemIcon;
 		}
 	}
-
-	private int colorA = 421010;
-
-	public int getColorFromItemStack(ItemStack par1ItemStack, int renderPass)
-	{
-		if (renderPass == 0)
-		{
-			return colorA;
-		}
-		return 16777215;
-	}
-
 }

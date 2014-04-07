@@ -382,10 +382,12 @@ public class EORecipeManager
         		{
         	"Z", "Z", Character.valueOf('Z'), EOBlockManager.SmoothQuartzite
         		});
+        /*
         GameRegistry.addRecipe(new ItemStack(EOBlockManager.ChiseledQuartzite, 1), new Object[]
         		{
         	"Z", "Z", Character.valueOf('Z'), EOBlockManager.PinkQuartzSingleSlab
         		});
+        		*/
         GameRegistry.addRecipe(new ItemStack(EOBlockManager.SmoothQuartzTile, 8), new Object[]
         		{
         	"ZZZ", "ZYZ", "ZZZ", Character.valueOf('Z'), EOBlockManager.SmoothQuartzite, Character.valueOf('Y'), Blocks.stone
@@ -1116,6 +1118,7 @@ public class EORecipeManager
         		{
         	"Z", "Z", Character.valueOf('Z'), EOBlockManager.SmoothRadiantQuartz
         		});
+        /*
         GameRegistry.addRecipe(new ItemStack(EOBlockManager.ChiseledRadiantQuartz, 1), new Object[]
         		{
         	"Z", "Z", Character.valueOf('Z'), EOBlockManager.RadiantQuartzSingleSlab
@@ -1226,6 +1229,7 @@ public class EORecipeManager
         		{
         	"SSS", Character.valueOf('S'), EOBlockManager.BronzePlatedGranite
         		});
+        		*/
         GameRegistry.addRecipe(new ItemStack(EOBlockManager.plutoniumInsulated, 1), new Object[]
         		{
         	"SSS", "GPG", "SSS", Character.valueOf('S'), EOItemManager.SteelIngot, Character.valueOf('G'), Blocks.glass_pane, Character.valueOf('P'), EOBlockManager.RawPlutoniumBlock
@@ -1262,14 +1266,19 @@ public class EORecipeManager
 	
 	public static void loadPlatedRecipes()
 	{
-		ItemStack pick = new ItemStack(EOItemManager.meuroditePickaxe, 1);
-		pick.stackTagCompound = new NBTTagCompound();
-		pick.stackTagCompound.setBoolean("bronzePlated", true);
-		
-		GameRegistry.addRecipe(pick, new Object[]
-				{
-			"PPP", "PIP", "PPP", Character.valueOf('P'), EOItemManager.plateBronzeItem, Character.valueOf('I'), EOItemManager.meuroditePickaxe
-				});
+		ItemStack[] picks = new ItemStack[] {new ItemStack(EOItemManager.meuroditePickaxe, 1), new ItemStack(EOItemManager.ToritePickaxe, 1), new ItemStack(EOItemManager.BlaziumPickaxe, 1), new ItemStack(EOItemManager.TitaniumPickaxe, 1), new ItemStack(EOItemManager.SteelPickaxe, 1), new ItemStack(EOItemManager.SandstonePickaxe, 1), new ItemStack(EOItemManager.CopperPickaxe, 1), new ItemStack(EOItemManager.BedrockPickaxe, 1), new ItemStack(EOItemManager.GranitePickaxe, 1)};
+		ItemStack[] picksWithoutNBT = new ItemStack[] {new ItemStack(EOItemManager.meuroditePickaxe, 1), new ItemStack(EOItemManager.ToritePickaxe, 1), new ItemStack(EOItemManager.BlaziumPickaxe, 1), new ItemStack(EOItemManager.TitaniumPickaxe, 1), new ItemStack(EOItemManager.SteelPickaxe, 1), new ItemStack(EOItemManager.SandstonePickaxe, 1), new ItemStack(EOItemManager.CopperPickaxe, 1), new ItemStack(EOItemManager.BedrockPickaxe, 1), new ItemStack(EOItemManager.GranitePickaxe, 1)};
+
+		for(int i=0; i<picks.length; i++)
+		{
+			picks[i].stackTagCompound = new NBTTagCompound();
+			picks[i].stackTagCompound.setBoolean("bronzePlated", true);
+			
+			GameRegistry.addRecipe(picks[i], new Object[]
+					{
+				"PPP", "PIP", "PPP", Character.valueOf('P'), EOItemManager.plateBronzeItem, Character.valueOf('I'), picksWithoutNBT[i]
+					});
+		}	
 		
 		//TODO add rest of bp tools recipes!
 		//TODO add bp armor
