@@ -12,6 +12,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.*;
 import net.minecraft.item.Item.ToolMaterial;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
@@ -21,6 +22,7 @@ public class MItemAxe extends ItemAxe
 	private boolean ignites = false;
 
 	private IIcon overlayIcon;
+	private IIcon overlayIcon2;
 
 	private ToolMaterial norm;
 	private ToolMaterial bronzePlateMat;
@@ -35,16 +37,20 @@ public class MItemAxe extends ItemAxe
 
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)
 	{
-		if (MAPIConfig.showDur == true)
+		if (MAPIConfig.showDur == true && !par2EntityPlayer.capabilities.isCreativeMode)
 		{
-			if (par1ItemStack.stackTagCompound != null && par1ItemStack.stackTagCompound.getBoolean("bronzePlating"))
+			if(par1ItemStack.stackTagCompound == null)
+	    	{
+	    		par1ItemStack.stackTagCompound = new NBTTagCompound();
+	    	}
+			if(par1ItemStack.stackTagCompound != null && par1ItemStack.stackTagCompound.getBoolean("bronzePlating"))
 			{
-				par3List.add(EnumChatFormatting.GREEN + "Durability: " + EnumChatFormatting.RED + Integer.toString(this.toolMaterial.getMaxUses() - par1ItemStack.getItemDamage() + 1) + "/" + Integer.toString(this.toolMaterial.getMaxUses() + 1));
+				par3List.add(EnumChatFormatting.GREEN + "Durability: " + EnumChatFormatting.RED + Integer.toString(par1ItemStack.stackTagCompound.getInteger("dur") - par1ItemStack.getItemDamage() + 1) + "/" + Integer.toString(par1ItemStack.stackTagCompound.getInteger("dur") + 1));
 				par3List.add(EnumChatFormatting.GOLD + "Bronze Plated");
-			}
+			}		
 			else
 			{
-				par3List.add(EnumChatFormatting.GREEN + "Durability: " + EnumChatFormatting.RED + Integer.toString(this.toolMaterial.getMaxUses() - par1ItemStack.getItemDamage() + 1) + "/" + Integer.toString(this.toolMaterial.getMaxUses() + 1));
+				par3List.add(EnumChatFormatting.GREEN + "Durability: " + EnumChatFormatting.RED + Integer.toString(par1ItemStack.stackTagCompound.getInteger("dur") - par1ItemStack.getItemDamage() + 1) + "/" + Integer.toString(par1ItemStack.stackTagCompound.getInteger("dur") + 1));			
 			}
 		}
 	}
@@ -109,26 +115,30 @@ public class MItemAxe extends ItemAxe
 	}
 
 	public void onCreated(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
-	{
-		if (par1ItemStack.stackTagCompound != null && par1ItemStack.stackTagCompound.getBoolean("bronzePlated"))
-		{
-			this.toolMaterial = this.bronzePlateMat;
-		}
-		else
-		{
-			this.toolMaterial = this.norm;
-		}
-	}
-
+    {
+		this.updateNBTs(par1ItemStack);
+    }
+    
 	public void onUpdate(ItemStack par1ItemStack, World par2World, Entity par3Entity, int par4, boolean par5)
 	{
-		if (par1ItemStack.stackTagCompound != null && par1ItemStack.stackTagCompound.getBoolean("bronzePlated"))
+		this.updateNBTs(par1ItemStack);
+	}
+	
+	public void updateNBTs(ItemStack par1ItemStack)
+	{
+		if(par1ItemStack.stackTagCompound != null && par1ItemStack.stackTagCompound.getBoolean("bronzePlated"))
 		{
 			this.toolMaterial = this.bronzePlateMat;
+    		par1ItemStack.stackTagCompound.setInteger("dur", this.bronzePlateMat.getMaxUses());
 		}
+		else if(par1ItemStack.stackTagCompound == null)
+    	{
+    		par1ItemStack.stackTagCompound = new NBTTagCompound();
+    	}
 		else
 		{
 			this.toolMaterial = this.norm;
+    		par1ItemStack.stackTagCompound.setInteger("dur", this.norm.getMaxUses());
 		}
 	}
 
@@ -143,6 +153,8 @@ public class MItemAxe extends ItemAxe
 	{
 		itemIcon = par1IconRegister.registerIcon(this.getIconString());
 		overlayIcon = par1IconRegister.registerIcon(MAssetManager.getEOTexture("overlayToolAxeBronze"));
+		overlayIcon2 = par1IconRegister.registerIcon(MAssetManager.getEOTexture("overlayToolAxeBronze2"));
+
 	}
 
 	public IIcon getIcon(ItemStack stack, int renderPass)
@@ -151,25 +163,17 @@ public class MItemAxe extends ItemAxe
 		{
 			return itemIcon;
 		}
-		else if (stack.getTagCompound() != null && stack.getTagCompound().getBoolean("bronzePlated"))
+		else if (stack.getTagCompound() != null && stack.getTagCompound().getBoolean("bronzePlated") && this.toolMaterial.getHarvestLevel() < 5)
 		{
 			return overlayIcon;
+		}
+		else if (stack.getTagCompound() != null && stack.getTagCompound().getBoolean("bronzePlated") && this.toolMaterial.getHarvestLevel() > 4)
+		{
+			return overlayIcon2;
 		}
 		else
 		{
 			return itemIcon;
 		}
 	}
-
-	private int colorA = 421010;
-
-	public int getColorFromItemStack(ItemStack par1ItemStack, int renderPass)
-	{
-		if (renderPass == 0)
-		{
-			return colorA;
-		}
-		return 16777215;
-	}
-
 }

@@ -1266,6 +1266,7 @@ public class EORecipeManager
 	
 	public static void loadPlatedRecipes()
 	{
+		//TODO: Yes, I realize this could be neater. If you have a better system, by all means, code away.
 		ItemStack[] picks = new ItemStack[] {new ItemStack(EOItemManager.meuroditePickaxe, 1), new ItemStack(EOItemManager.ToritePickaxe, 1), new ItemStack(EOItemManager.BlaziumPickaxe, 1), new ItemStack(EOItemManager.TitaniumPickaxe, 1), new ItemStack(EOItemManager.SteelPickaxe, 1), new ItemStack(EOItemManager.SandstonePickaxe, 1), new ItemStack(EOItemManager.CopperPickaxe, 1), new ItemStack(EOItemManager.BedrockPickaxe, 1), new ItemStack(EOItemManager.GranitePickaxe, 1)};
 		ItemStack[] picksWithoutNBT = new ItemStack[] {new ItemStack(EOItemManager.meuroditePickaxe, 1), new ItemStack(EOItemManager.ToritePickaxe, 1), new ItemStack(EOItemManager.BlaziumPickaxe, 1), new ItemStack(EOItemManager.TitaniumPickaxe, 1), new ItemStack(EOItemManager.SteelPickaxe, 1), new ItemStack(EOItemManager.SandstonePickaxe, 1), new ItemStack(EOItemManager.CopperPickaxe, 1), new ItemStack(EOItemManager.BedrockPickaxe, 1), new ItemStack(EOItemManager.GranitePickaxe, 1)};
 
@@ -1280,8 +1281,62 @@ public class EORecipeManager
 					});
 		}	
 		
-		//TODO add rest of bp tools recipes!
-		//TODO add bp armor
+		ItemStack[] axes = new ItemStack[] {new ItemStack(EOItemManager.meuroditeAxe, 1), new ItemStack(EOItemManager.ToriteAxe, 1), new ItemStack(EOItemManager.BlaziumAxe, 1), new ItemStack(EOItemManager.TitaniumAxe, 1), new ItemStack(EOItemManager.SteelAxe, 1), new ItemStack(EOItemManager.SandstoneAxe, 1), new ItemStack(EOItemManager.CopperAxe, 1), new ItemStack(EOItemManager.BedrockAxe, 1), new ItemStack(EOItemManager.GraniteAxe, 1)};
+		ItemStack[] axesWithoutNBT = new ItemStack[] {new ItemStack(EOItemManager.meuroditeAxe, 1), new ItemStack(EOItemManager.ToriteAxe, 1), new ItemStack(EOItemManager.BlaziumAxe, 1), new ItemStack(EOItemManager.TitaniumAxe, 1), new ItemStack(EOItemManager.SteelAxe, 1), new ItemStack(EOItemManager.SandstoneAxe, 1), new ItemStack(EOItemManager.CopperAxe, 1), new ItemStack(EOItemManager.BedrockAxe, 1), new ItemStack(EOItemManager.GraniteAxe, 1)};
+
+		for(int i=0; i<axes.length; i++)
+		{
+			axes[i].stackTagCompound = new NBTTagCompound();
+			axes[i].stackTagCompound.setBoolean("bronzePlated", true);
+			
+			GameRegistry.addRecipe(axes[i], new Object[]
+					{
+				"PPP", "PIP", "PPP", Character.valueOf('P'), EOItemManager.plateBronzeItem, Character.valueOf('I'), axesWithoutNBT[i]
+					});
+		}
+		
+		ItemStack[] hoes = new ItemStack[] {new ItemStack(EOItemManager.meuroditeHoe, 1), new ItemStack(EOItemManager.ToriteHoe, 1), new ItemStack(EOItemManager.BlaziumHoe, 1), new ItemStack(EOItemManager.TitaniumHoe, 1), new ItemStack(EOItemManager.SteelHoe, 1), new ItemStack(EOItemManager.SandstoneHoe, 1), new ItemStack(EOItemManager.CopperHoe, 1), new ItemStack(EOItemManager.BedrockHoe, 1), new ItemStack(EOItemManager.GraniteHoe, 1)};
+		ItemStack[] hoesWithoutNBT = new ItemStack[] {new ItemStack(EOItemManager.meuroditeHoe, 1), new ItemStack(EOItemManager.ToriteHoe, 1), new ItemStack(EOItemManager.BlaziumHoe, 1), new ItemStack(EOItemManager.TitaniumHoe, 1), new ItemStack(EOItemManager.SteelHoe, 1), new ItemStack(EOItemManager.SandstoneHoe, 1), new ItemStack(EOItemManager.CopperHoe, 1), new ItemStack(EOItemManager.BedrockHoe, 1), new ItemStack(EOItemManager.GraniteHoe, 1)};
+		
+		for(int i=0; i<hoes.length; i++)
+		{
+			hoes[i].stackTagCompound = new NBTTagCompound();
+			hoes[i].stackTagCompound.setBoolean("bronzePlated", true);
+			
+			GameRegistry.addRecipe(hoes[i], new Object[]
+					{
+				"PPP", "PIP", "PPP", Character.valueOf('P'), EOItemManager.plateBronzeItem, Character.valueOf('I'), hoesWithoutNBT[i]
+					});
+		}
+		
+		ItemStack[] shovels = new ItemStack[] {new ItemStack(EOItemManager.meuroditeShovel, 1), new ItemStack(EOItemManager.ToriteShovel, 1), new ItemStack(EOItemManager.BlaziumShovel, 1), new ItemStack(EOItemManager.TitaniumShovel, 1), new ItemStack(EOItemManager.SteelShovel, 1), new ItemStack(EOItemManager.SandstoneShovel, 1), new ItemStack(EOItemManager.CopperShovel, 1), new ItemStack(EOItemManager.BedrockShovel, 1), new ItemStack(EOItemManager.GraniteShovel, 1)};
+		ItemStack[] shovelsWithoutNBT = new ItemStack[] {new ItemStack(EOItemManager.meuroditeShovel, 1), new ItemStack(EOItemManager.ToriteShovel, 1), new ItemStack(EOItemManager.BlaziumShovel, 1), new ItemStack(EOItemManager.TitaniumShovel, 1), new ItemStack(EOItemManager.SteelShovel, 1), new ItemStack(EOItemManager.SandstoneShovel, 1), new ItemStack(EOItemManager.CopperShovel, 1), new ItemStack(EOItemManager.BedrockShovel, 1), new ItemStack(EOItemManager.GraniteShovel, 1)};
+		
+		for(int i=0; i<shovels.length; i++)
+		{
+			shovels[i].stackTagCompound = new NBTTagCompound();
+			shovels[i].stackTagCompound.setBoolean("bronzePlated", true);
+			
+			GameRegistry.addRecipe(shovels[i], new Object[]
+					{
+				"PPP", "PIP", "PPP", Character.valueOf('P'), EOItemManager.plateBronzeItem, Character.valueOf('I'), shovelsWithoutNBT[i]
+					});
+		}
+		
+		ItemStack[] swords = new ItemStack[] {new ItemStack(EOItemManager.meuroditeSword, 1), new ItemStack(EOItemManager.ToriteSword, 1), new ItemStack(EOItemManager.BlaziumSword, 1), new ItemStack(EOItemManager.TitaniumSword, 1), new ItemStack(EOItemManager.SteelSword, 1), new ItemStack(EOItemManager.SandstoneSword, 1), new ItemStack(EOItemManager.CopperSword, 1), new ItemStack(EOItemManager.GraniteSword, 1)};
+		ItemStack[] swordsWithoutNBT = new ItemStack[] {new ItemStack(EOItemManager.meuroditeSword, 1), new ItemStack(EOItemManager.ToriteSword, 1), new ItemStack(EOItemManager.BlaziumSword, 1), new ItemStack(EOItemManager.TitaniumSword, 1), new ItemStack(EOItemManager.SteelSword, 1), new ItemStack(EOItemManager.SandstoneSword, 1), new ItemStack(EOItemManager.CopperSword, 1), new ItemStack(EOItemManager.GraniteSword, 1)};
+
+		for(int i=0; i<swords.length; i++)
+		{
+			swords[i].stackTagCompound = new NBTTagCompound();
+			swords[i].stackTagCompound.setBoolean("bronzePlated", true);
+			
+			GameRegistry.addRecipe(swords[i], new Object[]
+					{
+				"PPP", "PIP", "PPP", Character.valueOf('P'), EOItemManager.plateBronzeItem, Character.valueOf('I'), swordsWithoutNBT[i]
+					});
+		}
+		
 	}
 	
 	public static void loadBridgedRecipes() throws Exception

@@ -31,6 +31,7 @@ public class MItemPickaxe extends ItemPickaxe
 	private boolean breakBedrock = false;
 	private boolean ignites = false;
 	private IIcon overlayIcon;
+	private IIcon overlayIcon2;
 	
 	private ToolMaterial norm;
 	private ToolMaterial bronzePlateMat;
@@ -70,7 +71,7 @@ public class MItemPickaxe extends ItemPickaxe
 
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)
 	{
-		if (MAPIConfig.showDur == true)
+		if (MAPIConfig.showDur == true && !par2EntityPlayer.capabilities.isCreativeMode)
 		{
 			if(par1ItemStack.stackTagCompound == null)
 	    	{
@@ -154,23 +155,15 @@ public class MItemPickaxe extends ItemPickaxe
 
     public void onCreated(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
     {
-    	if(par1ItemStack.stackTagCompound != null && par1ItemStack.stackTagCompound.getBoolean("bronzePlated"))
-		{
-			this.toolMaterial = this.bronzePlateMat;
-    		par1ItemStack.stackTagCompound.setInteger("dur", this.bronzePlateMat.getMaxUses());
-		}
-    	else if(par1ItemStack.stackTagCompound == null)
-    	{
-    		par1ItemStack.stackTagCompound = new NBTTagCompound();
-    	}
-		else
-		{
-			this.toolMaterial = this.norm;
-    		par1ItemStack.stackTagCompound.setInteger("dur", this.norm.getMaxUses());
-		}
+		this.updateNBTs(par1ItemStack);
     }
     
 	public void onUpdate(ItemStack par1ItemStack, World par2World, Entity par3Entity, int par4, boolean par5)
+	{
+		this.updateNBTs(par1ItemStack);
+	}
+	
+	public void updateNBTs(ItemStack par1ItemStack)
 	{
 		if(par1ItemStack.stackTagCompound != null && par1ItemStack.stackTagCompound.getBoolean("bronzePlated"))
 		{
@@ -199,6 +192,7 @@ public class MItemPickaxe extends ItemPickaxe
 	{
 		itemIcon = par1IconRegister.registerIcon(this.getIconString());
 		overlayIcon = par1IconRegister.registerIcon(MAssetManager.getEOTexture("overlayToolPickBeonze"));
+		overlayIcon2 = par1IconRegister.registerIcon(MAssetManager.getEOTexture("overlayToolPickBronze2"));
 	}
 
 	public IIcon getIcon(ItemStack stack, int renderPass)
@@ -207,9 +201,13 @@ public class MItemPickaxe extends ItemPickaxe
 		{
 			return itemIcon;
 		}
-		else if(stack.getTagCompound() != null && stack.getTagCompound().getBoolean("bronzePlated"))
+		else if(stack.getTagCompound() != null && stack.getTagCompound().getBoolean("bronzePlated") && this.toolMaterial.getHarvestLevel() < 5)
 		{
 			return overlayIcon;			
+		}
+		else if (stack.getTagCompound() != null && stack.getTagCompound().getBoolean("bronzePlated") && this.toolMaterial.getHarvestLevel() > 4)
+		{
+			return overlayIcon2;
 		}
 		else
 		{

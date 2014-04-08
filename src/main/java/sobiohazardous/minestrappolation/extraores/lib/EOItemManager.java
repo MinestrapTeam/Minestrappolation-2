@@ -378,6 +378,26 @@ public class EOItemManager
 		BronzeBoots = (new MItemArmor(MaterialBronze, null,ExtraOres.proxy.addArmor("bronze"),3, "bronze")).setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzeBoots").setTextureName(MAssetManager.getEOTexture("armorBootsBronze"));
 		GameRegistry.registerItem(BronzeBoots, "armorBootsBronze");
 		
+		BedrockPickaxe = (new MItemPickaxe(toolMaterialBedrock, toolMaterialBPBedrock)).setCreativeTab(tabOresItems).setUnlocalizedName("item_BedrockPickaxe").setTextureName(MAssetManager.getEOTexture("toolPickBedrock"));
+		GameRegistry.registerItem(BedrockPickaxe, "toolPickBedrock");
+		BedrockAxe = (new MItemAxe( toolMaterialBedrock,toolMaterialBPBedrock)).setCreativeTab(tabOresItems).setUnlocalizedName("item_BedrockAxe").setTextureName(MAssetManager.getEOTexture("toolAxeBedrock"));
+		GameRegistry.registerItem(BedrockAxe, "toolAxeBedrock");
+		BedrockShovel = (new MItemShovel(toolMaterialBedrock,toolMaterialBPBedrock)).setCreativeTab(tabOresItems).setUnlocalizedName("item_BedrockShovel").setTextureName(MAssetManager.getEOTexture("toolShovelBedrock"));
+		GameRegistry.registerItem(BedrockShovel, "toolShovelBedrock");
+		BedrockHoe = (new MItemHoe(toolMaterialBedrock,toolMaterialBPBedrock)).setCreativeTab(tabOresItems).setUnlocalizedName("item_BedrockHoe").setTextureName(MAssetManager.getEOTexture("toolHoeBedrock"));
+		GameRegistry.registerItem(BedrockHoe, "toolHoeBedrock");
+
+		GranitePickaxe = (new MItemPickaxe(toolMaterialGranite, toolMaterialBPGranite)).setCreativeTab(tabOresItems).setUnlocalizedName("item_GranitePickaxe").setTextureName(MAssetManager.getEOTexture("toolPickGranite"));
+		GameRegistry.registerItem(GranitePickaxe, "toolPickGranite");
+		GraniteAxe = (new MItemAxe( toolMaterialGranite,toolMaterialBPGranite)).setCreativeTab(tabOresItems).setUnlocalizedName("item_GraniteAxe").setTextureName(MAssetManager.getEOTexture("toolAxeGranite"));
+		GameRegistry.registerItem(GraniteAxe, "toolAxeGranite");
+		GraniteShovel = (new MItemShovel(toolMaterialGranite,toolMaterialBPGranite)).setCreativeTab(tabOresItems).setUnlocalizedName("item_GraniteShovel").setTextureName(MAssetManager.getEOTexture("toolShovelGranite"));
+		GameRegistry.registerItem(GraniteShovel, "toolShovelGranite");
+		GraniteHoe = (new MItemHoe(toolMaterialGranite,toolMaterialBPGranite)).setCreativeTab(tabOresItems).setUnlocalizedName("item_GraniteHoe").setTextureName(MAssetManager.getEOTexture("toolHoeGranite"));
+		GameRegistry.registerItem(GraniteHoe, "toolHoeGranite");
+		GraniteSword = (new MItemSword(toolMaterialGranite, toolMaterialBPGranite)).setCreativeTab(tabOresItems).setUnlocalizedName("item_GraniteSword").setTextureName(MAssetManager.getEOTexture("weaponSwordGranite"));
+		GameRegistry.registerItem(GraniteSword, "weaponSwordGranite");
+
 		grenade = (new ItemGrenade()).setUnlocalizedName("grenade").setTextureName(MAssetManager.getEOTexture("grenadeNuke"));
 		GameRegistry.registerItem(grenade, "grenadeNuke");
 		grenadeImpact = (new ItemGrenadeImpact()).setUnlocalizedName("grenadeImpact").setTextureName(MAssetManager.getEOTexture("grenadeNuke"));
