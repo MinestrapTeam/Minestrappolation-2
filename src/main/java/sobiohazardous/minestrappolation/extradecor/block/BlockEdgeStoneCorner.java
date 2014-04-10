@@ -7,6 +7,7 @@ import java.util.Random;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import sobiohazardous.minestrappolation.api.block.MBlock;
+import sobiohazardous.minestrappolation.api.util.MAssetManager;
 import sobiohazardous.minestrappolation.api.util.MUtil;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
 import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
@@ -52,12 +53,9 @@ public class BlockEdgeStoneCorner extends BlockContainer
     @SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister par1IconRegister) 
     {
-		this.blockIcon = par1IconRegister
-				.registerIcon("Minestrappolation:block_EdgeStoneFull");
-		this.left = par1IconRegister
-				.registerIcon("Minestrappolation:block_EdgeStoneSideRight");
-		this.right = par1IconRegister
-				.registerIcon("Minestrappolation:block_EdgeStoneSideLeft");
+    	this.blockIcon = par1IconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("EdgeStone_Bricks_0_Full"));
+        this.left = par1IconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("EdgeStone_Bricks_0_Left"));
+        this.right = par1IconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("EdgeStone_Bricks_0_Right"));
 	}
 
     @SideOnly(Side.CLIENT)

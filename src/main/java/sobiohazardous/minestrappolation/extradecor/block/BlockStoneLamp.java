@@ -21,7 +21,7 @@ public class BlockStoneLamp extends Block
 {
     @SideOnly(Side.CLIENT)
     private IIcon[] iconArray;
-    public static final String[] stoneLampTextures = new String[] {MAPIReference.MODID_ED + ":/stoneCutter/Stone_LampGlowstone_0_0", MAPIReference.MODID_ED + ":/stoneCutter/Stone_LampGlowstone_0_0"};
+    public static final String[] stoneLampTextures = new String[] {MAPIReference.MODID_ED + ":/stoneCutter/Stone_LampGlowstone_0_0", MAPIReference.MODID_ED + ":/stoneCutter/Stone_LampSunstone_0_0"};
     public static final String[] lampType = new String[] {"glowstone", "sunstone"};
     
     public BlockStoneLamp()
