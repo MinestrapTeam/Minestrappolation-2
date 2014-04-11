@@ -51,12 +51,9 @@ public class BlockEdgeStoneCorner extends BlockContainer
     @SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister par1IconRegister) 
     {
-		this.blockIcon = par1IconRegister
-				.registerIcon(MAssetManager.getEDStonecutterTexture("EdgeStone_Bricks_0_Full"));
-		this.left = par1IconRegister
-				.registerIcon(MAssetManager.getEDStonecutterTexture("EdgeStone_Bricks_0_Right"));
-		this.right = par1IconRegister
-				.registerIcon(MAssetManager.getEDStonecutterTexture("EdgeStone_Bricks_0_Left"));
+    	this.blockIcon = par1IconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("EdgeStone_Bricks_0_Full"));
+        this.left = par1IconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("EdgeStone_Bricks_0_Left"));
+        this.right = par1IconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("EdgeStone_Bricks_0_Right"));
 	}
 
     @SideOnly(Side.CLIENT)

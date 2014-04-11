@@ -33,7 +33,7 @@ public class BlockEndStone extends Block
 		this.refined = par1IconRegister
 				.registerIcon(MAssetManager.getEDStonecutterTexture("Endstone_Refine_0_0"));
 		this.smooth = par1IconRegister
-				.registerIcon(MAssetManager.getEDStonecutterTexture("Endstone_Tiles_0_0"));
+				.registerIcon(MAssetManager.getEDStonecutterTexture("Endstone_Raw_0_0"));
 	}
 	
 	public int damageDropped(int par1)
