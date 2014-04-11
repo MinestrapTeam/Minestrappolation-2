@@ -22,9 +22,6 @@ import net.minecraft.world.World;
 
 public class BlockTiles extends Block 
 {
-
-	public static final String[] brickType = new String[] {"obsidian","flint","nether","checker","brick","fb","nb"};
-
 	private IIcon ob;
 	private IIcon flint;
 	private IIcon nether;
@@ -95,15 +92,15 @@ public class BlockTiles extends Block
 		this.flint = par1IconRegister
 				.registerIcon(MAssetManager.getEDStonecutterTexture("Flint_Tiles_0_0"));
 		this.nether = par1IconRegister
-				.registerIcon(MAssetManager.getEDStonecutterTexture("NetehrQuartz_Tiles_0_0"));
+				.registerIcon(MAssetManager.getEDStonecutterTexture("NetherQuartz_Tiles_0_0"));
 		this.checker = par1IconRegister
 				.registerIcon(MAssetManager.getEDStonecutterTexture("Flint-NetherQuartz_TileChecker_0_0"));
 		this.brick = par1IconRegister
-				.registerIcon(MAssetManager.getEDStonecutterTexture("patternedbrick"));
+				.registerIcon(MAssetManager.getEDStonecutterTexture("Clay_PatternBricks_0_0"));
 		this.fb = par1IconRegister
-				.registerIcon("Minestrappolation:block_FlintBlock");
+				.registerIcon(MAssetManager.getEDStonecutterTexture("Flint_Raw_0_0"));
 		this.nb = par1IconRegister
-				.registerIcon("Minestrappolation:block_PatternBrickNether");
+				.registerIcon(MAssetManager.getEDStonecutterTexture("Netherrack_PatternBricks_0_0"));
 
 	}
 	

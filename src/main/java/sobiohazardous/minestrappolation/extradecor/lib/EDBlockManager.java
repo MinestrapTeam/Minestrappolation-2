@@ -11,6 +11,19 @@ import sobiohazardous.minestrappolation.api.util.MAssetManager;
 import sobiohazardous.minestrappolation.extradecor.CreativeTabExtraDecorBlocks;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
 import sobiohazardous.minestrappolation.extradecor.block.*;
+import sobiohazardous.minestrappolation.extradecor.itemblocks.ItemBlockEdgeStoneCorner;
+import sobiohazardous.minestrappolation.extradecor.itemblocks.ItemBlockEndstone;
+import sobiohazardous.minestrappolation.extradecor.itemblocks.ItemBlockGoblet;
+import sobiohazardous.minestrappolation.extradecor.itemblocks.ItemBlockMossyWood;
+import sobiohazardous.minestrappolation.extradecor.itemblocks.ItemBlockSandstoneBrick;
+import sobiohazardous.minestrappolation.extradecor.itemblocks.ItemBlockStainedBrick;
+import sobiohazardous.minestrappolation.extradecor.itemblocks.ItemBlockStoneLamp;
+import sobiohazardous.minestrappolation.extradecor.itemblocks.ItemBlockStones;
+import sobiohazardous.minestrappolation.extradecor.itemblocks.ItemBlockTiles;
+import sobiohazardous.minestrappolation.extradecor.itemblocks.ItemBlockWoodBeveled;
+import sobiohazardous.minestrappolation.extradecor.itemblocks.ItemBlockWoodBoardSlab;
+import sobiohazardous.minestrappolation.extradecor.itemblocks.ItemBlockWoodBoards;
+import sobiohazardous.minestrappolation.extradecor.itemblocks.ItemBlockWoodPanel;
 import sobiohazardous.minestrappolation.extradecor.material.MaterialOoze;
 import net.minecraft.block.*;
 import net.minecraft.block.material.MapColor;
@@ -18,6 +31,8 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemMultiTexture;
 import net.minecraft.item.ItemReed;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
@@ -108,7 +123,7 @@ public class EDBlockManager
 		stoneLamp = (new BlockStoneLamp()).setHardness(1.5F).setResistance(8F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundTypeStone).setLightLevel(1.0F).setBlockName("stoneLamp");
 		stones = new BlockStones().setHardness(1.5F).setResistance(10F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundTypeStone);
 		
-		Tiles = new BlockTiles().setCreativeTab(tabDecorBlocks).setStepSound(Block.soundTypeStone);
+		Tiles = new BlockTiles().setCreativeTab(tabDecorBlocks).setStepSound(Block.soundTypeStone).setBlockName("tiles");
 	
 		edgeStoneBrick = (new BlockEdgeStoneBrick()).setHardness(1.5F).setResistance(10F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundTypeStone).setBlockName("edgeStoneBrick");
 		edgeStoneBrickCorner = (new BlockEdgeStoneCorner()).setHardness(1.5F).setResistance(10F).setStepSound(Block.soundTypeStone).setBlockName("edgeStoneBrickCorner");
@@ -138,7 +153,7 @@ public class EDBlockManager
 		//TODO add the rest of the boards after Extrapolated Nature
 
 		sugarBlock = new BlockSugarBlock().setHardness(0.6F).setStepSound(Block.soundTypeGravel).setBlockName("SugarBlock").setBlockTextureName(MAssetManager.getEDTexture("blockSugar"));
-		meatBlock = new BlockMeatBlock("MeatBlock").setHardness(0.8F).setStepSound(Block.soundTypeCloth).setBlockName("MeatBlock").setBlockTextureName(MAssetManager.getEDTexture("blockMeatRaw"));
+		meatBlock = new BlockMeatBlock("MeatBlock").setHardness(0.8F).setStepSound(Block.soundTypeCloth).setBlockName("MeatBlock").setBlockTextureName(MAssetManager.getEDTexture("blockRawMeat"));
 	
 		magmaOoze = new BlockOoze(materialOoze).setHardness(1F).setResistance(2000F).setStepSound(Block.soundTypeCloth).setBlockName("MagmaOoze").setBlockTextureName(MAssetManager.getEDTexture("oozeMagma"));
 	
@@ -190,24 +205,24 @@ public class EDBlockManager
 	public static void registerBlocks()
 	{
 		GameRegistry.registerBlock(GlassDoor ,"GlassDoor");
-		GameRegistry.registerBlock(edgeStoneBrickCorner,"Edge corner");
+		GameRegistry.registerBlock(edgeStoneBrickCorner, ItemBlockEdgeStoneCorner.class, "edgeCorner");
 		GameRegistry.registerBlock(refinedRoad,"refinedRoad");
-		GameRegistry.registerBlock(stoneLamp, "stoneLamp");
+		registerBlock(stoneLamp, ItemBlockStoneLamp.class);
 		GameRegistry.registerBlock(edgeStoneBrick, "edgeStoneBrick");
 		GameRegistry.registerBlock(snowBrick, "snowBrick");
-		GameRegistry.registerBlock(endstone, "endstone");
+		registerBlock(endstone, ItemBlockEndstone.class);
 		GameRegistry.registerBlock(glassRefined, "glassRefined");
 		GameRegistry.registerBlock(glassRefinedPane, "glassRefinedPane");
 		GameRegistry.registerBlock(gunpowderBlock, "gunpowderBlock");
 		GameRegistry.registerBlock(rope, "rope");
 		GameRegistry.registerBlock(ropeCoil, "ropeCoil");
-		GameRegistry.registerBlock(woodPanel, "woodPanel");
-		GameRegistry.registerBlock(woodBeveled, "woodBeveled");
+		registerBlock(woodPanel, ItemBlockWoodPanel.class);
+		registerBlock(woodBeveled, ItemBlockWoodBeveled.class);
 		GameRegistry.registerBlock(oozeSlime, "oozeSlime");
-		GameRegistry.registerBlock(sandstoneBricks, "sandstoneBrick");
+		registerBlock(sandstoneBricks, ItemBlockSandstoneBrick.class);
 		GameRegistry.registerBlock(sandstonePillar, "sandstonePillar");
 		GameRegistry.registerBlock(stonePillar, "stonePillar");
-		GameRegistry.registerBlock(woodBoards, "woodBoards");
+		registerBlock(woodBoards, ItemBlockWoodBoards.class);
 		GameRegistry.registerBlock(sugarBlock, "sugarBlock");
 		GameRegistry.registerBlock(meatBlock, "meatBlock");
 		GameRegistry.registerBlock(magmaOoze, "magmaOoze");
@@ -221,10 +236,10 @@ public class EDBlockManager
 		GameRegistry.registerBlock(woodBoardsStairsBirch, "woodBoardStairsBirch");
 		GameRegistry.registerBlock(woodBoardsStairsSpruce, "woodBoardStairsSpruce");
 		GameRegistry.registerBlock(woodBoardsStairsJungle, "woodBoardStairsJungle");
-		GameRegistry.registerBlock(woodBoardsSingleSlab, "woodBoardsSingleSlab");
-		GameRegistry.registerBlock(woodBoardsDoubleSlab, "woodBoardsDoubleSlab");
+		registerBlock(woodBoardsSingleSlab, ItemBlockWoodBoardSlab.class);
+		registerBlock(woodBoardsDoubleSlab, ItemBlockWoodBoardSlab.class);
 		GameRegistry.registerBlock(checkerTileStairs, "checkerTileStairs");
-		GameRegistry.registerBlock(stainedBrick, "stainedBrick");
+		registerBlock(stainedBrick, ItemBlockStainedBrick.class);
 		GameRegistry.registerBlock(cobbledRoad, "cobbledRoad");
 		GameRegistry.registerBlock(infertileDirt,"Infertile Dirt");
 		GameRegistry.registerBlock(sandyRoad, "sandyRoad");
@@ -232,10 +247,11 @@ public class EDBlockManager
 		GameRegistry.registerBlock(gravelRoad, "gravelRoad");
 		GameRegistry.registerBlock(netherroad, "netherroad");
 		GameRegistry.registerBlock(refinedNetherroad, "refinedNetherroad");
-		GameRegistry.registerBlock(Goblet,"Goblet");
+		GameRegistry.registerBlock(Goblet, ItemBlockGoblet.class, "Goblet");
 		GameRegistry.registerBlock(Plate,"Plate");
-		GameRegistry.registerBlock(woodPlanksMossy, "woodPlanksMossy");
-		GameRegistry.registerBlock(stones,"Stones");
+		registerBlock(woodPlanksMossy, ItemBlockMossyWood.class);
+		GameRegistry.registerBlock(stones, ItemBlockStones.class, "Stones");
+		registerBlock(Tiles, ItemBlockTiles.class);
 	}
 	
 	public static void loadBridgedBlocks() throws Exception
@@ -248,4 +264,9 @@ public class EDBlockManager
 		}
 	
 	}
+	
+	public static void registerBlock(Block block, Class<? extends ItemBlock> itemBlockClass, Object... constructorArgs)
+    {
+        GameRegistry.registerBlock(block, itemBlockClass, block.getUnlocalizedName(), "ExtraDecor", constructorArgs);
+    }
 }

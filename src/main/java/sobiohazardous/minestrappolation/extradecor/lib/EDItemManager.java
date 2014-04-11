@@ -3,6 +3,7 @@ package sobiohazardous.minestrappolation.extradecor.lib;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import sobiohazardous.minestrappolation.api.item.MItem;
+import sobiohazardous.minestrappolation.api.util.MAssetManager;
 import sobiohazardous.minestrappolation.extradecor.block.Block100;
 import sobiohazardous.minestrappolation.extradecor.block.BlockEdgeStoneCorner;
 import sobiohazardous.minestrappolation.extradecor.block.BlockEndStone;
@@ -35,13 +36,13 @@ public class EDItemManager
 	
 	public static void addItems()
 	{
-		cardboardItem = new ItemReed(EDBlockManager.cardboard).setCreativeTab(EDBlockManager.tabDecorBlocks).setUnlocalizedName("item_Cardboard");
-		sandstoneBrickItem = new MItem().setUnlocalizedName("item_SandstoneBrick").setCreativeTab(EDBlockManager.tabDecorBlocks);
+		cardboardItem = new ItemReed(EDBlockManager.cardboard).setCreativeTab(EDBlockManager.tabDecorBlocks).setUnlocalizedName("item_Cardboard").setTextureName(MAssetManager.getEDTexture("cardboard"));
+		sandstoneBrickItem = new MItem().setUnlocalizedName("item_SandstoneBrick").setCreativeTab(EDBlockManager.tabDecorBlocks).setTextureName(MAssetManager.getEDTexture("brickSandstone"));
 		GameRegistry.registerItem(sandstoneBrickItem, "sandstoneBrickItem");
-		stoneBrickItem = new MItem().setUnlocalizedName("item_StoneBrick").setCreativeTab(EDBlockManager.tabDecorBlocks);
+		stoneBrickItem = new MItem().setUnlocalizedName("item_StoneBrick").setCreativeTab(EDBlockManager.tabDecorBlocks).setTextureName(MAssetManager.getEDTexture("brickStone"));
 		GameRegistry.registerItem(stoneBrickItem, "stoneBrickItem");
-		gobletItem = new ItemReed(EDBlockManager.Goblet).setCreativeTab(EDBlockManager.tabDecorBlocks).setUnlocalizedName("item_GobletEmpty");
-		gDoor = new ItemGDoor(Material.glass).setUnlocalizedName("item_GlassDoor");
+		gobletItem = new ItemReed(EDBlockManager.Goblet).setCreativeTab(EDBlockManager.tabDecorBlocks).setUnlocalizedName("item_GobletEmpty").setTextureName(MAssetManager.getEDTexture("goblet"));
+		gDoor = new ItemGDoor(Material.glass).setUnlocalizedName("item_GlassDoor").setTextureName(MAssetManager.getEDTexture("doorGlass"));
 		GameRegistry.registerItem(gDoor, "glassDoorItem");
 	}
 	

@@ -23,7 +23,6 @@ public class BlockSandstoneBrick extends Block
     @SideOnly(Side.CLIENT)
     private IIcon[] iconArray;
     public static final String[] brickTextures = new String[] {"extradecor:/stoneCutter/Sandstone_Bricks_0_0", "extradecor:/stoneCutter/Sandstone_PatternBricks_0_0", "extradecor:stoneCutter/Sandstone_BricksMossy_0_0", "extradecor:stoneCutter/Sandstone_Heiroglyph1_0_0", "extradecor:stoneCutter/Sandstone_Heiroglyph2_0_0"};
-    public static final String[] sandType = new String[] {"brick", "patterned", "mossy", "heiroglyph", "heiroglyph_2"};
     
     public BlockSandstoneBrick()
     {

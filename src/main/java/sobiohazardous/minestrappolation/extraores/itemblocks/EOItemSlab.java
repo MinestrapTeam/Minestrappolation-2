@@ -1,4 +1,4 @@
-package sobiohazardous.minestrappolation.extraores.item;
+package sobiohazardous.minestrappolation.extraores.itemblocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;

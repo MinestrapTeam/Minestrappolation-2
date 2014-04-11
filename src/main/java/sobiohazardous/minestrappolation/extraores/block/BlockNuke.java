@@ -38,7 +38,7 @@ public class BlockNuke extends Block
 	}
 
 	@SideOnly(Side.CLIENT)
-	public void registerIcons(IIconRegister iconRegister)
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		blockIcon = iconRegister.registerIcon(MAssetManager.getEOTexture("nukeSide"));
 		this.top = iconRegister.registerIcon(MAssetManager.getEOTexture("nukeTop"));

@@ -53,8 +53,8 @@ public class BlockSandyRoad extends BlockFalling
     	else if(this == EDBlockManager.sandstoneRoad)
     	{
     		this.blockIcon = par1IconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Sandstone_Road_Side_0"));
-    		this.top = par1IconRegister.registerIcon("Minestrappolation:block_SandstoneRoadTop");
-    		this.bottom = par1IconRegister.registerIcon("Minestrappolation:block_SandyRoadBottom");
+    		this.top = par1IconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Sandstone_PatternBricks_0_0"));
+    		this.bottom = par1IconRegister.registerIcon(MAssetManager.getEDTexture("roadSandBottom"));
     	}
     	else
     	{

@@ -24,7 +24,6 @@ public class BlockWoodBeveled extends Block
     @SideOnly(Side.CLIENT)
     private IIcon[] iconArray;
     public static final String[] panelTextures = new String[] {MAPIReference.MODID_ED + ":bevelOak", MAPIReference.MODID_ED + ":bevelBirch", MAPIReference.MODID_ED + ":bevelSpruce", MAPIReference.MODID_ED + ":bevelJungle"};
-    public static final String[] woodType = new String[] {"oak", "birch", "spruce", "jungle"};
     
     public BlockWoodBeveled()
     {

@@ -16,8 +16,6 @@ import net.minecraft.util.IIcon;
 
 public class BlockEndStone extends Block 
 {
-	public static final String[] bType = new String[] {"brick","smooth","refined"};
-
 	private IIcon refined;
 	private IIcon smooth;
 	private IIcon brick;

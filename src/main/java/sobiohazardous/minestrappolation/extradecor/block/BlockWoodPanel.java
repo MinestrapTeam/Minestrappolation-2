@@ -24,7 +24,6 @@ public class BlockWoodPanel extends Block
     @SideOnly(Side.CLIENT)
     private IIcon[] iconArray;
     public static final String[] panelTextures = new String[] {MAPIReference.MODID_ED + ":panelOak", MAPIReference.MODID_ED + ":panelBirch", MAPIReference.MODID_ED + ":panelSpruce", MAPIReference.MODID_ED + ":panelJungle"};
-    public static final String[] woodType = new String[] {"oak", "birch", "spruce", "jungle"};
     
     public BlockWoodPanel()
     {

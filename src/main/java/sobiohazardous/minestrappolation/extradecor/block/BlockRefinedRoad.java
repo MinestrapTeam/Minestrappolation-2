@@ -51,15 +51,15 @@ public class BlockRefinedRoad extends Block
     {
     	if(this == EDBlockManager.refinedRoad)
     	{
-    		this.blockIcon = par1IconRegister.registerIcon("Minestrappolation:block_RefinedRoadSide");
-    		this.top = par1IconRegister.registerIcon("Minestrappolation:block_RefinedRoadTop");
-    		this.bottom = par1IconRegister.registerIcon("Minestrappolation:block_RefinedRoadBottom");
+    		this.blockIcon = par1IconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Stone_Road_Side_0"));
+    		this.top = par1IconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Stone_PatternBricks_0_0"));
+    		this.bottom = par1IconRegister.registerIcon(MAssetManager.getEDTexture("roadStoneBottom"));
     	}
     	else if(this == EDBlockManager.refinedNetherroad)
     	{
-    		this.blockIcon = par1IconRegister.registerIcon("Minestrappolation:block_RefinedNetherroadSide");
-    		this.top = par1IconRegister.registerIcon("Minestrappolation:block_RefinedNetherroadTop");
-    		this.bottom = par1IconRegister.registerIcon("Minestrappolation:block_NetherroadBottom");
+    		this.blockIcon = par1IconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Netherrack_Road_Side_0"));
+    		this.top = par1IconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Netherrack_PatternBricks_0_0"));
+    		this.bottom = par1IconRegister.registerIcon(MAssetManager.getEDTexture("roadNetherrackBottom"));
     	}
     	else
     	{

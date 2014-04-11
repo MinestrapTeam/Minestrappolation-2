@@ -15,8 +15,6 @@ import net.minecraft.util.IIcon;
 
 public class BlockStones extends Block 
 {
-	public static final String[] brickType = new String[] {"tile","refined"};
-
 	private IIcon refined;
 	private IIcon tile;
 	

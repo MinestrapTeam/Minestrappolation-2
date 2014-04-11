@@ -6,6 +6,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import java.util.List;
 
 import sobiohazardous.minestrappolation.api.util.MAssetManager;
+import sobiohazardous.minestrappolation.extradecor.itemblocks.ItemBlockMossyWood;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -16,8 +17,6 @@ import net.minecraft.util.IIcon;
 
 public class BlockMossyWood extends Block
 {
-    /** The type of tree this block came from. */
-    public static final String[] woodType = new String[] {"Oak", "Spruce", "Birch", "Jungle"};
     @SideOnly(Side.CLIENT)
     private IIcon[] iconArray;
 
@@ -71,11 +70,11 @@ public class BlockMossyWood extends Block
      */
     public void registerBlockIcons(IIconRegister par1IconRegister)
     {
-        this.iconArray = new IIcon[woodType.length];
+        this.iconArray = new IIcon[ItemBlockMossyWood.types.length];
 
         for (int i = 0; i < this.iconArray.length; ++i)
         {
-            this.iconArray[i] = par1IconRegister.registerIcon(MAssetManager.getEDTexture("mossyPlanks") + woodType[i]);
+            this.iconArray[i] = par1IconRegister.registerIcon(MAssetManager.getEDTexture("mossyPlanks") + ItemBlockMossyWood.types[i]);
         }
     }
 }

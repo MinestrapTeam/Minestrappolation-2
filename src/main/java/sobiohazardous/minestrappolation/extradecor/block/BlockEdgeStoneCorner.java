@@ -7,6 +7,7 @@ import java.util.Random;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import sobiohazardous.minestrappolation.api.block.MBlock;
+import sobiohazardous.minestrappolation.api.util.MAssetManager;
 import sobiohazardous.minestrappolation.api.util.MUtil;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
 import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
@@ -37,8 +38,6 @@ public class BlockEdgeStoneCorner extends BlockContainer
 	private IIcon left;
 	private IIcon right;
 	
-	public static final String[] cType = new String[] {"0", "1", "2", "3","4","5","6","7"};
-
 	public BlockEdgeStoneCorner() 
 	{
 		super(Material.rock);	
@@ -53,11 +52,11 @@ public class BlockEdgeStoneCorner extends BlockContainer
 	public void registerBlockIcons(IIconRegister par1IconRegister) 
     {
 		this.blockIcon = par1IconRegister
-				.registerIcon("Minestrappolation:block_EdgeStoneFull");
+				.registerIcon(MAssetManager.getEDStonecutterTexture("EdgeStone_Bricks_0_Full"));
 		this.left = par1IconRegister
-				.registerIcon("Minestrappolation:block_EdgeStoneSideRight");
+				.registerIcon(MAssetManager.getEDStonecutterTexture("EdgeStone_Bricks_0_Right"));
 		this.right = par1IconRegister
-				.registerIcon("Minestrappolation:block_EdgeStoneSideLeft");
+				.registerIcon(MAssetManager.getEDStonecutterTexture("EdgeStone_Bricks_0_Left"));
 	}
 
     @SideOnly(Side.CLIENT)

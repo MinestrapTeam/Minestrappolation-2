@@ -26,8 +26,6 @@ import net.minecraft.world.World;
 
 public class BlockGoblet extends BlockContainer
 {
-	public static final String[] g = new String[] {"0", "1", "2", "3","4","5","6","7"};
-
 	public BlockGoblet(Material par2Material) 
 	{
 		super(Material.grass);
