@@ -137,8 +137,9 @@ public class MItemSword extends ItemSword
 		}
 	}
 
-	public void setIgnitesMob(boolean ignitesMob)
+	public MItemSword setIgnitesMob(boolean ignitesMob)
 	{
 		this.ignitesMob = true;
+		return this;
 	}
 }

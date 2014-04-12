@@ -36,7 +36,7 @@ public class GuiMelter extends GuiContainer
 	protected void drawGuiContainerBackgroundLayer(float par1, int par2, int par3)
 	{
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-		ResourceLocation gui = new ResourceLocation(MAssetManager.getEOTexture("gui/melter.png"));
+		ResourceLocation gui = new ResourceLocation(MAssetManager.getEOTexture("textures/gui/melter.png"));
 		this.mc.renderEngine.bindTexture(gui);
 		int j = (width - xSize) / 2;
 		int k = (height - ySize) / 2;

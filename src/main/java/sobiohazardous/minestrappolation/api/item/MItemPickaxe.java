@@ -148,9 +148,10 @@ public class MItemPickaxe extends ItemPickaxe
 		}
 	}
 
-	public void setIgnites(boolean ignites)
+	public MItemPickaxe setIgnites(boolean ignites)
 	{
 		this.ignites = true;
+		return this;
 	}
 
     public void onCreated(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)

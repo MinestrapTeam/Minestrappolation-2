@@ -109,9 +109,10 @@ public class MItemAxe extends ItemAxe
 		}
 	}
 
-	public void setIgnites(boolean ignites)
+	public MItemAxe setIgnites(boolean ignites)
 	{
 		this.ignites = true;
+		return this;
 	}
 
 	public void onCreated(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)

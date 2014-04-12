@@ -111,9 +111,10 @@ public class MItemShovel extends ItemSpade
 		}
 	}
 
-	public void setIgnites(boolean ignites)
+	public MItemShovel setIgnites(boolean ignites)
 	{
 		this.ignites = true;
+		return this;
 	}
 
 	public void onCreated(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)

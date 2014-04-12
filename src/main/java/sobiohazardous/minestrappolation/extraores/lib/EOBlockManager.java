@@ -302,7 +302,7 @@ public class EOBlockManager
 		GameRegistry.registerBlock(TinPlatedGranite, "graniteTin");
 		BronzeBlock = (new EOBlock(Material.iron)).setHardness(7F).setResistance(20F).setCreativeTab(tabOresBlocks).setStepSound(Block.soundTypeStone).setBlockName("block_Bronze").setBlockTextureName(MAssetManager.getEOTexture("blockBronze"));
 		GameRegistry.registerBlock(BronzeBlock, "blockBronze");
-		BronzePlatedCobble = (new EOBlock(Material.rock)).setHardness(2.0F).setResistance(30.0F).setCreativeTab(tabOresBlocks).setStepSound(Block.soundTypeStone).setBlockName("block_BronzeCobble").setBlockTextureName(MAssetManager.getEOStoncutterTexture("Stone_Raw_0_Bronze"));
+		BronzePlatedCobble = (new EOBlock(Material.rock)).setHardness(2.0F).setResistance(30.0F).setCreativeTab(tabOresBlocks).setStepSound(Block.soundTypeStone).setBlockName("block_BronzeCobble").setBlockTextureName(MAssetManager.getEOStoncutterTexture("Stone_Cobbled_0_Bronze"));
 		GameRegistry.registerBlock(BronzePlatedCobble, "cobbleBronze");
 		BronzePlatedMossy = (new EOBlock(Material.rock)).setHardness(2.0F).setResistance(30.0F).setCreativeTab(tabOresBlocks).setStepSound(Block.soundTypeStone).setBlockName("block_BronzeMossy").setBlockTextureName(MAssetManager.getEOStoncutterTexture("Stone_CobbledMossy_0_Bronze"));
 		GameRegistry.registerBlock(BronzePlatedMossy, "cobbleMossyBronze");
@@ -314,7 +314,7 @@ public class EOBlockManager
 		GameRegistry.registerBlock(BronzePlatedGranite, "graniteBronze");
 		Invincium = (new BlockInvincium(Material.rock)).setBlockUnbreakable().setResistance(12000000.0F).setCreativeTab(tabOresBlocks).setStepSound(Block.soundTypeStone).setBlockName("block_Invincium").setBlockTextureName(MAssetManager.getEOTexture("invincium"));
 		GameRegistry.registerBlock(Invincium, "invincium");
-		SteelPlatedCobble = (new EOBlock(Material.rock)).setHardness(2.0F).setResistance(20.0F).setCreativeTab(tabOresBlocks).setStepSound(Block.soundTypeStone).setBlockName("block_SteelCobble").setBlockTextureName(MAssetManager.getEOStoncutterTexture("Stone_Raw_0_Steel"));
+		SteelPlatedCobble = (new EOBlock(Material.rock)).setHardness(2.0F).setResistance(20.0F).setCreativeTab(tabOresBlocks).setStepSound(Block.soundTypeStone).setBlockName("block_SteelCobble").setBlockTextureName(MAssetManager.getEOStoncutterTexture("Stone_Cobbled_0_Steel"));
 		GameRegistry.registerBlock(SteelPlatedCobble, "cobbleSteel");
 		SteelPlatedMossy = (new EOBlock(Material.rock)).setHardness(2.0F).setResistance(20.0F).setCreativeTab(tabOresBlocks).setStepSound(Block.soundTypeStone).setBlockName("block_SteelMossy").setBlockTextureName(MAssetManager.getEOStoncutterTexture("Stone_CobbledMossy_0_Steel"));
 		GameRegistry.registerBlock(SteelPlatedMossy, "cobbleMossySteel");
