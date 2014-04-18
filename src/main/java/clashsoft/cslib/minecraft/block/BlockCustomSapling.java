@@ -8,10 +8,10 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSapling;
-import net.minecraft.block.IGrowable;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
@@ -20,7 +20,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.event.terraingen.TerrainGen;
 
-public abstract class BlockCustomSapling extends BlockSapling implements ICustomBlock, IGrowable
+public abstract class BlockCustomSapling extends BlockSapling implements ICustomBlock
 {
 	public String[]	names;
 	public String[]	iconNames;
@@ -41,6 +41,18 @@ public abstract class BlockCustomSapling extends BlockSapling implements ICustom
 	public BlockCustomSapling(String[] names, String domain)
 	{
 		this(names, CustomBlock.applyDomain(names, domain));
+	}
+	
+	@Override
+	public String getUnlocalizedName(ItemStack stack)
+	{
+		return CustomBlock.getUnlocalizedName(this, stack, this.names);
+	}
+	
+	@Override
+	public void addInformation(ItemStack stack, EntityPlayer player, List<String> list)
+	{
+		CustomBlock.addInformation(this, stack, list);
 	}
 	
 	@Override
@@ -99,14 +111,19 @@ public abstract class BlockCustomSapling extends BlockSapling implements ICustom
 	public void func_149878_d(World world, int x, int y, int z, Random random)
 	{
 		if (world.isRemote)
+		{
 			return;
+		}
 		
 		if (!TerrainGen.saplingGrowTree(world, random, x, y, z))
+		{
 			return;
+		}
 		
 		int l = world.getBlockMetadata(x, y, z) & 3;
 		WorldGenerator worldgen = this.getWorldGen(world, x, y, z, random);
 		
+		world.setBlock(x, y, z, Blocks.air, 0, 0);
 		if (worldgen != null && !worldgen.generate(world, random, x, y, z))
 		{
 			world.setBlock(x, y, z, this, l, 4);
@@ -120,7 +137,9 @@ public abstract class BlockCustomSapling extends BlockSapling implements ICustom
 		Block soil = world.getBlock(x, y - 1, z);
 		
 		if (soil == null)
+		{
 			return false;
+		}
 		
 		boolean validLight = world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z);
 		boolean validSoil = soil.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
@@ -156,21 +175,5 @@ public abstract class BlockCustomSapling extends BlockSapling implements ICustom
 		{
 			this.icons[i] = iconRegister.registerIcon(this.iconNames[i]);
 		}
-	}
-	
-	@Override
-	public String getUnlocalizedName(ItemStack stack)
-	{
-		int metadata = stack.getItemDamage();
-		if (metadata < this.names.length)
-		{
-			return this.getUnlocalizedName() + "." + this.names[metadata];
-		}
-		return this.getUnlocalizedName();
-	}
-	
-	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List<String> list)
-	{
 	}
 }

@@ -4,7 +4,6 @@ import java.util.*;
 
 import clashsoft.cslib.minecraft.CSLib;
 import clashsoft.cslib.minecraft.util.CSWeb;
-import clashsoft.cslib.util.CSString;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ChatComponentText;
@@ -22,6 +21,8 @@ public class CSUpdate
 	/** The updates already found. */
 	public static Map<String, ModUpdate>	updates					= new HashMap();
 	
+	public static Map<String, String[]>		updateFiles				= new HashMap();
+	
 	/** The Constant CURRENT_VERSION. */
 	public static final String				CURRENT_VERSION			= "1.7.2";
 	
@@ -32,7 +33,7 @@ public class CSUpdate
 	public static final String				CLASHSOFT_UPDATE_NOTES	= "https://dl.dropboxusercontent.com/s/pxm1ki6wbtxlvuv/update.txt";
 	
 	/**
-	 * Creates a Clashsoft Unique Version (e.g. v1.6.4-4)
+	 * Creates a version String for Clashsoft mods.
 	 * 
 	 * @param rev
 	 *            the rev
@@ -43,8 +44,20 @@ public class CSUpdate
 		return CURRENT_VERSION + "-" + rev;
 	}
 	
+	public static String version(int major, int minor, int rev)
+	{
+		return String.format("%s_%d.%d.%d", CURRENT_VERSION, major, minor, rev);
+	}
+	
+	public static String version(String version)
+	{
+		return String.format("%s_%s", CURRENT_VERSION, version);
+	}
+	
 	public static ModUpdate readUpdateLine(String line, String modName, String acronym, String version)
 	{
+		boolean flag = modName == null;
+		
 		int i0 = line.indexOf(':');
 		int i1 = line.indexOf('=');
 		int i2 = line.lastIndexOf('@');
@@ -56,29 +69,21 @@ public class CSUpdate
 		
 		String key = line.substring(0, i0);
 		
-		if (modName == null)
-		{
-			modName = key;
-		}
-		
-		if (key.equals(modName) || key.equals(acronym))
+		if (flag || key.equals(modName) || key.equals(acronym))
 		{
 			String newVersion = line.substring(i0 + 1, i1);
-			if (version == null || !newVersion.equals(version))
+			String updateNotes = null;
+			String updateUrl = null;
+			if (i1 != -1)
 			{
-				String updateNotes = null;
-				String updateUrl = null;
-				if (i1 != -1)
-				{
-					updateNotes = line.substring(i1 + 1, i2 == -1 ? line.length() : i2);
-				}
-				if (i2 != -1)
-				{
-					updateUrl = line.substring(i2 + 1);
-				}
-				
-				return new ModUpdate(modName, version, newVersion, updateNotes, updateUrl);
+				updateNotes = line.substring(i1 + 1, i2 == -1 ? line.length() : i2);
 			}
+			if (i2 != -1)
+			{
+				updateUrl = line.substring(i2 + 1);
+			}
+			
+			return new ModUpdate(flag ? key : modName, version, newVersion, updateNotes, updateUrl);
 		}
 		return null;
 	}
@@ -110,16 +115,7 @@ public class CSUpdate
 	{
 		if (update != null)
 		{
-			ModUpdate update1 = getUpdate(update.getModName());
-			if (update1 != null)
-			{
-				update1.combine(update);
-				return update1;
-			}
-			else
-			{
-				updates.put(update.getModName(), update);
-			}
+			updates.put(update.getModName(), update);
 		}
 		return update;
 	}
@@ -129,94 +125,72 @@ public class CSUpdate
 		return updates.get(modName);
 	}
 	
-	public static ModUpdate getUpdate(String modName, String version)
+	public static ModUpdate getUpdate(String modName, String acronym)
 	{
 		ModUpdate update = getUpdate(modName);
-		if (update != null)
+		if (update == null)
 		{
-			update.setMod(modName, version);
+			update = getUpdate(acronym);
 		}
 		return update;
 	}
 	
-	public static ModUpdate getUpdate(String modName, String acronym, String version, String[] updateFile)
+	public static String[] getUpdateFile(String url)
 	{
-		ModUpdate update = getUpdate(modName, version);
-		if (update != null)
+		String[] updateFile = updateFiles.get(url);
+		if (updateFile == null)
 		{
-			return update;
+			updateFile = CSWeb.readWebsite(url);
+			updateFiles.put(url, updateFile);
 		}
-		
-		for (String line : updateFile)
-		{
-			update = readUpdateLine(line, modName, acronym, version);
-			if (update != null)
-			{
-				addUpdate(update);
-			}
-		}
-		return getUpdate(modName);
+		return updateFile;
 	}
 	
+	/**
+	 * Reads an update file and adds all available updates to the list.
+	 * 
+	 * @param url
+	 */
 	public static void updateCheck(String url)
 	{
-		updateCheck(CSWeb.readWebsite(url));
+		new CheckUpdateThread(url).start();
 	}
 	
 	public static void updateCheck(String[] updateFile)
 	{
-		for (String line : updateFile)
-		{
-			ModUpdate update = readUpdateLine(line, null, null, null);
-			addUpdate(update);
-		}
-	}
-	
-	public static void updateCheckCS(String modName, String acronym, String version)
-	{
-		updateCheck(modName, acronym, version, CLASHSOFT_UPDATE_NOTES);
-	}
-	
-	public static void updateCheck(String modName, String version, String url)
-	{
-		updateCheck(modName, CSString.getAcronym(modName), version, url);
+		new CheckUpdateThread(updateFile).start();
 	}
 	
 	public static void updateCheck(String modName, String acronym, String version, String url)
 	{
-		if (CSLib.updateCheck)
-		{
-			new CheckUpdateThread(modName, acronym, version, url).start();
-		}
+		new CheckUpdateThread(modName, acronym, version, url).start();
 	}
 	
-	public static void updateCheck(String modName, String acronym, String version, String[] updateLines)
+	public static void updateCheck(String modName, String acronym, String version, String[] updateFile)
 	{
-		if (CSLib.updateCheck)
-		{
-			new CheckUpdateThread(modName, acronym, version, updateLines).start();
-		}
+		new CheckUpdateThread(modName, acronym, version, updateFile).start();
 	}
 	
-	public static void notifyAllUpdates(EntityPlayer player)
+	public static void notifyAll(EntityPlayer player)
 	{
-		if (player.worldObj.isRemote)
+		List<ModUpdate> updates = getUpdates(false);
+		if (!updates.isEmpty())
 		{
 			player.addChatMessage(new ChatComponentTranslation("update.found"));
-			for (ModUpdate update : updates.values())
+			for (ModUpdate update : updates)
 			{
-				notifyUpdate(player, update);
+				notify(player, update);
 			}
 		}
 	}
 	
-	public static void notifyUpdate(EntityPlayer player, ModUpdate update)
+	public static void notify(EntityPlayer player, ModUpdate update)
 	{
-		if (player.worldObj.isRemote && update != null && update.isValid())
+		if (update != null && update.isValid())
 		{
 			player.addChatMessage(new ChatComponentTranslation("update.notification", update.getModName(), update.getNewVersion(), update.getVersion()));
 			
-			if (!update.getUpdateNotes().isEmpty())
+			if (update.getUpdateNotes().length > 0)
 			{
 				player.addChatMessage(new ChatComponentTranslation("update.notes"));
 				
@@ -250,22 +224,85 @@ public class CSUpdate
 		}
 	}
 	
+	public static void updateAll(EntityPlayer player)
+	{
+		if (!updates.isEmpty())
+		{
+			for (ModUpdate update : updates.values())
+			{
+				update.install(player);
+			}
+		}
+	}
+	
 	public static int compareVersion(String version1, String version2)
 	{
 		if (version1 == null)
 		{
-			return -1;
+			return version2 == null ? 0 : -1;
 		}
-		if (version2 == null)
+		else if (version2 == null)
 		{
 			return 1;
 		}
+		else if (version1.equals(version2))
+		{
+			return 0;
+		}
 		
-		String s1 = version1.replace(".", "").replace("-", ".");
-		String s2 = version2.replace(".", "").replace("-", ".");
-		float f1 = Float.parseFloat(s1);
-		float f2 = Float.parseFloat(s2);
+		String[] split1 = version1.split("\\p{Punct}");
+		String[] split2 = version2.split("\\p{Punct}");
 		
-		return Float.compare(f1, f2);
+		int len = Math.max(split1.length, split2.length);
+		int[] ints1 = new int[len];
+		int[] ints2 = new int[len];
+		
+		for (int i = 0; i < split1.length; i++)
+		{
+			ints1[i] = versionNumber(split1[i]);
+		}
+		for (int i = 0; i < split2.length; i++)
+		{
+			ints2[i] = versionNumber(split2[i]);
+		}
+		
+		for (int i = len - 1; i >= 0; i--)
+		{
+			int compare = Integer.compare(ints1[i], ints2[i]);
+			if (compare != 0)
+			{
+				return compare;
+			}
+		}
+		
+		return 0;
+	}
+	
+	protected static int versionNumber(String s)
+	{
+		try
+		{
+			return Integer.parseInt(s);
+		}
+		catch (NumberFormatException ex)
+		{
+			if ("dev".equalsIgnoreCase(s))
+			{
+				return -4;
+			}
+			else if ("pre".equalsIgnoreCase(s))
+			{
+				return -3;
+			}
+			else if ("alpha".equalsIgnoreCase(s))
+			{
+				return -2;
+			}
+			else if ("beta".equalsIgnoreCase(s))
+			{
+				return -1;
+			}
+		}
+		return 0;
 	}
 }

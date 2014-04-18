@@ -2,6 +2,7 @@ package sobiohazardous.minestrappolation.extradecor.client.gui;
 
 import org.lwjgl.opengl.GL11;
 
+import sobiohazardous.minestrappolation.api.util.MAssetManager;
 import sobiohazardous.minestrappolation.extradecor.container.ContainerBarrel;
 import sobiohazardous.minestrappolation.extradecor.container.ContainerCrate;
 import sobiohazardous.minestrappolation.extradecor.tileentity.TileEntityBarrel;
@@ -35,7 +36,7 @@ public class GuiBarrel extends GuiContainer
 	protected void drawGuiContainerBackgroundLayer(float f, int i, int j)
 	{
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		ResourceLocation gui = new ResourceLocation("minestrappolation","gui/barrel.png");
+		ResourceLocation gui = new ResourceLocation(MAssetManager.getEDTexture("/textures/gui/barrel.png"));
 		this.mc.renderEngine.bindTexture(gui);		
 		int x = (width - xSize) / 2;
 		int y = (height - ySize) / 2;

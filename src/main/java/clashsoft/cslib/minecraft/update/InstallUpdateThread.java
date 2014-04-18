@@ -1,9 +1,8 @@
 package clashsoft.cslib.minecraft.update;
 
-import java.io.*;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import java.io.File;
 
+import clashsoft.cslib.minecraft.util.CSWeb;
 import clashsoft.cslib.util.CSLog;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.relauncher.Side;
@@ -45,21 +44,21 @@ public class InstallUpdateThread extends Thread
 			
 			this.player.addChatMessage(new ChatComponentTranslation("update.install", modName, newVersion));
 			
-			File file;
+			File dataDir;
 			if (FMLCommonHandler.instance().getEffectiveSide() == Side.CLIENT)
 			{
-				file = Minecraft.getMinecraft().mcDataDir;
+				dataDir = Minecraft.getMinecraft().mcDataDir;
 			}
 			else
 			{
-				file = new File(MinecraftServer.getServer().getFolderName());
+				dataDir = new File(MinecraftServer.getServer().getFolderName());
 			}
 			
-			File mods = new File(file, "mods");
+			File modsDir = new File(dataDir, "mods");
 			
 			try
 			{
-				File output = new File(mods, this.update.getDownloadedFileName());
+				File output = new File(modsDir, this.update.getDownloadedFileName());
 				
 				if (output.exists())
 				{
@@ -68,7 +67,7 @@ public class InstallUpdateThread extends Thread
 					return;
 				}
 				
-				for (File f : mods.listFiles())
+				for (File f : modsDir.listFiles())
 				{
 					String fileName = f.getName();
 					if (fileName.startsWith(modName))
@@ -78,49 +77,17 @@ public class InstallUpdateThread extends Thread
 					}
 				}
 				
-				URL url = new URL(this.update.getUpdateURL());
-				HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-				connection.setRequestMethod("GET");
-				InputStream in = connection.getInputStream();
-				FileOutputStream out = new FileOutputStream(output);
-				copy(in, out, 1024);
-				out.close();
+				CSWeb.download(this.update.getUpdateURL(), output);
 				
 				this.player.addChatMessage(new ChatComponentTranslation("update.install.success", mod));
-				
 				this.update.installStatus = 2;
 			}
 			catch (Exception ex)
 			{
 				CSLog.error(ex);
 				this.player.addChatMessage(new ChatComponentTranslation("update.install.failure", mod, ex.getMessage()));
-				
 				this.update.installStatus = -1;
 			}
 		}
-	}
-	
-	/**
-	 * Copys the data from an input stream to an output stream.
-	 * 
-	 * @param input
-	 *            the input
-	 * @param output
-	 *            the output
-	 * @param bufferSize
-	 *            the buffer size
-	 * @throws IOException
-	 *             Signals that an I/O exception has occurred.
-	 */
-	private static void copy(InputStream input, OutputStream output, int bufferSize) throws IOException
-	{
-		byte[] buf = new byte[bufferSize];
-		int n = input.read(buf);
-		while (n >= 0)
-		{
-			output.write(buf, 0, n);
-			n = input.read(buf);
-		}
-		output.flush();
 	}
 }

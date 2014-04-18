@@ -198,7 +198,7 @@ public class BlockRope extends BlockLadder
     
     public void onBlockPlacedBy(World par1World, int par2, int par3, int par4, EntityLivingBase par5EntityLivingBase, ItemStack par6ItemStack)
     {
-    	if(Block.isEqualTo(par1World.getBlock(par2, par3 +1, par4), Block.getBlockById(0)))
+    	if(Block.isEqualTo(par1World.getBlock(par2, par3 +1, par4), Blocks.air))
     	{
     		par1World.setBlockToAir(par2, par3, par4);
             par1World.scheduleBlockUpdate(par2, par3, par4, this, 4);

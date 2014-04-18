@@ -19,7 +19,6 @@ public class BlockPlate extends BlockContainer
 	public BlockPlate(Material par2Material) 
 	{
 		super(par2Material);
-		this.setCreativeTab(EDBlockManager.tabDecorBlocks);
 		this.setBlockBounds(1F/16F, 0F, 1F/16F, 1F-1F/16F, 1F-1F/16F*14F, 1F-1F/16F);
 	}
 	

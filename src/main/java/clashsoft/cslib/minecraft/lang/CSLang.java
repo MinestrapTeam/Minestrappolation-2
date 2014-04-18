@@ -15,9 +15,9 @@ import net.minecraft.stats.Achievement;
  * This class adds several utils for adding localizations.
  * 
  * @deprecated
- * 
  * @author Clashsoft
  */
+@Deprecated
 public class CSLang extends LanguageRegistry
 {
 	public static void addName(Object key, String value)

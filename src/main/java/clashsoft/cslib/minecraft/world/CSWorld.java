@@ -15,13 +15,7 @@ import net.minecraft.world.World;
 public class CSWorld
 {
 	/** The Constant sideMap. */
-	public static final int[][]	sideMap			= new int[][] {
-			{ 0, -1, 0 },
-			{ 0, 1, 0 },
-			{ 0, 0, -1 },
-			{ 0, 0, 1 },
-			{ -1, 0, 0 },
-			{ 1, 0, 0 }						};
+	public static final int[][]	sideMap			= new int[][] { { 0, -1, 0 }, { 0, 1, 0 }, { 0, 0, -1 }, { 0, 0, 1 }, { -1, 0, 0 }, { 1, 0, 0 } };
 	
 	/** The Constant oppositeSideMap. */
 	public static final int[]	oppositeSideMap	= new int[] { 1, 0, 3, 2, 5, 4 };
@@ -105,20 +99,20 @@ public class CSWorld
 	{
 		switch (side)
 		{
-			case 0:
-				return getBlock(world, x, y - 1, z);
-			case 1:
-				return getBlock(world, x, y + 1, z);
-			case 2:
-				return getBlock(world, x, y, z - 1);
-			case 3:
-				return getBlock(world, x, y, z + 1);
-			case 4:
-				return getBlock(world, x - 1, y, z);
-			case 5:
-				return getBlock(world, x + 1, y, z);
-			default:
-				return getBlock(world, x, y, z);
+		case 0:
+			return getBlock(world, x, y - 1, z);
+		case 1:
+			return getBlock(world, x, y + 1, z);
+		case 2:
+			return getBlock(world, x, y, z - 1);
+		case 3:
+			return getBlock(world, x, y, z + 1);
+		case 4:
+			return getBlock(world, x - 1, y, z);
+		case 5:
+			return getBlock(world, x + 1, y, z);
+		default:
+			return getBlock(world, x, y, z);
 		}
 	}
 	
@@ -142,20 +136,20 @@ public class CSWorld
 	{
 		switch (side)
 		{
-			case 0:
-				return getBlockMetadata(world, x, y - 1, z);
-			case 1:
-				return getBlockMetadata(world, x, y + 1, z);
-			case 2:
-				return getBlockMetadata(world, x, y, z - 1);
-			case 3:
-				return getBlockMetadata(world, x, y, z + 1);
-			case 4:
-				return getBlockMetadata(world, x - 1, y, z);
-			case 5:
-				return getBlockMetadata(world, x + 1, y, z);
-			default:
-				return getBlockMetadata(world, x, y, z);
+		case 0:
+			return getBlockMetadata(world, x, y - 1, z);
+		case 1:
+			return getBlockMetadata(world, x, y + 1, z);
+		case 2:
+			return getBlockMetadata(world, x, y, z - 1);
+		case 3:
+			return getBlockMetadata(world, x, y, z + 1);
+		case 4:
+			return getBlockMetadata(world, x - 1, y, z);
+		case 5:
+			return getBlockMetadata(world, x + 1, y, z);
+		default:
+			return getBlockMetadata(world, x, y, z);
 		}
 	}
 	
@@ -181,20 +175,20 @@ public class CSWorld
 	{
 		switch (side)
 		{
-			case 0:
-				return getBlockTileEntity(world, x, y - 1, z);
-			case 1:
-				return getBlockTileEntity(world, x, y + 1, z);
-			case 2:
-				return getBlockTileEntity(world, x, y, z - 1);
-			case 3:
-				return getBlockTileEntity(world, x, y, z + 1);
-			case 4:
-				return getBlockTileEntity(world, x - 1, y, z);
-			case 5:
-				return getBlockTileEntity(world, x + 1, y, z);
-			default:
-				return getBlockTileEntity(world, x, y, z);
+		case 0:
+			return getBlockTileEntity(world, x, y - 1, z);
+		case 1:
+			return getBlockTileEntity(world, x, y + 1, z);
+		case 2:
+			return getBlockTileEntity(world, x, y, z - 1);
+		case 3:
+			return getBlockTileEntity(world, x, y, z + 1);
+		case 4:
+			return getBlockTileEntity(world, x - 1, y, z);
+		case 5:
+			return getBlockTileEntity(world, x + 1, y, z);
+		default:
+			return getBlockTileEntity(world, x, y, z);
 		}
 	}
 	
@@ -239,7 +233,8 @@ public class CSWorld
 	}
 	
 	/**
-	 * Sets the block with the given metadata at the given side of the given coordinates.
+	 * Sets the block with the given metadata at the given side of the given
+	 * coordinates.
 	 * 
 	 * @param world
 	 *            the world
@@ -319,7 +314,8 @@ public class CSWorld
 	}
 	
 	/**
-	 * Generates the wireframe of a cube made of the given block with the given metadata.
+	 * Generates the wireframe of a cube made of the given block with the given
+	 * metadata.
 	 * 
 	 * @param world
 	 *            the world

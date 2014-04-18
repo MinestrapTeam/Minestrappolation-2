@@ -37,11 +37,13 @@ public class EDItemManager
 	public static void addItems()
 	{
 		cardboardItem = new ItemReed(EDBlockManager.cardboard).setCreativeTab(EDBlockManager.tabDecorBlocks).setUnlocalizedName("item_Cardboard").setTextureName(MAssetManager.getEDTexture("cardboard"));
+		GameRegistry.registerItem(cardboardItem, "cardboardItem");
 		sandstoneBrickItem = new MItem().setUnlocalizedName("item_SandstoneBrick").setCreativeTab(EDBlockManager.tabDecorBlocks).setTextureName(MAssetManager.getEDTexture("brickSandstone"));
 		GameRegistry.registerItem(sandstoneBrickItem, "sandstoneBrickItem");
 		stoneBrickItem = new MItem().setUnlocalizedName("item_StoneBrick").setCreativeTab(EDBlockManager.tabDecorBlocks).setTextureName(MAssetManager.getEDTexture("brickStone"));
 		GameRegistry.registerItem(stoneBrickItem, "stoneBrickItem");
 		gobletItem = new ItemReed(EDBlockManager.Goblet).setCreativeTab(EDBlockManager.tabDecorBlocks).setUnlocalizedName("item_GobletEmpty").setTextureName(MAssetManager.getEDTexture("goblet"));
+		GameRegistry.registerItem(gobletItem, "gobletItem");
 		gDoor = new ItemGDoor(Material.glass).setUnlocalizedName("item_GlassDoor").setTextureName(MAssetManager.getEDTexture("doorGlass"));
 		GameRegistry.registerItem(gDoor, "glassDoorItem");
 	}

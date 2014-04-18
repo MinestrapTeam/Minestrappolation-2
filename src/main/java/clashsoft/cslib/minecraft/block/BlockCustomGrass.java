@@ -76,7 +76,7 @@ public class BlockCustomGrass extends CustomBlock
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int metadata)
 	{
-		return side == 1 ? this.topIcons[metadata] : (side == 0 ? this.bottomIcons[metadata] : this.sideIcons[metadata]);
+		return side == 1 ? this.topIcons[metadata] : side == 0 ? this.bottomIcons[metadata] : this.sideIcons[metadata];
 	}
 	
 	@Override

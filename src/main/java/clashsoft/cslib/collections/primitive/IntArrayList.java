@@ -22,6 +22,12 @@ public class IntArrayList
 		this.elementData = new int[initialCapacity];
 	}
 	
+	public IntArrayList(int[] data)
+	{
+		this.size = data.length;
+		this.elementData = data.clone();
+	}
+	
 	private void ensureCapacity(int minCapacity)
 	{
 		if (minCapacity - this.elementData.length > 0)
@@ -150,5 +156,16 @@ public class IntArrayList
 			}
 		}
 		return -1;
+	}
+	
+	public int[] toArray()
+	{
+		return toArray(new int[this.size]);
+	}
+	
+	public int[] toArray(int[] array)
+	{
+		System.arraycopy(this.elementData, 0, array, 0, this.size);
+		return array;
 	}
 }

@@ -5,6 +5,8 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+import clashsoft.cslib.minecraft.CSLib;
+
 /**
  * The clas Addon.
  * <p>
@@ -16,7 +18,7 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 public @interface Addon
 {
-	public String modName() default "Clashsoft API";
+	public String modName() default CSLib.NAME;
 	
 	public String addonName();
 	

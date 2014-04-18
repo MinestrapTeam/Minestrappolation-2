@@ -1,5 +1,7 @@
 package clashsoft.cslib.minecraft.crafting;
 
+import clashsoft.cslib.minecraft.item.CSStacks;
+
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.ShapedRecipes;
@@ -74,17 +76,7 @@ public class ShapedAdvancedRecipe extends ShapedRecipes
 				
 				if (itemstack1 != null || itemstack != null)
 				{
-					if (itemstack1 == null && itemstack != null || itemstack1 != null && itemstack == null)
-					{
-						return false;
-					}
-					
-					if (itemstack.getItem() != itemstack1.getItem())
-					{
-						return false;
-					}
-					
-					if (itemstack.getItemDamage() != 32767 && itemstack.getItemDamage() != itemstack1.getItemDamage())
+					if (!CSStacks.equals(itemstack, itemstack1))
 					{
 						return false;
 					}

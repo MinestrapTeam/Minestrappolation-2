@@ -54,7 +54,7 @@ public abstract class BlockCustomPortal extends Block
 	{
 		super.updateTick(world, x, y, z, random);
 		
-		if ((!world.provider.isSurfaceWorld()) || (!world.getGameRules().getGameRuleBooleanValue("doMobSpawning")))
+		if (!world.provider.isSurfaceWorld() || !world.getGameRules().getGameRuleBooleanValue("doMobSpawning"))
 		{
 			return;
 		}
@@ -62,15 +62,19 @@ public abstract class BlockCustomPortal extends Block
 		if (random.nextInt(2000) >= world.difficultySetting.getDifficultyId())
 		{
 			int i = y;
-			while ((!(World.doesBlockHaveSolidTopSurface(world, x, i, z))) && (i > 0))
+			while (!World.doesBlockHaveSolidTopSurface(world, x, i, z) && i > 0)
 			{
 				--i;
 			}
-			if ((i <= 0) || (world.getBlock(x, i + 1, z).isNormalCube()))
+			if (i <= 0 || world.getBlock(x, i + 1, z).isNormalCube())
+			{
 				return;
+			}
 			Entity localEntity = ItemMonsterPlacer.spawnCreature(world, 57, x + 0.5D, i + 1.1D, z + 0.5D);
 			if (localEntity != null)
+			{
 				localEntity.timeUntilPortal = localEntity.getPortalCooldown();
+			}
 		}
 	}
 	
@@ -82,11 +86,17 @@ public abstract class BlockCustomPortal extends Block
 		PortalSize size2 = new PortalSize(this, world, x, y, z, 1);
 		
 		if (i == 1 && (!size1.isValid() || size1.portals < size1.width * size1.height))
+		{
 			world.setBlock(x, y, z, Blocks.air);
+		}
 		else if (i == 2 && (!size2.isValid() || size2.portals < size2.width * size2.height))
+		{
 			world.setBlock(x, y, z, Blocks.air);
+		}
 		else if (i == 0 && !size1.isValid() && !size2.isValid())
+		{
 			world.setBlock(x, y, z, Blocks.air);
+		}
 	}
 	
 	public boolean generatePortal(World world, int x, int y, int z)
@@ -145,14 +155,16 @@ public abstract class BlockCustomPortal extends Block
 		
 		if (i == 0)
 		{
-			if ((world.getBlock(x - 1, y, z) == this) || (world.getBlock(x + 1, y, z) == this))
+			if (world.getBlock(x - 1, y, z) == this || world.getBlock(x + 1, y, z) == this)
+			{
 				i = 1;
+			}
 			else
 			{
 				i = 2;
 			}
 			
-			if ((world instanceof World) && (!(((World) world).isRemote)))
+			if (world instanceof World && !((World) world).isRemote)
 			{
 				((World) world).setBlockMetadataWithNotify(x, y, z, i, 2);
 			}
@@ -190,29 +202,41 @@ public abstract class BlockCustomPortal extends Block
 			i = limitToValidMetadata(world.getBlockMetadata(x, y, z));
 			
 			if (i == 0)
+			{
 				return false;
+			}
 			if (i == 2 && side != 5 && side != 4)
+			{
 				return false;
+			}
 			if (i == 1 && side != 3 && side != 2)
+			{
 				return false;
+			}
 		}
 		
-		int j = ((world.getBlock(x - 1, y, z) == this) && (world.getBlock(x - 2, y, z) != this)) ? 1 : 0;
-		int k = ((world.getBlock(x + 1, y, z) == this) && (world.getBlock(x + 2, y, z) != this)) ? 1 : 0;
+		int j = world.getBlock(x - 1, y, z) == this && world.getBlock(x - 2, y, z) != this ? 1 : 0;
+		int k = world.getBlock(x + 1, y, z) == this && world.getBlock(x + 2, y, z) != this ? 1 : 0;
 		
-		int l = ((world.getBlock(x, y, z - 1) == this) && (world.getBlock(x, y, z - 2) != this)) ? 1 : 0;
-		int i1 = ((world.getBlock(x, y, z + 1) == this) && (world.getBlock(x, y, z + 2) != this)) ? 1 : 0;
+		int l = world.getBlock(x, y, z - 1) == this && world.getBlock(x, y, z - 2) != this ? 1 : 0;
+		int i1 = world.getBlock(x, y, z + 1) == this && world.getBlock(x, y, z + 2) != this ? 1 : 0;
 		
-		int i2 = ((j != 0) || (k != 0) || (i == 1)) ? 1 : 0;
-		int i3 = ((l != 0) || (i1 != 0) || (i == 2)) ? 1 : 0;
+		int i2 = j != 0 || k != 0 || i == 1 ? 1 : 0;
+		int i3 = l != 0 || i1 != 0 || i == 2 ? 1 : 0;
 		
-		if ((i2 != 0) && (side == 4))
+		if (i2 != 0 && side == 4)
+		{
 			return true;
-		if ((i2 != 0) && (side == 5))
+		}
+		if (i2 != 0 && side == 5)
+		{
 			return true;
-		if ((i3 != 0) && (side == 2))
+		}
+		if (i3 != 0 && side == 2)
+		{
 			return true;
-		return ((i3 != 0) && (side == 3));
+		}
+		return i3 != 0 && side == 3;
 	}
 	
 	@Override
@@ -253,7 +277,7 @@ public abstract class BlockCustomPortal extends Block
 			double d6 = (random.nextFloat() - 0.5D) * 0.5D;
 			
 			int j = random.nextInt(2) * 2 - 1;
-			if ((world.getBlock(x - 1, y, z) == this) || (world.getBlock(x + 1, y, z) == this))
+			if (world.getBlock(x - 1, y, z) == this || world.getBlock(x + 1, y, z) == this)
 			{
 				d3 = z + 0.5D + 0.25D * j;
 				d6 = random.nextFloat() * 2.0F * j;
@@ -270,7 +294,7 @@ public abstract class BlockCustomPortal extends Block
 	
 	public static int limitToValidMetadata(int metadata)
 	{
-		return (metadata & 0x3);
+		return metadata & 0x3;
 	}
 	
 	@Override
@@ -309,7 +333,7 @@ public abstract class BlockCustomPortal extends Block
 			
 			int i = y;
 			
-			while ((y > i - 21) && y > 0 && this.isBlockValid(x, y - 1, z))
+			while (y > i - 21 && y > 0 && this.isBlockValid(x, y - 1, z))
 			{
 				--y;
 			}
@@ -321,7 +345,7 @@ public abstract class BlockCustomPortal extends Block
 				this.chunkPos = new ChunkCoordinates(x + j * Direction.offsetX[this.direction1], y, z + j * Direction.offsetZ[this.direction1]);
 				this.width = this.calculateWidth(this.chunkPos.posX, this.chunkPos.posY, this.chunkPos.posZ, this.direction2);
 				
-				if ((this.width < 2) || (this.width > 21))
+				if (this.width < 2 || this.width > 21)
 				{
 					this.chunkPos = null;
 					this.width = 0;
@@ -329,7 +353,9 @@ public abstract class BlockCustomPortal extends Block
 			}
 			
 			if (this.chunkPos != null)
+			{
 				this.height = this.calculateHeight();
+			}
 		}
 		
 		public boolean isFrameBlock(int x, int y, int z)
@@ -359,13 +385,13 @@ public abstract class BlockCustomPortal extends Block
 					break;
 				}
 				
-				if (!isFrameBlock(x1, y - 1, z1))
+				if (!this.isFrameBlock(x1, y - 1, z1))
 				{
 					break;
 				}
 			}
 			
-			if (isFrameBlock(x1, y, z1))
+			if (this.isFrameBlock(x1, y, z1))
 			{
 				return i;
 			}
@@ -397,14 +423,14 @@ public abstract class BlockCustomPortal extends Block
 					
 					if (j == 0)
 					{
-						if (!isFrameBlock(k + Direction.offsetX[metadataMap[this.metadata][0]], i, l + Direction.offsetZ[metadataMap[this.metadata][0]]))
+						if (!this.isFrameBlock(k + Direction.offsetX[metadataMap[this.metadata][0]], i, l + Direction.offsetZ[metadataMap[this.metadata][0]]))
 						{
 							break;
 						}
 					}
 					if (j == this.width - 1)
 					{
-						if (!isFrameBlock(k + Direction.offsetX[metadataMap[this.metadata][1]], i, l + Direction.offsetZ[metadataMap[this.metadata][1]]))
+						if (!this.isFrameBlock(k + Direction.offsetX[metadataMap[this.metadata][1]], i, l + Direction.offsetZ[metadataMap[this.metadata][1]]))
 						{
 							break;
 						}
@@ -425,7 +451,7 @@ public abstract class BlockCustomPortal extends Block
 				}
 			}
 			
-			if ((this.height > 21) || (this.height < 3))
+			if (this.height > 21 || this.height < 3)
 			{
 				this.chunkPos = null;
 				this.width = 0;
@@ -438,12 +464,12 @@ public abstract class BlockCustomPortal extends Block
 		protected boolean isBlockValid(int x, int y, int z)
 		{
 			Block block = this.world.getBlock(x, y, z);
-			return (block.getMaterial() == Material.air || block == Blocks.fire || this.isFrameBlock(x, y, z));
+			return block.getMaterial() == Material.air || block == Blocks.fire || this.isFrameBlock(x, y, z);
 		}
 		
 		public boolean isValid()
 		{
-			return ((this.chunkPos != null) && (this.width >= 2) && (this.width <= 21) && (this.height >= 3) && (this.height <= 21));
+			return this.chunkPos != null && this.width >= 2 && this.width <= 21 && this.height >= 3 && this.height <= 21;
 		}
 		
 		public void generatePortal()

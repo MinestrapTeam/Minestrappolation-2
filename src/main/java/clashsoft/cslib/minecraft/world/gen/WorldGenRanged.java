@@ -35,15 +35,15 @@ public class WorldGenRanged extends WorldGenerator
 	@Override
 	public boolean generate(World world, Random random, int x, int y, int z)
 	{
-		for (int l = 0; l < this.amount; ++l)
+		for (int i = 0; i < this.amount; ++i)
 		{
-			int i1 = x + random.nextInt(this.rangeX) - random.nextInt(this.rangeX);
-			int j1 = y + random.nextInt(this.rangeY) - random.nextInt(this.rangeY);
-			int k1 = z + random.nextInt(this.rangeZ) - random.nextInt(this.rangeZ);
+			int x1 = x + random.nextInt(this.rangeX) - random.nextInt(this.rangeX);
+			int y1 = y + random.nextInt(this.rangeY) - random.nextInt(this.rangeY);
+			int z1 = z + random.nextInt(this.rangeZ) - random.nextInt(this.rangeZ);
 			
-			if (world.isAirBlock(i1, j1, k1) && this.block.canPlaceBlockAt(world, i1, j1, k1))
+			if (this.block.canPlaceBlockAt(world, x1, y1, z1))
 			{
-				world.setBlock(i1, j1, k1, this.block, this.metadata, 2);
+				world.setBlock(x1, y1, z1, this.block, this.metadata, 2);
 			}
 		}
 		

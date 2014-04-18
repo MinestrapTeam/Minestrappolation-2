@@ -31,15 +31,13 @@ public class GuiBrewingStand2 extends GuiContainer
 		String s = this.brewingStand.hasCustomInventoryName() ? this.brewingStand.getInventoryName() : StatCollector.translateToLocal(this.brewingStand.getInventoryName());
 		this.fontRendererObj.drawString(s, (this.xSize - this.fontRendererObj.getStringWidth(s)) / 2, 6, 4210752);
 		this.fontRendererObj.drawString(StatCollector.translateToLocal("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
-		
-		this.fontRendererObj.drawString("BREWING API", 0, 0, 0xFF0000);
 	}
 	
 	@Override
 	protected void drawGuiContainerBackgroundLayer(float partialTickTime, int mouseX, int mouseY)
 	{
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-		this.mc.renderEngine.bindTexture(GuiBrewingStand2.alchemy_gui);
+		this.mc.renderEngine.bindTexture(alchemy_gui);
 		int x = (this.width - this.xSize) / 2;
 		int y = (this.height - this.ySize) / 2;
 		this.drawTexturedModalRect(x, y, 0, 0, this.xSize, this.ySize);
@@ -58,26 +56,26 @@ public class GuiBrewingStand2 extends GuiContainer
 			
 			switch (bubbles)
 			{
-				case 0:
-					progress = 29;
-					break;
-				case 1:
-					progress = 24;
-					break;
-				case 2:
-					progress = 20;
-					break;
-				case 3:
-					progress = 16;
-					break;
-				case 4:
-					progress = 11;
-					break;
-				case 5:
-					progress = 6;
-					break;
-				case 6:
-					progress = 0;
+			case 0:
+				progress = 29;
+				break;
+			case 1:
+				progress = 24;
+				break;
+			case 2:
+				progress = 20;
+				break;
+			case 3:
+				progress = 16;
+				break;
+			case 4:
+				progress = 11;
+				break;
+			case 5:
+				progress = 6;
+				break;
+			case 6:
+				progress = 0;
 			}
 			
 			if (progress > 0)

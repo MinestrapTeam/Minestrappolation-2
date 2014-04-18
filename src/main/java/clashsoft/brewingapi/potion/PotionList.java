@@ -1,18 +1,21 @@
-package clashsoft.brewingapi.brewing;
+package clashsoft.brewingapi.potion;
 
-import clashsoft.brewingapi.BrewingAPI;
+import clashsoft.brewingapi.potion.type.IPotionType;
+import clashsoft.brewingapi.potion.type.PotionBase;
+import clashsoft.brewingapi.potion.type.PotionType;
 import clashsoft.cslib.minecraft.item.CSStacks;
-import clashsoft.cslib.util.CSLog;
 
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 
-public class PotionList
+public class PotionList implements IPotionList
 {
 	public static boolean		DEFAULT_AWKWARD_BREWING	= false;
 	public static boolean		SHOW_ALL_BASES			= false;
+	
+	public static IPotionList	instance				= new PotionList();
 	
 	/** Base needed for all potions **/
 	public static PotionBase	awkward;
@@ -52,86 +55,61 @@ public class PotionList
 	public static PotionBase	gross;
 	public static PotionBase	stinky;
 	
-	public static PotionType	moveSlowdown;
-	public static PotionType	moveSpeed;
-	public static PotionType	digSlowdown;
-	public static PotionType	digSpeed;
-	public static PotionType	weakness;
-	public static PotionType	damageBoost;
-	public static PotionType	harm;
-	public static PotionType	heal;
+	public static IPotionType	moveSlowdown;
+	public static IPotionType	moveSpeed;
+	public static IPotionType	digSlowdown;
+	public static IPotionType	digSpeed;
+	public static IPotionType	weakness;
+	public static IPotionType	damageBoost;
+	public static IPotionType	harm;
+	public static IPotionType	heal;
 	/** Health Boost added in 1.6 **/
-	public static PotionType	healthBoost;
+	public static IPotionType	healthBoost;
 	/** Absorption added in 1.6 **/
-	public static PotionType	absorption;
-	public static PotionType	jump;
-	public static PotionType	confusion;
-	public static PotionType	regeneration;
-	public static PotionType	resistance;
-	public static PotionType	fireResistance;
-	public static PotionType	waterBreathing;
-	public static PotionType	coldness;
-	public static PotionType	invisibility;
-	public static PotionType	blindness;
-	public static PotionType	nightVision;
-	public static PotionType	poison;
-	public static PotionType	hunger;
+	public static IPotionType	absorption;
+	public static IPotionType	jump;
+	public static IPotionType	confusion;
+	public static IPotionType	regeneration;
+	public static IPotionType	resistance;
+	public static IPotionType	fireResistance;
+	public static IPotionType	waterBreathing;
+	public static IPotionType	coldness;
+	public static IPotionType	invisibility;
+	public static IPotionType	blindness;
+	public static IPotionType	nightVision;
+	public static IPotionType	poison;
+	public static IPotionType	hunger;
 	/** Hunger Bar restore added in 1.6 **/
-	public static PotionType	saturation;
-	public static PotionType	wither;
+	public static IPotionType	saturation;
+	public static IPotionType	wither;
 	
-	public static void initializeBrewings()
+	private PotionList()
 	{
-		if (!BrewingAPI.isMorePotionsModInstalled())
-		{
-			CSLog.info("Initializing BrewingAPI Potion Types");
-			initializeBaseBrewings_BrewingAPI();
-			initializeBrewings_BrewingAPI();
-		}
-		else
-		{
-			CSLog.info("Skipping initialization of BrewingAPI Potion Types ... More Potions Mod will do that.");
-		}
 	}
 	
-	public static void registerBrewings()
+	@Override
+	public void initPotionTypes()
 	{
-		if (!BrewingAPI.isMorePotionsModInstalled())
-		{
-			CSLog.info("Registering BrewingAPI Brewings");
-			registerBaseBrewings_BrewingAPI();
-			registerBrewings_BrewingAPI();
-		}
-		else
-		{
-			CSLog.info("Skipping registration of BrewingAPI Brewings ... More Potions Mod will do that.");
-		}
-	}
-	
-	public static void initializeBaseBrewings_BrewingAPI()
-	{
-		SHOW_ALL_BASES = false;
-		DEFAULT_AWKWARD_BREWING = true;
 		awkward = new PotionBase("awkward", new ItemStack(Items.nether_wart));
-	}
-	
-	public static void initializeBrewings_BrewingAPI()
-	{
+		
 		moveSlowdown = new PotionType(new PotionEffect(Potion.moveSlowdown.id, 20 * 90, 0), 4, 20 * 240);
-		moveSpeed = new PotionType(new PotionEffect(Potion.moveSpeed.id, 20 * 180, 0), 7, 20 * 360, moveSlowdown, CSStacks.sugar, PotionType.getBaseBrewing(dashing));
+		moveSpeed = new PotionType(new PotionEffect(Potion.moveSpeed.id, 20 * 180, 0), 7, 20 * 360, moveSlowdown, CSStacks.sugar, dashing);
 		weakness = new PotionType(new PotionEffect(Potion.weakness.id, 20 * 90, 0), 2, 20 * 240, CSStacks.fermented_spider_eye, awkward);
 		damageBoost = new PotionType(new PotionEffect(Potion.damageBoost.id, 20 * 180, 0), 4, 20 * 300, weakness, CSStacks.blaze_powder, awkward);
 		harm = new PotionType(new PotionEffect(Potion.harm.id, 1, 0), 1, 0);
-		heal = new PotionType(new PotionEffect(Potion.heal.id, 1, 0), 1, 0, harm, CSStacks.speckled_melon, PotionType.getBaseBrewing(thick));
+		heal = new PotionType(new PotionEffect(Potion.heal.id, 1, 0), 1, 0, harm, CSStacks.speckled_melon, thick);
 		regeneration = new PotionType(new PotionEffect(Potion.regeneration.id, 20 * 45, 0), 2, 20 * 180, moveSlowdown, CSStacks.ghast_tear, awkward);
 		fireResistance = new PotionType(new PotionEffect(Potion.fireResistance.id, 20 * 180, 0), 0, 20 * 360, moveSlowdown, CSStacks.magma_cream, awkward);
 		invisibility = new PotionType(new PotionEffect(Potion.invisibility.id, 20 * 180, 0), 0, 720 * 20);
-		nightVision = new PotionType(new PotionEffect(Potion.nightVision.id, 20 * 180, 0), 0, 20 * 300, invisibility, CSStacks.golden_carrot, PotionType.getBaseBrewing(thin));
-		poison = new PotionType(new PotionEffect(Potion.poison.id, 20 * 45, 0), 2, 20 * 60, CSStacks.spider_eye, PotionType.getBaseBrewing(acrid));
+		nightVision = new PotionType(new PotionEffect(Potion.nightVision.id, 20 * 180, 0), 0, 20 * 300, invisibility, CSStacks.golden_carrot, thin);
+		poison = new PotionType(new PotionEffect(Potion.poison.id, 20 * 45, 0), 2, 20 * 60, CSStacks.spider_eye, acrid);
 	}
 	
-	public static void registerBrewings_BrewingAPI()
+	@Override
+	public void loadPotionTypes()
 	{
+		awkward.register();
+		
 		regeneration.register();
 		moveSpeed.register();
 		fireResistance.register();
@@ -145,8 +123,9 @@ public class PotionList
 		invisibility.register();
 	}
 	
-	private static void registerBaseBrewings_BrewingAPI()
+	public static void init()
 	{
-		awkward.register();
+		instance.initPotionTypes();
+		instance.loadPotionTypes();
 	}
 }
