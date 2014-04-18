@@ -29,7 +29,7 @@ public class CSLib extends ClashsoftMod
 	public static final String	MODID		= "cslib";
 	public static final String	NAME		= "Clashsoft Lib";
 	public static final String	ACRONYM		= "cslib";
-	public static final String	VERSION		= CSUpdate.CURRENT_VERSION + "-1.0.0";
+	public static final String	VERSION		= CSUpdate.CURRENT_VERSION + "-1.0.1";
 	public static final String	DEPENDENCY	= "required-after:" + MODID;
 	
 	@Instance(MODID)

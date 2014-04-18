@@ -3,6 +3,7 @@ package sobiohazardous.minestrappolation.api.tileentity;
 import org.lwjgl.opengl.GL11;
 
 import sobiohazardous.minestrappolation.api.model.ModelStonecutter;
+import sobiohazardous.minestrappolation.api.util.MAssetManager;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.OpenGlHelper;
@@ -16,7 +17,7 @@ import net.minecraft.world.World;
 public class RendererStonecutter extends TileEntitySpecialRenderer 
 {       
         private final ModelStonecutter model;      
-    	ResourceLocation texture = new ResourceLocation("minestrappolation:textures/blocks/Stonecutter.png");
+    	ResourceLocation texture = new ResourceLocation(MAssetManager.getMAPITexture("textures/blocks/model/stoneCutter.png"));
     	
         public RendererStonecutter() 
         {

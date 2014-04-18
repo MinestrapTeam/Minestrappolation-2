@@ -10,6 +10,7 @@ import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
 import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
+
 /**
  * This class loads recipes that use other mods from minestrappolation
  * @author SoBiohazardous
@@ -25,12 +26,12 @@ public class EDBridgeRecipes
 	{	
 		if(hasExtraOres)
 		{
-			/*
+			
 			GameRegistry.addRecipe(new ItemStack(EDBlockManager.stoneLamp, 8,1), new Object[]
 					{
 				"SSS", "SGS", "SSS", Character.valueOf('S'), new ItemStack(EDBlockManager.stones,1,1), Character.valueOf('G'), sobiohazardous.minestrappolation.extraores.lib.EOBlockManager.Sunstone
 					});
-				*/	
+				
 			
 			GameRegistry.addRecipe(new ItemStack(EDBlockManager.bedrockBrick, 4), new Object[]
 					{

@@ -52,12 +52,9 @@ public class Minestrappolation
 		MAPIBlocks.loadBlocks();
 
 		FMLCommonHandler.instance().bus().register(new MAPIEventHandler());
-		//MinecraftForge.EVENT_BUS.register(new MAPIEventHandler());
 		
 		Blocks.bedrock.setHardness(80F);
 
-		//NetworkRegistry.instance().registerConnectionHandler(new ConnectionHandler());
-		//NetworkRegistry.instance().registerGuiHandler(this, guiHandler);
 		proxy.registerRenderers();	
 	}
 	

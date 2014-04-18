@@ -1,11 +1,6 @@
-build/
-.classpath
-.project
-.gradle/
-eclipse/
-bin/
-repo/
-.settings/
-gradlew
-build.gradle
-*.bat
+/*
+/*/
+!/src/
+!.gitignore
+!gradlew*
+!/gradle/
