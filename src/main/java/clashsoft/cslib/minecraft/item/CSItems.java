@@ -1,17 +1,27 @@
 package clashsoft.cslib.minecraft.item;
 
+import static clashsoft.cslib.minecraft.item.CSStacks.stick;
+
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 
 import clashsoft.cslib.minecraft.crafting.CSCrafting;
 import clashsoft.cslib.minecraft.item.datatools.DataToolSet;
 import clashsoft.cslib.reflect.CSReflection;
+import clashsoft.cslib.util.CSLog;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.ModContainer;
+import cpw.mods.fml.common.registry.FMLControlledNamespacedRegistry;
+import cpw.mods.fml.common.registry.GameData;
 import cpw.mods.fml.common.registry.GameRegistry;
 
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemStack;
+import net.minecraft.stats.StatCrafting;
+import net.minecraft.stats.StatList;
 import net.minecraftforge.common.util.EnumHelper;
 
 /**
@@ -21,19 +31,53 @@ import net.minecraftforge.common.util.EnumHelper;
  * 
  * @author Clashsoft
  */
-public class CSItems implements CSStacks
+public class CSItems
 {
-	/**
-	 * Overrides a vanilla item by registering it with the mod id "minecraft".
-	 * 
-	 * @param item
-	 *            the new item
-	 * @param name
-	 *            the name
-	 */
-	public static void overrideItem(Item item, String name)
+	public static boolean replaceItem(Item item, Item newItem)
 	{
-		GameRegistry.registerItem(item, name, "minecraft");
+		long now = System.currentTimeMillis();
+		try
+		{
+			for (Field field : Items.class.getDeclaredFields())
+			{
+				if (Item.class.isAssignableFrom(field.getType()))
+				{
+					Item item1 = (Item) field.get(null);
+					if (item1 == item)
+					{
+						FMLControlledNamespacedRegistry<Item> registry = GameData.getItemRegistry();
+						String registryName = registry.getNameForObject(item1);
+						int id = Item.getIdFromItem(item1);
+						
+						// Set field
+						CSReflection.setModifier(field, Modifier.FINAL, false);
+						field.set(null, newItem);
+						
+						// Replace registry entry
+						CSReflection.invoke(FMLControlledNamespacedRegistry.class, registry, new Object[] { id, registryName, newItem }, "addObjectRaw");
+						
+						// Replace stat list entries
+						CSReflection.setValue(StatCrafting.class, (StatCrafting) StatList.objectCraftStats[id], newItem, 0);
+						CSReflection.setValue(StatCrafting.class, (StatCrafting) StatList.objectUseStats[id], newItem, 0);
+						StatCrafting stat = (StatCrafting) StatList.objectBreakStats[id];
+						if (stat != null)
+						{
+							CSReflection.setValue(StatCrafting.class, stat, newItem, 0);
+						}
+						
+						now = System.currentTimeMillis() - now;
+						CSLog.info("Replace Item : %s (%s) with %s, took %d ms", new Object[] { field.getName(), item1.getClass().getSimpleName(), newItem.getClass().getSimpleName(), now });
+						
+						return true;
+					}
+				}
+			}
+		}
+		catch (Exception e)
+		{
+			CSLog.error(e);
+		}
+		return false;
 	}
 	
 	public static void addAllItems(Class mod)
@@ -57,9 +101,10 @@ public class CSItems implements CSStacks
 	}
 	
 	/**
-	 * Adds an Item without a recipe. Internally calls {@link CSItems#addItem(Item, String, String)}
-	 * and uses the current mod id as the {@code modid} parameter. The current mod id is received
-	 * using {@link Loader#activeModContainer()}.{@link ModContainer#getModId()}.
+	 * Adds an Item without a recipe. Internally calls
+	 * {@link CSItems#addItem(Item, String, String)} and uses the current mod id
+	 * as the {@code modid} parameter. The current mod id is received using
+	 * {@link Loader#activeModContainer()}.{@link ModContainer#getModId()}.
 	 * 
 	 * @param item
 	 *            the item
@@ -73,7 +118,8 @@ public class CSItems implements CSStacks
 	}
 	
 	/**
-	 * Adds an Item without a recipe. The item is registered with the specified modid as a domain.
+	 * Adds an Item without a recipe. The item is registered with the specified
+	 * modid as a domain.
 	 * 
 	 * @param item
 	 * @param name
@@ -101,7 +147,7 @@ public class CSItems implements CSStacks
 	public static void addItemWithRecipe(Item item, String name, int craftingAmount, Object... recipe)
 	{
 		addItem(item, name);
-		CSCrafting.addCrafting(new ItemStack(item, craftingAmount), recipe);
+		CSCrafting.addRecipe(new ItemStack(item, craftingAmount), recipe);
 	}
 	
 	/**
@@ -119,7 +165,7 @@ public class CSItems implements CSStacks
 	public static void addItemWithShapelessRecipe(Item item, String name, int craftingAmount, Object... recipe)
 	{
 		addItem(item, name);
-		CSCrafting.addShapelessCrafting(new ItemStack(item, craftingAmount), recipe);
+		CSCrafting.addShapelessRecipe(new ItemStack(item, craftingAmount), recipe);
 	}
 	
 	/**

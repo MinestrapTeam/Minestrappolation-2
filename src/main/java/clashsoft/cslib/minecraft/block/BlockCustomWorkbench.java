@@ -108,11 +108,12 @@ public class BlockCustomWorkbench extends Block implements ICustomBlock
 	@Override
 	public String getUnlocalizedName(ItemStack stack)
 	{
-		return this.names[stack.getItemDamage()];
+		return CustomBlock.getUnlocalizedName(this, stack, this.names);
 	}
 	
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List<String> list)
 	{
+		CustomBlock.addInformation(this, stack, list);
 	}
 }

@@ -19,16 +19,18 @@ public class EDBridgeRecipes
 {
 	private static boolean hasExtraOres = Loader.isModLoaded(MAPIReference.MODID_EO);
 	
-	static Block sunstone = GameRegistry.findBlock(MAPIReference.MODID_EO, "Sunstone");
+	//static Block sunstone = GameRegistry.findBlock(MAPIReference.MODID_EO, "Sunstone");
 	
 	public static void loadBridgeRecipes() throws Exception
 	{	
 		if(hasExtraOres)
 		{
+			/*
 			GameRegistry.addRecipe(new ItemStack(EDBlockManager.stoneLamp, 8,1), new Object[]
 					{
-				"SSS", "SGS", "SSS", Character.valueOf('S'), new ItemStack(EDBlockManager.stones,1,1), Character.valueOf('G'), sunstone
+				"SSS", "SGS", "SSS", Character.valueOf('S'), new ItemStack(EDBlockManager.stones,1,1), Character.valueOf('G'), sobiohazardous.minestrappolation.extraores.lib.EOBlockManager.Sunstone
 					});
+				*/	
 			
 			GameRegistry.addRecipe(new ItemStack(EDBlockManager.bedrockBrick, 4), new Object[]
 					{

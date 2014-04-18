@@ -28,13 +28,19 @@ public class MItemSword extends ItemSword
 	private ToolMaterial norm;
 	private ToolMaterial bronzePlateMat;
 
-	public MItemSword(ToolMaterial par2EnumToolMaterial, ToolMaterial bronzePlateMat)
+	public MItemSword(ToolMaterial par2EnumToolMaterial, ToolMaterial bronzePlateMat, boolean ignites)
 	{
 		super(par2EnumToolMaterial);
 		this.toolMaterial = par2EnumToolMaterial;
 		this.setCreativeTab(null);
 		this.norm = par2EnumToolMaterial;
 		this.bronzePlateMat = bronzePlateMat;
+		this.ignitesMob = ignites;
+	}
+	
+	public MItemSword(ToolMaterial par2EnumToolMaterial, ToolMaterial bronzePlateMat)
+	{
+		this(par2EnumToolMaterial, bronzePlateMat, false);
 	}
 
 	/**
@@ -135,11 +141,5 @@ public class MItemSword extends ItemSword
 		{
 			return itemIcon;
 		}
-	}
-
-	public MItemSword setIgnitesMob(boolean ignitesMob)
-	{
-		this.ignitesMob = true;
-		return this;
 	}
 }

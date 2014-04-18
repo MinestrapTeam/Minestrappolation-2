@@ -11,7 +11,13 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 public class CustomBigTreeGen extends CustomTreeGen
 {
-	public static final byte[]	otherCoordPairs		= new byte[] { (byte) 2, (byte) 0, (byte) 0, (byte) 1, (byte) 2, (byte) 1 };
+	public static final byte[]	otherCoordPairs		= new byte[] {
+			(byte) 2,
+			(byte) 0,
+			(byte) 0,
+			(byte) 1,
+			(byte) 2,
+			(byte) 1								};
 	
 	public Random				rand				= new Random();
 	
@@ -34,17 +40,17 @@ public class CustomBigTreeGen extends CustomTreeGen
 	{
 		super(blockUpdates, minTreeHeight, log, leaf, woodMetadata, leavesMetadata, vinesGrow);
 	}
-
+	
 	public CustomBigTreeGen(boolean blockUpdates, int minTreeHeight, Block log, Block leaf, int woodMetadata, int leavesMetadata)
 	{
 		super(blockUpdates, minTreeHeight, log, leaf, woodMetadata, leavesMetadata);
 	}
-
+	
 	public CustomBigTreeGen(boolean blockUpdates, int minTreeHeight, Block log, Block leaf)
 	{
 		super(blockUpdates, minTreeHeight, log, leaf);
 	}
-
+	
 	/**
 	 * Generates a list of leaf nodes for the tree, to be populated by generateLeaves.
 	 */
@@ -94,11 +100,17 @@ public class CustomBigTreeGen extends CustomTreeGen
 					int k1 = MathHelper.floor_double(d1 * Math.sin(d2) + this.basePos[0] + d0);
 					int l1 = MathHelper.floor_double(d1 * Math.cos(d2) + this.basePos[2] + d0);
 					int[] aint1 = new int[] { k1, j, l1 };
-					int[] aint2 = new int[] { k1, j + this.leafDistanceLimit, l1 };
+					int[] aint2 = new int[] {
+							k1,
+							j + this.leafDistanceLimit,
+							l1 };
 					
 					if (this.checkBlockLine(aint1, aint2) == -1)
 					{
-						int[] aint3 = new int[] { this.basePos[0], this.basePos[1], this.basePos[2] };
+						int[] aint3 = new int[] {
+								this.basePos[0],
+								this.basePos[1],
+								this.basePos[2] };
 						double d3 = Math.sqrt(Math.pow(Math.abs(this.basePos[0] - aint1[0]), 2.0D) + Math.pow(Math.abs(this.basePos[2] - aint1[2]), 2.0D));
 						double d4 = d3 * this.branchSlope;
 						
@@ -226,7 +238,8 @@ public class CustomBigTreeGen extends CustomTreeGen
 	}
 	
 	/**
-	 * Places a line of the specified block ID into the world from the first coordinate triplet to the second.
+	 * Places a line of the specified block ID into the world from the first coordinate triplet to
+	 * the second.
 	 */
 	public void placeBlockLine(int[] src, int[] dest, Block block, int metadata)
 	{
@@ -308,7 +321,8 @@ public class CustomBigTreeGen extends CustomTreeGen
 	}
 	
 	/**
-	 * Indicates whether or not a leaf node requires additional wood to be added to preserve integrity.
+	 * Indicates whether or not a leaf node requires additional wood to be added to preserve
+	 * integrity.
 	 */
 	public boolean leafNodeNeedsBase(int layer)
 	{
@@ -316,7 +330,8 @@ public class CustomBigTreeGen extends CustomTreeGen
 	}
 	
 	/**
-	 * Places the trunk for the big tree that is being generated. Able to generate double-sized trunks by changing a field that is always 1 to 2.
+	 * Places the trunk for the big tree that is being generated. Able to generate double-sized
+	 * trunks by changing a field that is always 1 to 2.
 	 */
 	public void generateTrunk()
 	{
@@ -343,14 +358,18 @@ public class CustomBigTreeGen extends CustomTreeGen
 	}
 	
 	/**
-	 * Generates additional wood blocks to fill out the bases of different leaf nodes that would otherwise degrade.
+	 * Generates additional wood blocks to fill out the bases of different leaf nodes that would
+	 * otherwise degrade.
 	 */
 	public void generateLeafNodeBases()
 	{
 		int i = 0;
 		int j = this.leafNodes.length;
 		
-		for (int[] aint = new int[] { this.basePos[0], this.basePos[1], this.basePos[2] }; i < j; ++i)
+		for (int[] aint = new int[] {
+				this.basePos[0],
+				this.basePos[1],
+				this.basePos[2] }; i < j; ++i)
 		{
 			int[] aint1 = this.leafNodes[i];
 			int[] aint2 = new int[] { aint1[0], aint1[1], aint1[2] };
@@ -365,7 +384,9 @@ public class CustomBigTreeGen extends CustomTreeGen
 	}
 	
 	/**
-	 * Checks a line of blocks in the world from the first coordinate to triplet to the second, returning the distance (in blocks) before a non-air, non-leaf block is encountered and/or the end is encountered.
+	 * Checks a line of blocks in the world from the first coordinate to triplet to the second,
+	 * returning the distance (in blocks) before a non-air, non-leaf block is encountered and/or the
+	 * end is encountered.
 	 */
 	public int checkBlockLine(int[] sourceCoords, int[] destCoords)
 	{
@@ -426,12 +447,19 @@ public class CustomBigTreeGen extends CustomTreeGen
 	}
 	
 	/**
-	 * Returns a boolean indicating whether or not the current location for the tree, spanning basePos to to the height limit, is valid.
+	 * Returns a boolean indicating whether or not the current location for the tree, spanning
+	 * basePos to to the height limit, is valid.
 	 */
 	public boolean validTreeLocation()
 	{
-		int[] aint = new int[] { this.basePos[0], this.basePos[1], this.basePos[2] };
-		int[] aint1 = new int[] { this.basePos[0], this.basePos[1] + this.heightLimit - 1, this.basePos[2] };
+		int[] aint = new int[] {
+				this.basePos[0],
+				this.basePos[1],
+				this.basePos[2] };
+		int[] aint1 = new int[] {
+				this.basePos[0],
+				this.basePos[1] + this.heightLimit - 1,
+				this.basePos[2] };
 		Block soil = this.worldObj.getBlock(this.basePos[0], this.basePos[1] - 1, this.basePos[2]);
 		boolean isValidSoil = (soil != null && soil.canSustainPlant(this.worldObj, this.basePos[0], this.basePos[1] - 1, this.basePos[2], ForgeDirection.UP, (BlockSapling) Blocks.sapling));
 		if (!isValidSoil)

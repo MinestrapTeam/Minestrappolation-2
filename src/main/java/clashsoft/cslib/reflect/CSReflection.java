@@ -18,6 +18,41 @@ import clashsoft.cslib.util.CSLog;
  */
 public class CSReflection
 {
+	private static Field	modifiersField;
+	static
+	{
+		try
+		{
+			modifiersField = Field.class.getDeclaredField("modifiers");
+			modifiersField.setAccessible(true);
+		}
+		catch (ReflectiveOperationException ignored)
+		{
+		}
+	}
+	
+	public static void setModifier(Field field, int mod, boolean flag)
+	{
+		try
+		{
+			field.setAccessible(true);
+			int modifiers = modifiersField.getInt(field);
+			if (flag)
+			{
+				modifiers |= mod;
+			}
+			else
+			{
+				modifiers &= ~mod;
+			}
+			modifiersField.setInt(field, modifiers);
+		}
+		catch (ReflectiveOperationException ex)
+		{
+			CSLog.error(ex);
+		}
+	}
+	
 	// Caller-sensitive
 	
 	public static Class getCallerClass()
@@ -74,7 +109,7 @@ public class CSReflection
 					return method;
 			}
 		}
-		CSLog.error(new NoSuchFieldException("Field not found! (Class: " + clazz + "; Expected field names: " + Arrays.toString(methodNames)));
+		CSLog.error(new NoSuchMethodException("Method not found! (Class: " + clazz + "; Expected field names: " + Arrays.toString(methodNames)));
 		return null;
 	}
 	

@@ -39,7 +39,15 @@ public class CustomCreativeTab extends CreativeTabs
 	@Override
 	public ItemStack getIconItemStack()
 	{
-		return this.stack == null ? this.stack = new ItemStack(this.item, 1, this.metadata) : this.stack;
+		if (this.stack == null)
+		{
+			if (this.item != null)
+			{
+				this.stack = new ItemStack(this.item, 1, this.metadata);
+			}
+			return CSStacks.air;
+		}
+		return this.stack;
 	}
 	
 	@Override

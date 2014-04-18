@@ -39,7 +39,7 @@ public class CSConfig
 	
 	public static String getDefaultDesc(String key, Object _default)
 	{
-		return enableComments ? (key + ". Default: " + _default) : null;
+		return enableComments ? key + ". Default: " + _default : null;
 	}
 	
 	public static void checkConfig()
@@ -157,6 +157,15 @@ public class CSConfig
 			key += " Block ID";
 		}
 		return getInt("block", key, _default);
+	}
+	
+	public static int getTileEntity(String key, int _default)
+	{
+		if (!key.contains("TileEntity ID"))
+		{
+			key += " TileEntity ID";
+		}
+		return getInt("tileentity", key, _default);
 	}
 	
 	public static int getDimension(String key, int _default)

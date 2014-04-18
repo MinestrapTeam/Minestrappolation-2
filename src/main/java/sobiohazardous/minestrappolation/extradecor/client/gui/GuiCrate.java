@@ -2,6 +2,7 @@ package sobiohazardous.minestrappolation.extradecor.client.gui;
 
 import org.lwjgl.opengl.GL11;
 
+import sobiohazardous.minestrappolation.api.util.MAssetManager;
 import sobiohazardous.minestrappolation.extradecor.container.ContainerCrate;
 import sobiohazardous.minestrappolation.extradecor.tileentity.TileEntityCrate;
 
@@ -13,7 +14,7 @@ import net.minecraft.util.StatCollector;
 
 public class GuiCrate extends GuiContainer
 {
-	public static ResourceLocation crategui = new ResourceLocation("minestrappolation","gui/crate.png");
+	public static ResourceLocation crategui = new ResourceLocation(MAssetManager.getEDTexture("/textures/gui/barrel.png"));
 
 	public GuiCrate(InventoryPlayer player_inventory, TileEntityCrate tile_entity)
 	{		

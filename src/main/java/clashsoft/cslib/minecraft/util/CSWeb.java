@@ -1,8 +1,10 @@
 package clashsoft.cslib.minecraft.util;
 
-import java.io.BufferedInputStream;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.channels.Channels;
+import java.nio.channels.ReadableByteChannel;
 
 public class CSWeb
 {
@@ -53,7 +55,6 @@ public class CSWeb
 			con.setConnectTimeout(5000);
 			
 			BufferedInputStream in = new BufferedInputStream(con.getInputStream());
-			int responseCode = con.getResponseCode();
 			StringBuffer buffer = new StringBuffer();
 			int read;
 			while ((read = in.read()) != -1)
@@ -67,5 +68,14 @@ public class CSWeb
 		{
 			return new String[] {};
 		}
+	}
+	
+	public static void download(String url, File output) throws IOException
+	{
+		URL url1 = new URL(url);
+		ReadableByteChannel rbc = Channels.newChannel(url1.openStream());
+		FileOutputStream fos = new FileOutputStream(output);
+		fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
+		fos.close();
 	}
 }

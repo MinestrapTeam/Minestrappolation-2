@@ -1,10 +1,6 @@
 package clashsoft.cslib.minecraft.update;
 
-import java.util.Collections;
-import java.util.List;
-
 import clashsoft.cslib.minecraft.lang.I18n;
-import clashsoft.cslib.util.CSArrays;
 
 import net.minecraft.entity.player.EntityPlayer;
 
@@ -17,29 +13,29 @@ import net.minecraft.entity.player.EntityPlayer;
  */
 public class ModUpdate
 {
-	private String			modName;
+	protected String	modName;
 	
-	private String			version;
-	private String			newVersion;
+	protected String	version;
+	protected String	newVersion;
 	
-	private List<String>	updateNotes;
-	private String			url;
+	protected String[]	updateNotes;
+	protected String	url;
 	
-	private boolean			valid;
-	protected int				installStatus;
+	protected Boolean	valid;
+	protected int		installStatus;
 	
 	public ModUpdate(String modName, String version, String newVersion, String updateNotes, String updateUrl)
 	{
-		this(modName, version, newVersion, CSArrays.asList(updateNotes.split("\\\\n|\\n|\n")), updateUrl);
+		this(modName, version, newVersion, updateNotes == null ? null : updateNotes.split("\\\\n|\\n|\n"), updateUrl);
 	}
 	
-	public ModUpdate(String modName, String version, String newVersion, List<String> updateNotes, String updateUrl)
+	public ModUpdate(String modName, String version, String newVersion, String[] updateNotes, String updateUrl)
 	{
-		this.setMod(modName, version);
+		this.modName = modName;
+		this.version = version;
 		this.newVersion = newVersion;
 		this.updateNotes = updateNotes;
 		this.url = updateUrl;
-		this.validate();
 	}
 	
 	public void setMod(String name, String version)
@@ -48,9 +44,11 @@ public class ModUpdate
 		this.version = version;
 	}
 	
-	public void validate()
+	public boolean validate()
 	{
-		this.valid = newVersion.startsWith(CSUpdate.CURRENT_VERSION) && CSUpdate.compareVersion(version, newVersion) == -1;
+		boolean b = this.version != null && this.newVersion != null && this.newVersion.startsWith(CSUpdate.CURRENT_VERSION) && CSUpdate.compareVersion(this.version, this.newVersion) < 0;
+		this.valid = Boolean.valueOf(b);
+		return b;
 	}
 	
 	public String getModName()
@@ -90,14 +88,18 @@ public class ModUpdate
 		return this.url == null ? "[none]" : this.url;
 	}
 	
-	public List<String> getUpdateNotes()
+	public String[] getUpdateNotes()
 	{
-		return this.updateNotes == null ? Collections.EMPTY_LIST : this.updateNotes;
+		return this.updateNotes;
 	}
 	
 	public boolean isValid()
 	{
-		return this.valid;
+		if (this.valid == null)
+		{
+			return this.validate();
+		}
+		return this.valid.booleanValue();
 	}
 	
 	public boolean hasDownload()
@@ -105,28 +107,40 @@ public class ModUpdate
 		return this.url != null && !this.url.isEmpty();
 	}
 	
+	private String getFileType()
+	{
+		if (this.url == null)
+		{
+			return "zip";
+		}
+		int i = this.url.lastIndexOf('.');
+		return i == -1 ? "zip" : this.url.substring(i + 1);
+	}
+	
 	public String getDownloadedFileName()
 	{
-		int i = this.url.lastIndexOf('/');
-		String url = i == -1 ? this.url : this.url.substring(i);
-		return url.replace('+', ' ');
+		return String.format("%s %s.%s", this.modName, this.newVersion, this.getFileType());
 	}
 	
 	public String getStatus()
 	{
-		if (installStatus == -1)
+		if (!this.isValid())
+		{
+			return I18n.getString("update.invalid");
+		}
+		else if (this.installStatus == -1)
 		{
 			return I18n.getString("update.list.install.error");
 		}
-		else if (installStatus == 0)
+		else if (this.installStatus == 0)
 		{
 			return I18n.getString("update.list.install.notstarted");
 		}
-		else if (installStatus == 1)
+		else if (this.installStatus == 1)
 		{
 			return I18n.getString("update.list.install.installing");
 		}
-		else if (installStatus == 2)
+		else if (this.installStatus == 2)
 		{
 			return I18n.getString("update.list.install.installed");
 		}
@@ -136,15 +150,5 @@ public class ModUpdate
 	public void install(EntityPlayer player)
 	{
 		new InstallUpdateThread(this, player).start();
-	}
-	
-	public void combine(ModUpdate update2)
-	{
-		this.modName = this.modName == null ? update2.modName : this.modName;
-		this.version = this.version == null ? update2.version : this.version;
-		this.newVersion = this.newVersion == null ? update2.newVersion : this.newVersion;
-		this.url = this.url == null ? update2.url : this.url;
-		this.installStatus = Math.max(this.installStatus, update2.installStatus);
-		this.validate();
 	}
 }

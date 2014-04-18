@@ -2,16 +2,16 @@ package clashsoft.cslib.minecraft.item.datatools;
 
 import java.util.Set;
 
-import clashsoft.cslib.collections.CSCollections;
+import clashsoft.cslib.reflect.CSReflection;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemStack;
 
 public class ItemDataAxe extends ItemDataTool
 {
-	public static final Set<Block>	blocksEffectiveAgainst	= CSCollections.createSet(Blocks.planks, Blocks.bookshelf, Blocks.log, Blocks.chest, Blocks.double_stone_slab, Blocks.stone_slab, Blocks.pumpkin, Blocks.lit_pumpkin);
+	public static final Set<Block>	blocksEffectiveAgainst	= CSReflection.getStaticValue(ItemAxe.class, 0);
 	
 	public ItemDataAxe(ToolMaterial toolMaterial)
 	{

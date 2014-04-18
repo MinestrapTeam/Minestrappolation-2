@@ -1,35 +1,26 @@
 package clashsoft.brewingapi.common;
 
+import clashsoft.brewingapi.BrewingAPI;
 import clashsoft.brewingapi.inventory.ContainerBrewingStand2;
 import clashsoft.brewingapi.item.ItemPotion2;
+import clashsoft.brewingapi.network.PacketSplashEffect;
 import clashsoft.brewingapi.tileentity.TileEntityBrewingStand2;
+import clashsoft.cslib.minecraft.common.BaseProxy;
 import clashsoft.cslib.minecraft.network.CSPacket;
-import cpw.mods.fml.common.network.IGuiHandler;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-public class BAPICommonProxy implements IGuiHandler
+public class BAPIProxy extends BaseProxy
 {
-	public void registerRenderInformation()
-	{
-		
-	}
-	
-	@Override
-	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z)
-	{
-		return null;
-	}
-	
 	@Override
 	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z)
 	{
-		TileEntity tileEntity = world.getTileEntity(x, y, z);
-		if (tileEntity instanceof TileEntityBrewingStand2)
-			return new ContainerBrewingStand2(player.inventory, (TileEntityBrewingStand2) tileEntity);
+		if (ID == BrewingAPI.brewingStand2ID)
+		{
+			return new ContainerBrewingStand2(player.inventory, (TileEntityBrewingStand2) world.getTileEntity(x, y, z));
+		}
 		return null;
 	}
 	
@@ -57,8 +48,8 @@ public class BAPICommonProxy implements IGuiHandler
 	{
 		if (!world.isRemote)
 		{
-			CSPacket packet = new SplashEffectData(x, y, z, color, isInstant);
-			
+			CSPacket packet = new PacketSplashEffect(x, y, z, color, isInstant);
+			BrewingAPI.instance.netHandler.sendToAll(packet);
 		}
 	}
 }

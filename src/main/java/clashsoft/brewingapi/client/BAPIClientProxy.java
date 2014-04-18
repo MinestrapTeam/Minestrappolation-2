@@ -4,9 +4,9 @@ import java.util.Random;
 
 import clashsoft.brewingapi.BrewingAPI;
 import clashsoft.brewingapi.client.gui.GuiBrewingStand2;
-import clashsoft.brewingapi.common.BAPICommonProxy;
+import clashsoft.brewingapi.client.renderer.RenderPotion2;
+import clashsoft.brewingapi.common.BAPIProxy;
 import clashsoft.brewingapi.entity.EntityPotion2;
-import clashsoft.brewingapi.entity.RenderPotion2;
 import clashsoft.brewingapi.tileentity.TileEntityBrewingStand2;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
@@ -17,7 +17,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
 
-public class BAPIClientProxy extends BAPICommonProxy
+public class BAPIClientProxy extends BAPIProxy
 {
 	public static int	splashpotioncolor;
 	
@@ -60,7 +60,7 @@ public class BAPIClientProxy extends BAPICommonProxy
 		float r = (color >> 16 & 255) / 255.0F;
 		float g = (color >> 8 & 255) / 255.0F;
 		float b = (color >> 0 & 255) / 255.0F;
-		String particleName = isInstant ? "instanceSpell" : "spell";
+		String particleName = isInstant ? "instantSpell" : "spell";
 		
 		for (int i = 0; i < 100; ++i)
 		{

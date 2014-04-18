@@ -3,8 +3,9 @@ package clashsoft.cslib.minecraft.item;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
 
-public interface CSStacks
+public class CSStacks
 {
 	// public static ItemStack = new ItemStack(Blocks.);
 	
@@ -51,6 +52,7 @@ public interface CSStacks
 	public static ItemStack	blaze_powder			= new ItemStack(Items.blaze_powder);
 	public static ItemStack	blaze_rod				= new ItemStack(Items.blaze_rod);
 	public static ItemStack	bone					= new ItemStack(Items.bone);
+	public static ItemStack	bonemeal				= new ItemStack(Items.dye, 1, 15);
 	public static ItemStack	bowl					= new ItemStack(Items.bowl);
 	public static ItemStack	bread					= new ItemStack(Items.bread);
 	public static ItemStack	brick					= new ItemStack(Items.brick);
@@ -111,4 +113,58 @@ public interface CSStacks
 	public static ItemStack	water_bucket			= new ItemStack(Items.water_bucket);
 	public static ItemStack	wheat					= new ItemStack(Items.wheat);
 	public static ItemStack	wither_skull			= new ItemStack(Items.skull, 1, 1);
+	
+	public static boolean equals(ItemStack stack1, ItemStack stack2)
+	{
+		return OreDictionary.itemMatches(stack1, stack2, true);
+	}
+	
+	public static int mergeItemStack(ItemStack[] stacks, int start, ItemStack stack)
+	{
+		return mergeItemStack(stacks, start, stacks.length, stack);
+	}
+	
+	public static int mergeItemStack(ItemStack[] stacks, int start, int end, ItemStack stack)
+	{
+		int i = -1;
+		int max = stack.getMaxStackSize();
+		ItemStack stack1;
+		
+		for (int j = start; j < end && stack.isStackable() && stack.stackSize > 0; j++)
+		{
+			stack1 = stacks[j];
+			if (stack1 != null && equals(stack, stack1))
+			{
+				int k = stack1.stackSize + stack.stackSize;
+				if (k <= max)
+				{
+					stack.stackSize = 0;
+					stack1.stackSize = k;
+					i = j;
+				}
+				else if (stack1.stackSize < max)
+				{
+					stack.stackSize -= max - stack1.stackSize;
+					stack1.stackSize = max;
+					i = j;
+				}
+			}
+		}
+		
+		if (stack.stackSize > 0)
+		{
+			for (int j = start; j < end; j++)
+			{
+				stack1 = stacks[j];
+				if (stack1 == null)
+				{
+					stacks[j] = stack.copy();
+					stack.stackSize = 0;
+					return j;
+				}
+			}
+		}
+		
+		return i;
+	}
 }

@@ -121,7 +121,7 @@ public class EDBlockManager
 	{
 		stonePillar = (new BlockPillar(MAssetManager.getEDStonecutterTexture("Stone_Pillar_Side_0"), MAssetManager.getEDStonecutterTexture("Stone_Pillar_Top_0"))).setHardness(1.5F).setResistance(10F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundTypeStone).setBlockName("stonePillar");
 		stoneLamp = (new BlockStoneLamp()).setHardness(1.5F).setResistance(8F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundTypeStone).setLightLevel(1.0F).setBlockName("stoneLamp");
-		stones = new BlockStones().setHardness(1.5F).setResistance(10F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundTypeStone);
+		stones = new BlockStones().setHardness(1.5F).setResistance(10F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundTypeStone).setBlockName("stones");
 		
 		Tiles = new BlockTiles().setCreativeTab(tabDecorBlocks).setStepSound(Block.soundTypeStone).setBlockName("tiles");
 	
@@ -133,7 +133,7 @@ public class EDBlockManager
 		endstone = (new BlockEndStone()).setHardness(3.0F).setResistance(15.0F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundTypeStone).setBlockName("Endstone");
 	
 		glassRefined = (new BlockGlassRefined(Material.glass, false)).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(tabDecorBlocks).setBlockName("glassRefined");
-		glassRefinedPane = (new EDBlockPane("ClearGlass", "ClearGlassTop", Material.glass, false)).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(tabDecorBlocks).setBlockName("glassRefinedPane");
+		glassRefinedPane = (new EDBlockPane("ClearGlass", "clearGlassPaneEdge", Material.glass, false)).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(tabDecorBlocks).setBlockName("glassRefinedPane");
 		gunpowderBlock = (new BlockGunpowderBlock(Material.ground)).setHardness(0.6F).setStepSound(Block.soundTypeGravel).setBlockName("GunpowderBlock").setBlockTextureName(MAssetManager.getEDTexture("blockGunpowder"));
 	
 		rope = (new BlockRope()).setHardness(0.9F).setStepSound(Block.soundTypeCloth).setBlockName("rope");
@@ -162,7 +162,7 @@ public class EDBlockManager
 		crate = new BlockCrate().setHardness(2.5F).setStepSound(Block.soundTypeWood).setCreativeTab(tabDecorBlocks).setBlockName("crate");
 		barrel = new BlockBarrel().setHardness(3F).setResistance(6.0F).setStepSound(Block.soundTypeWood).setCreativeTab(tabDecorBlocks).setBlockName("barrel");
 	
-		cardboard = new EDBlockPane("CardboardBlock", "CardboardEdge", Material.cloth, true).setHardness(0.3F).setBlockName("cardboard");
+		cardboard = new EDBlockPane("cardboard", "cardboardPaneEdge", Material.cloth, true).setHardness(0.3F).setBlockName("cardboard");
 		cardboardBlock = new BlockCardboard(Material.cloth).setHardness(0.4F).setBlockName("CardboardBlock").setCreativeTab(tabDecorBlocks);
 		cardboardWet = new BlockCardboardWet(Material.cloth).setCreativeTab(tabDecorBlocks).setHardness(0.2F).setResistance(0.8F).setBlockName("cardboardWet");
 		
@@ -190,10 +190,10 @@ public class EDBlockManager
 		woodPlanksMossy = new BlockMossyWood().setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setBlockName("woodPlanksMossy").setCreativeTab(tabDecorBlocks);
 		
 		//Test
-		Goblet = new BlockGoblet(Material.rock).setHardness(.5F);
-		Plate = new BlockPlate(Material.rock);
+		Goblet = new BlockGoblet(Material.rock).setHardness(.5F).setBlockName("goblet");
+		Plate = new BlockPlate(Material.rock).setCreativeTab(tabDecorBlocks).setBlockName("plate");
 		
-		GlassDoor = (new BlockGlassDoor(Material.glass)).setHardness(1F);
+		GlassDoor = (new BlockGlassDoor(Material.glass)).setHardness(1F).setBlockName("doorGlass");
 
 	}
 	
@@ -207,22 +207,23 @@ public class EDBlockManager
 		GameRegistry.registerBlock(GlassDoor ,"GlassDoor");
 		GameRegistry.registerBlock(edgeStoneBrickCorner, ItemBlockEdgeStoneCorner.class, "edgeCorner");
 		GameRegistry.registerBlock(refinedRoad,"refinedRoad");
-		registerBlock(stoneLamp, ItemBlockStoneLamp.class);
+		GameRegistry.registerBlock(stoneLamp, ItemBlockStoneLamp.class, "stoneLamp");
 		GameRegistry.registerBlock(edgeStoneBrick, "edgeStoneBrick");
 		GameRegistry.registerBlock(snowBrick, "snowBrick");
-		registerBlock(endstone, ItemBlockEndstone.class);
+		GameRegistry.registerBlock(endstone, ItemBlockEndstone.class, "endstone");
 		GameRegistry.registerBlock(glassRefined, "glassRefined");
 		GameRegistry.registerBlock(glassRefinedPane, "glassRefinedPane");
 		GameRegistry.registerBlock(gunpowderBlock, "gunpowderBlock");
 		GameRegistry.registerBlock(rope, "rope");
+		GameRegistry.registerItem(itemRope, "itemRope");
 		GameRegistry.registerBlock(ropeCoil, "ropeCoil");
-		registerBlock(woodPanel, ItemBlockWoodPanel.class);
-		registerBlock(woodBeveled, ItemBlockWoodBeveled.class);
+		GameRegistry.registerBlock(woodPanel, ItemBlockWoodPanel.class, "woodPanel");
+		GameRegistry.registerBlock(woodBeveled, ItemBlockWoodBeveled.class, "woodBeveled");
 		GameRegistry.registerBlock(oozeSlime, "oozeSlime");
-		registerBlock(sandstoneBricks, ItemBlockSandstoneBrick.class);
+		GameRegistry.registerBlock(sandstoneBricks, ItemBlockSandstoneBrick.class, "sandstoneBricks");
 		GameRegistry.registerBlock(sandstonePillar, "sandstonePillar");
 		GameRegistry.registerBlock(stonePillar, "stonePillar");
-		registerBlock(woodBoards, ItemBlockWoodBoards.class);
+		GameRegistry.registerBlock(woodBoards, ItemBlockWoodBoards.class, "woodBoards");
 		GameRegistry.registerBlock(sugarBlock, "sugarBlock");
 		GameRegistry.registerBlock(meatBlock, "meatBlock");
 		GameRegistry.registerBlock(magmaOoze, "magmaOoze");
@@ -236,10 +237,10 @@ public class EDBlockManager
 		GameRegistry.registerBlock(woodBoardsStairsBirch, "woodBoardStairsBirch");
 		GameRegistry.registerBlock(woodBoardsStairsSpruce, "woodBoardStairsSpruce");
 		GameRegistry.registerBlock(woodBoardsStairsJungle, "woodBoardStairsJungle");
-		registerBlock(woodBoardsSingleSlab, ItemBlockWoodBoardSlab.class);
-		registerBlock(woodBoardsDoubleSlab, ItemBlockWoodBoardSlab.class);
+		GameRegistry.registerBlock(woodBoardsSingleSlab, ItemBlockWoodBoardSlab.class, "woodBoardsSlabSingle");
+		GameRegistry.registerBlock(woodBoardsDoubleSlab, ItemBlockWoodBoardSlab.class, "woodBoardsSlabDouble");
 		GameRegistry.registerBlock(checkerTileStairs, "checkerTileStairs");
-		registerBlock(stainedBrick, ItemBlockStainedBrick.class);
+		GameRegistry.registerBlock(stainedBrick, ItemBlockStainedBrick.class, "stainedBrick");
 		GameRegistry.registerBlock(cobbledRoad, "cobbledRoad");
 		GameRegistry.registerBlock(infertileDirt,"Infertile Dirt");
 		GameRegistry.registerBlock(sandyRoad, "sandyRoad");
@@ -247,11 +248,11 @@ public class EDBlockManager
 		GameRegistry.registerBlock(gravelRoad, "gravelRoad");
 		GameRegistry.registerBlock(netherroad, "netherroad");
 		GameRegistry.registerBlock(refinedNetherroad, "refinedNetherroad");
-		GameRegistry.registerBlock(Goblet, ItemBlockGoblet.class, "Goblet");
+		GameRegistry.registerBlock(Goblet, ItemBlockGoblet.class, "Goblet", "goblet");
 		GameRegistry.registerBlock(Plate,"Plate");
-		registerBlock(woodPlanksMossy, ItemBlockMossyWood.class);
+		GameRegistry.registerBlock(woodPlanksMossy, ItemBlockMossyWood.class, "woodPlanksMossy");
 		GameRegistry.registerBlock(stones, ItemBlockStones.class, "Stones");
-		registerBlock(Tiles, ItemBlockTiles.class);
+		GameRegistry.registerBlock(Tiles, ItemBlockTiles.class, "tiles");
 	}
 	
 	public static void loadBridgedBlocks() throws Exception
@@ -261,12 +262,6 @@ public class EDBlockManager
 			bedrockBrick = new BlockBedrockBrick().setBlockName("BedrockBrick").setStepSound(Block.soundTypeStone).setResistance(100000000F).setHardness(80F).setCreativeTab(tabDecorBlocks).setBlockTextureName(MAssetManager.getEDStonecutterTexture("Bedrock_Tiles_0_0"));
 			GameRegistry.registerBlock(bedrockBrick,"BedrockBrick");
 			bedrockBrick.setHarvestLevel("pickaxe", 4);
-		}
-	
+		}	
 	}
-	
-	public static void registerBlock(Block block, Class<? extends ItemBlock> itemBlockClass, Object... constructorArgs)
-    {
-        GameRegistry.registerBlock(block, itemBlockClass, block.getUnlocalizedName(), "ExtraDecor", constructorArgs);
-    }
 }
