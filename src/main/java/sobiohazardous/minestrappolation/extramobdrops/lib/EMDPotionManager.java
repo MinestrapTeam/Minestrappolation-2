@@ -3,9 +3,10 @@ package sobiohazardous.minestrappolation.extramobdrops.lib;
 import java.util.Iterator;
 import java.util.List;
 
-import clashsoft.brewingapi.api.IPotionEffectHandler;
-import clashsoft.brewingapi.brewing.PotionList;
-import clashsoft.brewingapi.brewing.PotionType;
+import clashsoft.brewingapi.potion.IPotionEffectHandler;
+import clashsoft.brewingapi.potion.PotionList;
+import clashsoft.brewingapi.potion.type.PotionType;
+
 import sobiohazardous.minestrappolation.api.potion.MPotion;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
@@ -19,17 +20,17 @@ import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 public class EMDPotionManager implements IPotionEffectHandler
 {
 	private static String iconLoc = "minestrappolation:gui/potion_icons.png";
-	
+
 	public static Potion infectious;
-	
+
 	public static PotionType waterBreathing;
 	public static PotionType resistance;
-	
+
 	public static void loadPotions()
 	{
 		infectious = new MPotion("potion.infectious", true, 0, false, iconLoc, 0,6).setInGamePotionName("Potion of Infection");
 	}	
-	
+
 	/**
 	 * Where all Brewing objects are instianted for brewing recipes (view BrewingList.java for help).
 	 */
@@ -40,7 +41,7 @@ public class EMDPotionManager implements IPotionEffectHandler
 		resistance = new PotionType(new PotionEffect(Potion.resistance.id, 180 * 20), 2, 2, new ItemStack(EMDItemManager.marrow), PotionList.awkward);
 		resistance.register();
 	}
-	
+
 	@Override
 	public void onPotionUpdate(int tick, EntityLivingBase entity, PotionEffect effect)
 	{
@@ -51,7 +52,7 @@ public class EMDPotionManager implements IPotionEffectHandler
 			{
 				entity.worldObj.setBlock((int)entity.posX-1, (int)entity.posY - 2, (int)entity.posZ-1, Blocks.mycelium);		
 			}
-				
+
 			//check if mycellium is below, then add potion of regen.
 			if(entity.worldObj.getBlock((int)entity.posX-1, (int)entity.posY - 1, (int)entity.posZ-1) == Blocks.mycelium)
 			{

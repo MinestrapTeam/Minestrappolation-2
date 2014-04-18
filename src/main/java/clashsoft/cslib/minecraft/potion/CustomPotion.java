@@ -1,8 +1,11 @@
 package clashsoft.cslib.minecraft.potion;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
+
+import clashsoft.cslib.reflect.CSReflection;
 import clashsoft.cslib.util.CSArrays;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import clashsoft.cslib.util.CSLog;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.potion.Potion;
@@ -13,89 +16,55 @@ import net.minecraft.util.ResourceLocation;
  */
 public class CustomPotion extends Potion
 {
-	/** The custom icon file. */
-	private ResourceLocation	customIconFile;
-	
-	/** The instant. */
+	private ResourceLocation	iconFile;
 	private boolean				instant;
-	
-	/** The custom color. */
-	private int					customColor;
-	
-	/** The bad. */
+	private int					customColor	= -1;
 	private boolean				bad;
 	
-	/**
-	 * Instantiates a new custom potion.
-	 * 
-	 * @param name
-	 *            the name
-	 * @param bad
-	 *            the bad
-	 * @param color
-	 *            the color
-	 * @param instant
-	 *            the instant
-	 * @param iconFile
-	 *            the icon file
-	 * @param iconX
-	 *            the icon x location
-	 * @param iconY
-	 *            the icon y location
-	 */
-	public CustomPotion(String name, boolean bad, int color, boolean instant, String iconFile, int iconX, int iconY)
+	public CustomPotion(String name, int color, boolean bad)
 	{
-		this(name, bad, color, instant, iconFile, iconX, iconY, -1);
+		this(getNextFreeID(), name, color, bad);
 	}
 	
-	/**
-	 * Instantiates a new custom potion.
-	 * 
-	 * @param name
-	 *            the name
-	 * @param bad
-	 *            the bad
-	 * @param color
-	 *            the color
-	 * @param instant
-	 *            the instant
-	 * @param iconFile
-	 *            the icon file
-	 * @param iconX
-	 *            the icon x location
-	 * @param iconY
-	 *            the icon y location
-	 * @param customColor
-	 *            the custom color
-	 */
-	public CustomPotion(String name, boolean bad, int color, boolean instant, String iconFile, int iconX, int iconY, int customColor)
+	public CustomPotion(int id, String name, int color, boolean bad)
 	{
-		super(getNextFreeID(), bad, color);
+		super(id, bad, color);
 		this.setPotionName(name);
-		this.instant = instant;
-		this.setIconIndex(iconX, iconY);
-		this.customColor = customColor;
 		this.bad = bad;
-		this.customIconFile = new ResourceLocation(iconFile);
 	}
 	
-	/*
-	 * (non-Javadoc)
-	 * @see net.minecraft.potion.Potion#getStatusIconIndex()
-	 */
+	public CustomPotion setIcon(ResourceLocation iconFile, int x, int y)
+	{
+		this.iconFile = iconFile;
+		this.setIconIndex(x, y);
+		return this;
+	}
+	
+	public CustomPotion setCustomColor(int color)
+	{
+		if (color > 0)
+		{
+			this.customColor = color;
+		}
+		return this;
+	}
+	
+	public CustomPotion setIsInstant(boolean instant)
+	{
+		this.instant = instant;
+		return this;
+	}
+	
 	@Override
-	@SideOnly(Side.CLIENT)
 	public int getStatusIconIndex()
 	{
-		Minecraft.getMinecraft().renderEngine.bindTexture(this.customIconFile);
+		if (this.iconFile != null)
+		{
+			Minecraft.getMinecraft().renderEngine.bindTexture(this.iconFile);
+		}
 		return super.getStatusIconIndex();
 	}
 	
-	/**
-	 * Gets the custom color.
-	 * 
-	 * @return the custom color
-	 */
 	public int getCustomColor()
 	{
 		return this.customColor;
@@ -113,16 +82,34 @@ public class CustomPotion extends Potion
 		return this.bad;
 	}
 	
-	/**
-	 * Gets the next free potion id.
-	 * 
-	 * @return the next free potion id
-	 */
 	public static int getNextFreeID()
 	{
 		int id = CSArrays.indexOf(potionTypes, null);
 		if (id == -1)
-			throw new IllegalStateException("No more empty potion IDs!");
+		{
+			int len = potionTypes.length;
+			expandPotionList(len * 2);
+			return len;
+		}
 		return id;
+	}
+	
+	public static void expandPotionList(int size)
+	{
+		if (Potion.potionTypes.length < size)
+		{
+			try
+			{
+				Field f = CSReflection.getField(Potion.class, 0);
+				CSReflection.setModifier(f, Modifier.FINAL, false);
+				Potion[] potionTypes = new Potion[size];
+				System.arraycopy(Potion.potionTypes, 0, potionTypes, 0, Potion.potionTypes.length);
+				f.set(null, potionTypes);
+			}
+			catch (Exception e)
+			{
+				CSLog.error(e);
+			}
+		}
 	}
 }

@@ -36,12 +36,18 @@ public class MItemPickaxe extends ItemPickaxe
 	private ToolMaterial norm;
 	private ToolMaterial bronzePlateMat;
 	
-	public MItemPickaxe(ToolMaterial par2EnumToolMaterial, ToolMaterial bronzeMaterial)
+	public MItemPickaxe(ToolMaterial par2EnumToolMaterial, ToolMaterial bronzeMaterial, boolean iginites)
 	{
 		super(par2EnumToolMaterial);
 		this.setCreativeTab(null);
 		this.bronzePlateMat = bronzeMaterial;
 		this.norm = par2EnumToolMaterial;
+		this.ignites = iginites;
+	}
+	
+	public MItemPickaxe(ToolMaterial par2EnumToolMaterial, ToolMaterial bronzeMaterial)
+	{
+		this(par2EnumToolMaterial, bronzeMaterial, false);
 	}
 	
 	/**
@@ -146,12 +152,6 @@ public class MItemPickaxe extends ItemPickaxe
 			par1ItemStack.damageItem(1, par2EntityPlayer);
 			return true;
 		}
-	}
-
-	public MItemPickaxe setIgnites(boolean ignites)
-	{
-		this.ignites = true;
-		return this;
 	}
 
     public void onCreated(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)

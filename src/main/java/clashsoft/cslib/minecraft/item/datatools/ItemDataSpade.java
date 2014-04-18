@@ -2,15 +2,16 @@ package clashsoft.cslib.minecraft.item.datatools;
 
 import java.util.Set;
 
-import clashsoft.cslib.collections.CSCollections;
+import clashsoft.cslib.reflect.CSReflection;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemSpade;
 import net.minecraft.item.ItemStack;
 
 public class ItemDataSpade extends ItemDataTool
 {
-	public static final Set	blocksEffectiveAgainst	= CSCollections.createSet(Blocks.grass, Blocks.dirt, Blocks.sand, Blocks.gravel, Blocks.snow, Blocks.snow, Blocks.clay, Blocks.farmland, Blocks.soul_sand, Blocks.mycelium);
+	public static final Set	blocksEffectiveAgainst	= CSReflection.getStaticValue(ItemSpade.class, 0);
 	
 	public ItemDataSpade(ToolMaterial toolMaterial)
 	{

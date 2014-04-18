@@ -6,8 +6,6 @@ import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
 import sobiohazardous.minestrappolation.api.block.MBlock;
 import sobiohazardous.minestrappolation.api.util.MAssetManager;
-import sobiohazardous.minestrappolation.extramobdrops.ExtraMobDrops;
-import sobiohazardous.minestrappolation.extramobdrops.lib.EMDItemManager;
 import sobiohazardous.minestrappolation.extraores.ExtraOres;
 
 
@@ -74,9 +72,10 @@ public class BlockCopperTarnished extends MBlock
 		return top;
     }
     
+    /*
     public boolean onBlockActivated(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9)
-    { 	      
-        	if (par5EntityPlayer.getCurrentEquippedItem() != null && (par5EntityPlayer.getCurrentEquippedItem().getItem() == EMDItemManager.grease || par5EntityPlayer.getCurrentEquippedItem().getItem() == Items.fire_charge))
+    { 	            	
+    	if (par5EntityPlayer.getCurrentEquippedItem() != null && (par5EntityPlayer.getCurrentEquippedItem().getItem() == EMDItemManager.grease || par5EntityPlayer.getCurrentEquippedItem().getItem() == Items.fire_charge))
             {
         		par5EntityPlayer.getCurrentEquippedItem().stackSize--;
             	par1World.setBlock(par2, par3, par4, EOBlockManager.CopperBlock);   
@@ -86,4 +85,5 @@ public class BlockCopperTarnished extends MBlock
             }
 			return false;		      
     }
+    */
 }

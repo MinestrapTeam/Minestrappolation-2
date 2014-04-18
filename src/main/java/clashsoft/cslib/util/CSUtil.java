@@ -5,17 +5,17 @@ package clashsoft.cslib.util;
  */
 public class CSUtil
 {
-	/**
-	 * Logs an object.
-	 * 
-	 * @Deprecated Use {@link CSLog#info(Object)}
-	 * @param o
-	 *            the object to log
-	 */
-	@Deprecated
-	public static void log(Object o)
+	public static boolean checkClass(String name)
 	{
-		CSLog.info(o);
+		try
+		{
+			Class.forName(name, false, ClassLoader.getSystemClassLoader());
+			return true;
+		}
+		catch (ClassNotFoundException ex)
+		{
+			return false;
+		}
 	}
 	
 	/**
@@ -127,5 +127,29 @@ public class CSUtil
 			return System.getProperty("user.home");
 		}
 		return System.getProperty("user.dir");
+	}
+	
+	public static int tryParse(String text, int _default)
+	{
+		try
+		{
+			return Integer.parseInt(text);
+		}
+		catch (NumberFormatException ex)
+		{
+			return _default;
+		}
+	}
+	
+	public static int tryParse(String text, int radix, int _default)
+	{
+		try
+		{
+			return Integer.parseInt(text, radix);
+		}
+		catch (NumberFormatException ex)
+		{
+			return _default;
+		}
 	}
 }

@@ -25,7 +25,7 @@ import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
 
 public class BlockCustomPlant extends CustomBlock implements ICustomBlock, IPlantable
-{	
+{
 	@SideOnly(Side.CLIENT)
 	public IIcon[]	icons;
 	
@@ -99,7 +99,9 @@ public class BlockCustomPlant extends CustomBlock implements ICustomBlock, IPlan
 		Block soil = world.getBlock(x, y - 1, z);
 		
 		if (soil == null)
+		{
 			return false;
+		}
 		
 		boolean validLight = world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z);
 		boolean validSoil = soil.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);

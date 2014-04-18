@@ -19,22 +19,15 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockRopeCoil extends BlockLadder
+public class BlockRopeCoil extends Block
 {
 	private IIcon top;
     public BlockRopeCoil()
     {
-        super();
-        this.setBlockBounds(1F, 1F, 1F, 1F, 1F, 1F);
+        super(Material.cloth);
     }
-    
-    @SideOnly(Side.CLIENT)
 
-    /**
-     * When this method is called, your block should register all the icons it needs with the given IconRegister. This
-     * is the only chance you get to register icons.
-     */
-    public void registerIcons(IIconRegister par1IconRegister)
+    public void registerBlockIcons(IIconRegister par1IconRegister)
     {
         this.blockIcon = par1IconRegister.registerIcon(MAssetManager.getEDTexture("ropeSide"));
         this.top = par1IconRegister.registerIcon(MAssetManager.getEDTexture("ropeTop"));
@@ -67,22 +60,5 @@ public class BlockRopeCoil extends BlockLadder
     		return blockIcon;
     	}
 		return blockIcon;
-    }
-    
-    public boolean renderAsNormalBlock()
-    {
-        return true;
-    }
-
-    
-    public int getRenderType()
-    {
-        return 0;
-    }
-    
-    
-    public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
-    {
-        return true;
     }
 }

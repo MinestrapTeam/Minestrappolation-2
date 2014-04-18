@@ -29,14 +29,20 @@ public class MItemShovel extends ItemSpade
 	private ToolMaterial norm;
 	private ToolMaterial bronzePlateMat;
 
-	public MItemShovel(ToolMaterial par2EnumToolMaterial, ToolMaterial bronzeMaterial)
+	public MItemShovel(ToolMaterial par2EnumToolMaterial, ToolMaterial bronzeMaterial, boolean ignites)
 	{
 		super(par2EnumToolMaterial);
 		this.setCreativeTab(null);
 		this.bronzePlateMat = bronzeMaterial;
 		this.norm = par2EnumToolMaterial;
+		this.ignites = ignites;
 	}
-
+	
+	public MItemShovel(ToolMaterial par2EnumToolMaterial, ToolMaterial bronzeMaterial)
+	{
+		this(par2EnumToolMaterial, bronzeMaterial, false);
+	}
+	
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)
 	{
 		if (MAPIConfig.showDur == true && !par2EntityPlayer.capabilities.isCreativeMode)
@@ -109,12 +115,6 @@ public class MItemShovel extends ItemSpade
 			par1ItemStack.damageItem(1, par2EntityPlayer);
 			return true;
 		}
-	}
-
-	public MItemShovel setIgnites(boolean ignites)
-	{
-		this.ignites = true;
-		return this;
 	}
 
 	public void onCreated(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)

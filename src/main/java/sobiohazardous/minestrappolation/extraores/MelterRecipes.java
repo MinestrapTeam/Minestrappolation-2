@@ -7,7 +7,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import cpw.mods.fml.common.Loader;
-import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
 import sobiohazardous.minestrappolation.extraores.client.gui.ContainerMelter;
 import sobiohazardous.minestrappolation.extraores.lib.EOBlockManager;
 import sobiohazardous.minestrappolation.extraores.lib.EOItemManager;
@@ -63,10 +62,10 @@ public class MelterRecipes
 			// ItemStack(EOItemManager.bucketMagma,1,0), 0.7F);
 			// addSmelting(EDBlockManager.bedrockBrick, new
 			// ItemStack(EOItemManager.bucketMagma,1,0), 0.7F);
-			addSmelting(new ItemStack(EDBlockManager.snowBrick), new ItemStack(Items.water_bucket, 1, 0), 0.7F);
-			addSmelting(new ItemStack(EDBlockManager.stones), 0, new ItemStack(Items.lava_bucket, 1, 0), 0.7F);
-			addSmelting(new ItemStack(EDBlockManager.stonePillar), new ItemStack(Items.lava_bucket, 1, 0), 0.7F);
-			addSmelting(new ItemStack(EDBlockManager.stones), 1, new ItemStack(Items.lava_bucket, 1, 0), 0.7F);
+			//addSmelting(new ItemStack(EDBlockManager.snowBrick), new ItemStack(Items.water_bucket, 1, 0), 0.7F);
+			//addSmelting(new ItemStack(EDBlockManager.stones), 0, new ItemStack(Items.lava_bucket, 1, 0), 0.7F);
+			//addSmelting(new ItemStack(EDBlockManager.stonePillar), new ItemStack(Items.lava_bucket, 1, 0), 0.7F);
+			//addSmelting(new ItemStack(EDBlockManager.stones), 1, new ItemStack(Items.lava_bucket, 1, 0), 0.7F);
 		}
 
 		/*

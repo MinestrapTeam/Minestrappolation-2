@@ -27,13 +27,20 @@ public class MItemAxe extends ItemAxe
 	private ToolMaterial norm;
 	private ToolMaterial bronzePlateMat;
 
-	public MItemAxe(ToolMaterial par2EnumToolMaterial, ToolMaterial bronzeMaterial)
+	public MItemAxe(ToolMaterial par2EnumToolMaterial, ToolMaterial bronzeMaterial, boolean ignites)
 	{
 		super(par2EnumToolMaterial);
 		this.setCreativeTab(null);
 		this.bronzePlateMat = bronzeMaterial;
 		this.norm = par2EnumToolMaterial;
+		this.ignites = ignites;
 	}
+	
+	public MItemAxe(ToolMaterial par2EnumToolMaterial, ToolMaterial bronzeMaterial)
+	{
+		this(par2EnumToolMaterial, bronzeMaterial, false);
+	}
+
 
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)
 	{
@@ -107,12 +114,6 @@ public class MItemAxe extends ItemAxe
 			par1ItemStack.damageItem(1, par2EntityPlayer);
 			return true;
 		}
-	}
-
-	public MItemAxe setIgnites(boolean ignites)
-	{
-		this.ignites = true;
-		return this;
 	}
 
 	public void onCreated(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)

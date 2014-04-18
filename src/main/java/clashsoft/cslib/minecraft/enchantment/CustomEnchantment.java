@@ -90,7 +90,9 @@ public class CustomEnchantment extends Enchantment
 	{
 		int id = CSArrays.indexOf(enchantmentsList, null);
 		if (id == -1)
+		{
 			throw new IllegalStateException("No more empty enchantment IDs!");
+		}
 		return id;
 	}
 	

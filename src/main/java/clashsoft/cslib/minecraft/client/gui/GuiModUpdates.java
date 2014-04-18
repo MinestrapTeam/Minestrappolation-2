@@ -17,6 +17,7 @@ public class GuiModUpdates extends GuiScreen
 	
 	public GuiModUpdatesSlot	slots;
 	public GuiButton			buttonShowInvalidUpdates;
+	public GuiButton			buttonInstall;
 	
 	public List<ModUpdate>		updates;
 	public ModUpdate			update;
@@ -43,10 +44,11 @@ public class GuiModUpdates extends GuiScreen
 	@Override
 	public void initGui()
 	{
-		this.buttonShowInvalidUpdates = new GuiButton(10, 10, this.height - 38, 140, 20, getShowInvalidUpdates());
+		this.buttonShowInvalidUpdates = new GuiButton(10, 10, this.height - 38, 140, 20, this.getShowInvalidUpdates());
+		this.buttonInstall = new GuiButton(1, this.width - 90, 35, 80, 20, I18n.getString("update.list.install"));
 		
 		this.buttonList.add(new GuiButton(0, this.width / 2, this.height - 38, 140, 20, I18n.getString("gui.done")));
-		this.buttonList.add(new GuiButton(1, this.width - 90, 35, 80, 20, I18n.getString("update.list.install")));
+		this.buttonList.add(this.buttonInstall);
 		this.buttonList.add(this.buttonShowInvalidUpdates);
 		this.buttonList.add(new GuiButton(2, 10, this.height - 60, 140, 20, I18n.getString("update.list.installall")));
 		this.slots = new GuiModUpdatesSlot(this);
@@ -60,7 +62,7 @@ public class GuiModUpdates extends GuiScreen
 			this.slots.drawScreen(mouseX, mouseY, partialTickTime);
 		}
 		
-		this.drawCenteredString(fontRendererObj, title, this.width / 2, 14, 0xFFFFFF);
+		this.drawCenteredString(this.fontRendererObj, this.title, this.width / 2, 14, 0xFFFFFF);
 		
 		ModUpdate update = this.update;
 		
@@ -70,26 +72,30 @@ public class GuiModUpdates extends GuiScreen
 			int color1 = valid ? 0xFF0000 : 0x00FF00;
 			int color2 = valid ? 0x00FF00 : 0xFF0000;
 			
-			this.drawString(fontRendererObj, "\u00a7n" + update.getName(), 160, 38, 0xFFFFFF);
-			this.drawString(fontRendererObj, mod_name, 160, 50, 0xFFFFFF);
-			this.drawString(fontRendererObj, current_version, 160, 60, 0xFFFFFF);
-			this.drawString(fontRendererObj, new_version, 160, 70, 0xFFFFFF);
-			this.drawString(fontRendererObj, url, 160, 80, 0xFFFFFF);
-			this.drawString(fontRendererObj, install_status, 160, 90, 0xFFFFFF);
-			this.drawString(fontRendererObj, update_notes, 160, 105, 0xFFFFFF);
+			this.drawString(this.fontRendererObj, "\u00a7n" + update.getName(), 160, 38, 0xFFFFFF);
+			this.drawString(this.fontRendererObj, this.mod_name, 160, 50, 0xFFFFFF);
+			this.drawString(this.fontRendererObj, this.current_version, 160, 60, 0xFFFFFF);
+			this.drawString(this.fontRendererObj, this.new_version, 160, 70, 0xFFFFFF);
+			this.drawString(this.fontRendererObj, this.url, 160, 80, 0xFFFFFF);
+			this.drawString(this.fontRendererObj, this.install_status, 160, 90, 0xFFFFFF);
 			
-			this.drawString(fontRendererObj, update.getModName(), 260, 50, 0xFFFFFF);
-			this.drawString(fontRendererObj, update.getVersion(), 260, 60, color1);
-			this.drawString(fontRendererObj, update.getNewVersion(), 260, 70, color2);
-			this.drawString(fontRendererObj, update.getUpdateURL(), 260, 80, 0xFFFFFF);
-			this.drawString(fontRendererObj, update.getStatus(), 260, 90, 0xFFFFFF);
+			this.drawString(this.fontRendererObj, update.getModName(), 260, 50, 0xFFFFFF);
+			this.drawString(this.fontRendererObj, update.getVersion(), 260, 60, color1);
+			this.drawString(this.fontRendererObj, update.getNewVersion(), 260, 70, color2);
+			this.drawString(this.fontRendererObj, update.getUpdateURL(), 260, 80, 0xFFFFFF);
+			this.drawString(this.fontRendererObj, update.getStatus(), 260, 90, 0xFFFFFF);
 			
 			int i = 117;
-			for (String line : update.getUpdateNotes())
+			String[] updateNotes = update.getUpdateNotes();
+			if (updateNotes != null && updateNotes.length > 0)
 			{
-				this.drawString(fontRendererObj, line, 160, i, getDiffColor(line));
+				this.drawString(this.fontRendererObj, this.update_notes, 160, 105, 0xFFFFFF);
 				
-				i += 10;
+				for (String line : updateNotes)
+				{
+					this.drawString(this.fontRendererObj, line, 160, i, this.getDiffColor(line));
+					i += 10;
+				}
 			}
 		}
 		
@@ -112,6 +118,9 @@ public class GuiModUpdates extends GuiScreen
 	
 	public int getDiffColor(String line)
 	{
+		if (line.isEmpty())
+			return 0xFFFFFF;
+		
 		switch (line.charAt(0))
 		{
 			case '+':
@@ -154,7 +163,7 @@ public class GuiModUpdates extends GuiScreen
 		else if (button.id == 10)
 		{
 			this.showInvalidUpdates = !this.showInvalidUpdates;
-			button.displayString = getShowInvalidUpdates();
+			button.displayString = this.getShowInvalidUpdates();
 			
 			this.updateList();
 		}
@@ -183,6 +192,12 @@ public class GuiModUpdates extends GuiScreen
 		}
 	}
 	
+	protected void selectUpdate(int update)
+	{
+		this.update = this.updates.get(update);
+		this.buttonInstall.enabled = this.update.isValid();
+	}
+	
 	protected void updateList()
 	{
 		this.updates = CSUpdate.getUpdates(this.showInvalidUpdates);
@@ -196,6 +211,6 @@ public class GuiModUpdates extends GuiScreen
 	
 	private String getShowInvalidUpdates()
 	{
-		return updates_showinvalid + ": " + (this.showInvalidUpdates ? options_on : options_off);
+		return this.updates_showinvalid + ": " + (this.showInvalidUpdates ? this.options_on : this.options_off);
 	}
 }

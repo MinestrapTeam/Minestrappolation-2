@@ -101,11 +101,11 @@ public class EOItemManager
 	public static Item BlazeShard;
 	public static Item BlaziumIngot;
 
-	public static MItemSword BlaziumSword;
-	public static MItemPickaxe BlaziumPickaxe;
-	public static MItemAxe BlaziumAxe;
+	public static Item BlaziumSword;
+	public static Item BlaziumPickaxe;
+	public static Item BlaziumAxe;
 	public static Item BlaziumHoe;
-	public static MItemShovel BlaziumShovel;
+	public static Item BlaziumShovel;
 	public static Item meuroditeIngot;
 	
 	public static Item meuroditeSword;
@@ -236,15 +236,15 @@ public class EOItemManager
 		BlazeShard = (new EOItem()).setCreativeTab(tabOresItems).setUnlocalizedName("item_BlazeShard").setTextureName(MAssetManager.getEOTexture("dustBlazium"));
 		GameRegistry.registerItem(BlazeShard, "shardBlazium");
 		
-		BlaziumSword = ((MItemSword) (new MItemSword(toolMaterialBlazium,toolMaterialBPBlazium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireSword").setTextureName(MAssetManager.getEOTexture("weaponSwordFire"))).setIgnitesMob(true);
+		BlaziumSword = (new MItemSword(toolMaterialBlazium,toolMaterialBPBlazium, true)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireSword").setTextureName(MAssetManager.getEOTexture("weaponSwordFire"));
 		GameRegistry.registerItem(BlaziumSword, "weaponSwordBlazium");
-		BlaziumPickaxe = ((MItemPickaxe) (new MItemPickaxe(toolMaterialBlazium, toolMaterialBPBlazium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FirePickaxe").setTextureName(MAssetManager.getEOTexture("toolPickFire"))).setIgnites(true);
+		BlaziumPickaxe = (new MItemPickaxe(toolMaterialBlazium, toolMaterialBPBlazium, true)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FirePickaxe").setTextureName(MAssetManager.getEOTexture("toolPickFire"));
 		GameRegistry.registerItem(BlaziumPickaxe, "toolPickBlazium");
-		BlaziumShovel = ((MItemShovel) (new MItemShovel(toolMaterialBlazium, toolMaterialBPBlazium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireShovel").setTextureName(MAssetManager.getEOTexture("toolShovelFire"))).setIgnites(true);
+		BlaziumShovel = (new MItemShovel(toolMaterialBlazium, toolMaterialBPBlazium, true)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireShovel").setTextureName(MAssetManager.getEOTexture("toolShovelFire"));
 		GameRegistry.registerItem(BlaziumShovel, "toolShovelBlazium");
 		BlaziumHoe = (new MItemHoe(toolMaterialBlazium, toolMaterialBPBlazium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireHoe").setTextureName(MAssetManager.getEOTexture("toolHoeFire"));
 		GameRegistry.registerItem(BlaziumHoe, "toolHoeBlazium");
-		BlaziumAxe = ((MItemAxe) (new MItemAxe(toolMaterialBlazium, toolMaterialBPBlazium)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireAxe").setTextureName(MAssetManager.getEOTexture("toolAxeFire"))).setIgnites(true);
+		BlaziumAxe = (new MItemAxe(toolMaterialBlazium, toolMaterialBPBlazium, true)).setCreativeTab(tabOresItems).setUnlocalizedName("item_FireAxe").setTextureName(MAssetManager.getEOTexture("toolAxeFire"));
 		GameRegistry.registerItem(BlaziumAxe, "toolAxeBlazium");
 		
 		ToriteIngot = new EOItem().setUnlocalizedName("ingotTorite").setCreativeTab(tabOresItems).setTextureName(MAssetManager.getEOTexture("ingotTorite"));

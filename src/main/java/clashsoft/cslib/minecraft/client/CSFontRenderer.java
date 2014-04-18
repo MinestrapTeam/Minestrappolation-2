@@ -52,13 +52,14 @@ public class CSFontRenderer extends FontRenderer
 	public Random							fontRandom			= new Random();
 	
 	/**
-	 * Array of the start/end column (in upper/lower nibble) for every glyph in the /font directory.
+	 * Array of the start/end column (in upper/lower nibble) for every glyph in
+	 * the /font directory.
 	 */
 	private final byte[]					glyphWidth			= new byte[65536];
 	
 	/**
-	 * Array of RGB triplets defining the 16 standard chat colors followed by 16 darker version of
-	 * the same colors for drop shadows.
+	 * Array of RGB triplets defining the 16 standard chat colors followed by 16
+	 * darker version of the same colors for drop shadows.
 	 */
 	public int[]							colorCode			= new int[32];
 	private final ResourceLocation			locationFontTexture;
@@ -70,12 +71,14 @@ public class CSFontRenderer extends FontRenderer
 	private float							posY;
 	
 	/**
-	 * If true, strings should be rendered with Unicode fonts instead of the default.png font
+	 * If true, strings should be rendered with Unicode fonts instead of the
+	 * default.png font
 	 */
 	private boolean							unicodeFlag;
 	
 	/**
-	 * If true, the Unicode Bidirectional Algorithm should be run before rendering any string.
+	 * If true, the Unicode Bidirectional Algorithm should be run before
+	 * rendering any string.
 	 */
 	private boolean							bidiFlag;
 	
@@ -109,7 +112,8 @@ public class CSFontRenderer extends FontRenderer
 	private boolean							underlineStyle		= false;
 	
 	/**
-	 * Set if the "m" style (strikethrough) is active in currently rendering string
+	 * Set if the "m" style (strikethrough) is active in currently rendering
+	 * string
 	 */
 	private boolean							strikethroughStyle	= false;
 	
@@ -254,39 +258,40 @@ public class CSFontRenderer extends FontRenderer
 	 */
 	private float renderCharAtPos(int i, char c, boolean italic)
 	{
-		return c == 32 ? 4.0F : (i > 0 && !this.unicodeFlag ? this.renderDefaultChar(i + 32, italic) : this.renderUnicodeChar(c, italic));
+		return c == 32 ? 4.0F : i > 0 && !this.unicodeFlag ? this.renderDefaultChar(i + 32, italic) : this.renderUnicodeChar(c, italic);
 	}
 	
 	/**
-	 * Render a single character with the default.png font at current (posX,posY) location...
+	 * Render a single character with the default.png font at current
+	 * (posX,posY) location...
 	 */
 	private float renderDefaultChar(int i, boolean italic)
 	{
 		float scale = 2F;
 		float f = i % 16 * 8;
 		float f1 = i / 16 * 8;
-		float f2 = (italic ? 1.0F : 0.0F);
+		float f2 = italic ? 1.0F : 0.0F;
 		// Bind texture
 		Minecraft.getMinecraft().renderEngine.bindTexture(this.locationFontTexture);
-		float f3 = (this.charWidth[i] - 0.01F);
+		float f3 = this.charWidth[i] - 0.01F;
 		
 		GL11.glBegin(GL11.GL_TRIANGLE_STRIP);
-		GL11.glTexCoord2f((f / 128.0F), (f1 / 128.0F));
+		GL11.glTexCoord2f(f / 128.0F, f1 / 128.0F);
 		GL11.glVertex3f(this.posX + f2, this.posY, 0.0F);
-		GL11.glTexCoord2f((f / 128.0F), ((f1 + 7.99F) / 128.0F));
+		GL11.glTexCoord2f(f / 128.0F, (f1 + 7.99F) / 128.0F);
 		GL11.glVertex3f(this.posX - f2, this.posY + 7.99F, 0.0F);
-		GL11.glTexCoord2f(((f + f3) / 128.0F), (f1 / 128.0F));
+		GL11.glTexCoord2f((f + f3) / 128.0F, f1 / 128.0F);
 		GL11.glVertex3f(this.posX + f3 + f2, this.posY, 0.0F);
-		GL11.glTexCoord2f(((f + f3) / 128.0F), ((f1 + 7.99F) / 128.0F));
-		GL11.glVertex3f((this.posX + f3 - f2), this.posY + 7.99F, 0.0F);
+		GL11.glTexCoord2f((f + f3) / 128.0F, (f1 + 7.99F) / 128.0F);
+		GL11.glVertex3f(this.posX + f3 - f2, this.posY + 7.99F, 0.0F);
 		GL11.glEnd();
 		
 		return this.charWidth[i];
 	}
 	
 	/**
-	 * Load one of the /font/glyph_XX.png into a new GL texture and store the texture ID in
-	 * glyphTextureName array.
+	 * Load one of the /font/glyph_XX.png into a new GL texture and store the
+	 * texture ID in glyphTextureName array.
 	 */
 	private void loadGlyphTexture(int i)
 	{
@@ -304,8 +309,8 @@ public class CSFontRenderer extends FontRenderer
 	}
 	
 	/**
-	 * Render a single Unicode character at current (posX,posY) location using one of the
-	 * /font/glyph_XX.png files...
+	 * Render a single Unicode character at current (posX,posY) location using
+	 * one of the /font/glyph_XX.png files...
 	 */
 	private float renderUnicodeChar(char c, boolean italic)
 	{
@@ -386,8 +391,8 @@ public class CSFontRenderer extends FontRenderer
 	}
 	
 	/**
-	 * Apply Unicode Bidirectional Algorithm to string and return a new possibly reordered string
-	 * for visual rendering.
+	 * Apply Unicode Bidirectional Algorithm to string and return a new possibly
+	 * reordered string for visual rendering.
 	 */
 	private String bidiReorder(String string)
 	{
@@ -468,7 +473,8 @@ public class CSFontRenderer extends FontRenderer
 	}
 	
 	/**
-	 * Reset all style flag fields in the class to false; called at the start of string rendering
+	 * Reset all style flag fields in the class to false; called at the start of
+	 * string rendering
 	 */
 	private void resetStyles()
 	{
@@ -482,7 +488,7 @@ public class CSFontRenderer extends FontRenderer
 	
 	public void setColor_I(int color)
 	{
-		this.setColor_F(((color >> 16) & 255) / 255F, ((color >> 8) & 255) / 255F, ((color >> 0) & 255) / 255F);
+		this.setColor_F((color >> 16 & 255) / 255F, (color >> 8 & 255) / 255F, (color >> 0 & 255) / 255F);
 	}
 	
 	public void setColor_F(float r, float g, float b)
@@ -497,7 +503,9 @@ public class CSFontRenderer extends FontRenderer
 		try
 		{
 			if (color.startsWith("0x"))
+			{
 				this.setColor_I(Integer.parseInt(color.substring(2), 16));
+			}
 			else if (color.contains(";"))
 			{
 				float r = 1F;
@@ -507,16 +515,24 @@ public class CSFontRenderer extends FontRenderer
 				String[] split = color.split(";");
 				
 				if (split.length >= 1)
+				{
 					r = Float.parseFloat(split[0]);
+				}
 				if (split.length >= 2)
+				{
 					g = Float.parseFloat(split[1]);
+				}
 				if (split.length >= 3)
+				{
 					b = Float.parseFloat(split[2]);
+				}
 				
 				this.setColor_F(r, g, b);
 			}
 			else
+			{
 				this.setColor_I(Integer.parseInt(color));
+			}
 		}
 		catch (NumberFormatException ex)
 		{
@@ -526,9 +542,13 @@ public class CSFontRenderer extends FontRenderer
 	protected void updateColor(boolean shadow)
 	{
 		if (shadow)
+		{
 			GL11.glColor4f(this.red / 4, this.green / 4, this.blue / 4, this.alpha);
+		}
 		else
+		{
 			GL11.glColor4f(this.red, this.green, this.blue, this.alpha);
+		}
 	}
 	
 	/**
@@ -546,16 +566,26 @@ public class CSFontRenderer extends FontRenderer
 			{
 				char c1 = text.charAt(i + 1);
 				
-				if (c1 == 'k') // Obfuscated
+				if (c1 == 'k')
+				{
 					this.randomStyle = !this.randomStyle;
-				else if (c1 == 'l') // Bold
+				}
+				else if (c1 == 'l')
+				{
 					this.boldStyle = !this.boldStyle;
-				else if (c1 == 'm') // Strikethrough
+				}
+				else if (c1 == 'm')
+				{
 					this.strikethroughStyle = !this.strikethroughStyle;
-				else if (c1 == 'n') // Underline
+				}
+				else if (c1 == 'n')
+				{
 					this.underlineStyle = !this.underlineStyle;
-				else if (c1 == 'o') // Italic
+				}
+				else if (c1 == 'o')
+				{
 					this.italicStyle = !this.italicStyle;
+				}
 				else if (c1 == 'r') // Reset
 				{
 					this.resetStyles();
@@ -667,7 +697,7 @@ public class CSFontRenderer extends FontRenderer
 					GL11.glEnable(GL11.GL_TEXTURE_2D);
 				}
 				
-				this.posX += ((int) f1);
+				this.posX += (int) f1;
 			}
 		}
 	}
@@ -688,8 +718,8 @@ public class CSFontRenderer extends FontRenderer
 	}
 	
 	/**
-	 * Render single line string by setting GL color, current (posX,posY), and calling
-	 * renderStringAtPos()
+	 * Render single line string by setting GL color, current (posX,posY), and
+	 * calling renderStringAtPos()
 	 */
 	private int renderString(String string, int x, int y, int color, boolean shadow)
 	{
@@ -722,7 +752,8 @@ public class CSFontRenderer extends FontRenderer
 	}
 	
 	/**
-	 * Returns the width of this string. Equivalent of FontMetrics.stringWidth(String s).
+	 * Returns the width of this string. Equivalent of
+	 * FontMetrics.stringWidth(String s).
 	 */
 	@Override
 	public int getStringWidth(String string)
@@ -923,8 +954,8 @@ public class CSFontRenderer extends FontRenderer
 	}
 	
 	/**
-	 * Perform actual work of rendering a multi-line string with wordwrap and with darker drop
-	 * shadow color if flag is set
+	 * Perform actual work of rendering a multi-line string with wordwrap and
+	 * with darker drop shadow color if flag is set
 	 */
 	private void renderSplitString(String string, int x, int y, int width, boolean shadow)
 	{
@@ -938,7 +969,8 @@ public class CSFontRenderer extends FontRenderer
 	}
 	
 	/**
-	 * Returns the width of the wordwrapped String (maximum length is parameter k)
+	 * Returns the width of the wordwrapped String (maximum length is parameter
+	 * k)
 	 */
 	@Override
 	public int splitStringWidth(String string, int width)
@@ -947,8 +979,8 @@ public class CSFontRenderer extends FontRenderer
 	}
 	
 	/**
-	 * Set unicodeFlag controlling whether strings should be rendered with Unicode fonts instead of
-	 * the default.png font.
+	 * Set unicodeFlag controlling whether strings should be rendered with
+	 * Unicode fonts instead of the default.png font.
 	 */
 	@Override
 	public void setUnicodeFlag(boolean unicodeFlag)
@@ -957,8 +989,8 @@ public class CSFontRenderer extends FontRenderer
 	}
 	
 	/**
-	 * Get unicodeFlag controlling whether strings should be rendered with Unicode fonts instead of
-	 * the default.png font.
+	 * Get unicodeFlag controlling whether strings should be rendered with
+	 * Unicode fonts instead of the default.png font.
 	 */
 	@Override
 	public boolean getUnicodeFlag()
@@ -967,8 +999,8 @@ public class CSFontRenderer extends FontRenderer
 	}
 	
 	/**
-	 * Set bidiFlag to control if the Unicode Bidirectional Algorithm should be run before rendering
-	 * any string.
+	 * Set bidiFlag to control if the Unicode Bidirectional Algorithm should be
+	 * run before rendering any string.
 	 */
 	@Override
 	public void setBidiFlag(boolean bidiFlag)
@@ -986,7 +1018,8 @@ public class CSFontRenderer extends FontRenderer
 	}
 	
 	/**
-	 * Inserts newline and formatting into a string to wrap it within the specified width.
+	 * Inserts newline and formatting into a string to wrap it within the
+	 * specified width.
 	 */
 	public String wrapFormattedStringToWidth(String string, int width)
 	{
@@ -1007,7 +1040,8 @@ public class CSFontRenderer extends FontRenderer
 	}
 	
 	/**
-	 * Determines how many characters from the string will fit into the specified width.
+	 * Determines how many characters from the string will fit into the
+	 * specified width.
 	 */
 	private int sizeStringToWidth(String string, int width)
 	{
@@ -1022,38 +1056,38 @@ public class CSFontRenderer extends FontRenderer
 			
 			switch (c0)
 			{
-				case 10:
-					--l;
-					break;
-				case 167:
-					if (l < j - 1)
+			case 10:
+				--l;
+				break;
+			case 167:
+				if (l < j - 1)
+				{
+					++l;
+					char c1 = string.charAt(l);
+					
+					if (c1 != 108 && c1 != 76)
 					{
-						++l;
-						char c1 = string.charAt(l);
-						
-						if (c1 != 108 && c1 != 76)
+						if (c1 == 114 || c1 == 82 || isFormatColor(c1))
 						{
-							if (c1 == 114 || c1 == 82 || isFormatColor(c1))
-							{
-								flag = false;
-							}
-						}
-						else
-						{
-							flag = true;
+							flag = false;
 						}
 					}
-					
-					break;
-				case 32:
-					i1 = l;
-				default:
-					k += this.getCharWidth(c0);
-					
-					if (flag)
+					else
 					{
-						++k;
+						flag = true;
 					}
+				}
+				
+				break;
+			case 32:
+				i1 = l;
+			default:
+				k += this.getCharWidth(c0);
+				
+				if (flag)
+				{
+					++k;
+				}
 			}
 			
 			if (c0 == 10)
@@ -1081,7 +1115,8 @@ public class CSFontRenderer extends FontRenderer
 	}
 	
 	/**
-	 * Checks if the char code is O-K...lLrRk-o... used to set special formatting.
+	 * Checks if the char code is O-K...lLrRk-o... used to set special
+	 * formatting.
 	 */
 	private static boolean isFormatSpecial(char c)
 	{
@@ -1089,8 +1124,8 @@ public class CSFontRenderer extends FontRenderer
 	}
 	
 	/**
-	 * Digests a string for nonprinting formatting characters then returns a string containing only
-	 * that formatting.
+	 * Digests a string for nonprinting formatting characters then returns a
+	 * string containing only that formatting.
 	 */
 	private static String getFormatFromString(String string)
 	{
@@ -1119,8 +1154,8 @@ public class CSFontRenderer extends FontRenderer
 	}
 	
 	/**
-	 * Get bidiFlag that controls if the Unicode Bidirectional Algorithm should be run before
-	 * rendering any string
+	 * Get bidiFlag that controls if the Unicode Bidirectional Algorithm should
+	 * be run before rendering any string
 	 */
 	@Override
 	public boolean getBidiFlag()

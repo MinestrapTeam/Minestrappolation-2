@@ -1,5 +1,6 @@
 package clashsoft.cslib.minecraft.block;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -52,11 +53,7 @@ public class CustomBlock extends Block implements ICustomBlock
 		this.drops = new ItemStack[this.names.length];
 		this.hardnesses = new float[this.names.length];
 		this.enabled = new boolean[this.names.length];
-		
-		for (int i = 0; i < this.enabled.length; i++)
-		{
-			this.enabled[i] = !(names[i] == null || names[i].isEmpty() || names[i].startsWith("%&"));
-		}
+		Arrays.fill(this.enabled, true);
 		
 		this.tabs = creativeTabs;
 		if (this.tabs != null)
@@ -84,13 +81,7 @@ public class CustomBlock extends Block implements ICustomBlock
 	
 	public CustomBlock(Material material, String name, String iconName, CreativeTabs tab)
 	{
-		this(material, new String[] { name }, new String[][] { {
-				iconName,
-				iconName,
-				iconName,
-				iconName,
-				iconName,
-				iconName } }, new CreativeTabs[] { tab });
+		this(material, new String[] { name }, new String[][] { { iconName, iconName, iconName, iconName, iconName, iconName } }, new CreativeTabs[] { tab });
 	}
 	
 	/**
@@ -187,6 +178,15 @@ public class CustomBlock extends Block implements ICustomBlock
 		return this;
 	}
 	
+	public CreativeTabs getCreativeTab(int metadata)
+	{
+		if (this.tabs == null)
+		{
+			return this.getCreativeTabToDisplayOn();
+		}
+		return this.tabs[metadata % this.tabs.length];
+	}
+	
 	/**
 	 * Gets the names.
 	 * 
@@ -274,7 +274,7 @@ public class CustomBlock extends Block implements ICustomBlock
 			int len = this.iconNames.length;
 			this.icons = new IIcon[len];
 			
-			for (int i = 0; i<  len; i++)
+			for (int i = 0; i < len; i++)
 			{
 				this.icons[i] = iconRegister.registerIcon(this.iconNames[i]);
 			}
@@ -283,27 +283,13 @@ public class CustomBlock extends Block implements ICustomBlock
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void getSubBlocks(Item item, CreativeTabs creativeTab, List list)
+	public void getSubBlocks(Item item, CreativeTabs tab, List list)
 	{
 		for (int i = 0; i < this.names.length; i++)
 		{
-			if (this.enabled[i])
+			if (this.enabled[i] && tab == this.getCreativeTab(i))
 			{
-				if (this.tabs == null)
-				{
-					if (creativeTab == super.getCreativeTabToDisplayOn())
-					{
-						list.add(new ItemStack(this, 1, i));
-					}
-				}
-				else if (i < this.tabs.length && creativeTab == this.tabs[i])
-				{
-					list.add(new ItemStack(this, 1, i));
-				}
-				else if (creativeTab == this.tabs[this.tabs.length - 1])
-				{
-					list.add(new ItemStack(this, 1, i));
-				}
+				list.add(new ItemStack(this, 1, i));
 			}
 		}
 	}
@@ -347,22 +333,44 @@ public class CustomBlock extends Block implements ICustomBlock
 	@Override
 	public String getUnlocalizedName(ItemStack stack)
 	{
+		return getUnlocalizedName(this, stack, this.names);
+	}
+	
+	/**
+	 * Ensures shared access for all class implementing {@link ICustomBlock}.
+	 * This is usually inlined, so we have a win-win.
+	 * 
+	 * @param block
+	 *            the ICustomBlock instance
+	 * @param stack
+	 *            the stack
+	 * @param names
+	 *            the names
+	 * @return the unlocalized name
+	 */
+	public static String getUnlocalizedName(Block block, ItemStack stack, String[] names)
+	{
 		int metadata = stack.getItemDamage();
-		if (metadata < this.names.length)
-		{
-			return this.getUnlocalizedName() + "." + this.names[metadata];
-		}
-		return this.getUnlocalizedName();
+		return block.getUnlocalizedName() + "." + names[metadata % names.length];
 	}
 	
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List<String> list)
 	{
-		String key = this.getUnlocalizedName(stack) + ".desc";
+		addInformation(this, stack, list);
+	}
+	
+	public static void addInformation(ICustomBlock block, ItemStack stack, List<String> list)
+	{
+		String key = block.getUnlocalizedName(stack) + ".desc";
 		String desc = I18n.getString(key);
 		if (desc != key)
 		{
-			list.addAll(CSString.lineList(desc));
+			String[] lines = CSString.lineArray(desc);
+			for (String s : lines)
+			{
+				list.add(s);
+			}
 		}
 	}
 }

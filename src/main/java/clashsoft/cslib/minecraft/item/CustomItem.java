@@ -1,5 +1,6 @@
 package clashsoft.cslib.minecraft.item;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
@@ -33,21 +34,21 @@ public class CustomItem extends Item
 	
 	public boolean[]			enabled;
 	
-	public List<IMetaItem>		subItemList;
-	public List<IMetaItem>		subItemDisplayList;
+	public List<IMetaItem>		subItems;
+	public List<IMetaItem>		shownSubItems;
 	
 	/**
 	 * Instantiates a new custom item.
 	 * 
 	 * @param subItems
 	 *            the sub items
-	 * @param subItemDisplay
+	 * @param showSubItems
 	 *            the displaylist
 	 */
-	public CustomItem(List<IMetaItem> subItems, List<IMetaItem> subItemDisplay)
+	public CustomItem(List<IMetaItem> subItems, List<IMetaItem> showSubItems)
 	{
-		this.subItemList = subItems;
-		this.subItemDisplayList = subItemDisplay;
+		this.subItems = subItems;
+		this.shownSubItems = showSubItems;
 	}
 	
 	/**
@@ -66,6 +67,7 @@ public class CustomItem extends Item
 		this.iconNames = iconNames;
 		this.tabs = tabs;
 		this.enabled = new boolean[this.names.length];
+		Arrays.fill(this.enabled, true);
 		
 		this.setHasSubtypes(names.length > 1);
 	}
@@ -95,37 +97,52 @@ public class CustomItem extends Item
 		this(CSArrays.create(name), CSArrays.create(iconName));
 	}
 	
+	@Override
+	public CreativeTabs[] getCreativeTabs()
+	{
+		if (this.tabs == null)
+		{
+			this.tabs = new CreativeTabs[] { this.getCreativeTab() };
+		}
+		return this.tabs;
+	}
+	
+	public CreativeTabs getCreativeTab(int metadata)
+	{
+		if (this.tabs == null)
+		{
+			return this.getCreativeTab();
+		}
+		return this.tabs[metadata % this.tabs.length];
+	}
+	
 	public CustomItem addSubItem(IMetaItem metaItem)
 	{
 		if (metaItem != null)
 		{
-			this.subItemList.add(metaItem);
+			this.subItems.add(metaItem);
 			if (metaItem.isEnabled())
 			{
-				this.subItemDisplayList.add(metaItem);
+				this.shownSubItems.add(metaItem);
 			}
 		}
 		return this;
 	}
 	
 	/**
-	 * Checks if this CustomItem defines its meta-item properties with a MetaItem object.
+	 * Checks if this CustomItem defines its meta-item properties with a
+	 * MetaItem object.
 	 * 
 	 * @return true, if successful
 	 */
 	public boolean hasItemMetadataList()
 	{
-		return this.subItemList != null && this.subItemDisplayList != null;
-	}
-	
-	@Deprecated
-	public CustomItem disableMetadata(int... metadata)
-	{
-		return this.setMetadataEnabled(false, metadata);
+		return this.subItems != null && this.shownSubItems != null;
 	}
 	
 	/**
-	 * Sets the <code>metadata</code> values to be shown in the creative inventory or not.
+	 * Sets the <code>metadata</code> values to be shown in the creative
+	 * inventory or not.
 	 * 
 	 * @param metadata
 	 *            the metadata
@@ -148,7 +165,7 @@ public class CustomItem extends Item
 	{
 		if (this.hasItemMetadataList())
 		{
-			return this.subItemList.get(stack.getItemDamage()).getName();
+			return this.subItems.get(stack.getItemDamage()).getName();
 		}
 		else
 		{
@@ -168,10 +185,10 @@ public class CustomItem extends Item
 	{
 		if (this.hasItemMetadataList())
 		{
-			this.icons = new IIcon[this.subItemList.size()];
-			for (int i = 0; i < this.subItemList.size(); i++)
+			this.icons = new IIcon[this.subItems.size()];
+			for (int i = 0; i < this.subItems.size(); i++)
 			{
-				String iconName = this.subItemList.get(i).getIconName();
+				String iconName = this.subItems.get(i).getIconName();
 				this.icons[i] = iconRegister.registerIcon(iconName);
 			}
 		}
@@ -191,13 +208,13 @@ public class CustomItem extends Item
 	{
 		if (this.hasItemMetadataList())
 		{
-			Collection<String> s = this.subItemList.get(stack.getItemDamage()).getDescription();
+			Collection<String> s = this.subItems.get(stack.getItemDamage()).getDescription();
 			list.addAll(s);
 		}
 		
 		String key = this.getUnlocalizedName(stack) + ".desc";
 		String desc = I18n.getString(key);
-		if (desc != key)
+		if (desc != key && !desc.isEmpty())
 		{
 			list.addAll(CSString.lineList(desc));
 		}
@@ -209,7 +226,7 @@ public class CustomItem extends Item
 	{
 		if (this.hasItemMetadataList())
 		{
-			for (IMetaItem subitem : this.subItemDisplayList)
+			for (IMetaItem subitem : this.shownSubItems)
 			{
 				subItems.add(subitem.asStack());
 			}
@@ -218,19 +235,9 @@ public class CustomItem extends Item
 		{
 			for (int i = 0; i < this.names.length; i++)
 			{
-				if (this.enabled[i])
+				if (this.enabled[i] && tab == this.getCreativeTab(i))
 				{
-					if (this.tabs == null)
-					{
-						if (tab == this.getCreativeTab())
-						{
-							subItems.add(new ItemStack(this, 1, i));
-						}
-					}
-					else if (tab == this.tabs[i % this.tabs.length])
-					{
-						subItems.add(new ItemStack(this, 1, i));
-					}
+					subItems.add(new ItemStack(this, 1, i));
 				}
 			}
 		}
