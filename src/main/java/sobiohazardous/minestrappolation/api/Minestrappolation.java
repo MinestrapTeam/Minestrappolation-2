@@ -28,11 +28,11 @@ import net.minecraftforge.common.MinecraftForge;
 @Mod(modid = MAPIReference.MODID_MAPI, name = MAPIReference.MODNAME_MAPI, version = MAPIReference.VERSION_MAPI, dependencies = "required-after:" + BrewingAPI.MODID)
 public class Minestrappolation
 {	
-	@Instance("Minestrappolation")
+	@Instance(MAPIReference.MODID_MAPI)
 	public static Minestrappolation	instance;
 	private MGuiHandler guiHandler = new MGuiHandler();
 	
-	@SidedProxy(modId = "Minestrappolation", clientSide = "sobiohazardous.minestrappolation.api.ClientProxy", serverSide = "sobiohazardous.minestrappolation.api.CommonProxy")
+	@SidedProxy(modId = MAPIReference.MODID_MAPI, clientSide = "sobiohazardous.minestrappolation.api.ClientProxy", serverSide = "sobiohazardous.minestrappolation.api.CommonProxy")
 	public static CommonProxy	proxy;		
 		
 	public static MAPICreativeTab creativeTab;
@@ -46,13 +46,13 @@ public class Minestrappolation
 	@EventHandler
 	public void load(FMLInitializationEvent event)
 	{		
-		creativeTab = new MAPICreativeTab(CreativeTabs.getNextID(), "mapi");
+		creativeTab = new MAPICreativeTab(CreativeTabs.getNextID(), "MAPI");
 		GameRegistry.registerTileEntity(TileEntityStonecutter.class, "tileEntityStoneCutter");
 		
 		MAPIBlocks.loadBlocks();
 
 		FMLCommonHandler.instance().bus().register(new MAPIEventHandler());
-		
+		NetworkRegistry.INSTANCE.registerGuiHandler(this, new MGuiHandler());
 		Blocks.bedrock.setHardness(80F);
 
 		proxy.registerRenderers();	

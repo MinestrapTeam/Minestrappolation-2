@@ -18,7 +18,7 @@ public class ContainerStonecutter extends Container
     /** The crafting matrix inventory (3x3). */
     public InventoryCrafting craftMatrix = new InventoryCrafting(this, 3, 3);
     public IInventory craftResult = new InventoryCraftResult();
-    public IInventory extraSlot = new InventoryStonecutterExtraSlot();
+    public InventoryStonecutterExtraSlot extraSlot = new InventoryStonecutterExtraSlot();
     private World worldObj;
     private int posX;
     private int posY;
@@ -67,7 +67,7 @@ public class ContainerStonecutter extends Container
      */
     public void onCraftMatrixChanged(IInventory par1IInventory)
     {
-        this.craftResult.setInventorySlotContents(0, StonecutterCraftingManager.getInstance().findMatchingRecipe(this.craftMatrix, this.worldObj));
+        this.craftResult.setInventorySlotContents(0, StonecutterCraftingManager.getInstance().findMatchingRecipe(this.craftMatrix, this.extraSlot, this.worldObj));
     }
 
     /**

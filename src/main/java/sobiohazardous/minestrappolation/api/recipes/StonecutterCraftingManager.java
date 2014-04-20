@@ -7,6 +7,7 @@ import java.util.List;
 
 import sobiohazardous.minestrappolation.api.tileentity.InventoryStonecutterExtraSlot;
 import net.minecraft.block.Block;
+import net.minecraft.init.Items;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -32,11 +33,11 @@ public class StonecutterCraftingManager
     private StonecutterCraftingManager()
     {
         //add recipes
-    	//this.addRecipe(new ItemStack(Item.stick, 1), Item.appleRed.itemID, true, new Object[]{"SSS", Character.valueOf('S'), Item.stick});
+    	this.addRecipe(new ItemStack(Items.stick, 1), Items.apple, new Object[]{"SSS", Character.valueOf('S'), Items.stick});
         Collections.sort(this.recipes, new StonecutterRecipeSorter(this));
     }
 
-    public StonecutterShapedRecipes addRecipe(ItemStack par1ItemStack, Item extraSlotId, boolean needsExtra, Object ... par2ArrayOfObj)
+    public StonecutterShapedRecipes addRecipe(ItemStack par1ItemStack, Item extraSlotId,Object ... par2ArrayOfObj)
     {
     	String var3 = "";
         int var4 = 0;
@@ -111,7 +112,7 @@ public class StonecutterCraftingManager
         	extraSlot = new ItemStack(extraSlotId, 1, 0);
         }
         
-        StonecutterShapedRecipes shapedrecipes = new StonecutterShapedRecipes(var5, var6, var15, par1ItemStack, extraSlot, needsExtra);
+        StonecutterShapedRecipes shapedrecipes = new StonecutterShapedRecipes(var5, var6, var15, par1ItemStack, extraSlot);
         this.recipes.add(shapedrecipes);
         return shapedrecipes;
     }
@@ -154,7 +155,7 @@ public class StonecutterCraftingManager
         this.recipes.add(new StonecutterShapelessRecipes(par1ItemStack, arraylist, extraSlot, needsExtraSlot));
     }
 
-    public ItemStack findMatchingRecipe(InventoryCrafting par1InventoryCrafting, World par2World)
+    public ItemStack findMatchingRecipe(InventoryCrafting par1InventoryCrafting, InventoryStonecutterExtraSlot extra, World par2World)
     {
         int var3 = 0;
         ItemStack var4 = null;
@@ -200,11 +201,11 @@ public class StonecutterCraftingManager
         {
             for (var6 = 0; var6 < this.recipes.size(); ++var6)
             {
-                IRecipe var12 = (IRecipe)this.recipes.get(var6);
+                IStonecutterRecipe var12 = (IStonecutterRecipe)this.recipes.get(var6);
 
-                if (var12.matches(par1InventoryCrafting, par2World))
+                if (var12.matches(par1InventoryCrafting, extra, par2World))
                 {
-                    return var12.getCraftingResult(par1InventoryCrafting);
+                    return var12.getCraftingResult(par1InventoryCrafting, extra);
                 }
             }
 
