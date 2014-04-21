@@ -1,4 +1,4 @@
-package sobiohazardous.minestrappolation.api;
+package sobiohazardous.minestrappolation.api.creativetabs;
 
 import sobiohazardous.minestrappolation.api.lib.MAPIBlocks;
 import cpw.mods.fml.relauncher.Side;
@@ -8,9 +8,9 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 
-public final class MAPICreativeTab extends CreativeTabs
+public final class CreativeTabMAPI extends CreativeTabs
 {
-	public MAPICreativeTab(int par1, String par2Str)
+	public CreativeTabMAPI(int par1, String par2Str)
 	{
 		super(par1, par2Str);
 	}

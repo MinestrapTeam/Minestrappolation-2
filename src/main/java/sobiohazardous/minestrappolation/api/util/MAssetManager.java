@@ -1,10 +1,21 @@
 package sobiohazardous.minestrappolation.api.util;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
+
+import cpw.mods.fml.client.FMLClientHandler;
+import cpw.mods.fml.client.FMLFileResourcePack;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.resources.ResourcePackRepository;
+import net.minecraft.util.ResourceLocation;
 import sobiohazardous.minestrappolation.api.lib.MAPIReference;
 
 /**
@@ -57,17 +68,9 @@ public class MAssetManager
 		List<String> textures = new ArrayList<>();
 		try
 		{
-			File textureDir = null;
+			//TODO Find a fix!
+			File textureDir = new File(System.getProperty("user.dir") + "/assets/extradecor/textures/blocks/stoneCutter/");
 			
-			if(!isBuild)
-			{
-				textureDir = new File("C:\\Users\\Domenic\\Desktop\\Minestrappolation 1.7.2\\src\\main\\resources\\assets\\extradecor\\textures\\blocks\\stoneCutter");
-			}
-			else
-			{
-				//File textureDir = new File(getClass().getClassLoader().getResourceAsStream(""));
-			}
-						
 			for(int i = 0; i < textureDir.list().length; i++)
 			{
 				if(textureDir.list()[i].startsWith(matPrefix + "_" + type))
@@ -89,7 +92,6 @@ public class MAssetManager
 		{
 			result[i] = textures.get(i);
 		}
-		
 		return result;
 	}
 	
@@ -103,17 +105,9 @@ public class MAssetManager
 		List<String> textures = new ArrayList<>();
 		try
 		{
-			File textureDir = null;
+			//TODO Find a fix!
+			File textureDir = new File(System.getProperty("user.dir") + "/assets/extradecor/textures/blocks/stoneCutter/");
 			
-			if(!isBuild)
-			{
-				textureDir = new File("C:\\Users\\Domenic\\Desktop\\Minestrappolation 1.7.2\\src\\main\\resources\\assets\\extradecor\\textures\\blocks\\stoneCutter");
-			}
-			else
-			{
-				//File textureDir = new File(getClass().getClassLoader().getResourceAsStream(""));
-			}
-						
 			for(int i = 0; i < textureDir.list().length; i++)
 			{
 				if(textureDir.list()[i].startsWith(matPrefix))
@@ -149,17 +143,9 @@ public class MAssetManager
 		List<String> textures = new ArrayList<>();
 		try
 		{
-			File textureDir = null;
-			
-			if(!isBuild)
-			{
-				textureDir = new File("C:\\Users\\Domenic\\Desktop\\Minestrappolation 1.7.2\\src\\main\\resources\\assets\\extradecor\\textures\\blocks\\stoneCutter");
-			}
-			else
-			{
-				//File textureDir = new File(getClass().getClassLoader().getResourceAsStream(""));
-			}
-						
+			//TODO Find a fix!
+			File textureDir = new File(System.getProperty("user.dir") + "/assets/extradecor/textures/blocks/stoneCutter/");
+
 			for(int i = 0; i < textureDir.list().length; i++)
 			{
 				if(textureDir.list()[i].startsWith(matPrefix))

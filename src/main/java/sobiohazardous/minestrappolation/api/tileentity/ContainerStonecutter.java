@@ -30,7 +30,7 @@ public class ContainerStonecutter extends Container
         this.posX = par3;
         this.posY = par4;
         this.posZ = par5;
-        this.addSlotToContainer(new SlotCrafting(par1InventoryPlayer.player, this.craftMatrix, this.craftResult, 0, 124 + 14, 35));
+        this.addSlotToContainer(new SlotStonecutterCrafting(par1InventoryPlayer.player, this.craftMatrix, this.craftResult, this.extraSlot, 0, 124 + 14, 35));
         int l;
         int i1;
         
@@ -58,7 +58,7 @@ public class ContainerStonecutter extends Container
         
         //extra slot
         this.addSlotToContainer(new Slot(extraSlot, 37, 8, 35));
-
+                
         this.onCraftMatrixChanged(this.craftMatrix);
     }
     
@@ -84,6 +84,12 @@ public class ContainerStonecutter extends Container
                 {
                     par1EntityPlayer.dropPlayerItemWithRandomChoice(itemstack, true);
                 }
+            }
+            
+            ItemStack extraItem = this.extraSlot.getStackInSlotOnClosing(0);
+            if(extraItem != null)
+            {
+                par1EntityPlayer.dropPlayerItemWithRandomChoice(extraItem, true);
             }
         }
     }

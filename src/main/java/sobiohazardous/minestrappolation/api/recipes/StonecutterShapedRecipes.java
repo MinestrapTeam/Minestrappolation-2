@@ -112,9 +112,12 @@ public class StonecutterShapedRecipes implements IStonecutterRecipe
                         return false;
                     }
                     //TODO It's beyond me why this is == instead of != wtf
-                    if(currentExtraSlot == neededExtraSlot)
+                    if(neededExtraSlot == null && currentExtraSlot != neededExtraSlot)
                     {
-                    	System.out.println(currentExtraSlot + " == " + neededExtraSlot);
+                    	return false;
+                    }
+                    if(neededExtraSlot != null && currentExtraSlot == neededExtraSlot)
+                    {
                     	return false;
                     }
                 } 

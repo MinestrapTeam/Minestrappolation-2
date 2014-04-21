@@ -14,7 +14,7 @@ public class MAPIReference
 	
 	public static final String MODID_ED = "ExtraDecor";
 	public static final String MODNAME_ED = "Extrapolated Decor";
-	public static final String VERSION_ED = "1.4";
+	public static final String VERSION_ED = "1.4.1";
 	
 	public static final String MODID_EMD = "ExtraMobDrops";
 	public static final String MODNAME_EMD = "Extrapolated Mob Drops";

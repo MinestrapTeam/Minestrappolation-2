@@ -20,7 +20,7 @@ public class BlockStonecutter extends BlockContainer
 	public BlockStonecutter()
 	{
 		super(Material.rock);
-		this.setCreativeTab(Minestrappolation.creativeTab);
+		this.setCreativeTab(Minestrappolation.creativeTabMAPI);
 	}
 
 	public void registerBlockIcons(IIconRegister ir)

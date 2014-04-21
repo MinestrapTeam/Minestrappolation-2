@@ -1,6 +1,11 @@
 package sobiohazardous.minestrappolation.extradecor;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+
 import sobiohazardous.minestrappolation.api.lib.MAPIReference;
+import sobiohazardous.minestrappolation.api.util.MAssetManager;
 import sobiohazardous.minestrappolation.extradecor.block.*;
 import sobiohazardous.minestrappolation.extradecor.bridge.EDBridgeRecipes;
 import sobiohazardous.minestrappolation.extradecor.gen.EDOreGenerator;
@@ -12,8 +17,10 @@ import sobiohazardous.minestrappolation.extradecor.lib.EDItemManager;
 import sobiohazardous.minestrappolation.extradecor.lib.EDRecipeManager;
 import sobiohazardous.minestrappolation.extradecor.lib.EDTileEntityManager;
 import sobiohazardous.minestrappolation.extradecor.proxy.CommonProxy;
+import net.minecraft.client.Minecraft;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -59,7 +66,7 @@ public class ExtraDecor
 	
 	@Mod.EventHandler
 	public void load(FMLInitializationEvent event)
-	{
+	{								 
 		EDOreRegistry.oreRegistration();
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, new EDGuiHandler());
 		EDTileEntityManager.registerTileEntitys();		

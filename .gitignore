@@ -4,3 +4,8 @@
 !.gitignore
 !gradlew*
 !/gradle/
+!/eclipse/assets/extradecor
+!/eclipse/assets/extraenviroments
+!/eclipse/assets/extraextrafoods
+!/eclipse/assets/extramobdrops
+!/eclipse/assets/extraores

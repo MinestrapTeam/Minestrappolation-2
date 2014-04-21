@@ -15,7 +15,7 @@ public class InventoryStonecutterExtraSlot implements IInventory
 	}
 	
     /** A list of one item containing the result of the crafting formula */
-    private ItemStack[] stackResult = new ItemStack[1];
+    private ItemStack[] stackInSlot = new ItemStack[1];
 
     /**
      * Returns the number of slots in the inventory.
@@ -30,7 +30,7 @@ public class InventoryStonecutterExtraSlot implements IInventory
      */
     public ItemStack getStackInSlot(int par1)
     {
-        return this.stackResult[0];
+        return this.stackInSlot[0];
     }
 
     /**
@@ -55,10 +55,10 @@ public class InventoryStonecutterExtraSlot implements IInventory
      */
     public ItemStack decrStackSize(int par1, int par2)
     {
-        if (this.stackResult[0] != null)
+        if (this.stackInSlot[0] != null)
         {
-            ItemStack var3 = this.stackResult[0];
-            this.stackResult[0] = null;
+            ItemStack var3 = this.stackInSlot[0];
+            this.stackInSlot[0] = null;
             this.container.onCraftMatrixChanged(this);
             return var3;
         }
@@ -74,10 +74,10 @@ public class InventoryStonecutterExtraSlot implements IInventory
      */
     public ItemStack getStackInSlotOnClosing(int par1)
     {
-        if (this.stackResult[0] != null)
+        if (this.stackInSlot[0] != null)
         {
-            ItemStack var2 = this.stackResult[0];
-            this.stackResult[0] = null;
+            ItemStack var2 = this.stackInSlot[0];
+            this.stackInSlot[0] = null;
             return var2;
         }
         else
@@ -91,7 +91,7 @@ public class InventoryStonecutterExtraSlot implements IInventory
      */
     public void setInventorySlotContents(int par1, ItemStack par2ItemStack)
     {
-        this.stackResult[0] = par2ItemStack;
+        this.stackInSlot[0] = par2ItemStack;
         this.container.onCraftMatrixChanged(this);
     }
 
