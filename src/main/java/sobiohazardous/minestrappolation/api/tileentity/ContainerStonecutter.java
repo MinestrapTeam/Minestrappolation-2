@@ -18,7 +18,7 @@ public class ContainerStonecutter extends Container
     /** The crafting matrix inventory (3x3). */
     public InventoryCrafting craftMatrix = new InventoryCrafting(this, 3, 3);
     public IInventory craftResult = new InventoryCraftResult();
-    public InventoryStonecutterExtraSlot extraSlot = new InventoryStonecutterExtraSlot();
+    public InventoryStonecutterExtraSlot extraSlot = new InventoryStonecutterExtraSlot(this);
     private World worldObj;
     private int posX;
     private int posY;
@@ -61,15 +61,12 @@ public class ContainerStonecutter extends Container
 
         this.onCraftMatrixChanged(this.craftMatrix);
     }
-
-    /**
-     * Callback for when the crafting matrix is changed.
-     */
+    
     public void onCraftMatrixChanged(IInventory par1IInventory)
     {
-        this.craftResult.setInventorySlotContents(0, StonecutterCraftingManager.getInstance().findMatchingRecipe(this.craftMatrix, this.extraSlot, this.worldObj));
-    }
-
+        this.craftResult.setInventorySlotContents(0, StonecutterCraftingManager.instance.findMatchingRecipe(this.craftMatrix, this.extraSlot, this.worldObj));
+    }      
+    
     /**
      * Called when the container is closed.
      */

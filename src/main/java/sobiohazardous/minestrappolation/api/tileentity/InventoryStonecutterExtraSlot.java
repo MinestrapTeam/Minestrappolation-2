@@ -1,14 +1,21 @@
 package sobiohazardous.minestrappolation.api.tileentity;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 
 public class InventoryStonecutterExtraSlot implements IInventory
 {
+	private Container container;
+	
+	public InventoryStonecutterExtraSlot(Container container)
+	{
+		this.container = container;
+	}
+	
     /** A list of one item containing the result of the crafting formula */
     private ItemStack[] stackResult = new ItemStack[1];
-    private static final String __OBFID = "CL_00001760";
 
     /**
      * Returns the number of slots in the inventory.
@@ -52,6 +59,7 @@ public class InventoryStonecutterExtraSlot implements IInventory
         {
             ItemStack var3 = this.stackResult[0];
             this.stackResult[0] = null;
+            this.container.onCraftMatrixChanged(this);
             return var3;
         }
         else
@@ -84,6 +92,7 @@ public class InventoryStonecutterExtraSlot implements IInventory
     public void setInventorySlotContents(int par1, ItemStack par2ItemStack)
     {
         this.stackResult[0] = par2ItemStack;
+        this.container.onCraftMatrixChanged(this);
     }
 
     /**

@@ -1,9 +1,9 @@
 package sobiohazardous.minestrappolation.api.recipes;
 
 import sobiohazardous.minestrappolation.api.tileentity.InventoryStonecutterExtraSlot;
+import net.minecraft.inventory.InventoryBasic;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
@@ -21,15 +21,12 @@ public class StonecutterShapedRecipes implements IStonecutterRecipe
     /** Is the ItemStack that you get when craft the recipe. */
     private ItemStack recipeOutput;
     
-    /** Is the itemID of the output item that you get when craft the recipe. */
-    public final ItemStack recipeOutputItemID;
     private boolean field_92101_f;
     
     private ItemStack neededExtraSlot;
     
     public StonecutterShapedRecipes(int par1, int par2, ItemStack[] par3ArrayOfItemStack, ItemStack par4ItemStack, ItemStack neededExtraSlot)
     {
-        this.recipeOutputItemID = par4ItemStack;
         this.recipeWidth = par1;
         this.recipeHeight = par2;
         this.recipeItems = par3ArrayOfItemStack;
@@ -51,75 +48,92 @@ public class StonecutterShapedRecipes implements IStonecutterRecipe
         {
             for (int j = 0; j <= 3 - this.recipeHeight; ++j)
             {
-                if (this.checkMatch(par1InventoryCrafting, extra, i, j, neededExtraSlot, true))
+                if (this.checkMatch(par1InventoryCrafting, extra, i, j, true))
                 {
                     return true;
                 }
 
-                if (this.checkMatch(par1InventoryCrafting, extra, i, j, neededExtraSlot, false))
+                if (this.checkMatch(par1InventoryCrafting, extra, i, j, false))
                 {
                     return true;
                 }
             }
         }
-
         return false;
     }
 
     /**
      * Checks if the region of a crafting inventory is match for the recipe.
      */
-    private boolean checkMatch(InventoryCrafting par1InventoryCrafting, InventoryStonecutterExtraSlot extraInv, int par2, int par3, ItemStack extra, boolean par4)
+    private boolean checkMatch(InventoryCrafting par1InventoryCrafting, InventoryStonecutterExtraSlot extraInv, int par2, int par3,boolean par4)
     { 	
-        for (int k = 0; k < 3; ++k)
+    	for (int var5 = 0; var5 < 3; ++var5)
         {
-            for (int l = 0; l < 3; ++l)
+            for (int var6 = 0; var6 < 3; ++var6)
             {
-                int i1 = k - par2;
-                int j1 = l - par3;
-                ItemStack itemstack = null;
+                int var7 = var5 - par2;
+                int var8 = var6 - par3;
+                ItemStack var9 = null;
 
-                if (i1 >= 0 && j1 >= 0 && i1 < this.recipeWidth && j1 < this.recipeHeight)
+                if (var7 >= 0 && var8 >= 0 && var7 < this.recipeWidth && var8 < this.recipeHeight)
                 {
                     if (par4)
                     {
-                        itemstack = this.recipeItems[this.recipeWidth - i1 - 1 + j1 * this.recipeWidth];
+                        var9 = this.recipeItems[this.recipeWidth - var7 - 1 + var8 * this.recipeWidth];
                     }
                     else
                     {
-                        itemstack = this.recipeItems[i1 + j1 * this.recipeWidth];
+                        var9 = this.recipeItems[var7 + var8 * this.recipeWidth];
                     }
                 }
 
-                ItemStack itemstack1 = par1InventoryCrafting.getStackInRowAndColumn(k, l);
+                ItemStack var10 = par1InventoryCrafting.getStackInRowAndColumn(var5, var6);
                 ItemStack currentExtraSlot = extraInv.getStackInSlot(0);
-                
-                if (itemstack1 != null || itemstack != null)
+
+                if (var10 != null || var9 != null)
                 {
-                    if (itemstack1 == null && itemstack != null || itemstack1 != null && itemstack == null)
+                    if (var10 == null && var9 != null || var10 != null && var9 == null)
+                    {
+                    	return false;
+                    }
+
+                    if (var9.getItem() != var10.getItem())
                     {
                         return false;
                     }
 
-                    if (itemstack != itemstack1)
+                    if (var9.getItemDamage() != 32767 && var9.getItemDamage() != var10.getItemDamage())
                     {
                         return false;
-                    }
-
-                    if (itemstack.getItemDamage() != 32767 && itemstack.getItemDamage() != itemstack1.getItemDamage())
-                    {
-                        return false;
-                    }  
+                    }   
                     
                     if(currentExtraSlot == null && neededExtraSlot != null || currentExtraSlot != null && neededExtraSlot == null)
                     {
                         return false;
                     }
-                    if(currentExtraSlot != neededExtraSlot)
+                    //TODO It's beyond me why this is == instead of != wtf
+                    if(currentExtraSlot == neededExtraSlot)
                     {
+                    	System.out.println(currentExtraSlot + " == " + neededExtraSlot);
                     	return false;
-                    }                             
-                }               
+                    }
+                } 
+                
+                /*
+                if(currentExtraSlot != null || neededExtraSlot != null)
+                {
+                	 if(currentExtraSlot == null && neededExtraSlot != null || currentExtraSlot != null && neededExtraSlot == null)
+                     {
+                     	 System.out.println("4");
+                         return false;
+                     }
+                     if(currentExtraSlot != neededExtraSlot)
+                     {
+                     	System.out.println("5");
+                     	return false;
+                     }
+                }
+                */
             }
         }
         return true;
@@ -130,22 +144,22 @@ public class StonecutterShapedRecipes implements IStonecutterRecipe
      */
     public ItemStack getCraftingResult(InventoryCrafting par1InventoryCrafting, InventoryStonecutterExtraSlot extra)
     {
-        ItemStack itemstack = this.getRecipeOutput().copy();
+        ItemStack var2 = this.getRecipeOutput().copy();
 
         if (this.field_92101_f)
         {
-            for (int i = 0; i < par1InventoryCrafting.getSizeInventory(); ++i)
+            for (int var3 = 0; var3 < par1InventoryCrafting.getSizeInventory(); ++var3)
             {
-                ItemStack itemstack1 = par1InventoryCrafting.getStackInSlot(i);
+                ItemStack var4 = par1InventoryCrafting.getStackInSlot(var3);
 
-                if (itemstack1 != null && itemstack1.hasTagCompound())
+                if (var4 != null && var4.hasTagCompound())
                 {
-                    itemstack.setTagCompound((NBTTagCompound)itemstack1.stackTagCompound.copy());
+                    var2.setTagCompound((NBTTagCompound)var4.stackTagCompound.copy());
                 }
             }
         }
 
-        return itemstack;
+        return var2;
     }
 
     /**
@@ -156,9 +170,11 @@ public class StonecutterShapedRecipes implements IStonecutterRecipe
         return this.recipeWidth * this.recipeHeight;
     }
 
+    //setHasNBTResult
     public StonecutterShapedRecipes func_92100_c()
     {
         this.field_92101_f = true;
         return this;
     }
+    
 }
