@@ -4,12 +4,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import sobiohazardous.minestrappolation.api.tileentity.InventoryStonecutterExtraSlot;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.world.World;
 
-public class StonecutterShapelessRecipes implements IRecipe
+public class StonecutterShapelessRecipes implements IStonecutterRecipe
 {
     /** Is the ItemStack that you get when craft the recipe. */
     private final ItemStack recipeOutput;
@@ -19,14 +20,12 @@ public class StonecutterShapelessRecipes implements IRecipe
     
     private final ItemStack extraSlot;
     
-    private boolean needsExtraSlot;
 
-    public StonecutterShapelessRecipes(ItemStack par1ItemStack, List par2List, ItemStack extraSlot, boolean needsExtraSlot)
+    public StonecutterShapelessRecipes(ItemStack par1ItemStack, List par2List, ItemStack extraSlot)
     {
         this.recipeOutput = par1ItemStack;
         this.recipeItems = par2List;
         this.extraSlot = extraSlot;
-        this.needsExtraSlot = needsExtraSlot;
     }
 
     public ItemStack getRecipeOutput()
@@ -37,37 +36,34 @@ public class StonecutterShapelessRecipes implements IRecipe
     /**
      * Used to check if a recipe matches current crafting inventory
      */
-    public boolean matches(InventoryCrafting par1InventoryCrafting, World par2World)
+    public boolean matches(InventoryCrafting par1InventoryCrafting, InventoryStonecutterExtraSlot extraInv, World par2World)
     {
-        ArrayList arraylist = new ArrayList(this.recipeItems);
+    	ArrayList var3 = new ArrayList(this.recipeItems);
 
-        for (int i = 0; i < 3; ++i)
+        for (int var4 = 0; var4 < 3; ++var4)
         {
-            for (int j = 0; j < 3; ++j)
+            for (int var5 = 0; var5 < 3; ++var5)
             {
-                ItemStack itemstack = par1InventoryCrafting.getStackInRowAndColumn(j, i);
+                ItemStack var6 = par1InventoryCrafting.getStackInRowAndColumn(var5, var4);
 
-                if (itemstack != null)
+                if (var6 != null)
                 {
-                    boolean flag = false;
-                    Iterator iterator = arraylist.iterator();
+                    boolean var7 = false;
+                    Iterator var8 = var3.iterator();
 
-                    while (iterator.hasNext())
+                    while (var8.hasNext())
                     {
-                        ItemStack itemstack1 = (ItemStack)iterator.next();
+                        ItemStack var9 = (ItemStack)var8.next();
 
-                        if (itemstack == itemstack1 && (itemstack1.getItemDamage() == 32767 || itemstack.getItemDamage() == itemstack1.getItemDamage()))
+                        if (var6.getItem() == var9.getItem() && (var9.getItemDamage() == 32767 || var6.getItemDamage() == var9.getItemDamage()))
                         {
-                        	if(needsExtraSlot && extraSlot == null)
-                            {                                                   
-                            	flag = true;
-                            	arraylist.remove(itemstack1);
-                            	break;
-                            }
+                            var7 = true;
+                            var3.remove(var9);
+                            break;
                         }
                     }
 
-                    if (!flag)
+                    if (!var7)
                     {
                         return false;
                     }
@@ -75,13 +71,13 @@ public class StonecutterShapelessRecipes implements IRecipe
             }
         }
 
-        return arraylist.isEmpty();
+        return var3.isEmpty();
     }
 
     /**
      * Returns an Item that is the result of this recipe
      */
-    public ItemStack getCraftingResult(InventoryCrafting par1InventoryCrafting)
+    public ItemStack getCraftingResult(InventoryCrafting par1InventoryCrafting, InventoryStonecutterExtraSlot extraInv)
     {
         return this.recipeOutput.copy();
     }

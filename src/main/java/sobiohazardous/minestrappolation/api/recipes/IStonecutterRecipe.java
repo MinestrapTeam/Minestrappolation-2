@@ -1,6 +1,7 @@
 package sobiohazardous.minestrappolation.api.recipes;
 
 import sobiohazardous.minestrappolation.api.tileentity.InventoryStonecutterExtraSlot;
+import net.minecraft.inventory.InventoryBasic;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;

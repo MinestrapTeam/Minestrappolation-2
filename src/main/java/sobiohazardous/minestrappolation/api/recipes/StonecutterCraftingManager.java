@@ -2,22 +2,23 @@ package sobiohazardous.minestrappolation.api.recipes;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 
 import sobiohazardous.minestrappolation.api.tileentity.InventoryStonecutterExtraSlot;
 import net.minecraft.block.Block;
 import net.minecraft.init.Items;
+import net.minecraft.inventory.InventoryBasic;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.world.World;
 
 public class StonecutterCraftingManager
 {
     /** The static instance of this class */
-    private static final StonecutterCraftingManager instance = new StonecutterCraftingManager();
+    public static final StonecutterCraftingManager instance = new StonecutterCraftingManager();
 
     /** A list of all the recipes added */
     private List recipes = new ArrayList();
@@ -33,11 +34,22 @@ public class StonecutterCraftingManager
     private StonecutterCraftingManager()
     {
         //add recipes
-    	this.addRecipe(new ItemStack(Items.stick, 1), Items.apple, new Object[]{"SSS", Character.valueOf('S'), Items.stick});
-        Collections.sort(this.recipes, new StonecutterRecipeSorter(this));
+    	this.addRecipe(new ItemStack(Items.stick, 1), new ItemStack(Items.stick, 1), new Object[]{" S ", " S ", " S ", 'S', Items.stick});
+    	
+    	Collections.sort(this.recipes, new Comparator()
+        {
+            public int compare(IStonecutterRecipe par1IRecipe, IStonecutterRecipe par2IRecipe)
+            {
+                return par1IRecipe instanceof StonecutterShapelessRecipes && par2IRecipe instanceof StonecutterShapedRecipes ? 1 : (par2IRecipe instanceof StonecutterShapelessRecipes && par1IRecipe instanceof StonecutterShapedRecipes ? -1 : (par2IRecipe.getRecipeSize() < par1IRecipe.getRecipeSize() ? -1 : (par2IRecipe.getRecipeSize() > par1IRecipe.getRecipeSize() ? 1 : 0)));
+            }
+            public int compare(Object par1Obj, Object par2Obj)
+            {
+                return this.compare((IStonecutterRecipe)par1Obj, (IStonecutterRecipe)par2Obj);
+            }
+        });    
     }
 
-    public StonecutterShapedRecipes addRecipe(ItemStack par1ItemStack, Item extraSlotId,Object ... par2ArrayOfObj)
+    StonecutterShapedRecipes addRecipe(ItemStack par1ItemStack, ItemStack extraSlot, Object ... par2ArrayOfObj)
     {
     	String var3 = "";
         int var4 = 0;
@@ -105,59 +117,47 @@ public class StonecutterCraftingManager
                 var15[var16] = null;
             }
         }
-        
-        ItemStack extraSlot = null;
-        if(extraSlotId!= null)
-        {
-        	extraSlot = new ItemStack(extraSlotId, 1, 0);
-        }
-        
-        StonecutterShapedRecipes shapedrecipes = new StonecutterShapedRecipes(var5, var6, var15, par1ItemStack, extraSlot);
-        this.recipes.add(shapedrecipes);
-        return shapedrecipes;
+
+        StonecutterShapedRecipes var17 = new StonecutterShapedRecipes(var5, var6, var15, par1ItemStack, extraSlot);
+        this.recipes.add(var17);
+        return var17;
     }
 
-    public void addShapelessRecipe(ItemStack par1ItemStack, Item extraSlotId, boolean needsExtraSlot, Object ... par2ArrayOfObj)
+    void addShapelessRecipe(ItemStack par1ItemStack, ItemStack extra, Object ... par2ArrayOfObj)
     {
-        ArrayList arraylist = new ArrayList();
-        Object[] aobject = par2ArrayOfObj;
-        int i = par2ArrayOfObj.length;
+        ArrayList var3 = new ArrayList();
+        Object[] var4 = par2ArrayOfObj;
+        int var5 = par2ArrayOfObj.length;
 
-        for (int j = 0; j < i; ++j)
+        for (int var6 = 0; var6 < var5; ++var6)
         {
-            Object object1 = aobject[j];
+            Object var7 = var4[var6];
 
-            if (object1 instanceof ItemStack)
+            if (var7 instanceof ItemStack)
             {
-                arraylist.add(((ItemStack)object1).copy());
+                var3.add(((ItemStack)var7).copy());
             }
-            else if (object1 instanceof Item)
+            else if (var7 instanceof Item)
             {
-                arraylist.add(new ItemStack((Item)object1));
+                var3.add(new ItemStack((Item)var7));
             }
             else
             {
-                if (!(object1 instanceof Block))
+                if (!(var7 instanceof Block))
                 {
                     throw new RuntimeException("Invalid shapeless recipy!");
                 }
 
-                arraylist.add(new ItemStack((Block)object1));
+                var3.add(new ItemStack((Block)var7));
             }
         }
 
-        ItemStack extraSlot = null;
-        if(extraSlotId!= null)
-        {
-        	extraSlot = new ItemStack(extraSlotId, 1, 0);
-        }
-        
-        this.recipes.add(new StonecutterShapelessRecipes(par1ItemStack, arraylist, extraSlot, needsExtraSlot));
+        this.recipes.add(new StonecutterShapelessRecipes(par1ItemStack, var3, extra));
     }
 
     public ItemStack findMatchingRecipe(InventoryCrafting par1InventoryCrafting, InventoryStonecutterExtraSlot extra, World par2World)
     {
-        int var3 = 0;
+    	int var3 = 0;
         ItemStack var4 = null;
         ItemStack var5 = null;
         int var6;
@@ -202,7 +202,6 @@ public class StonecutterCraftingManager
             for (var6 = 0; var6 < this.recipes.size(); ++var6)
             {
                 IStonecutterRecipe var12 = (IStonecutterRecipe)this.recipes.get(var6);
-
                 if (var12.matches(par1InventoryCrafting, extra, par2World))
                 {
                     return var12.getCraftingResult(par1InventoryCrafting, extra);
