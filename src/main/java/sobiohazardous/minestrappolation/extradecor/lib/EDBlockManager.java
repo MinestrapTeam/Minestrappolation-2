@@ -247,7 +247,7 @@ public class EDBlockManager
 	{
 		if(Loader.isModLoaded(MAPIReference.MODID_EO))
 		{
-			bedrockBrick = new BlockBedrockBrick().setBlockName("BedrockBrick").setStepSound(Block.soundTypeStone).setResistance(100000000F).setHardness(80F).setCreativeTab(tabDecorBlocks).setBlockTextureName(MAssetManager.getEDStonecutterTexture("Bedrock_Tiles_0_0"));
+			bedrockBrick = new BlockBedrockBrick().setBlockName("BedrockBrick").setStepSound(Block.soundTypeStone).setResistance(100000000F).setHardness(80F).setCreativeTab(tabDecorBlocks).setBlockTextureName(MAssetManager.getEDStonecutterTexture("Bedrock_Bricks_0_0"));
 			GameRegistry.registerBlock(bedrockBrick,"BedrockBrick");
 			bedrockBrick.setHarvestLevel("pickaxe", 4);
 		}	
