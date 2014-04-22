@@ -2,7 +2,7 @@ package sobiohazardous.minestrappolation.extradecor.proxy;
 
 import sobiohazardous.minestrappolation.extradecor.handler.PaneRenderingHandler;
 import sobiohazardous.minestrappolation.extradecor.handler.RopeRenderingHandler;
-import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
+import sobiohazardous.minestrappolation.extradecor.lib.EDBlocks;
 import sobiohazardous.minestrappolation.extradecor.tileentity.RendererGoblet;
 import sobiohazardous.minestrappolation.extradecor.tileentity.RendererPlate;
 import sobiohazardous.minestrappolation.extradecor.tileentity.TileEntityGoblet;
@@ -31,7 +31,7 @@ public class ClientProxy extends CommonProxy
          */
     	ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGoblet.class, new RendererGoblet());
     	ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPlate.class, new RendererPlate());
-    	MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(EDBlockManager.Plate), new ItemRendererPlate());
+    	MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(EDBlocks.Plate), new ItemRendererPlate());
     	RenderingRegistry.registerBlockHandler(new PaneRenderingHandler());
     	RenderingRegistry.registerBlockHandler(new RopeRenderingHandler());
     }

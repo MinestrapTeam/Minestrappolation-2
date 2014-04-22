@@ -4,7 +4,7 @@ import java.util.Random;
 
 import sobiohazardous.minestrappolation.api.block.MBlock;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
-import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
+import sobiohazardous.minestrappolation.extradecor.lib.EDBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -19,7 +19,7 @@ public class EDBlock extends MBlock
 	public EDBlock(Material material)
     {
         super(material);
-        this.setCreativeTab(EDBlockManager.tabDecorBlocks);
+        this.setCreativeTab(EDBlocks.tabDecorBlocks);
     }
 
     /**
@@ -39,7 +39,7 @@ public class EDBlock extends MBlock
     
 	public int getFlammability(IBlockAccess world, int x, int y, int z, ForgeDirection face)
     {
-    	if(world.getBlock(x, y, z) == EDBlockManager.woodPanel || world.getBlock(x, y, z) ==EDBlockManager.woodBeveled)
+    	if(world.getBlock(x, y, z) == EDBlocks.woodPanel || world.getBlock(x, y, z) ==EDBlocks.woodBeveled)
     	{
     		if(face == ForgeDirection.UP || face == ForgeDirection.DOWN || face == ForgeDirection.NORTH || face == ForgeDirection.SOUTH || face == ForgeDirection.EAST || face == ForgeDirection.WEST)
     		{

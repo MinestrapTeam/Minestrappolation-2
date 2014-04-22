@@ -10,8 +10,8 @@ import sobiohazardous.minestrappolation.api.block.MBlock;
 import sobiohazardous.minestrappolation.api.util.MAssetManager;
 import sobiohazardous.minestrappolation.api.util.MUtil;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
-import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
-import sobiohazardous.minestrappolation.extradecor.lib.EDItemManager;
+import sobiohazardous.minestrappolation.extradecor.lib.EDBlocks;
+import sobiohazardous.minestrappolation.extradecor.lib.EDItems;
 import sobiohazardous.minestrappolation.extradecor.tileentity.TileEntityEdgeStoneCorner;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
@@ -258,7 +258,7 @@ public class BlockEdgeStoneCorner extends BlockContainer
 	@Override
 	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)    
 	{
-		return Item.getItemFromBlock(EDBlockManager.edgeStoneBrick);
+		return Item.getItemFromBlock(EDBlocks.edgeStoneBrick);
 	}
 
 	@Override

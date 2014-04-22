@@ -7,7 +7,7 @@ import java.util.List;
 
 import sobiohazardous.minestrappolation.api.util.MAssetManager;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
-import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
+import sobiohazardous.minestrappolation.extradecor.lib.EDBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -49,13 +49,13 @@ public class BlockRefinedRoad extends Block
      */
     public void registerBlockIcons(IIconRegister par1IconRegister)
     {
-    	if(this == EDBlockManager.refinedRoad)
+    	if(this == EDBlocks.refinedRoad)
     	{
     		this.blockIcon = par1IconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Stone_Road_Side_0"));
     		this.top = par1IconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Stone_PatternBricks_0_0"));
     		this.bottom = par1IconRegister.registerIcon(MAssetManager.getEDTexture("roadStoneBottom"));
     	}
-    	else if(this == EDBlockManager.refinedNetherroad)
+    	else if(this == EDBlocks.refinedNetherroad)
     	{
     		this.blockIcon = par1IconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Netherrack_Road_Side_0"));
     		this.top = par1IconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Netherrack_PatternBricks_0_0"));
@@ -100,12 +100,12 @@ public class BlockRefinedRoad extends Block
     
     public void onEntityWalking(World par1World, int par2, int par3, int par4, Entity par5Entity)
     {
-    	if(this == EDBlockManager.refinedRoad)
+    	if(this == EDBlocks.refinedRoad)
     	{
     		par5Entity.motionX *= 1.6;
     		par5Entity.motionZ *= 1.6;
     	}
-    	else if(this == EDBlockManager.refinedNetherroad)
+    	else if(this == EDBlocks.refinedNetherroad)
     	{
     		par5Entity.motionX *= 2.4;
     		par5Entity.motionZ *= 2.4;

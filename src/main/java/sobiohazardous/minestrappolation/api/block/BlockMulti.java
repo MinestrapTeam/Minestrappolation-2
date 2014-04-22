@@ -1,14 +1,10 @@
-package sobiohazardous.minestrappolation.extradecor.block;
+package sobiohazardous.minestrappolation.api.block;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 import java.util.List;
 
-import javax.swing.Icon;
-
-import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
-import sobiohazardous.minestrappolation.extradecor.lib.EDBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -16,18 +12,17 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
-import net.minecraft.util.MathHelper;
 
-public class BlockSandstoneBrick extends Block
+public class BlockMulti extends Block
 {
     @SideOnly(Side.CLIENT)
     private IIcon[] iconArray;
-    public static final String[] brickTextures = new String[] {"extradecor:/stoneCutter/Sandstone_Bricks_0_0", "extradecor:/stoneCutter/Sandstone_PatternBricks_0_0", "extradecor:stoneCutter/Sandstone_BricksMossy_0_0", "extradecor:stoneCutter/Sandstone_Heiroglyph1_0_0", "extradecor:stoneCutter/Sandstone_Heiroglyph2_0_0"};
+    public static String[] iconStringArray = null;
     
-    public BlockSandstoneBrick()
+    public BlockMulti(Material mat, String[] textures)
     {
-        super(Material.rock);
-        this.setCreativeTab(EDBlocks.tabDecorBlocks);
+        super(mat);
+        iconStringArray = textures;
     }
 
     @SideOnly(Side.CLIENT)
@@ -58,13 +53,12 @@ public class BlockSandstoneBrick extends Block
     /**
      * returns a list of blocks with the same ID, but different meta (eg: wood returns 4 blocks)
      */
-	public void getSubBlocks(Item par1, CreativeTabs par2CreativeTabs, List par3List) 
+    public void getSubBlocks(Item par1, CreativeTabs par2CreativeTabs, List par3List)
     {
-    	par3List.add(new ItemStack(par1, 1, 0));
-    	par3List.add(new ItemStack(par1, 1, 1));
-    	par3List.add(new ItemStack(par1, 1, 2));
-    	par3List.add(new ItemStack(par1, 1, 3));
-    	par3List.add(new ItemStack(par1, 1, 4));
+    	for(int i=0; i < iconStringArray.length; i++)
+    	{
+        	par3List.add(new ItemStack(par1, 1, i));
+    	}
     }
 
     @SideOnly(Side.CLIENT)
@@ -75,11 +69,11 @@ public class BlockSandstoneBrick extends Block
      */
     public void registerBlockIcons(IIconRegister par1IconRegister)
     {
-        this.iconArray = new IIcon[brickTextures.length];
+        this.iconArray = new IIcon[iconStringArray.length];
 
         for (int i = 0; i < this.iconArray.length; ++i)
         {
-            this.iconArray[i] = par1IconRegister.registerIcon(brickTextures[i]);
+            this.iconArray[i] = par1IconRegister.registerIcon(iconStringArray[i]);
         }
     }
 }

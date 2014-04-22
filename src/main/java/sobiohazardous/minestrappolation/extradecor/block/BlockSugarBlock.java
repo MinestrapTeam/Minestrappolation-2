@@ -3,7 +3,7 @@ package sobiohazardous.minestrappolation.extradecor.block;
 import java.util.Random;
 
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
-import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
+import sobiohazardous.minestrappolation.extradecor.lib.EDBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.material.Material;
@@ -14,7 +14,7 @@ public class BlockSugarBlock extends BlockFalling
 	public BlockSugarBlock()
 	{
 		super(Material.ground);
-		this.setCreativeTab(EDBlockManager.tabDecorBlocks);
+		this.setCreativeTab(EDBlocks.tabDecorBlocks);
 	}
 	
 	//TODO Add code from the features list

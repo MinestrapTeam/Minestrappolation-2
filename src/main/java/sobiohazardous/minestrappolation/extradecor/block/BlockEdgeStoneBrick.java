@@ -7,7 +7,7 @@ import java.util.Random;
 import sobiohazardous.minestrappolation.api.util.MAssetManager;
 import sobiohazardous.minestrappolation.api.util.MUtil;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
-import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
+import sobiohazardous.minestrappolation.extradecor.lib.EDBlocks;
 import sobiohazardous.minestrappolation.extradecor.tileentity.TileEntityEdgeStone;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
@@ -35,7 +35,7 @@ public class BlockEdgeStoneBrick extends BlockContainer
 	public BlockEdgeStoneBrick()
     {
         super(Material.rock);
-        this.setCreativeTab(EDBlockManager.tabDecorBlocks);
+        this.setCreativeTab(EDBlocks.tabDecorBlocks);
     }
 	
 	public void registerBlockIcons(IIconRegister par1IconRegister)
@@ -77,7 +77,7 @@ public class BlockEdgeStoneBrick extends BlockContainer
 	@Override
 	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)    
 	{
-		return Item.getItemFromBlock(EDBlockManager.edgeStoneBrick);
+		return Item.getItemFromBlock(EDBlocks.edgeStoneBrick);
 	}
 
 	@Override

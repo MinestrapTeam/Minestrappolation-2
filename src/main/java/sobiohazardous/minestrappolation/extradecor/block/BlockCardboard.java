@@ -5,8 +5,8 @@ import java.util.Random;
 import sobiohazardous.minestrappolation.api.util.MAssetManager;
 import sobiohazardous.minestrappolation.api.util.MUtil;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
-import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
-import sobiohazardous.minestrappolation.extradecor.lib.EDItemManager;
+import sobiohazardous.minestrappolation.extradecor.lib.EDBlocks;
+import sobiohazardous.minestrappolation.extradecor.lib.EDItems;
 import sobiohazardous.minestrappolation.extradecor.tileentity.TileEntityCardBoard;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -33,7 +33,7 @@ public class BlockCardboard extends BlockContainer
    
 	public int getFlammability(IBlockAccess world, int x, int y, int z, ForgeDirection face)
     {
-    	if(world.getBlock(x, y, z) == EDBlockManager.cardboardBlock)
+    	if(world.getBlock(x, y, z) == EDBlocks.cardboardBlock)
     	{
     		if(face == ForgeDirection.UP || face == ForgeDirection.DOWN || face == ForgeDirection.NORTH || face == ForgeDirection.SOUTH || face == ForgeDirection.EAST || face == ForgeDirection.WEST)
     		{
@@ -84,7 +84,7 @@ public class BlockCardboard extends BlockContainer
     
 	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)    
 	{
-    	return EDItemManager.cardboardItem;
+    	return EDItems.cardboardItem;
     }
     
     /**

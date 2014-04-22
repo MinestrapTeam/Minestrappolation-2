@@ -11,10 +11,10 @@ import sobiohazardous.minestrappolation.extradecor.bridge.EDBridgeRecipes;
 import sobiohazardous.minestrappolation.extradecor.gen.EDOreGenerator;
 import sobiohazardous.minestrappolation.extradecor.handler.EDGuiHandler;
 import sobiohazardous.minestrappolation.extradecor.handler.EDPriestTradeHandler;
-import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
+import sobiohazardous.minestrappolation.extradecor.lib.EDBlocks;
 import sobiohazardous.minestrappolation.extradecor.lib.EDConfig;
-import sobiohazardous.minestrappolation.extradecor.lib.EDItemManager;
-import sobiohazardous.minestrappolation.extradecor.lib.EDRecipeManager;
+import sobiohazardous.minestrappolation.extradecor.lib.EDItems;
+import sobiohazardous.minestrappolation.extradecor.lib.EDRecipes;
 import sobiohazardous.minestrappolation.extradecor.lib.EDTileEntityManager;
 import sobiohazardous.minestrappolation.extradecor.proxy.CommonProxy;
 import net.minecraft.client.Minecraft;
@@ -55,13 +55,13 @@ public class ExtraDecor
 	{
 		//load libs
 		EDConfig.initilize(event);			
-		EDBlockManager.createBlocks();
-	    EDBlockManager.registerBlocks();
-	    EDItemManager.addItems();
-		EDRecipeManager.loadAllRecipes();
+		EDBlocks.createBlocks();
+	    EDBlocks.registerBlocks();
+	    EDItems.addItems();
+		EDRecipes.loadAllRecipes();
 		EDOreRegistry.addOreRecipes();
-		EDRecipeManager.removeRecipes();
-		EDItemManager.setHarvestLevels();	
+		EDRecipes.removeRecipes();
+		EDItems.setHarvestLevels();	
 	}	
 	
 	@Mod.EventHandler
@@ -74,18 +74,18 @@ public class ExtraDecor
 		//MinecraftForge.setToolClass(Items.shears, "shears", 0);
 		GameRegistry.registerWorldGenerator(new EDOreGenerator(), 0);
 		VillagerRegistry.instance().registerVillageTradeHandler(2, new EDPriestTradeHandler());
-		EDBlockManager.loadVanillaOverwrites();
+		EDBlocks.loadVanillaOverwrites();
 		proxy.registerRenderThings();	
 	}
 
 	@Mod.EventHandler
     public void postLoad(FMLPostInitializationEvent evt)
 	{
-		EDItemManager.addItemsToItemList();
+		EDItems.addItemsToItemList();
 		
 		try 
 		{
-			EDBlockManager.loadBridgedBlocks();
+			EDBlocks.loadBridgedBlocks();
 			EDBridgeRecipes.loadBridgeRecipes();
 		} catch (Exception e) 
 		{

@@ -3,7 +3,7 @@ package sobiohazardous.minestrappolation.extradecor.block;
 import java.util.List;
 
 import sobiohazardous.minestrappolation.api.util.MAssetManager;
-import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
+import sobiohazardous.minestrappolation.extradecor.lib.EDBlocks;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -23,7 +23,7 @@ public class BlockEndStone extends Block
 	public BlockEndStone() 
 	{
 		super(Material.rock);
-		this.setCreativeTab(EDBlockManager.tabDecorBlocks);
+		this.setCreativeTab(EDBlocks.tabDecorBlocks);
 	}
 
 	public void registerBlockIcons(IIconRegister par1IconRegister) 

@@ -1,7 +1,7 @@
 package sobiohazardous.minestrappolation.extradecor.item;
 
 import sobiohazardous.minestrappolation.api.item.MItem;
-import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
+import sobiohazardous.minestrappolation.extradecor.lib.EDBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -20,7 +20,7 @@ public class ItemGDoor extends MItem
         super();
         this.doorMaterial = par2Material;
         this.maxStackSize = 1;
-        this.setCreativeTab(EDBlockManager.tabDecorBlocks);
+        this.setCreativeTab(EDBlocks.tabDecorBlocks);
     }
 
     /**
@@ -38,7 +38,7 @@ public class ItemGDoor extends MItem
             ++par5;
             Block var11;
 
-            var11 = EDBlockManager.GlassDoor;
+            var11 = EDBlocks.GlassDoor;
 
             if (par2EntityPlayer.canPlayerEdit(par4, par5, par6, par7, par1ItemStack) && par2EntityPlayer.canPlayerEdit(par4, par5 + 1, par6, par7, par1ItemStack))
             {

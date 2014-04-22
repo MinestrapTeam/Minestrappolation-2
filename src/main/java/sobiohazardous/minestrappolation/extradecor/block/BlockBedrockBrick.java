@@ -3,7 +3,7 @@ package sobiohazardous.minestrappolation.extradecor.block;
 import java.util.Random;
 
 import sobiohazardous.minestrappolation.api.block.MBlock;
-import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
+import sobiohazardous.minestrappolation.extradecor.lib.EDBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.enchantment.EnchantmentHelper;

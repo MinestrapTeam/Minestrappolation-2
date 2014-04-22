@@ -6,8 +6,8 @@ import java.util.Random;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import sobiohazardous.minestrappolation.api.util.MAssetManager;
-import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
-import sobiohazardous.minestrappolation.extradecor.lib.EDItemManager;
+import sobiohazardous.minestrappolation.extradecor.lib.EDBlocks;
+import sobiohazardous.minestrappolation.extradecor.lib.EDItems;
 import sobiohazardous.minestrappolation.extradecor.tileentity.TileEntityGoblet;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
@@ -64,33 +64,33 @@ public class BlockGoblet extends BlockContainer
             {
         		par5EntityPlayer.inventory.getCurrentItem().stackSize --;
         		par5EntityPlayer.inventory.addItemStackToInventory(new ItemStack(Items.bucket));
-            	par1World.setBlock(par2, par3, par4, EDBlockManager.Goblet, 1,2);
+            	par1World.setBlock(par2, par3, par4, EDBlocks.Goblet, 1,2);
                 return true;
             }
         	else if (par5EntityPlayer.getCurrentEquippedItem() != null && par5EntityPlayer.inventory.getCurrentItem().getItem() == Items.milk_bucket)
             {
         		par5EntityPlayer.inventory.getCurrentItem().stackSize --;
         		par5EntityPlayer.inventory.addItemStackToInventory(new ItemStack(Items.bucket));
-            	par1World.setBlock(par2, par3, par4, EDBlockManager.Goblet, 2,2);
+            	par1World.setBlock(par2, par3, par4, EDBlocks.Goblet, 2,2);
                 return true;
             }
         	else if (par5EntityPlayer.getCurrentEquippedItem() != null && par5EntityPlayer.inventory.getCurrentItem() == new ItemStack(Items.potionitem,1,8026))
             {
         		par5EntityPlayer.inventory.getCurrentItem().stackSize --;
         		par5EntityPlayer.inventory.addItemStackToInventory(new ItemStack(Items.glass_bottle));
-            	par1World.setBlock(par2, par3, par4, EDBlockManager.Goblet, 3,2);
+            	par1World.setBlock(par2, par3, par4, EDBlocks.Goblet, 3,2);
                 return true;
             }
         	else if (par5EntityPlayer.getCurrentEquippedItem() != null && par5EntityPlayer.inventory.getCurrentItem() == new ItemStack(Items.potionitem,1,8193))
             {
         		par5EntityPlayer.inventory.getCurrentItem().stackSize --;
         		par5EntityPlayer.inventory.addItemStackToInventory(new ItemStack(Items.glass_bottle));
-            	par1World.setBlock(par2, par3, par4, EDBlockManager.Goblet, 4,2);
+            	par1World.setBlock(par2, par3, par4, EDBlocks.Goblet, 4,2);
                 return true;
             }
         	
         case 1:
-        		par1World.setBlock(par2, par3, par4, EDBlockManager.Goblet, 0,2);
+        		par1World.setBlock(par2, par3, par4, EDBlocks.Goblet, 0,2);
         		if(par5EntityPlayer.isBurning())
         		{
         			par5EntityPlayer.extinguish();
@@ -98,16 +98,16 @@ public class BlockGoblet extends BlockContainer
             	return true;
             	
         case 2:
-        	par1World.setBlock(par2, par3, par4, EDBlockManager.Goblet, 0,2);
+        	par1World.setBlock(par2, par3, par4, EDBlocks.Goblet, 0,2);
         	par5EntityPlayer.curePotionEffects(new ItemStack(Items.milk_bucket));
         	return true;
         	
         case 3:
-        	par1World.setBlock(par2, par3, par4, EDBlockManager.Goblet, 0,2);
+        	par1World.setBlock(par2, par3, par4, EDBlocks.Goblet, 0,2);
         	par5EntityPlayer.addPotionEffect(new PotionEffect(Potion.invisibility.id,3490,0,true));
         	return true;
         case 4:
-        	par1World.setBlock(par2, par3, par4, EDBlockManager.Goblet, 0,2);
+        	par1World.setBlock(par2, par3, par4, EDBlocks.Goblet, 0,2);
         	par5EntityPlayer.addPotionEffect(new PotionEffect(Potion.regeneration.id,3490,0,true));
         	return true;
         	
@@ -144,7 +144,7 @@ public class BlockGoblet extends BlockContainer
 	@Override
 	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)    
 	{
-		return EDItemManager.gobletItem;
+		return EDItems.gobletItem;
 	}
 	@Override
 	public TileEntity createNewTileEntity(World var1, int var2) 

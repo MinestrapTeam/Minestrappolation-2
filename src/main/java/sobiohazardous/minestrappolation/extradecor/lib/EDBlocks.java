@@ -3,6 +3,8 @@ package sobiohazardous.minestrappolation.extradecor.lib;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
+import sobiohazardous.minestrappolation.api.Minestrappolation;
+import sobiohazardous.minestrappolation.api.block.BlockMulti;
 import sobiohazardous.minestrappolation.api.block.BlockPillar;
 import sobiohazardous.minestrappolation.api.block.MBlock;
 import sobiohazardous.minestrappolation.api.item.MItem;
@@ -25,7 +27,7 @@ import net.minecraft.item.ItemReed;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 
-public class EDBlockManager 
+public class EDBlocks 
 {	
 	public static final Material materialOoze = new MaterialOoze(MapColor.foliageColor);
 	
@@ -103,6 +105,10 @@ public class EDBlockManager
 	public static Block woodPlanksMossy;
 	
 	public static Block GlassDoor;
+	
+	public static Block bedrockBlocks;
+	public static Block bedrockPillars;
+	public static Block bedrockRoads;
 
 	public static CreativeTabs tabDecorBlocks = new CreativeTabExtraDecorBlocks(CreativeTabs.getNextID(),"Extrappolated Decor");
 	public static void createBlocks()
@@ -182,7 +188,9 @@ public class EDBlockManager
 		Plate = new BlockPlate(Material.rock).setCreativeTab(tabDecorBlocks).setBlockName("plate");
 		
 		GlassDoor = (new BlockGlassDoor(Material.glass)).setHardness(1F).setBlockName("doorGlass");
-
+		
+		//bedrockBlocks = new BlockMulti(Material.rock, new String[]{MAssetManager.getEDStonecutterTexture("Bedrock_LampGlowstone_0_0"), MAssetManager.getEDStonecutterTexture("Bedrock_LampSunstone_0_0"), MAssetManager.getEDStonecutterTexture("Bedrock_PatternBricks_0_0"), MAssetManager.getEDStonecutterTexture("Bedrock_Refined_0_0"), MAssetManager.getEDStonecutterTexture("Bedrock_Tiles_0_0")}).setBlockName("bedrockBlock").setHardness(40F).setResistance(400F).setCreativeTab(tabDecorBlocks);
+		//TODO FInish stonecutter blocks and fix creative tab!
 	}
 	
 	public static void loadVanillaOverwrites()
@@ -241,6 +249,9 @@ public class EDBlockManager
 		GameRegistry.registerBlock(woodPlanksMossy, ItemBlockMulti.class, "woodPlanksMossy");
 		GameRegistry.registerBlock(stones, ItemBlockMulti.class, "Stones");
 		GameRegistry.registerBlock(Tiles, ItemBlockMulti.class, "tiles");
+		
+		GameRegistry.registerBlock(bedrockBlocks, ItemBlockMulti.class, "bedrockBlocks");
+
 	}
 	
 	public static void loadBridgedBlocks() throws Exception

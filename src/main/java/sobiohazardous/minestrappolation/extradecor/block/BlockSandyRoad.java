@@ -8,7 +8,7 @@ import java.util.Random;
 
 import sobiohazardous.minestrappolation.api.util.MAssetManager;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
-import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
+import sobiohazardous.minestrappolation.extradecor.lib.EDBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.material.Material;
@@ -44,13 +44,13 @@ public class BlockSandyRoad extends BlockFalling
      */
     public void registerBlockIcons(IIconRegister par1IconRegister)
     {
-    	if(this == EDBlockManager.sandyRoad)
+    	if(this == EDBlocks.sandyRoad)
     	{
     		this.blockIcon = par1IconRegister.registerIcon(MAssetManager.getEDTexture("roadSandSide"));
     		this.top = par1IconRegister.registerIcon(MAssetManager.getEDTexture("roadSandTop"));
     		this.bottom = par1IconRegister.registerIcon(MAssetManager.getEDTexture("roadSandBottom"));
     	}
-    	else if(this == EDBlockManager.sandstoneRoad)
+    	else if(this == EDBlocks.sandstoneRoad)
     	{
     		this.blockIcon = par1IconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Sandstone_Road_Side_0"));
     		this.top = par1IconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Sandstone_PatternBricks_0_0"));
@@ -95,12 +95,12 @@ public class BlockSandyRoad extends BlockFalling
     
     public void onEntityWalking(World par1World, int par2, int par3, int par4, Entity par5Entity)
     {
-    	if(this == EDBlockManager.sandyRoad)
+    	if(this == EDBlocks.sandyRoad)
     	{
     		par5Entity.motionX *= 1.4;
     		par5Entity.motionZ *= 1.4;
     	}
-    	else if(this == EDBlockManager.gravelRoad)
+    	else if(this == EDBlocks.gravelRoad)
     	{
     		par5Entity.motionX *= 1.6;
     		par5Entity.motionZ *= 1.6;

@@ -3,7 +3,7 @@ package sobiohazardous.minestrappolation.extradecor.block;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import sobiohazardous.minestrappolation.api.util.MAssetManager;
-import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
+import sobiohazardous.minestrappolation.extradecor.lib.EDBlocks;
 import sobiohazardous.minestrappolation.extradecor.tileentity.TileEntityPlate;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;

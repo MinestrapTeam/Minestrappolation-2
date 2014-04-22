@@ -2,7 +2,7 @@ package sobiohazardous.minestrappolation.extradecor.block;
 
 import java.util.List;
 
-import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
+import sobiohazardous.minestrappolation.extradecor.lib.EDBlocks;
 import sobiohazardous.minestrappolation.extradecor.tileentity.TileEntity100;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
@@ -26,7 +26,7 @@ public class Block100 extends BlockContainer
 	public Block100() 
 	{
 		super(Material.grass);
-		this.setCreativeTab(EDBlockManager.tabDecorBlocks);
+		this.setCreativeTab(EDBlocks.tabDecorBlocks);
 	}
 
 	public int damageDropped(int par1)

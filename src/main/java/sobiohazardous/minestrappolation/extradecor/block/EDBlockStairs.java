@@ -1,7 +1,7 @@
 package sobiohazardous.minestrappolation.extradecor.block;
 
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
-import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
+import sobiohazardous.minestrappolation.extradecor.lib.EDBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.world.IBlockAccess;
@@ -17,7 +17,7 @@ public class EDBlockStairs extends BlockStairs
 	
 	public int getFlammability(IBlockAccess world, int x, int y, int z, ForgeDirection face)
     {
-    	if(world.getBlock(x, y, z) == EDBlockManager.woodBoardsStairsOak || world.getBlock(x, y, z) == EDBlockManager.woodBoardsStairsBirch || world.getBlock(x, y, z) == EDBlockManager.woodBoardsStairsSpruce || world.getBlock(x, y, z) == EDBlockManager.woodBoardsStairsJungle)
+    	if(world.getBlock(x, y, z) == EDBlocks.woodBoardsStairsOak || world.getBlock(x, y, z) == EDBlocks.woodBoardsStairsBirch || world.getBlock(x, y, z) == EDBlocks.woodBoardsStairsSpruce || world.getBlock(x, y, z) == EDBlocks.woodBoardsStairsJungle)
     	{
     		if(face == ForgeDirection.UP || face == ForgeDirection.DOWN || face == ForgeDirection.NORTH || face == ForgeDirection.SOUTH || face == ForgeDirection.EAST || face == ForgeDirection.WEST)
     		{

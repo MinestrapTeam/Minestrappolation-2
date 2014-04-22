@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Random;
 
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
-import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
+import sobiohazardous.minestrappolation.extradecor.lib.EDBlocks;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -26,7 +26,7 @@ public class BlockWoodBoardSlab extends BlockSlab
     public BlockWoodBoardSlab(boolean par2)
     {
         super(par2, Material.wood);
-        this.setCreativeTab(EDBlockManager.tabDecorBlocks);
+        this.setCreativeTab(EDBlocks.tabDecorBlocks);
     }
 
     @SideOnly(Side.CLIENT)
@@ -36,7 +36,7 @@ public class BlockWoodBoardSlab extends BlockSlab
      */
     public IIcon getIcon(int par1, int par2)
     {
-        return EDBlockManager.woodBoards.getIcon(par1, par2 & 7);
+        return EDBlocks.woodBoards.getIcon(par1, par2 & 7);
     }
 
     /**
@@ -59,7 +59,7 @@ public class BlockWoodBoardSlab extends BlockSlab
      */
     public void getSubBlocks(Item par1, CreativeTabs par2CreativeTabs, List par3List)
     {
-        if (par1 != Item.getItemFromBlock(EDBlockManager.woodBoardsDoubleSlab))
+        if (par1 != Item.getItemFromBlock(EDBlocks.woodBoardsDoubleSlab))
         {
             for (int j = 0; j < 4; ++j)
             {
@@ -73,7 +73,7 @@ public class BlockWoodBoardSlab extends BlockSlab
     
     public int getFlammability(IBlockAccess world, int x, int y, int z,ForgeDirection face)
     {
-    	if(world.getBlock(x, y, z) == EDBlockManager.woodBoardsSingleSlab || world.getBlock(x, y, z) == EDBlockManager.woodBoardsDoubleSlab)
+    	if(world.getBlock(x, y, z) == EDBlocks.woodBoardsSingleSlab || world.getBlock(x, y, z) == EDBlocks.woodBoardsDoubleSlab)
     	{
     		if(face == ForgeDirection.UP || face == ForgeDirection.DOWN || face == ForgeDirection.NORTH || face == ForgeDirection.SOUTH || face == ForgeDirection.EAST || face == ForgeDirection.WEST)
     		{

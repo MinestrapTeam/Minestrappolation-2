@@ -2,7 +2,7 @@ package sobiohazardous.minestrappolation.extradecor.tileentity;
 
 import sobiohazardous.minestrappolation.api.util.MUtil;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
-import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
+import sobiohazardous.minestrappolation.extradecor.lib.EDBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
@@ -19,39 +19,39 @@ public class TileEntityEdgeStone extends TileEntity
     public void updateEntity()
     {
     	if(this.worldObj.getBlock(this.xCoord, this.yCoord, this.zCoord+1) == Blocks.stonebrick  && this.worldObj.getBlock(this.xCoord-1, this.yCoord, this.zCoord) == Blocks.stonebrick ){
-    		this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.edgeStoneBrickCorner ,3,2);
+    		this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlocks.edgeStoneBrickCorner ,3,2);
 		}else
     	if(this.worldObj.getBlock(this.xCoord, this.yCoord, this.zCoord-1) == Blocks.stonebrick  && this.worldObj.getBlock(this.xCoord+1, this.yCoord, this.zCoord) == Blocks.stonebrick ){
-    		this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.edgeStoneBrickCorner ,2,2);
+    		this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlocks.edgeStoneBrickCorner ,2,2);
 		}
     	if(this.worldObj.getBlock(this.xCoord, this.yCoord, this.zCoord-1) == Blocks.stonebrick  && this.worldObj.getBlock(this.xCoord-1, this.yCoord, this.zCoord) == Blocks.stonebrick ){
-    		this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.edgeStoneBrickCorner ,0,2);
+    		this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlocks.edgeStoneBrickCorner ,0,2);
 		}else
     	if(this.worldObj.getBlock(this.xCoord, this.yCoord, this.zCoord+1) == Blocks.stonebrick  && this.worldObj.getBlock(this.xCoord+1, this.yCoord, this.zCoord) == Blocks.stonebrick ){
-    		this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.edgeStoneBrickCorner ,1,2);
+    		this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlocks.edgeStoneBrickCorner ,1,2);
 		}else
     	if(this.worldObj.getBlock(this.xCoord, this.yCoord, this.zCoord+1) == Blocks.stonebrick  && this.worldObj.getBlock(this.xCoord-1, this.yCoord, this.zCoord) == Blocks.stonebrick  && this.worldObj.getBlock(this.xCoord+1, this.yCoord, this.zCoord) == Blocks.stonebrick ){
-	    	this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.edgeStoneBrick );
+	    	this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlocks.edgeStoneBrick );
 		}
     	else{
 	    	if(this.worldObj.getBlock(this.xCoord, this.yCoord, this.zCoord+1) == Blocks.stonebrick ){
-	    		this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.edgeStoneBrickCorner ,4,2);
+	    		this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlocks.edgeStoneBrickCorner ,4,2);
 	    	}
 			if(this.worldObj.getBlock(this.xCoord, this.yCoord, this.zCoord-1) == Blocks.stonebrick ){
-	    		this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.edgeStoneBrickCorner ,6,2);
+	    		this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlocks.edgeStoneBrickCorner ,6,2);
 	    	}
 			if(this.worldObj.getBlock(this.xCoord+1, this.yCoord, this.zCoord) == Blocks.stonebrick ){
-	    		this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.edgeStoneBrickCorner ,7,2);
+	    		this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlocks.edgeStoneBrickCorner ,7,2);
 	    	}
 			if(this.worldObj.getBlock(this.xCoord-1, this.yCoord, this.zCoord) == Blocks.stonebrick ){
-	    		this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.edgeStoneBrickCorner ,5,2);
+	    		this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlocks.edgeStoneBrickCorner ,5,2);
 	    	}
 			
 			if(this.worldObj.getBlock(this.xCoord-1, this.yCoord, this.zCoord) == Blocks.stonebrick  && this.worldObj.getBlock(this.xCoord+1, this.yCoord, this.zCoord) == Blocks.stonebrick ){
-	    		this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.edgeStoneBrick );
+	    		this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlocks.edgeStoneBrick );
 			}
 			if(this.worldObj.getBlock(this.xCoord, this.yCoord, this.zCoord+1) == Blocks.stonebrick  && this.worldObj.getBlock(this.xCoord, this.yCoord, this.zCoord-1) == Blocks.stonebrick ){
-	    		this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlockManager.edgeStoneBrick );
+	    		this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EDBlocks.edgeStoneBrick );
 			}
 			
 		}

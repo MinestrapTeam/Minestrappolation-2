@@ -63,6 +63,7 @@ public class MAssetManager
 	 * @param type
 	 * @return
 	 */
+	@Deprecated
 	public static String[] getMaterialStringArray(String id, String matPrefix, String type)
 	{
 		List<String> textures = new ArrayList<>();
@@ -100,6 +101,7 @@ public class MAssetManager
 	 * @param matPrefix
 	 * @return
 	 */
+	@Deprecated
 	public static String[] getMaterialStringArray(String id, String matPrefix)
 	{
 		List<String> textures = new ArrayList<>();
@@ -138,6 +140,7 @@ public class MAssetManager
 	 * @param matPrefix
 	 * @return
 	 */
+	@Deprecated
 	public static String[] getMaterialStringArrayEx(String id, String matPrefix, String exc)
 	{
 		List<String> textures = new ArrayList<>();

@@ -1,7 +1,7 @@
 package sobiohazardous.minestrappolation.extradecor;
 
-import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
-import sobiohazardous.minestrappolation.extradecor.lib.EDItemManager;
+import sobiohazardous.minestrappolation.extradecor.lib.EDBlocks;
+import sobiohazardous.minestrappolation.extradecor.lib.EDItems;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.creativetab.CreativeTabs;
@@ -22,6 +22,6 @@ public final class CreativeTabExtraDecorBlocks extends CreativeTabs
     @Override
     public Item getTabIconItem() 
 	{
-		return EDItemManager.sandstoneBrickItem;
+		return EDItems.sandstoneBrickItem;
 	}
 }

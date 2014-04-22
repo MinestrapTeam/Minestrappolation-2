@@ -1,6 +1,6 @@
 package sobiohazardous.minestrappolation.extradecor.block;
 
-import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
+import sobiohazardous.minestrappolation.extradecor.lib.EDBlocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -12,14 +12,14 @@ public class EDOreRegistry
 {
 	public static void oreRegistration()
 	{
-		OreDictionary.registerOre("plankWood", new ItemStack(EDBlockManager.woodBoards, 1, 0));
-		OreDictionary.registerOre("plankWood", new ItemStack(EDBlockManager.woodBoards, 1, 1));
-		OreDictionary.registerOre("plankWood", new ItemStack(EDBlockManager.woodBoards, 1, 2));
-		OreDictionary.registerOre("plankWood", new ItemStack(EDBlockManager.woodBoards, 1, 3));
-		OreDictionary.registerOre("plankWood", new ItemStack(EDBlockManager.woodPlanksMossy, 1, 0));
-		OreDictionary.registerOre("plankWood", new ItemStack(EDBlockManager.woodPlanksMossy, 1, 1));
-		OreDictionary.registerOre("plankWood", new ItemStack(EDBlockManager.woodPlanksMossy, 1, 2));
-		OreDictionary.registerOre("plankWood", new ItemStack(EDBlockManager.woodPlanksMossy, 1, 3));
+		OreDictionary.registerOre("plankWood", new ItemStack(EDBlocks.woodBoards, 1, 0));
+		OreDictionary.registerOre("plankWood", new ItemStack(EDBlocks.woodBoards, 1, 1));
+		OreDictionary.registerOre("plankWood", new ItemStack(EDBlocks.woodBoards, 1, 2));
+		OreDictionary.registerOre("plankWood", new ItemStack(EDBlocks.woodBoards, 1, 3));
+		OreDictionary.registerOre("plankWood", new ItemStack(EDBlocks.woodPlanksMossy, 1, 0));
+		OreDictionary.registerOre("plankWood", new ItemStack(EDBlocks.woodPlanksMossy, 1, 1));
+		OreDictionary.registerOre("plankWood", new ItemStack(EDBlocks.woodPlanksMossy, 1, 2));
+		OreDictionary.registerOre("plankWood", new ItemStack(EDBlocks.woodPlanksMossy, 1, 3));
 		//raw
 		OreDictionary.registerOre("meatRaw", new ItemStack(Items.beef));
 		OreDictionary.registerOre("meatRaw", new ItemStack(Items.porkchop));
@@ -30,11 +30,11 @@ public class EDOreRegistry
 	
 	public static void addOreRecipes()
 	{
-		GameRegistry.addRecipe(new ShapedOreRecipe(EDBlockManager.meatBlock, true, new Object[]
+		GameRegistry.addRecipe(new ShapedOreRecipe(EDBlocks.meatBlock, true, new Object[]
 				{
 				"MMM", "MMM", "MMM", Character.valueOf('M'), "meatRaw"
 				}));
-		GameRegistry.addRecipe(new ShapedOreRecipe(EDBlockManager.crate, true, new Object[]
+		GameRegistry.addRecipe(new ShapedOreRecipe(EDBlocks.crate, true, new Object[]
 				{
 			"WWW","SSS","WWW", Character.valueOf('S'), Items.stick, Character.valueOf('W'), "plankWood"
 				}));

@@ -6,7 +6,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import java.util.Random;
 
 import sobiohazardous.minestrappolation.api.util.MAssetManager;
-import sobiohazardous.minestrappolation.extradecor.lib.EDItemManager;
+import sobiohazardous.minestrappolation.extradecor.lib.EDItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.IconFlipped;
@@ -379,7 +379,7 @@ public class BlockGlassDoor extends Block
 
     public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)
     {
-        return (p_149650_1_ & 8) != 0 ? null : (this.blockMaterial == Material.iron ? EDItemManager.gDoor : Items.wooden_door);
+        return (p_149650_1_ & 8) != 0 ? null : (this.blockMaterial == Material.iron ? EDItems.gDoor : Items.wooden_door);
     }
 
     public MovingObjectPosition collisionRayTrace(World p_149731_1_, int p_149731_2_, int p_149731_3_, int p_149731_4_, Vec3 p_149731_5_, Vec3 p_149731_6_)

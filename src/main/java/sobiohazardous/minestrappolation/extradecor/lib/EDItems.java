@@ -26,7 +26,7 @@ import net.minecraft.item.ItemReed;
 import net.minecraft.item.ItemSlab;
 import net.minecraftforge.common.MinecraftForge;
 
-public class EDItemManager 
+public class EDItems 
 {
 	public static Item cardboardItem;	
 	public static Item sandstoneBrickItem;
@@ -36,13 +36,13 @@ public class EDItemManager
 	
 	public static void addItems()
 	{
-		cardboardItem = new ItemReed(EDBlockManager.cardboard).setCreativeTab(EDBlockManager.tabDecorBlocks).setUnlocalizedName("item_Cardboard").setTextureName(MAssetManager.getEDTexture("cardboard"));
+		cardboardItem = new ItemReed(EDBlocks.cardboard).setCreativeTab(EDBlocks.tabDecorBlocks).setUnlocalizedName("item_Cardboard").setTextureName(MAssetManager.getEDTexture("cardboard"));
 		GameRegistry.registerItem(cardboardItem, "cardboardItem");
-		sandstoneBrickItem = new MItem().setUnlocalizedName("item_SandstoneBrick").setCreativeTab(EDBlockManager.tabDecorBlocks).setTextureName(MAssetManager.getEDTexture("brickSandstone"));
+		sandstoneBrickItem = new MItem().setUnlocalizedName("item_SandstoneBrick").setCreativeTab(EDBlocks.tabDecorBlocks).setTextureName(MAssetManager.getEDTexture("brickSandstone"));
 		GameRegistry.registerItem(sandstoneBrickItem, "sandstoneBrickItem");
-		stoneBrickItem = new MItem().setUnlocalizedName("item_StoneBrick").setCreativeTab(EDBlockManager.tabDecorBlocks).setTextureName(MAssetManager.getEDTexture("brickStone"));
+		stoneBrickItem = new MItem().setUnlocalizedName("item_StoneBrick").setCreativeTab(EDBlocks.tabDecorBlocks).setTextureName(MAssetManager.getEDTexture("brickStone"));
 		GameRegistry.registerItem(stoneBrickItem, "stoneBrickItem");
-		gobletItem = new ItemReed(EDBlockManager.Goblet).setCreativeTab(EDBlockManager.tabDecorBlocks).setUnlocalizedName("item_GobletEmpty").setTextureName(MAssetManager.getEDTexture("goblet"));
+		gobletItem = new ItemReed(EDBlocks.Goblet).setCreativeTab(EDBlocks.tabDecorBlocks).setUnlocalizedName("item_GobletEmpty").setTextureName(MAssetManager.getEDTexture("goblet"));
 		GameRegistry.registerItem(gobletItem, "gobletItem");
 		gDoor = new ItemGDoor(Material.glass).setUnlocalizedName("item_GlassDoor").setTextureName(MAssetManager.getEDTexture("doorGlass"));
 		GameRegistry.registerItem(gDoor, "glassDoorItem");
@@ -50,31 +50,31 @@ public class EDItemManager
 	
 	public static void setHarvestLevels()
 	{
-		EDBlockManager.snowBrick.setHarvestLevel("shovel", 0);
-		EDBlockManager.Tiles.setHarvestLevel("pickaxe", 1, 1);
-		EDBlockManager.Tiles.setHarvestLevel("pickaxe", 1, 3);
-		EDBlockManager.Tiles.setHarvestLevel("pickaxe", 1, 5);
-		EDBlockManager.Tiles.setHarvestLevel("pickaxe", 3, 0);
-		EDBlockManager.gunpowderBlock.setHarvestLevel("shovel", 0);
-		EDBlockManager.sugarBlock.setHarvestLevel("shovel", 0);
-		EDBlockManager.ropeCoil.setHarvestLevel("shears", 0);
-		EDBlockManager.rope.setHarvestLevel("shears", 0);
-		EDBlockManager.checkerTileStairs.setHarvestLevel("pickaxe", 1);
-		EDBlockManager.oozeSlime.setHarvestLevel("shovel", 0);
-		EDBlockManager.magmaOoze.setHarvestLevel("shovel", 0);
-		EDBlockManager.cobbledRoad.setHarvestLevel("pickaxe", 0);
-		EDBlockManager.refinedRoad.setHarvestLevel("pickaxe", 0);
-		EDBlockManager.sandyRoad.setHarvestLevel("pickaxe", 0);
-		EDBlockManager.sandstoneRoad.setHarvestLevel("pickaxe", 0);
-		EDBlockManager.gravelRoad.setHarvestLevel("shovel", 0);
-		EDBlockManager.netherroad.setHarvestLevel("pickaxe", 0);
-		EDBlockManager.refinedNetherroad.setHarvestLevel("pickaxe", 0);
-		EDBlockManager.sandstoneBricks.setHarvestLevel("pickaxe", 0, 0);
-		EDBlockManager.sandstoneBricks.setHarvestLevel("pickaxe", 0, 1);
-		EDBlockManager.sandstoneBricks.setHarvestLevel("pickaxe", 0, 2);
-		EDBlockManager.sandstoneBricks.setHarvestLevel("pickaxe", 0, 3);
-		EDBlockManager.sandstoneBricks.setHarvestLevel("pickaxe", 0, 4);
-		EDBlockManager.infertileDirt.setHarvestLevel("shovel", 0);
+		EDBlocks.snowBrick.setHarvestLevel("shovel", 0);
+		EDBlocks.Tiles.setHarvestLevel("pickaxe", 1, 1);
+		EDBlocks.Tiles.setHarvestLevel("pickaxe", 1, 3);
+		EDBlocks.Tiles.setHarvestLevel("pickaxe", 1, 5);
+		EDBlocks.Tiles.setHarvestLevel("pickaxe", 3, 0);
+		EDBlocks.gunpowderBlock.setHarvestLevel("shovel", 0);
+		EDBlocks.sugarBlock.setHarvestLevel("shovel", 0);
+		EDBlocks.ropeCoil.setHarvestLevel("shears", 0);
+		EDBlocks.rope.setHarvestLevel("shears", 0);
+		EDBlocks.checkerTileStairs.setHarvestLevel("pickaxe", 1);
+		EDBlocks.oozeSlime.setHarvestLevel("shovel", 0);
+		EDBlocks.magmaOoze.setHarvestLevel("shovel", 0);
+		EDBlocks.cobbledRoad.setHarvestLevel("pickaxe", 0);
+		EDBlocks.refinedRoad.setHarvestLevel("pickaxe", 0);
+		EDBlocks.sandyRoad.setHarvestLevel("pickaxe", 0);
+		EDBlocks.sandstoneRoad.setHarvestLevel("pickaxe", 0);
+		EDBlocks.gravelRoad.setHarvestLevel("shovel", 0);
+		EDBlocks.netherroad.setHarvestLevel("pickaxe", 0);
+		EDBlocks.refinedNetherroad.setHarvestLevel("pickaxe", 0);
+		EDBlocks.sandstoneBricks.setHarvestLevel("pickaxe", 0, 0);
+		EDBlocks.sandstoneBricks.setHarvestLevel("pickaxe", 0, 1);
+		EDBlocks.sandstoneBricks.setHarvestLevel("pickaxe", 0, 2);
+		EDBlocks.sandstoneBricks.setHarvestLevel("pickaxe", 0, 3);
+		EDBlocks.sandstoneBricks.setHarvestLevel("pickaxe", 0, 4);
+		EDBlocks.infertileDirt.setHarvestLevel("shovel", 0);
 	}
 	
 	public static void addItemsToItemList()

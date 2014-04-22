@@ -7,7 +7,7 @@ import java.util.List;
 
 import sobiohazardous.minestrappolation.api.lib.MAPIReference;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
-import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
+import sobiohazardous.minestrappolation.extradecor.lib.EDBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -25,7 +25,7 @@ public class BlockStoneLamp extends Block
     public BlockStoneLamp()
     {
         super(Material.rock);
-        this.setCreativeTab(EDBlockManager.tabDecorBlocks);
+        this.setCreativeTab(EDBlocks.tabDecorBlocks);
     }
 
     @SideOnly(Side.CLIENT)

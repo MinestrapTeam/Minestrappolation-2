@@ -3,7 +3,7 @@ package sobiohazardous.minestrappolation.extradecor.block;
 import java.util.Random;
 
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
-import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
+import sobiohazardous.minestrappolation.extradecor.lib.EDBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -24,7 +24,7 @@ public class BlockOoze extends EDBlock
 	public BlockOoze(Material material)
     {
         super(material);
-        this.setCreativeTab(EDBlockManager.tabDecorBlocks);  
+        this.setCreativeTab(EDBlocks.tabDecorBlocks);  
     }
     
     /**
@@ -68,7 +68,7 @@ public class BlockOoze extends EDBlock
         }
         */
         
-        if(par1World.getBlock(par2, par3, par4) == EDBlockManager.magmaOoze)
+        if(par1World.getBlock(par2, par3, par4) == EDBlocks.magmaOoze)
         {
         	par5Entity.setFire(1);
         }

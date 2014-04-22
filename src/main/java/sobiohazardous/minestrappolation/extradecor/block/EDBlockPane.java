@@ -9,8 +9,8 @@ import java.util.Random;
 import sobiohazardous.minestrappolation.api.lib.MAPIReference;
 import sobiohazardous.minestrappolation.api.util.MAssetManager;
 import sobiohazardous.minestrappolation.extradecor.ExtraDecor;
-import sobiohazardous.minestrappolation.extradecor.lib.EDBlockManager;
-import sobiohazardous.minestrappolation.extradecor.lib.EDItemManager;
+import sobiohazardous.minestrappolation.extradecor.lib.EDBlocks;
+import sobiohazardous.minestrappolation.extradecor.lib.EDItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockPane;
 import net.minecraft.block.material.Material;
@@ -253,7 +253,7 @@ public class EDBlockPane extends Block
     
     public int getFlammability(IBlockAccess world, int x, int y, int z,ForgeDirection face)
     {
-    	if(world.getBlock(x, y, z) == EDBlockManager.cardboard)
+    	if(world.getBlock(x, y, z) == EDBlocks.cardboard)
     	{
     		if(face == ForgeDirection.UP || face == ForgeDirection.DOWN || face == ForgeDirection.NORTH || face == ForgeDirection.SOUTH || face == ForgeDirection.EAST || face == ForgeDirection.WEST)
     		{
