@@ -20,7 +20,7 @@ public class ItemGDoor extends MItem
         super();
         this.doorMaterial = par2Material;
         this.maxStackSize = 1;
-        this.setCreativeTab(EDBlocks.tabDecorBlocks);
+        this.setCreativeTab(EDBlocks.tabDecor);
     }
 
     /**

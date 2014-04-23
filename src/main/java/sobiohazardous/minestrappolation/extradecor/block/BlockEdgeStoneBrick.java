@@ -35,7 +35,7 @@ public class BlockEdgeStoneBrick extends BlockContainer
 	public BlockEdgeStoneBrick()
     {
         super(Material.rock);
-        this.setCreativeTab(EDBlocks.tabDecorBlocks);
+        this.setCreativeTab(EDBlocks.tabDecor);
     }
 	
 	public void registerBlockIcons(IIconRegister par1IconRegister)

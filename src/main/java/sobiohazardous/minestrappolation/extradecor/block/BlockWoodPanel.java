@@ -28,7 +28,7 @@ public class BlockWoodPanel extends Block
     public BlockWoodPanel()
     {
         super(Material.wood);
-        this.setCreativeTab(EDBlocks.tabDecorBlocks);
+        this.setCreativeTab(EDBlocks.tabDecor);
     }
 
     @SideOnly(Side.CLIENT)

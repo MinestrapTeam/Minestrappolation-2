@@ -26,7 +26,7 @@ public class BlockWoodBoardSlab extends BlockSlab
     public BlockWoodBoardSlab(boolean par2)
     {
         super(par2, Material.wood);
-        this.setCreativeTab(EDBlocks.tabDecorBlocks);
+        this.setCreativeTab(EDBlocks.tabDecor);
     }
 
     @SideOnly(Side.CLIENT)

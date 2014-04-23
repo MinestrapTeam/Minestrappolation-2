@@ -26,7 +26,7 @@ public class Block100 extends BlockContainer
 	public Block100() 
 	{
 		super(Material.grass);
-		this.setCreativeTab(EDBlocks.tabDecorBlocks);
+		this.setCreativeTab(EDBlocks.tabDecor);
 	}
 
 	public int damageDropped(int par1)

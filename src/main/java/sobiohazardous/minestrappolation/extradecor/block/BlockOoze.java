@@ -24,7 +24,7 @@ public class BlockOoze extends EDBlock
 	public BlockOoze(Material material)
     {
         super(material);
-        this.setCreativeTab(EDBlocks.tabDecorBlocks);  
+        this.setCreativeTab(EDBlocks.tabDecor);  
     }
     
     /**

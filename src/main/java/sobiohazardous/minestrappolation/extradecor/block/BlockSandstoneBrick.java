@@ -27,7 +27,7 @@ public class BlockSandstoneBrick extends Block
     public BlockSandstoneBrick()
     {
         super(Material.rock);
-        this.setCreativeTab(EDBlocks.tabDecorBlocks);
+        this.setCreativeTab(EDBlocks.tabDecor);
     }
 
     @SideOnly(Side.CLIENT)

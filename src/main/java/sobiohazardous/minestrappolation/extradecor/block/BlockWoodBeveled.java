@@ -28,7 +28,7 @@ public class BlockWoodBeveled extends Block
     public BlockWoodBeveled()
     {
         super(Material.wood);
-        this.setCreativeTab(EDBlocks.tabDecorBlocks);
+        this.setCreativeTab(EDBlocks.tabDecor);
     }
 
     @SideOnly(Side.CLIENT)

@@ -5,24 +5,30 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 import java.util.List;
 
+import sobiohazardous.minestrappolation.api.Minestrappolation;
+import sobiohazardous.minestrappolation.api.lib.MAPIReference;
+import sobiohazardous.minestrappolation.api.util.MBlockHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.World;
 
 public class BlockMulti extends Block
 {
     @SideOnly(Side.CLIENT)
     private IIcon[] iconArray;
-    public static String[] iconStringArray = null;
+    private String[] iconStringArray = null;
     
     public BlockMulti(Material mat, String[] textures)
     {
         super(mat);
         iconStringArray = textures;
+        this.setCreativeTab(Minestrappolation.creativeTabMAPI);
     }
 
     @SideOnly(Side.CLIENT)
@@ -32,11 +38,6 @@ public class BlockMulti extends Block
      */
     public IIcon getIcon(int par1, int par2)
     {
-        if (par2 < 0 || par2 >= this.iconArray.length)
-        {
-            par2 = 0;
-        }
-
         return this.iconArray[par2];
     }
     
@@ -76,4 +77,13 @@ public class BlockMulti extends Block
             this.iconArray[i] = par1IconRegister.registerIcon(iconStringArray[i]);
         }
     }
+    
+    public void harvestBlock(World par1World, EntityPlayer par2EntityPlayer, int par3, int par4, int par5, int par6)
+	 {
+		if(this == MBlockHelper.get(MAPIReference.MODID_ED, "bedrockBlocks")) 
+		{
+			par2EntityPlayer.getHeldItem().damageItem(2000, par2EntityPlayer);
+	     	this.dropBlockAsItem(par1World, par3, par4, par5, new ItemStack(this)); 
+		}
+	 }
 }

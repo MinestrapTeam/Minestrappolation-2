@@ -23,7 +23,7 @@ public class BlockEndStone extends Block
 	public BlockEndStone() 
 	{
 		super(Material.rock);
-		this.setCreativeTab(EDBlocks.tabDecorBlocks);
+		this.setCreativeTab(EDBlocks.tabDecor);
 	}
 
 	public void registerBlockIcons(IIconRegister par1IconRegister) 

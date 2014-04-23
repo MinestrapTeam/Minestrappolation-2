@@ -9,7 +9,7 @@ public class BlockMeatBlock extends EDBlock
 	public BlockMeatBlock(String texture)
 	{
 		super(Material.cloth);
-		this.setCreativeTab(EDBlocks.tabDecorBlocks);
+		this.setCreativeTab(EDBlocks.tabDecor);
 	}
 	
 	//TODO Add code from the features list

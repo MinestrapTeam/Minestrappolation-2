@@ -3,6 +3,7 @@ package sobiohazardous.minestrappolation.api.block;
 import java.util.List;
 import java.util.Random;
 
+import sobiohazardous.minestrappolation.api.Minestrappolation;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -33,6 +34,7 @@ public class BlockMultiRoad extends Block
         this.sidesImg = sidesImgs;
         this.topImg = topImgs;
         this.bottomImg = bottomImgs;
+        this.setCreativeTab(Minestrappolation.creativeTabMAPI);
     }
 
     public void registerBlockIcons(IIconRegister par1IconRegister)

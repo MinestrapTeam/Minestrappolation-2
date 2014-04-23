@@ -3,6 +3,7 @@ package sobiohazardous.minestrappolation.api.block;
 import java.util.List;
 import java.util.Random;
 
+import sobiohazardous.minestrappolation.api.Minestrappolation;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -30,6 +31,7 @@ public class BlockMultiPillarStationary extends Block
         super(Material.rock);
         this.sidesImg = sidesImgs;
         this.topImg = topImgs;
+        this.setCreativeTab(Minestrappolation.creativeTabMAPI);
     }
 
     public void registerBlockIcons(IIconRegister par1IconRegister)
@@ -51,19 +53,11 @@ public class BlockMultiPillarStationary extends Block
     @SideOnly(Side.CLIENT)
     @Override
     public IIcon getIcon(int par1, int par2)
-    {
-    	if (par2 < 0 || par2 >= this.sides.length)
-        {
-    		par2 = 0;
-        }
-    	
-        int k = par2 & 12;
-        int l = par2 & 3;
-        return k == 0 && (par1 == 1 || par1 == 0) ? top[par2] : (k == 4 && (par1 == 5 || par1 == 4) ? top[par2] : (k == 8 && (par1 == 2 || par1 == 3) ? top[par2] : sides[par2]));
+    {	
+        int k = par2 & 48;
+        return k == 0 && (par1 == 1 || par1 == 0) ? top[par2] : (k == 4 && (par1 == 5 || par1 == 4) ? top[par2] : (k == 8 && (par1 == 2 || par1 == 3) ? top[par2] : this.sides[par2]));
     }
-    
-    
-    
+     
     /**
      * The type of render function that is called for this block
      */

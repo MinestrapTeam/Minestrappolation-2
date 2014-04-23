@@ -19,7 +19,7 @@ public class EDBlock extends MBlock
 	public EDBlock(Material material)
     {
         super(material);
-        this.setCreativeTab(EDBlocks.tabDecorBlocks);
+        this.setCreativeTab(EDBlocks.tabDecor);
     }
 
     /**

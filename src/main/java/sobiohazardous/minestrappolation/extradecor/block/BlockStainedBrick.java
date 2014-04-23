@@ -28,7 +28,7 @@ public class BlockStainedBrick extends Block
     public BlockStainedBrick()
     {
         super(Material.rock);
-        this.setCreativeTab(EDBlocks.tabDecorBlocks);
+        this.setCreativeTab(EDBlocks.tabDecor);
     }
 
     @SideOnly(Side.CLIENT)

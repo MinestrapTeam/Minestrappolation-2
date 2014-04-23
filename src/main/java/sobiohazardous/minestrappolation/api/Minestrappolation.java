@@ -1,8 +1,7 @@
 package sobiohazardous.minestrappolation.api;
 
 import clashsoft.brewingapi.BrewingAPI;
-import sobiohazardous.minestrappolation.api.creativetabs.CreativeTabMAPI;
-import sobiohazardous.minestrappolation.api.creativetabs.CreativeTabStonecutterBlocks;
+import sobiohazardous.minestrappolation.api.creativetabs.CreativeTabStone;
 import sobiohazardous.minestrappolation.api.lib.MAPIBlocks;
 import sobiohazardous.minestrappolation.api.lib.MAPIConfig;
 import sobiohazardous.minestrappolation.api.lib.MAPIRecipes;
@@ -38,8 +37,7 @@ public class Minestrappolation
 	@SidedProxy(modId = MAPIReference.MODID_MAPI, clientSide = "sobiohazardous.minestrappolation.api.ClientProxy", serverSide = "sobiohazardous.minestrappolation.api.CommonProxy")
 	public static CommonProxy	proxy;		
 		
-	public static CreativeTabMAPI creativeTabMAPI;
-	public static CreativeTabStonecutterBlocks creativeTabStonecutterBlocks;
+	public static CreativeTabs creativeTabMAPI = new CreativeTabStone(CreativeTabs.getNextID(), "Minestrappolation - Stone");
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
@@ -50,9 +48,6 @@ public class Minestrappolation
 	@EventHandler
 	public void load(FMLInitializationEvent event)
 	{		
-		creativeTabMAPI = new CreativeTabMAPI(CreativeTabs.getNextID(), "MAPI");
-		creativeTabStonecutterBlocks = new CreativeTabStonecutterBlocks(CreativeTabs.getNextID(), "Stonecutter Blocks");
-
 		GameRegistry.registerTileEntity(TileEntityStonecutter.class, "tileEntityStoneCutter");
 		
 		MAPIBlocks.loadBlocks();

@@ -25,7 +25,7 @@ public class BlockStoneLamp extends Block
     public BlockStoneLamp()
     {
         super(Material.rock);
-        this.setCreativeTab(EDBlocks.tabDecorBlocks);
+        this.setCreativeTab(EDBlocks.tabDecor);
     }
 
     @SideOnly(Side.CLIENT)

@@ -5,10 +5,16 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import sobiohazardous.minestrappolation.api.Minestrappolation;
 import sobiohazardous.minestrappolation.api.block.BlockMulti;
+import sobiohazardous.minestrappolation.api.block.BlockMultiLamp;
+import sobiohazardous.minestrappolation.api.block.BlockMultiPillar;
+import sobiohazardous.minestrappolation.api.block.BlockMultiPillarStationary;
+import sobiohazardous.minestrappolation.api.block.BlockMultiRoad;
+import sobiohazardous.minestrappolation.api.block.BlockMultiSlab;
 import sobiohazardous.minestrappolation.api.block.BlockPillar;
 import sobiohazardous.minestrappolation.api.block.MBlock;
 import sobiohazardous.minestrappolation.api.item.MItem;
 import sobiohazardous.minestrappolation.api.itemblocks.ItemBlockMulti;
+import sobiohazardous.minestrappolation.api.itemblocks.ItemBlockMultiSlab;
 import sobiohazardous.minestrappolation.api.lib.MAPIReference;
 import sobiohazardous.minestrappolation.api.util.MAssetManager;
 import sobiohazardous.minestrappolation.extradecor.CreativeTabExtraDecorBlocks;
@@ -107,32 +113,43 @@ public class EDBlocks
 	public static Block GlassDoor;
 	
 	public static Block bedrockBlocks;
+	public static Block bedrockLamps;
 	public static Block bedrockPillars;
 	public static Block bedrockRoads;
+	public static BlockMultiSlab bedrockSlabsSingle;
+	public static BlockMultiSlab bedrockSlabsDouble;
+	
+	public static Block clayBlocks;
+	public static Block clayPillars;
+	public static Block clayRoads;
+	public static Block clayChiseled;
+	public static BlockMultiSlab claySlabsSingle;
+	public static BlockMultiSlab claySlabsDouble;
 
-	public static CreativeTabs tabDecorBlocks = new CreativeTabExtraDecorBlocks(CreativeTabs.getNextID(),"Extrappolated Decor");
+	public static CreativeTabs tabDecor = new CreativeTabExtraDecorBlocks(CreativeTabs.getNextID(),"Extrappolated Decor");
+
 	public static void createBlocks()
 	{
-		stonePillar = (new BlockPillar(MAssetManager.getEDStonecutterTexture("Stone_Pillar_Side_0"), MAssetManager.getEDStonecutterTexture("Stone_Pillar_Top_0"))).setHardness(1.5F).setResistance(10F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundTypeStone).setBlockName("stonePillar");
-		stoneLamp = (new BlockStoneLamp()).setHardness(1.5F).setResistance(8F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundTypeStone).setLightLevel(1.0F).setBlockName("stoneLamp");
-		stones = new BlockStones().setHardness(1.5F).setResistance(10F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundTypeStone).setBlockName("stones");
+		stonePillar = (new BlockPillar(MAssetManager.getEDStonecutterTexture("Stone_Pillar_Side_0"), MAssetManager.getEDStonecutterTexture("Stone_Pillar_Top_0"))).setHardness(1.5F).setResistance(10F).setCreativeTab(tabDecor).setStepSound(Block.soundTypeStone).setBlockName("stonePillar");
+		stoneLamp = (new BlockStoneLamp()).setHardness(1.5F).setResistance(8F).setCreativeTab(tabDecor).setStepSound(Block.soundTypeStone).setLightLevel(1.0F).setBlockName("stoneLamp");
+		stones = new BlockStones().setHardness(1.5F).setResistance(10F).setCreativeTab(tabDecor).setStepSound(Block.soundTypeStone).setBlockName("stones");
 		
-		Tiles = new BlockTiles().setCreativeTab(tabDecorBlocks).setStepSound(Block.soundTypeStone).setBlockName("tiles");
+		Tiles = new BlockTiles().setCreativeTab(tabDecor).setStepSound(Block.soundTypeStone).setBlockName("tiles");
 	
-		edgeStoneBrick = (new BlockEdgeStoneBrick()).setHardness(1.5F).setResistance(10F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundTypeStone).setBlockName("edgeStoneBrick");
+		edgeStoneBrick = (new BlockEdgeStoneBrick()).setHardness(1.5F).setResistance(10F).setCreativeTab(tabDecor).setStepSound(Block.soundTypeStone).setBlockName("edgeStoneBrick");
 		edgeStoneBrickCorner = (new BlockEdgeStoneCorner()).setHardness(1.5F).setResistance(10F).setStepSound(Block.soundTypeStone).setBlockName("edgeStoneBrickCorner");
 	
-		snowBrick = (new BlockSnowBrick()).setHardness(0.3F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundTypeSnow).setBlockName("tilesSnow").setBlockTextureName(MAssetManager.getEDTexture("tilesSnow"));
+		snowBrick = (new BlockSnowBrick()).setHardness(0.3F).setCreativeTab(tabDecor).setStepSound(Block.soundTypeSnow).setBlockName("tilesSnow").setBlockTextureName(MAssetManager.getEDTexture("tilesSnow"));
 	
-		endstone = (new BlockEndStone()).setHardness(3.0F).setResistance(15.0F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundTypeStone).setBlockName("Endstone");
+		endstone = (new BlockEndStone()).setHardness(3.0F).setResistance(15.0F).setCreativeTab(tabDecor).setStepSound(Block.soundTypeStone).setBlockName("Endstone");
 	
-		glassRefined = (new BlockGlassRefined(Material.glass, false)).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(tabDecorBlocks).setBlockName("glassRefined");
-		glassRefinedPane = (new EDBlockPane("ClearGlass", "clearGlassPaneEdge", Material.glass, false)).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(tabDecorBlocks).setBlockName("glassRefinedPane");
+		glassRefined = (new BlockGlassRefined(Material.glass, false)).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(tabDecor).setBlockName("glassRefined");
+		glassRefinedPane = (new EDBlockPane("ClearGlass", "clearGlassPaneEdge", Material.glass, false)).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(tabDecor).setBlockName("glassRefinedPane");
 		gunpowderBlock = (new BlockGunpowderBlock(Material.ground)).setHardness(0.6F).setStepSound(Block.soundTypeGravel).setBlockName("GunpowderBlock").setBlockTextureName(MAssetManager.getEDTexture("blockGunpowder"));
 	
 		rope = (new BlockRope()).setHardness(0.9F).setStepSound(Block.soundTypeCloth).setBlockName("rope");
-		itemRope = (new ItemReed(rope)).setUnlocalizedName("rope").setCreativeTab(tabDecorBlocks).setTextureName(MAssetManager.getEDTexture("rope"));
-		ropeCoil = (new BlockRopeCoil()).setHardness(0.9F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundTypeCloth).setBlockName("ropeCoil");
+		itemRope = (new ItemReed(rope)).setUnlocalizedName("rope").setCreativeTab(tabDecor).setTextureName(MAssetManager.getEDTexture("rope"));
+		ropeCoil = (new BlockRopeCoil()).setHardness(0.9F).setCreativeTab(tabDecor).setStepSound(Block.soundTypeCloth).setBlockName("ropeCoil");
 	
 		oozeSlime = (new BlockOoze(materialOoze)).setHardness(1F).setResistance(2000F).setStepSound(Block.soundTypeCloth).setBlockName("SlimeOoze").setBlockTextureName(MAssetManager.getEDTexture("oozeSlime"));
 	
@@ -151,46 +168,78 @@ public class EDBlocks
 	
 		magmaOoze = new BlockOoze(materialOoze).setHardness(1F).setResistance(2000F).setStepSound(Block.soundTypeCloth).setBlockName("MagmaOoze").setBlockTextureName(MAssetManager.getEDTexture("oozeMagma"));
 	
-		enderBlock = new BlockEnderblock().setHardness(3.0F).setResistance(4.0F).setBlockName("EnderBlock").setStepSound(Block.soundTypeGlass).setCreativeTab(tabDecorBlocks).setBlockTextureName(MAssetManager.getEDTexture("blockEnderPearl"));
+		enderBlock = new BlockEnderblock().setHardness(3.0F).setResistance(4.0F).setBlockName("EnderBlock").setStepSound(Block.soundTypeGlass).setCreativeTab(tabDecor).setBlockTextureName(MAssetManager.getEDTexture("blockEnderPearl"));
 	
-		crate = new BlockCrate().setHardness(2.5F).setStepSound(Block.soundTypeWood).setCreativeTab(tabDecorBlocks).setBlockName("crate");
-		barrel = new BlockBarrel().setHardness(3F).setResistance(6.0F).setStepSound(Block.soundTypeWood).setCreativeTab(tabDecorBlocks).setBlockName("barrel");
+		crate = new BlockCrate().setHardness(2.5F).setStepSound(Block.soundTypeWood).setCreativeTab(tabDecor).setBlockName("crate");
+		barrel = new BlockBarrel().setHardness(3F).setResistance(6.0F).setStepSound(Block.soundTypeWood).setCreativeTab(tabDecor).setBlockName("barrel");
 	
 		cardboard = new EDBlockPane("cardboard", "cardboardPaneEdge", Material.cloth, true).setHardness(0.3F).setBlockName("cardboard");
-		cardboardBlock = new BlockCardboard(Material.cloth).setHardness(0.4F).setBlockName("CardboardBlock").setCreativeTab(tabDecorBlocks);
-		cardboardWet = new BlockCardboardWet(Material.cloth).setCreativeTab(tabDecorBlocks).setHardness(0.2F).setResistance(0.8F).setBlockName("cardboardWet");
+		cardboardBlock = new BlockCardboard(Material.cloth).setHardness(0.4F).setBlockName("CardboardBlock").setCreativeTab(tabDecor);
+		cardboardWet = new BlockCardboardWet(Material.cloth).setCreativeTab(tabDecor).setHardness(0.2F).setResistance(0.8F).setBlockName("cardboardWet");
 		
-		woodBoardsStairsOak = new EDBlockStairs(woodBoards, 0).setBlockName("woodBoardsStairsOak").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setCreativeTab(tabDecorBlocks);
-		woodBoardsStairsBirch = new EDBlockStairs(woodBoards, 1).setBlockName("woodBoardsStairsBirch").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setCreativeTab(tabDecorBlocks);
-		woodBoardsStairsSpruce = new EDBlockStairs(woodBoards, 2).setBlockName("woodBoardsStairsSpruce").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setCreativeTab(tabDecorBlocks);
-		woodBoardsStairsJungle = new EDBlockStairs(woodBoards, 3).setBlockName("woodBoardsStairsJungle").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setCreativeTab(tabDecorBlocks);
+		woodBoardsStairsOak = new EDBlockStairs(woodBoards, 0).setBlockName("woodBoardsStairsOak").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setCreativeTab(tabDecor);
+		woodBoardsStairsBirch = new EDBlockStairs(woodBoards, 1).setBlockName("woodBoardsStairsBirch").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setCreativeTab(tabDecor);
+		woodBoardsStairsSpruce = new EDBlockStairs(woodBoards, 2).setBlockName("woodBoardsStairsSpruce").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setCreativeTab(tabDecor);
+		woodBoardsStairsJungle = new EDBlockStairs(woodBoards, 3).setBlockName("woodBoardsStairsJungle").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setCreativeTab(tabDecor);
 		woodBoardsSingleSlab = (BlockSlab) new BlockWoodBoardSlab(false).setBlockName("woodBoardsSingleSlab").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setLightOpacity(255);
 		woodBoardsDoubleSlab = (BlockSlab) new BlockWoodBoardSlab( true).setBlockName("woodBoardsSingleSlab").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setLightOpacity(255);
 
-		checkerTileStairs = new EDBlockStairs(Tiles, 3).setBlockName("checkerTileStairs").setHardness(3F).setResistance(10.0F).setStepSound(Block.soundTypeStone).setCreativeTab(tabDecorBlocks);
+		checkerTileStairs = new EDBlockStairs(Tiles, 3).setBlockName("checkerTileStairs").setHardness(3F).setResistance(10.0F).setStepSound(Block.soundTypeStone).setCreativeTab(tabDecor);
 	
-		stainedBrick = (new BlockStainedBrick()).setHardness(2F).setResistance(10F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundTypeStone).setBlockName("stainedBrick");
+		stainedBrick = (new BlockStainedBrick()).setHardness(2F).setResistance(10F).setCreativeTab(tabDecor).setStepSound(Block.soundTypeStone).setBlockName("stainedBrick");
 	
-		cobbledRoad = (new BlockCobbledRoad()).setHardness(1).setResistance(5F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundTypeStone).setBlockName("cobbledRoad");
-		infertileDirt = new MBlock(Material.grass).setCreativeTab(tabDecorBlocks).setBlockName("InfertileSoil").setHardness(.4F).setStepSound(Block.soundTypeGrass).setBlockTextureName(MAssetManager.getEDTexture("grasslessDirt"));
-		refinedRoad = (new BlockRefinedRoad()).setHardness(2F).setResistance(5F).setBlockName("RefinedRoad").setStepSound(Block.soundTypeStone).setCreativeTab(tabDecorBlocks);
+		cobbledRoad = (new BlockCobbledRoad()).setHardness(1).setResistance(5F).setCreativeTab(tabDecor).setStepSound(Block.soundTypeStone).setBlockName("cobbledRoad");
+		infertileDirt = new MBlock(Material.grass).setCreativeTab(tabDecor).setBlockName("InfertileSoil").setHardness(.4F).setStepSound(Block.soundTypeGrass).setBlockTextureName(MAssetManager.getEDTexture("grasslessDirt"));
+		refinedRoad = (new BlockRefinedRoad()).setHardness(2F).setResistance(5F).setBlockName("RefinedRoad").setStepSound(Block.soundTypeStone).setCreativeTab(tabDecor);
 		
-		sandyRoad = (new BlockSandyRoad()).setHardness(0.8F).setResistance(4F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundTypeStone).setBlockName("sandyRoad");
-		sandstoneRoad = (new BlockSandyRoad()).setHardness(1).setResistance(4.5F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundTypeStone).setBlockName("sandstoneRoad");
-		gravelRoad = (new BlockSandyRoad()).setHardness(1.5F).setResistance(5F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundTypeStone).setBlockName("gravelRoad");
-		netherroad = (new BlockRefinedRoad()).setHardness(2.2F).setResistance(4F).setBlockName("netherroad").setStepSound(Block.soundTypeStone).setCreativeTab(tabDecorBlocks);
-		refinedNetherroad = (new BlockRefinedRoad()).setHardness(2.8F).setResistance(6F).setBlockName("refinedNetherroad").setStepSound(Block.soundTypeStone).setCreativeTab(tabDecorBlocks);
+		sandyRoad = (new BlockSandyRoad()).setHardness(0.8F).setResistance(4F).setCreativeTab(tabDecor).setStepSound(Block.soundTypeStone).setBlockName("sandyRoad");
+		sandstoneRoad = (new BlockSandyRoad()).setHardness(1).setResistance(4.5F).setCreativeTab(tabDecor).setStepSound(Block.soundTypeStone).setBlockName("sandstoneRoad");
+		gravelRoad = (new BlockSandyRoad()).setHardness(1.5F).setResistance(5F).setCreativeTab(tabDecor).setStepSound(Block.soundTypeStone).setBlockName("gravelRoad");
+		netherroad = (new BlockRefinedRoad()).setHardness(2.2F).setResistance(4F).setBlockName("netherroad").setStepSound(Block.soundTypeStone).setCreativeTab(tabDecor);
+		refinedNetherroad = (new BlockRefinedRoad()).setHardness(2.8F).setResistance(6F).setBlockName("refinedNetherroad").setStepSound(Block.soundTypeStone).setCreativeTab(tabDecor);
 
-		woodPlanksMossy = new BlockMossyWood().setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setBlockName("woodPlanksMossy").setCreativeTab(tabDecorBlocks);
+		woodPlanksMossy = new BlockMossyWood().setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setBlockName("woodPlanksMossy").setCreativeTab(tabDecor);
 		
 		//Test
 		Goblet = new BlockGoblet(Material.rock).setHardness(.5F).setBlockName("goblet");
-		Plate = new BlockPlate(Material.rock).setCreativeTab(tabDecorBlocks).setBlockName("plate");
+		Plate = new BlockPlate(Material.rock).setCreativeTab(tabDecor).setBlockName("plate");
 		
 		GlassDoor = (new BlockGlassDoor(Material.glass)).setHardness(1F).setBlockName("doorGlass");
 		
-		//bedrockBlocks = new BlockMulti(Material.rock, new String[]{MAssetManager.getEDStonecutterTexture("Bedrock_LampGlowstone_0_0"), MAssetManager.getEDStonecutterTexture("Bedrock_LampSunstone_0_0"), MAssetManager.getEDStonecutterTexture("Bedrock_PatternBricks_0_0"), MAssetManager.getEDStonecutterTexture("Bedrock_Refined_0_0"), MAssetManager.getEDStonecutterTexture("Bedrock_Tiles_0_0")}).setBlockName("bedrockBlock").setHardness(40F).setResistance(400F).setCreativeTab(tabDecorBlocks);
-		//TODO FInish stonecutter blocks and fix creative tab!
+		bedrockBlocks = new BlockMulti(Material.rock, new String[]{MAssetManager.getEDStonecutterTexture("Bedrock_PatternBricks_0_0"), MAssetManager.getEDStonecutterTexture("Bedrock_Refined_0_0"), MAssetManager.getEDStonecutterTexture("Bedrock_Tiles_0_0")}).setBlockName("bedrockBlocks").setHardness(40F).setResistance(400F);
+		bedrockLamps = new BlockMultiLamp(Material.rock, new String[]{MAssetManager.getEDStonecutterTexture("Bedrock_LampGlowstone_0_0"), MAssetManager.getEDStonecutterTexture("Bedrock_LampSunstone_0_0")}).setBlockName("bedrockLamps").setHardness(40F).setResistance(400F);
+		bedrockPillars = new BlockMultiPillar(Material.rock, new String[]{MAssetManager.getEDStonecutterTexture("Bedrock_Pillar_Side_0")}, new String[]{MAssetManager.getEDStonecutterTexture("Bedrock_Pillar_Top_0")}).setBlockName("bedrockPillars").setHardness(40F).setResistance(400F);
+		bedrockRoads = new BlockMultiRoad(Material.rock, new String[]{MAssetManager.getEDStonecutterTexture("Bedrock_Road_Side_0")}, new String[]{MAssetManager.getEDStonecutterTexture("Bedrock_PatternBricks_0_0")}, new String[]{MAssetManager.getEDTexture("grasslessDirt")}).setBlockName("bedrockRoad").setHardness(40F).setResistance(400F);
+		bedrockSlabsSingle = (BlockMultiSlab) new BlockMultiSlab(false, new String[]{MAssetManager.getEDStonecutterTexture("Bedrock_RefinedSlab_Side_0")}, new String[]{MAssetManager.getEDStonecutterTexture("Bedrock_Refined_0_0")}).setBlockName("bedrockSlabSingle").setCreativeTab(Minestrappolation.creativeTabMAPI);
+		bedrockSlabsDouble = (BlockMultiSlab) new BlockMultiSlab(true, new String[]{MAssetManager.getEDStonecutterTexture("Bedrock_RefinedSlab_Side_0")}, new String[]{MAssetManager.getEDStonecutterTexture("Bedrock_Refined_0_0")}).setBlockName("bedrockSlabDouble");
+		
+		clayBlocks = new BlockMulti(Material.rock, new String[]{
+				MAssetManager.getEDStonecutterTexture("Clay_Bricks_0_Black"), MAssetManager.getEDStonecutterTexture("Clay_Bricks_0_Blue"), MAssetManager.getEDStonecutterTexture("Clay_Bricks_0_Brown"), MAssetManager.getEDStonecutterTexture("Clay_Bricks_0_Cyan"), MAssetManager.getEDStonecutterTexture("Clay_Bricks_0_Green"), MAssetManager.getEDStonecutterTexture("Clay_Bricks_0_Grey"), MAssetManager.getEDStonecutterTexture("Clay_Bricks_0_LightBlue"), MAssetManager.getEDStonecutterTexture("Clay_Bricks_0_Lime"), MAssetManager.getEDStonecutterTexture("Clay_Bricks_0_Magenta"), MAssetManager.getEDStonecutterTexture("Clay_Bricks_0_Orange"), MAssetManager.getEDStonecutterTexture("Clay_Bricks_0_Pink"), MAssetManager.getEDStonecutterTexture("Clay_Bricks_0_Purple"), MAssetManager.getEDStonecutterTexture("Clay_Bricks_0_Red"), MAssetManager.getEDStonecutterTexture("Clay_Bricks_0_Silver"), MAssetManager.getEDStonecutterTexture("Clay_Bricks_0_White"), MAssetManager.getEDStonecutterTexture("Clay_Bricks_0_Yellow"),
+				MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Black"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Blue"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Brown"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Cyan"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Green"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Grey"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_LightBlue"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Lime"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Magenta"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Orange"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Pink"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Purple"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Red"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Silver"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_White"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Yellow"),
+				MAssetManager.getEDStonecutterTexture("Clay_PatternBricks_0_Black"), MAssetManager.getEDStonecutterTexture("Clay_PatternBricks_0_Blue"), MAssetManager.getEDStonecutterTexture("Clay_PatternBricks_0_Brown"), MAssetManager.getEDStonecutterTexture("Clay_PatternBricks_0_Cyan"), MAssetManager.getEDStonecutterTexture("Clay_PatternBricks_0_Green"), MAssetManager.getEDStonecutterTexture("Clay_PatternBricks_0_Grey"), MAssetManager.getEDStonecutterTexture("Clay_PatternBricks_0_LightBlue"), MAssetManager.getEDStonecutterTexture("Clay_PatternBricks_0_Lime"), MAssetManager.getEDStonecutterTexture("Clay_PatternBricks_0_Magenta"), MAssetManager.getEDStonecutterTexture("Clay_PatternBricks_0_Orange"), MAssetManager.getEDStonecutterTexture("Clay_PatternBricks_0_Pink"), MAssetManager.getEDStonecutterTexture("Clay_PatternBricks_0_Purple"), MAssetManager.getEDStonecutterTexture("Clay_PatternBricks_0_Red"), MAssetManager.getEDStonecutterTexture("Clay_PatternBricks_0_Silver"), MAssetManager.getEDStonecutterTexture("Clay_PatternBricks_0_White"), MAssetManager.getEDStonecutterTexture("Clay_PatternBricks_0_Yellow"),
+				MAssetManager.getEDStonecutterTexture("Clay_Tiles_0_Black"), MAssetManager.getEDStonecutterTexture("Clay_Tiles_0_Blue"), MAssetManager.getEDStonecutterTexture("Clay_Tiles_0_Brown"), MAssetManager.getEDStonecutterTexture("Clay_Tiles_0_Cyan"), MAssetManager.getEDStonecutterTexture("Clay_Tiles_0_Green"), MAssetManager.getEDStonecutterTexture("Clay_Tiles_0_Grey"), MAssetManager.getEDStonecutterTexture("Clay_Tiles_0_LightBlue"), MAssetManager.getEDStonecutterTexture("Clay_Tiles_0_Lime"), MAssetManager.getEDStonecutterTexture("Clay_Tiles_0_Magenta"), MAssetManager.getEDStonecutterTexture("Clay_Tiles_0_Orange"), MAssetManager.getEDStonecutterTexture("Clay_Tiles_0_Pink"), MAssetManager.getEDStonecutterTexture("Clay_Tiles_0_Purple"), MAssetManager.getEDStonecutterTexture("Clay_Tiles_0_Red"), MAssetManager.getEDStonecutterTexture("Clay_Tiles_0_Silver"), MAssetManager.getEDStonecutterTexture("Clay_Tiles_0_White"), MAssetManager.getEDStonecutterTexture("Clay_Tiles_0_Yellow")		
+				}).setBlockName("clayBlocks").setHardness(2.0F).setResistance(8.0F);
+		clayPillars = new BlockMultiPillar(Material.rock, new String[]{
+				MAssetManager.getEDStonecutterTexture("Clay_Pillar_Side_Black"), MAssetManager.getEDStonecutterTexture("Clay_Pillar_Side_Blue"), MAssetManager.getEDStonecutterTexture("Clay_Pillar_Side_Brown"), MAssetManager.getEDStonecutterTexture("Clay_Pillar_Side_Cyan"), MAssetManager.getEDStonecutterTexture("Clay_Pillar_Side_Green"), MAssetManager.getEDStonecutterTexture("Clay_Pillar_Side_Grey"), MAssetManager.getEDStonecutterTexture("Clay_Pillar_Side_LightBlue"), MAssetManager.getEDStonecutterTexture("Clay_Pillar_Side_Lime"), MAssetManager.getEDStonecutterTexture("Clay_Pillar_Side_Magenta"), MAssetManager.getEDStonecutterTexture("Clay_Pillar_Side_Orange"), MAssetManager.getEDStonecutterTexture("Clay_Pillar_Side_Pink"), MAssetManager.getEDStonecutterTexture("Clay_Pillar_Side_Purple"), MAssetManager.getEDStonecutterTexture("Clay_Pillar_Side_Red"), MAssetManager.getEDStonecutterTexture("Clay_Pillar_Side_Silver"), MAssetManager.getEDStonecutterTexture("Clay_Pillar_Side_White"), MAssetManager.getEDStonecutterTexture("Clay_Pillar_Side_Yellow")}, new String[]{
+				MAssetManager.getEDStonecutterTexture("Clay_Pillar_Top_Black"), MAssetManager.getEDStonecutterTexture("Clay_Pillar_Top_Blue"), MAssetManager.getEDStonecutterTexture("Clay_Pillar_Top_Brown"), MAssetManager.getEDStonecutterTexture("Clay_Pillar_Top_Cyan"), MAssetManager.getEDStonecutterTexture("Clay_Pillar_Top_Green"), MAssetManager.getEDStonecutterTexture("Clay_Pillar_Top_Grey"), MAssetManager.getEDStonecutterTexture("Clay_Pillar_Top_LightBlue"), MAssetManager.getEDStonecutterTexture("Clay_Pillar_Top_Lime"), MAssetManager.getEDStonecutterTexture("Clay_Pillar_Top_Magenta"), MAssetManager.getEDStonecutterTexture("Clay_Pillar_Top_Orange"), MAssetManager.getEDStonecutterTexture("Clay_Pillar_Top_Pink"), MAssetManager.getEDStonecutterTexture("Clay_Pillar_Top_Purple"), MAssetManager.getEDStonecutterTexture("Clay_Pillar_Top_Red"), MAssetManager.getEDStonecutterTexture("Clay_Pillar_Top_Silver"), MAssetManager.getEDStonecutterTexture("Clay_Pillar_Top_White"), MAssetManager.getEDStonecutterTexture("Clay_Pillar_Top_Yellow")
+				}).setBlockName("clayPillars").setHardness(2.0F).setResistance(8.0F);
+		clayRoads = new BlockMultiRoad(Material.rock, new String[]{
+				MAssetManager.getEDStonecutterTexture("Clay_Road_Side_Black"), MAssetManager.getEDStonecutterTexture("Clay_Road_Side_Blue"), MAssetManager.getEDStonecutterTexture("Clay_Road_Side_Brown"), MAssetManager.getEDStonecutterTexture("Clay_Road_Side_Cyan"), MAssetManager.getEDStonecutterTexture("Clay_Road_Side_Green"), MAssetManager.getEDStonecutterTexture("Clay_Road_Side_Grey"), MAssetManager.getEDStonecutterTexture("Clay_Road_Side_LightBlue"), MAssetManager.getEDStonecutterTexture("Clay_Road_Side_Lime"), MAssetManager.getEDStonecutterTexture("Clay_Road_Side_Magenta"), MAssetManager.getEDStonecutterTexture("Clay_Road_Side_Orange"), MAssetManager.getEDStonecutterTexture("Clay_Road_Side_Pink"), MAssetManager.getEDStonecutterTexture("Clay_Road_Side_Purple"), MAssetManager.getEDStonecutterTexture("Clay_Road_Side_Red"), MAssetManager.getEDStonecutterTexture("Clay_Road_Side_Silver"), MAssetManager.getEDStonecutterTexture("Clay_Road_Side_White"), MAssetManager.getEDStonecutterTexture("Clay_Road_Side_Yellow")}, new String[]{
+				MAssetManager.getEDStonecutterTexture("Clay_PatternBricks_0_Black"), MAssetManager.getEDStonecutterTexture("Clay_PatternBricks_0_Blue"), MAssetManager.getEDStonecutterTexture("Clay_PatternBricks_0_Brown"), MAssetManager.getEDStonecutterTexture("Clay_PatternBricks_0_Cyan"), MAssetManager.getEDStonecutterTexture("Clay_PatternBricks_0_Green"), MAssetManager.getEDStonecutterTexture("Clay_PatternBricks_0_Grey"), MAssetManager.getEDStonecutterTexture("Clay_PatternBricks_0_LightBlue"), MAssetManager.getEDStonecutterTexture("Clay_PatternBricks_0_Lime"), MAssetManager.getEDStonecutterTexture("Clay_PatternBricks_0_Magenta"), MAssetManager.getEDStonecutterTexture("Clay_PatternBricks_0_Orange"), MAssetManager.getEDStonecutterTexture("Clay_PatternBricks_0_Pink"), MAssetManager.getEDStonecutterTexture("Clay_PatternBricks_0_Purple"), MAssetManager.getEDStonecutterTexture("Clay_PatternBricks_0_Red"), MAssetManager.getEDStonecutterTexture("Clay_PatternBricks_0_Silver"), MAssetManager.getEDStonecutterTexture("Clay_PatternBricks_0_White"), MAssetManager.getEDStonecutterTexture("Clay_PatternBricks_0_Yellow")}, new String[]{
+				MAssetManager.getEDTexture("grasslessDirt"), MAssetManager.getEDTexture("grasslessDirt"), MAssetManager.getEDTexture("grasslessDirt"), MAssetManager.getEDTexture("grasslessDirt"), MAssetManager.getEDTexture("grasslessDirt"), MAssetManager.getEDTexture("grasslessDirt"), MAssetManager.getEDTexture("grasslessDirt"), MAssetManager.getEDTexture("grasslessDirt"), MAssetManager.getEDTexture("grasslessDirt"), MAssetManager.getEDTexture("grasslessDirt"), MAssetManager.getEDTexture("grasslessDirt"), MAssetManager.getEDTexture("grasslessDirt"), MAssetManager.getEDTexture("grasslessDirt"), MAssetManager.getEDTexture("grasslessDirt"), MAssetManager.getEDTexture("grasslessDirt"), MAssetManager.getEDTexture("grasslessDirt")
+				}).setBlockName("clayRoads").setHardness(2.0F).setResistance(8.0F);
+		clayChiseled = new BlockMultiPillarStationary(Material.rock, new String[]{
+				MAssetManager.getEDStonecutterTexture("Clay_Chiseled_Side_Black"), MAssetManager.getEDStonecutterTexture("Clay_Chiseled_Side_Blue"), MAssetManager.getEDStonecutterTexture("Clay_Chiseled_Side_Brown"), MAssetManager.getEDStonecutterTexture("Clay_Chiseled_Side_Cyan"), MAssetManager.getEDStonecutterTexture("Clay_Chiseled_Side_Green"), MAssetManager.getEDStonecutterTexture("Clay_Chiseled_Side_Grey"), MAssetManager.getEDStonecutterTexture("Clay_Chiseled_Side_LightBlue"), MAssetManager.getEDStonecutterTexture("Clay_Chiseled_Side_Lime"), MAssetManager.getEDStonecutterTexture("Clay_Chiseled_Side_Magenta"), MAssetManager.getEDStonecutterTexture("Clay_Chiseled_Side_Orange"), MAssetManager.getEDStonecutterTexture("Clay_Chiseled_Side_Pink"), MAssetManager.getEDStonecutterTexture("Clay_Chiseled_Side_Purple"), MAssetManager.getEDStonecutterTexture("Clay_Chiseled_Side_Red"), MAssetManager.getEDStonecutterTexture("Clay_Chiseled_Side_Silver"), MAssetManager.getEDStonecutterTexture("Clay_Chiseled_Side_White"), MAssetManager.getEDStonecutterTexture("Clay_Chiseled_Side_Yellow")}, new String[]{
+				MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Black"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Blue"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Brown"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Cyan"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Green"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Grey"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_LightBlue"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Lime"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Magenta"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Orange"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Pink"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Purple"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Red"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Silver"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_White"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Yellow"),
+				}).setBlockName("clayChiseled").setHardness(2.0F).setResistance(8.0F);
+		claySlabsSingle = (BlockMultiSlab) new BlockMultiSlab(false, new String[]{
+				MAssetManager.getEDStonecutterTexture("Clay_RawSlab_Side_Black"), MAssetManager.getEDStonecutterTexture("Clay_RawSlab_Side_Blue"), MAssetManager.getEDStonecutterTexture("Clay_RawSlab_Side_Brown"), MAssetManager.getEDStonecutterTexture("Clay_RawSlab_Side_Cyan"), MAssetManager.getEDStonecutterTexture("Clay_RawSlab_Side_Green"), MAssetManager.getEDStonecutterTexture("Clay_RawSlab_Side_Grey"), MAssetManager.getEDStonecutterTexture("Clay_RawSlab_Side_LightBlue"), MAssetManager.getEDStonecutterTexture("Clay_RawSlab_Side_Lime"), MAssetManager.getEDStonecutterTexture("Clay_RawSlab_Side_Magenta"), MAssetManager.getEDStonecutterTexture("Clay_RawSlab_Side_Orange"), MAssetManager.getEDStonecutterTexture("Clay_RawSlab_Side_Pink"), MAssetManager.getEDStonecutterTexture("Clay_RawSlab_Side_Purple"), MAssetManager.getEDStonecutterTexture("Clay_RawSlab_Side_Red"), MAssetManager.getEDStonecutterTexture("Clay_RawSlab_Side_Silver"), MAssetManager.getEDStonecutterTexture("Clay_RawSlab_Side_White"), MAssetManager.getEDStonecutterTexture("Clay_RawSlab_Side_Yellow")}, new String[]{
+				MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Black"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Blue"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Brown"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Cyan"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Green"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Grey"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_LightBlue"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Lime"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Magenta"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Orange"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Pink"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Purple"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Red"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Silver"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_White"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Yellow"),
+				}).setBlockName("claySlabsSingle").setCreativeTab(Minestrappolation.creativeTabMAPI).setHardness(2.0F).setResistance(8.0F);
+		claySlabsDouble = (BlockMultiSlab) new BlockMultiSlab(true, new String[]{
+				MAssetManager.getEDStonecutterTexture("Clay_RawSlab_Side_Black"), MAssetManager.getEDStonecutterTexture("Clay_RawSlab_Side_Blue"), MAssetManager.getEDStonecutterTexture("Clay_RawSlab_Side_Brown"), MAssetManager.getEDStonecutterTexture("Clay_RawSlab_Side_Cyan"), MAssetManager.getEDStonecutterTexture("Clay_RawSlab_Side_Green"), MAssetManager.getEDStonecutterTexture("Clay_RawSlab_Side_Grey"), MAssetManager.getEDStonecutterTexture("Clay_RawSlab_Side_LightBlue"), MAssetManager.getEDStonecutterTexture("Clay_RawSlab_Side_Lime"), MAssetManager.getEDStonecutterTexture("Clay_RawSlab_Side_Magenta"), MAssetManager.getEDStonecutterTexture("Clay_RawSlab_Side_Orange"), MAssetManager.getEDStonecutterTexture("Clay_RawSlab_Side_Pink"), MAssetManager.getEDStonecutterTexture("Clay_RawSlab_Side_Purple"), MAssetManager.getEDStonecutterTexture("Clay_RawSlab_Side_Red"), MAssetManager.getEDStonecutterTexture("Clay_RawSlab_Side_Silver"), MAssetManager.getEDStonecutterTexture("Clay_RawSlab_Side_White"), MAssetManager.getEDStonecutterTexture("Clay_RawSlab_Side_Yellow")}, new String[]{
+				MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Black"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Blue"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Brown"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Cyan"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Green"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Grey"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_LightBlue"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Lime"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Magenta"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Orange"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Pink"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Purple"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Red"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Silver"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_White"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Yellow"),
+				}).setBlockName("claySlabsDouble").setHardness(2.0F).setResistance(8.0F);
 	}
 	
 	public static void loadVanillaOverwrites()
@@ -251,14 +300,25 @@ public class EDBlocks
 		GameRegistry.registerBlock(Tiles, ItemBlockMulti.class, "tiles");
 		
 		GameRegistry.registerBlock(bedrockBlocks, ItemBlockMulti.class, "bedrockBlocks");
+		GameRegistry.registerBlock(bedrockLamps, ItemBlockMulti.class, "bedrockLamps");
+		GameRegistry.registerBlock(bedrockPillars, ItemBlockMulti.class, "bedrockPillars");
+		GameRegistry.registerBlock(bedrockRoads, ItemBlockMulti.class, "bedrockRoads");
+		GameRegistry.registerBlock(bedrockSlabsSingle, ItemBlockMultiSlab.class, "bedrockSlabsSingle", null, bedrockSlabsSingle, bedrockSlabsDouble);
+		GameRegistry.registerBlock(bedrockSlabsDouble, ItemBlockMultiSlab.class, "bedrockSlabsDouble", null, bedrockSlabsSingle, bedrockSlabsDouble);
 
+		GameRegistry.registerBlock(clayBlocks, ItemBlockMulti.class, "clayBlocks");
+		GameRegistry.registerBlock(clayPillars, ItemBlockMulti.class, "clayPillars");
+		GameRegistry.registerBlock(clayRoads, ItemBlockMulti.class, "clayRoads");
+		GameRegistry.registerBlock(clayChiseled, ItemBlockMulti.class, "clayChiseled");
+		GameRegistry.registerBlock(claySlabsSingle, ItemBlockMultiSlab.class, "claySlabsSingle", null, claySlabsSingle, claySlabsDouble);
+		GameRegistry.registerBlock(claySlabsDouble, ItemBlockMultiSlab.class, "claySlabsDouble", null, claySlabsSingle, claySlabsDouble);
 	}
 	
 	public static void loadBridgedBlocks() throws Exception
 	{
 		if(Loader.isModLoaded(MAPIReference.MODID_EO))
 		{
-			bedrockBrick = new BlockBedrockBrick().setBlockName("BedrockBrick").setStepSound(Block.soundTypeStone).setResistance(100000000F).setHardness(80F).setCreativeTab(tabDecorBlocks).setBlockTextureName(MAssetManager.getEDStonecutterTexture("Bedrock_Bricks_0_0"));
+			bedrockBrick = new BlockBedrockBrick().setBlockName("BedrockBrick").setStepSound(Block.soundTypeStone).setResistance(100000000F).setHardness(80F).setCreativeTab(tabDecor).setBlockTextureName(MAssetManager.getEDStonecutterTexture("Bedrock_Bricks_0_0"));
 			GameRegistry.registerBlock(bedrockBrick,"BedrockBrick");
 			bedrockBrick.setHarvestLevel("pickaxe", 4);
 		}	

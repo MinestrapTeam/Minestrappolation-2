@@ -8,16 +8,16 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 
-public final class CreativeTabMAPI extends CreativeTabs
+public final class CreativeTabStone extends CreativeTabs
 {
-	public CreativeTabMAPI(int par1, String par2Str)
+	public CreativeTabStone(int par1, String par2Str)
 	{
 		super(par1, par2Str);
 	}
 
 	public String getTranslatedTabLabel()
 	{
-		return "MAPI";
+		return "Minestrappolation - Stone";
 	}
 
 	@Override

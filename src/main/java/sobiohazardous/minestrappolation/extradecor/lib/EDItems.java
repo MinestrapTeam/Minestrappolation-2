@@ -36,13 +36,13 @@ public class EDItems
 	
 	public static void addItems()
 	{
-		cardboardItem = new ItemReed(EDBlocks.cardboard).setCreativeTab(EDBlocks.tabDecorBlocks).setUnlocalizedName("item_Cardboard").setTextureName(MAssetManager.getEDTexture("cardboard"));
+		cardboardItem = new ItemReed(EDBlocks.cardboard).setCreativeTab(EDBlocks.tabDecor).setUnlocalizedName("item_Cardboard").setTextureName(MAssetManager.getEDTexture("cardboard"));
 		GameRegistry.registerItem(cardboardItem, "cardboardItem");
-		sandstoneBrickItem = new MItem().setUnlocalizedName("item_SandstoneBrick").setCreativeTab(EDBlocks.tabDecorBlocks).setTextureName(MAssetManager.getEDTexture("brickSandstone"));
+		sandstoneBrickItem = new MItem().setUnlocalizedName("item_SandstoneBrick").setCreativeTab(EDBlocks.tabDecor).setTextureName(MAssetManager.getEDTexture("brickSandstone"));
 		GameRegistry.registerItem(sandstoneBrickItem, "sandstoneBrickItem");
-		stoneBrickItem = new MItem().setUnlocalizedName("item_StoneBrick").setCreativeTab(EDBlocks.tabDecorBlocks).setTextureName(MAssetManager.getEDTexture("brickStone"));
+		stoneBrickItem = new MItem().setUnlocalizedName("item_StoneBrick").setCreativeTab(EDBlocks.tabDecor).setTextureName(MAssetManager.getEDTexture("brickStone"));
 		GameRegistry.registerItem(stoneBrickItem, "stoneBrickItem");
-		gobletItem = new ItemReed(EDBlocks.Goblet).setCreativeTab(EDBlocks.tabDecorBlocks).setUnlocalizedName("item_GobletEmpty").setTextureName(MAssetManager.getEDTexture("goblet"));
+		gobletItem = new ItemReed(EDBlocks.Goblet).setCreativeTab(EDBlocks.tabDecor).setUnlocalizedName("item_GobletEmpty").setTextureName(MAssetManager.getEDTexture("goblet"));
 		GameRegistry.registerItem(gobletItem, "gobletItem");
 		gDoor = new ItemGDoor(Material.glass).setUnlocalizedName("item_GlassDoor").setTextureName(MAssetManager.getEDTexture("doorGlass"));
 		GameRegistry.registerItem(gDoor, "glassDoorItem");
