@@ -92,9 +92,7 @@ public class BlockMultiRoad extends Block
     	}
 		return sides[j];
     }
-    
-    
-    
+     
     /**
      * The type of render function that is called for this block
      */

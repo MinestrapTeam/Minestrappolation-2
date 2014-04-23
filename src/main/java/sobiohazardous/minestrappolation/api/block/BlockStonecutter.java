@@ -23,11 +23,6 @@ public class BlockStonecutter extends BlockContainer
 		this.setCreativeTab(Minestrappolation.creativeTabMAPI);
 	}
 
-	public void registerBlockIcons(IIconRegister ir)
-	{
-		blockIcon = ir.registerIcon("minestrappolation:block_StoneCutterFullFront");
-	}
-
 	@Override
 	public TileEntity createNewTileEntity(World var1, int var2)
 	{

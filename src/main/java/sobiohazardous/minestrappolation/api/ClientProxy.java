@@ -1,12 +1,15 @@
 package sobiohazardous.minestrappolation.api;
 
+import sobiohazardous.minestrappolation.api.lib.MAPIBlocks;
 import sobiohazardous.minestrappolation.api.tileentity.RendererStonecutter;
 import sobiohazardous.minestrappolation.api.tileentity.TileEntityStonecutter;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ThreadDownloadImageData;
 import net.minecraft.client.renderer.texture.ITextureObject;
+import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.MinecraftForgeClient;
 
 public class ClientProxy extends CommonProxy
 {	

@@ -27,15 +27,17 @@ public class BlockMultiSlab extends BlockSlab
         this.sideImgs = sideTextures;
         this.topImgs = topTextures;
     }
-
-    @SideOnly(Side.CLIENT)
-    @Override
-    public IIcon getIcon(int par1, int par2)
-    {	
-        int k = par2 & 48;
-        return k == 0 && (par1 == 1 || par1 == 0) ? top[par2] : (k == 4 && (par1 == 5 || par1 == 4) ? top[par2] : (k == 8 && (par1 == 2 || par1 == 3) ? top[par2] : this.sides[par2]));
+    
+    public IIcon getIcon(int side, int meta)
+    {
+        int var3 = meta & 12;
+        int var4 = meta & 3;
+        if(this.field_150004_a)
+        {
+            return var3 == 0 && (side == 1 || side == 0) ? this.top[var4] : this.sides[var4];
+        }
+        return var3 == 0 && (side == 1 || side == 0) ? this.top[var4] : (var3 == 4 && (side == 5 || side == 4) ? this.sides[var4] : (var3 == 8 && (side == 2 || side == 3) ? this.sides[var4] : this.top[var4]));
     }
-
     public void registerBlockIcons(IIconRegister par1IconRegister)
     {
         this.sides = new IIcon[sideImgs.length];
