@@ -34,7 +34,7 @@ public class BlockMultiRoad extends Block
         this.sidesImg = sidesImgs;
         this.topImg = topImgs;
         this.bottomImg = bottomImgs;
-        this.setCreativeTab(Minestrappolation.creativeTabMAPI);
+        this.setCreativeTab(Minestrappolation.creativeTabStone);
     }
 
     public void registerBlockIcons(IIconRegister par1IconRegister)

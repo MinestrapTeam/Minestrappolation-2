@@ -28,7 +28,7 @@ public class BlockMulti extends Block
     {
         super(mat);
         iconStringArray = textures;
-        this.setCreativeTab(Minestrappolation.creativeTabMAPI);
+        this.setCreativeTab(Minestrappolation.creativeTabStone);
     }
 
     @SideOnly(Side.CLIENT)

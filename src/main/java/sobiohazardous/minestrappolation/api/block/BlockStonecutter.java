@@ -2,6 +2,7 @@ package sobiohazardous.minestrappolation.api.block;
 
 import sobiohazardous.minestrappolation.api.Minestrappolation;
 import sobiohazardous.minestrappolation.api.tileentity.TileEntityStonecutter;
+import sobiohazardous.minestrappolation.api.util.MAssetManager;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -20,9 +21,14 @@ public class BlockStonecutter extends BlockContainer
 	public BlockStonecutter()
 	{
 		super(Material.rock);
-		this.setCreativeTab(Minestrappolation.creativeTabMAPI);
+		this.setCreativeTab(Minestrappolation.creativeTabStone);
 	}
-
+	
+	public void registerBlockIcons(IIconRegister i)
+	{
+		this.blockIcon = i.registerIcon(MAssetManager.getMAPITexture("stonecutter"));
+	}
+	
 	@Override
 	public TileEntity createNewTileEntity(World var1, int var2)
 	{

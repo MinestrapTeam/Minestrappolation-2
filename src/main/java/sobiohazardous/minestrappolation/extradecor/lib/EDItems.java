@@ -30,7 +30,6 @@ public class EDItems
 {
 	public static Item cardboardItem;	
 	public static Item sandstoneBrickItem;
-	public static Item stoneBrickItem;
 	public static Item gobletItem;
 	public static Item gDoor;
 	
@@ -40,8 +39,6 @@ public class EDItems
 		GameRegistry.registerItem(cardboardItem, "cardboardItem");
 		sandstoneBrickItem = new MItem().setUnlocalizedName("item_SandstoneBrick").setCreativeTab(EDBlocks.tabDecor).setTextureName(MAssetManager.getEDTexture("brickSandstone"));
 		GameRegistry.registerItem(sandstoneBrickItem, "sandstoneBrickItem");
-		stoneBrickItem = new MItem().setUnlocalizedName("item_StoneBrick").setCreativeTab(EDBlocks.tabDecor).setTextureName(MAssetManager.getEDTexture("brickStone"));
-		GameRegistry.registerItem(stoneBrickItem, "stoneBrickItem");
 		gobletItem = new ItemReed(EDBlocks.Goblet).setCreativeTab(EDBlocks.tabDecor).setUnlocalizedName("item_GobletEmpty").setTextureName(MAssetManager.getEDTexture("goblet"));
 		GameRegistry.registerItem(gobletItem, "gobletItem");
 		gDoor = new ItemGDoor(Material.glass).setUnlocalizedName("item_GlassDoor").setTextureName(MAssetManager.getEDTexture("doorGlass"));

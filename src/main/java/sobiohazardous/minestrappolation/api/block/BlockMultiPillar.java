@@ -23,7 +23,7 @@ public class BlockMultiPillar extends BlockRotatedPillar
     public BlockMultiPillar(Material mat, String[] sideImgs, String[] topImgs)
     {
         super(Material.wood);
-        this.setCreativeTab(Minestrappolation.creativeTabMAPI);
+        this.setCreativeTab(Minestrappolation.creativeTabStone);
         this.sidesImg = sideImgs;
         this.topImg = topImgs;
     }

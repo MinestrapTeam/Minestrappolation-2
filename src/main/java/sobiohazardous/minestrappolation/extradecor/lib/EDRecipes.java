@@ -42,11 +42,12 @@ public class EDRecipes
 				{
 			"SS", "SS", Character.valueOf('S'), new ItemStack(EDBlocks.stones,1,1)
 				});
-		
+		/*
 		GameRegistry.addRecipe(new ItemStack(EDBlocks.edgeStoneBrick, 1), new Object[]
 				{
 			"SG", "SG", Character.valueOf('S'), EDItems.stoneBrickItem, Character.valueOf('G'), Items.quartz
 				});
+				*/
 		GameRegistry.addRecipe(new ItemStack(EDBlocks.Tiles, 2,4), new Object[]
 				{
 			"SSS", "SSS", "SSS", Character.valueOf('S'), Items.brick
@@ -237,10 +238,12 @@ public class EDRecipes
 			"CCC", " C ", " CC", Character.valueOf('C'), EDItems.cardboardItem
 				});
 		GameRegistry.addSmelting(Blocks.sandstone , new ItemStack(EDItems.sandstoneBrickItem, 4),  0.8F);
+		/*
 		GameRegistry.addRecipe(new ItemStack(Blocks.stonebrick, 2, 3), new Object[]
 				{
 			"BBB", "BBB", "BBB", Character.valueOf('B'), EDItems.stoneBrickItem
 				});
+				*/
 		GameRegistry.addRecipe(new ItemStack(EDBlocks.sandstoneBricks, 1, 0), new Object[]
 				{
 			"BB", "BB", Character.valueOf('B'), EDItems.sandstoneBrickItem
@@ -447,12 +450,12 @@ public class EDRecipes
 				{
 			"CC", "DD", Character.valueOf('C'), Blocks.cobblestone, Character.valueOf('D'), Blocks.gravel
 				});
-		
+		/*
 		GameRegistry.addRecipe(new ItemStack(EDBlocks.refinedRoad, 1), new Object[]
 				{
 			"CCC", "CCC", "DDD", Character.valueOf('C'), new ItemStack(EDItems.stoneBrickItem, 1, 0), Character.valueOf('D'), Blocks.dirt
 				});
-		
+		*/
 		GameRegistry.addRecipe(new ItemStack(EDBlocks.netherroad, 2), new Object[]
 				{
 			"CC", "DD", Character.valueOf('C'), Blocks.netherrack, Character.valueOf('D'), Blocks.soul_sand
@@ -461,22 +464,11 @@ public class EDRecipes
 		GameRegistry.addRecipe(new ItemStack(EDBlocks.refinedNetherroad, 1), new Object[]
 				{
 			"CCC", "CCC", "DDD", Character.valueOf('C'), new ItemStack(Items.netherbrick, 1, 0), Character.valueOf('D'), Blocks.soul_sand
-				});
-		
-		GameRegistry.addRecipe(new ItemStack(EDItems.stoneBrickItem, 16), new Object[]
-				{
-			"BB", "BB", Character.valueOf('B'), Blocks.stone
-				});
+				});		
 	}
 	
 	public static void removeRecipes()
 	{
 		MUtil.removeRecipe(new ItemStack(Blocks.stonebrick, 4, 0));
-		
-		//It must be added after the recipe is removed.
-		GameRegistry.addRecipe(new ItemStack(Blocks.stonebrick, 1), new Object[]
-				{
-			"BB", "BB", Character.valueOf('B'), EDItems.stoneBrickItem
-				});
 	}
 }
