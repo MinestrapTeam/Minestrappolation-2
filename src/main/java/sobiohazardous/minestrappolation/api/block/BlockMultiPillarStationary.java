@@ -54,7 +54,7 @@ public class BlockMultiPillarStationary extends Block
     @Override
     public IIcon getIcon(int par1, int par2)
     {	
-        int k = par2 & 48;
+        int k = par2 & 96;
         return k == 0 && (par1 == 1 || par1 == 0) ? top[par2] : (k == 4 && (par1 == 5 || par1 == 4) ? top[par2] : (k == 8 && (par1 == 2 || par1 == 3) ? top[par2] : this.sides[par2]));
     }
      

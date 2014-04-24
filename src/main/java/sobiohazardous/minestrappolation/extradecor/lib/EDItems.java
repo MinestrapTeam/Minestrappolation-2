@@ -1,30 +1,14 @@
 package sobiohazardous.minestrappolation.extradecor.lib;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
+import sobiohazardous.minestrappolation.api.Minestrappolation;
 import sobiohazardous.minestrappolation.api.item.MItem;
+import sobiohazardous.minestrappolation.api.item.MItemMulti;
 import sobiohazardous.minestrappolation.api.util.MAssetManager;
-import sobiohazardous.minestrappolation.extradecor.block.Block100;
-import sobiohazardous.minestrappolation.extradecor.block.BlockEdgeStoneCorner;
-import sobiohazardous.minestrappolation.extradecor.block.BlockEndStone;
-import sobiohazardous.minestrappolation.extradecor.block.BlockGoblet;
-import sobiohazardous.minestrappolation.extradecor.block.BlockMossyWood;
-import sobiohazardous.minestrappolation.extradecor.block.BlockSandstoneBrick;
-import sobiohazardous.minestrappolation.extradecor.block.BlockStainedBrick;
-import sobiohazardous.minestrappolation.extradecor.block.BlockStoneLamp;
-import sobiohazardous.minestrappolation.extradecor.block.BlockStones;
-import sobiohazardous.minestrappolation.extradecor.block.BlockTiles;
-import sobiohazardous.minestrappolation.extradecor.block.BlockWoodBeveled;
-import sobiohazardous.minestrappolation.extradecor.block.BlockWoodBoards;
-import sobiohazardous.minestrappolation.extradecor.block.BlockWoodPanel;
-import sobiohazardous.minestrappolation.extradecor.bridge.EDBridgeRecipes;
 import sobiohazardous.minestrappolation.extradecor.item.ItemGDoor;
-import net.minecraft.block.BlockSlab;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemReed;
-import net.minecraft.item.ItemSlab;
-import net.minecraftforge.common.MinecraftForge;
 
 public class EDItems 
 {
@@ -32,6 +16,8 @@ public class EDItems
 	public static Item sandstoneBrickItem;
 	public static Item gobletItem;
 	public static Item gDoor;
+	
+	public static Item brickClay;
 	
 	public static void addItems()
 	{
@@ -43,6 +29,9 @@ public class EDItems
 		GameRegistry.registerItem(gobletItem, "gobletItem");
 		gDoor = new ItemGDoor(Material.glass).setUnlocalizedName("item_GlassDoor").setTextureName(MAssetManager.getEDTexture("doorGlass"));
 		GameRegistry.registerItem(gDoor, "glassDoorItem");
+		
+		brickClay = new MItemMulti(new String[]{MAssetManager.getEDTexture("brickClayBlack"), MAssetManager.getEDTexture("brickClayBlue"), MAssetManager.getEDTexture("brickClayBrown"), MAssetManager.getEDTexture("brickClayCyan"), MAssetManager.getEDTexture("brickClayGray"), MAssetManager.getEDTexture("brickClayGreen"), MAssetManager.getEDTexture("brickClayLightBlue"), MAssetManager.getEDTexture("brickClayLime"), MAssetManager.getEDTexture("brickClayMagenta"), MAssetManager.getEDTexture("brickClayOrange"), MAssetManager.getEDTexture("brickClayPink"), MAssetManager.getEDTexture("brickClayPurple"), MAssetManager.getEDTexture("brickClayRed"), MAssetManager.getEDTexture("brickClaySilver"), MAssetManager.getEDTexture("brickClayWhite"), MAssetManager.getEDTexture("brickClayYellow")}).setCreativeTab(Minestrappolation.creativeTabStone).setUnlocalizedName("brickClay");
+		GameRegistry.registerItem(brickClay, "brickClay");
 	}
 	
 	public static void setHarvestLevels()

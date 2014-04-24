@@ -1,4 +1,4 @@
-package sobiohazardous.minestrappolation.extradecor.item;
+package sobiohazardous.minestrappolation.api.item;
 
 import java.util.List;
 
@@ -9,12 +9,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 
-public class ItemMulti extends Item
+public class MItemMulti extends Item
 {
     private final String[] types;
-    private IIcon[] field_150920_d;
+    private IIcon[] icons;
 
-    public ItemMulti(String[] textures)
+    public MItemMulti(String[] textures)
     {
         this.setHasSubtypes(true);
         this.setMaxDamage(0);
@@ -27,7 +27,7 @@ public class ItemMulti extends Item
     public IIcon getIconFromDamage(int par1)
     {
         int var2 = MathHelper.clamp_int(par1, 0, 15);
-        return this.field_150920_d[var2];
+        return this.icons[var2];
     }
 
     /**
@@ -53,11 +53,11 @@ public class ItemMulti extends Item
 
     public void registerIcons(IIconRegister par1IconRegister)
     {
-        this.field_150920_d = new IIcon[types.length];
+        this.icons = new IIcon[types.length];
 
         for (int var2 = 0; var2 < types.length; ++var2)
         {
-            this.field_150920_d[var2] = par1IconRegister.registerIcon(this.getIconString() + "_" + types[var2]);
+            this.icons[var2] = par1IconRegister.registerIcon(types[var2]);
         }
     }
 }

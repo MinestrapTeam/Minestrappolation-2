@@ -145,6 +145,13 @@ public class EDBlocks
 	public static BlockMultiSlab endstoneSlabSingle;
 	public static BlockMultiSlab endstoneSlabDouble;
 	
+	public static Block flintBlocks;
+	public static Block flintLamps;
+	public static Block flintPillars;
+	public static Block flintRoads;
+	public static BlockMultiSlab flintSlabSingle;
+	public static BlockMultiSlab flintSlabDouble;
+	
 	public static CreativeTabs tabDecor = new CreativeTabExtraDecorBlocks(CreativeTabs.getNextID(),"Extrappolated Decor");
 
 	public static void createBlocks()
@@ -313,6 +320,13 @@ public class EDBlocks
 		endstoneSlabSingle = (BlockMultiSlab) new BlockMultiSlab(false, new String[]{MAssetManager.getEDStonecutterTexture("Endstone_RawSlab_Side_0")}, new String[]{MAssetManager.getEDStonecutterTexture("Endstone_RawSlab_Top_0")}).setBlockName("endstoneSlabSingle").setHardness(1.5F).setResistance(2.0F).setCreativeTab(Minestrappolation.creativeTabStone);
 		endstoneSlabDouble = (BlockMultiSlab) new BlockMultiSlab(true, new String[]{MAssetManager.getEDStonecutterTexture("Endstone_RawSlab_Side_0")}, new String[]{MAssetManager.getEDStonecutterTexture("Endstone_RawSlab_Top_0")}).setBlockName("endstoneSlabDouble").setHardness(1.5F).setResistance(2.0F);
 
+		flintBlocks = new BlockMulti(Material.rock, new String[]{MAssetManager.getEDStonecutterTexture("Flint_Bricks_0_0"), MAssetManager.getEDStonecutterTexture("Flint_Chiseled_0_0"), MAssetManager.getEDStonecutterTexture("Flint_PatternBricks_0_0"), MAssetManager.getEDStonecutterTexture("Flint_Tiles_0_0"), MAssetManager.getEDStonecutterTexture("Flint-NetherQuartz_TileChecker_0_0")}).setBlockName("flintBlocks").setHardness(2.0F).setResistance(5.0F);
+		flintLamps = new BlockMultiLamp(Material.rock, new String[]{MAssetManager.getEDStonecutterTexture("Flint_LampGlowstone_0_0"), MAssetManager.getEDStonecutterTexture("Flint_LampSunstone_0_0")}).setBlockName("flintLamps").setHardness(2.0F).setResistance(5.0F);
+		flintPillars = new BlockMultiPillar(Material.rock, new String[]{MAssetManager.getEDStonecutterTexture("Flint_Pillar_Side_0")}, new String[]{MAssetManager.getEDStonecutterTexture("Flint_Pillar_Top_0")}).setBlockName("flintPillars").setHardness(2.0F).setResistance(5.0F);
+		flintRoads = new BlockMultiRoad(Material.rock, new String[]{MAssetManager.getEDStonecutterTexture("Flint_Road_Side_0")}, new String[]{MAssetManager.getEDStonecutterTexture("Flint_PatternBricks_0_0")}, new String[]{"gravel"}).setBlockName("flintRoads").setHardness(2.0F).setResistance(5.0F);
+		flintSlabSingle = (BlockMultiSlab) new BlockMultiSlab(false, new String[]{MAssetManager.getEDStonecutterTexture("Flint_RefinedSlab_Side_0")}, new String[]{MAssetManager.getEDStonecutterTexture("Flint_Refined_0_0")}).setBlockName("flintSlabSingle").setHardness(2.0F).setResistance(5.0F).setCreativeTab(Minestrappolation.creativeTabStone);
+		flintSlabDouble = (BlockMultiSlab) new BlockMultiSlab(true, new String[]{MAssetManager.getEDStonecutterTexture("Flint_RefinedSlab_Side_0")}, new String[]{MAssetManager.getEDStonecutterTexture("Flint_Refined_0_0")}).setBlockName("flintSlabDouble").setHardness(2.0F).setResistance(5.0F);
+
 	}
 	
 	public static void loadVanillaOverwrites()
@@ -404,6 +418,13 @@ public class EDBlocks
 		GameRegistry.registerBlock(endstoneChiseled, ItemBlockMulti.class, "endstoneChiseled");
 		GameRegistry.registerBlock(endstoneSlabSingle, ItemBlockMultiSlab.class, "endstoneSlabsSingle", null, endstoneSlabSingle, endstoneSlabDouble);
 		GameRegistry.registerBlock(endstoneSlabDouble, ItemBlockMultiSlab.class, "endstoneSlabsDouble", null, endstoneSlabSingle, endstoneSlabDouble);
+		
+		GameRegistry.registerBlock(flintBlocks, ItemBlockMulti.class, "flintBlocks");
+		GameRegistry.registerBlock(flintLamps, ItemBlockMulti.class, "flintLamps");
+		GameRegistry.registerBlock(flintPillars, ItemBlockMulti.class, "flintPillars");
+		GameRegistry.registerBlock(flintRoads, ItemBlockMulti.class, "flintRoads");
+		GameRegistry.registerBlock(flintSlabSingle, ItemBlockMultiSlab.class, "flintSlabsSingle", null, flintSlabSingle, flintSlabDouble);
+		GameRegistry.registerBlock(flintSlabDouble, ItemBlockMultiSlab.class, "flintSlabsDouble", null, flintSlabSingle, flintSlabDouble);
 
 	}
 	
