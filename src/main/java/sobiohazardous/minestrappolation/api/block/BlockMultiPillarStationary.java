@@ -50,6 +50,7 @@ public class BlockMultiPillarStationary extends Block
         }
     }
     
+    /*
     @SideOnly(Side.CLIENT)
     @Override
     public IIcon getIcon(int par1, int par2)
@@ -57,7 +58,42 @@ public class BlockMultiPillarStationary extends Block
         int k = par2 & 96;
         return k == 0 && (par1 == 1 || par1 == 0) ? top[par2] : (k == 4 && (par1 == 5 || par1 == 4) ? top[par2] : (k == 8 && (par1 == 2 || par1 == 3) ? top[par2] : this.sides[par2]));
     }
-     
+     */
+    
+    public IIcon getIcon(int i, int j)
+    {
+    	if (j < 0 || j >= this.sides.length)
+        {
+            j = 0;
+        }
+    	
+    	if (i == 0)//bottom
+            
+            return top[j];
+    	if (i == 1)//top
+           
+            return top[j];
+   
+    	if (i == 2) // side
+           
+            return sides[j];
+    	if (i == 3)//side 
+           
+            return sides[j];
+    	if (i == 4) //side
+   
+    		return sides[j];
+    	if (i == 5) //side
+   
+    		return sides[j];
+
+    	if (j ==1)
+    	{
+    		return sides[j];
+    	}
+		return sides[j];
+    }
+    
     /**
      * The type of render function that is called for this block
      */
