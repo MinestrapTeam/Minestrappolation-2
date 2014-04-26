@@ -35,7 +35,7 @@ jar {
     //Keep the jar as clean as possible
     includeEmptyDirs = false
 	//package dependencies in.
-	//from configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+	from configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
 }
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
