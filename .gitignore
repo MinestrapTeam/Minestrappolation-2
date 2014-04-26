@@ -4,8 +4,10 @@
 !.gitignore
 !gradlew*
 !/gradle/
-!/eclipse/assets/extradecor
-!/eclipse/assets/extraenviroments
-!/eclipse/assets/extraextrafoods
-!/eclipse/assets/extramobdrops
-!/eclipse/assets/extraores
+!/ed_info/*
+!/ee_info/*
+!/emd_info/*
+!/eo_info/*
+!/api_info/*
+!/assets/*
+!/dependencies/*
