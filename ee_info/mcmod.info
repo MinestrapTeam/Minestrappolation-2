@@ -1,0 +1,10 @@
+[
+{
+  "modid": "ExtraEnviroments",
+  "name": "Extrapolated Enviroments",
+  "description": "To be added",
+  "parent": "",
+  "screenshots": [],
+  "dependencies": ["MAPI"]
+}
+]

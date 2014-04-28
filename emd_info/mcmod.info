@@ -1,0 +1,10 @@
+[
+{
+  "modid": "ExtraMobDrops",
+  "name": "Extrapolated Mod Drops",
+  "description": "To be added",
+  "parent": "",
+  "screenshots": [],
+  "dependencies": ["MAPI"]
+}
+]

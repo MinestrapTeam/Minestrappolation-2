@@ -1,0 +1,15 @@
+[
+{
+  "modid": "ExtraDecor",
+  "name": "Extrapolated Decor",
+  "description": "Adds a variety of new Decoration blocks to bring up the atmostphere in your world.",
+ "logoFile": "/ed_banner.png",
+  "url": "",
+  "updateUrl": "",
+  "authors": ["SoBiohazardous", "Delocuro"],
+  "credits": "Made by the Minestrapolation Team",
+  "parent": "",
+  "screenshots": [],
+  "dependencies": ["MAPI"]
+}
+]

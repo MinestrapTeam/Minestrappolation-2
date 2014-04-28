@@ -8,7 +8,7 @@ import cpw.mods.fml.common.network.FMLNetworkEvent;
 
 public class MAPIEventHandler 
 {
-	String url = "https://raw.github.com/SoBiohazardous/Minestrappolation-Recode/master/src/main/java/version.txt";
+	String url = "https://raw.githubusercontent.com/SoBiohazardous/Minestrappolation-Recode/master/src/version.txt";
 
 	@SubscribeEvent
     public void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) 

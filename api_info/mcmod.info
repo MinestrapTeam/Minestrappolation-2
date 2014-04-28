@@ -1,0 +1,15 @@
+[
+{
+  "modid": "MAPI",
+  "name": "MAPI",
+  "description": "Core lib for Minestrappolation",
+ "logoFile": "",
+  "url": "",
+  "updateUrl": "",
+  "authors": ["SoBiohazardous", "Delocuro"],
+  "credits": "Made by the Minestrapolation Team",
+  "parent": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
