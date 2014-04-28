@@ -22,7 +22,7 @@ public class ClientProxy extends CommonProxy
 	
 	public static void addDevCapes() 
 	{
-		String capeURL = "https://raw.github.com/SoBiohazardous/Minestrappolation-Recode/master/src/main/resources/assets/minestrappolation/textures/misc/cape_dev.png";
+		String capeURL = "https://raw.githubusercontent.com/SoBiohazardous/Minestrappolation-Recode/master/assets/minestrappolation/textures/misc/cape_dev.png";
 		String[] devs = {"SoBiohazardous", "Delocuro", "triplg3", "thewerty1124"};
 
 		ThreadDownloadImageData image = new ThreadDownloadImageData(capeURL, null, null);
