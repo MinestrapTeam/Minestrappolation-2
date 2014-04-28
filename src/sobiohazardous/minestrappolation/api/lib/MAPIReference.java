@@ -6,7 +6,7 @@ public class MAPIReference
 	
 	public static final String MODID_MAPI = "Minestrappolation";
 	public static final String MODNAME_MAPI = "Minestrappolation API";
-	public static final String VERSION_MAPI = "1.3";
+	public static final String VERSION_MAPI = "1.3.1";
 	
 	public static final String MODID_EO = "ExtraOres";
 	public static final String MODNAME_EO = "Extrapolated Ores";
