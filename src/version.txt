@@ -1,3 +1,0 @@
-version=2.0
-motd=Getting work done for EMD and EE
-motdcolor=yellow
