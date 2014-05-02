@@ -162,6 +162,13 @@ public class EDBlocks
 	public static BlockMultiSlab graniteSlabSingle2;
 	public static BlockMultiSlab graniteSlabDouble2;
 	
+	public static Block lapisBlocks;
+	public static Block lapisPillars;
+	public static Block lapisRoads;
+	public static Block lapisChiseled;
+	public static BlockMultiSlab lapisSlabSingle;
+	public static BlockMultiSlab lapisSlabDouble;
+	
 	public static CreativeTabs tabDecor = new CreativeTabExtraDecorBlocks(CreativeTabs.getNextID(),"Extrappolated Decor");
 
 	public static void createBlocks()
@@ -326,7 +333,7 @@ public class EDBlocks
 		endstoneBlocks = new BlockMulti(Material.rock, new String[]{MAssetManager.getEDStonecutterTexture("Endstone_Bricks_0_0"), MAssetManager.getEDStonecutterTexture("Endstone_PatternBricks_0_0"), MAssetManager.getEDStonecutterTexture("Endstone_Raw_0_0"), MAssetManager.getEDStonecutterTexture("Endstone_Refined_0_0"), MAssetManager.getEDStonecutterTexture("Endstone_Tiles_0_0")}).setBlockName("endstoneBlocks").setHardness(1.5F).setResistance(2.0F);
 		endstonePillars = new BlockMultiPillar(Material.rock, new String[]{MAssetManager.getEDStonecutterTexture("Endstone_Pillar_Side_0")}, new String[]{MAssetManager.getEDStonecutterTexture("Endstone_Pillar_Top_0")}).setHardness(1.5F).setResistance(2.0F).setBlockName("endstonePillars");
 		endstoneRoads = new BlockMultiRoad(Material.rock, new String[]{MAssetManager.getEDStonecutterTexture("Endstone_Road_Side_0")}, new String[]{MAssetManager.getEDStonecutterTexture("Endstone_PatternBricks_0_0")}, new String[]{"obsidian"}).setHardness(1.5F).setResistance(2.0F).setBlockName("endstoneRoads");
-		endstoneChiseled = new BlockMultiPillarStationary(Material.rock, new String[]{MAssetManager.getEDStonecutterTexture("Endstone_Pillar_Side_0")}, new String[]{MAssetManager.getEDStonecutterTexture("Endstone_Pillar_Side_0")}).setBlockName("endstoneChiseled").setHardness(1.5F).setResistance(2.0F);
+		endstoneChiseled = new BlockMultiPillarStationary(Material.rock, new String[]{MAssetManager.getEDStonecutterTexture("Endstone_Chiseled_Side_0")}, new String[]{MAssetManager.getEDStonecutterTexture("Endstone_Chiseled_Side_0")}).setBlockName("endstoneChiseled").setHardness(1.5F).setResistance(2.0F);
 		endstoneSlabSingle = (BlockMultiSlab) new BlockMultiSlab(false, new String[]{MAssetManager.getEDStonecutterTexture("Endstone_RawSlab_Side_0")}, new String[]{MAssetManager.getEDStonecutterTexture("Endstone_RawSlab_Top_0")}).setBlockName("endstoneSlabSingle").setHardness(1.5F).setResistance(2.0F).setCreativeTab(Minestrappolation.creativeTabStone);
 		endstoneSlabDouble = (BlockMultiSlab) new BlockMultiSlab(true, new String[]{MAssetManager.getEDStonecutterTexture("Endstone_RawSlab_Side_0")}, new String[]{MAssetManager.getEDStonecutterTexture("Endstone_RawSlab_Top_0")}).setBlockName("endstoneSlabDouble").setHardness(1.5F).setResistance(2.0F);
 
@@ -346,6 +353,13 @@ public class EDBlocks
 		graniteSlabDouble = (BlockMultiSlab) new BlockMultiSlab(true, new String[]{MAssetManager.getEDStonecutterTexture("Granite_RefinedSlab_Side_0"), MAssetManager.getEDStonecutterTexture("Granite_RefinedSlab_Side_Bronze"), MAssetManager.getEDStonecutterTexture("Granite_RefinedSlab_Side_Meurodite"), MAssetManager.getEDStonecutterTexture("Granite_RefinedSlab_Side_Steel")}, new String[]{MAssetManager.getEDStonecutterTexture("Granite_Refined_0_0"), MAssetManager.getEDStonecutterTexture("Granite_Refined_0_Bronze"), MAssetManager.getEDStonecutterTexture("Granite_Refined_0_Meurodite"), MAssetManager.getEDStonecutterTexture("Granite_Refined_0_Steel")}).setBlockName("graniteSlabDouble").setHardness(2.5F).setResistance(5.0F);
 		graniteSlabSingle2 = (BlockMultiSlab) new BlockMultiSlab(false, new String[]{MAssetManager.getEDStonecutterTexture("Granite_RefinedSlab_Side_Tin")}, new String[]{MAssetManager.getEDStonecutterTexture("Granite_Refined_0_Tin")}).setBlockName("graniteSlabSingle2").setHardness(2.5F).setResistance(5.0F).setCreativeTab(Minestrappolation.creativeTabStone);
 		graniteSlabDouble2 = (BlockMultiSlab) new BlockMultiSlab(true, new String[]{MAssetManager.getEDStonecutterTexture("Granite_RefinedSlab_Side_Tin")}, new String[]{MAssetManager.getEDStonecutterTexture("Granite_Refined_0_Tin")}).setBlockName("graniteSlabDouble2").setHardness(2.5F).setResistance(5.0F);
+	
+		lapisBlocks = new BlockMulti(Material.rock, new String[]{MAssetManager.getEDStonecutterTexture("Lapis_Bricks_0_0"), MAssetManager.getEDStonecutterTexture("Lapis_PatternBricks_0_0"), MAssetManager.getEDStonecutterTexture("Lapis_Tiles_0_0"), MAssetManager.getEDStonecutterTexture("Lapis_TilesGilded_0_0")}).setBlockName("lapisBlocks").setHardness(2.0F).setResistance(4.0F);
+		lapisPillars = new BlockMultiPillar(Material.rock, new String[]{MAssetManager.getEDStonecutterTexture("Lapis_Pillar_Side_0")}, new String[]{MAssetManager.getEDStonecutterTexture("Lapis_Pillar_Top_0")}).setBlockName("lapisPillars").setHardness(2.0F).setResistance(4.0F);
+		lapisRoads = new BlockMultiRoad(Material.rock, new String[]{MAssetManager.getEDStonecutterTexture("Lapis_Road_Side_0")}, new String[]{MAssetManager.getEDStonecutterTexture("Lapis_PatternBricks_0_0")}, new String[]{"sand"}).setBlockName("lapisRoads").setHardness(2.0F).setResistance(4.0F);
+		lapisChiseled = new BlockMultiPillarStationary(Material.rock, new String[]{MAssetManager.getEDStonecutterTexture("Lapis_Chiseled_Side_0")}, new String[]{MAssetManager.getEDStonecutterTexture("Lapis_Chiseled_Top_0")}).setBlockName("lapisChiseled").setHardness(2.0F).setResistance(4.0F);
+		lapisSlabSingle = (BlockMultiSlab) new BlockMultiSlab(false, new String[]{MAssetManager.getEDStonecutterTexture("Lapis_RefinedSlab_Side_0"), MAssetManager.getEDStonecutterTexture("Lapis_RawSlab_Side_0")}, new String[]{MAssetManager.getEDStonecutterTexture("Lapis_Refined_0_0"), MAssetManager.getEDStonecutterTexture("Lapis_RawSlab_Top_0")}).setBlockName("lapisSlabSingle").setHardness(2.0F).setResistance(4.0F).setCreativeTab(Minestrappolation.creativeTabStone);
+		lapisSlabDouble = (BlockMultiSlab) new BlockMultiSlab(true, new String[]{MAssetManager.getEDStonecutterTexture("Lapis_RefinedSlab_Side_0"), MAssetManager.getEDStonecutterTexture("Lapis_RawSlab_Side_0")}, new String[]{MAssetManager.getEDStonecutterTexture("Lapis_Refined_0_0"), MAssetManager.getEDStonecutterTexture("Lapis_RawSlab_Top_0")}).setBlockName("lapisSlabDouble").setHardness(2.0F).setResistance(4.0F);
 	}
 	
 	public static void loadVanillaOverwrites()
@@ -455,6 +469,12 @@ public class EDBlocks
 		GameRegistry.registerBlock(graniteSlabSingle2, ItemBlockMultiSlab.class, "graniteSlabsSingle2", null, graniteSlabSingle2, graniteSlabDouble2);
 		GameRegistry.registerBlock(graniteSlabDouble2, ItemBlockMultiSlab.class, "graniteSlabDouble2", null, graniteSlabSingle2, graniteSlabDouble2);
 
+		GameRegistry.registerBlock(lapisBlocks, ItemBlockMulti.class, "lapisBlocks");
+		GameRegistry.registerBlock(lapisPillars, ItemBlockMulti.class, "lapisPillars");
+		GameRegistry.registerBlock(lapisRoads, ItemBlockMulti.class, "lapisRoads");
+		GameRegistry.registerBlock(lapisChiseled, ItemBlockMulti.class, "lapisChiseled");
+		GameRegistry.registerBlock(lapisSlabSingle, ItemBlockMultiSlab.class, "lapisSlabSingle", null, lapisSlabSingle, lapisSlabDouble);
+		GameRegistry.registerBlock(lapisSlabDouble, ItemBlockMultiSlab.class, "lapisSlabDouble", null, lapisSlabSingle, lapisSlabDouble);
 	}
 	
 	public static void loadBridgedBlocks() throws Exception
