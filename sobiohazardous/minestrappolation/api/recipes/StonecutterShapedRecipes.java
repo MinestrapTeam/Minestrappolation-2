@@ -3,6 +3,7 @@ package sobiohazardous.minestrappolation.api.recipes;
 import sobiohazardous.minestrappolation.api.tileentity.InventoryStonecutterExtraSlot;
 import net.minecraft.inventory.InventoryBasic;
 import net.minecraft.inventory.InventoryCrafting;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
@@ -111,12 +112,12 @@ public class StonecutterShapedRecipes implements IStonecutterRecipe
                     {
                         return false;
                     }
-                    //TODO It's beyond me why this is == instead of != wtf
-                    if(neededExtraSlot == null && currentExtraSlot != neededExtraSlot)
+
+                    if(neededExtraSlot == null && currentExtraSlot != null)
                     {
                     	return false;
                     }
-                    if(neededExtraSlot != null && currentExtraSlot == neededExtraSlot)
+                    if(currentExtraSlot != null && currentExtraSlot.getItem() != neededExtraSlot.getItem())
                     {
                     	return false;
                     }
