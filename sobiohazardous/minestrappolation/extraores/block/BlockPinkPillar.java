@@ -12,7 +12,7 @@ public class BlockPinkPillar extends BlockPillar
 	@Deprecated
 	public BlockPinkPillar()
 	{
-		super(MAssetManager.getEOStoncutterTexture("DesertQuartz_Pillar_Side_0"), MAssetManager.getEOStoncutterTexture("DesertQuartz_Pillar_Top_0"));
+		super(MAssetManager.getEOStonecutterTexture("DesertQuartz_Pillar_Side_0"), MAssetManager.getEOStonecutterTexture("DesertQuartz_Pillar_Top_0"));
 		this.setCreativeTab(CreativeTabs.tabBlock);
 	}
 }

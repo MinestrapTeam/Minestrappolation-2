@@ -28,7 +28,7 @@ public class RadiantQuartzSlab extends BlockSlab
 
 	public void registerBlockIcons(IIconRegister par1IconRegister)
 	{
-		this.blockIcon = par1IconRegister.registerIcon(MAssetManager.getEOStoncutterTexture("RadiantQuartz_Raw_0_0"));
+		this.blockIcon = par1IconRegister.registerIcon(MAssetManager.getEOStonecutterTexture("RadiantQuartz_Raw_0_0"));
 	}
 
 	public Item getItemDropped(int par1, Random par2Random, int par3)

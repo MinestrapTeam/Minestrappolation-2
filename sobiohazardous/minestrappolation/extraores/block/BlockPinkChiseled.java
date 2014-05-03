@@ -29,8 +29,8 @@ public class BlockPinkChiseled extends Block
 
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		blockIcon = iconRegister.registerIcon(MAssetManager.getEOStoncutterTexture("DesertQuartz_Chiseled_Side_0"));
-		this.top = iconRegister.registerIcon(MAssetManager.getEOStoncutterTexture("DesertQuartz_Chiseled_Top_0"));
+		blockIcon = iconRegister.registerIcon(MAssetManager.getEOStonecutterTexture("DesertQuartz_Chiseled_Side_0"));
+		this.top = iconRegister.registerIcon(MAssetManager.getEOStonecutterTexture("DesertQuartz_Chiseled_Top_0"));
 	}
 
 	/**

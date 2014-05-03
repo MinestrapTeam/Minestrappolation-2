@@ -28,7 +28,7 @@ public class BlockRadiantPillar extends BlockPillar
 	@Deprecated
 	public BlockRadiantPillar() 
 	{
-		super(MAssetManager.getEOStoncutterTexture("RadiantQuartz_Pillar_Side_0"), MAssetManager.getEOStoncutterTexture("RadiantQuartz_Raw_0_0"));
+		super(MAssetManager.getEOStonecutterTexture("RadiantQuartz_Pillar_Side_0"), MAssetManager.getEOStonecutterTexture("RadiantQuartz_Raw_0_0"));
 		this.setCreativeTab(CreativeTabs.tabBlock);
 	}
 }

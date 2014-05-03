@@ -52,7 +52,7 @@ public class MAssetManager
 		return MAPIReference.MODID_ED + ":"  + "stoneCutter/" + name;
 	}
 	
-	public static String getEOStoncutterTexture(String name)
+	public static String getEOStonecutterTexture(String name)
 	{
 		return MAPIReference.MODID_EO + ":" + "stoneCutter/" + name;
 	}

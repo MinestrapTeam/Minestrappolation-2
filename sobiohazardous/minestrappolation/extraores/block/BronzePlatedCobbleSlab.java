@@ -29,7 +29,7 @@ public class BronzePlatedCobbleSlab extends BlockSlab
 
 	public void registerBlockIcons(IIconRegister par1IconRegister)
 	{
-		this.blockIcon = par1IconRegister.registerIcon(MAssetManager.getEOStoncutterTexture("Stone_Cobbled_0_Bronze"));
+		this.blockIcon = par1IconRegister.registerIcon(MAssetManager.getEOStonecutterTexture("Stone_Cobbled_0_Bronze"));
 	}
 
     public Item getItemDropped(int par1, Random par2Random, int par3)

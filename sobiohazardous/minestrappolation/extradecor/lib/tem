@@ -1,0 +1,32 @@
+claySlabsSingle5 = (BlockMultiSlab) new BlockMultiSlab(false, new String[]{
+				MAssetManager.getEDStonecutterTexture("Clay_RefinedSlab_Side_Black"), MAssetManager.getEDStonecutterTexture("Clay_RefinedSlab_Side_Blue"), MAssetManager.getEDStonecutterTexture("Clay_RefinedSlab_Side_Brown"), MAssetManager.getEDStonecutterTexture("Clay_RefinedSlab_Side_Cyan")}, new String[]{
+				MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Black"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Blue"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Brown"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Cyan")
+				}).setBlockName("claySlabsSingle5").setCreativeTab(Minestrappolation.creativeTabStone).setHardness(2.0F).setResistance(8.0F);
+		claySlabsSingle6 = (BlockMultiSlab) new BlockMultiSlab(false, new String[]{
+				MAssetManager.getEDStonecutterTexture("Clay_RefinedSlab_Side_Green"), MAssetManager.getEDStonecutterTexture("Clay_RefinedSlab_Side_Grey"), MAssetManager.getEDStonecutterTexture("Clay_RefinedSlab_Side_LightBlue"), MAssetManager.getEDStonecutterTexture("Clay_RefinedSlab_Side_Lime")}, new String[]{
+				MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Green"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Grey"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_LightBlue"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Lime")
+				}).setBlockName("claySlabsSingle6").setCreativeTab(Minestrappolation.creativeTabStone).setHardness(2.0F).setResistance(8.0F);
+		claySlabsSingle7 = (BlockMultiSlab) new BlockMultiSlab(false, new String[]{
+				MAssetManager.getEDStonecutterTexture("Clay_RefinedSlab_Side_Magenta"), MAssetManager.getEDStonecutterTexture("Clay_RefinedSlab_Side_Orange"), MAssetManager.getEDStonecutterTexture("Clay_RefinedSlab_Side_Pink"), MAssetManager.getEDStonecutterTexture("Clay_RefinedSlab_Side_Purple")}, new String[]{
+				MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Magenta"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Orange"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Pink"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Purple")
+				}).setBlockName("claySlabsSingle7").setCreativeTab(Minestrappolation.creativeTabStone).setHardness(2.0F).setResistance(8.0F);
+		claySlabsSingle8 = (BlockMultiSlab) new BlockMultiSlab(false, new String[]{
+				MAssetManager.getEDStonecutterTexture("Clay_RefinedSlab_Side_Red"), MAssetManager.getEDStonecutterTexture("Clay_RefinedSlab_Side_Silver"), MAssetManager.getEDStonecutterTexture("Clay_RefinedSlab_Side_White"), MAssetManager.getEDStonecutterTexture("Clay_RefinedSlab_Side_Yellow")}, new String[]{
+				MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Red"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Silver"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_White"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Yellow"),
+				}).setBlockName("claySlabsSingle8").setCreativeTab(Minestrappolation.creativeTabStone).setHardness(2.0F).setResistance(8.0F);
+		claySlabsDouble5 = (BlockMultiSlab) new BlockMultiSlab(true, new String[]{
+				MAssetManager.getEDStonecutterTexture("Clay_RefinedSlab_Side_Black"), MAssetManager.getEDStonecutterTexture("Clay_RefinedSlab_Side_Blue"), MAssetManager.getEDStonecutterTexture("Clay_RefinedSlab_Side_Brown"), MAssetManager.getEDStonecutterTexture("Clay_RefinedSlab_Side_Cyan")}, new String[]{
+				MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Black"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Blue"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Brown"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Cyan")
+				}).setBlockName("claySlabsDouble5").setHardness(2.0F).setResistance(8.0F);
+		claySlabsDouble6 = (BlockMultiSlab) new BlockMultiSlab(true, new String[]{
+				MAssetManager.getEDStonecutterTexture("Clay_RefinedSlab_Side_Green"), MAssetManager.getEDStonecutterTexture("Clay_RefinedSlab_Side_Grey"), MAssetManager.getEDStonecutterTexture("Clay_RefinedSlab_Side_LightBlue"), MAssetManager.getEDStonecutterTexture("Clay_RefinedSlab_Side_Lime")}, new String[]{
+				MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Green"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Grey"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_LightBlue"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Lime")
+				}).setBlockName("claySlabsDouble6").setHardness(2.0F).setResistance(8.0F);
+		claySlabsDouble7 = (BlockMultiSlab) new BlockMultiSlab(true, new String[]{
+				MAssetManager.getEDStonecutterTexture("Clay_RefinedSlab_Side_Magenta"), MAssetManager.getEDStonecutterTexture("Clay_RefinedSlab_Side_Orange"), MAssetManager.getEDStonecutterTexture("Clay_RefinedSlab_Side_Pink"), MAssetManager.getEDStonecutterTexture("Clay_RefinedSlab_Side_Purple")}, new String[]{
+				MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Magenta"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Orange"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Pink"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Purple")
+				}).setBlockName("claySlabsDouble7").setHardness(2.0F).setResistance(8.0F);
+		claySlabsDouble8 = (BlockMultiSlab) new BlockMultiSlab(true, new String[]{
+				MAssetManager.getEDStonecutterTexture("Clay_RefinedSlab_Side_Red"), MAssetManager.getEDStonecutterTexture("Clay_RefinedSlab_Side_Silver"), MAssetManager.getEDStonecutterTexture("Clay_RefinedSlab_Side_White"), MAssetManager.getEDStonecutterTexture("Clay_RefinedSlab_Side_Yellow")}, new String[]{
+				MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Red"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Silver"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_White"), MAssetManager.getEDStonecutterTexture("Clay_Refined_0_Yellow"),
+				}).setBlockName("claySlabsDouble8").setHardness(2.0F).setResistance(8.0F);

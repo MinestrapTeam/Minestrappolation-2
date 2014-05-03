@@ -59,57 +59,30 @@ public class BlockMultiRoad extends Block
         }
     }
     
-    public IIcon getIcon(int i, int j)
+    public IIcon getIcon(int side, int meta)
     {
-    	if (j < 0 || j >= this.sides.length)
+        if (side != 1 && (side != 0 || meta != 1 && meta != 2))
         {
-            j = 0;
+            if (side == 0)
+            {
+            	//bottom
+                return this.bottom[meta];
+            }
+            else
+            {
+                if (meta < 0 || meta >= this.sides.length)
+                {
+                    meta = 0;
+                }
+
+                return this.sides[meta];
+            }
         }
-    	
-    	if (i == 0)//bottom
-            
-            return bottom[j];
-    	if (i == 1)//top
-           
-            return top[j];
-   
-    	if (i == 2) // side
-           
-            return sides[j];
-    	if (i == 3)//side 
-           
-            return sides[j];
-    	if (i == 4) //side
-   
-    		return sides[j];
-    	if (i == 5) //side
-   
-    		return sides[j];
-
-    	if (j ==1)
-    	{
-    		return sides[j];
-    	}
-		return sides[j];
+        else
+        {
+            return this.top[meta];
+        }
     }
-     
-    /**
-     * The type of render function that is called for this block
-     */
-    public int getRenderType()
-    {
-        return 31;
-    }
-    
-    /**
-     * Determines the damage on the item the block drops. Used in cloth and wood.
-     */
-    public int damageDropped(int par1)
-    {
-        return par1;
-    }
-
-    @SideOnly(Side.CLIENT)
 
     /**
      * returns a list of blocks with the same ID, but different meta (eg: wood returns 4 blocks)

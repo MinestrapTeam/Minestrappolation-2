@@ -28,7 +28,7 @@ public class TinPlatedGraniteBrickSlab extends BlockSlab
 
 	public void registerBlockIcons(IIconRegister par1IconRegister)
 	{
-		this.blockIcon = par1IconRegister.registerIcon(MAssetManager.getEOStoncutterTexture("Granite_Bricks_0_Tin"));
+		this.blockIcon = par1IconRegister.registerIcon(MAssetManager.getEOStonecutterTexture("Granite_Bricks_0_Tin"));
 	}
 
 	public Item getItemDropped(int par1, Random par2Random, int par3)
