@@ -197,6 +197,12 @@ public class EDBlocks
 	public static MBlockMultiSlab obsidianSlabSingle;
 	public static MBlockMultiSlab obsidianSlabDouble;
 	
+	public static Block redSandstoneBlocks;
+	public static Block redSandstonePillars;
+	public static Block redSandstoneRoads;
+	public static MBlockMultiSlab redSandstoneSlabSingle;
+	public static MBlockMultiSlab redSandstoneSlabDouble;
+	
 	public static CreativeTabs tabDecor = new CreativeTabExtraDecorBlocks(CreativeTabs.getNextID(),"Extrappolated Decor");
 
 	public static void createBlocks()
@@ -440,6 +446,12 @@ public class EDBlocks
 		obsidianRoads = new MBlockMultiRoad(Material.rock, new String[]{MAssetManager.getEDStonecutterTexture("Obsidian_Road_Side_0")}, new String[]{MAssetManager.getEDStonecutterTexture("Obsidian_PatternBricks_0_0")}, new String[]{"end_stone"}).setBlockName("obsidianRoads").setHardness(50.0F).setResistance(2000.0F);
 		obsidianSlabSingle = (MBlockMultiSlab) new MBlockMultiSlab(false, new String[]{MAssetManager.getEDStonecutterTexture("Obsidian_RefinedSlab_Side_0")}, new String[]{MAssetManager.getEDStonecutterTexture("Obsidian_Refined_0_0")}).setBlockName("obsidianSlabSingle").setHardness(50.0F).setResistance(2000.0F).setCreativeTab(Minestrappolation.creativeTabStone);
 		obsidianSlabDouble = (MBlockMultiSlab) new MBlockMultiSlab(true, new String[]{MAssetManager.getEDStonecutterTexture("Obsidian_RefinedSlab_Side_0")}, new String[]{MAssetManager.getEDStonecutterTexture("Obsidian_Refined_0_0")}).setBlockName("obsidianSlabDouble").setHardness(50.0F).setResistance(2000.0F);
+	
+		redSandstoneBlocks = new MBlockMulti(Material.rock, new String[]{MAssetManager.getEDStonecutterTexture("RedSandstone_Bricks_0_0"), MAssetManager.getEDStonecutterTexture("RedSandstone_Bricks_0_0"), MAssetManager.getEDStonecutterTexture("RedSandstone_BricksMossy_0_0"), MAssetManager.getEDStonecutterTexture("RedSandstone_Heiroglyph1_0_0"), MAssetManager.getEDStonecutterTexture("RedSandstone_Heiroglyph2_0_0"), MAssetManager.getEDStonecutterTexture("RedSandstone_PatternBricks_0_0"), MAssetManager.getEDStonecutterTexture("RedSandstone_Tiles_0_0")}).setBlockName("redSandstoneBricks").setHardness(1.5F).setResistance(2.0F);
+		redSandstonePillars = new MBlockMultiPillar(Material.rock, new String[]{MAssetManager.getEDStonecutterTexture("RedSandstone_Pillar_Side_0")}, new String[]{MAssetManager.getEDStonecutterTexture("RedSandstone_Pillar_Top_0")}).setBlockName("redSandstonePillars").setHardness(1.5F).setResistance(2.0F);
+		redSandstoneRoads = new MBlockMultiRoad(Material.rock, new String[]{MAssetManager.getEDStonecutterTexture("RedSandstone_Road_Side_0"), MAssetManager.getEDStonecutterTexture("RedSandstone_Raw_Side_0"), MAssetManager.getEDStonecutterTexture("RedSandstone_Chiseled_Side_0"), MAssetManager.getEDStonecutterTexture("RedSandstone_Refined_Side_0")}, new String[]{MAssetManager.getEDStonecutterTexture("RedSandstone_PatternBricks_0_0"), MAssetManager.getEDStonecutterTexture("RedSandstone_Raw_Top_0"), MAssetManager.getEDStonecutterTexture("RedSandstone_Raw_Top_0"), MAssetManager.getEDStonecutterTexture("RedSandstone_Raw_Top_0")}, new String[]{"sand_red", MAssetManager.getEDStonecutterTexture("RedSandstone_Raw_Bottom_0"), MAssetManager.getEDStonecutterTexture("RedSandstone_Raw_Bottom_0"), MAssetManager.getEDStonecutterTexture("RedSandstone_Raw_Bottom_0")}).setBlockName("redSandstoneRoads").setHardness(1.5F).setResistance(2.0F);
+		redSandstoneSlabSingle = (MBlockMultiSlab) new MBlockMultiSlab(false, new String[]{MAssetManager.getEDStonecutterTexture("RedSandstone_RefinedSlab_Side_0")}, new String[]{MAssetManager.getEDStonecutterTexture("RedSandstone_Raw_Top_0")}).setBlockName("redSandstoneSlabSingle").setHardness(1.5F).setResistance(2.0F).setCreativeTab(Minestrappolation.creativeTabStone);
+		redSandstoneSlabDouble = (MBlockMultiSlab) new MBlockMultiSlab(true, new String[]{MAssetManager.getEDStonecutterTexture("RedSandstone_RefinedSlab_Side_0")}, new String[]{MAssetManager.getEDStonecutterTexture("RedSandstone_Raw_Top_0")}).setBlockName("redSandstoneSlabDouble").setHardness(1.5F).setResistance(2.0F);
 	}
 	
 	public static void loadVanillaOverwrites()
@@ -583,6 +595,12 @@ public class EDBlocks
 		GameRegistry.registerBlock(obsidianRoads, MItemBlockMulti.class, "obsidianRoads");
 		GameRegistry.registerBlock(obsidianSlabSingle, MItemBlockSlab.class, "obsidianSlabSingle", null, obsidianSlabSingle, obsidianSlabDouble);
 		GameRegistry.registerBlock(obsidianSlabDouble, MItemBlockSlab.class, "obsidianSlabDouble", null, obsidianSlabSingle, obsidianSlabDouble);
+		
+		GameRegistry.registerBlock(redSandstoneBlocks, MItemBlockMulti.class, "redSandstoneBlocks");
+		GameRegistry.registerBlock(redSandstonePillars, MItemBlockMulti.class, "redSandstonePillars");
+		GameRegistry.registerBlock(redSandstoneRoads, MItemBlockMulti.class, "redSandstoneRoads");
+		GameRegistry.registerBlock(redSandstoneSlabSingle, MItemBlockSlab.class, "redSandstoneSlabSingle", null, redSandstoneSlabSingle, redSandstoneSlabDouble);
+		GameRegistry.registerBlock(redSandstoneSlabDouble, MItemBlockSlab.class, "redSandstoneSlabDouble", null, redSandstoneSlabSingle, redSandstoneSlabDouble);
 
 	}
 	
