@@ -8,14 +8,14 @@ import net.minecraft.block.BlockBreakable;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import sobiohazardous.mods.minestrappolation.core.block.MBlock;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlockManager;
+import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlocks;
 
 public class BlockGlowGlass extends BlockBreakable
 {
 	public BlockGlowGlass(Material par3Material, boolean par4)
 	{
 		super("GlowGlass", par3Material, par4);
-		this.setCreativeTab(EOBlockManager.tabOresBlocks);
+		this.setCreativeTab(EOBlocks.tabOresBlocks);
 	}
 
 	public int quantityDropped(Random par1Random)

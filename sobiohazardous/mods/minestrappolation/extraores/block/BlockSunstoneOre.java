@@ -9,8 +9,8 @@ import net.minecraft.item.Item;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import sobiohazardous.mods.minestrappolation.core.util.MAssetManager;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlockManager;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOItemManager;
+import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlocks;
+import sobiohazardous.mods.minestrappolation.extraores.lib.EOItems;
 
 public class BlockSunstoneOre extends Block
 {
@@ -18,7 +18,7 @@ public class BlockSunstoneOre extends Block
     public BlockSunstoneOre()
     {
         super(Material.rock);
-        this.setCreativeTab(EOBlockManager.tabOresBlocks);
+        this.setCreativeTab(EOBlocks.tabOresBlocks);
     }
     
     public void registerBlockIcons(IIconRegister iconRegister)
@@ -47,7 +47,7 @@ public class BlockSunstoneOre extends Block
      */
     public Item getItemDropped(int par1, Random par2Random, int par3)
     {
-        return EOItemManager.SunstoneDust;
+        return EOItems.SunstoneDust;
     }
     
     public void onBlockDestroyedByPlayer(World par1World, int par2, int par3, int par4, int par5) 

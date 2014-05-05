@@ -59,7 +59,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemSlab;
 
-public class EOBlockManager 
+public class EOBlocks 
 {	
 	//Bridged Blocks
 	public static Block glowGlass;
@@ -289,7 +289,7 @@ public class EOBlockManager
 		GameRegistry.registerBlock(SteelBlock, "blockSteel");
 		SoulOre = (new BlockSoulOre()).setHardness(2F).setResistance(3F).setCreativeTab(tabOresBlocks).setStepSound(Block.soundTypeStone).setBlockName("oreSoulGem").setBlockTextureName(MAssetManager.getEOTexture("oreSoulGem"));
 		GameRegistry.registerBlock(SoulOre, "oreSoul");
-		SoulGem = (new ItemSoulGem()).setCreativeTab(EOItemManager.tabOresItems).setUnlocalizedName("item_SoulGem").setTextureName(MAssetManager.getEOTexture("gemSoulGem"));		
+		SoulGem = (new ItemSoulGem()).setCreativeTab(EOItems.tabOresItems).setUnlocalizedName("item_SoulGem").setTextureName(MAssetManager.getEOTexture("gemSoulGem"));		
 		GameRegistry.registerItem(SoulGem, "gemSoul");
 		TinPlatedCobble = (new EOBlock(Material.rock)).setHardness(2.0F).setResistance(10.0F).setCreativeTab(tabOresBlocks).setStepSound(Block.soundTypeStone).setBlockName("stoneCobbledTin").setBlockTextureName(MAssetManager.getEOStonecutterTexture("Stone_Cobbled_0_Tin"));
 		GameRegistry.registerBlock(TinPlatedCobble, "cobbleTin");
@@ -325,7 +325,7 @@ public class EOBlockManager
 		GameRegistry.registerBlock(SteelPlatedChiseled, "stoneBrickChiseledSteel");
 		SteelPlatedGranite = (new EOBlock(Material.rock)).setHardness(6F).setResistance(20.0F).setCreativeTab(tabOresBlocks).setStepSound(Block.soundTypeStone).setBlockName("block_SteelGraniteBrick").setBlockTextureName(MAssetManager.getEOStonecutterTexture("Granite_Bricks_0_Steel"));	
 		GameRegistry.registerBlock(SteelPlatedGranite, "graniteSteel");
-		SoulBottle = (new ItemSoulBottle()).setCreativeTab(EOItemManager.tabOresItems).setUnlocalizedName("SoulBottle").setTextureName(MAssetManager.getEOTexture("utilitySoulBottle"));
+		SoulBottle = (new ItemSoulBottle()).setCreativeTab(EOItems.tabOresItems).setUnlocalizedName("SoulBottle").setTextureName(MAssetManager.getEOTexture("utilitySoulBottle"));
 		GameRegistry.registerItem(SoulBottle, "soulBottle");
 		nuke = (new BlockNuke()).setHardness(0.0F).setStepSound(Block.soundTypeGrass).setBlockName("nuke");
 		GameRegistry.registerBlock(nuke, "nuke");
@@ -337,7 +337,7 @@ public class EOBlockManager
 		GameRegistry.registerBlock(PillarRadiantQuartz, "quartzRadiantPillar");
 		RadiantQuartzOre = (new EOBlock(Material.rock)).setHardness(5.5F).setResistance(10F).setStepSound(Block.soundTypeStone).setCreativeTab(tabOresBlocks).setLightLevel(0.4F).setBlockName("block_RadiantQuartzOre").setBlockTextureName(MAssetManager.getEOTexture("oreRadiantQuartz"));
 		GameRegistry.registerBlock(RadiantQuartzOre, "oreQuartzRadiant");
-		RadiantQuartz = (new EItemFoiled()).setCreativeTab(EOItemManager.tabOresItems).setUnlocalizedName("item_RadiantQuartz").setTextureName(MAssetManager.getEOTexture("gemRadiantQuartz"));
+		RadiantQuartz = (new EItemFoiled()).setCreativeTab(EOItems.tabOresItems).setUnlocalizedName("item_RadiantQuartz").setTextureName(MAssetManager.getEOTexture("gemRadiantQuartz"));
 		GameRegistry.registerItem(RadiantQuartz, "quartzRadiant");
 		Godstone = (new BlockGodstone(Material.rock)).setHardness(6F).setResistance(9F).setCreativeTab(tabOresBlocks).setStepSound(Block.soundTypeStone).setLightLevel(1F).setBlockName("Godstone").setBlockTextureName(MAssetManager.getEOTexture("godstone"));
 		GameRegistry.registerBlock(Godstone, "godstone");

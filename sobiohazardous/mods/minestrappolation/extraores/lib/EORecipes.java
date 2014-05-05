@@ -9,378 +9,378 @@ import net.minecraft.nbt.NBTTagCompound;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-public class EORecipeManager 
+public class EORecipes 
 {
-	public EORecipeManager()
+	public EORecipes()
 	{
 		loadRecipes();
 	}
 	
 	public static void loadRecipes()
 	{
-		GameRegistry.addSmelting(EOBlockManager.BlaziumOre, new ItemStack(Items.blaze_powder, 3), 1.0F);
+		GameRegistry.addSmelting(EOBlocks.BlaziumOre, new ItemStack(Items.blaze_powder, 3), 1.0F);
 		
-		GameRegistry.addSmelting(EOBlockManager.meuroditeOre, new ItemStack(EOItemManager.meuroditeIngot, 1), 1.0F);
+		GameRegistry.addSmelting(EOBlocks.meuroditeOre, new ItemStack(EOItems.meuroditeIngot, 1), 1.0F);
 		
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.meuroditeSword, 1), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EOItems.meuroditeSword, 1), new Object[]
 				{
-			" Z ", " Z ", " S ", Character.valueOf('Z'), EOItemManager.meuroditeIngot, Character.valueOf('S'), Items.stick
+			" Z ", " Z ", " S ", Character.valueOf('Z'), EOItems.meuroditeIngot, Character.valueOf('S'), Items.stick
 				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.meuroditeShovel, 1), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EOItems.meuroditeShovel, 1), new Object[]
 				{
-			" Z ", " S ", " S ", Character.valueOf('Z'), EOItemManager.meuroditeIngot, Character.valueOf('S'), Items.stick
+			" Z ", " S ", " S ", Character.valueOf('Z'), EOItems.meuroditeIngot, Character.valueOf('S'), Items.stick
 				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.meuroditeAxe, 1), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EOItems.meuroditeAxe, 1), new Object[]
 				{
-			"ZZ ", "ZS ", " S ", Character.valueOf('Z'), EOItemManager.meuroditeIngot, Character.valueOf('S'), Items.stick
+			"ZZ ", "ZS ", " S ", Character.valueOf('Z'), EOItems.meuroditeIngot, Character.valueOf('S'), Items.stick
 				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.meuroditePickaxe, 1), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EOItems.meuroditePickaxe, 1), new Object[]
 				{
-			"ZZZ", " S ", " S ", Character.valueOf('Z'), EOItemManager.meuroditeIngot, Character.valueOf('S'), Items.stick
+			"ZZZ", " S ", " S ", Character.valueOf('Z'), EOItems.meuroditeIngot, Character.valueOf('S'), Items.stick
 				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.meuroditeHoe, 1), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EOItems.meuroditeHoe, 1), new Object[]
 				{
-			"ZZ ", " S ", " S ", Character.valueOf('Z'), EOItemManager.meuroditeIngot, Character.valueOf('S'), Items.stick
+			"ZZ ", " S ", " S ", Character.valueOf('Z'), EOItems.meuroditeIngot, Character.valueOf('S'), Items.stick
 				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.meuroditeHelmet, 1), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EOItems.meuroditeHelmet, 1), new Object[]
 				{
-			"ZZZ", "Z Z", Character.valueOf('Z'), EOItemManager.meuroditeIngot,
+			"ZZZ", "Z Z", Character.valueOf('Z'), EOItems.meuroditeIngot,
 				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.meuroditeChest, 1), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EOItems.meuroditeChest, 1), new Object[]
 				{
-			"Z Z", "ZZZ", "ZZZ", Character.valueOf('Z'), EOItemManager.meuroditeIngot,
+			"Z Z", "ZZZ", "ZZZ", Character.valueOf('Z'), EOItems.meuroditeIngot,
 				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.meuroditePants, 1), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EOItems.meuroditePants, 1), new Object[]
 				{
-			"ZZZ", "Z Z", "Z Z", Character.valueOf('Z'), EOItemManager.meuroditeIngot,
+			"ZZZ", "Z Z", "Z Z", Character.valueOf('Z'), EOItems.meuroditeIngot,
 				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.meuroditeBoots, 1), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EOItems.meuroditeBoots, 1), new Object[]
 				{
-			"Z Z", "Z Z", Character.valueOf('Z'), EOItemManager.meuroditeIngot,
+			"Z Z", "Z Z", Character.valueOf('Z'), EOItems.meuroditeIngot,
 				});
-		GameRegistry.addRecipe(new ItemStack(EOBlockManager.meuroditeBlock, 1), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EOBlocks.meuroditeBlock, 1), new Object[]
 				{
-			"ZZZ", "ZZZ", "ZZZ", Character.valueOf('Z'), EOItemManager.meuroditeIngot,
+			"ZZZ", "ZZZ", "ZZZ", Character.valueOf('Z'), EOItems.meuroditeIngot,
 				});
-		GameRegistry.addShapelessRecipe(new ItemStack(EOItemManager.meuroditeIngot, 9), new Object[]
+		GameRegistry.addShapelessRecipe(new ItemStack(EOItems.meuroditeIngot, 9), new Object[]
 				{
-			EOBlockManager.meuroditeBlock,
-				});
-		
-		
-		
-		GameRegistry.addSmelting(EOBlockManager.TitaniumOre, new ItemStack(EOItemManager.TitaniumIngot, 1), 2.0F);
-		
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.TitaniumSword, 1), new Object[]
-				{
-			" Z ", " Z ", " S ", Character.valueOf('Z'), EOItemManager.TitaniumIngot, Character.valueOf('S'), Items.stick
-				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.TitaniumShovel, 1), new Object[]
-				{
-			" Z ", " S ", " S ", Character.valueOf('Z'), EOItemManager.TitaniumIngot, Character.valueOf('S'), Items.stick
-				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.TitaniumAxe, 1), new Object[]
-				{
-			"ZZ ", "ZS ", " S ", Character.valueOf('Z'), EOItemManager.TitaniumIngot, Character.valueOf('S'), Items.stick
-				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.TitaniumPickaxe, 1), new Object[]
-				{
-			"ZZZ", " S ", " S ", Character.valueOf('Z'), EOItemManager.TitaniumIngot, Character.valueOf('S'), Items.stick
-				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.TitaniumHoe, 1), new Object[]
-				{
-			"ZZ ", " S ", " S ", Character.valueOf('Z'), EOItemManager.TitaniumIngot, Character.valueOf('S'), Items.stick
-				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.TitaniumHelmet, 1), new Object[]
-				{
-			"ZZZ", "Z Z", Character.valueOf('Z'), EOItemManager.TitaniumIngot,
-				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.TitaniumChest, 1), new Object[]
-				{
-			"Z Z", "ZZZ", "ZZZ", Character.valueOf('Z'), EOItemManager.TitaniumIngot,
-				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.TitaniumPants, 1), new Object[]
-				{
-			"ZZZ", "Z Z", "Z Z", Character.valueOf('Z'), EOItemManager.TitaniumIngot,
-				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.TitaniumBoots, 1), new Object[]
-				{
-			"Z Z", "Z Z", Character.valueOf('Z'), EOItemManager.TitaniumIngot,
-				});
-		GameRegistry.addRecipe(new ItemStack(EOBlockManager.TitaniumBlock, 1), new Object[]
-				{
-			"ZZZ", "ZZZ", "ZZZ", Character.valueOf('Z'),EOItemManager.TitaniumIngot,
-				});
-		GameRegistry.addShapelessRecipe(new ItemStack(EOItemManager.TitaniumIngot, 9), new Object[]
-				{
-			EOBlockManager.TitaniumBlock,
+			EOBlocks.meuroditeBlock,
 				});
 		
 		
 		
-		GameRegistry.addRecipe(new ItemStack(EOBlockManager.Sunstone, 1), new Object[]
-				{
-			"ZZ", "ZZ", Character.valueOf('Z'), EOItemManager.SunstoneDust,
-				});
+		GameRegistry.addSmelting(EOBlocks.TitaniumOre, new ItemStack(EOItems.TitaniumIngot, 1), 2.0F);
 		
-		GameRegistry.addSmelting(EOBlockManager.SunstoneOre, new ItemStack(EOItemManager.SunstoneDust, 4), 1.0F);
-		
-		
-		
-		GameRegistry.addSmelting(EOBlockManager.ToriteOre, new ItemStack(EOItemManager.ToriteIngot, 1), 1.1F);
-		
-		GameRegistry.addRecipe(new ItemStack(EOBlockManager.ToriteBlock, 1), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EOItems.TitaniumSword, 1), new Object[]
 				{
-			"ZZZ", "ZZZ", "ZZZ", Character.valueOf('Z'), EOItemManager.ToriteIngot,
+			" Z ", " Z ", " S ", Character.valueOf('Z'), EOItems.TitaniumIngot, Character.valueOf('S'), Items.stick
 				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.ToriteSword, 1), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EOItems.TitaniumShovel, 1), new Object[]
 				{
-			" Z ", " Z ", " S ", Character.valueOf('Z'), EOItemManager.ToriteIngot, Character.valueOf('S'), Items.stick
+			" Z ", " S ", " S ", Character.valueOf('Z'), EOItems.TitaniumIngot, Character.valueOf('S'), Items.stick
 				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.ToriteShovel, 1), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EOItems.TitaniumAxe, 1), new Object[]
 				{
-			" Z ", " S ", " S ", Character.valueOf('Z'), EOItemManager.ToriteIngot, Character.valueOf('S'), Items.stick
+			"ZZ ", "ZS ", " S ", Character.valueOf('Z'), EOItems.TitaniumIngot, Character.valueOf('S'), Items.stick
 				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.ToriteAxe, 1), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EOItems.TitaniumPickaxe, 1), new Object[]
 				{
-			"ZZ ", "ZS ", " S ", Character.valueOf('Z'), EOItemManager.ToriteIngot, Character.valueOf('S'), Items.stick
+			"ZZZ", " S ", " S ", Character.valueOf('Z'), EOItems.TitaniumIngot, Character.valueOf('S'), Items.stick
 				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.ToritePickaxe, 1), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EOItems.TitaniumHoe, 1), new Object[]
 				{
-			"ZZZ", " S ", " S ", Character.valueOf('Z'),EOItemManager.ToriteIngot, Character.valueOf('S'), Items.stick
+			"ZZ ", " S ", " S ", Character.valueOf('Z'), EOItems.TitaniumIngot, Character.valueOf('S'), Items.stick
 				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.ToriteHoe, 1), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EOItems.TitaniumHelmet, 1), new Object[]
 				{
-			"ZZ ", " S ", " S ", Character.valueOf('Z'), EOItemManager.ToriteIngot, Character.valueOf('S'), Items.stick
+			"ZZZ", "Z Z", Character.valueOf('Z'), EOItems.TitaniumIngot,
 				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.ToriteHelmet, 1), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EOItems.TitaniumChest, 1), new Object[]
 				{
-			"ZZZ", "Z Z", Character.valueOf('Z'), EOItemManager.ToriteIngot,
+			"Z Z", "ZZZ", "ZZZ", Character.valueOf('Z'), EOItems.TitaniumIngot,
 				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.ToriteChest, 1), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EOItems.TitaniumPants, 1), new Object[]
 				{
-			"Z Z", "ZZZ", "ZZZ", Character.valueOf('Z'),EOItemManager.ToriteIngot,
+			"ZZZ", "Z Z", "Z Z", Character.valueOf('Z'), EOItems.TitaniumIngot,
 				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.ToritePants, 1), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EOItems.TitaniumBoots, 1), new Object[]
 				{
-			"ZZZ", "Z Z", "Z Z", Character.valueOf('Z'), EOItemManager.ToriteIngot,
+			"Z Z", "Z Z", Character.valueOf('Z'), EOItems.TitaniumIngot,
 				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.ToriteBoots, 1), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EOBlocks.TitaniumBlock, 1), new Object[]
 				{
-			"Z Z", "Z Z", Character.valueOf('Z'), EOItemManager.ToriteIngot,
+			"ZZZ", "ZZZ", "ZZZ", Character.valueOf('Z'),EOItems.TitaniumIngot,
 				});
-		GameRegistry.addShapelessRecipe(new ItemStack(EOItemManager.ToriteIngot, 9), new Object[]
+		GameRegistry.addShapelessRecipe(new ItemStack(EOItems.TitaniumIngot, 9), new Object[]
 				{
-			EOBlockManager.ToriteBlock,
+			EOBlocks.TitaniumBlock,
 				});
 		
 		
 		
-		GameRegistry.addRecipe(new ItemStack(EOBlockManager.GraniteBrick, 4), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EOBlocks.Sunstone, 1), new Object[]
 				{
-			"ZZ", "ZZ", Character.valueOf('Z'), EOBlockManager.Granite,
+			"ZZ", "ZZ", Character.valueOf('Z'), EOItems.SunstoneDust,
 				});
-		GameRegistry.addRecipe(new ItemStack(EOBlockManager.QuartziteTile, 4), new Object[]
+		
+		GameRegistry.addSmelting(EOBlocks.SunstoneOre, new ItemStack(EOItems.SunstoneDust, 4), 1.0F);
+		
+		
+		
+		GameRegistry.addSmelting(EOBlocks.ToriteOre, new ItemStack(EOItems.ToriteIngot, 1), 1.1F);
+		
+		GameRegistry.addRecipe(new ItemStack(EOBlocks.ToriteBlock, 1), new Object[]
 				{
-			"ZZ", "ZZ", Character.valueOf('Z'), EOBlockManager.Quartzite,
+			"ZZZ", "ZZZ", "ZZZ", Character.valueOf('Z'), EOItems.ToriteIngot,
+				});
+		GameRegistry.addRecipe(new ItemStack(EOItems.ToriteSword, 1), new Object[]
+				{
+			" Z ", " Z ", " S ", Character.valueOf('Z'), EOItems.ToriteIngot, Character.valueOf('S'), Items.stick
+				});
+		GameRegistry.addRecipe(new ItemStack(EOItems.ToriteShovel, 1), new Object[]
+				{
+			" Z ", " S ", " S ", Character.valueOf('Z'), EOItems.ToriteIngot, Character.valueOf('S'), Items.stick
+				});
+		GameRegistry.addRecipe(new ItemStack(EOItems.ToriteAxe, 1), new Object[]
+				{
+			"ZZ ", "ZS ", " S ", Character.valueOf('Z'), EOItems.ToriteIngot, Character.valueOf('S'), Items.stick
+				});
+		GameRegistry.addRecipe(new ItemStack(EOItems.ToritePickaxe, 1), new Object[]
+				{
+			"ZZZ", " S ", " S ", Character.valueOf('Z'),EOItems.ToriteIngot, Character.valueOf('S'), Items.stick
+				});
+		GameRegistry.addRecipe(new ItemStack(EOItems.ToriteHoe, 1), new Object[]
+				{
+			"ZZ ", " S ", " S ", Character.valueOf('Z'), EOItems.ToriteIngot, Character.valueOf('S'), Items.stick
+				});
+		GameRegistry.addRecipe(new ItemStack(EOItems.ToriteHelmet, 1), new Object[]
+				{
+			"ZZZ", "Z Z", Character.valueOf('Z'), EOItems.ToriteIngot,
+				});
+		GameRegistry.addRecipe(new ItemStack(EOItems.ToriteChest, 1), new Object[]
+				{
+			"Z Z", "ZZZ", "ZZZ", Character.valueOf('Z'),EOItems.ToriteIngot,
+				});
+		GameRegistry.addRecipe(new ItemStack(EOItems.ToritePants, 1), new Object[]
+				{
+			"ZZZ", "Z Z", "Z Z", Character.valueOf('Z'), EOItems.ToriteIngot,
+				});
+		GameRegistry.addRecipe(new ItemStack(EOItems.ToriteBoots, 1), new Object[]
+				{
+			"Z Z", "Z Z", Character.valueOf('Z'), EOItems.ToriteIngot,
+				});
+		GameRegistry.addShapelessRecipe(new ItemStack(EOItems.ToriteIngot, 9), new Object[]
+				{
+			EOBlocks.ToriteBlock,
 				});
 		
 		
 		
-		GameRegistry.addRecipe(new ItemStack(EOBlockManager.BlaziumBlock, 1), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EOBlocks.GraniteBrick, 4), new Object[]
 				{
-			"ZZZ", "ZZZ", "ZZZ", Character.valueOf('Z'), EOItemManager.BlaziumIngot,
+			"ZZ", "ZZ", Character.valueOf('Z'), EOBlocks.Granite,
 				});
-		
-		GameRegistry.addSmelting(Items.blaze_powder, new ItemStack(EOItemManager.BlazeShard, 1), 1.0F);
-		
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.BlaziumIngot, 1), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EOBlocks.QuartziteTile, 4), new Object[]
 				{
-			"ZZ", "ZZ", Character.valueOf('Z'), EOItemManager.BlazeShard,
-				});
-		
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.BlaziumSword, 1), new Object[]
-				{
-			" Z ", " Z ", " S ", Character.valueOf('Z'), EOItemManager.BlaziumIngot, Character.valueOf('S'), Items.blaze_rod
-				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.BlaziumShovel, 1), new Object[]
-				{
-			" Z ", " S ", " S ", Character.valueOf('Z'), EOItemManager.BlaziumIngot, Character.valueOf('S'), Items.blaze_rod
-				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.BlaziumAxe, 1), new Object[]
-				{
-			"ZZ ", "ZS ", " S ", Character.valueOf('Z'), EOItemManager.BlaziumIngot, Character.valueOf('S'), Items.blaze_rod
-				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.BlaziumPickaxe, 1), new Object[]
-				{
-			"ZZZ", " S ", " S ", Character.valueOf('Z'), EOItemManager.BlaziumIngot, Character.valueOf('S'), Items.blaze_rod
-				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.BlaziumHoe, 1), new Object[]
-				{
-			"ZZ ", " S ", " S ", Character.valueOf('Z'), EOItemManager.BlaziumIngot, Character.valueOf('S'), Items.blaze_rod
-				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.BlaziumHelmet, 1), new Object[]
-				{
-			"ZZZ", "Z Z", Character.valueOf('Z'), EOItemManager.BlaziumIngot,
-				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.BlaziumChest, 1), new Object[]
-				{
-			"Z Z", "ZZZ", "ZZZ", Character.valueOf('Z'), EOItemManager.BlaziumIngot,
-				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.BlaziumPants, 1), new Object[]
-				{
-			"ZZZ", "Z Z", "Z Z", Character.valueOf('Z'),EOItemManager.BlaziumIngot,
-				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.BlaziumBoots, 1), new Object[]
-				{
-			"Z Z", "Z Z", Character.valueOf('Z'), EOItemManager.BlaziumIngot,
-				});
-		GameRegistry.addShapelessRecipe(new ItemStack(EOItemManager.BlaziumIngot, 9), new Object[]
-				{
-			EOBlockManager.BlaziumBlock,
+			"ZZ", "ZZ", Character.valueOf('Z'), EOBlocks.Quartzite,
 				});
 		
 		
 		
-		GameRegistry.addSmelting(EOBlockManager.CopperOre, new ItemStack(EOItemManager.CopperIngot, 1), 0.3F);
-		
-		GameRegistry.addRecipe(new ItemStack(EOBlockManager.CopperBlock, 1), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EOBlocks.BlaziumBlock, 1), new Object[]
 				{
-			"ZZZ", "ZZZ", "ZZZ", Character.valueOf('Z'), EOItemManager.CopperIngot
+			"ZZZ", "ZZZ", "ZZZ", Character.valueOf('Z'), EOItems.BlaziumIngot,
 				});
 		
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.CopperSword, 1), new Object[]
+		GameRegistry.addSmelting(Items.blaze_powder, new ItemStack(EOItems.BlazeShard, 1), 1.0F);
+		
+		GameRegistry.addRecipe(new ItemStack(EOItems.BlaziumIngot, 1), new Object[]
 				{
-			" Z ", " Z ", " S ", Character.valueOf('Z'), EOItemManager.CopperIngot, Character.valueOf('S'), Items.stick
-				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.CopperShovel, 1), new Object[]
-				{
-			" Z ", " S ", " S ", Character.valueOf('Z'), EOItemManager.CopperIngot, Character.valueOf('S'), Items.stick
-				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.CopperAxe, 1), new Object[]
-				{
-			"ZZ ", "ZS ", " S ", Character.valueOf('Z'), EOItemManager.CopperIngot, Character.valueOf('S'), Items.stick
-				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.CopperPickaxe, 1), new Object[]
-				{
-			"ZZZ", " S ", " S ", Character.valueOf('Z'), EOItemManager.CopperIngot, Character.valueOf('S'), Items.stick
-				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.CopperHoe, 1), new Object[]
-				{
-			"ZZ ", " S ", " S ", Character.valueOf('Z'), EOItemManager.CopperIngot, Character.valueOf('S'), Items.stick
-				});
-		GameRegistry.addShapelessRecipe(new ItemStack(EOItemManager.CopperIngot, 9), new Object[]
-				{
-			EOBlockManager.CopperBlock,
+			"ZZ", "ZZ", Character.valueOf('Z'), EOItems.BlazeShard,
 				});
 		
-		
-		
-		GameRegistry.addRecipe(new ItemStack(EOBlockManager.TinBlock, 1), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EOItems.BlaziumSword, 1), new Object[]
 				{
-			"ZZZ", "ZZZ", "ZZZ", Character.valueOf('Z'), EOItemManager.TinIngot,
+			" Z ", " Z ", " S ", Character.valueOf('Z'), EOItems.BlaziumIngot, Character.valueOf('S'), Items.blaze_rod
 				});
-		GameRegistry.addSmelting(EOBlockManager.TinOre, new ItemStack(EOItemManager.TinIngot, 1), 0.3F);
-		
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.TinHelmet, 1), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EOItems.BlaziumShovel, 1), new Object[]
 				{
-			"ZZZ", "Z Z", Character.valueOf('Z'), EOItemManager.TinIngot,
+			" Z ", " S ", " S ", Character.valueOf('Z'), EOItems.BlaziumIngot, Character.valueOf('S'), Items.blaze_rod
 				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.TinChest, 1), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EOItems.BlaziumAxe, 1), new Object[]
 				{
-			"Z Z", "ZZZ", "ZZZ", Character.valueOf('Z'),EOItemManager.TinIngot,
+			"ZZ ", "ZS ", " S ", Character.valueOf('Z'), EOItems.BlaziumIngot, Character.valueOf('S'), Items.blaze_rod
 				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.TinPants, 1), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EOItems.BlaziumPickaxe, 1), new Object[]
 				{
-			"ZZZ", "Z Z", "Z Z", Character.valueOf('Z'), EOItemManager.TinIngot,
+			"ZZZ", " S ", " S ", Character.valueOf('Z'), EOItems.BlaziumIngot, Character.valueOf('S'), Items.blaze_rod
 				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.TinBoots, 1), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EOItems.BlaziumHoe, 1), new Object[]
 				{
-			"Z Z", "Z Z", Character.valueOf('Z'), EOItemManager.TinIngot,
+			"ZZ ", " S ", " S ", Character.valueOf('Z'), EOItems.BlaziumIngot, Character.valueOf('S'), Items.blaze_rod
 				});
-		GameRegistry.addShapelessRecipe(new ItemStack(EOItemManager.TinIngot, 9), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EOItems.BlaziumHelmet, 1), new Object[]
 				{
-			EOBlockManager.TinBlock,
+			"ZZZ", "Z Z", Character.valueOf('Z'), EOItems.BlaziumIngot,
+				});
+		GameRegistry.addRecipe(new ItemStack(EOItems.BlaziumChest, 1), new Object[]
+				{
+			"Z Z", "ZZZ", "ZZZ", Character.valueOf('Z'), EOItems.BlaziumIngot,
+				});
+		GameRegistry.addRecipe(new ItemStack(EOItems.BlaziumPants, 1), new Object[]
+				{
+			"ZZZ", "Z Z", "Z Z", Character.valueOf('Z'),EOItems.BlaziumIngot,
+				});
+		GameRegistry.addRecipe(new ItemStack(EOItems.BlaziumBoots, 1), new Object[]
+				{
+			"Z Z", "Z Z", Character.valueOf('Z'), EOItems.BlaziumIngot,
+				});
+		GameRegistry.addShapelessRecipe(new ItemStack(EOItems.BlaziumIngot, 9), new Object[]
+				{
+			EOBlocks.BlaziumBlock,
 				});
 		
 		
 		
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.plateTinItem, 4), new Object[]
+		GameRegistry.addSmelting(EOBlocks.CopperOre, new ItemStack(EOItems.CopperIngot, 1), 0.3F);
+		
+		GameRegistry.addRecipe(new ItemStack(EOBlocks.CopperBlock, 1), new Object[]
 				{
-			"ZZZ", "ZZZ", Character.valueOf('Z'), EOItemManager.TinIngot,
+			"ZZZ", "ZZZ", "ZZZ", Character.valueOf('Z'), EOItems.CopperIngot
 				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.plateBronzeItem, 1), new Object[]
+		
+		GameRegistry.addRecipe(new ItemStack(EOItems.CopperSword, 1), new Object[]
 				{
-			"ZZZ", "ZZZ", Character.valueOf('Z'), EOItemManager.BronzeIngot,
+			" Z ", " Z ", " S ", Character.valueOf('Z'), EOItems.CopperIngot, Character.valueOf('S'), Items.stick
 				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.plateSteelItem, 1), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EOItems.CopperShovel, 1), new Object[]
 				{
-			"ZZZ", "ZZZ", Character.valueOf('Z'), EOItemManager.SteelIngot,
+			" Z ", " S ", " S ", Character.valueOf('Z'), EOItems.CopperIngot, Character.valueOf('S'), Items.stick
+				});
+		GameRegistry.addRecipe(new ItemStack(EOItems.CopperAxe, 1), new Object[]
+				{
+			"ZZ ", "ZS ", " S ", Character.valueOf('Z'), EOItems.CopperIngot, Character.valueOf('S'), Items.stick
+				});
+		GameRegistry.addRecipe(new ItemStack(EOItems.CopperPickaxe, 1), new Object[]
+				{
+			"ZZZ", " S ", " S ", Character.valueOf('Z'), EOItems.CopperIngot, Character.valueOf('S'), Items.stick
+				});
+		GameRegistry.addRecipe(new ItemStack(EOItems.CopperHoe, 1), new Object[]
+				{
+			"ZZ ", " S ", " S ", Character.valueOf('Z'), EOItems.CopperIngot, Character.valueOf('S'), Items.stick
+				});
+		GameRegistry.addShapelessRecipe(new ItemStack(EOItems.CopperIngot, 9), new Object[]
+				{
+			EOBlocks.CopperBlock,
 				});
 		
 		
 		
-		GameRegistry.addShapelessRecipe(new ItemStack(EOItemManager.CoalIronIngot, 1), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EOBlocks.TinBlock, 1), new Object[]
+				{
+			"ZZZ", "ZZZ", "ZZZ", Character.valueOf('Z'), EOItems.TinIngot,
+				});
+		GameRegistry.addSmelting(EOBlocks.TinOre, new ItemStack(EOItems.TinIngot, 1), 0.3F);
+		
+		GameRegistry.addRecipe(new ItemStack(EOItems.TinHelmet, 1), new Object[]
+				{
+			"ZZZ", "Z Z", Character.valueOf('Z'), EOItems.TinIngot,
+				});
+		GameRegistry.addRecipe(new ItemStack(EOItems.TinChest, 1), new Object[]
+				{
+			"Z Z", "ZZZ", "ZZZ", Character.valueOf('Z'),EOItems.TinIngot,
+				});
+		GameRegistry.addRecipe(new ItemStack(EOItems.TinPants, 1), new Object[]
+				{
+			"ZZZ", "Z Z", "Z Z", Character.valueOf('Z'), EOItems.TinIngot,
+				});
+		GameRegistry.addRecipe(new ItemStack(EOItems.TinBoots, 1), new Object[]
+				{
+			"Z Z", "Z Z", Character.valueOf('Z'), EOItems.TinIngot,
+				});
+		GameRegistry.addShapelessRecipe(new ItemStack(EOItems.TinIngot, 9), new Object[]
+				{
+			EOBlocks.TinBlock,
+				});
+		
+		
+		
+		GameRegistry.addRecipe(new ItemStack(EOItems.plateTinItem, 4), new Object[]
+				{
+			"ZZZ", "ZZZ", Character.valueOf('Z'), EOItems.TinIngot,
+				});
+		GameRegistry.addRecipe(new ItemStack(EOItems.plateBronzeItem, 1), new Object[]
+				{
+			"ZZZ", "ZZZ", Character.valueOf('Z'), EOItems.BronzeIngot,
+				});
+		GameRegistry.addRecipe(new ItemStack(EOItems.plateSteelItem, 1), new Object[]
+				{
+			"ZZZ", "ZZZ", Character.valueOf('Z'), EOItems.SteelIngot,
+				});
+		
+		
+		
+		GameRegistry.addShapelessRecipe(new ItemStack(EOItems.CoalIronIngot, 1), new Object[]
 				{
 			Items.iron_ingot, Items.coal, Items.coal, Items.coal, Items.coal, Items.coal, Items.coal, Items.coal, Items.coal
 				});
 		
-		GameRegistry.addSmelting(EOItemManager.CoalIronIngot, new ItemStack(EOItemManager.SteelIngot, 1), 0.7F);
+		GameRegistry.addSmelting(EOItems.CoalIronIngot, new ItemStack(EOItems.SteelIngot, 1), 0.7F);
 		
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.SteelPickaxe, 1), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EOItems.SteelPickaxe, 1), new Object[]
         		{
-        	"ZZZ", " S ", " S ", Character.valueOf('Z'), EOItemManager.SteelIngot, Character.valueOf('S'), Items.stick
+        	"ZZZ", " S ", " S ", Character.valueOf('Z'), EOItems.SteelIngot, Character.valueOf('S'), Items.stick
         		});
-        GameRegistry.addRecipe(new ItemStack(EOItemManager.SteelShovel, 1), new Object[]
+        GameRegistry.addRecipe(new ItemStack(EOItems.SteelShovel, 1), new Object[]
         		{
-        	" Z ", " S ", " S ", Character.valueOf('Z'), EOItemManager.SteelIngot, Character.valueOf('S'), Items.stick
+        	" Z ", " S ", " S ", Character.valueOf('Z'), EOItems.SteelIngot, Character.valueOf('S'), Items.stick
         		});
-        GameRegistry.addRecipe(new ItemStack(EOItemManager.SteelAxe, 1), new Object[]
+        GameRegistry.addRecipe(new ItemStack(EOItems.SteelAxe, 1), new Object[]
         		{
-        	"ZZ ", "ZS ", " S ", Character.valueOf('Z'), EOItemManager.SteelIngot, Character.valueOf('S'), Items.stick
+        	"ZZ ", "ZS ", " S ", Character.valueOf('Z'), EOItems.SteelIngot, Character.valueOf('S'), Items.stick
         		});
-        GameRegistry.addRecipe(new ItemStack(EOItemManager.SteelHoe, 1), new Object[]
+        GameRegistry.addRecipe(new ItemStack(EOItems.SteelHoe, 1), new Object[]
         		{
-        	"ZZ ", " S ", " S ", Character.valueOf('Z'), EOItemManager.SteelIngot, Character.valueOf('S'), Items.stick
+        	"ZZ ", " S ", " S ", Character.valueOf('Z'), EOItems.SteelIngot, Character.valueOf('S'), Items.stick
         		});
-        GameRegistry.addRecipe(new ItemStack(EOItemManager.SteelSword, 1), new Object[]
+        GameRegistry.addRecipe(new ItemStack(EOItems.SteelSword, 1), new Object[]
         		{
-        	" Z ", " Z ", " S ", Character.valueOf('Z'), EOItemManager.SteelIngot, Character.valueOf('S'), Items.stick
+        	" Z ", " Z ", " S ", Character.valueOf('Z'), EOItems.SteelIngot, Character.valueOf('S'), Items.stick
         		});
-        GameRegistry.addRecipe(new ItemStack(EOItemManager.SteelHelmet, 1), new Object[]
+        GameRegistry.addRecipe(new ItemStack(EOItems.SteelHelmet, 1), new Object[]
 				{
-			"ZZZ", "Z Z", Character.valueOf('Z'), EOItemManager.SteelIngot,
+			"ZZZ", "Z Z", Character.valueOf('Z'), EOItems.SteelIngot,
 				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.SteelChest, 1), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EOItems.SteelChest, 1), new Object[]
 				{
-			"Z Z", "ZZZ", "ZZZ", Character.valueOf('Z'),EOItemManager.SteelIngot,
+			"Z Z", "ZZZ", "ZZZ", Character.valueOf('Z'),EOItems.SteelIngot,
 				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.SteelPants, 1), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EOItems.SteelPants, 1), new Object[]
 				{
-			"ZZZ", "Z Z", "Z Z", Character.valueOf('Z'),EOItemManager.SteelIngot,
+			"ZZZ", "Z Z", "Z Z", Character.valueOf('Z'),EOItems.SteelIngot,
 				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.SteelBoots, 1), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EOItems.SteelBoots, 1), new Object[]
 				{
-			"Z Z", "Z Z", Character.valueOf('Z'), EOItemManager.SteelIngot,
+			"Z Z", "Z Z", Character.valueOf('Z'), EOItems.SteelIngot,
 				});
-		GameRegistry.addRecipe(new ItemStack(EOBlockManager.SteelBlock, 1), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EOBlocks.SteelBlock, 1), new Object[]
 				{
-			"ZZZ", "ZZZ", "ZZZ", Character.valueOf('Z'), EOItemManager.SteelIngot
+			"ZZZ", "ZZZ", "ZZZ", Character.valueOf('Z'), EOItems.SteelIngot
 				});
-		GameRegistry.addShapelessRecipe(new ItemStack(EOItemManager.SteelIngot, 9), new Object[]
+		GameRegistry.addShapelessRecipe(new ItemStack(EOItems.SteelIngot, 9), new Object[]
 				{
-			EOBlockManager.SteelBlock,
+			EOBlocks.SteelBlock,
 				});
 		
 		
 		
-        GameRegistry.addRecipe(new ItemStack(EOBlockManager.SmoothQuartzite, 1), new Object[]
+        GameRegistry.addRecipe(new ItemStack(EOBlocks.SmoothQuartzite, 1), new Object[]
         		{
-        	"ZZ", "ZZ", Character.valueOf('Z'), EOItemManager.PinkQuartz
+        	"ZZ", "ZZ", Character.valueOf('Z'), EOItems.PinkQuartz
         		});
-        GameRegistry.addRecipe(new ItemStack(EOBlockManager.PillarQuartzite, 2), new Object[]
+        GameRegistry.addRecipe(new ItemStack(EOBlocks.PillarQuartzite, 2), new Object[]
         		{
-        	"Z", "Z", Character.valueOf('Z'), EOBlockManager.SmoothQuartzite
+        	"Z", "Z", Character.valueOf('Z'), EOBlocks.SmoothQuartzite
         		});
         /*
         GameRegistry.addRecipe(new ItemStack(EOBlockManager.ChiseledQuartzite, 1), new Object[]
@@ -388,229 +388,229 @@ public class EORecipeManager
         	"Z", "Z", Character.valueOf('Z'), EOBlockManager.PinkQuartzSingleSlab
         		});
         		*/
-        GameRegistry.addRecipe(new ItemStack(EOBlockManager.SmoothQuartzTile, 8), new Object[]
+        GameRegistry.addRecipe(new ItemStack(EOBlocks.SmoothQuartzTile, 8), new Object[]
         		{
-        	"ZZZ", "ZYZ", "ZZZ", Character.valueOf('Z'), EOBlockManager.SmoothQuartzite, Character.valueOf('Y'), Blocks.stone
+        	"ZZZ", "ZYZ", "ZZZ", Character.valueOf('Z'), EOBlocks.SmoothQuartzite, Character.valueOf('Y'), Blocks.stone
         		});
         
-        GameRegistry.addSmelting(EOBlockManager.SmoothQuartzite, new ItemStack(EOBlockManager.Quartzite, 1), 0.15F);
+        GameRegistry.addSmelting(EOBlocks.SmoothQuartzite, new ItemStack(EOBlocks.Quartzite, 1), 0.15F);
         
-        GameRegistry.addSmelting(EOBlockManager.ChiseledQuartzite, new ItemStack(EOBlockManager.Quartzite, 1), 0.15F);
+        GameRegistry.addSmelting(EOBlocks.ChiseledQuartzite, new ItemStack(EOBlocks.Quartzite, 1), 0.15F);
         
-        GameRegistry.addSmelting(EOBlockManager.PillarQuartzite, new ItemStack(EOBlockManager.Quartzite, 1), 0.15F);
+        GameRegistry.addSmelting(EOBlocks.PillarQuartzite, new ItemStack(EOBlocks.Quartzite, 1), 0.15F);
         
-        GameRegistry.addSmelting(EOBlockManager.QuartziteTile, new ItemStack(EOBlockManager.Quartzite, 1), 0.15F);
+        GameRegistry.addSmelting(EOBlocks.QuartziteTile, new ItemStack(EOBlocks.Quartzite, 1), 0.15F);
         
         
         
-        GameRegistry.addRecipe(new ItemStack(EOItemManager.SandstonePickaxe, 1), new Object[]
+        GameRegistry.addRecipe(new ItemStack(EOItems.SandstonePickaxe, 1), new Object[]
         		{
         	"ZZZ", " S ", " S ", Character.valueOf('Z'), Blocks.sandstone, Character.valueOf('S'), Items.stick
         		});
-        GameRegistry.addRecipe(new ItemStack(EOItemManager.SandstoneShovel, 1), new Object[]
+        GameRegistry.addRecipe(new ItemStack(EOItems.SandstoneShovel, 1), new Object[]
         		{
         	" Z ", " S ", " S ", Character.valueOf('Z'), Blocks.sandstone, Character.valueOf('S'), Items.stick
         		});
-        GameRegistry.addRecipe(new ItemStack(EOItemManager.SandstoneAxe, 1), new Object[]
+        GameRegistry.addRecipe(new ItemStack(EOItems.SandstoneAxe, 1), new Object[]
         		{
         	"ZZ ", "ZS ", " S ", Character.valueOf('Z'), Blocks.sandstone, Character.valueOf('S'), Items.stick
         		});
-        GameRegistry.addRecipe(new ItemStack(EOItemManager.SandstoneHoe, 1), new Object[]
+        GameRegistry.addRecipe(new ItemStack(EOItems.SandstoneHoe, 1), new Object[]
         		{
         	"ZZ ", " S ", " S ", Character.valueOf('Z'), Blocks.sandstone, Character.valueOf('S'), Items.stick
         		});
-        GameRegistry.addRecipe(new ItemStack(EOItemManager.SandstoneSword, 1), new Object[]
+        GameRegistry.addRecipe(new ItemStack(EOItems.SandstoneSword, 1), new Object[]
         		{
         	" Z ", " Z ", " S ", Character.valueOf('Z'), Blocks.sandstone, Character.valueOf('S'), Items.stick
         		});
         
         
         
-        GameRegistry.addShapelessRecipe(new ItemStack(EOBlockManager.TinPlatedCobble, 8), new Object[]
+        GameRegistry.addShapelessRecipe(new ItemStack(EOBlocks.TinPlatedCobble, 8), new Object[]
 				{
-			Blocks.cobblestone, EOItemManager.plateTinItem,Blocks.cobblestone,Blocks.cobblestone,Blocks.cobblestone,Blocks.cobblestone,Blocks.cobblestone,Blocks.cobblestone,Blocks.cobblestone,
+			Blocks.cobblestone, EOItems.plateTinItem,Blocks.cobblestone,Blocks.cobblestone,Blocks.cobblestone,Blocks.cobblestone,Blocks.cobblestone,Blocks.cobblestone,Blocks.cobblestone,
 				});
-        GameRegistry.addShapelessRecipe(new ItemStack(EOBlockManager.TinPlatedMossy, 8), new Object[]
+        GameRegistry.addShapelessRecipe(new ItemStack(EOBlocks.TinPlatedMossy, 8), new Object[]
 				{
-			Blocks.mossy_cobblestone, EOItemManager.plateTinItem,Blocks.mossy_cobblestone,Blocks.mossy_cobblestone,Blocks.mossy_cobblestone,Blocks.mossy_cobblestone,Blocks.mossy_cobblestone,Blocks.mossy_cobblestone,Blocks.mossy_cobblestone,
+			Blocks.mossy_cobblestone, EOItems.plateTinItem,Blocks.mossy_cobblestone,Blocks.mossy_cobblestone,Blocks.mossy_cobblestone,Blocks.mossy_cobblestone,Blocks.mossy_cobblestone,Blocks.mossy_cobblestone,Blocks.mossy_cobblestone,
 				});
-        GameRegistry.addShapelessRecipe(new ItemStack(EOBlockManager.TinPlatedStoneBrick, 8), new Object[]
+        GameRegistry.addShapelessRecipe(new ItemStack(EOBlocks.TinPlatedStoneBrick, 8), new Object[]
 				{
-			new ItemStack(Blocks.stonebrick, 1, 0), EOItemManager.plateTinItem,new ItemStack(Blocks.stonebrick, 1, 0),new ItemStack(Blocks.stonebrick, 1, 0),new ItemStack(Blocks.stonebrick, 1, 0),new ItemStack(Blocks.stonebrick, 1, 0),new ItemStack(Blocks.stonebrick, 1, 0),new ItemStack(Blocks.stonebrick, 1, 0),new ItemStack(Blocks.stonebrick, 1, 0),
+			new ItemStack(Blocks.stonebrick, 1, 0), EOItems.plateTinItem,new ItemStack(Blocks.stonebrick, 1, 0),new ItemStack(Blocks.stonebrick, 1, 0),new ItemStack(Blocks.stonebrick, 1, 0),new ItemStack(Blocks.stonebrick, 1, 0),new ItemStack(Blocks.stonebrick, 1, 0),new ItemStack(Blocks.stonebrick, 1, 0),new ItemStack(Blocks.stonebrick, 1, 0),
 				});
-        GameRegistry.addShapelessRecipe(new ItemStack(EOBlockManager.TinPlatedChiseled, 8), new Object[]
+        GameRegistry.addShapelessRecipe(new ItemStack(EOBlocks.TinPlatedChiseled, 8), new Object[]
 				{
-			new ItemStack(Blocks.stonebrick, 1, 3), EOItemManager.plateTinItem,new ItemStack(Blocks.stonebrick, 1, 3),new ItemStack(Blocks.stonebrick, 1, 3),new ItemStack(Blocks.stonebrick, 1, 3),new ItemStack(Blocks.stonebrick, 1, 3),new ItemStack(Blocks.stonebrick, 1, 3),new ItemStack(Blocks.stonebrick, 1, 3),new ItemStack(Blocks.stonebrick, 1, 3),
+			new ItemStack(Blocks.stonebrick, 1, 3), EOItems.plateTinItem,new ItemStack(Blocks.stonebrick, 1, 3),new ItemStack(Blocks.stonebrick, 1, 3),new ItemStack(Blocks.stonebrick, 1, 3),new ItemStack(Blocks.stonebrick, 1, 3),new ItemStack(Blocks.stonebrick, 1, 3),new ItemStack(Blocks.stonebrick, 1, 3),new ItemStack(Blocks.stonebrick, 1, 3),
 				});
-        GameRegistry.addShapelessRecipe(new ItemStack(EOBlockManager.TinPlatedGranite, 8), new Object[]
+        GameRegistry.addShapelessRecipe(new ItemStack(EOBlocks.TinPlatedGranite, 8), new Object[]
 				{
-			EOBlockManager.GraniteBrick, EOItemManager.plateTinItem,EOBlockManager.GraniteBrick,EOBlockManager.GraniteBrick,EOBlockManager.GraniteBrick,EOBlockManager.GraniteBrick,EOBlockManager.GraniteBrick,EOBlockManager.GraniteBrick,EOBlockManager.GraniteBrick,
+			EOBlocks.GraniteBrick, EOItems.plateTinItem,EOBlocks.GraniteBrick,EOBlocks.GraniteBrick,EOBlocks.GraniteBrick,EOBlocks.GraniteBrick,EOBlocks.GraniteBrick,EOBlocks.GraniteBrick,EOBlocks.GraniteBrick,
 				});
         
         
         
-        GameRegistry.addShapelessRecipe(new ItemStack(EOItemManager.BronzeIngot, 1), new Object[]
+        GameRegistry.addShapelessRecipe(new ItemStack(EOItems.BronzeIngot, 1), new Object[]
         		{
-        	Items.iron_ingot, EOItemManager.CopperIngot, EOItemManager.CopperIngot, EOItemManager.TinIngot, EOItemManager.TinIngot
+        	Items.iron_ingot, EOItems.CopperIngot, EOItems.CopperIngot, EOItems.TinIngot, EOItems.TinIngot
         		});
-        GameRegistry.addRecipe(new ItemStack(EOItemManager.BronzePickaxe, 1), new Object[]
+        GameRegistry.addRecipe(new ItemStack(EOItems.BronzePickaxe, 1), new Object[]
         		{
-        	"ZZZ", " S ", " S ", Character.valueOf('Z'), EOItemManager.BronzeIngot, Character.valueOf('S'), Items.stick
+        	"ZZZ", " S ", " S ", Character.valueOf('Z'), EOItems.BronzeIngot, Character.valueOf('S'), Items.stick
         		});
-        GameRegistry.addRecipe(new ItemStack(EOItemManager.BronzeShovel, 1), new Object[]
+        GameRegistry.addRecipe(new ItemStack(EOItems.BronzeShovel, 1), new Object[]
         		{
-        	" Z ", " S ", " S ", Character.valueOf('Z'), EOItemManager.BronzeIngot, Character.valueOf('S'), Items.stick
+        	" Z ", " S ", " S ", Character.valueOf('Z'), EOItems.BronzeIngot, Character.valueOf('S'), Items.stick
         		});
-        GameRegistry.addRecipe(new ItemStack(EOItemManager.BronzeAxe, 1), new Object[]
+        GameRegistry.addRecipe(new ItemStack(EOItems.BronzeAxe, 1), new Object[]
         		{
-        	"ZZ ", "ZS ", " S ", Character.valueOf('Z'), EOItemManager.BronzeIngot, Character.valueOf('S'), Items.stick
+        	"ZZ ", "ZS ", " S ", Character.valueOf('Z'), EOItems.BronzeIngot, Character.valueOf('S'), Items.stick
         		});
-        GameRegistry.addRecipe(new ItemStack(EOItemManager.BronzeHoe, 1), new Object[]
+        GameRegistry.addRecipe(new ItemStack(EOItems.BronzeHoe, 1), new Object[]
         		{
-        	"ZZ ", " S ", " S ", Character.valueOf('Z'), EOItemManager.BronzeIngot, Character.valueOf('S'), Items.stick
+        	"ZZ ", " S ", " S ", Character.valueOf('Z'), EOItems.BronzeIngot, Character.valueOf('S'), Items.stick
         		});
-        GameRegistry.addRecipe(new ItemStack(EOItemManager.BronzeSword, 1), new Object[]
+        GameRegistry.addRecipe(new ItemStack(EOItems.BronzeSword, 1), new Object[]
         		{
-        	" Z ", " Z ", " S ", Character.valueOf('Z'), EOItemManager.BronzeIngot, Character.valueOf('S'), Items.stick
+        	" Z ", " Z ", " S ", Character.valueOf('Z'), EOItems.BronzeIngot, Character.valueOf('S'), Items.stick
         		});
-        GameRegistry.addRecipe(new ItemStack(EOItemManager.BronzeHelmet, 1), new Object[]
+        GameRegistry.addRecipe(new ItemStack(EOItems.BronzeHelmet, 1), new Object[]
 				{
-			"ZZZ", "Z Z", Character.valueOf('Z'), EOItemManager.BronzeIngot,
+			"ZZZ", "Z Z", Character.valueOf('Z'), EOItems.BronzeIngot,
 				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.BronzeChest, 1), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EOItems.BronzeChest, 1), new Object[]
 				{
-			"Z Z", "ZZZ", "ZZZ", Character.valueOf('Z'),EOItemManager.BronzeIngot,
+			"Z Z", "ZZZ", "ZZZ", Character.valueOf('Z'),EOItems.BronzeIngot,
 				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.BronzePants, 1), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EOItems.BronzePants, 1), new Object[]
 				{
-			"ZZZ", "Z Z", "Z Z", Character.valueOf('Z'), EOItemManager.BronzeIngot,
+			"ZZZ", "Z Z", "Z Z", Character.valueOf('Z'), EOItems.BronzeIngot,
 				});
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.BronzeBoots, 1), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EOItems.BronzeBoots, 1), new Object[]
 				{
-			"Z Z", "Z Z", Character.valueOf('Z'), EOItemManager.BronzeIngot,
+			"Z Z", "Z Z", Character.valueOf('Z'), EOItems.BronzeIngot,
 				});
-		GameRegistry.addShapelessRecipe(new ItemStack(EOItemManager.BronzeIngot, 9), new Object[]
+		GameRegistry.addShapelessRecipe(new ItemStack(EOItems.BronzeIngot, 9), new Object[]
 				{
-			EOBlockManager.BronzeBlock,
+			EOBlocks.BronzeBlock,
 				});
-		GameRegistry.addRecipe(new ItemStack(EOBlockManager.BronzeBlock, 1), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EOBlocks.BronzeBlock, 1), new Object[]
 				{
-			"ZZZ", "ZZZ", "ZZZ", Character.valueOf('Z'), EOItemManager.BronzeIngot
+			"ZZZ", "ZZZ", "ZZZ", Character.valueOf('Z'), EOItems.BronzeIngot
 				});
 		
 		
 		
-		GameRegistry.addShapelessRecipe(new ItemStack(EOBlockManager.BronzePlatedCobble, 8), new Object[]
+		GameRegistry.addShapelessRecipe(new ItemStack(EOBlocks.BronzePlatedCobble, 8), new Object[]
 				{
-			Blocks.cobblestone, EOItemManager.plateBronzeItem,Blocks.cobblestone,Blocks.cobblestone,Blocks.cobblestone,Blocks.cobblestone,Blocks.cobblestone,Blocks.cobblestone,Blocks.cobblestone,
+			Blocks.cobblestone, EOItems.plateBronzeItem,Blocks.cobblestone,Blocks.cobblestone,Blocks.cobblestone,Blocks.cobblestone,Blocks.cobblestone,Blocks.cobblestone,Blocks.cobblestone,
 				});
-        GameRegistry.addShapelessRecipe(new ItemStack(EOBlockManager.BronzePlatedMossy, 8), new Object[]
+        GameRegistry.addShapelessRecipe(new ItemStack(EOBlocks.BronzePlatedMossy, 8), new Object[]
 				{
-			Blocks.mossy_cobblestone, EOItemManager.plateBronzeItem,Blocks.mossy_cobblestone,Blocks.mossy_cobblestone,Blocks.mossy_cobblestone,Blocks.mossy_cobblestone,Blocks.mossy_cobblestone,Blocks.mossy_cobblestone,Blocks.mossy_cobblestone,
+			Blocks.mossy_cobblestone, EOItems.plateBronzeItem,Blocks.mossy_cobblestone,Blocks.mossy_cobblestone,Blocks.mossy_cobblestone,Blocks.mossy_cobblestone,Blocks.mossy_cobblestone,Blocks.mossy_cobblestone,Blocks.mossy_cobblestone,
 				});
-        GameRegistry.addShapelessRecipe(new ItemStack(EOBlockManager.BronzePlatedStoneBrick, 8), new Object[]
+        GameRegistry.addShapelessRecipe(new ItemStack(EOBlocks.BronzePlatedStoneBrick, 8), new Object[]
 				{
-			new ItemStack(Blocks.stonebrick, 1, 0), EOItemManager.plateBronzeItem,new ItemStack(Blocks.stonebrick, 1, 0), new ItemStack(Blocks.stonebrick, 1, 0), new ItemStack(Blocks.stonebrick, 1, 0), new ItemStack(Blocks.stonebrick, 1, 0), new ItemStack(Blocks.stonebrick, 1, 0), new ItemStack(Blocks.stonebrick, 1, 0), new ItemStack(Blocks.stonebrick, 1, 0), 
+			new ItemStack(Blocks.stonebrick, 1, 0), EOItems.plateBronzeItem,new ItemStack(Blocks.stonebrick, 1, 0), new ItemStack(Blocks.stonebrick, 1, 0), new ItemStack(Blocks.stonebrick, 1, 0), new ItemStack(Blocks.stonebrick, 1, 0), new ItemStack(Blocks.stonebrick, 1, 0), new ItemStack(Blocks.stonebrick, 1, 0), new ItemStack(Blocks.stonebrick, 1, 0), 
 				});
-        GameRegistry.addShapelessRecipe(new ItemStack(EOBlockManager.BronzePlatedChiseled, 8), new Object[]
+        GameRegistry.addShapelessRecipe(new ItemStack(EOBlocks.BronzePlatedChiseled, 8), new Object[]
 				{
-			new ItemStack(Blocks.stonebrick, 1, 3), EOItemManager.plateBronzeItem,new ItemStack(Blocks.stonebrick, 1, 3),new ItemStack(Blocks.stonebrick, 1, 3),new ItemStack(Blocks.stonebrick, 1, 3),new ItemStack(Blocks.stonebrick, 1, 3),new ItemStack(Blocks.stonebrick, 1, 3),new ItemStack(Blocks.stonebrick, 1, 3),new ItemStack(Blocks.stonebrick, 1, 3),
+			new ItemStack(Blocks.stonebrick, 1, 3), EOItems.plateBronzeItem,new ItemStack(Blocks.stonebrick, 1, 3),new ItemStack(Blocks.stonebrick, 1, 3),new ItemStack(Blocks.stonebrick, 1, 3),new ItemStack(Blocks.stonebrick, 1, 3),new ItemStack(Blocks.stonebrick, 1, 3),new ItemStack(Blocks.stonebrick, 1, 3),new ItemStack(Blocks.stonebrick, 1, 3),
 				});
-        GameRegistry.addShapelessRecipe(new ItemStack(EOBlockManager.BronzePlatedGranite, 8), new Object[]
+        GameRegistry.addShapelessRecipe(new ItemStack(EOBlocks.BronzePlatedGranite, 8), new Object[]
 				{
-			EOBlockManager.GraniteBrick, EOItemManager.plateBronzeItem,EOBlockManager.GraniteBrick,EOBlockManager.GraniteBrick,EOBlockManager.GraniteBrick,EOBlockManager.GraniteBrick,EOBlockManager.GraniteBrick,EOBlockManager.GraniteBrick,EOBlockManager.GraniteBrick,
+			EOBlocks.GraniteBrick, EOItems.plateBronzeItem,EOBlocks.GraniteBrick,EOBlocks.GraniteBrick,EOBlocks.GraniteBrick,EOBlocks.GraniteBrick,EOBlocks.GraniteBrick,EOBlocks.GraniteBrick,EOBlocks.GraniteBrick,
 				});
         
         
         
-        GameRegistry.addRecipe(new ItemStack(EOItemManager.BedrockPickaxe, 1), new Object[]
+        GameRegistry.addRecipe(new ItemStack(EOItems.BedrockPickaxe, 1), new Object[]
         		{
         	"ZZZ", " S ", " S ", Character.valueOf('Z'), Blocks.bedrock, Character.valueOf('S'), Items.stick
         		});
-        GameRegistry.addRecipe(new ItemStack(EOItemManager.BedrockShovel, 1), new Object[]
+        GameRegistry.addRecipe(new ItemStack(EOItems.BedrockShovel, 1), new Object[]
         		{
         	" Z ", " S ", " S ", Character.valueOf('Z'), Blocks.bedrock, Character.valueOf('S'), Items.stick
         		});
-        GameRegistry.addRecipe(new ItemStack(EOItemManager.BedrockAxe, 1), new Object[]
+        GameRegistry.addRecipe(new ItemStack(EOItems.BedrockAxe, 1), new Object[]
         		{
         	"ZZ ", "ZS ", " S ", Character.valueOf('Z'), Blocks.bedrock, Character.valueOf('S'), Items.stick
         		});
-        GameRegistry.addRecipe(new ItemStack(EOItemManager.BedrockHoe, 1), new Object[]
+        GameRegistry.addRecipe(new ItemStack(EOItems.BedrockHoe, 1), new Object[]
         		{
         	"ZZ ", " S ", " S ", Character.valueOf('Z'), Blocks.bedrock, Character.valueOf('S'), Items.stick
         		});
         
-        GameRegistry.addShapelessRecipe(new ItemStack(EOBlockManager.SteelPlatedCobble, 8), new Object[]
+        GameRegistry.addShapelessRecipe(new ItemStack(EOBlocks.SteelPlatedCobble, 8), new Object[]
 				{
-			Blocks.cobblestone, EOItemManager.plateSteelItem, Blocks.cobblestone,Blocks.cobblestone,Blocks.cobblestone,Blocks.cobblestone,Blocks.cobblestone,Blocks.cobblestone,Blocks.cobblestone,
+			Blocks.cobblestone, EOItems.plateSteelItem, Blocks.cobblestone,Blocks.cobblestone,Blocks.cobblestone,Blocks.cobblestone,Blocks.cobblestone,Blocks.cobblestone,Blocks.cobblestone,
 				});
-        GameRegistry.addShapelessRecipe(new ItemStack(EOBlockManager.SteelPlatedMossy, 8), new Object[]
+        GameRegistry.addShapelessRecipe(new ItemStack(EOBlocks.SteelPlatedMossy, 8), new Object[]
 				{
-			Blocks.mossy_cobblestone, EOItemManager.plateSteelItem,	Blocks.mossy_cobblestone,Blocks.mossy_cobblestone,	Blocks.mossy_cobblestone,Blocks.mossy_cobblestone,Blocks.mossy_cobblestone,	Blocks.mossy_cobblestone,Blocks.mossy_cobblestone,
+			Blocks.mossy_cobblestone, EOItems.plateSteelItem,	Blocks.mossy_cobblestone,Blocks.mossy_cobblestone,	Blocks.mossy_cobblestone,Blocks.mossy_cobblestone,Blocks.mossy_cobblestone,	Blocks.mossy_cobblestone,Blocks.mossy_cobblestone,
 				});
-        GameRegistry.addShapelessRecipe(new ItemStack(EOBlockManager.SteelPlatedStoneBrick, 8), new Object[]
+        GameRegistry.addShapelessRecipe(new ItemStack(EOBlocks.SteelPlatedStoneBrick, 8), new Object[]
 				{
-			new ItemStack(Blocks.stonebrick, 1, 0), EOItemManager.plateSteelItem, new ItemStack(Blocks.stonebrick, 1, 0),new ItemStack(Blocks.stonebrick, 1, 0),new ItemStack(Blocks.stonebrick, 1, 0),new ItemStack(Blocks.stonebrick, 1, 0),new ItemStack(Blocks.stonebrick, 1, 0),new ItemStack(Blocks.stonebrick, 1, 0),new ItemStack(Blocks.stonebrick, 1, 0),
+			new ItemStack(Blocks.stonebrick, 1, 0), EOItems.plateSteelItem, new ItemStack(Blocks.stonebrick, 1, 0),new ItemStack(Blocks.stonebrick, 1, 0),new ItemStack(Blocks.stonebrick, 1, 0),new ItemStack(Blocks.stonebrick, 1, 0),new ItemStack(Blocks.stonebrick, 1, 0),new ItemStack(Blocks.stonebrick, 1, 0),new ItemStack(Blocks.stonebrick, 1, 0),
 				});
-        GameRegistry.addShapelessRecipe(new ItemStack(EOBlockManager.SteelPlatedChiseled, 8), new Object[]
+        GameRegistry.addShapelessRecipe(new ItemStack(EOBlocks.SteelPlatedChiseled, 8), new Object[]
 				{
-			new ItemStack(Blocks.stonebrick, 1, 3), EOItemManager.plateSteelItem, new ItemStack(Blocks.stonebrick, 1, 3),new ItemStack(Blocks.stonebrick, 1, 3),new ItemStack(Blocks.stonebrick, 1, 3),new ItemStack(Blocks.stonebrick, 1, 3),new ItemStack(Blocks.stonebrick, 1, 3),new ItemStack(Blocks.stonebrick, 1, 3),new ItemStack(Blocks.stonebrick, 1, 3),
+			new ItemStack(Blocks.stonebrick, 1, 3), EOItems.plateSteelItem, new ItemStack(Blocks.stonebrick, 1, 3),new ItemStack(Blocks.stonebrick, 1, 3),new ItemStack(Blocks.stonebrick, 1, 3),new ItemStack(Blocks.stonebrick, 1, 3),new ItemStack(Blocks.stonebrick, 1, 3),new ItemStack(Blocks.stonebrick, 1, 3),new ItemStack(Blocks.stonebrick, 1, 3),
 				});
-        GameRegistry.addShapelessRecipe(new ItemStack(EOBlockManager.SteelPlatedGranite, 8), new Object[]
+        GameRegistry.addShapelessRecipe(new ItemStack(EOBlocks.SteelPlatedGranite, 8), new Object[]
 				{
-			EOBlockManager.GraniteBrick, EOItemManager.plateSteelItem,EOBlockManager.GraniteBrick,EOBlockManager.GraniteBrick,EOBlockManager.GraniteBrick,EOBlockManager.GraniteBrick,EOBlockManager.GraniteBrick,EOBlockManager.GraniteBrick,EOBlockManager.GraniteBrick,
+			EOBlocks.GraniteBrick, EOItems.plateSteelItem,EOBlocks.GraniteBrick,EOBlocks.GraniteBrick,EOBlocks.GraniteBrick,EOBlocks.GraniteBrick,EOBlocks.GraniteBrick,EOBlocks.GraniteBrick,EOBlocks.GraniteBrick,
 				});   
         
-        GameRegistry.addRecipe(new ItemStack(EOItemManager.GranitePickaxe, 1), new Object[]
+        GameRegistry.addRecipe(new ItemStack(EOItems.GranitePickaxe, 1), new Object[]
         		{
-        	"ZZZ", " S ", " S ", Character.valueOf('Z'), EOBlockManager.Granite, Character.valueOf('S'), Items.stick
+        	"ZZZ", " S ", " S ", Character.valueOf('Z'), EOBlocks.Granite, Character.valueOf('S'), Items.stick
         		});
-        GameRegistry.addRecipe(new ItemStack(EOItemManager.GraniteShovel, 1), new Object[]
+        GameRegistry.addRecipe(new ItemStack(EOItems.GraniteShovel, 1), new Object[]
         		{
-        	" Z ", " S ", " S ", Character.valueOf('Z'), EOBlockManager.Granite, Character.valueOf('S'), Items.stick
+        	" Z ", " S ", " S ", Character.valueOf('Z'), EOBlocks.Granite, Character.valueOf('S'), Items.stick
         		});
-        GameRegistry.addRecipe(new ItemStack(EOItemManager.GraniteAxe, 1), new Object[]
+        GameRegistry.addRecipe(new ItemStack(EOItems.GraniteAxe, 1), new Object[]
         		{
-        	"ZZ ", "ZS ", " S ", Character.valueOf('Z'), EOBlockManager.Granite, Character.valueOf('S'), Items.stick
+        	"ZZ ", "ZS ", " S ", Character.valueOf('Z'), EOBlocks.Granite, Character.valueOf('S'), Items.stick
         		});
-        GameRegistry.addRecipe(new ItemStack(EOItemManager.GraniteHoe, 1), new Object[]
+        GameRegistry.addRecipe(new ItemStack(EOItems.GraniteHoe, 1), new Object[]
         		{
-        	"ZZ ", " S ", " S ", Character.valueOf('Z'), EOBlockManager.Granite, Character.valueOf('S'), Items.stick
+        	"ZZ ", " S ", " S ", Character.valueOf('Z'), EOBlocks.Granite, Character.valueOf('S'), Items.stick
         		});
-        GameRegistry.addRecipe(new ItemStack(EOItemManager.GraniteSword, 1), new Object[]
+        GameRegistry.addRecipe(new ItemStack(EOItems.GraniteSword, 1), new Object[]
         		{
-        	" Z ", " Z ", " S ", Character.valueOf('Z'), EOBlockManager.Granite, Character.valueOf('S'), Items.stick
+        	" Z ", " Z ", " S ", Character.valueOf('Z'), EOBlocks.Granite, Character.valueOf('S'), Items.stick
         		});
         
         
-        GameRegistry.addShapelessRecipe(new ItemStack(EOItemManager.Uranium, 9), new Object[]
+        GameRegistry.addShapelessRecipe(new ItemStack(EOItems.Uranium, 9), new Object[]
 				{
-			EOBlockManager.RawUraniumBlock,
+			EOBlocks.RawUraniumBlock,
 				});
-		GameRegistry.addRecipe(new ItemStack(EOBlockManager.RawUraniumBlock, 1), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EOBlocks.RawUraniumBlock, 1), new Object[]
 				{
-			"ZZZ", "ZZZ", "ZZZ", Character.valueOf('Z'), EOItemManager.Uranium
+			"ZZZ", "ZZZ", "ZZZ", Character.valueOf('Z'), EOItems.Uranium
 				});
-		GameRegistry.addSmelting(EOBlockManager.UraniumOre, new ItemStack(EOItemManager.Uranium, 2), 0.15F);
-		GameRegistry.addSmelting(EOBlockManager.PlutoniumOre, new ItemStack(EOItemManager.Plutonium, 2), 0.15F);
+		GameRegistry.addSmelting(EOBlocks.UraniumOre, new ItemStack(EOItems.Uranium, 2), 0.15F);
+		GameRegistry.addSmelting(EOBlocks.PlutoniumOre, new ItemStack(EOItems.Plutonium, 2), 0.15F);
 		
 		
-		GameRegistry.addShapelessRecipe(new ItemStack(EOItemManager.Plutonium, 9), new Object[]
+		GameRegistry.addShapelessRecipe(new ItemStack(EOItems.Plutonium, 9), new Object[]
 				{
-			EOBlockManager.RawPlutoniumBlock,
+			EOBlocks.RawPlutoniumBlock,
 				});
-		GameRegistry.addRecipe(new ItemStack(EOBlockManager.RawPlutoniumBlock, 1), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EOBlocks.RawPlutoniumBlock, 1), new Object[]
 				{
-			"ZZZ", "ZZZ", "ZZZ", Character.valueOf('Z'), EOItemManager.Plutonium
+			"ZZZ", "ZZZ", "ZZZ", Character.valueOf('Z'), EOItems.Plutonium
 				});
 		
-		GameRegistry.addRecipe(new ItemStack(EOItemManager.grenade, 1), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EOItems.grenade, 1), new Object[]
 				{
-			"SUS", "PGP", "SUS", Character.valueOf('P'), EOItemManager.Plutonium, Character.valueOf('S'), EOItemManager.plateSteelItem, Character.valueOf('U'), EOItemManager.Uranium, Character.valueOf('G'), Items.gunpowder
+			"SUS", "PGP", "SUS", Character.valueOf('P'), EOItems.Plutonium, Character.valueOf('S'), EOItems.plateSteelItem, Character.valueOf('U'), EOItems.Uranium, Character.valueOf('G'), Items.gunpowder
 				});
-		GameRegistry.addRecipe(new ItemStack(EOBlockManager.nuke, 1), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EOBlocks.nuke, 1), new Object[]
 				{
-			"UPU", "PUP", "UPU", Character.valueOf('P'), EOBlockManager.RawPlutoniumBlock, Character.valueOf('U'), EOBlockManager.RawUraniumBlock
+			"UPU", "PUP", "UPU", Character.valueOf('P'), EOBlocks.RawPlutoniumBlock, Character.valueOf('U'), EOBlocks.RawUraniumBlock
 				});
 		
 	
@@ -1110,13 +1110,13 @@ public class EORecipeManager
 		
 		
 		
-		GameRegistry.addRecipe(new ItemStack(EOBlockManager.SmoothRadiantQuartz, 1), new Object[]
+		GameRegistry.addRecipe(new ItemStack(EOBlocks.SmoothRadiantQuartz, 1), new Object[]
         		{
-        	"ZZ", "ZZ", Character.valueOf('Z'), EOBlockManager.RadiantQuartz
+        	"ZZ", "ZZ", Character.valueOf('Z'), EOBlocks.RadiantQuartz
         		});
-        GameRegistry.addRecipe(new ItemStack(EOBlockManager.PillarRadiantQuartz, 2), new Object[]
+        GameRegistry.addRecipe(new ItemStack(EOBlocks.PillarRadiantQuartz, 2), new Object[]
         		{
-        	"Z", "Z", Character.valueOf('Z'), EOBlockManager.SmoothRadiantQuartz
+        	"Z", "Z", Character.valueOf('Z'), EOBlocks.SmoothRadiantQuartz
         		});
         /*
         GameRegistry.addRecipe(new ItemStack(EOBlockManager.ChiseledRadiantQuartz, 1), new Object[]
@@ -1230,45 +1230,45 @@ public class EORecipeManager
         	"SSS", Character.valueOf('S'), EOBlockManager.BronzePlatedGranite
         		});
         		*/
-        GameRegistry.addRecipe(new ItemStack(EOBlockManager.plutoniumInsulated, 1), new Object[]
+        GameRegistry.addRecipe(new ItemStack(EOBlocks.plutoniumInsulated, 1), new Object[]
         		{
-        	"SSS", "GPG", "SSS", Character.valueOf('S'), EOItemManager.SteelIngot, Character.valueOf('G'), Blocks.glass_pane, Character.valueOf('P'), EOBlockManager.RawPlutoniumBlock
+        	"SSS", "GPG", "SSS", Character.valueOf('S'), EOItems.SteelIngot, Character.valueOf('G'), Blocks.glass_pane, Character.valueOf('P'), EOBlocks.RawPlutoniumBlock
         		});
-        GameRegistry.addRecipe(new ItemStack(EOBlockManager.uraniumInsulated, 1), new Object[]
+        GameRegistry.addRecipe(new ItemStack(EOBlocks.uraniumInsulated, 1), new Object[]
         		{
-        	"SSS", "GPG", "SSS", Character.valueOf('S'), EOItemManager.SteelIngot, Character.valueOf('G'), Blocks.glass_pane, Character.valueOf('P'), EOBlockManager.RawUraniumBlock
+        	"SSS", "GPG", "SSS", Character.valueOf('S'), EOItems.SteelIngot, Character.valueOf('G'), Blocks.glass_pane, Character.valueOf('P'), EOBlocks.RawUraniumBlock
         		});
-        GameRegistry.addRecipe(new ItemStack(EOBlockManager.melterIdle, 1), new Object[]
+        GameRegistry.addRecipe(new ItemStack(EOBlocks.melterIdle, 1), new Object[]
 				{
-			"ZZZ", "ZFZ", "ZBZ", Character.valueOf('Z'), EOItemManager.plateMeuroditeItem, Character.valueOf('F'), Blocks.furnace, Character.valueOf('B'), EOBlockManager.BlaziumBlock
+			"ZZZ", "ZFZ", "ZBZ", Character.valueOf('Z'), EOItems.plateMeuroditeItem, Character.valueOf('F'), Blocks.furnace, Character.valueOf('B'), EOBlocks.BlaziumBlock
 				});
         
-        GameRegistry.addRecipe(new ItemStack(EOItemManager.plateMeuroditeItem, 4), new Object[]
+        GameRegistry.addRecipe(new ItemStack(EOItems.plateMeuroditeItem, 4), new Object[]
 				{
-			"MMM", "MMM", Character.valueOf('M'), EOItemManager.meuroditeIngot,
+			"MMM", "MMM", Character.valueOf('M'), EOItems.meuroditeIngot,
 				});
-        GameRegistry.addRecipe(new ItemStack(EOBlockManager.SoulBottle, 4), new Object[]
+        GameRegistry.addRecipe(new ItemStack(EOBlocks.SoulBottle, 4), new Object[]
 				{
-			"S", "G", Character.valueOf('S'), EOBlockManager.SoulGem, Character.valueOf('G'), Items.glass_bottle
+			"S", "G", Character.valueOf('S'), EOBlocks.SoulGem, Character.valueOf('G'), Items.glass_bottle
 				});
-        GameRegistry.addRecipe(new ItemStack(EOBlockManager.soulBlock, 1), new Object[]
+        GameRegistry.addRecipe(new ItemStack(EOBlocks.soulBlock, 1), new Object[]
 				{
-			"MMM", "MMM", "MMM", Character.valueOf('M'), EOBlockManager.SoulGem,
+			"MMM", "MMM", "MMM", Character.valueOf('M'), EOBlocks.SoulGem,
 				});
-        GameRegistry.addRecipe(new ItemStack(EOBlockManager.SoulGem, 9), new Object[]
+        GameRegistry.addRecipe(new ItemStack(EOBlocks.SoulGem, 9), new Object[]
 				{
-			"M", Character.valueOf('M'), EOBlockManager.soulBlock,
+			"M", Character.valueOf('M'), EOBlocks.soulBlock,
 				});
-        GameRegistry.addSmelting(EOBlockManager.RadiantQuartzOre, new ItemStack(EOBlockManager.RadiantQuartz, 1), 0.8F);
-        GameRegistry.addSmelting(EOBlockManager.SoulOre, new ItemStack(EOBlockManager.SoulGem, 1), 0.8F);
+        GameRegistry.addSmelting(EOBlocks.RadiantQuartzOre, new ItemStack(EOBlocks.RadiantQuartz, 1), 0.8F);
+        GameRegistry.addSmelting(EOBlocks.SoulOre, new ItemStack(EOBlocks.SoulGem, 1), 0.8F);
 
 	}
 	
 	public static void loadPlatedRecipes()
 	{
 		//TODO: Yes, I realize this could be neater. If you have a better system, by all means, code away.
-		ItemStack[] picks = new ItemStack[] {new ItemStack(EOItemManager.meuroditePickaxe, 1), new ItemStack(EOItemManager.ToritePickaxe, 1), new ItemStack(EOItemManager.BlaziumPickaxe, 1), new ItemStack(EOItemManager.TitaniumPickaxe, 1), new ItemStack(EOItemManager.SteelPickaxe, 1), new ItemStack(EOItemManager.SandstonePickaxe, 1), new ItemStack(EOItemManager.CopperPickaxe, 1), new ItemStack(EOItemManager.BedrockPickaxe, 1), new ItemStack(EOItemManager.GranitePickaxe, 1)};
-		ItemStack[] picksWithoutNBT = new ItemStack[] {new ItemStack(EOItemManager.meuroditePickaxe, 1), new ItemStack(EOItemManager.ToritePickaxe, 1), new ItemStack(EOItemManager.BlaziumPickaxe, 1), new ItemStack(EOItemManager.TitaniumPickaxe, 1), new ItemStack(EOItemManager.SteelPickaxe, 1), new ItemStack(EOItemManager.SandstonePickaxe, 1), new ItemStack(EOItemManager.CopperPickaxe, 1), new ItemStack(EOItemManager.BedrockPickaxe, 1), new ItemStack(EOItemManager.GranitePickaxe, 1)};
+		ItemStack[] picks = new ItemStack[] {new ItemStack(EOItems.meuroditePickaxe, 1), new ItemStack(EOItems.ToritePickaxe, 1), new ItemStack(EOItems.BlaziumPickaxe, 1), new ItemStack(EOItems.TitaniumPickaxe, 1), new ItemStack(EOItems.SteelPickaxe, 1), new ItemStack(EOItems.SandstonePickaxe, 1), new ItemStack(EOItems.CopperPickaxe, 1), new ItemStack(EOItems.BedrockPickaxe, 1), new ItemStack(EOItems.GranitePickaxe, 1)};
+		ItemStack[] picksWithoutNBT = new ItemStack[] {new ItemStack(EOItems.meuroditePickaxe, 1), new ItemStack(EOItems.ToritePickaxe, 1), new ItemStack(EOItems.BlaziumPickaxe, 1), new ItemStack(EOItems.TitaniumPickaxe, 1), new ItemStack(EOItems.SteelPickaxe, 1), new ItemStack(EOItems.SandstonePickaxe, 1), new ItemStack(EOItems.CopperPickaxe, 1), new ItemStack(EOItems.BedrockPickaxe, 1), new ItemStack(EOItems.GranitePickaxe, 1)};
 
 		for(int i=0; i<picks.length; i++)
 		{
@@ -1277,12 +1277,12 @@ public class EORecipeManager
 			
 			GameRegistry.addRecipe(picks[i], new Object[]
 					{
-				"PPP", "PIP", "PPP", Character.valueOf('P'), EOItemManager.plateBronzeItem, Character.valueOf('I'), picksWithoutNBT[i]
+				"PPP", "PIP", "PPP", Character.valueOf('P'), EOItems.plateBronzeItem, Character.valueOf('I'), picksWithoutNBT[i]
 					});
 		}	
 		
-		ItemStack[] axes = new ItemStack[] {new ItemStack(EOItemManager.meuroditeAxe, 1), new ItemStack(EOItemManager.ToriteAxe, 1), new ItemStack(EOItemManager.BlaziumAxe, 1), new ItemStack(EOItemManager.TitaniumAxe, 1), new ItemStack(EOItemManager.SteelAxe, 1), new ItemStack(EOItemManager.SandstoneAxe, 1), new ItemStack(EOItemManager.CopperAxe, 1), new ItemStack(EOItemManager.BedrockAxe, 1), new ItemStack(EOItemManager.GraniteAxe, 1)};
-		ItemStack[] axesWithoutNBT = new ItemStack[] {new ItemStack(EOItemManager.meuroditeAxe, 1), new ItemStack(EOItemManager.ToriteAxe, 1), new ItemStack(EOItemManager.BlaziumAxe, 1), new ItemStack(EOItemManager.TitaniumAxe, 1), new ItemStack(EOItemManager.SteelAxe, 1), new ItemStack(EOItemManager.SandstoneAxe, 1), new ItemStack(EOItemManager.CopperAxe, 1), new ItemStack(EOItemManager.BedrockAxe, 1), new ItemStack(EOItemManager.GraniteAxe, 1)};
+		ItemStack[] axes = new ItemStack[] {new ItemStack(EOItems.meuroditeAxe, 1), new ItemStack(EOItems.ToriteAxe, 1), new ItemStack(EOItems.BlaziumAxe, 1), new ItemStack(EOItems.TitaniumAxe, 1), new ItemStack(EOItems.SteelAxe, 1), new ItemStack(EOItems.SandstoneAxe, 1), new ItemStack(EOItems.CopperAxe, 1), new ItemStack(EOItems.BedrockAxe, 1), new ItemStack(EOItems.GraniteAxe, 1)};
+		ItemStack[] axesWithoutNBT = new ItemStack[] {new ItemStack(EOItems.meuroditeAxe, 1), new ItemStack(EOItems.ToriteAxe, 1), new ItemStack(EOItems.BlaziumAxe, 1), new ItemStack(EOItems.TitaniumAxe, 1), new ItemStack(EOItems.SteelAxe, 1), new ItemStack(EOItems.SandstoneAxe, 1), new ItemStack(EOItems.CopperAxe, 1), new ItemStack(EOItems.BedrockAxe, 1), new ItemStack(EOItems.GraniteAxe, 1)};
 
 		for(int i=0; i<axes.length; i++)
 		{
@@ -1291,12 +1291,12 @@ public class EORecipeManager
 			
 			GameRegistry.addRecipe(axes[i], new Object[]
 					{
-				"PPP", "PIP", "PPP", Character.valueOf('P'), EOItemManager.plateBronzeItem, Character.valueOf('I'), axesWithoutNBT[i]
+				"PPP", "PIP", "PPP", Character.valueOf('P'), EOItems.plateBronzeItem, Character.valueOf('I'), axesWithoutNBT[i]
 					});
 		}
 		
-		ItemStack[] hoes = new ItemStack[] {new ItemStack(EOItemManager.meuroditeHoe, 1), new ItemStack(EOItemManager.ToriteHoe, 1), new ItemStack(EOItemManager.BlaziumHoe, 1), new ItemStack(EOItemManager.TitaniumHoe, 1), new ItemStack(EOItemManager.SteelHoe, 1), new ItemStack(EOItemManager.SandstoneHoe, 1), new ItemStack(EOItemManager.CopperHoe, 1), new ItemStack(EOItemManager.BedrockHoe, 1), new ItemStack(EOItemManager.GraniteHoe, 1)};
-		ItemStack[] hoesWithoutNBT = new ItemStack[] {new ItemStack(EOItemManager.meuroditeHoe, 1), new ItemStack(EOItemManager.ToriteHoe, 1), new ItemStack(EOItemManager.BlaziumHoe, 1), new ItemStack(EOItemManager.TitaniumHoe, 1), new ItemStack(EOItemManager.SteelHoe, 1), new ItemStack(EOItemManager.SandstoneHoe, 1), new ItemStack(EOItemManager.CopperHoe, 1), new ItemStack(EOItemManager.BedrockHoe, 1), new ItemStack(EOItemManager.GraniteHoe, 1)};
+		ItemStack[] hoes = new ItemStack[] {new ItemStack(EOItems.meuroditeHoe, 1), new ItemStack(EOItems.ToriteHoe, 1), new ItemStack(EOItems.BlaziumHoe, 1), new ItemStack(EOItems.TitaniumHoe, 1), new ItemStack(EOItems.SteelHoe, 1), new ItemStack(EOItems.SandstoneHoe, 1), new ItemStack(EOItems.CopperHoe, 1), new ItemStack(EOItems.BedrockHoe, 1), new ItemStack(EOItems.GraniteHoe, 1)};
+		ItemStack[] hoesWithoutNBT = new ItemStack[] {new ItemStack(EOItems.meuroditeHoe, 1), new ItemStack(EOItems.ToriteHoe, 1), new ItemStack(EOItems.BlaziumHoe, 1), new ItemStack(EOItems.TitaniumHoe, 1), new ItemStack(EOItems.SteelHoe, 1), new ItemStack(EOItems.SandstoneHoe, 1), new ItemStack(EOItems.CopperHoe, 1), new ItemStack(EOItems.BedrockHoe, 1), new ItemStack(EOItems.GraniteHoe, 1)};
 		
 		for(int i=0; i<hoes.length; i++)
 		{
@@ -1305,12 +1305,12 @@ public class EORecipeManager
 			
 			GameRegistry.addRecipe(hoes[i], new Object[]
 					{
-				"PPP", "PIP", "PPP", Character.valueOf('P'), EOItemManager.plateBronzeItem, Character.valueOf('I'), hoesWithoutNBT[i]
+				"PPP", "PIP", "PPP", Character.valueOf('P'), EOItems.plateBronzeItem, Character.valueOf('I'), hoesWithoutNBT[i]
 					});
 		}
 		
-		ItemStack[] shovels = new ItemStack[] {new ItemStack(EOItemManager.meuroditeShovel, 1), new ItemStack(EOItemManager.ToriteShovel, 1), new ItemStack(EOItemManager.BlaziumShovel, 1), new ItemStack(EOItemManager.TitaniumShovel, 1), new ItemStack(EOItemManager.SteelShovel, 1), new ItemStack(EOItemManager.SandstoneShovel, 1), new ItemStack(EOItemManager.CopperShovel, 1), new ItemStack(EOItemManager.BedrockShovel, 1), new ItemStack(EOItemManager.GraniteShovel, 1)};
-		ItemStack[] shovelsWithoutNBT = new ItemStack[] {new ItemStack(EOItemManager.meuroditeShovel, 1), new ItemStack(EOItemManager.ToriteShovel, 1), new ItemStack(EOItemManager.BlaziumShovel, 1), new ItemStack(EOItemManager.TitaniumShovel, 1), new ItemStack(EOItemManager.SteelShovel, 1), new ItemStack(EOItemManager.SandstoneShovel, 1), new ItemStack(EOItemManager.CopperShovel, 1), new ItemStack(EOItemManager.BedrockShovel, 1), new ItemStack(EOItemManager.GraniteShovel, 1)};
+		ItemStack[] shovels = new ItemStack[] {new ItemStack(EOItems.meuroditeShovel, 1), new ItemStack(EOItems.ToriteShovel, 1), new ItemStack(EOItems.BlaziumShovel, 1), new ItemStack(EOItems.TitaniumShovel, 1), new ItemStack(EOItems.SteelShovel, 1), new ItemStack(EOItems.SandstoneShovel, 1), new ItemStack(EOItems.CopperShovel, 1), new ItemStack(EOItems.BedrockShovel, 1), new ItemStack(EOItems.GraniteShovel, 1)};
+		ItemStack[] shovelsWithoutNBT = new ItemStack[] {new ItemStack(EOItems.meuroditeShovel, 1), new ItemStack(EOItems.ToriteShovel, 1), new ItemStack(EOItems.BlaziumShovel, 1), new ItemStack(EOItems.TitaniumShovel, 1), new ItemStack(EOItems.SteelShovel, 1), new ItemStack(EOItems.SandstoneShovel, 1), new ItemStack(EOItems.CopperShovel, 1), new ItemStack(EOItems.BedrockShovel, 1), new ItemStack(EOItems.GraniteShovel, 1)};
 		
 		for(int i=0; i<shovels.length; i++)
 		{
@@ -1319,12 +1319,12 @@ public class EORecipeManager
 			
 			GameRegistry.addRecipe(shovels[i], new Object[]
 					{
-				"PPP", "PIP", "PPP", Character.valueOf('P'), EOItemManager.plateBronzeItem, Character.valueOf('I'), shovelsWithoutNBT[i]
+				"PPP", "PIP", "PPP", Character.valueOf('P'), EOItems.plateBronzeItem, Character.valueOf('I'), shovelsWithoutNBT[i]
 					});
 		}
 		
-		ItemStack[] swords = new ItemStack[] {new ItemStack(EOItemManager.meuroditeSword, 1), new ItemStack(EOItemManager.ToriteSword, 1), new ItemStack(EOItemManager.BlaziumSword, 1), new ItemStack(EOItemManager.TitaniumSword, 1), new ItemStack(EOItemManager.SteelSword, 1), new ItemStack(EOItemManager.SandstoneSword, 1), new ItemStack(EOItemManager.CopperSword, 1), new ItemStack(EOItemManager.GraniteSword, 1)};
-		ItemStack[] swordsWithoutNBT = new ItemStack[] {new ItemStack(EOItemManager.meuroditeSword, 1), new ItemStack(EOItemManager.ToriteSword, 1), new ItemStack(EOItemManager.BlaziumSword, 1), new ItemStack(EOItemManager.TitaniumSword, 1), new ItemStack(EOItemManager.SteelSword, 1), new ItemStack(EOItemManager.SandstoneSword, 1), new ItemStack(EOItemManager.CopperSword, 1), new ItemStack(EOItemManager.GraniteSword, 1)};
+		ItemStack[] swords = new ItemStack[] {new ItemStack(EOItems.meuroditeSword, 1), new ItemStack(EOItems.ToriteSword, 1), new ItemStack(EOItems.BlaziumSword, 1), new ItemStack(EOItems.TitaniumSword, 1), new ItemStack(EOItems.SteelSword, 1), new ItemStack(EOItems.SandstoneSword, 1), new ItemStack(EOItems.CopperSword, 1), new ItemStack(EOItems.GraniteSword, 1)};
+		ItemStack[] swordsWithoutNBT = new ItemStack[] {new ItemStack(EOItems.meuroditeSword, 1), new ItemStack(EOItems.ToriteSword, 1), new ItemStack(EOItems.BlaziumSword, 1), new ItemStack(EOItems.TitaniumSword, 1), new ItemStack(EOItems.SteelSword, 1), new ItemStack(EOItems.SandstoneSword, 1), new ItemStack(EOItems.CopperSword, 1), new ItemStack(EOItems.GraniteSword, 1)};
 
 		for(int i=0; i<swords.length; i++)
 		{
@@ -1333,7 +1333,7 @@ public class EORecipeManager
 			
 			GameRegistry.addRecipe(swords[i], new Object[]
 					{
-				"PPP", "PIP", "PPP", Character.valueOf('P'), EOItemManager.plateBronzeItem, Character.valueOf('I'), swordsWithoutNBT[i]
+				"PPP", "PIP", "PPP", Character.valueOf('P'), EOItems.plateBronzeItem, Character.valueOf('I'), swordsWithoutNBT[i]
 					});
 		}
 		
@@ -1343,7 +1343,7 @@ public class EORecipeManager
 	{
 		if(Loader.isModLoaded("ExtraDecor"))
 		{
-			GameRegistry.addSmelting(Blocks.glowstone, new ItemStack(EOBlockManager.glowGlass), 0.5F);
+			GameRegistry.addSmelting(Blocks.glowstone, new ItemStack(EOBlocks.glowGlass), 0.5F);
 		}
 	}
 }

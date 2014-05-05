@@ -3,7 +3,7 @@ package sobiohazardous.mods.minestrappolation.extraores.block;
 import java.util.Random;
 
 import sobiohazardous.mods.minestrappolation.core.block.MBlock;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlockManager;
+import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -18,7 +18,7 @@ public class BlockSoulOre extends MBlock
     public BlockSoulOre()
     {
         super(Material.sand);
-        this.setCreativeTab(EOBlockManager.tabOresBlocks);
+        this.setCreativeTab(EOBlocks.tabOresBlocks);
     }
 
     /**
@@ -47,7 +47,7 @@ public class BlockSoulOre extends MBlock
     
     public Item getItemDropped(int par1, Random par2Random, int par3)
     {
-    	return EOBlockManager.SoulGem;
+    	return EOBlocks.SoulGem;
     }
     
     public void onBlockDestroyedByPlayer(World par1World, int par2, int par3, int par4, int par5) 

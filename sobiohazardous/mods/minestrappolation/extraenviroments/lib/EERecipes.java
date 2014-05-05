@@ -1,6 +1,6 @@
 package sobiohazardous.mods.minestrappolation.extraenviroments.lib;
 
-public class EERecipeManager 
+public class EERecipes 
 {
 	public static void loadRecipes()
 	{

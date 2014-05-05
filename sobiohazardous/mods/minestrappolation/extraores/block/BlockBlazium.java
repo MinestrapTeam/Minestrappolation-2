@@ -4,7 +4,7 @@ import java.util.Random;
 
 import sobiohazardous.mods.minestrappolation.core.block.MBlock;
 import sobiohazardous.mods.minestrappolation.core.util.MAssetManager;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlockManager;
+import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -37,7 +37,7 @@ public class BlockBlazium extends MBlock
      */
     public Item getItemDropped(int par1, Random par2Random, int par3)
     {
-        return Item.getItemFromBlock(EOBlockManager.BlaziumBlock);
+        return Item.getItemFromBlock(EOBlocks.BlaziumBlock);
     }
 
     /**
@@ -126,6 +126,6 @@ public class BlockBlazium extends MBlock
     
     public boolean isBeaconBase(IBlockAccess worldObj, int x, int y, int z, int beaconX, int beaconY, int beaconZ)
     {
-    	return this == Blocks.emerald_block || this == Blocks.gold_block || this == Blocks.diamond_block || this == Blocks.iron_block || this == EOBlockManager.BlaziumBlock;
+    	return this == Blocks.emerald_block || this == Blocks.gold_block || this == Blocks.diamond_block || this == Blocks.iron_block || this == EOBlocks.BlaziumBlock;
     }
 }

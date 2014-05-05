@@ -8,7 +8,7 @@ import java.util.Random;
 
 import sobiohazardous.mods.minestrappolation.core.util.MAssetManager;
 import sobiohazardous.mods.minestrappolation.extraores.ExtraOres;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlockManager;
+import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlocks;
 import sobiohazardous.mods.minestrappolation.extraores.tileentity.TileEntityMelter;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
@@ -61,7 +61,7 @@ public class BlockMelter extends BlockContainer
      */
     public Item getItemDropped(int par1, Random par2Random, int par3)
     {
-        return Item.getItemFromBlock(EOBlockManager.melterIdle);
+        return Item.getItemFromBlock(EOBlocks.melterIdle);
     }
 
     /**
@@ -198,12 +198,12 @@ public class BlockMelter extends BlockContainer
         if (par0)
         {
         	System.out.println("is active");
-            par1World.setBlock(par2, par3, par4, EOBlockManager.melterBurning);
+            par1World.setBlock(par2, par3, par4, EOBlocks.melterBurning);
         }
         else
         {
         	System.out.println("inactive");
-            par1World.setBlock(par2, par3, par4, EOBlockManager.melterIdle);
+            par1World.setBlock(par2, par3, par4, EOBlocks.melterIdle);
         }
 
         keepFurnaceInventory = false;

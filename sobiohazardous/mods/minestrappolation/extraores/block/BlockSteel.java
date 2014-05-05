@@ -3,8 +3,8 @@ package sobiohazardous.mods.minestrappolation.extraores.block;
 import java.util.Random;
 
 import sobiohazardous.mods.minestrappolation.core.util.MAssetManager;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlockManager;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOItemManager;
+import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlocks;
+import sobiohazardous.mods.minestrappolation.extraores.lib.EOItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -24,7 +24,7 @@ public class BlockSteel extends Block
 	public BlockSteel()
 	{
 		super(Material.iron);
-		this.setCreativeTab(EOBlockManager.tabOresBlocks);
+		this.setCreativeTab(EOBlocks.tabOresBlocks);
 	}
 
 	public void registerBlockIcons(IIconRegister iconRegister)

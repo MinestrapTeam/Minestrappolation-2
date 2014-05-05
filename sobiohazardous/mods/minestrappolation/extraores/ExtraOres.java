@@ -15,12 +15,12 @@ import sobiohazardous.mods.minestrappolation.extraores.gen.EOOreGenerator;
 import sobiohazardous.mods.minestrappolation.extraores.handler.BlacksmithTradeHandler;
 import sobiohazardous.mods.minestrappolation.extraores.handler.GuiHandler;
 import sobiohazardous.mods.minestrappolation.extraores.handler.PriestTradeHandler;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlockManager;
+import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlocks;
 import sobiohazardous.mods.minestrappolation.extraores.lib.EOConfig;
 import sobiohazardous.mods.minestrappolation.extraores.lib.EOFuelHandler;
 import sobiohazardous.mods.minestrappolation.extraores.lib.EOIngotAndOreRegistration;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOItemManager;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EORecipeManager;
+import sobiohazardous.mods.minestrappolation.extraores.lib.EOItems;
+import sobiohazardous.mods.minestrappolation.extraores.lib.EORecipes;
 import sobiohazardous.mods.minestrappolation.extraores.proxy.CommonProxy;
 import sobiohazardous.mods.minestrappolation.extraores.tileentity.TileEntityMelter;
 import net.minecraft.block.Block;
@@ -49,7 +49,7 @@ import cpw.mods.fml.relauncher.Side;
 @Mod ( modid = MReference.MODID_EO, name=MReference.MODNAME_EO, version=MReference.VERSION_EO, dependencies = "required-after:Minestrappolation")
 public class ExtraOres 
 {	
-	@SidedProxy(clientSide = "sobiohazardous.minestrappolation.extraores.proxy.ClientProxy", serverSide = "sobiohazardous.minestrappolation.extraores.proxy.CommonProxy")
+	@SidedProxy(clientSide = "sobiohazardous.mods.minestrappolation.extraores.proxy.ClientProxy", serverSide = "sobiohazardous.mods.minestrappolation.extraores.proxy.CommonProxy")
     public static CommonProxy proxy;
 	
 	CustomSmeltingLoader smelter = new CustomSmeltingLoader();
@@ -74,12 +74,12 @@ public class ExtraOres
 		plug.createPluginFolder();
 		plug.createVanillaandMinestrappolationAlias();
 		smelter.loadCustomFuels();
-		EOBlockManager.addBlocks();
-		EOItemManager.addItems();
+		EOBlocks.addBlocks();
+		EOItems.addItems();
 		EOIngotAndOreRegistration.registerOresAndIngots();
-		EORecipeManager.loadRecipes();
-		EORecipeManager.loadPlatedRecipes();
-		EOItemManager.setHarvestLevels();
+		EORecipes.loadRecipes();
+		EORecipes.loadPlatedRecipes();
+		EOItems.setHarvestLevels();
 		// FluidContainerRegistry.registerFluidContainer(eoFluid, new ItemStack(EOItemManager.bucketMagma), new ItemStack(Item.bucketEmpty));
 		EntityRegistry.registerModEntity(EntityInstantExplosion.class, "Plutonium", 4, this, 350, 5, false);
 		EntityRegistry.registerModEntity(EntityGrenade.class, "Grenade", 2, this, 40, 3, true);
@@ -88,7 +88,7 @@ public class ExtraOres
 		EntityRegistry.registerModEntity(EntityGrenadeSticky.class, "GrenadeSticky", 5, this, 40, 3, true);
 
 		GameRegistry.registerWorldGenerator(new EOOreGenerator(),0);
-		EOItemManager.addItemsToChests();
+		EOItems.addItemsToChests();
 	}
 	
 	@Mod.EventHandler
@@ -99,7 +99,7 @@ public class ExtraOres
         GameRegistry.registerFuelHandler(new EOFuelHandler());
     	GameRegistry.registerTileEntity(TileEntityMelter.class, "tileEntityMelter");
     	
-    	EOBlockManager.loadVanillaOverwrites();
+    	EOBlocks.loadVanillaOverwrites();
 		
 		VillagerRegistry.instance().registerVillageTradeHandler(3, new BlacksmithTradeHandler());
 		VillagerRegistry.instance().registerVillageTradeHandler(2, new PriestTradeHandler());
@@ -110,13 +110,13 @@ public class ExtraOres
 	@Mod.EventHandler
     public void postLoad(FMLPostInitializationEvent evt)
     {
-		EOBlockManager.addSlabs();
+		EOBlocks.addSlabs();
     }
 	
 	public void loadBridgedRecipesAndBlocks() throws Exception
 	{
-		EOBlockManager.loadBridgedBlocks();
-		EORecipeManager.loadBridgedRecipes();
+		EOBlocks.loadBridgedBlocks();
+		EORecipes.loadBridgedRecipes();
 	}
 
 }

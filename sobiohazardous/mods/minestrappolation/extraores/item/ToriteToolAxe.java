@@ -1,7 +1,7 @@
 package sobiohazardous.mods.minestrappolation.extraores.item;
 
 import sobiohazardous.mods.minestrappolation.core.item.MItemAxe;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlockManager;
+import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;

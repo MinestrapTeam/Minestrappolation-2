@@ -16,7 +16,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 
-public class EMDPotionManager implements IPotionEffectHandler
+public class EMDPotions implements IPotionEffectHandler
 {
 	private static String iconLoc = "minestrappolation:gui/potion_icons.png";
 
@@ -35,16 +35,16 @@ public class EMDPotionManager implements IPotionEffectHandler
 	 */
 	public static void loadBrewingRecipes()
 	{
-		waterBreathing = new PotionType(new PotionEffect(Potion.waterBreathing.id, 120 * 20, 0), 2, 1, new ItemStack(EMDItemManager.airSack), PotionList.awkward);
+		waterBreathing = new PotionType(new PotionEffect(Potion.waterBreathing.id, 120 * 20, 0), 2, 1, new ItemStack(EMDItems.airSack), PotionList.awkward);
 		waterBreathing.register();
-		resistance = new PotionType(new PotionEffect(Potion.resistance.id, 180 * 20), 2, 2, new ItemStack(EMDItemManager.marrow), PotionList.awkward);
+		resistance = new PotionType(new PotionEffect(Potion.resistance.id, 180 * 20), 2, 2, new ItemStack(EMDItems.marrow), PotionList.awkward);
 		resistance.register();
 	}
 
 	@Override
 	public void onPotionUpdate(int tick, EntityLivingBase entity, PotionEffect effect)
 	{
-		if (effect.getPotionID() == EMDPotionManager.infectious.id)
+		if (effect.getPotionID() == EMDPotions.infectious.id)
 		{
 			//check if grass is below, then place mycellium below
 			if(entity.worldObj.getBlock((int)entity.posX-1, (int)entity.posY - 1, (int)entity.posZ-1) == Blocks.grass)
@@ -64,6 +64,6 @@ public class EMDPotionManager implements IPotionEffectHandler
 	@Override
 	public boolean canHandle(PotionEffect effect)
 	{
-		return effect.getPotionID() == EMDPotionManager.infectious.id;
+		return effect.getPotionID() == EMDPotions.infectious.id;
 	}	
 }

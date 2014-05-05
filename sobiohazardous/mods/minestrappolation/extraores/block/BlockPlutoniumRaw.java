@@ -8,7 +8,7 @@ import sobiohazardous.mods.minestrappolation.core.util.MUtil;
 import sobiohazardous.mods.minestrappolation.extraores.ExtraOres;
 import sobiohazardous.mods.minestrappolation.extraores.entity.EntityInstantExplosion;
 import sobiohazardous.mods.minestrappolation.extraores.entity.EntityNukePrimed;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlockManager;
+import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -71,7 +71,7 @@ public class BlockPlutoniumRaw extends Block
 
 	public boolean isTraversable(Block i)
 	{
-		if (i == Blocks.lava || i == Blocks.mob_spawner || i != null && i == EOBlockManager.UraniumOre)
+		if (i == Blocks.lava || i == Blocks.mob_spawner || i != null && i == EOBlocks.UraniumOre)
 		{
 			return true;
 		}

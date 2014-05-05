@@ -8,7 +8,7 @@ import org.lwjgl.opengl.GL11;
 
 import sobiohazardous.mods.minestrappolation.core.util.MAssetManager;
 import sobiohazardous.mods.minestrappolation.extraores.ExtraOres;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlockManager;
+import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.Tessellator;

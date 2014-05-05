@@ -1,6 +1,6 @@
 package sobiohazardous.mods.minestrappolation.extramobdrops.entity;
 
-import sobiohazardous.mods.minestrappolation.extramobdrops.lib.EMDItemManager;
+import sobiohazardous.mods.minestrappolation.extramobdrops.lib.EMDItems;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;

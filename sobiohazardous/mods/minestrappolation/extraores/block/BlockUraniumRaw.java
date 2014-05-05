@@ -21,7 +21,7 @@ import net.minecraft.world.World;
 import sobiohazardous.mods.minestrappolation.core.util.MAssetManager;
 import sobiohazardous.mods.minestrappolation.core.util.MUtil;
 import sobiohazardous.mods.minestrappolation.extraores.entity.EntityInstantExplosion;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlockManager;
+import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlocks;
 
 
 public class BlockUraniumRaw extends Block
@@ -66,7 +66,7 @@ public class BlockUraniumRaw extends Block
 
 	public boolean isTraversable(Block i)
 	{
-		if (i == Blocks.lava || i == Blocks.mob_spawner || i != null && i == EOBlockManager.UraniumOre)
+		if (i == Blocks.lava || i == Blocks.mob_spawner || i != null && i == EOBlocks.UraniumOre)
 		{
 			return true;
 		}

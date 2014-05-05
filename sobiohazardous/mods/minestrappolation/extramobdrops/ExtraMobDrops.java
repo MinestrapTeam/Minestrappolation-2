@@ -22,9 +22,9 @@ import sobiohazardous.mods.minestrappolation.extramobdrops.entity.EntityHangGlid
 import sobiohazardous.mods.minestrappolation.extramobdrops.handler.EMDEventHandler;
 import sobiohazardous.mods.minestrappolation.extramobdrops.handler.EMDFuelHandler;
 import sobiohazardous.mods.minestrappolation.extramobdrops.lib.EMDConfig;
-import sobiohazardous.mods.minestrappolation.extramobdrops.lib.EMDItemManager;
-import sobiohazardous.mods.minestrappolation.extramobdrops.lib.EMDPotionManager;
-import sobiohazardous.mods.minestrappolation.extramobdrops.lib.EMDRecipeManager;
+import sobiohazardous.mods.minestrappolation.extramobdrops.lib.EMDItems;
+import sobiohazardous.mods.minestrappolation.extramobdrops.lib.EMDPotions;
+import sobiohazardous.mods.minestrappolation.extramobdrops.lib.EMDRecipes;
 import sobiohazardous.mods.minestrappolation.extramobdrops.packet.EMDPacketHangGlider;
 import sobiohazardous.mods.minestrappolation.extramobdrops.packet.EMDPacketPipeline;
 import sobiohazardous.mods.minestrappolation.extramobdrops.proxy.CommonProxy;
@@ -35,7 +35,7 @@ import sobiohazardous.mods.minestrappolation.extramobdrops.proxy.CommonProxy;
 @Mod ( modid = MReference.MODID_EMD, name=MReference.MODNAME_EMD, version=MReference.VERSION_EMD, dependencies = "required-after:Minestrappolation")
 public class ExtraMobDrops 
 {
-	@SidedProxy(clientSide = "sobiohazardous.minestrappolation.extramobdrops.proxy.ClientProxy", serverSide = "sobiohazardous.minestrappolation.extramobdrops.proxy.CommonProxy")
+	@SidedProxy(clientSide = "sobiohazardous.mods.minestrappolation.extramobdrops.proxy.ClientProxy", serverSide = "sobiohazardous.mods.minestrappolation.extramobdrops.proxy.CommonProxy")
     public static CommonProxy proxy;
 	@Instance("ExtraMobDrops")
 	public static ExtraMobDrops instance;
@@ -46,8 +46,8 @@ public class ExtraMobDrops
 	{
 		//Lib init
 		EMDConfig.initConfig(e);
-		EMDItemManager.loadItems();		
-		EMDRecipeManager.loadRecipes();			
+		EMDItems.loadItems();		
+		EMDRecipes.loadRecipes();			
 	}
 	
 	@Mod.EventHandler
@@ -63,9 +63,9 @@ public class ExtraMobDrops
 		MinecraftForge.EVENT_BUS.register(new EMDEventHandler());	
 		
 		
-		BrewingAPI.registerEffectHandler(new EMDPotionManager());
-		EMDPotionManager.loadPotions();
-		EMDPotionManager.loadBrewingRecipes();
+		BrewingAPI.registerEffectHandler(new EMDPotions());
+		EMDPotions.loadPotions();
+		EMDPotions.loadBrewingRecipes();
 	}
 
 	@Mod.EventHandler
@@ -76,8 +76,8 @@ public class ExtraMobDrops
 
 		try
 		{
-			EMDRecipeManager.loadBridgeRecipes();
-			EMDItemManager.loadBridgedItems();
+			EMDRecipes.loadBridgeRecipes();
+			EMDItems.loadBridgedItems();
 		}
 		catch(Exception ex)
 		{

@@ -17,7 +17,7 @@ import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.potion.Potion;
 import net.minecraftforge.common.util.*;
 
-public class EMDItemManager 
+public class EMDItems 
 {
 	public static Item snout;
 	public static Item pigHoof;

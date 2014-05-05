@@ -18,9 +18,9 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 import sobiohazardous.mods.minestrappolation.core.util.MAssetManager;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlockManager;
+import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlocks;
 import sobiohazardous.mods.minestrappolation.extraores.lib.EOConfig;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOItemManager;
+import sobiohazardous.mods.minestrappolation.extraores.lib.EOItems;
 
 
 public class BlockUraniumOre extends Block
@@ -48,7 +48,7 @@ public class BlockUraniumOre extends Block
 	 */
     public Item getItemDropped(int par1, Random par2Random, int par3)
 	{
-		return EOItemManager.Uranium;
+		return EOItems.Uranium;
 	}
 
 	/**
@@ -79,7 +79,7 @@ public class BlockUraniumOre extends Block
 
 	public boolean isTraversable(Block i)
 	{
-		if (i == Blocks.lava || i == Blocks.mob_spawner || i != null && i == EOBlockManager.UraniumOre)
+		if (i == Blocks.lava || i == Blocks.mob_spawner || i != null && i == EOBlocks.UraniumOre)
 		{
 			return true;
 		}

@@ -40,7 +40,7 @@ import cpw.mods.fml.common.registry.VillagerRegistry;
 @Mod ( modid = MReference.MODID_ED, name=MReference.MODNAME_ED, version=MReference.VERSION_ED, dependencies = "required-after:Minestrappolation")
 public class ExtraDecor 
 {
-	@SidedProxy(clientSide = "sobiohazardous.minestrappolation.extradecor.proxy.ClientProxy", serverSide = "sobiohazardous.minestrappolation.extradecor.proxy.CommonProxy")
+	@SidedProxy(clientSide = "sobiohazardous.mods.minestrappolation.extradecor.proxy.ClientProxy", serverSide = "sobiohazardous.mods.minestrappolation.extradecor.proxy.CommonProxy")
     public static CommonProxy proxy;
 	
 	@Instance("ExtraDecor")

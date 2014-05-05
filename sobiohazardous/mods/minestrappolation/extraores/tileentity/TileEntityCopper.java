@@ -2,7 +2,7 @@ package sobiohazardous.mods.minestrappolation.extraores.tileentity;
 
 import sobiohazardous.mods.minestrappolation.extraores.ExtraOres;
 import sobiohazardous.mods.minestrappolation.extraores.block.BlockCopper;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlockManager;
+import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlocks;
 import sobiohazardous.mods.minestrappolation.extraores.lib.EOConfig;
 import net.minecraft.block.Block;
 import net.minecraft.tileentity.TileEntity;
@@ -26,7 +26,7 @@ public class TileEntityCopper extends TileEntity
     	if(this.daysPassed >= EOConfig.daysUntilTarnish)
         {
     		//System.out.println(EOConfig.daysUntilTarnish);
-        	this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EOBlockManager.CopperBlockTarnished);
+        	this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, EOBlocks.CopperBlockTarnished);
         }
     }
 }

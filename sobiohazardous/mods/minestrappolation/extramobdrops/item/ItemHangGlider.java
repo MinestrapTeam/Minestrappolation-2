@@ -18,7 +18,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import sobiohazardous.mods.minestrappolation.core.item.MItem;
 import sobiohazardous.mods.minestrappolation.extramobdrops.entity.EntityHangGlider;
-import sobiohazardous.mods.minestrappolation.extramobdrops.lib.EMDItemManager;
+import sobiohazardous.mods.minestrappolation.extramobdrops.lib.EMDItems;
 
 public class ItemHangGlider extends MItem
 {

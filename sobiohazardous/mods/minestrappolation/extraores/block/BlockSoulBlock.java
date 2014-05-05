@@ -7,7 +7,7 @@ import net.minecraft.item.Item;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import sobiohazardous.mods.minestrappolation.core.block.MBlock;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlockManager;
+import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlocks;
 
 public class BlockSoulBlock extends MBlock
 {
@@ -16,7 +16,7 @@ public class BlockSoulBlock extends MBlock
 	public BlockSoulBlock() 
 	{
 		super(Material.iron);
-		this.setCreativeTab(EOBlockManager.tabOresBlocks);
+		this.setCreativeTab(EOBlocks.tabOresBlocks);
 	}
 
 	/**
@@ -53,7 +53,7 @@ public class BlockSoulBlock extends MBlock
     
     public Item getItemDropped(int par1, Random par2Random, int par3)
     {
-    	return EOBlockManager.SoulGem;
+    	return EOBlocks.SoulGem;
     }
     
     public void dropBlockAsItemWithChance(World par1World, int par2, int par3, int par4, int par5, float par6, int par7)

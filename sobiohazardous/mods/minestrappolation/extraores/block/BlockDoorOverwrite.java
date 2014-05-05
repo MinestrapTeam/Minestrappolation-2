@@ -6,7 +6,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import java.util.Random;
 
 import sobiohazardous.mods.minestrappolation.core.util.MChatMessageHandler;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOItemManager;
+import sobiohazardous.mods.minestrappolation.extraores.lib.EOItems;
 import sobiohazardous.mods.minestrappolation.extraores.tileentity.TileEntityLocked;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
@@ -74,7 +74,7 @@ public class BlockDoorOverwrite extends BlockDoor implements ITileEntityProvider
     {      
         if (this.blockMaterial == Material.iron)
         {
-        	if(te.locked && par5EntityPlayer.getItemInUse() != new ItemStack(EOItemManager.steelLock))
+        	if(te.locked && par5EntityPlayer.getItemInUse() != new ItemStack(EOItems.steelLock))
             {
             	MChatMessageHandler.sendChatToPlayer(par5EntityPlayer, "Locked by: " + te.player);
             }	
@@ -99,12 +99,12 @@ public class BlockDoorOverwrite extends BlockDoor implements ITileEntityProvider
 
         	par1World.playAuxSFXAtEntity(par5EntityPlayer, 1003, par2, par3, par4, 0);
                 
-        	if(par5EntityPlayer.getItemInUse() == new ItemStack(EOItemManager.steelLock))
+        	if(par5EntityPlayer.getItemInUse() == new ItemStack(EOItems.steelLock))
             {
                 return true;
             }
         	
-        	if(te.locked && par5EntityPlayer.getItemInUse() != new ItemStack(EOItemManager.steelLock))
+        	if(te.locked && par5EntityPlayer.getItemInUse() != new ItemStack(EOItems.steelLock))
             {
             	MChatMessageHandler.sendChatToPlayer(par5EntityPlayer, "Locked by: " + te.player);
             }

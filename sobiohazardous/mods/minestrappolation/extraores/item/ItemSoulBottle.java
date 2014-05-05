@@ -8,15 +8,15 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlockManager;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOItemManager;
+import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlocks;
+import sobiohazardous.mods.minestrappolation.extraores.lib.EOItems;
 
 public class ItemSoulBottle extends Item
 {
 	public ItemSoulBottle()
 	{
 		super();
-		this.setCreativeTab(EOItemManager.tabOresItems);
+		this.setCreativeTab(EOItems.tabOresItems);
 	}
 
 	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par2EntityPlayer)

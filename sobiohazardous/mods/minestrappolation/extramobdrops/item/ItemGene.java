@@ -3,7 +3,7 @@ package sobiohazardous.mods.minestrappolation.extramobdrops.item;
 import java.util.List;
 
 import sobiohazardous.mods.minestrappolation.core.lib.MReference;
-import sobiohazardous.mods.minestrappolation.extramobdrops.lib.EMDItemManager;
+import sobiohazardous.mods.minestrappolation.extramobdrops.lib.EMDItems;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -24,7 +24,7 @@ public class ItemGene extends Item
 		super();
         this.setHasSubtypes(true);
         this.setMaxDamage(0);
-        this.setCreativeTab(EMDItemManager.tabItems);	
+        this.setCreativeTab(EMDItems.tabItems);	
 	}
 	
 	public IIcon getIconFromDamage(int par1)

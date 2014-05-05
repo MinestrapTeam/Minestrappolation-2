@@ -1,6 +1,6 @@
 package sobiohazardous.mods.minestrappolation.extraenviroments.lib;
 
-public class EEItemManager 
+public class EEItems 
 {
 	public static void loadItems()
 	{

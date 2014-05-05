@@ -2,7 +2,7 @@ package sobiohazardous.mods.minestrappolation.extraores.tileentity;
 
 import sobiohazardous.mods.minestrappolation.extraores.MelterRecipes;
 import sobiohazardous.mods.minestrappolation.extraores.block.BlockMelter;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOItemManager;
+import sobiohazardous.mods.minestrappolation.extraores.lib.EOItems;
 import sobiohazardous.mods.minestrappolation.extraores.lib.ModdedMelterRecipeLoader;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -459,12 +459,12 @@ public class TileEntityMelter extends TileEntity implements ISidedInventory
 					return 20000;
 				}
 
-				if (var1 == EOItemManager.Uranium)
+				if (var1 == EOItems.Uranium)
 				{
 					return 150000;
 				}
 
-				if (var1 == EOItemManager.Plutonium)
+				if (var1 == EOItems.Plutonium)
 				{
 					return 200000;
 				}
@@ -507,12 +507,12 @@ public class TileEntityMelter extends TileEntity implements ISidedInventory
 					return 20000 / 4;
 				}
 
-				if (var1 == EOItemManager.Uranium)
+				if (var1 == EOItems.Uranium)
 				{
 					return 150000 / 4;
 				}
 
-				if (var1 == EOItemManager.Plutonium)
+				if (var1 == EOItems.Plutonium)
 				{
 					return 200000 / 4;
 				}

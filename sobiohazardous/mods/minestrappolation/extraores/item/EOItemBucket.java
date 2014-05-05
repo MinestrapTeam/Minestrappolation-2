@@ -1,6 +1,6 @@
 package sobiohazardous.mods.minestrappolation.extraores.item;
 
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOItemManager;
+import sobiohazardous.mods.minestrappolation.extraores.lib.EOItems;
 import net.minecraft.block.Block;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -12,7 +12,7 @@ public class EOItemBucket extends ItemBucket
 	{
 		super(block);
 		this.setContainerItem(Items.bucket);
-		this.setCreativeTab(EOItemManager.tabOresItems);
+		this.setCreativeTab(EOItems.tabOresItems);
 	}
 
 }

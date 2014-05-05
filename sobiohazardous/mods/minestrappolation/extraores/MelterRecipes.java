@@ -8,8 +8,8 @@ import java.util.Map.Entry;
 
 import cpw.mods.fml.common.Loader;
 import sobiohazardous.mods.minestrappolation.extraores.client.gui.ContainerMelter;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlockManager;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOItemManager;
+import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlocks;
+import sobiohazardous.mods.minestrappolation.extraores.lib.EOItems;
 import sobiohazardous.mods.minestrappolation.extraores.lib.ModdedMelterRecipeLoader;
 import sobiohazardous.mods.minestrappolation.extraores.tileentity.TileEntityMelter;
 import net.minecraft.block.Block;
@@ -53,8 +53,8 @@ public class MelterRecipes
 		// ItemStack(EOItemManager.bucketMagma,1,0), 0.7F);
 		// addSmelting(Blocks.bedrock, new
 		// ItemStack(EOItemManager.bucketMagma,1,0), 0.7F);
-		addSmelting(EOBlockManager.Granite, new ItemStack(Items.lava_bucket, 1, 0), 0.7F);
-		addSmelting(Blocks.glowstone, new ItemStack(EOBlockManager.glowGlass), 0.7F);
+		addSmelting(EOBlocks.Granite, new ItemStack(Items.lava_bucket, 1, 0), 0.7F);
+		addSmelting(Blocks.glowstone, new ItemStack(EOBlocks.glowGlass), 0.7F);
 
 		if (Loader.isModLoaded("ExtraDecor"))
 		{

@@ -3,7 +3,7 @@ package sobiohazardous.mods.minestrappolation.extramobdrops.packet;
 import org.lwjgl.opengl.GL11;
 
 import sobiohazardous.mods.minestrappolation.extramobdrops.handler.EMDEventHandler;
-import sobiohazardous.mods.minestrappolation.extramobdrops.lib.EMDItemManager;
+import sobiohazardous.mods.minestrappolation.extramobdrops.lib.EMDItems;
 import sobiohazardous.mods.minestrappolation.extramobdrops.tileentity.ModelHangGlider;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;

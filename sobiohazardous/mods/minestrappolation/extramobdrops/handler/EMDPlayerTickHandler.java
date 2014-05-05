@@ -5,7 +5,7 @@ import java.util.Random;
 import org.lwjgl.opengl.GL11;
 
 import sobiohazardous.mods.minestrappolation.core.util.MAssetManager;
-import sobiohazardous.mods.minestrappolation.extramobdrops.lib.EMDItemManager;
+import sobiohazardous.mods.minestrappolation.extramobdrops.lib.EMDItems;
 import sobiohazardous.mods.minestrappolation.extramobdrops.tileentity.ModelHangGlider;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;

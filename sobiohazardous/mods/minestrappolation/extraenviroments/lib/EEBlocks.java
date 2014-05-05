@@ -1,6 +1,6 @@
 package sobiohazardous.mods.minestrappolation.extraenviroments.lib;
 
-public class EEBlockManager 
+public class EEBlocks 
 {
 	public static void loadBlocks()
 	{

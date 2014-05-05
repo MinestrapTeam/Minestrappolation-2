@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 import sobiohazardous.mods.minestrappolation.extraores.entity.EntityGrenadeSticky;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOItemManager;
+import sobiohazardous.mods.minestrappolation.extraores.lib.EOItems;
 
 public class ItemGrenadeSticky extends Item
 {
@@ -16,7 +16,7 @@ public class ItemGrenadeSticky extends Item
     {
         super();
         this.maxStackSize = 16;
-        this.setCreativeTab(EOItemManager.tabOresItems);
+        this.setCreativeTab(EOItems.tabOresItems);
     }
 
     /**

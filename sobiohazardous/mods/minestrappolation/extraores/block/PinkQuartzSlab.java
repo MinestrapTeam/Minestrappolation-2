@@ -12,7 +12,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import sobiohazardous.mods.minestrappolation.core.util.MAssetManager;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlockManager;
+import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlocks;
 
 public class PinkQuartzSlab extends BlockSlab
 {
@@ -33,17 +33,17 @@ public class PinkQuartzSlab extends BlockSlab
 
 	public Item getItemDropped(int par1, Random par2Random, int par3)
 	{
-		return Item.getItemFromBlock(EOBlockManager.PinkQuartzSingleSlab);
+		return Item.getItemFromBlock(EOBlocks.PinkQuartzSingleSlab);
 	}
 
 	protected ItemStack createStackedBlock(int par1)
 	{
-		return new ItemStack(EOBlockManager.PinkQuartzSingleSlab, 2, par1 & 7);
+		return new ItemStack(EOBlocks.PinkQuartzSingleSlab, 2, par1 & 7);
 	}
 
 	public void getSubBlocks(Item par1, CreativeTabs par2CreativeTabs, List par3List)
 	{
-		if (par1 != Item.getItemFromBlock(EOBlockManager.PinkQuartzDoubleSlab))
+		if (par1 != Item.getItemFromBlock(EOBlocks.PinkQuartzDoubleSlab))
 		{
 			par3List.add(new ItemStack(par1, 1, 0));
 		}

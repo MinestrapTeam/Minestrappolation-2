@@ -8,8 +8,8 @@ import org.lwjgl.opengl.GL11;
 
 import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import sobiohazardous.mods.minestrappolation.extramobdrops.lib.EMDItemManager;
-import sobiohazardous.mods.minestrappolation.extramobdrops.lib.EMDPotionManager;
+import sobiohazardous.mods.minestrappolation.extramobdrops.lib.EMDItems;
+import sobiohazardous.mods.minestrappolation.extramobdrops.lib.EMDPotions;
 import sobiohazardous.mods.minestrappolation.extramobdrops.tileentity.ModelHangGlider;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
@@ -49,29 +49,29 @@ public class EMDEventHandler
 			{
 				if (rand < 0.15D) //Makes drop 100% drop chance. Example: (0.25D = 25%, 1D = 100%, etc.)
 				{	
-					event.entityLiving.dropItem(EMDItemManager.snout , 1);		
+					event.entityLiving.dropItem(EMDItems.snout , 1);		
 				}
 				
 				if (rand2 < 0.25D) //Makes drop 100% drop chance. Example: (0.25D = 25%, 1D = 100%, etc.)
 				{
-					event.entityLiving.dropItem(EMDItemManager.pigHoof , 4);	
+					event.entityLiving.dropItem(EMDItems.pigHoof , 4);	
 
 				}
 				
 				if (rand3 < 0.3D) //Makes drop 100% drop chance. Example: (0.25D = 25%, 1D = 100%, etc.)
 				{
-					event.entityLiving.dropItem(EMDItemManager.animalBones , 4);
+					event.entityLiving.dropItem(EMDItems.animalBones , 4);
 				}
 				
 				if (rand4 < 0.3D) //Makes drop 100% drop chance. Example: (0.25D = 25%, 1D = 100%, etc.)
 				{
 					if(event.entityLiving.isBurning())
 					{
-						event.entityLiving.dropItem(EMDItemManager.grease , 5);	
+						event.entityLiving.dropItem(EMDItems.grease , 5);	
 					}
 					else
 					{
-						event.entityLiving.dropItem(EMDItemManager.fat , 5);	
+						event.entityLiving.dropItem(EMDItems.fat , 5);	
 					}
 				}
 			}
@@ -80,22 +80,22 @@ public class EMDEventHandler
 			{
 				if (rand < 0.15D) //Makes drop 100% drop chance. Example: (0.25D = 25%, 1D = 100%, etc.)
 				{
-					event.entityLiving.dropItem(EMDItemManager.snout , 1);
+					event.entityLiving.dropItem(EMDItems.snout , 1);
 				}
 				
 				if (rand2 < 0.3D) //Makes drop 100% drop chance. Example: (0.25D = 25%, 1D = 100%, etc.)
 				{
-					event.entityLiving.dropItem(EMDItemManager.animalBones , 4);
+					event.entityLiving.dropItem(EMDItems.animalBones , 4);
 				}
 				
 				if(rand3 < 0.25D)
 				{
-					event.entityLiving.dropItem(EMDItemManager.cowHoof , 4);
+					event.entityLiving.dropItem(EMDItems.cowHoof , 4);
 				}
 				
 				if(rand4 < 0.05D)
 				{
-					event.entityLiving.dropItem(EMDItemManager.horn , 2);
+					event.entityLiving.dropItem(EMDItems.horn , 2);
 				}
 			}
 			
@@ -103,26 +103,26 @@ public class EMDEventHandler
 			{
 				if (rand < 0.15D) //Makes drop 100% drop chance. Example: (0.25D = 25%, 1D = 100%, etc.)
 				{
-					event.entityLiving.dropItem(EMDItemManager.snout , 1);
+					event.entityLiving.dropItem(EMDItems.snout , 1);
 				}
 				
 				if (rand2 < 0.3D) //Makes drop 100% drop chance. Example: (0.25D = 25%, 1D = 100%, etc.)
 				{
-					event.entityLiving.dropItem(EMDItemManager.animalBones , 4);
+					event.entityLiving.dropItem(EMDItems.animalBones , 4);
 				}
 				
 				if(rand3 < 0.25D)
 				{
-					event.entityLiving.dropItem(EMDItemManager.cowHoof , 4);
+					event.entityLiving.dropItem(EMDItems.cowHoof , 4);
 				}
 				
 				if(rand4 < 0.05D)
 				{
-					event.entityLiving.dropItem(EMDItemManager.horn , 2);
+					event.entityLiving.dropItem(EMDItems.horn , 2);
 				}
 				if(rand5 < 0.1D)
 				{
-					event.entityLiving.dropItem(EMDItemManager.infectiousFungus , 3);
+					event.entityLiving.dropItem(EMDItems.infectiousFungus , 3);
 				}
 			}
 			
@@ -130,24 +130,24 @@ public class EMDEventHandler
 			{
 				if (rand < 0.15D) //Makes drop 100% drop chance. Example: (0.25D = 25%, 1D = 100%, etc.)
 				{
-					event.entityLiving.dropItem(EMDItemManager.snout , 1);
+					event.entityLiving.dropItem(EMDItems.snout , 1);
 				}
 				
 				if (rand2 < 0.2D) //Makes drop 100% drop chance. Example: (0.25D = 25%, 1D = 100%, etc.)
 				{
-					event.entityLiving.dropItem(EMDItemManager.animalBones , 4);
+					event.entityLiving.dropItem(EMDItems.animalBones , 4);
 				}
 				if(rand3 < 0.25D)
 				{
-					event.entityLiving.dropItem(EMDItemManager.horseHoof , 4);
+					event.entityLiving.dropItem(EMDItems.horseHoof , 4);
 				}
 				if(rand4 < 0.5)
 				{
-					event.entityLiving.dropItem(EMDItemManager.rawHorseHaunch , 3);
+					event.entityLiving.dropItem(EMDItems.rawHorseHaunch , 3);
 				}
 				if(rand5 < 0.3)
 				{
-					event.entityLiving.dropItem(EMDItemManager.horseHair , 4);
+					event.entityLiving.dropItem(EMDItems.horseHair , 4);
 				}
 			}
 			
@@ -155,11 +155,11 @@ public class EMDEventHandler
 			{
 				if (rand < 0.05D) //Makes drop 100% drop chance. Example: (0.25D = 25%, 1D = 100%, etc.)
 				{
-					event.entityLiving.dropItem(EMDItemManager.snout , 1);
+					event.entityLiving.dropItem(EMDItems.snout , 1);
 				}
 				if(rand2 < 0.4D)
 				{
-					event.entityLiving.dropItem(EMDItemManager.wolfHide , 4);
+					event.entityLiving.dropItem(EMDItems.wolfHide , 4);
 				}
 			}
 			
@@ -167,27 +167,27 @@ public class EMDEventHandler
 			{
 				if (rand < 0.05D) //Makes drop 100% drop chance. Example: (0.25D = 25%, 1D = 100%, etc.)
 				{
-					event.entityLiving.dropItem(EMDItemManager.snout , 1);
+					event.entityLiving.dropItem(EMDItems.snout , 1);
 				}
 				
 				if (rand2 < 0.1D) //Makes drop 100% drop chance. Example: (0.25D = 25%, 1D = 100%, etc.)
 				{
-					event.entityLiving.dropItem(EMDItemManager.pigHoof , 2);
+					event.entityLiving.dropItem(EMDItems.pigHoof , 2);
 				}
 				
 				if (rand3 < 0.15D)
 				{
-					event.entityLiving.dropItem(EMDItemManager.fat , 2);	
+					event.entityLiving.dropItem(EMDItems.fat , 2);	
 				}
 				
 				if (rand4 < 0.1D) //Makes drop 100% drop chance. Example: (0.25D = 25%, 1D = 100%, etc.)
 				{
-					event.entityLiving.dropItem(EMDItemManager.animalBones , 2);
+					event.entityLiving.dropItem(EMDItems.animalBones , 2);
 				}
 				
 				if(rand5 < 0.1D)
 				{
-					event.entityLiving.dropItem(EMDItemManager.marrow , 3);
+					event.entityLiving.dropItem(EMDItems.marrow , 3);
 				}
 			}
 			
@@ -195,16 +195,16 @@ public class EMDEventHandler
 			{
 				if (rand < 0.3D) //Makes drop 100% drop chance. Example: (0.25D = 25%, 1D = 100%, etc.)
 				{
-					event.entityLiving.dropItem(EMDItemManager.animalBones , 4);
+					event.entityLiving.dropItem(EMDItems.animalBones , 4);
 				}
 				
 				if(rand2 < 0.9D)
 				{
-					event.entityLiving.dropItem(EMDItemManager.lambchopRaw , 3);
+					event.entityLiving.dropItem(EMDItems.lambchopRaw , 3);
 				}
 				if(rand3 < 0.25D)
 				{
-					event.entityLiving.dropItem(EMDItemManager.sheepHoof , 3);
+					event.entityLiving.dropItem(EMDItems.sheepHoof , 3);
 				}
 			}
 			
@@ -212,19 +212,19 @@ public class EMDEventHandler
 			{
 				if (rand < 0.2D) //Makes drop 100% drop chance. Example: (0.25D = 25%, 1D = 100%, etc.)
 				{
-					event.entityLiving.dropItem(EMDItemManager.animalBones , 2);
+					event.entityLiving.dropItem(EMDItems.animalBones , 2);
 				}
 				if(rand2 < 0.15D)
 				{
-					event.entityLiving.dropItem(EMDItemManager.beakChicken , 1);
+					event.entityLiving.dropItem(EMDItems.beakChicken , 1);
 				}
 				if(rand3 < 0.2D)
 				{
-					event.entityLiving.dropItem(EMDItemManager.footChicken , 2);
+					event.entityLiving.dropItem(EMDItems.footChicken , 2);
 				}
 				if(rand4 < 0.5D)
 				{
-					event.entityLiving.dropItem(EMDItemManager.chickenWingRaw , 2);
+					event.entityLiving.dropItem(EMDItems.chickenWingRaw , 2);
 				}
 			}
 			
@@ -232,11 +232,11 @@ public class EMDEventHandler
 			{
 				if (rand < 0.05D) //Makes drop 100% drop chance. Example: (0.25D = 25%, 1D = 100%, etc.)
 				{
-					event.entityLiving.dropItem(EMDItemManager.animalBones , 1);
+					event.entityLiving.dropItem(EMDItems.animalBones , 1);
 				}
 				if(rand2 < 0.15D)
 				{
-					event.entityLiving.dropItem(EMDItemManager.legSpider , 4);
+					event.entityLiving.dropItem(EMDItems.legSpider , 4);
 				}			
 			}
 			
@@ -244,17 +244,17 @@ public class EMDEventHandler
 			{
 				if (rand < 0.05D) //Makes drop 100% drop chance. Example: (0.25D = 25%, 1D = 100%, etc.)
 				{
-					event.entityLiving.dropItem(EMDItemManager.animalBones , 1);
+					event.entityLiving.dropItem(EMDItems.animalBones , 1);
 				}
 				
 				if(rand2 <0.3D)
 				{
-					event.entityLiving.dropItem(EMDItemManager.poisonSack , 2);
+					event.entityLiving.dropItem(EMDItems.poisonSack , 2);
 				}
 				
 				if(rand3 < 0.15D)
 				{
-					event.entityLiving.dropItem(EMDItemManager.legSpider , 4);
+					event.entityLiving.dropItem(EMDItems.legSpider , 4);
 				}
 			}
 			
@@ -262,16 +262,16 @@ public class EMDEventHandler
 			{
 				if (rand < 0.05D) //Makes drop 100% drop chance. Example: (0.25D = 25%, 1D = 100%, etc.)
 				{
-					event.entityLiving.dropItem(EMDItemManager.footChicken , 1);
+					event.entityLiving.dropItem(EMDItems.footChicken , 1);
 				}
 				
 				if(rand2 < 0.15D)
 				{
-					event.entityLiving.dropItem(EMDItemManager.whisker , 4);
+					event.entityLiving.dropItem(EMDItems.whisker , 4);
 				}
 				if(rand3 < 0.1D)
 				{
-					event.entityLiving.dropItem(EMDItemManager.catEye , 2);
+					event.entityLiving.dropItem(EMDItems.catEye , 2);
 				}
 			}
 			
@@ -279,12 +279,12 @@ public class EMDEventHandler
 			{
 				if(rand < 0.4D)
 				{
-					event.entityLiving.dropItem(EMDItemManager.squidTentacle , 4);
+					event.entityLiving.dropItem(EMDItems.squidTentacle , 4);
 				}
 				
 				if(rand2 < 0.2D)
 				{
-					event.entityLiving.dropItem(EMDItemManager.airSack , 1);
+					event.entityLiving.dropItem(EMDItems.airSack , 1);
 				}
 			}
 			
@@ -292,7 +292,7 @@ public class EMDEventHandler
 			{
 				if(rand < 0.2D)
 				{
-					event.entityLiving.dropItem(EMDItemManager.flesh , 3);
+					event.entityLiving.dropItem(EMDItems.flesh , 3);
 				}
 			}
 			if(event.entityLiving instanceof EntitySkeleton)
@@ -303,7 +303,7 @@ public class EMDEventHandler
 				{
 					if(rand < 0.15D)
 					{
-						event.entityLiving.dropItem(EMDItemManager.marrow , 3);
+						event.entityLiving.dropItem(EMDItems.marrow , 3);
 					}
 				}
 				
@@ -311,7 +311,7 @@ public class EMDEventHandler
 				{
 					if(rand < 0.2D)
 					{
-						event.entityLiving.dropItem(EMDItemManager.witheredBone , 3);
+						event.entityLiving.dropItem(EMDItems.witheredBone , 3);
 					}
 				}
 			}
@@ -320,55 +320,55 @@ public class EMDEventHandler
 			{
 				if(rand < 0.5)
 				{
-					event.entityLiving.dropItem(EMDItemManager.guano , 2);
+					event.entityLiving.dropItem(EMDItems.guano , 2);
 				}
 				if(rand < 0.5)
 				{
-					event.entityLiving.dropItem(EMDItemManager.wingSinew , 2);
+					event.entityLiving.dropItem(EMDItems.wingSinew , 2);
 				}
 			}
 			if(event.entityLiving instanceof EntitySilverfish)
 			{
 				if(rand < 0.5)
 				{
-					event.entityLiving.dropItem(EMDItemManager.carcassSilverfish , 1);
+					event.entityLiving.dropItem(EMDItems.carcassSilverfish , 1);
 				}
 			}
 			if(event.entityLiving instanceof EntityCreeper)
 			{
 				if(rand < 0.1)
 				{
-					event.entityLiving.dropItem(EMDItemManager.hideCreeper , 2);
+					event.entityLiving.dropItem(EMDItems.hideCreeper , 2);
 				}
 			}
 			if(event.entityLiving instanceof EntitySlime)
 			{
 				if(rand < 0.1)
 				{
-					event.entityLiving.dropItem(EMDItemManager.slimeCore , 1);
+					event.entityLiving.dropItem(EMDItems.slimeCore , 1);
 				}
 			}
 			if(event.entityLiving instanceof EntityEnderman)
 			{
 				if(rand < 0.25)
 				{
-					event.entityLiving.dropItem(EMDItemManager.enderCore , 1);
+					event.entityLiving.dropItem(EMDItems.enderCore , 1);
 				}
 				if(rand < 0.20)
 				{
-					event.entityLiving.dropItem(EMDItemManager.enderAura , 2);
+					event.entityLiving.dropItem(EMDItems.enderAura , 2);
 				}
 			}
 			if(event.entityLiving instanceof EntityGhast)
 			{
 				if(rand < 0.15)
 				{
-					event.entityLiving.dropItem(EMDItemManager.ghastTentacle , 4);
+					event.entityLiving.dropItem(EMDItems.ghastTentacle , 4);
 				}
 			}
 			if(event.entityLiving instanceof EntityWither)
 			{
-				event.entityLiving.dropItem(EMDItemManager.witheredBone , 15);
+				event.entityLiving.dropItem(EMDItems.witheredBone , 15);
 			}
 		}
 	}
@@ -419,7 +419,7 @@ public class EMDEventHandler
 		if(evt.target instanceof EntityGhast && evt.entityPlayer.inventory.getCurrentItem() != Items.glass_bottle.getContainerItem(null))
 		{
 			evt.entityPlayer.inventory.getCurrentItem().stackSize--;
-			evt.entityPlayer.inventory.addItemStackToInventory(new ItemStack(EMDItemManager.ghastlySoul, 1));
+			evt.entityPlayer.inventory.addItemStackToInventory(new ItemStack(EMDItems.ghastlySoul, 1));
 		}
 	}
 }

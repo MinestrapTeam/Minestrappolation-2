@@ -11,7 +11,7 @@ import sobiohazardous.mods.minestrappolation.extraores.entity.EntityGrenadeStick
 import sobiohazardous.mods.minestrappolation.extraores.entity.EntityInstantExplosion;
 import sobiohazardous.mods.minestrappolation.extraores.entity.EntityNukePrimed;
 import sobiohazardous.mods.minestrappolation.extraores.handler.RenderingHandler;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOItemManager;
+import sobiohazardous.mods.minestrappolation.extraores.lib.EOItems;
 import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -29,9 +29,9 @@ public class ClientProxy extends CommonProxy
 		RenderingRegistry.registerBlockHandler(new RenderingHandler());
 				
 		RenderingRegistry.registerEntityRenderingHandler(EntityNukePrimed.class, new RenderNukePrimed());
-		RenderingRegistry.registerEntityRenderingHandler(EntityGrenade.class, new RenderGrenade(EOItemManager.grenade));
-		RenderingRegistry.registerEntityRenderingHandler(EntityGrenadeImpact.class, new RenderGrenade(EOItemManager.grenadeImpact));
-		RenderingRegistry.registerEntityRenderingHandler(EntityGrenadeSticky.class, new RenderGrenade(EOItemManager.grenadeSticky));
+		RenderingRegistry.registerEntityRenderingHandler(EntityGrenade.class, new RenderGrenade(EOItems.grenade));
+		RenderingRegistry.registerEntityRenderingHandler(EntityGrenadeImpact.class, new RenderGrenade(EOItems.grenadeImpact));
+		RenderingRegistry.registerEntityRenderingHandler(EntityGrenadeSticky.class, new RenderGrenade(EOItems.grenadeSticky));
     }
     
    public static int addArmor(String armor)

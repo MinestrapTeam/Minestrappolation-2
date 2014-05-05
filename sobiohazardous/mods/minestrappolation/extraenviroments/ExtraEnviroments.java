@@ -2,10 +2,10 @@ package sobiohazardous.mods.minestrappolation.extraenviroments;
 
 import net.minecraft.world.biome.BiomeGenBase;
 import sobiohazardous.mods.minestrappolation.core.lib.MReference;
-import sobiohazardous.mods.minestrappolation.extraenviroments.lib.EEBlockManager;
+import sobiohazardous.mods.minestrappolation.extraenviroments.lib.EEBlocks;
 import sobiohazardous.mods.minestrappolation.extraenviroments.lib.EEConfig;
-import sobiohazardous.mods.minestrappolation.extraenviroments.lib.EEItemManager;
-import sobiohazardous.mods.minestrappolation.extraenviroments.lib.EERecipeManager;
+import sobiohazardous.mods.minestrappolation.extraenviroments.lib.EEItems;
+import sobiohazardous.mods.minestrappolation.extraenviroments.lib.EERecipes;
 import sobiohazardous.mods.minestrappolation.extraenviroments.proxy.CommonProxy;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Instance;
@@ -21,7 +21,7 @@ public class ExtraEnviroments
 	@Instance("ExtraEnviroments")
 	public ExtraEnviroments instance;
 	
-	@SidedProxy(clientSide="sobiohazardous.minestrappolation.extraenviroments.proxy.ClientProxy", serverSide="sobiohazardous.minestrappolation.extraenviroments.proxy.ClientProxy")
+	@SidedProxy(clientSide="sobiohazardous.mods.minestrappolation.extraenviroments.proxy.ClientProxy", serverSide="sobiohazardous.mods.minestrappolation.extraenviroments.proxy.ClientProxy")
 	public static CommonProxy proxy;
 
 	public static BiomeGenBase redwood;
@@ -31,11 +31,11 @@ public class ExtraEnviroments
 	{
 		//init libs
 		EEConfig.initilize(evt);
-		EEBlockManager.loadBlocks();
-		EEBlockManager.registerBlocks();
-		EERecipeManager.loadRecipes();
-		EEItemManager.loadItems();
-		EEItemManager.loadItemNames();
+		EEBlocks.loadBlocks();
+		EEBlocks.registerBlocks();
+		EERecipes.loadRecipes();
+		EEItems.loadItems();
+		EEItems.loadItemNames();
 		
 		redwood = new BiomeGenRedwood(115).setBiomeName("redwood");
 		//TODO Find alternative!
@@ -53,7 +53,7 @@ public class ExtraEnviroments
 	{
 		try
 		{
-			EERecipeManager.loadBridgeRecipes();
+			EERecipes.loadBridgeRecipes();
 		}catch(Exception e)
 		{
 			System.err.println("Could not load bridge recipes.");

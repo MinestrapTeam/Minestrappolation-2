@@ -1,7 +1,7 @@
 package sobiohazardous.mods.minestrappolation.extraores;
 
 import sobiohazardous.mods.minestrappolation.extraores.*;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOItemManager;
+import sobiohazardous.mods.minestrappolation.extraores.lib.EOItems;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.creativetab.CreativeTabs;
@@ -23,6 +23,6 @@ public final class CreativeTabExtraoresItems extends CreativeTabs
 	@Override
 	public Item getTabIconItem()
 	{
-		return EOItemManager.CopperIngot;
+		return EOItems.CopperIngot;
 	}
 }

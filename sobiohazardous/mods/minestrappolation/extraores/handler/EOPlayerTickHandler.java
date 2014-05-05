@@ -4,7 +4,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOItemManager;
+import sobiohazardous.mods.minestrappolation.extraores.lib.EOItems;
 import cpw.mods.fml.common.gameevent.TickEvent.PlayerTickEvent;
 
 public class EOPlayerTickHandler
@@ -23,14 +23,14 @@ public class EOPlayerTickHandler
 		if (player.getCurrentArmor(4) != null && player.getCurrentArmor(3) != null && player.getCurrentArmor(2) != null && player.getCurrentArmor(1) != null)
 		{
 			tick++;
-			if (helmet.getItem() == EOItemManager.meuroditeHelmet && chest.getItem() == EOItemManager.meuroditeChest && pants.getItem() == EOItemManager.meuroditePants && boots.getItem() == EOItemManager.meuroditeBoots)
+			if (helmet.getItem() == EOItems.meuroditeHelmet && chest.getItem() == EOItems.meuroditeChest && pants.getItem() == EOItems.meuroditePants && boots.getItem() == EOItems.meuroditeBoots)
 			{
 				player.addPotionEffect(new PotionEffect(Potion.fireResistance.id, 80, 0, true));
 			}
 
 			if (tick == 40)
 			{
-				if (helmet.getItem() == EOItemManager.ToriteHelmet && chest.getItem() == EOItemManager.ToriteChest && pants.getItem() == EOItemManager.ToritePants && boots.getItem() == EOItemManager.ToriteBoots)
+				if (helmet.getItem() == EOItems.ToriteHelmet && chest.getItem() == EOItems.ToriteChest && pants.getItem() == EOItems.ToritePants && boots.getItem() == EOItems.ToriteBoots)
 				{
 					player.addPotionEffect(new PotionEffect(Potion.regeneration.id, 80, 0, true));
 				}
@@ -38,7 +38,7 @@ public class EOPlayerTickHandler
 				tick = 0;
 			}
 
-			if (helmet.getItem() == EOItemManager.TitaniumHelmet && chest.getItem() == EOItemManager.TitaniumChest && pants.getItem() == EOItemManager.TitaniumPants && boots.getItem() == EOItemManager.TitaniumBoots)
+			if (helmet.getItem() == EOItems.TitaniumHelmet && chest.getItem() == EOItems.TitaniumChest && pants.getItem() == EOItems.TitaniumPants && boots.getItem() == EOItems.TitaniumBoots)
 			{
 				player.addPotionEffect(new PotionEffect(Potion.resistance.id, 80, 1, true));
 			}

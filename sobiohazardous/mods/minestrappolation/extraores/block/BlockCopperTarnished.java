@@ -9,8 +9,8 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import sobiohazardous.mods.minestrappolation.core.block.MBlock;
 import sobiohazardous.mods.minestrappolation.core.util.MAssetManager;
 import sobiohazardous.mods.minestrappolation.extraores.ExtraOres;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlockManager;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOItemManager;
+import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlocks;
+import sobiohazardous.mods.minestrappolation.extraores.lib.EOItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -32,7 +32,7 @@ public class BlockCopperTarnished extends MBlock
 	public BlockCopperTarnished()
     {
         super(Material.iron);
-        this.setCreativeTab(EOBlockManager.tabOresBlocks);
+        this.setCreativeTab(EOBlocks.tabOresBlocks);
     }
 
 	public void registerBlockIcons(IIconRegister iconRegister)

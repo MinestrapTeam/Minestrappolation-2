@@ -5,14 +5,14 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import sobiohazardous.mods.minestrappolation.core.block.MBlock;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlockManager;
+import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlocks;
 
 public class BlockInvincium extends MBlock
 {
 	public BlockInvincium(Material par2Material)
 	{
 		super(par2Material);
-		this.setCreativeTab(EOBlockManager.tabOresBlocks);
+		this.setCreativeTab(EOBlocks.tabOresBlocks);
 
 	}
 

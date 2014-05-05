@@ -4,8 +4,8 @@ import java.util.Random;
 
 import sobiohazardous.mods.minestrappolation.core.block.MBlock;
 import sobiohazardous.mods.minestrappolation.extraores.ExtraOres;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlockManager;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOItemManager;
+import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlocks;
+import sobiohazardous.mods.minestrappolation.extraores.lib.EOItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
@@ -29,7 +29,7 @@ public class BlockPlate extends MBlock
 	public static final boolean isRailBlockAt(World par0World, int par1, int par2, int par3)
 	{
 		Block i = par0World.getBlock(par1, par2, par3);
-		return i == EOBlockManager.TinPlate || i == EOBlockManager.BronzePlate || i == EOBlockManager.SteelPlate || i == EOBlockManager.meuroditePlate;
+		return i == EOBlocks.TinPlate || i == EOBlocks.BronzePlate || i == EOBlocks.SteelPlate || i == EOBlocks.meuroditePlate;
 	}
 
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int par2, int par3, int i)

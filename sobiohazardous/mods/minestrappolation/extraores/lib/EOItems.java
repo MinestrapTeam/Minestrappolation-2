@@ -33,7 +33,7 @@ import sobiohazardous.mods.minestrappolation.extraores.item.ToriteToolAxe;
 import sobiohazardous.mods.minestrappolation.extraores.item.ToriteToolPickaxe;
 import sobiohazardous.mods.minestrappolation.extraores.item.ToriteToolShovel;
 
-public class EOItemManager 
+public class EOItems 
 {
 	public static CreativeTabs tabOresItems = new CreativeTabExtraoresItems(CreativeTabs.getNextID(), "Extrappolated Ores - Items");
 	
@@ -412,13 +412,13 @@ public class EOItemManager
 		steelLock = new ItemLock().setUnlocalizedName("item_SteelLock").setCreativeTab(tabOresItems).setTextureName(MAssetManager.getEOTexture("utilitySteelLock"));
 		GameRegistry.registerItem(steelLock, "mlockSteel");
 		
-		plateTinItem = new ItemReed(EOBlockManager.TinPlate).setCreativeTab(tabOresItems).setUnlocalizedName("plateTinItem").setTextureName(MAssetManager.getEOTexture("platingTin"));
+		plateTinItem = new ItemReed(EOBlocks.TinPlate).setCreativeTab(tabOresItems).setUnlocalizedName("plateTinItem").setTextureName(MAssetManager.getEOTexture("platingTin"));
 		GameRegistry.registerItem(plateTinItem, "plateTinItem");
-		plateBronzeItem = new ItemReed(EOBlockManager.BronzePlate).setCreativeTab(tabOresItems).setUnlocalizedName("plateBronzeItem").setTextureName(MAssetManager.getEOTexture("platingBronze"));
+		plateBronzeItem = new ItemReed(EOBlocks.BronzePlate).setCreativeTab(tabOresItems).setUnlocalizedName("plateBronzeItem").setTextureName(MAssetManager.getEOTexture("platingBronze"));
 		GameRegistry.registerItem(plateBronzeItem, "plateBronzeItem");
-		plateSteelItem = new ItemReed(EOBlockManager.SteelPlate).setCreativeTab(tabOresItems).setUnlocalizedName("plateSteelItem").setTextureName(MAssetManager.getEOTexture("platingSteel"));
+		plateSteelItem = new ItemReed(EOBlocks.SteelPlate).setCreativeTab(tabOresItems).setUnlocalizedName("plateSteelItem").setTextureName(MAssetManager.getEOTexture("platingSteel"));
 		GameRegistry.registerItem(plateSteelItem, "plateSteelItem");
-		plateMeuroditeItem = new ItemReed(EOBlockManager.meuroditePlate).setCreativeTab(tabOresItems).setUnlocalizedName("plateMeuroditeItem").setTextureName(MAssetManager.getEOTexture("platingMeurodite"));
+		plateMeuroditeItem = new ItemReed(EOBlocks.meuroditePlate).setCreativeTab(tabOresItems).setUnlocalizedName("plateMeuroditeItem").setTextureName(MAssetManager.getEOTexture("platingMeurodite"));
 		GameRegistry.registerItem(plateMeuroditeItem, "plateMeuroditeItem");
 	}
 	
@@ -469,11 +469,11 @@ public class EOItemManager
 		ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING).addItem(new WeightedRandomChestContent(new ItemStack(BlaziumIngot),1,2,7));
 		ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING).addItem(new WeightedRandomChestContent(new ItemStack(SteelSword),1,1,11));
 		ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING).addItem(new WeightedRandomChestContent(new ItemStack(BronzeSword),1,1,11));
-		ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_LIBRARY).addItem(new WeightedRandomChestContent(new ItemStack(EOBlockManager.SoulGem),1,3,12));
+		ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_LIBRARY).addItem(new WeightedRandomChestContent(new ItemStack(EOBlocks.SoulGem),1,3,12));
 		ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_JUNGLE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(ToriteIngot),1,3,8));
 		ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_JUNGLE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(SunstoneDust),1,7,25));
 		ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_DESERT_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(PinkQuartz),1,10,25));
-		ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_DESERT_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(EOBlockManager.RadiantQuartz),1,3,10));
+		ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_DESERT_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(EOBlocks.RadiantQuartz),1,3,10));
 		ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH).addItem(new WeightedRandomChestContent(new ItemStack(CopperIngot),1,5,30));
 		ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH).addItem(new WeightedRandomChestContent(new ItemStack(TinIngot),1,5,30));
 		ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH).addItem(new WeightedRandomChestContent(new ItemStack(BronzeIngot),1,3,25));
@@ -544,54 +544,54 @@ public class EOItemManager
 		*/
 		
 		//TODO Why aren't these in the instantiation? 
-		EOBlockManager.CopperOre.setHarvestLevel("pickaxe", 0);
-		EOBlockManager.CopperBlock.setHarvestLevel("pickaxe", 0);
-		EOBlockManager.TinOre.setHarvestLevel("pickaxe", 1);
-		EOBlockManager.TinBlock.setHarvestLevel("pickaxe", 1);
-		EOBlockManager.meuroditeOre.setHarvestLevel("pickaxe", 2);
-		EOBlockManager.meuroditeBlock.setHarvestLevel("pickaxe", 2);
-		EOBlockManager.ToriteOre.setHarvestLevel("pickaxe", 2);
-		EOBlockManager.ToriteBlock.setHarvestLevel("pickaxe", 2);
-		EOBlockManager.TitaniumOre.setHarvestLevel("pickaxe", 3);
-		EOBlockManager.TitaniumBlock.setHarvestLevel("pickaxe", 3);
-		EOBlockManager.UraniumOre.setHarvestLevel("pickaxe", 2);
-		EOBlockManager.PlutoniumOre.setHarvestLevel("pickaxe", 2);
-		EOBlockManager.SunstoneOre.setHarvestLevel("pickaxe", 2);
-		EOBlockManager.Granite.setHarvestLevel("pickaxe", 1);
-		EOBlockManager.GraniteBrick.setHarvestLevel("pickaxe", 1);
-		EOBlockManager.Quartzite.setHarvestLevel("pickaxe", 1);
-		EOBlockManager.QuartziteTile.setHarvestLevel("pickaxe", 1);
-		EOBlockManager.SmoothQuartzite.setHarvestLevel("pickaxe", 1);
-		EOBlockManager.PillarQuartzite.setHarvestLevel("pickaxe", 1);
-		EOBlockManager.ChiseledQuartzite.setHarvestLevel("pickaxe", 1);
-		EOBlockManager.SmoothQuartzTile.setHarvestLevel("pickaxe", 1);
-		EOBlockManager.BlaziumOre.setHarvestLevel("pickaxe", 2);
-		EOBlockManager.BlaziumBlock.setHarvestLevel("pickaxe", 2);
-		EOBlockManager.SoulOre.setHarvestLevel("shovel", 2);
-		EOBlockManager.TinPlatedCobble.setHarvestLevel("pickaxe", 1);
-		EOBlockManager.TinPlatedMossy.setHarvestLevel("pickaxe", 1);
-		EOBlockManager.TinPlatedStoneBrick.setHarvestLevel("pickaxe", 1);
-		EOBlockManager.TinPlatedChiseled.setHarvestLevel("pickaxe", 1);
-		EOBlockManager.TinPlatedGranite.setHarvestLevel("pickaxe", 1);
-		EOBlockManager.BronzeBlock.setHarvestLevel("pickaxe", 1);
-		EOBlockManager.BronzePlatedCobble.setHarvestLevel("pickaxe", 2);
-		EOBlockManager.BronzePlatedMossy.setHarvestLevel("pickaxe", 2);
-		EOBlockManager.BronzePlatedStoneBrick.setHarvestLevel("pickaxe", 2);
-		EOBlockManager.BronzePlatedChiseled.setHarvestLevel("pickaxe", 2);
-		EOBlockManager.BronzePlatedGranite.setHarvestLevel("pickaxe", 2);
-		EOBlockManager.SteelPlatedCobble.setHarvestLevel("pickaxe", 1);
-		EOBlockManager.SteelPlatedMossy.setHarvestLevel("pickaxe", 1);
-		EOBlockManager.SteelPlatedStoneBrick.setHarvestLevel("pickaxe", 1);
-		EOBlockManager.SteelPlatedChiseled.setHarvestLevel("pickaxe", 1);
-		EOBlockManager.SteelPlatedGranite.setHarvestLevel("pickaxe", 1);
-		EOBlockManager.RawUraniumBlock.setHarvestLevel("pickaxe", 0);
-		EOBlockManager.RawPlutoniumBlock.setHarvestLevel("pickaxe", 0);
-		EOBlockManager.SmoothRadiantQuartz.setHarvestLevel("pickaxe", 3);
-		EOBlockManager.PillarRadiantQuartz.setHarvestLevel("pickaxe", 3);
-		EOBlockManager.ChiseledRadiantQuartz.setHarvestLevel("pickaxe", 3);
-		EOBlockManager.RadiantQuartzOre.setHarvestLevel("pickaxe", 3);
-		EOBlockManager.Godstone.setHarvestLevel("pickaxe", 2);
+		EOBlocks.CopperOre.setHarvestLevel("pickaxe", 0);
+		EOBlocks.CopperBlock.setHarvestLevel("pickaxe", 0);
+		EOBlocks.TinOre.setHarvestLevel("pickaxe", 1);
+		EOBlocks.TinBlock.setHarvestLevel("pickaxe", 1);
+		EOBlocks.meuroditeOre.setHarvestLevel("pickaxe", 2);
+		EOBlocks.meuroditeBlock.setHarvestLevel("pickaxe", 2);
+		EOBlocks.ToriteOre.setHarvestLevel("pickaxe", 2);
+		EOBlocks.ToriteBlock.setHarvestLevel("pickaxe", 2);
+		EOBlocks.TitaniumOre.setHarvestLevel("pickaxe", 3);
+		EOBlocks.TitaniumBlock.setHarvestLevel("pickaxe", 3);
+		EOBlocks.UraniumOre.setHarvestLevel("pickaxe", 2);
+		EOBlocks.PlutoniumOre.setHarvestLevel("pickaxe", 2);
+		EOBlocks.SunstoneOre.setHarvestLevel("pickaxe", 2);
+		EOBlocks.Granite.setHarvestLevel("pickaxe", 1);
+		EOBlocks.GraniteBrick.setHarvestLevel("pickaxe", 1);
+		EOBlocks.Quartzite.setHarvestLevel("pickaxe", 1);
+		EOBlocks.QuartziteTile.setHarvestLevel("pickaxe", 1);
+		EOBlocks.SmoothQuartzite.setHarvestLevel("pickaxe", 1);
+		EOBlocks.PillarQuartzite.setHarvestLevel("pickaxe", 1);
+		EOBlocks.ChiseledQuartzite.setHarvestLevel("pickaxe", 1);
+		EOBlocks.SmoothQuartzTile.setHarvestLevel("pickaxe", 1);
+		EOBlocks.BlaziumOre.setHarvestLevel("pickaxe", 2);
+		EOBlocks.BlaziumBlock.setHarvestLevel("pickaxe", 2);
+		EOBlocks.SoulOre.setHarvestLevel("shovel", 2);
+		EOBlocks.TinPlatedCobble.setHarvestLevel("pickaxe", 1);
+		EOBlocks.TinPlatedMossy.setHarvestLevel("pickaxe", 1);
+		EOBlocks.TinPlatedStoneBrick.setHarvestLevel("pickaxe", 1);
+		EOBlocks.TinPlatedChiseled.setHarvestLevel("pickaxe", 1);
+		EOBlocks.TinPlatedGranite.setHarvestLevel("pickaxe", 1);
+		EOBlocks.BronzeBlock.setHarvestLevel("pickaxe", 1);
+		EOBlocks.BronzePlatedCobble.setHarvestLevel("pickaxe", 2);
+		EOBlocks.BronzePlatedMossy.setHarvestLevel("pickaxe", 2);
+		EOBlocks.BronzePlatedStoneBrick.setHarvestLevel("pickaxe", 2);
+		EOBlocks.BronzePlatedChiseled.setHarvestLevel("pickaxe", 2);
+		EOBlocks.BronzePlatedGranite.setHarvestLevel("pickaxe", 2);
+		EOBlocks.SteelPlatedCobble.setHarvestLevel("pickaxe", 1);
+		EOBlocks.SteelPlatedMossy.setHarvestLevel("pickaxe", 1);
+		EOBlocks.SteelPlatedStoneBrick.setHarvestLevel("pickaxe", 1);
+		EOBlocks.SteelPlatedChiseled.setHarvestLevel("pickaxe", 1);
+		EOBlocks.SteelPlatedGranite.setHarvestLevel("pickaxe", 1);
+		EOBlocks.RawUraniumBlock.setHarvestLevel("pickaxe", 0);
+		EOBlocks.RawPlutoniumBlock.setHarvestLevel("pickaxe", 0);
+		EOBlocks.SmoothRadiantQuartz.setHarvestLevel("pickaxe", 3);
+		EOBlocks.PillarRadiantQuartz.setHarvestLevel("pickaxe", 3);
+		EOBlocks.ChiseledRadiantQuartz.setHarvestLevel("pickaxe", 3);
+		EOBlocks.RadiantQuartzOre.setHarvestLevel("pickaxe", 3);
+		EOBlocks.Godstone.setHarvestLevel("pickaxe", 2);
 		Blocks.bedrock.setHarvestLevel("pickaxe", 4);
-		EOBlockManager.soulBlock.setHarvestLevel("pickaxe", 4);
+		EOBlocks.soulBlock.setHarvestLevel("pickaxe", 4);
 	}
 }

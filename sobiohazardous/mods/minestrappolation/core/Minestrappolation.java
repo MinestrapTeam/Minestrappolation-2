@@ -36,7 +36,7 @@ public class Minestrappolation
 	public static Minestrappolation	instance;
 	private MGuiHandler guiHandler = new MGuiHandler();
 	
-	@SidedProxy(modId = MReference.MODID_MAPI, clientSide = "sobiohazardous.minestrappolation.api.ClientProxy", serverSide = "sobiohazardous.minestrappolation.api.CommonProxy")
+	@SidedProxy(modId = MReference.MODID_MAPI, clientSide = "sobiohazardous.mods.minestrappolation.core.proxy.ClientProxy", serverSide = "sobiohazardous.mods.minestrappolation.core.proxy.CommonProxy")
 	public static CommonProxy	proxy;		
 		
 	public static CreativeTabs creativeTabStone = new MCreativeTabStone(CreativeTabs.getNextID(), "Minestrappolation - Stone");
@@ -56,7 +56,7 @@ public class Minestrappolation
 		MItems.loadItems();
 		MRecipes.loadRecipes();
 
-		FMLCommonHandler.instance().bus().register(new MAPIEventHandler());
+		FMLCommonHandler.instance().bus().register(new MEventHandler());
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, new MGuiHandler());
 		Blocks.bedrock.setHardness(80F);
 

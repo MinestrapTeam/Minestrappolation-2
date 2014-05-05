@@ -29,7 +29,7 @@ public class EDBridgeRecipes
 			
 			GameRegistry.addRecipe(new ItemStack(EDBlocks.stoneLamp, 8,1), new Object[]
 					{
-				"SSS", "SGS", "SSS", Character.valueOf('S'), new ItemStack(EDBlocks.stones,1,1), Character.valueOf('G'), sobiohazardous.mods.minestrappolation.extraores.lib.EOBlockManager.Sunstone
+				"SSS", "SGS", "SSS", Character.valueOf('S'), new ItemStack(EDBlocks.stones,1,1), Character.valueOf('G'), sobiohazardous.mods.minestrappolation.extraores.lib.EOBlocks.Sunstone
 					});
 				
 			

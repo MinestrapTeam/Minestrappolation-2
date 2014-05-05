@@ -6,16 +6,16 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent;
 import cpw.mods.fml.common.network.FMLNetworkEvent;
 
-public class MAPIEventHandler 
+public class MEventHandler 
 {
-	String url = "https://raw.githubusercontent.com/SoBiohazardous/Minestrappolation-Recode/master/src/version.txt";
+	String url = "https://raw.githubusercontent.com/SoBiohazardous/Minestrappolation-Recode/master/version.txt";
 
 	@SubscribeEvent
     public void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) 
 	{
 		if(MinestrappolationVersionChecker.doesFileExist(url))
 		{
-			MChatMessageHandler.sendChatToPlayer(event.player, MinestrappolationVersionChecker.checkIfCurrent("2.0", url,"You are using a outdated version. Version "+ MinestrappolationVersionChecker.getVersion(url)+" of Minestrappolation is out!"));
+			MChatMessageHandler.sendChatToPlayer(event.player, MinestrappolationVersionChecker.checkIfCurrent("2.1.2", url,"You are using a outdated version. Version "+ MinestrappolationVersionChecker.getVersion(url)+" of Minestrappolation is out!\n"));
 			MChatMessageHandler.sendChatToPlayer(event.player, MinestrappolationVersionChecker.getMOTDColor(url)+MinestrappolationVersionChecker.getMOTD((url)));
 		}
 		else
