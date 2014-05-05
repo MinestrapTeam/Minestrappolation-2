@@ -8,6 +8,7 @@ import java.util.List;
 
 import sobiohazardous.mods.minestrappolation.core.tileentity.InventoryStonecutterExtraSlot;
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.InventoryBasic;
 import net.minecraft.inventory.InventoryCrafting;
@@ -35,6 +36,23 @@ public class StonecutterCraftingManager
     {
         //add recipes
     	this.addRecipe(new ItemStack(Items.stick, 1), new ItemStack(Items.stick, 1), new Object[]{" S ", " S ", " S ", 'S', Items.stick});
+    	
+    	this.addRecipe(new ItemStack(Blocks.stained_hardened_clay, 9, 0), new ItemStack(Items.dye, 1, 15), new Object[]{"CCC", "CCC", "CCC", 'C', Blocks.hardened_clay});
+    	this.addRecipe(new ItemStack(Blocks.stained_hardened_clay, 9, 1), new ItemStack(Items.dye, 1, 14), new Object[]{"CCC", "CCC", "CCC", 'C', Blocks.hardened_clay});
+    	this.addRecipe(new ItemStack(Blocks.stained_hardened_clay, 9, 2), new ItemStack(Items.dye, 1, 13), new Object[]{"CCC", "CCC", "CCC", 'C', Blocks.hardened_clay});
+    	this.addRecipe(new ItemStack(Blocks.stained_hardened_clay, 9, 3), new ItemStack(Items.dye, 1, 12), new Object[]{"CCC", "CCC", "CCC", 'C', Blocks.hardened_clay});
+    	this.addRecipe(new ItemStack(Blocks.stained_hardened_clay, 9, 4), new ItemStack(Items.dye, 1, 11), new Object[]{"CCC", "CCC", "CCC", 'C', Blocks.hardened_clay});
+    	this.addRecipe(new ItemStack(Blocks.stained_hardened_clay, 9, 5), new ItemStack(Items.dye, 1, 10), new Object[]{"CCC", "CCC", "CCC", 'C', Blocks.hardened_clay});
+    	this.addRecipe(new ItemStack(Blocks.stained_hardened_clay, 9, 6), new ItemStack(Items.dye, 1, 9), new Object[]{"CCC", "CCC", "CCC", 'C', Blocks.hardened_clay});
+    	this.addRecipe(new ItemStack(Blocks.stained_hardened_clay, 9, 7), new ItemStack(Items.dye, 1, 8), new Object[]{"CCC", "CCC", "CCC", 'C', Blocks.hardened_clay});
+    	this.addRecipe(new ItemStack(Blocks.stained_hardened_clay, 9, 8), new ItemStack(Items.dye, 1, 7), new Object[]{"CCC", "CCC", "CCC", 'C', Blocks.hardened_clay});
+    	this.addRecipe(new ItemStack(Blocks.stained_hardened_clay, 9, 9), new ItemStack(Items.dye, 1, 6), new Object[]{"CCC", "CCC", "CCC", 'C', Blocks.hardened_clay});
+    	this.addRecipe(new ItemStack(Blocks.stained_hardened_clay, 9, 10), new ItemStack(Items.dye, 1, 5), new Object[]{"CCC", "CCC", "CCC", 'C', Blocks.hardened_clay});
+    	this.addRecipe(new ItemStack(Blocks.stained_hardened_clay, 9, 11), new ItemStack(Items.dye, 1, 4), new Object[]{"CCC", "CCC", "CCC", 'C', Blocks.hardened_clay});
+    	this.addRecipe(new ItemStack(Blocks.stained_hardened_clay, 9, 12), new ItemStack(Items.dye, 1, 3), new Object[]{"CCC", "CCC", "CCC", 'C', Blocks.hardened_clay});
+    	this.addRecipe(new ItemStack(Blocks.stained_hardened_clay, 9, 13), new ItemStack(Items.dye, 1, 2), new Object[]{"CCC", "CCC", "CCC", 'C', Blocks.hardened_clay});
+    	this.addRecipe(new ItemStack(Blocks.stained_hardened_clay, 9, 14), new ItemStack(Items.dye, 1, 1), new Object[]{"CCC", "CCC", "CCC", 'C', Blocks.hardened_clay});
+    	this.addRecipe(new ItemStack(Blocks.stained_hardened_clay, 9, 15), new ItemStack(Items.dye, 1, 0), new Object[]{"CCC", "CCC", "CCC", 'C', Blocks.hardened_clay});
     	
     	Collections.sort(this.recipes, new Comparator()
         {
