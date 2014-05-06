@@ -121,6 +121,10 @@ public class StonecutterShapedRecipes implements IStonecutterRecipe
                     {
                     	return false;
                     }
+                    if (neededExtraSlot.getItemDamage() != 32767 && neededExtraSlot.getItemDamage() != currentExtraSlot.getItemDamage())
+                    {
+                        return false;
+                    } 
                 } 
                 
                 /*
