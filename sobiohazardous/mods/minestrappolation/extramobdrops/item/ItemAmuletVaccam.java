@@ -12,34 +12,36 @@ import sobiohazardous.mods.minestrappolation.core.item.MItem;
 
 public class ItemAmuletVaccam extends MItem
 {
-	Random rand = new Random();
-
-	public ItemAmuletVaccam() 
+	Random	rand	= new Random();
+	
+	public ItemAmuletVaccam()
 	{
 		super();
 		this.setMaxDamage(50);
 		this.setMaxStackSize(1);
 	}
-    
-    public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase par2EntityLivingBase, EntityLivingBase par3EntityLivingBase)
-    {
-    	EntityPlayer player = (EntityPlayer)par2EntityLivingBase;
-    	//not a crit
-    	if(par2EntityLivingBase.attackEntityFrom(DamageSource.generic, 1.0F))
-    	{
-    		if(1 + rand.nextInt(10) < 3)
-    		{
-    			player.onCriticalHit(par3EntityLivingBase);
+	
+	@Override
+	public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase par2EntityLivingBase, EntityLivingBase par3EntityLivingBase)
+	{
+		EntityPlayer player = (EntityPlayer) par2EntityLivingBase;
+		// not a crit
+		if (par2EntityLivingBase.attackEntityFrom(DamageSource.generic, 1.0F))
+		{
+			if (1 + this.rand.nextInt(10) < 3)
+			{
+				player.onCriticalHit(par3EntityLivingBase);
 				par1ItemStack.damageItem(1, player);
-    		}
-    	}
-    	
-    	return true;
-    }
-    
-    @SideOnly(Side.CLIENT)
-    public boolean hasEffect(ItemStack par1ItemStack)
-    {
-        return true;
-    }
+			}
+		}
+		
+		return true;
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public boolean hasEffect(ItemStack par1ItemStack)
+	{
+		return true;
+	}
 }

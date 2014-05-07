@@ -7,16 +7,17 @@ import sobiohazardous.mods.minestrappolation.core.item.MItem;
 
 public class ItemAmuletOves extends MItem
 {
-	public ItemAmuletOves() 
+	public ItemAmuletOves()
 	{
 		super();
 	}
-
-	@SideOnly(Side.CLIENT)
-    public boolean hasEffect(ItemStack par1ItemStack)
-    {
-        return true;
-    }
 	
-	//reduce damage to player occaisonally.
+	@Override
+	@SideOnly(Side.CLIENT)
+	public boolean hasEffect(ItemStack par1ItemStack)
+	{
+		return true;
+	}
+	
+	// reduce damage to player occaisonally.
 }

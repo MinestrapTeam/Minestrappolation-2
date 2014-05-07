@@ -1,8 +1,6 @@
 package sobiohazardous.mods.minestrappolation.extramobdrops;
 
 import sobiohazardous.mods.minestrappolation.extramobdrops.lib.EMDItems;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
@@ -12,12 +10,13 @@ public final class CreativeTabExtraMobDropsPotions extends CreativeTabs
 	{
 		super(par1, par2Str);
 	}
-
+	
+	@Override
 	public String getTranslatedTabLabel()
 	{
 		return "Extrappolated Mob Drops - Potions";
 	}
-
+	
 	@Override
 	public Item getTabIconItem()
 	{

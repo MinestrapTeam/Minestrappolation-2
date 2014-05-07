@@ -9,17 +9,18 @@ import sobiohazardous.mods.minestrappolation.core.item.MItemFood;
 
 public class ItemCatEye extends MItemFood
 {
-	public ItemCatEye(int healAmt, float sat) 
+	public ItemCatEye(int healAmt, float sat)
 	{
 		super(healAmt, sat);
 	}
 	
+	@Override
 	public void onFoodEaten(ItemStack itemStack, World world, EntityPlayer entityPlayer)
 	{
 		super.onFoodEaten(itemStack, world, entityPlayer);
-	        
-	    entityPlayer.addPotionEffect(new PotionEffect(Potion.nightVision.id, 45 * 20, 0));
-	    entityPlayer.addPotionEffect(new PotionEffect(Potion.hunger.id, 10 * 20, 0));
+		
+		entityPlayer.addPotionEffect(new PotionEffect(Potion.nightVision.id, 45 * 20, 0));
+		entityPlayer.addPotionEffect(new PotionEffect(Potion.hunger.id, 10 * 20, 0));
 	}
-
+	
 }
