@@ -12,10 +12,10 @@ public class MCustomBiomeDecorator extends BiomeDecorator
 	 * The method that does the work of actually decorating chunks
 	 */
 	@Override
-	public void decorateChunk(World world, Random rand, BiomeGenBase biome, int par4, int par5)
+	public void decorateChunk(World world, Random rand, BiomeGenBase biome, int x, int z)
 	{
 		// decorate the biome
-		super.decorateChunk(world, rand, biome, par4, par5);
+		super.decorateChunk(world, rand, biome, x, z);
 	}
 	
 	/**

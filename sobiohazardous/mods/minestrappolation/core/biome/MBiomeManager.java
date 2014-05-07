@@ -7,10 +7,9 @@ import net.minecraftforge.common.BiomeDictionary.Type;
 
 public class MBiomeManager
 {
-	public static void addBiomes(BiomeGenBase biomeToAdd, Type tpye)
+	public static void addBiomes(BiomeGenBase biome, Type type)
 	{
-		BiomeManager.addSpawnBiome(biomeToAdd);
-		// TODO Not sure if this works
-		BiomeDictionary.registerBiomeType(biomeToAdd, tpye);
+		BiomeManager.addSpawnBiome(biome);
+		BiomeDictionary.registerBiomeType(biome, type);
 	}
 }
