@@ -7,20 +7,20 @@ import net.minecraft.item.ItemStack;
 
 public class MItemBlockSlab extends ItemSlab
 {
-	public MItemBlockSlab(Block block, MBlockMultiSlab singleSlab, MBlockMultiSlab doubleSlab) 
+	public MItemBlockSlab(Block block, MBlockMultiSlab singleSlab, MBlockMultiSlab doubleSlab)
 	{
 		super(block, singleSlab, doubleSlab, block == doubleSlab);
 		this.hasSubtypes = true;
 	}
-
+	
 	@Override
 	public int getMetadata(int meta)
 	{
 		return meta & 7;
 	}
-
+	
 	@Override
-	public String getUnlocalizedName(ItemStack itemStack) 
+	public String getUnlocalizedName(ItemStack itemStack)
 	{
 		return super.getUnlocalizedName() + "." + itemStack.getItemDamage();
 	}

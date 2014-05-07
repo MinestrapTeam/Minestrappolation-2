@@ -10,18 +10,18 @@ import net.minecraft.potion.Potion;
 
 public class MPotion extends Potion
 {
-	private ResourceLocation customIconFile;
-	private boolean	instant;
-	private int	customColor;
-	private boolean	bad;
-	private String name;
-
+	private ResourceLocation	customIconFile;
+	private boolean				instant;
+	private int					customColor;
+	private boolean				bad;
+	private String				name;
+	
 	public MPotion(String unlocalizedName, boolean isBad, int color, boolean instant, String iconFile, int iconX, int iconY)
 	{
 		this(unlocalizedName, isBad, color, instant, iconFile, iconX, iconY, -1);
 		this.name = unlocalizedName;
 	}
-
+	
 	public MPotion(String name, boolean bad, int color, boolean instant, String iconFile, int iconX, int iconY, int customColor)
 	{
 		super(getNextFreeID(), bad, color);
@@ -32,31 +32,31 @@ public class MPotion extends Potion
 		this.bad = bad;
 		this.customIconFile = new ResourceLocation(iconFile);
 	}
-
+	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public int getStatusIconIndex()
 	{
-		Minecraft.getMinecraft().renderEngine.bindTexture(customIconFile);
+		Minecraft.getMinecraft().renderEngine.bindTexture(this.customIconFile);
 		return super.getStatusIconIndex();
 	}
-
+	
 	public int getCustomColor()
 	{
-		return customColor;
+		return this.customColor;
 	}
-
+	
 	@Override
 	public boolean isInstant()
 	{
-		return instant;
+		return this.instant;
 	}
-
+	
 	public boolean getIsGoodOrNotGoodEffect()
 	{
-		return bad;
+		return this.bad;
 	}
-
+	
 	public static int getNextFreeID()
 	{
 		int id = 32;
@@ -73,13 +73,14 @@ public class MPotion extends Potion
 	}
 	
 	/**
-	 * Sets the potion in-game name to parameter value. 
+	 * Sets the potion in-game name to parameter value.
+	 * 
 	 * @param ingameName
 	 * @return itself (for chain methoding)
 	 */
 	public MPotion setInGamePotionName(String ingameName)
 	{
-		LanguageRegistry.instance().addStringLocalization(name, ingameName);
+		LanguageRegistry.instance().addStringLocalization(this.name, ingameName);
 		return this;
 	}
 }

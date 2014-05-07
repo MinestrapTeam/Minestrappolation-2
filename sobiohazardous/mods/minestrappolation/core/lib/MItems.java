@@ -5,9 +5,9 @@ import sobiohazardous.mods.minestrappolation.core.Minestrappolation;
 import sobiohazardous.mods.minestrappolation.core.util.MAssetManager;
 import net.minecraft.item.Item;
 
-public class MItems 
+public class MItems
 {
-	public static Item brickStone;
+	public static Item	brickStone;
 	
 	public static void loadItems()
 	{

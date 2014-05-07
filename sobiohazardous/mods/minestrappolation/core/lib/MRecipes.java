@@ -8,15 +8,9 @@ public class MRecipes
 {
 	public static void loadRecipes()
 	{
-		GameRegistry.addRecipe(new ItemStack(MBlocks.stoneCutter), new Object[]
-				{
-			"CC", "CC", Character.valueOf('C'), Blocks.cobblestone
-				});
+		GameRegistry.addRecipe(new ItemStack(MBlocks.stoneCutter), new Object[] { "CC", "CC", Character.valueOf('C'), Blocks.cobblestone });
 		
-		GameRegistry.addRecipe(new ItemStack(MItems.brickStone, 0), new Object[]
-				{
-			"BB", "BB", Character.valueOf('B'), Blocks.stone
-				});
-		//TODO re-add recipes with stone brick
+		GameRegistry.addRecipe(new ItemStack(MItems.brickStone, 0), new Object[] { "BB", "BB", Character.valueOf('B'), Blocks.stone });
+		// TODO re-add recipes with stone brick
 	}
 }
