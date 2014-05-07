@@ -1,7 +1,6 @@
 package sobiohazardous.mods.minestrappolation.extraores.item;
 
 import net.minecraft.item.ItemStack;
-import sobiohazardous.mods.minestrappolation.core.item.MItem;
 import sobiohazardous.mods.minestrappolation.extraores.lib.EOItems;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -13,7 +12,8 @@ public class EItemFoiled extends EOItem
 		super();
 		this.setCreativeTab(EOItems.tabOresItems);
 	}
-
+	
+	@Override
 	@SideOnly(Side.CLIENT)
 	public boolean hasEffect(ItemStack par1ItemStack)
 	{

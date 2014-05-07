@@ -5,70 +5,67 @@ import java.util.List;
 import java.util.Random;
 
 import sobiohazardous.mods.minestrappolation.core.util.MUtil;
-import sobiohazardous.mods.minestrappolation.extraores.ExtraOres;
 import sobiohazardous.mods.minestrappolation.extraores.entity.EntityInstantExplosion;
-import sobiohazardous.mods.minestrappolation.extraores.entity.EntityNukePrimed;
 import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlocks;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.item.EntityTNTPrimed;
 import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 
-
 public class BlockPlutoniumRaw extends Block
 {
-	private static final EntityLivingBase par6EntityLiving = null;
-	public BlockPlutoniumRaw instance;
-	public EntityPlayer player;
-	public EntityLivingBase living;
-	public EntitySkeleton skeleton;
-	public EntityZombie zombie;
-	public World world;
-	Random rand = new Random();
-
+	private static final EntityLivingBase	par6EntityLiving	= null;
+	public BlockPlutoniumRaw				instance;
+	public EntityPlayer						player;
+	public EntityLivingBase					living;
+	public EntitySkeleton					skeleton;
+	public EntityZombie						zombie;
+	public World							world;
+	Random									rand				= new Random();
+	
 	public BlockPlutoniumRaw(Material par3Material)
 	{
 		super(par3Material);
 		this.setCreativeTab(CreativeTabs.tabBlock);
 	}
-
+	
 	public void registerIcons(IIconRegister iconRegister)
 	{
-		blockIcon = iconRegister.registerIcon("Minestrappolation:block_PlutoniumRaw");
+		this.blockIcon = iconRegister.registerIcon("Minestrappolation:block_PlutoniumRaw");
 	}
-
+	
 	/**
 	 * Returns the quantity of items to drop on block destruction.
 	 */
+	@Override
 	public int quantityDropped(Random par1Random)
 	{
 		return 1;
 	}
-
+	
+	@Override
 	public void onBlockAdded(World par1World, int par2, int par3, int par4)
 	{
 		par1World.setBlockMetadataWithNotify(par2, par3, par4, 0, par4);
-		par1World.scheduleBlockUpdate(par2, par3, par4, this, tickRate());
+		par1World.scheduleBlockUpdate(par2, par3, par4, this, this.tickRate());
 	}
-
+	
 	public int tickRate()
 	{
 		return 1;
 	}
-
+	
 	public boolean isTraversable(Block i)
 	{
 		if (i == Blocks.lava || i == Blocks.mob_spawner || i != null && i == EOBlocks.UraniumOre)
@@ -77,12 +74,13 @@ public class BlockPlutoniumRaw extends Block
 		}
 		return i != null && i.getMaterial() != Material.air && i.isOpaqueCube();
 	}
-
+	
+	@Override
 	public void updateTick(World world, int i, int j, int k, Random random)
 	{
 		if (!world.isRemote && world.isBlockIndirectlyGettingPowered(i, j, k))
 		{
-			world.scheduleBlockUpdate(i, j, k, this, tickRate());
+			world.scheduleBlockUpdate(i, j, k, this, this.tickRate());
 			int l = world.getBlockMetadata(i, j, k);
 			int i1 = 0;
 			int j1 = 0;
@@ -97,13 +95,14 @@ public class BlockPlutoniumRaw extends Block
 						break;
 					}
 					Block l1 = world.getBlock(i, j + j1, k);
-					if (isTraversable(l1))
+					if (this.isTraversable(l1))
 					{
 						j1++;
 						break;
 					}
 					j1--;
-				} while (true);
+				}
+				while (true);
 			}
 			else if (l == 1 || l == 7)
 			{
@@ -115,13 +114,14 @@ public class BlockPlutoniumRaw extends Block
 						break;
 					}
 					Block i2 = world.getBlock(i, j + j1, k);
-					if (isTraversable(i2))
+					if (this.isTraversable(i2))
 					{
 						j1--;
 						break;
 					}
 					j1++;
-				} while (true);
+				}
+				while (true);
 			}
 			else if (l == 2 || l == 8)
 			{
@@ -133,13 +133,14 @@ public class BlockPlutoniumRaw extends Block
 						break;
 					}
 					Block j2 = world.getBlock(i, j, k + k1);
-					if (isTraversable(j2))
+					if (this.isTraversable(j2))
 					{
 						k1++;
 						break;
 					}
 					k1--;
-				} while (true);
+				}
+				while (true);
 			}
 			else if (l == 3 || l == 9)
 			{
@@ -151,13 +152,14 @@ public class BlockPlutoniumRaw extends Block
 						break;
 					}
 					Block k2 = world.getBlock(i, j, k + k1);
-					if (isTraversable(k2))
+					if (this.isTraversable(k2))
 					{
 						k1--;
 						break;
 					}
 					k1++;
-				} while (true);
+				}
+				while (true);
 			}
 			else if (l == 4 || l == 10)
 			{
@@ -169,13 +171,14 @@ public class BlockPlutoniumRaw extends Block
 						break;
 					}
 					Block l2 = world.getBlock(i + i1, j, k);
-					if (isTraversable(l2))
+					if (this.isTraversable(l2))
 					{
 						i1++;
 						break;
 					}
 					i1--;
-				} while (true);
+				}
+				while (true);
 			}
 			else if (l == 5 || l == 11)
 			{
@@ -187,59 +190,62 @@ public class BlockPlutoniumRaw extends Block
 						break;
 					}
 					Block i3 = world.getBlock(i + i1, j, k);
-					if (isTraversable(i3))
+					if (this.isTraversable(i3))
 					{
 						i1--;
 						break;
 					}
 					i1++;
-				} while (true);
+				}
+				while (true);
 			}
-		AxisAlignedBB axisalignedbb = getCollisionBoundingBoxFromPool(world, i, j, k).expand(6, 6, 6);
-		List list = world.getEntitiesWithinAABB(EntityLivingBase.class, axisalignedbb);
-		Iterator var6 = list.iterator();
-		EntityLivingBase var7;
-		if (list.isEmpty() && world.getBlockMetadata(i, j, k) > 5)
-		{
-			// System.out.println("far");
-		}
-		else
-		{
-			while (var6.hasNext())
+			AxisAlignedBB axisalignedbb = this.getCollisionBoundingBoxFromPool(world, i, j, k).expand(6, 6, 6);
+			List list = world.getEntitiesWithinAABB(EntityLivingBase.class, axisalignedbb);
+			Iterator var6 = list.iterator();
+			if (list.isEmpty() && world.getBlockMetadata(i, j, k) > 5)
 			{
-				// System.out.println("close");
-				living = (EntityLivingBase) var6.next();
-				living.addPotionEffect(new PotionEffect(Potion.wither.id, 40, 2, false));
-				// varEntityLiving.addPotionEffect(new
-				// PotionEffect(Potion.poison.getId(),200,10));
+				// System.out.println("far");
 			}
-		}
-		List list2 = world.getEntitiesWithinAABB(EntitySkeleton.class, axisalignedbb);
-		Iterator var8 = list2.iterator();
-		EntitySkeleton var9;
-		if (list2.isEmpty() && world.getBlockMetadata(i, j, k) > 5)
-		{
-			// System.out.println("far");
-		}
-		else
-			while (var8.hasNext())
+			else
 			{
-				// System.out.println("close");
-				skeleton = (EntitySkeleton) var8.next();
-				skeleton.addPotionEffect(new PotionEffect(Potion.resistance.getId(), 180, 2, false));
-				skeleton.addPotionEffect(new PotionEffect(Potion.damageBoost.getId(), 180, 1, false));
-				skeleton.removePotionEffect(Potion.wither.getId());
-				// varEntityLiving.addPotionEffect(new
-				// PotionEffect(Potion.poison.getId(),200,10));
+				while (var6.hasNext())
+				{
+					// System.out.println("close");
+					this.living = (EntityLivingBase) var6.next();
+					this.living.addPotionEffect(new PotionEffect(Potion.wither.id, 40, 2, false));
+					// varEntityLiving.addPotionEffect(new
+					// PotionEffect(Potion.poison.getId(),200,10));
+				}
+			}
+			List list2 = world.getEntitiesWithinAABB(EntitySkeleton.class, axisalignedbb);
+			Iterator var8 = list2.iterator();
+			if (list2.isEmpty() && world.getBlockMetadata(i, j, k) > 5)
+			{
+				// System.out.println("far");
+			}
+			else
+			{
+				while (var8.hasNext())
+				{
+					// System.out.println("close");
+					this.skeleton = (EntitySkeleton) var8.next();
+					this.skeleton.addPotionEffect(new PotionEffect(Potion.resistance.getId(), 180, 2, false));
+					this.skeleton.addPotionEffect(new PotionEffect(Potion.damageBoost.getId(), 180, 1, false));
+					this.skeleton.removePotionEffect(Potion.wither.getId());
+					// varEntityLiving.addPotionEffect(new
+					// PotionEffect(Potion.poison.getId(),200,10));
+				}
 			}
 		}
 	}
-
+	
+	@Override
 	public boolean canBlockStay(World par1World, int par2, int par3, int par4)
 	{
 		return this.canPlaceBlockAt(par1World, par2, par3, par4);
 	}
-
+	
+	@Override
 	public boolean canPlaceBlockAt(World par1World, int par2, int par3, int par4)
 	{
 		if (MUtil.isWaterTouchingAnySide(par1World, par2, par3, par4))
@@ -250,54 +256,55 @@ public class BlockPlutoniumRaw extends Block
 		{
 			if (!par1World.isRemote)
 			{
-
-				if (rand.nextInt(4) == 1)
+				
+				if (this.rand.nextInt(4) == 1)
 				{
-					EntityInstantExplosion entitytntprimed = new EntityInstantExplosion(par1World, (double) ((float) par2 + 0.5F), (double) ((float) par3 + 0.5F), (double) ((float) par4 + 0.5F), player);
+					EntityInstantExplosion entitytntprimed = new EntityInstantExplosion(par1World, par2 + 0.5F, par3 + 0.5F, par4 + 0.5F, this.player);
 					par1World.spawnEntityInWorld(entitytntprimed);
 					par1World.playSoundAtEntity(entitytntprimed, "random.fuse", 1.0F, 1.0F);
 				}
-
+				
 			}
-
+			
 		}
 		return true;
 	}
-
+	
 	public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, int par5)
 	{
 		if (!MUtil.isWaterTouchingAnySide(par1World, par2, par3, par4))
 		{
 			if (!par1World.isRemote)
 			{
-
-				EntityInstantExplosion entitytntprimed = new EntityInstantExplosion(par1World, (double) ((float) par2 + 0.5F), (double) ((float) par3 + 0.5F), (double) ((float) par4 + 0.5F), player);
+				
+				EntityInstantExplosion entitytntprimed = new EntityInstantExplosion(par1World, par2 + 0.5F, par3 + 0.5F, par4 + 0.5F, this.player);
 				par1World.spawnEntityInWorld(entitytntprimed);
 				par1World.playSoundAtEntity(entitytntprimed, "random.fuse", 1.0F, 1.0F);
 			}
 		}
 	}
-
+	
 	/**
 	 * Called upon the block being destroyed by an explosion
 	 */
+	@Override
 	public void onBlockDestroyedByExplosion(World par1World, int par2, int par3, int par4, Explosion par5Explosion)
 	{
 		if (!par1World.isRemote)
 		{
-			EntityInstantExplosion entitytntprimed = new EntityInstantExplosion(par1World, (double) ((float) par2 + 0.5F), (double) ((float) par3 + 0.5F), (double) ((float) par4 + 0.5F), player);
+			EntityInstantExplosion entitytntprimed = new EntityInstantExplosion(par1World, par2 + 0.5F, par3 + 0.5F, par4 + 0.5F, this.player);
 			par1World.spawnEntityInWorld(entitytntprimed);
 			par1World.playSoundAtEntity(entitytntprimed, "random.fuse", 1.0F, 1.0F);
 		}
 	}
-
+	
 	public void func_150114_a(World par1World, int par2, int par3, int par4, int par5, EntityLivingBase par6EntityLivingBase)
 	{
 		if (!par1World.isRemote)
 		{
 			if ((par5 & 1) == 1)
 			{
-				EntityInstantExplosion entitytntprimed = new EntityInstantExplosion(par1World, (double) ((float) par2 + 0.5F), (double) ((float) par3 + 0.5F), (double) ((float) par4 + 0.5F), player);
+				EntityInstantExplosion entitytntprimed = new EntityInstantExplosion(par1World, par2 + 0.5F, par3 + 0.5F, par4 + 0.5F, this.player);
 				par1World.spawnEntityInWorld(entitytntprimed);
 				par1World.playSoundAtEntity(entitytntprimed, "random.fuse", 1.0F, 1.0F);
 			}

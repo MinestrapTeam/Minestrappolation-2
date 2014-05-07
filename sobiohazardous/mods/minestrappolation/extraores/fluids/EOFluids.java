@@ -5,9 +5,9 @@ import net.minecraftforge.fluids.FluidRegistry;
 
 public class EOFluids extends Fluid
 {
-	public EOFluids(String fluidName) 
+	public EOFluids(String fluidName)
 	{
 		super(fluidName);
 		FluidRegistry.registerFluid(this);
-	}	
+	}
 }

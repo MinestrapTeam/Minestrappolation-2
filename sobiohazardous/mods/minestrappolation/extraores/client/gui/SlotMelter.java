@@ -11,28 +11,30 @@ import net.minecraft.util.MathHelper;
 public class SlotMelter extends Slot
 {
 	/** The player that is using the GUI where this slot resides. */
-	private EntityPlayer thePlayer;
-	private int field_75228_b;
-
+	private EntityPlayer	thePlayer;
+	private int				field_75228_b;
+	
 	public SlotMelter(EntityPlayer par1EntityPlayer, IInventory par2IInventory, int par3, int par4, int par5)
 	{
 		super(par2IInventory, par3, par4, par5);
 		this.thePlayer = par1EntityPlayer;
 	}
-
+	
 	/**
 	 * Check if the stack is a valid item for this slot. Always true beside for
 	 * the armor slots.
 	 */
+	@Override
 	public boolean isItemValid(ItemStack par1ItemStack)
 	{
 		return false;
 	}
-
+	
 	/**
 	 * Decrease the size of the stack in slot (first int arg) by the amount of
 	 * the second int arg. Returns the new stack.
 	 */
+	@Override
 	public ItemStack decrStackSize(int par1)
 	{
 		if (this.getHasStack())
@@ -41,7 +43,7 @@ public class SlotMelter extends Slot
 		}
 		return super.decrStackSize(par1);
 	}
-
+	
 	/**
 	 * Called when the player picks up an item from an inventory slot
 	 */
@@ -50,22 +52,24 @@ public class SlotMelter extends Slot
 		this.onCrafting(par2ItemStack);
 		super.onPickupFromSlot(par1EntityPlayer, par2ItemStack);
 	}
-
+	
 	/**
 	 * the itemStack passed in is the output - ie, iron ingots, and pickaxes,
 	 * not ore and wood. Typically increases an internal count then calls
 	 * onCrafting(item).
 	 */
+	@Override
 	protected void onCrafting(ItemStack par1ItemStack, int par2)
 	{
 		this.field_75228_b += par2;
 		this.onCrafting(par1ItemStack);
 	}
-
+	
 	/**
 	 * the itemStack passed in is the output - ie, iron ingots, and pickaxes,
 	 * not ore and wood.
 	 */
+	@Override
 	protected void onCrafting(ItemStack par1ItemStack)
 	{
 		par1ItemStack.onCrafting(this.thePlayer.worldObj, this.thePlayer, this.field_75228_b);
@@ -80,8 +84,8 @@ public class SlotMelter extends Slot
 			}
 			else if (var3 < 1.0F)
 			{
-				var4 = MathHelper.floor_float((float) var2 * var3);
-				if (var4 < MathHelper.ceiling_float_int((float) var2 * var3) && (float) Math.random() < (float) var2 * var3 - (float) var4)
+				var4 = MathHelper.floor_float(var2 * var3);
+				if (var4 < MathHelper.ceiling_float_int(var2 * var3) && (float) Math.random() < var2 * var3 - var4)
 				{
 					++var4;
 				}

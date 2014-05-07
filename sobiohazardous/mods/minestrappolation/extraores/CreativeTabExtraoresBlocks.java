@@ -1,12 +1,8 @@
 package sobiohazardous.mods.minestrappolation.extraores;
 
-import sobiohazardous.mods.minestrappolation.extraores.*;
 import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlocks;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 
 public final class CreativeTabExtraoresBlocks extends CreativeTabs
 {
@@ -14,12 +10,13 @@ public final class CreativeTabExtraoresBlocks extends CreativeTabs
 	{
 		super(par1, par2Str);
 	}
-
+	
+	@Override
 	public String getTranslatedTabLabel()
 	{
 		return "Extrapolated Ores - Blocks";
 	}
-
+	
 	@Override
 	public Item getTabIconItem()
 	{

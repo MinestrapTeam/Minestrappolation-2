@@ -4,14 +4,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-import org.lwjgl.opengl.GL11;
-
 import sobiohazardous.mods.minestrappolation.core.util.MAssetManager;
-import sobiohazardous.mods.minestrappolation.extraores.ExtraOres;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlocks;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLiving;
@@ -20,53 +16,48 @@ import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
-
 public class BlockGodstone extends Block
 {
-	public BlockGodstone instance;
-	public EntityPlayer player;
-	public EntityLiving living;
-	public EntityZombie zombie;
-	public EntitySkeleton skeleton;
-	public EntityEnderman enderman;
-	public EntityWither wither;
-
+	public BlockGodstone	instance;
+	public EntityPlayer		player;
+	public EntityLiving		living;
+	public EntityZombie		zombie;
+	public EntitySkeleton	skeleton;
+	public EntityEnderman	enderman;
+	public EntityWither		wither;
+	
 	public BlockGodstone(Material par3Material)
 	{
 		super(par3Material);
 		this.setCreativeTab(CreativeTabs.tabBlock);
 	}
-
+	
 	public void registerIcons(IIconRegister iconRegister)
 	{
-		blockIcon = iconRegister.registerIcon(MAssetManager.getEOTexture("godstone"));
+		this.blockIcon = iconRegister.registerIcon(MAssetManager.getEOTexture("godstone"));
 	}
-
-	/**
-	 * Returns the quantity of items to drop on block destruction.
-	 */
+	
+	@Override
 	public int quantityDropped(Random par1Random)
 	{
 		return 1;
 	}
-
+	
 	// public void onBlockPlacedBy(World par1World, int i, int j, int k,
 	// EntityLiving par5EntityLiving)
 	// {
 	// par1World.setBlockMetadataWithNotify(i, j, k, blockIndexInTexture);
 	// par1World.scheduleBlockUpdate(i, j, k, blockID, tickRate());
 	// }
-
+	
+	@Override
 	public void onBlockAdded(World par1World, int par2, int par3, int par4)
 	{
 		par1World.setBlockMetadataWithNotify(par2, par3, par4, 0, par4);
-		par1World.scheduleBlockUpdate(par2, par3, par4, this, tickRate());
+		par1World.scheduleBlockUpdate(par2, par3, par4, this, this.tickRate());
 		/*
 		 * Random random = new Random(432L); Tessellator tessellator =
 		 * Tessellator.instance; for (int i = 0; (float)i < 50; ++i) {
@@ -92,20 +83,21 @@ public class BlockGodstone extends Block
 		// place, because it only makes it crash when placed.
 		// If you can figure out how to fix this, please do.
 	}
-
+	
 	public int tickRate()
 	{
 		return 1;
 	}
-
+	
 	public boolean isTraversable(Block i)
 	{
 		return this != null && this.blockMaterial != Material.air && this.isOpaqueCube();
 	}
-
+	
+	@Override
 	public void updateTick(World world, int i, int j, int k, Random random)
 	{
-		world.scheduleBlockUpdate(i, j, k, this, tickRate());
+		world.scheduleBlockUpdate(i, j, k, this, this.tickRate());
 		int l = world.getBlockMetadata(i, j, k);
 		int i1 = 0;
 		int j1 = 0;
@@ -120,13 +112,14 @@ public class BlockGodstone extends Block
 					break;
 				}
 				Block l1 = world.getBlock(i, j + j1, k);
-				if (isTraversable(l1))
+				if (this.isTraversable(l1))
 				{
 					j1++;
 					break;
 				}
 				j1--;
-			} while (true);
+			}
+			while (true);
 		}
 		else if (l == 1 || l == 7)
 		{
@@ -138,13 +131,14 @@ public class BlockGodstone extends Block
 					break;
 				}
 				Block i2 = world.getBlock(i, j + j1, k);
-				if (isTraversable(i2))
+				if (this.isTraversable(i2))
 				{
 					j1--;
 					break;
 				}
 				j1++;
-			} while (true);
+			}
+			while (true);
 		}
 		else if (l == 2 || l == 8)
 		{
@@ -156,13 +150,14 @@ public class BlockGodstone extends Block
 					break;
 				}
 				Block j2 = world.getBlock(i, j, k + k1);
-				if (isTraversable(j2))
+				if (this.isTraversable(j2))
 				{
 					k1++;
 					break;
 				}
 				k1--;
-			} while (true);
+			}
+			while (true);
 		}
 		else if (l == 3 || l == 9)
 		{
@@ -174,13 +169,14 @@ public class BlockGodstone extends Block
 					break;
 				}
 				Block k2 = world.getBlock(i, j, k + k1);
-				if (isTraversable(k2))
+				if (this.isTraversable(k2))
 				{
 					k1--;
 					break;
 				}
 				k1++;
-			} while (true);
+			}
+			while (true);
 		}
 		else if (l == 4 || l == 10)
 		{
@@ -192,13 +188,14 @@ public class BlockGodstone extends Block
 					break;
 				}
 				Block l2 = world.getBlock(i + i1, j, k);
-				if (isTraversable(l2))
+				if (this.isTraversable(l2))
 				{
 					i1++;
 					break;
 				}
 				i1--;
-			} while (true);
+			}
+			while (true);
 		}
 		else if (l == 5 || l == 11)
 		{
@@ -210,79 +207,84 @@ public class BlockGodstone extends Block
 					break;
 				}
 				Block i3 = world.getBlock(i + i1, j, k);
-				if (isTraversable(i3))
+				if (this.isTraversable(i3))
 				{
 					i1--;
 					break;
 				}
 				i1++;
-			} while (true);
+			}
+			while (true);
 		}
-		AxisAlignedBB axisalignedbb = getCollisionBoundingBoxFromPool(world, i, j, k).expand(6, 6, 6);
-
+		AxisAlignedBB axisalignedbb = this.getCollisionBoundingBoxFromPool(world, i, j, k).expand(6, 6, 6);
+		
 		List list2 = world.getEntitiesWithinAABB(EntityZombie.class, axisalignedbb);
 		Iterator var8 = list2.iterator();
-		EntityZombie var9;
 		if (list2.isEmpty() && world.getBlockMetadata(i, j, k) > 5)
 		{
 			// System.out.println("far");
 		}
 		else
+		{
 			while (var8.hasNext())
 			{
 				// System.out.println("close");
-				zombie = (EntityZombie) var8.next();
-				zombie.setFire(20);
+				this.zombie = (EntityZombie) var8.next();
+				this.zombie.setFire(20);
 				// varEntityLiving.addPotionEffect(new
 				// PotionEffect(Potion.poison.getId(),200,10));
 			}
+		}
 		List list3 = world.getEntitiesWithinAABB(EntitySkeleton.class, axisalignedbb);
 		Iterator var10 = list3.iterator();
-		EntitySkeleton var11;
 		if (list3.isEmpty() && world.getBlockMetadata(i, j, k) > 5)
 		{
 			// System.out.println("far");
 		}
 		else
+		{
 			while (var10.hasNext())
 			{
 				// System.out.println("close");
-				skeleton = (EntitySkeleton) var10.next();
-				skeleton.setFire(20);
+				this.skeleton = (EntitySkeleton) var10.next();
+				this.skeleton.setFire(20);
 				// varEntityLiving.addPotionEffect(new
 				// PotionEffect(Potion.poison.getId(),200,10));
 			}
+		}
 		List list4 = world.getEntitiesWithinAABB(EntityEnderman.class, axisalignedbb);
 		Iterator var12 = list4.iterator();
-		EntityEnderman var13;
 		if (list4.isEmpty() && world.getBlockMetadata(i, j, k) > 5)
 		{
 			// System.out.println("far");
 		}
 		else
+		{
 			while (var12.hasNext())
 			{
 				// System.out.println("close");
-				enderman = (EntityEnderman) var12.next();
-				enderman.setFire(20);
+				this.enderman = (EntityEnderman) var12.next();
+				this.enderman.setFire(20);
 				// varEntityLiving.addPotionEffect(new
 				// PotionEffect(Potion.poison.getId(),200,10));
 			}
+		}
 		List list5 = world.getEntitiesWithinAABB(EntityWither.class, axisalignedbb);
 		Iterator var14 = list5.iterator();
-		EntityWither var15;
 		if (list5.isEmpty() && world.getBlockMetadata(i, j, k) > 5)
 		{
 			// System.out.println("far");
 		}
 		else
+		{
 			while (var14.hasNext())
 			{
 				// System.out.println("close");
-				wither = (EntityWither) var14.next();
-				wither.setFire(20);
+				this.wither = (EntityWither) var14.next();
+				this.wither.setFire(20);
 				// varEntityLiving.addPotionEffect(new
 				// PotionEffect(Potion.poison.getId(),200,10));
 			}
+		}
 	}
 }
