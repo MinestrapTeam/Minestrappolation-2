@@ -6,14 +6,13 @@ import net.minecraft.block.material.Material;
 public class MBlock extends Block
 {
 	/**
-	 * @Deprecated as of 1.7.2 update. No longer needed as of now, this does
+	 * @deprecated as of 1.7.2 update. No longer needed as of now, this does
 	 *             nothing different then vanilla.
 	 * @param par2Material
 	 */
-	@Deprecated
-	public MBlock(Material par2Material)
+	public MBlock(Material material)
 	{
-		super(par2Material);
+		super(material);
 	}
 	
 	/*

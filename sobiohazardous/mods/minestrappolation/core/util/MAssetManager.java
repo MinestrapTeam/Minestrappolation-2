@@ -52,7 +52,7 @@ public class MAssetManager
 	 * @return
 	 */
 	@Deprecated
-	public static String[] getMaterialStringArray(String id, String matPrefix, String type)
+	private static String[] getMaterialStringArray(String id, String matPrefix, String type)
 	{
 		List<String> textures = new ArrayList<>();
 		try
@@ -92,7 +92,7 @@ public class MAssetManager
 	 * @return
 	 */
 	@Deprecated
-	public static String[] getMaterialStringArray(String id, String matPrefix)
+	private static String[] getMaterialStringArray(String id, String matPrefix)
 	{
 		List<String> textures = new ArrayList<>();
 		try
@@ -133,7 +133,7 @@ public class MAssetManager
 	 * @return
 	 */
 	@Deprecated
-	public static String[] getMaterialStringArrayEx(String id, String matPrefix, String exc)
+	private static String[] getMaterialStringArrayEx(String id, String matPrefix, String exc)
 	{
 		List<String> textures = new ArrayList<>();
 		try
