@@ -4,11 +4,6 @@
 // Keep in mind that you still need to fill in some blanks
 // - ZeuX
 
-
-
-
-
-
 package sobiohazardous.mods.minestrappolation.extradecor.tileentity;
 
 import net.minecraft.client.model.ModelBase;
@@ -17,124 +12,127 @@ import net.minecraft.entity.Entity;
 
 public class ModelPlate extends ModelBase
 {
-  //fields
-    ModelRenderer Base;
-    ModelRenderer PlateA;
-    ModelRenderer PlateB;
-    ModelRenderer PlateC;
-    ModelRenderer PlateD;
-    ModelRenderer PlateE;
-    ModelRenderer PlateF;
-    ModelRenderer PlateG;
-    ModelRenderer PlateH;
-    ModelRenderer PlateI;
-  
-  public ModelPlate()
-  {
-    textureWidth = 64;
-    textureHeight = 32;
-    
-      Base = new ModelRenderer(this, 0, 0);
-      Base.addBox(0F, 0F, 0F, 8, 1, 8);
-      Base.setRotationPoint(-4F, 23F, -4F);
-      Base.setTextureSize(64, 32);
-      Base.mirror = true;
-      setRotation(Base, 0F, 0F, 0F);
-      PlateA = new ModelRenderer(this, 0, 9);
-      PlateA.addBox(0F, 0F, 0F, 16, 1, 6);
-      PlateA.setRotationPoint(-8F, 22F, -3F);
-      PlateA.setTextureSize(64, 32);
-      PlateA.mirror = true;
-      setRotation(PlateA, 0F, 0F, 0F);
-      PlateB = new ModelRenderer(this, 0, 16);
-      PlateB.addBox(0F, 0F, 0F, 14, 1, 2);
-      PlateB.setRotationPoint(-7F, 22F, 3F);
-      PlateB.setTextureSize(64, 32);
-      PlateB.mirror = true;
-      setRotation(PlateB, 0F, 0F, 0F);
-      PlateC = new ModelRenderer(this, 0, 19);
-      PlateC.addBox(0F, 0F, 0F, 14, 1, 2);
-      PlateC.setRotationPoint(-7F, 22F, -5F);
-      PlateC.setTextureSize(64, 32);
-      PlateC.mirror = true;
-      setRotation(PlateC, 0F, 0F, 0F);
-      PlateD = new ModelRenderer(this, 0, 22);
-      PlateD.addBox(0F, 0F, 0F, 12, 1, 1);
-      PlateD.setRotationPoint(-6F, 22F, 5F);
-      PlateD.setTextureSize(64, 32);
-      PlateD.mirror = true;
-      setRotation(PlateD, 0F, 0F, 0F);
-      PlateE = new ModelRenderer(this, 0, 24);
-      PlateE.addBox(0F, 0F, 0F, 12, 1, 1);
-      PlateE.setRotationPoint(-6F, 22F, -6F);
-      PlateE.setTextureSize(64, 32);
-      PlateE.mirror = true;
-      setRotation(PlateE, 0F, 0F, 0F);
-      PlateF = new ModelRenderer(this, 0, 26);
-      PlateF.addBox(0F, 0F, 0F, 10, 1, 1);
-      PlateF.setRotationPoint(-5F, 22F, 6F);
-      PlateF.setTextureSize(64, 32);
-      PlateF.mirror = true;
-      setRotation(PlateF, 0F, 0F, 0F);
-      PlateG = new ModelRenderer(this, 0, 28);
-      PlateG.addBox(0F, 0F, 0F, 10, 1, 1);
-      PlateG.setRotationPoint(-5F, 22F, -7F);
-      PlateG.setTextureSize(64, 32);
-      PlateG.mirror = true;
-      setRotation(PlateG, 0F, 0F, 0F);
-      PlateH = new ModelRenderer(this, 32, 0);
-      PlateH.addBox(0F, 0F, 0F, 6, 1, 1);
-      PlateH.setRotationPoint(-3F, 22F, 7F);
-      PlateH.setTextureSize(64, 32);
-      PlateH.mirror = true;
-      setRotation(PlateH, 0F, 0F, 0F);
-      PlateI = new ModelRenderer(this, 32, 2);
-      PlateI.addBox(0F, 0F, 0F, 6, 1, 1);
-      PlateI.setRotationPoint(-3F, 22F, -8F);
-      PlateI.setTextureSize(64, 32);
-      PlateI.mirror = true;
-      setRotation(PlateI, 0F, 0F, 0F);
-  }
-  
-  public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
-  {
-    super.render(entity, f, f1, f2, f3, f4, f5);
-    setRotationAngles(f, f1, f2, f3, f4, f5,entity);
-    Base.render(f5);
-    PlateA.render(f5);
-    PlateB.render(f5);
-    PlateC.render(f5);
-    PlateD.render(f5);
-    PlateE.render(f5);
-    PlateF.render(f5);
-    PlateG.render(f5);
-    PlateH.render(f5);
-    PlateI.render(f5);
-  }
-  
-  public void render(float f5){
-	  Base.render(f5);
-	    PlateA.render(f5);
-	    PlateB.render(f5);
-	    PlateC.render(f5);
-	    PlateD.render(f5);
-	    PlateE.render(f5);
-	    PlateF.render(f5);
-	    PlateG.render(f5);
-	    PlateH.render(f5);
-	    PlateI.render(f5);
-  }
-  
-  private void setRotation(ModelRenderer model, float x, float y, float z)
-  {
-    model.rotateAngleX = x;
-    model.rotateAngleY = y;
-    model.rotateAngleZ = z;
-  }
-  
-  public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5,Entity entity)
-  {
-    super.setRotationAngles(f, f1, f2, f3, f4, f5,entity);
-  }
-
+	// fields
+	ModelRenderer	Base;
+	ModelRenderer	PlateA;
+	ModelRenderer	PlateB;
+	ModelRenderer	PlateC;
+	ModelRenderer	PlateD;
+	ModelRenderer	PlateE;
+	ModelRenderer	PlateF;
+	ModelRenderer	PlateG;
+	ModelRenderer	PlateH;
+	ModelRenderer	PlateI;
+	
+	public ModelPlate()
+	{
+		this.textureWidth = 64;
+		this.textureHeight = 32;
+		
+		this.Base = new ModelRenderer(this, 0, 0);
+		this.Base.addBox(0F, 0F, 0F, 8, 1, 8);
+		this.Base.setRotationPoint(-4F, 23F, -4F);
+		this.Base.setTextureSize(64, 32);
+		this.Base.mirror = true;
+		this.setRotation(this.Base, 0F, 0F, 0F);
+		this.PlateA = new ModelRenderer(this, 0, 9);
+		this.PlateA.addBox(0F, 0F, 0F, 16, 1, 6);
+		this.PlateA.setRotationPoint(-8F, 22F, -3F);
+		this.PlateA.setTextureSize(64, 32);
+		this.PlateA.mirror = true;
+		this.setRotation(this.PlateA, 0F, 0F, 0F);
+		this.PlateB = new ModelRenderer(this, 0, 16);
+		this.PlateB.addBox(0F, 0F, 0F, 14, 1, 2);
+		this.PlateB.setRotationPoint(-7F, 22F, 3F);
+		this.PlateB.setTextureSize(64, 32);
+		this.PlateB.mirror = true;
+		this.setRotation(this.PlateB, 0F, 0F, 0F);
+		this.PlateC = new ModelRenderer(this, 0, 19);
+		this.PlateC.addBox(0F, 0F, 0F, 14, 1, 2);
+		this.PlateC.setRotationPoint(-7F, 22F, -5F);
+		this.PlateC.setTextureSize(64, 32);
+		this.PlateC.mirror = true;
+		this.setRotation(this.PlateC, 0F, 0F, 0F);
+		this.PlateD = new ModelRenderer(this, 0, 22);
+		this.PlateD.addBox(0F, 0F, 0F, 12, 1, 1);
+		this.PlateD.setRotationPoint(-6F, 22F, 5F);
+		this.PlateD.setTextureSize(64, 32);
+		this.PlateD.mirror = true;
+		this.setRotation(this.PlateD, 0F, 0F, 0F);
+		this.PlateE = new ModelRenderer(this, 0, 24);
+		this.PlateE.addBox(0F, 0F, 0F, 12, 1, 1);
+		this.PlateE.setRotationPoint(-6F, 22F, -6F);
+		this.PlateE.setTextureSize(64, 32);
+		this.PlateE.mirror = true;
+		this.setRotation(this.PlateE, 0F, 0F, 0F);
+		this.PlateF = new ModelRenderer(this, 0, 26);
+		this.PlateF.addBox(0F, 0F, 0F, 10, 1, 1);
+		this.PlateF.setRotationPoint(-5F, 22F, 6F);
+		this.PlateF.setTextureSize(64, 32);
+		this.PlateF.mirror = true;
+		this.setRotation(this.PlateF, 0F, 0F, 0F);
+		this.PlateG = new ModelRenderer(this, 0, 28);
+		this.PlateG.addBox(0F, 0F, 0F, 10, 1, 1);
+		this.PlateG.setRotationPoint(-5F, 22F, -7F);
+		this.PlateG.setTextureSize(64, 32);
+		this.PlateG.mirror = true;
+		this.setRotation(this.PlateG, 0F, 0F, 0F);
+		this.PlateH = new ModelRenderer(this, 32, 0);
+		this.PlateH.addBox(0F, 0F, 0F, 6, 1, 1);
+		this.PlateH.setRotationPoint(-3F, 22F, 7F);
+		this.PlateH.setTextureSize(64, 32);
+		this.PlateH.mirror = true;
+		this.setRotation(this.PlateH, 0F, 0F, 0F);
+		this.PlateI = new ModelRenderer(this, 32, 2);
+		this.PlateI.addBox(0F, 0F, 0F, 6, 1, 1);
+		this.PlateI.setRotationPoint(-3F, 22F, -8F);
+		this.PlateI.setTextureSize(64, 32);
+		this.PlateI.mirror = true;
+		this.setRotation(this.PlateI, 0F, 0F, 0F);
+	}
+	
+	@Override
+	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
+	{
+		super.render(entity, f, f1, f2, f3, f4, f5);
+		this.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+		this.Base.render(f5);
+		this.PlateA.render(f5);
+		this.PlateB.render(f5);
+		this.PlateC.render(f5);
+		this.PlateD.render(f5);
+		this.PlateE.render(f5);
+		this.PlateF.render(f5);
+		this.PlateG.render(f5);
+		this.PlateH.render(f5);
+		this.PlateI.render(f5);
+	}
+	
+	public void render(float f5)
+	{
+		this.Base.render(f5);
+		this.PlateA.render(f5);
+		this.PlateB.render(f5);
+		this.PlateC.render(f5);
+		this.PlateD.render(f5);
+		this.PlateE.render(f5);
+		this.PlateF.render(f5);
+		this.PlateG.render(f5);
+		this.PlateH.render(f5);
+		this.PlateI.render(f5);
+	}
+	
+	private void setRotation(ModelRenderer model, float x, float y, float z)
+	{
+		model.rotateAngleX = x;
+		model.rotateAngleY = y;
+		model.rotateAngleZ = z;
+	}
+	
+	@Override
+	public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity)
+	{
+		super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+	}
+	
 }
