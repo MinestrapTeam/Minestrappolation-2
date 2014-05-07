@@ -6,6 +6,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 
+import sobiohazardous.mods.minestrappolation.core.lib.MItems;
 import sobiohazardous.mods.minestrappolation.core.tileentity.InventoryStonecutterExtraSlot;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -53,6 +54,8 @@ public class StonecutterCraftingManager
     	this.addRecipe(new ItemStack(Blocks.stained_hardened_clay, 9, 13), new ItemStack(Items.dye, 1, 2), new Object[]{"CCC", "CCC", "CCC", 'C', Blocks.hardened_clay});
     	this.addRecipe(new ItemStack(Blocks.stained_hardened_clay, 9, 14), new ItemStack(Items.dye, 1, 1), new Object[]{"CCC", "CCC", "CCC", 'C', Blocks.hardened_clay});
     	this.addRecipe(new ItemStack(Blocks.stained_hardened_clay, 9, 15), new ItemStack(Items.dye, 1, 0), new Object[]{"CCC", "CCC", "CCC", 'C', Blocks.hardened_clay});
+    	
+    	//this.addRecipe(new ItemStack(MItems.brickStone, 4), null, new Object[]{"S", 'S', Blocks.stone});
     	
     	Collections.sort(this.recipes, new Comparator()
         {
