@@ -12,7 +12,8 @@ import clashsoft.cslib.util.CSLog;
 /**
  * The class CSReflection.
  * <p>
- * This class adds several utils for "hacking" into the JVM, also known as Reflection.
+ * This class adds several utils for "hacking" into the JVM, also known as
+ * Reflection.
  * 
  * @author Clashsoft
  */
@@ -86,9 +87,13 @@ public class CSReflection
 			if (!CSReflection.class.getName().equals(className) && !className.startsWith("java.lang.Thread"))
 			{
 				if (callerClassName == null)
+				{
 					callerClassName = className;
+				}
 				else if (!callerClassName.equals(className))
+				{
 					return ste;
+				}
 			}
 		}
 		
@@ -102,11 +107,12 @@ public class CSReflection
 		Method[] methods = clazz.getDeclaredMethods();
 		for (String methodName : methodNames)
 		{
-			for (int i = 0; i < methods.length; i++)
+			for (Method method : methods)
 			{
-				Method method = methods[i];
 				if (methodName.equals(method.getName()))
+				{
 					return method;
+				}
 			}
 		}
 		CSLog.error(new NoSuchMethodException("Method not found! (Class: " + clazz + "; Expected field names: " + Arrays.toString(methodNames)));
@@ -152,14 +158,13 @@ public class CSReflection
 		List list = new ArrayList();
 		Field[] fields = clazz.getDeclaredFields();
 		
-		for (int i = 0; i < fields.length; i++)
+		for (Field field : fields)
 		{
 			try
 			{
-				Field field = fields[i];
 				Class c = field.getType();
 				Object o = field.get(instance);
-				if (c == fieldType || (subtypes && fieldType.isAssignableFrom(c)))
+				if (c == fieldType || subtypes && fieldType.isAssignableFrom(c))
 				{
 					list.add(o);
 				}
@@ -177,11 +182,12 @@ public class CSReflection
 		Field[] fields = clazz.getDeclaredFields();
 		for (String fieldName : fieldNames)
 		{
-			for (int i = 0; i < fields.length; i++)
+			for (Field field : fields)
 			{
-				Field field = fields[i];
 				if (fieldName.equals(field.getName()))
+				{
 					return field;
+				}
 			}
 		}
 		CSLog.error(new NoSuchFieldException("Field not found! (Class: " + clazz + "; Expected field names: " + Arrays.toString(fieldNames)));
@@ -197,7 +203,9 @@ public class CSReflection
 			{
 				Field field = fields[i];
 				if (fieldName.equals(field.getName()))
+				{
 					return i;
+				}
 			}
 		}
 		CSLog.error(new NoSuchFieldException("Field not found! (Class: " + clazz + "; Expected field names: " + Arrays.toString(fieldNames)));
@@ -318,6 +326,31 @@ public class CSReflection
 	
 	// Instances
 	
+	public static <T> T createInstance(String className)
+	{
+		try
+		{
+			Class c = Class.forName(className);
+			return (T) c.newInstance();
+		}
+		catch (Exception ex)
+		{
+			return null;
+		}
+	}
+	
+	public static <T> T createInstance(Class<T> c)
+	{
+		try
+		{
+			return c.newInstance();
+		}
+		catch (Exception ex)
+		{
+			return null;
+		}
+	}
+	
 	/**
 	 * Creates a new instance of T using the parameters.
 	 * 
@@ -336,7 +369,9 @@ public class CSReflection
 		for (int i = 0; i < parameters.length; i++)
 		{
 			if (parameters[i] != null)
+			{
 				parameterTypes[i] = parameters[i].getClass();
+			}
 		}
 		
 		try

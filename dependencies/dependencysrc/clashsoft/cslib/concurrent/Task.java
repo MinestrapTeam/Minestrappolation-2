@@ -2,8 +2,8 @@ package clashsoft.cslib.concurrent;
 
 public class Task implements Runnable
 {
-	public String name;
-	public final Runnable runnable;
+	public String			name;
+	public final Runnable	runnable;
 	
 	public Task(String name, Runnable runnable)
 	{
@@ -14,6 +14,6 @@ public class Task implements Runnable
 	@Override
 	public void run()
 	{
-		runnable.run();
+		this.runnable.run();
 	}
 }

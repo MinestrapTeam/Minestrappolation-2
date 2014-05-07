@@ -8,6 +8,7 @@ import clashsoft.cslib.minecraft.common.BaseProxy;
 import clashsoft.cslib.minecraft.network.CSNetHandler;
 import clashsoft.cslib.minecraft.update.CSUpdate;
 import clashsoft.cslib.minecraft.util.CSConfig;
+import clashsoft.cslib.reflect.CSReflection;
 import clashsoft.cslib.util.CSLog;
 import clashsoft.cslib.util.CSString;
 import cpw.mods.fml.common.FMLCommonHandler;
@@ -46,6 +47,7 @@ public abstract class BaseMod<N extends CSNetHandler>
 	public List<String>	authors		= Collections.EMPTY_LIST;
 	
 	public boolean		hasConfig;
+	public File			configFile;
 	
 	public Class<N>		netHandlerClass;
 	public N			netHandler;
@@ -68,8 +70,20 @@ public abstract class BaseMod<N extends CSNetHandler>
 		this.acronym = acronym;
 		this.version = version;
 		
-		this.logoFile = this.modID + ":logo.png";
+		this.logoFile = "/" + this.modID + "/logo.png";
 		this.isClient = proxy == null ? FMLCommonHandler.instance().getSide().isClient() : proxy.isClient();
+	}
+	
+	public static <T extends BaseProxy> T createProxy(String clientClass, String serverClass)
+	{
+		if (FMLCommonHandler.instance().getSide().isClient())
+		{
+			return CSReflection.createInstance(clientClass);
+		}
+		else
+		{
+			return CSReflection.createInstance(serverClass);
+		}
 	}
 	
 	/**
@@ -165,10 +179,11 @@ public abstract class BaseMod<N extends CSNetHandler>
 	{
 		this.writeMetadata(event.getModMetadata());
 		
+		// In case the mod wants to read the config on its own
+		this.configFile = new File(event.getModConfigurationDirectory(), this.name + ".cfg");
 		if (this.hasConfig)
 		{
-			File configFile = new File(event.getModConfigurationDirectory(), this.name + ".cfg");
-			CSConfig.loadConfig(configFile, this.name);
+			CSConfig.loadConfig(this.configFile, this.name);
 			this.readConfig();
 			CSConfig.saveConfig();
 		}

@@ -173,7 +173,6 @@ public class CSBitMath
 	
 	private static boolean[] multiply_(boolean[] src1, boolean[] src2, boolean[] dest)
 	{
-		int len = src1.length;
 		// Implementation
 		return dest;
 	}

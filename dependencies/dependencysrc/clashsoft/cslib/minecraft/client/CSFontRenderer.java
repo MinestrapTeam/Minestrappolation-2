@@ -267,7 +267,6 @@ public class CSFontRenderer extends FontRenderer
 	 */
 	private float renderDefaultChar(int i, boolean italic)
 	{
-		float scale = 2F;
 		float f = i % 16 * 8;
 		float f1 = i / 16 * 8;
 		float f2 = italic ? 1.0F : 0.0F;
@@ -717,10 +716,6 @@ public class CSFontRenderer extends FontRenderer
 		return this.renderString(string, x, y, color, shadow);
 	}
 	
-	/**
-	 * Render single line string by setting GL color, current (posX,posY), and
-	 * calling renderStringAtPos()
-	 */
 	private int renderString(String string, int x, int y, int color, boolean shadow)
 	{
 		if (string == null)
@@ -751,10 +746,6 @@ public class CSFontRenderer extends FontRenderer
 		}
 	}
 	
-	/**
-	 * Returns the width of this string. Equivalent of
-	 * FontMetrics.stringWidth(String s).
-	 */
 	@Override
 	public int getStringWidth(String string)
 	{
@@ -813,9 +804,6 @@ public class CSFontRenderer extends FontRenderer
 		}
 	}
 	
-	/**
-	 * Returns the width of this character as rendered.
-	 */
 	@Override
 	public int getCharWidth(char c)
 	{
@@ -856,9 +844,6 @@ public class CSFontRenderer extends FontRenderer
 		}
 	}
 	
-	/**
-	 * Trims a string to fit a specified Width.
-	 */
 	@Override
 	public String trimStringToWidth(String string, int width)
 	{
@@ -928,9 +913,6 @@ public class CSFontRenderer extends FontRenderer
 		return stringbuilder.toString();
 	}
 	
-	/**
-	 * Remove all newline characters from the end of the string
-	 */
 	private String trimStringNewline(String string)
 	{
 		while (string != null && string.endsWith("\n"))
@@ -941,9 +923,6 @@ public class CSFontRenderer extends FontRenderer
 		return string;
 	}
 	
-	/**
-	 * Splits and draws a String with wordwrap (maximum length is parameter k)
-	 */
 	@Override
 	public void drawSplitString(String string, int x, int y, int width, int color)
 	{
@@ -953,10 +932,6 @@ public class CSFontRenderer extends FontRenderer
 		this.renderSplitString(string, x, y, width, false);
 	}
 	
-	/**
-	 * Perform actual work of rendering a multi-line string with wordwrap and
-	 * with darker drop shadow color if flag is set
-	 */
 	private void renderSplitString(String string, int x, int y, int width, boolean shadow)
 	{
 		List list = this.listFormattedStringToWidth(string, width);
@@ -968,59 +943,36 @@ public class CSFontRenderer extends FontRenderer
 		}
 	}
 	
-	/**
-	 * Returns the width of the wordwrapped String (maximum length is parameter
-	 * k)
-	 */
 	@Override
 	public int splitStringWidth(String string, int width)
 	{
 		return this.FONT_HEIGHT * this.listFormattedStringToWidth(string, width).size();
 	}
 	
-	/**
-	 * Set unicodeFlag controlling whether strings should be rendered with
-	 * Unicode fonts instead of the default.png font.
-	 */
 	@Override
 	public void setUnicodeFlag(boolean unicodeFlag)
 	{
 		this.unicodeFlag = unicodeFlag;
 	}
 	
-	/**
-	 * Get unicodeFlag controlling whether strings should be rendered with
-	 * Unicode fonts instead of the default.png font.
-	 */
 	@Override
 	public boolean getUnicodeFlag()
 	{
 		return this.unicodeFlag;
 	}
 	
-	/**
-	 * Set bidiFlag to control if the Unicode Bidirectional Algorithm should be
-	 * run before rendering any string.
-	 */
 	@Override
 	public void setBidiFlag(boolean bidiFlag)
 	{
 		this.bidiFlag = bidiFlag;
 	}
 	
-	/**
-	 * Breaks a string into a list of pieces that will fit a specified width.
-	 */
 	@Override
 	public List listFormattedStringToWidth(String string, int width)
 	{
 		return Arrays.asList(this.wrapFormattedStringToWidth(string, width).split("\n"));
 	}
 	
-	/**
-	 * Inserts newline and formatting into a string to wrap it within the
-	 * specified width.
-	 */
 	public String wrapFormattedStringToWidth(String string, int width)
 	{
 		int j = this.sizeStringToWidth(string, width);
@@ -1039,10 +991,6 @@ public class CSFontRenderer extends FontRenderer
 		}
 	}
 	
-	/**
-	 * Determines how many characters from the string will fit into the
-	 * specified width.
-	 */
 	private int sizeStringToWidth(String string, int width)
 	{
 		int j = string.length();
@@ -1106,27 +1054,16 @@ public class CSFontRenderer extends FontRenderer
 		return l != j && i1 != -1 && i1 < l ? i1 : l;
 	}
 	
-	/**
-	 * Checks if the char code is a hexadecimal character, used to set colour.
-	 */
 	private static boolean isFormatColor(char c)
 	{
 		return c >= 48 && c <= 57 || c >= 97 && c <= 102 || c >= 65 && c <= 70;
 	}
 	
-	/**
-	 * Checks if the char code is O-K...lLrRk-o... used to set special
-	 * formatting.
-	 */
 	private static boolean isFormatSpecial(char c)
 	{
 		return c >= 107 && c <= 111 || c >= 75 && c <= 79 || c == 114 || c == 82 || c == 'C';
 	}
 	
-	/**
-	 * Digests a string for nonprinting formatting characters then returns a
-	 * string containing only that formatting.
-	 */
 	private static String getFormatFromString(String string)
 	{
 		String s1 = "";
@@ -1153,10 +1090,6 @@ public class CSFontRenderer extends FontRenderer
 		return s1;
 	}
 	
-	/**
-	 * Get bidiFlag that controls if the Unicode Bidirectional Algorithm should
-	 * be run before rendering any string
-	 */
 	@Override
 	public boolean getBidiFlag()
 	{

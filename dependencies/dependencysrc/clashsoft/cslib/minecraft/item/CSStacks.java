@@ -85,6 +85,7 @@ public class CSStacks
 	
 	public static ItemStack	iron_ingot				= new ItemStack(Items.iron_ingot);
 	
+	public static ItemStack	lapis_lazuli			= new ItemStack(Items.dye, 1, 4);
 	public static ItemStack	lava_bucket				= new ItemStack(Items.lava_bucket);
 	public static ItemStack	leather					= new ItemStack(Items.leather);
 	

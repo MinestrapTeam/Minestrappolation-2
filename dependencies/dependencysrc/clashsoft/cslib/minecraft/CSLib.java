@@ -6,7 +6,7 @@ import clashsoft.cslib.minecraft.common.CSLibProxy;
 import clashsoft.cslib.minecraft.network.CSNetHandler;
 import clashsoft.cslib.minecraft.update.CSUpdate;
 import clashsoft.cslib.minecraft.util.CSConfig;
-//import clashsoft.cslib.minecraft.util.Log4JLogger;
+import clashsoft.cslib.minecraft.util.Log4JLogger;
 import clashsoft.cslib.util.CSLog;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -30,7 +30,7 @@ public class CSLib extends ClashsoftMod
 	public static final String	MODID		= "cslib";
 	public static final String	NAME		= "Clashsoft Lib";
 	public static final String	ACRONYM		= "cslib";
-	public static final String	VERSION		= CSUpdate.CURRENT_VERSION + "-1.0.1";
+	public static final String	VERSION		= CSUpdate.CURRENT_VERSION + "-1.0.2";
 	public static final String	DEPENDENCY	= "required-after:" + MODID;
 	
 	@Instance(MODID)
@@ -50,7 +50,7 @@ public class CSLib extends ClashsoftMod
 		this.eventHandler = this;
 		this.url = "https://github.com/Clashsoft/CSLib-Minecraft/wiki/";
 		
-		//CSLog.logger = new Log4JLogger();
+		CSLog.logger = new Log4JLogger();
 	}
 	
 	@Override

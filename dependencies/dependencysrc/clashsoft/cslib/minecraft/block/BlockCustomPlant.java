@@ -22,7 +22,6 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public class BlockCustomPlant extends CustomBlock implements ICustomBlock, IPlantable
 {
@@ -104,7 +103,6 @@ public class BlockCustomPlant extends CustomBlock implements ICustomBlock, IPlan
 		}
 		
 		boolean validLight = world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z);
-		boolean validSoil = soil.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
 		
 		return validLight && this.isValidGround(metadata, soil, world.getBlockMetadata(x, y - 1, z));
 	}
@@ -186,7 +184,5 @@ public class BlockCustomPlant extends CustomBlock implements ICustomBlock, IPlan
 		{
 			this.icons[i] = iconRegister.registerIcon(this.iconNames[i]);
 		}
-		
-		this.iconNames = null;
 	}
 }

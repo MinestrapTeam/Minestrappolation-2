@@ -36,9 +36,13 @@ public class ImmutableObjectFactory
 		for (int i = 0; i < args.length; i++)
 		{
 			if (args[i] != null)
+			{
 				classes[i] = args[i].getClass();
+			}
 			else
+			{
 				classes[i] = Object.class;
+			}
 		}
 		return createObject(clazz, classes, args);
 	}
@@ -65,7 +69,9 @@ public class ImmutableObjectFactory
 		{
 			Object obj = map.get(args);
 			if (obj != null)
+			{
 				return cast(clazz, obj);
+			}
 		}
 		else
 		{
@@ -108,7 +114,9 @@ public class ImmutableObjectFactory
 	public static final void checkImmutable(Class clazz)
 	{
 		if (!isImmutable(clazz))
+		{
 			throw new IllegalArgumentException(clazz + " is not immutable! Sign with @Immutable annotation");
+		}
 	}
 	
 	/**
@@ -121,15 +129,25 @@ public class ImmutableObjectFactory
 	public static boolean isImmutable(Class clazz)
 	{
 		if (clazz == null)
+		{
 			return false;
+		}
 		if (clazz.isPrimitive())
+		{
 			return true;
+		}
 		if (clazz.isAssignableFrom(Number.class) || clazz.isAssignableFrom(String.class))
+		{
 			return true;
+		}
 		if (clazz.isAnnotationPresent(Immutable.class))
+		{
 			return true;
+		}
 		if (clazz.getSimpleName().toLowerCase().startsWith("immutable"))
+		{
 			return true;
+		}
 		return false;
 	}
 	
@@ -147,7 +165,9 @@ public class ImmutableObjectFactory
 	{
 		Map<Object[], Object> map = objects.get(clazz);
 		if (map == null)
+		{
 			map = new HashMap();
+		}
 		map.put(args, object);
 		objects.put(clazz, map);
 	}

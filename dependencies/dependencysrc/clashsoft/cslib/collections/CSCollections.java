@@ -87,16 +87,20 @@ public class CSCollections
 	 */
 	public static <T> List<List<T>> split(List<T> list, int maxLength)
 	{
-		Class clazz = list.getClass().getComponentType();
-		int arrays = (int) Math.ceil((float) list.size() / (float) maxLength);
-		List<List<T>> ret = new ArrayList();
+		int len = list.size();
+		int arrays = (int) Math.ceil((float) len / maxLength);
+		List<List<T>> ret = new ArrayList(arrays);
 		
-		for (int i = 0; i < ret.size(); i++)
+		for (int i = 0; i < arrays; i++)
 		{
-			List<T> reti = new ArrayList();
-			for (int j = 0; j < maxLength && (j + (i * maxLength)) < list.size(); j++)
-				reti.add(list.get(j + (i * maxLength)));
-			ret.add(reti);
+			List<T> sublist = new ArrayList();
+			for (int j = 0; j < maxLength; j++)
+			{
+				int k = j + (i * maxLength);
+				if (k >= list.size())
+					sublist.add(list.get(k));
+			}
+			ret.add(sublist);
 		}
 		return ret;
 	}
@@ -223,7 +227,8 @@ public class CSCollections
 	}
 	
 	/**
-	 * Returns the first index after {@code start} of the {@code object} in the {@code list}
+	 * Returns the first index after {@code start} of the {@code object} in the
+	 * {@code list}
 	 * 
 	 * @param list
 	 *            the list
@@ -258,7 +263,8 @@ public class CSCollections
 	}
 	
 	/**
-	 * Returns the last index before {@code start} of the {@code object} in the {@code list}
+	 * Returns the last index before {@code start} of the {@code object} in the
+	 * {@code list}
 	 * 
 	 * @param list
 	 *            the list
@@ -279,7 +285,8 @@ public class CSCollections
 	}
 	
 	/**
-	 * Returns the first index of the any of the {@code objects} in the {@code list}
+	 * Returns the first index of the any of the {@code objects} in the
+	 * {@code list}
 	 * 
 	 * @param list
 	 *            the list

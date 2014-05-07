@@ -17,7 +17,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.event.terraingen.TerrainGen;
 
 public abstract class BlockCustomSapling extends BlockSapling implements ICustomBlock
@@ -142,7 +141,6 @@ public abstract class BlockCustomSapling extends BlockSapling implements ICustom
 		}
 		
 		boolean validLight = world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z);
-		boolean validSoil = soil.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
 		
 		return validLight && this.isValidGround(metadata, soil, world.getBlockMetadata(x, y - 1, z));
 	}

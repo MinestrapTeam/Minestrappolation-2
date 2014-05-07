@@ -68,8 +68,6 @@ public class BlockCustomGrass extends CustomBlock
 			this.sideIcons[i] = iconRegister.registerIcon(this.sideIconNames[i]);
 			this.bottomIcons[i] = iconRegister.registerIcon(this.bottomIconNames[i]);
 		}
-		
-		this.topIconNames = this.sideIconNames = this.bottomIconNames = null;
 	}
 	
 	@Override

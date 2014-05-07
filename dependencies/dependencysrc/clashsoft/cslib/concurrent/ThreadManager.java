@@ -2,9 +2,9 @@ package clashsoft.cslib.concurrent;
 
 public class ThreadManager
 {
-	public final String name;
-	public final int cores;
-	private CSThread[] threads;
+	public final String	name;
+	public final int	cores;
+	private CSThread[]	threads;
 	
 	public ThreadManager(String name)
 	{
@@ -25,33 +25,34 @@ public class ThreadManager
 	
 	public void addTask(Runnable runnable)
 	{
-		CSThread thread = getLeastOccupiedThread();
+		CSThread thread = this.getLeastOccupiedThread();
 		String name = thread.name + ":" + thread.getTaskCount();
 		thread.addTask(new Task(name, runnable));
 	}
 	
 	public void addTask(Task task)
 	{
-		CSThread thread = getLeastOccupiedThread();
+		CSThread thread = this.getLeastOccupiedThread();
 		thread.addTask(task);
 	}
 	
 	public CSThread getLeastOccupiedThread()
 	{
 		CSThread[] threads = this.threads;
-		int min = 0;
+		int cores = this.cores;
+		int min = -1;
 		int thread = 0;
 		
-		for (int i = 0; i < this.cores; i++)
+		for (int i = 0; i < cores; i++)
 		{
 			CSThread t = threads[i];
-			if (min == 0)
+			int taskCount = t.getTaskCount();
+			if (min == -1)
 			{
-				return t;
+				min = taskCount;
 			}
 			else
 			{
-				int taskCount = t.getTaskCount();
 				if (taskCount < min)
 				{
 					min = taskCount;

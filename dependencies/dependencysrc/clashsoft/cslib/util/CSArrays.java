@@ -20,7 +20,7 @@ public class CSArrays
 	 * 
 	 * @param array
 	 *            the varargs array
-	 * @return
+	 * @return the array
 	 */
 	public static <T> T[] create(T... array)
 	{

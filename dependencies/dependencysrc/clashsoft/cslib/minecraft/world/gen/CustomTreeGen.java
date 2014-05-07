@@ -81,8 +81,6 @@ public class CustomTreeGen extends WorldGenTrees
 					{
 						if (y1 >= 0 && y1 < 256)
 						{
-							Block block = world.getBlock(x1, y1, z1);
-							
 							if (this.isReplaceable(world, x1, y1, z1))
 								continue;
 						}

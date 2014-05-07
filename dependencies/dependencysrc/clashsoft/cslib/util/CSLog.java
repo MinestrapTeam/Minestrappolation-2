@@ -1,17 +1,10 @@
 package clashsoft.cslib.util;
 
 import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class CSLog
 {
-	public static final Logger	logger		= Logger.getLogger("CLASHSOFT");
-	
-	static
-	{
-		Logger.getGlobal().setLevel(Level.ALL);
-		logger.setLevel(Level.ALL);
-	}
+	public static CSLogger logger = new CSLogger();
 	
 	public static void print(String string)
 	{
@@ -55,7 +48,7 @@ public class CSLog
 	
 	public static void error(Throwable throwable)
 	{
-		logger.log(Level.SEVERE, throwable.getMessage(), throwable);
+		logger.log(Level.SEVERE, throwable);
 	}
 	
 	public static void print(String format, Object... args)

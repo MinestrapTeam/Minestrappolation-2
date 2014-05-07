@@ -169,8 +169,13 @@ public class CustomItem extends Item
 		}
 		else
 		{
-			return this.getUnlocalizedName() + "." + this.names[stack.getItemDamage()];
+			return getUnlocalizedName(this, this.names, stack);
 		}
+	}
+	
+	public static String getUnlocalizedName(Item item, String[] names, ItemStack stack)
+	{
+		return item.getUnlocalizedName() + "." + names[stack.getItemDamage()];
 	}
 	
 	@Override
@@ -212,7 +217,12 @@ public class CustomItem extends Item
 			list.addAll(s);
 		}
 		
-		String key = this.getUnlocalizedName(stack) + ".desc";
+		addInformation(this, stack, list);
+	}
+	
+	public static void addInformation(Item item, ItemStack stack, List<String> list)
+	{
+		String key = item.getUnlocalizedName(stack) + ".desc";
 		String desc = I18n.getString(key);
 		if (desc != key && !desc.isEmpty())
 		{

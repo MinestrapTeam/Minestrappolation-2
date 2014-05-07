@@ -8,12 +8,12 @@ import clashsoft.cslib.util.CSLog;
 
 public class CSThread extends Thread
 {
-	public static boolean DEBUG = true;
+	public static boolean		DEBUG		= true;
 	
-	public final String name;
+	public final String			name;
 	
 	private List<Task>			tasks		= new ArrayList();
-	private ListIterator<Task>	iterator	= tasks.listIterator();
+	private ListIterator<Task>	iterator	= this.tasks.listIterator();
 	
 	public CSThread(String name)
 	{
@@ -24,18 +24,18 @@ public class CSThread extends Thread
 	@Override
 	public void run()
 	{
-		info("Starting Thread " + this.name);
+		this.info("Starting Thread " + this.name);
 		
-		while (iterator.hasNext())
+		while (this.iterator.hasNext())
 		{
-			Task task = iterator.next();
-			info("  Starting Task " + task.name);
+			Task task = this.iterator.next();
+			this.info("  Starting Task " + task.name);
 			task.run();
-			info("  Finished Task " + task.name);
-			iterator.remove();
+			this.info("  Finished Task " + task.name);
+			this.iterator.remove();
 		}
 		
-		info("Finished Thread " + this.name);
+		this.info("Finished Thread " + this.name);
 	}
 	
 	public void info(String string)
@@ -48,11 +48,16 @@ public class CSThread extends Thread
 	
 	public void addTask(Task task)
 	{
-		iterator.add(task);
+		this.iterator.add(task);
+		
+		if (!this.isAlive())
+		{
+			this.start();
+		}
 	}
 	
 	public int getTaskCount()
 	{
-		return tasks.size();
+		return this.tasks.size();
 	}
 }

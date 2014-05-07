@@ -8,11 +8,9 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemMonsterPlacer;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.management.ServerConfigurationManager;
 import net.minecraft.util.AxisAlignedBB;
@@ -24,7 +22,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.common.DimensionManager;
 
-public abstract class BlockCustomPortal extends Block
+public abstract class BlockCustomPortal extends BlockImpl
 {
 	public static final int[][]	metadataMap	= { { 3, 1 }, { 2, 0 } };
 	
@@ -32,9 +30,7 @@ public abstract class BlockCustomPortal extends Block
 	
 	public BlockCustomPortal(String name, String iconName, int dimensionID)
 	{
-		super(Material.portal);
-		this.setBlockName(name);
-		this.setBlockTextureName(iconName);
+		super(Material.portal, name, iconName);
 		this.setHardness(-1F);
 		this.setLightLevel(1F);
 		this.setTickRandomly(true);
@@ -47,35 +43,6 @@ public abstract class BlockCustomPortal extends Block
 	public int getFrameMetadata()
 	{
 		return 0;
-	}
-	
-	@Override
-	public void updateTick(World world, int x, int y, int z, Random random)
-	{
-		super.updateTick(world, x, y, z, random);
-		
-		if (!world.provider.isSurfaceWorld() || !world.getGameRules().getGameRuleBooleanValue("doMobSpawning"))
-		{
-			return;
-		}
-		
-		if (random.nextInt(2000) >= world.difficultySetting.getDifficultyId())
-		{
-			int i = y;
-			while (!World.doesBlockHaveSolidTopSurface(world, x, i, z) && i > 0)
-			{
-				--i;
-			}
-			if (i <= 0 || world.getBlock(x, i + 1, z).isNormalCube())
-			{
-				return;
-			}
-			Entity localEntity = ItemMonsterPlacer.spawnCreature(world, 57, x + 0.5D, i + 1.1D, z + 0.5D);
-			if (localEntity != null)
-			{
-				localEntity.timeUntilPortal = localEntity.getPortalCooldown();
-			}
-		}
 	}
 	
 	@Override
@@ -117,30 +84,6 @@ public abstract class BlockCustomPortal extends Block
 		
 		return false;
 	}
-	
-	public void transferEntity(Entity entity)
-	{
-		ServerConfigurationManager manager = MinecraftServer.getServer().getConfigurationManager();
-		Teleporter teleporter = this.createTeleporter((WorldServer) entity.worldObj);
-		int src = entity.dimension;
-		int dest = this.getDestination(entity);
-		
-		if (entity instanceof EntityPlayer)
-		{
-			manager.transferPlayerToDimension((EntityPlayerMP) entity, this.dimensionID, teleporter);
-		}
-		else
-		{
-			manager.transferEntityToWorld(entity, this.dimensionID, DimensionManager.getWorld(src), DimensionManager.getWorld(dest));
-		}
-	}
-	
-	public int getDestination(Entity entity)
-	{
-		return entity.dimension != 0 ? 0 : this.dimensionID;
-	}
-	
-	public abstract Teleporter createTeleporter(WorldServer world);
 	
 	@Override
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z)
@@ -186,63 +129,21 @@ public abstract class BlockCustomPortal extends Block
 	}
 	
 	@Override
-	public boolean renderAsNormalBlock()
+	public boolean isOpaqueCube()
 	{
 		return false;
 	}
 	
 	@Override
-	@SideOnly(Side.CLIENT)
-	public boolean shouldSideBeRendered(IBlockAccess world, int x, int y, int z, int side)
+	public boolean renderAsNormalBlock()
 	{
-		int i = 0;
-		
-		if (world.getBlock(x, y, z) == this)
-		{
-			i = limitToValidMetadata(world.getBlockMetadata(x, y, z));
-			
-			if (i == 0)
-			{
-				return false;
-			}
-			if (i == 2 && side != 5 && side != 4)
-			{
-				return false;
-			}
-			if (i == 1 && side != 3 && side != 2)
-			{
-				return false;
-			}
-		}
-		
-		int j = world.getBlock(x - 1, y, z) == this && world.getBlock(x - 2, y, z) != this ? 1 : 0;
-		int k = world.getBlock(x + 1, y, z) == this && world.getBlock(x + 2, y, z) != this ? 1 : 0;
-		
-		int l = world.getBlock(x, y, z - 1) == this && world.getBlock(x, y, z - 2) != this ? 1 : 0;
-		int i1 = world.getBlock(x, y, z + 1) == this && world.getBlock(x, y, z + 2) != this ? 1 : 0;
-		
-		int i2 = j != 0 || k != 0 || i == 1 ? 1 : 0;
-		int i3 = l != 0 || i1 != 0 || i == 2 ? 1 : 0;
-		
-		if (i2 != 0 && side == 4)
-		{
-			return true;
-		}
-		if (i2 != 0 && side == 5)
-		{
-			return true;
-		}
-		if (i3 != 0 && side == 2)
-		{
-			return true;
-		}
-		return i3 != 0 && side == 3;
+		return true;
 	}
 	
 	@Override
 	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
 	{
-		if (entity.ridingEntity == null && entity.riddenByEntity == null)
+		if (!world.isRemote && entity.ridingEntity == null && entity.riddenByEntity == null)
 		{
 			entity.setInPortal();
 			if (entity.getPortalCooldown() >= entity.getMaxInPortalTime())
@@ -252,12 +153,30 @@ public abstract class BlockCustomPortal extends Block
 		}
 	}
 	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public int getRenderBlockPass()
+	public void transferEntity(Entity entity)
 	{
-		return 1;
+		ServerConfigurationManager manager = MinecraftServer.getServer().getConfigurationManager();
+		int src = entity.dimension;
+		int dest = this.getDestination(entity);
+		WorldServer destWorld = manager.getServerInstance().worldServerForDimension(dest);
+		Teleporter teleporter = this.createTeleporter(destWorld);
+		
+		if (entity instanceof EntityPlayerMP)
+		{
+			manager.transferPlayerToDimension((EntityPlayerMP) entity, dest, teleporter);
+		}
+		else
+		{
+			manager.transferEntityToWorld(entity, dest, DimensionManager.getWorld(src), destWorld, teleporter);
+		}
 	}
+	
+	public int getDestination(Entity entity)
+	{
+		return entity.dimension == 0 ? this.dimensionID : 0;
+	}
+	
+	public abstract Teleporter createTeleporter(WorldServer world);
 	
 	@Override
 	@SideOnly(Side.CLIENT)

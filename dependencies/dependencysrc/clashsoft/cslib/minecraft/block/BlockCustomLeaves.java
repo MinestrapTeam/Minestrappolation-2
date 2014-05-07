@@ -90,6 +90,16 @@ public class BlockCustomLeaves extends BlockLeaves implements ICustomBlock
 	}
 	
 	@Override
+	public int getRenderColor(int metadata)
+	{
+		if (this.isColored[metadata & 3])
+		{
+			return super.getRenderColor(metadata);
+		}
+		return 0xFFFFFF;
+	}
+	
+	@Override
 	public int quantityDropped(Random random)
 	{
 		return random.nextInt(20) == 0 ? 1 : 0;
