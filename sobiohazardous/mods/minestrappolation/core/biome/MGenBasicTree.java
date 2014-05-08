@@ -31,7 +31,9 @@ public class MGenBasicTree extends WorldGenerator
 	@Override
 	public boolean generate(World world, Random random, int x, int y, int z)
 	{
-		for (; y > 0 && world.isAirBlock(x, y, z); --y);
+		for (; y > 0 && world.isAirBlock(x, y, z); --y)
+		{
+		}
 		
 		Block block = world.getBlock(x, y, z);
 		

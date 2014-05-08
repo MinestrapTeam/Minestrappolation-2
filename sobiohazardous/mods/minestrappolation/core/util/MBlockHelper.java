@@ -1,8 +1,10 @@
 package sobiohazardous.mods.minestrappolation.core.util;
 
-import net.minecraft.block.Block;
+import sobiohazardous.mods.minestrappolation.core.lib.MReference;
 import cpw.mods.fml.common.registry.GameData;
 import cpw.mods.fml.common.registry.GameRegistry;
+
+import net.minecraft.block.Block;
 
 public class MBlockHelper
 {
@@ -26,11 +28,11 @@ public class MBlockHelper
 	 */
 	public static Block get(String name)
 	{
-		return GameRegistry.findBlock("Minestrappolation", name);
+		return GameRegistry.findBlock(MReference.MODID_MAPI, name);
 	}
 	
 	public static String getUniqueName(Block block)
 	{
-		return GameData.blockRegistry.getNameForObject(block);
+		return GameData.getBlockRegistry().getNameForObject(block);
 	}
 }

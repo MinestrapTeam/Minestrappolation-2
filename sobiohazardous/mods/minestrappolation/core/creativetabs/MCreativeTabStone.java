@@ -6,15 +6,9 @@ import net.minecraft.item.Item;
 
 public final class MCreativeTabStone extends CreativeTabs
 {
-	public MCreativeTabStone(int par1, String par2Str)
+	public MCreativeTabStone(int id, String label)
 	{
-		super(par1, par2Str);
-	}
-	
-	@Override
-	public String getTranslatedTabLabel()
-	{
-		return "Minestrappolation - Stone";
+		super(id, label);
 	}
 	
 	@Override

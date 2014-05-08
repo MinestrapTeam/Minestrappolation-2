@@ -8,29 +8,21 @@ import net.minecraft.util.IChatComponent;
 
 public class MChatMessageHandler
 {
-	
-	private static final IChatComponent	minestrapChatComponent	= createSckChatComponent("");
-	
-	public static void iCommandSenderReply(ICommandSender player, String message)
-	{
-		sendChatToPlayer((EntityPlayer) player, message);
-	}
-	
-	private static IChatComponent createSckChatComponent(String string)
-	{
-		ChatComponentText Component = new ChatComponentText(string);
-		return Component;
-	}
-	
 	public static IChatComponent createChatComponent(String message)
 	{
-		ChatComponentText component = new ChatComponentText(message);
-		return minestrapChatComponent.appendSibling(component);
+		ChatComponentText c = new ChatComponentText(message);
+		return c;
 	}
 	
 	public static void sendChatToPlayer(EntityPlayer player, String message)
 	{
 		player.addChatComponentMessage(createChatComponent(message));
+	}
+	
+	public static void sendChatToCommandSender(ICommandSender sender, String message)
+	{
+		if (sender instanceof EntityPlayer) {
+			sendChatToPlayer((EntityPlayer) sender, message);}
 	}
 	
 	public static void broadcastMessageToPlayers(String message)

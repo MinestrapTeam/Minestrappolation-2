@@ -7,7 +7,7 @@ import java.net.URL;
 
 import net.minecraft.util.EnumChatFormatting;
 
-public class MinestrappolationVersionChecker
+public class MVersionChecker
 {
 	
 	public static String checkIfCurrent(String versiontocheck, String urlToCheck, String message)

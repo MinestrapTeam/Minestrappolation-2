@@ -1,9 +1,5 @@
 package sobiohazardous.mods.minestrappolation.core.util;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-
 import sobiohazardous.mods.minestrappolation.core.lib.MReference;
 
 /**
@@ -11,8 +7,6 @@ import sobiohazardous.mods.minestrappolation.core.lib.MReference;
  */
 public class MAssetManager
 {
-	private static boolean	isBuild	= false;
-	
 	public static String getMAPITexture(String name)
 	{
 		return MReference.MODID_MAPI + ":" + name;
@@ -41,128 +35,5 @@ public class MAssetManager
 	public static String getEOStonecutterTexture(String name)
 	{
 		return MReference.MODID_EO + ":" + "stoneCutter/" + name;
-	}
-	
-	/**
-	 * Returns all of the textures with the material prefix and the type in an
-	 * array. used for metadata material blocks
-	 * 
-	 * @param matPrefix
-	 * @param type
-	 * @return
-	 */
-	@Deprecated
-	private static String[] getMaterialStringArray(String id, String matPrefix, String type)
-	{
-		List<String> textures = new ArrayList<>();
-		try
-		{
-			// TODO Find a fix!
-			File textureDir = new File(System.getProperty("user.dir") + "/assets/extradecor/textures/blocks/stoneCutter/");
-			
-			for (int i = 0; i < textureDir.list().length; i++)
-			{
-				if (textureDir.list()[i].startsWith(matPrefix + "_" + type))
-				{
-					textures.add(id + ":/stoneCutter/" + textureDir.list()[i].replaceAll(".png", ""));
-				}
-			}
-			
-		}
-		
-		catch (Exception e)
-		{
-			
-		}
-		
-		// convert the list to an array
-		String[] result = new String[textures.size()];
-		for (int i = 0; i < textures.size(); i++)
-		{
-			result[i] = textures.get(i);
-		}
-		return result;
-	}
-	
-	/**
-	 * Returns all of the textures with the material prefix in an array. used
-	 * for metadata material blocks
-	 * 
-	 * @param matPrefix
-	 * @return
-	 */
-	@Deprecated
-	private static String[] getMaterialStringArray(String id, String matPrefix)
-	{
-		List<String> textures = new ArrayList<>();
-		try
-		{
-			// TODO Find a fix!
-			File textureDir = new File(System.getProperty("user.dir") + "/assets/extradecor/textures/blocks/stoneCutter/");
-			
-			for (int i = 0; i < textureDir.list().length; i++)
-			{
-				if (textureDir.list()[i].startsWith(matPrefix))
-				{
-					textures.add(id + ":/stoneCutter/" + textureDir.list()[i].replaceAll(".png", ""));
-				}
-			}
-			
-		}
-		
-		catch (Exception e)
-		{
-			
-		}
-		
-		// convert the list to an array
-		String[] result = new String[textures.size()];
-		for (int i = 0; i < textures.size(); i++)
-		{
-			result[i] = textures.get(i);
-		}
-		
-		return result;
-	}
-	
-	/**
-	 * Returns all of the textures with the material prefix in an array.
-	 * Excludes the string param. used for metadata material blocks
-	 * 
-	 * @param matPrefix
-	 * @return
-	 */
-	@Deprecated
-	private static String[] getMaterialStringArrayEx(String id, String matPrefix, String exc)
-	{
-		List<String> textures = new ArrayList<>();
-		try
-		{
-			// TODO Find a fix!
-			File textureDir = new File(System.getProperty("user.dir") + "/assets/extradecor/textures/blocks/stoneCutter/");
-			
-			for (int i = 0; i < textureDir.list().length; i++)
-			{
-				if (textureDir.list()[i].startsWith(matPrefix))
-				{
-					textures.add(id + ":/stoneCutter/" + textureDir.list()[i].replaceAll(".png", "").replaceAll(exc, ""));
-				}
-			}
-			
-		}
-		
-		catch (Exception e)
-		{
-			
-		}
-		
-		// convert the list to an array
-		String[] result = new String[textures.size()];
-		for (int i = 0; i < textures.size(); i++)
-		{
-			result[i] = textures.get(i);
-		}
-		
-		return result;
 	}
 }

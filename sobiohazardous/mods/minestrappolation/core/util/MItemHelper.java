@@ -1,7 +1,9 @@
 package sobiohazardous.mods.minestrappolation.core.util;
 
+import sobiohazardous.mods.minestrappolation.core.lib.MReference;
 import cpw.mods.fml.common.registry.GameData;
 import cpw.mods.fml.common.registry.GameRegistry;
+
 import net.minecraft.item.Item;
 
 public class MItemHelper
@@ -26,11 +28,11 @@ public class MItemHelper
 	 */
 	public static Item get(String name)
 	{
-		return GameRegistry.findItem("minestrappolaton", name);
+		return GameRegistry.findItem(MReference.MODID_MAPI, name);
 	}
 	
 	public static String getUniqueName(Item item)
 	{
-		return GameData.itemRegistry.getNameForObject(item);
+		return GameData.getItemRegistry().getNameForObject(item);
 	}
 }

@@ -22,12 +22,11 @@ public class Minestrappolation
 {
 	@Instance(MReference.MODID_MAPI)
 	public static Minestrappolation	instance;
-	private MGuiHandler				guiHandler			= new MGuiHandler();
 	
 	@SidedProxy(modId = MReference.MODID_MAPI, clientSide = "sobiohazardous.mods.minestrappolation.core.proxy.ClientProxy", serverSide = "sobiohazardous.mods.minestrappolation.core.proxy.CommonProxy")
 	public static CommonProxy		proxy;
 	
-	public static CreativeTabs		creativeTabStone	= new MCreativeTabStone(CreativeTabs.getNextID(), "Minestrappolation - Stone");
+	public static CreativeTabs		creativeTabStone	= new MCreativeTabStone(CreativeTabs.getNextID(), "minestrap_stone");
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
@@ -36,23 +35,23 @@ public class Minestrappolation
 	}
 	
 	@EventHandler
-	public void load(FMLInitializationEvent event)
+	public void init(FMLInitializationEvent event)
 	{
-		GameRegistry.registerTileEntity(TileEntityStonecutter.class, "tileEntityStoneCutter");
+		GameRegistry.registerTileEntity(TileEntityStonecutter.class, "StoneCutter");
 		
 		MBlocks.loadBlocks();
 		MItems.loadItems();
 		MRecipes.loadRecipes();
 		
 		FMLCommonHandler.instance().bus().register(new MEventHandler());
-		NetworkRegistry.INSTANCE.registerGuiHandler(this, new MGuiHandler());
+		NetworkRegistry.INSTANCE.registerGuiHandler(this, proxy);
 		Blocks.bedrock.setHardness(80F);
 		
 		proxy.registerRenderers();
 	}
 	
 	@EventHandler
-	public void postLoad(FMLPostInitializationEvent evt)
+	public void postInit(FMLPostInitializationEvent event)
 	{
 	}
 }
