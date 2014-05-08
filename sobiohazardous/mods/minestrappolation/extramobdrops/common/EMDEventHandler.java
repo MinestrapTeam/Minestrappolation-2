@@ -1,4 +1,4 @@
-package sobiohazardous.mods.minestrappolation.extramobdrops.handler;
+package sobiohazardous.mods.minestrappolation.extramobdrops.common;
 
 import sobiohazardous.mods.minestrappolation.extramobdrops.lib.EMDItems;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;

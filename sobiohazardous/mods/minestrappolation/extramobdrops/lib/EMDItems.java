@@ -7,8 +7,9 @@ import sobiohazardous.mods.minestrappolation.core.item.MItemFood;
 import sobiohazardous.mods.minestrappolation.core.item.MItemSword;
 import sobiohazardous.mods.minestrappolation.core.lib.MReference;
 import sobiohazardous.mods.minestrappolation.core.util.MAssetManager;
-import sobiohazardous.mods.minestrappolation.extramobdrops.CreativeTabEMDItems;
+import sobiohazardous.mods.minestrappolation.extramobdrops.creativetabs.CreativeTabEMDItems;
 import sobiohazardous.mods.minestrappolation.extramobdrops.item.*;
+
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;

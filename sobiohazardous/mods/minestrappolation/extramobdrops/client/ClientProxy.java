@@ -1,7 +1,8 @@
-package sobiohazardous.mods.minestrappolation.extramobdrops.proxy;
+package sobiohazardous.mods.minestrappolation.extramobdrops.client;
 
+import sobiohazardous.mods.minestrappolation.extramobdrops.client.renderer.entity.RenderHangGlider;
+import sobiohazardous.mods.minestrappolation.extramobdrops.common.CommonProxy;
 import sobiohazardous.mods.minestrappolation.extramobdrops.entity.EntityHangGlider;
-import sobiohazardous.mods.minestrappolation.extramobdrops.tileentity.RenderHangGlider;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class ClientProxy extends CommonProxy

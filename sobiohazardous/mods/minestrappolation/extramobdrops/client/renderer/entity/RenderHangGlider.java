@@ -1,9 +1,11 @@
-package sobiohazardous.mods.minestrappolation.extramobdrops.tileentity;
+package sobiohazardous.mods.minestrappolation.extramobdrops.client.renderer.entity;
 
 import org.lwjgl.opengl.GL11;
 
+import sobiohazardous.mods.minestrappolation.extramobdrops.client.model.ModelHangGlider;
+import sobiohazardous.mods.minestrappolation.extramobdrops.common.EMDEventHandler;
 import sobiohazardous.mods.minestrappolation.extramobdrops.entity.EntityHangGlider;
-import sobiohazardous.mods.minestrappolation.extramobdrops.handler.EMDEventHandler;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.*;
 import net.minecraft.entity.Entity;

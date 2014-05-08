@@ -1,4 +1,4 @@
-package sobiohazardous.mods.minestrappolation.extramobdrops;
+package sobiohazardous.mods.minestrappolation.extramobdrops.creativetabs;
 
 import sobiohazardous.mods.minestrappolation.extramobdrops.lib.EMDItems;
 import net.minecraft.creativetab.CreativeTabs;
