@@ -2,29 +2,27 @@ package sobiohazardous.mods.minestrappolation.extramobdrops.item;
 
 import java.util.Random;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import sobiohazardous.mods.minestrappolation.core.item.MItem;
 
-public class ItemAmuletPorcum extends MItem
+public class ItemAmuletPorcum extends ItemAmulet
 {
 	int	tick	= 0;
 	
 	public ItemAmuletPorcum()
 	{
-		super();
-		this.setMaxDamage(50);
-		this.setMaxStackSize(1);
+		super(50);
 	}
 	
 	@Override
-	public void onUpdate(ItemStack par1ItemStack, World par2World, Entity par3Entity, int par4, boolean par5)
+	public void onUpdate(ItemStack stack, World world, Entity entity, int i, boolean flag)
 	{
-		EntityPlayer player = (EntityPlayer) par3Entity;
+		if (world.isRemote)
+			return;
+		
+		EntityPlayer player = (EntityPlayer) entity;
 		Random rand = new Random();
 		int randnum = rand.nextInt(61);
 		this.tick++;
@@ -38,7 +36,7 @@ public class ItemAmuletPorcum extends MItem
 					if (player.getFoodStats().needFood())
 					{
 						player.getFoodStats().addStats(1, 0F);
-						par1ItemStack.damageItem(1, player);
+						stack.damageItem(1, player);
 					}
 				}
 			}
@@ -47,12 +45,5 @@ public class ItemAmuletPorcum extends MItem
 				this.tick = 0;
 			}
 		}
-	}
-	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public boolean hasEffect(ItemStack par1ItemStack)
-	{
-		return true;
 	}
 }

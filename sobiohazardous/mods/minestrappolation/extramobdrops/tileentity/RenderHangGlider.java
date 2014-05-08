@@ -12,17 +12,17 @@ import net.minecraft.util.ResourceLocation;
 
 public class RenderHangGlider extends Render
 {
-	public ResourceLocation	rl	= new ResourceLocation("extramobdrops:textures/misc/hangGlider.png");
+	public ResourceLocation	texture	= new ResourceLocation("extramobdrops:textures/misc/hangGlider.png");
 	
 	@Override
-	public void doRender(Entity var1, double var2, double var4, double var6, float var8, float var9)
+	public void doRender(Entity entity, double x, double y, double z, float yaw, float pitch)
 	{
-		EntityHangGlider glider = (EntityHangGlider) var1;
+		EntityHangGlider glider = (EntityHangGlider) entity;
 		EntityPlayer player = glider.player;
 		
 		GL11.glPushMatrix();
 		ModelHangGlider m = new ModelHangGlider();
-		Minecraft.getMinecraft().getTextureManager().bindTexture(this.rl);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(this.texture);
 		int tick = 0;
 		tick++;
 		float rotateYaw = EMDEventHandler.interpolateRotation(player.prevRotationYaw, player.rotationYaw, tick);
@@ -34,9 +34,9 @@ public class RenderHangGlider extends Render
 	}
 	
 	@Override
-	protected ResourceLocation getEntityTexture(Entity var1)
+	protected ResourceLocation getEntityTexture(Entity entity)
 	{
-		return this.rl;
+		return this.texture;
 	}
 	
 }

@@ -7,17 +7,17 @@ import sobiohazardous.mods.minestrappolation.core.item.MItemFood;
 
 public class ItemCalimari extends MItemFood
 {
-	public ItemCalimari(int healAmt, float sat)
+	public ItemCalimari(int healAmount, float saturationModifier)
 	{
-		super(healAmt, sat);
+		super(healAmount, saturationModifier);
 	}
 	
 	@Override
-	public ItemStack onEaten(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
+	public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player)
 	{
-		par3EntityPlayer.heal(2F);
-		super.onEaten(par1ItemStack, par2World, par3EntityPlayer);
-		return super.onEaten(par1ItemStack, par2World, par3EntityPlayer);
+		player.heal(2F);
+		super.onEaten(stack, world, player);
+		return super.onEaten(stack, world, player);
 	}
 	
 }

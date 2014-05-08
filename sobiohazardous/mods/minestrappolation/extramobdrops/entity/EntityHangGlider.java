@@ -15,17 +15,17 @@ public class EntityHangGlider extends Entity
 	boolean				checking	= false;
 	public ItemStack	theItem;
 	
-	public EntityHangGlider(World par1World)
+	public EntityHangGlider(World world)
 	{
-		super(par1World);
+		super(world);
 	}
 	
-	public EntityHangGlider(World par1World, double x, double y, double z, EntityPlayer owner, ItemStack item)
+	public EntityHangGlider(World world, double x, double y, double z, EntityPlayer owner, ItemStack item)
 	{
-		super(par1World);
+		super(world);
+		this.setPosition(x, y, z);
 		this.owner = owner.getDisplayName();
 		this.player = owner;
-		this.setPosition(x, y, z);
 		this.theItem = item;
 	}
 	
@@ -36,30 +36,35 @@ public class EntityHangGlider extends Entity
 		// EMDItemManager.hangGlider.getContainerItem(theItem) &&
 		// player.onGround == false && player.isInWater() == false)
 		// {
-		this.player.motionY /= 1.55;
+		double absX = Math.abs(this.player.motionX);
+		double absZ = Math.abs(this.player.motionZ);
+		this.player.motionY /= 1.55D;
 		this.player.fallDistance = 0;
-		if (Math.abs(this.player.motionX) < 0.15)
+		
+		if (absX < 0.9D)
 		{
-			this.player.motionX *= 1.1;
+			this.player.motionX *= 1.06D;
 		}
-		else if (Math.abs(this.player.motionX) < 0.9)
+		else if (absX < 0.15D)
 		{
-			this.player.motionX *= 1.06;
+			this.player.motionX *= 1.1D;
 		}
-		if (Math.abs(this.player.motionZ) < 0.15)
+		
+		if (absZ < 0.9D)
 		{
-			this.player.motionZ *= 1.1;
+			this.player.motionZ *= 1.06D;
 		}
-		if (Math.abs(this.player.motionZ) < 0.9)
+		else if (absZ < 0.15D)
 		{
-			this.player.motionZ *= 1.06;
+			this.player.motionZ *= 1.1D;
 		}
-		if (this.initCheck == true && Math.abs(this.player.motionX) + Math.abs(this.player.motionZ) > 0.15)
+		
+		if (this.initCheck && absX + absZ > 0.15D)
 		{
 			this.checking = true;
 			this.initCheck = false;
 		}
-		if (this.checking == true && Math.abs(this.player.motionX) + Math.abs(this.player.motionZ) <= 0.15 && this.player.isCollidedHorizontally == false)
+		else if (!this.player.isCollidedHorizontally)
 		{
 			this.checking = false;
 			this.initCheck = true;
@@ -68,7 +73,7 @@ public class EntityHangGlider extends Entity
 		// The problem for no damage is that player.isCollidedHorizontally only
 		// works client side, so it damages only client side, and not server
 		// side. these packets do nothing.
-		if (this.checking == true && this.player.isCollidedHorizontally == true)
+		if (this.checking && this.player.isCollidedHorizontally)
 		{
 			this.player.motionX = 0;
 			this.player.motionZ = 0;
@@ -97,15 +102,15 @@ public class EntityHangGlider extends Entity
 	}
 	
 	@Override
-	protected void readEntityFromNBT(NBTTagCompound var1)
+	protected void readEntityFromNBT(NBTTagCompound nbt)
 	{
-		this.owner = var1.getString("owner");
+		this.owner = nbt.getString("owner");
 	}
 	
 	@Override
-	protected void writeEntityToNBT(NBTTagCompound var1)
+	protected void writeEntityToNBT(NBTTagCompound nbt)
 	{
-		var1.setString(this.owner, "owner");
+		nbt.setString(this.owner, "owner");
 	}
 	
 }

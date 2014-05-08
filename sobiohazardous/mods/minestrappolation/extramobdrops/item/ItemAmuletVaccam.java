@@ -2,46 +2,34 @@ package sobiohazardous.mods.minestrappolation.extramobdrops.item;
 
 import java.util.Random;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
-import sobiohazardous.mods.minestrappolation.core.item.MItem;
 
-public class ItemAmuletVaccam extends MItem
+public class ItemAmuletVaccam extends ItemAmulet
 {
 	Random	rand	= new Random();
 	
 	public ItemAmuletVaccam()
 	{
-		super();
-		this.setMaxDamage(50);
-		this.setMaxStackSize(1);
+		super(50);
 	}
 	
 	@Override
-	public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase par2EntityLivingBase, EntityLivingBase par3EntityLivingBase)
+	public boolean hitEntity(ItemStack stack, EntityLivingBase entity, EntityLivingBase attacker)
 	{
-		EntityPlayer player = (EntityPlayer) par2EntityLivingBase;
+		EntityPlayer player = (EntityPlayer) entity;
 		// not a crit
-		if (par2EntityLivingBase.attackEntityFrom(DamageSource.generic, 1.0F))
+		if (entity.attackEntityFrom(DamageSource.generic, 1.0F))
 		{
-			if (1 + this.rand.nextInt(10) < 3)
+			if (this.rand.nextInt(10) < 2)
 			{
-				player.onCriticalHit(par3EntityLivingBase);
-				par1ItemStack.damageItem(1, player);
+				player.onCriticalHit(attacker);
+				stack.damageItem(1, player);
 			}
 		}
 		
-		return true;
-	}
-	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public boolean hasEffect(ItemStack par1ItemStack)
-	{
 		return true;
 	}
 }

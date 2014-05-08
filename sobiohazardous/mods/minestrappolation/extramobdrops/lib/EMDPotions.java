@@ -15,12 +15,12 @@ import net.minecraft.util.ResourceLocation;
 
 public class EMDPotions implements IPotionEffectHandler
 {
-	private static ResourceLocation		iconLoc	= MAssetManager.getMAPIResource("gui/potion_icons.png");
+	private static ResourceLocation	iconLoc	= MAssetManager.getMAPIResource("gui/potion_icons.png");
 	
-	public static Potion		infectious;
+	public static Potion			infectious;
 	
-	public static PotionType	waterBreathing;
-	public static PotionType	resistance;
+	public static PotionType		waterBreathing;
+	public static PotionType		resistance;
 	
 	public static void loadPotions()
 	{
@@ -28,8 +28,8 @@ public class EMDPotions implements IPotionEffectHandler
 	}
 	
 	/**
-	 * Where all Brewing objects are instianted for brewing recipes (view
-	 * BrewingList.java for help).
+	 * Where all {@link PotionType} objects are instianted for brewing recipes
+	 * (view {@link PotionType} for help).
 	 */
 	public static void loadBrewingRecipes()
 	{

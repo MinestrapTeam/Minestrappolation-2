@@ -13,23 +13,23 @@ public class ItemAirSack extends MItemFood
 	}
 	
 	@Override
-	protected void onFoodEaten(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
+	protected void onFoodEaten(ItemStack stack, World world, EntityPlayer player)
 	{
-		super.onFoodEaten(par1ItemStack, par2World, par3EntityPlayer);
-		if (par3EntityPlayer.isInWater())
+		super.onFoodEaten(stack, world, player);
+		if (player.isInWater())
 		{
-			par3EntityPlayer.setAir(par3EntityPlayer.getAir() + 60);
+			player.setAir(player.getAir() + 60);
 		}
 	}
 	
 	@Override
-	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
+	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
 	{
-		if (par3EntityPlayer.isInWater())
+		if (player.isInWater())
 		{
-			par3EntityPlayer.setItemInUse(par1ItemStack, this.getMaxItemUseDuration(par1ItemStack));
+			player.setItemInUse(stack, this.getMaxItemUseDuration(stack));
 		}
 		
-		return par1ItemStack;
+		return stack;
 	}
 }

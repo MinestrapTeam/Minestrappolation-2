@@ -1,15 +1,5 @@
 package sobiohazardous.mods.minestrappolation.extramobdrops;
 
-import clashsoft.brewingapi.BrewingAPI;
-import net.minecraftforge.common.MinecraftForge;
-import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.Instance;
-import cpw.mods.fml.common.SidedProxy;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLPostInitializationEvent;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.registry.EntityRegistry;
-import cpw.mods.fml.common.registry.GameRegistry;
 import sobiohazardous.mods.minestrappolation.core.lib.MReference;
 import sobiohazardous.mods.minestrappolation.extramobdrops.entity.EntityHangGlider;
 import sobiohazardous.mods.minestrappolation.extramobdrops.handler.EMDEventHandler;
@@ -21,6 +11,18 @@ import sobiohazardous.mods.minestrappolation.extramobdrops.lib.EMDRecipes;
 import sobiohazardous.mods.minestrappolation.extramobdrops.packet.EMDPacketHangGlider;
 import sobiohazardous.mods.minestrappolation.extramobdrops.packet.EMDPacketPipeline;
 import sobiohazardous.mods.minestrappolation.extramobdrops.proxy.CommonProxy;
+import clashsoft.brewingapi.BrewingAPI;
+import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.SidedProxy;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.registry.EntityRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
+
+import net.minecraftforge.common.MinecraftForge;
 
 /**
  * @author SoBiohazardous
@@ -36,17 +38,17 @@ public class ExtraMobDrops
 	
 	public static final EMDPacketPipeline	packets	= new EMDPacketPipeline();
 	
-	@Mod.EventHandler
-	public void preLoad(FMLPreInitializationEvent e)
+	@EventHandler
+	public void preInit(FMLPreInitializationEvent event)
 	{
 		// Lib init
-		EMDConfig.initConfig(e);
+		EMDConfig.initConfig(event);
 		EMDItems.loadItems();
 		EMDRecipes.loadRecipes();
 	}
 	
-	@Mod.EventHandler
-	public void load(FMLInitializationEvent e)
+	@EventHandler
+	public void init(FMLInitializationEvent event)
 	{
 		EntityRegistry.registerGlobalEntityID(EntityHangGlider.class, "hangGlider", EntityRegistry.findGlobalUniqueEntityId());
 		
@@ -62,8 +64,8 @@ public class ExtraMobDrops
 		EMDPotions.loadBrewingRecipes();
 	}
 	
-	@Mod.EventHandler
-	public void postLoad(FMLPostInitializationEvent e)
+	@EventHandler
+	public void postInit(FMLPostInitializationEvent e)
 	{
 		packets.postInitialise();
 		packets.registerPacket(EMDPacketHangGlider.class);

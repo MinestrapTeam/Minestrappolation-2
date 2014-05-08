@@ -8,17 +8,16 @@ import sobiohazardous.mods.minestrappolation.extramobdrops.lib.EMDItems;
 
 public class ItemCookedLambchop extends MItemFood
 {
-	
-	public ItemCookedLambchop(int healAmt, float sat)
+	public ItemCookedLambchop(int healAmount, float saturationModifier)
 	{
-		super(healAmt, sat);
+		super(healAmount, saturationModifier);
 	}
 	
 	@Override
-	public ItemStack onEaten(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
+	public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player)
 	{
-		super.onEaten(par1ItemStack, par2World, par3EntityPlayer);
-		return par1ItemStack.stackSize <= 0 ? new ItemStack(EMDItems.animalBones) : par1ItemStack;
+		super.onEaten(stack, world, player);
+		return stack.stackSize <= 0 ? new ItemStack(EMDItems.animalBones) : stack;
 	}
 	
 }

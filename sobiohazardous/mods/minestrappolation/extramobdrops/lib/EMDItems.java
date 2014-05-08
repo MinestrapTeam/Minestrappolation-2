@@ -7,7 +7,7 @@ import sobiohazardous.mods.minestrappolation.core.item.MItemFood;
 import sobiohazardous.mods.minestrappolation.core.item.MItemSword;
 import sobiohazardous.mods.minestrappolation.core.lib.MReference;
 import sobiohazardous.mods.minestrappolation.core.util.MAssetManager;
-import sobiohazardous.mods.minestrappolation.extramobdrops.CreativeTabExtraMobDropsItems;
+import sobiohazardous.mods.minestrappolation.extramobdrops.CreativeTabEMDItems;
 import sobiohazardous.mods.minestrappolation.extramobdrops.item.*;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
@@ -152,172 +152,173 @@ public class EMDItems
 	public static ToolMaterial	toolMaterialBlaziumH	= EnumHelper.addToolMaterial("ToolBlaziumH", 2, 799, 8.0F, 5, 18);
 	public static ToolMaterial	toolMaterialTitaniumH	= EnumHelper.addToolMaterial("ToolTitaniumH", 4, 2999, 10.0F, 6, 11);
 	
-	public static CreativeTabs	tabItems				= new CreativeTabExtraMobDropsItems(CreativeTabs.getNextID(), "Extrappolated Mob Drops - Items");
+	public static CreativeTabs	tabItems				= new CreativeTabEMDItems(CreativeTabs.getNextID(), "Extrappolated Mob Drops - Items");
 	
 	public static void loadItems()
 	{
 		snout = new MItemFood(3, 0.2F).setPotionEffect(Potion.hunger.id, 10 * 20, 1, 0.25F).setTextureName(MAssetManager.getEMDTexture("snout")).setUnlocalizedName("snout").setCreativeTab(tabItems);
-		GameRegistry.registerItem(snout, "snout");
 		pigHoof = new MItem().setUnlocalizedName("pigFoot").setCreativeTab(tabItems).setTextureName(MAssetManager.getEMDTexture("footPig"));
-		GameRegistry.registerItem(pigHoof, "pigHoof");
 		fat = new MItemFood(8, 0.2F).setPotionEffect(Potion.hunger.id, 25 * 20, 1, 1.0F).setUnlocalizedName("fat").setTextureName(MAssetManager.getEMDTexture("fat")).setCreativeTab(tabItems);
-		GameRegistry.registerItem(fat, "fat");
 		grease = new MItem().setUnlocalizedName("grease").setCreativeTab(tabItems).setTextureName(MAssetManager.getEMDTexture("grease"));
-		GameRegistry.registerItem(grease, "grease");
 		
 		friedApple = new MItemFood(8, 0.3F).setPotionEffect(Potion.hunger.id, 15 * 20, 1, 0.4F).setTextureName(MAssetManager.getEMDTexture("friedApple")).setUnlocalizedName("grease_apple").setCreativeTab(tabItems);
-		GameRegistry.registerItem(friedApple, "friedApple");
 		friedBeef = new MItemFood(16, 0.8F).setPotionEffect(Potion.hunger.id, 15 * 20, 1, 0.4F).setTextureName(MAssetManager.getEMDTexture("friedBeef")).setUnlocalizedName("grease_beef").setCreativeTab(tabItems);
-		GameRegistry.registerItem(friedBeef, "friedBeef");
 		friedBread = new MItemFood(10, 0.6F).setPotionEffect(Potion.hunger.id, 15 * 20, 1, 0.4F).setTextureName(MAssetManager.getEMDTexture("friedBread")).setUnlocalizedName("grease_bread").setCreativeTab(tabItems);
-		GameRegistry.registerItem(friedBread, "friedBread");
 		friedCarrot = new MItemFood(8, 0.6F).setPotionEffect(Potion.hunger.id, 15 * 20, 1, 0.4F).setTextureName(MAssetManager.getEMDTexture("friedCarrot")).setUnlocalizedName("grease_carrot").setCreativeTab(tabItems);
-		GameRegistry.registerItem(friedCarrot, "friedCarrot");
 		friedCookie = new MItemFood(8, 0.6F).setPotionEffect(Potion.hunger.id, 15 * 20, 1, 0.4F).setTextureName(MAssetManager.getEMDTexture("friedCookie")).setUnlocalizedName("grease_cookie").setCreativeTab(tabItems);
-		GameRegistry.registerItem(friedCookie, "friedCookie");
 		friedFlesh = new MItemFood(8, 0.6F).setPotionEffect(Potion.hunger.id, 15 * 20, 1, 0.4F).setTextureName(MAssetManager.getEMDTexture("friedFlesh")).setUnlocalizedName("grease_flesh").setCreativeTab(tabItems);
-		GameRegistry.registerItem(friedFlesh, "friedFlesh");
 		
 		animalBones = new MItem().setUnlocalizedName("animal_bones").setTextureName(MAssetManager.getEMDTexture("animalBones")).setCreativeTab(tabItems);
-		GameRegistry.registerItem(animalBones, "animalBones");
 		cowHoof = new MItem().setUnlocalizedName("cow_hoof").setCreativeTab(tabItems).setTextureName(MAssetManager.getEMDTexture("footCow"));
-		GameRegistry.registerItem(cowHoof, "cowHoof");
 		
 		horn = new MItem().setUnlocalizedName("horn").setCreativeTab(tabItems).setTextureName(MAssetManager.getEMDTexture("horn"));
-		GameRegistry.registerItem(horn, "horn");
 		
 		hornSwordWood = new MItemSword(toolMaterialWoodH, null).setUnlocalizedName("horned_wood_sword").setTextureName(MAssetManager.getEMDTexture("weaponSwordWoodHorned")).setCreativeTab(tabItems);
-		GameRegistry.registerItem(hornSwordWood, "hornSwordWood");
 		hornSwordStone = new MItemSword(toolMaterialStoneH, null).setUnlocalizedName("horned_stone_sword").setTextureName(MAssetManager.getEMDTexture("weaponSwordStoneHorned")).setCreativeTab(tabItems);
-		GameRegistry.registerItem(hornSwordStone, "hornSwordStone");
 		hornSwordIron = new MItemSword(toolMaterialIronH, null).setUnlocalizedName("horned_iron_sword").setTextureName(MAssetManager.getEMDTexture("weaponSwordIronHorned")).setCreativeTab(tabItems);
-		GameRegistry.registerItem(hornSwordIron, "hornSwordIron");
 		hornSwordDiamond = new MItemSword(toolMaterialDiamondH, null).setUnlocalizedName("horned_diamond_sword").setTextureName(MAssetManager.getEMDTexture("weaponSwordDiamondHorned")).setCreativeTab(tabItems);
-		GameRegistry.registerItem(hornSwordDiamond, "hornSwordDiamond");
 		hornSwordGold = new MItemSword(toolMaterialGoldH, null).setUnlocalizedName("horned_gold_sword").setTextureName(MAssetManager.getEMDTexture("weaponSwordGoldHorned")).setCreativeTab(tabItems);
-		GameRegistry.registerItem(hornSwordGold, "hornSwordGold");
 		
 		beakChicken = new MItem().setUnlocalizedName("chicken_beak").setCreativeTab(tabItems).setTextureName(MAssetManager.getEMDTexture("chickenBeak"));
-		GameRegistry.registerItem(beakChicken, "beakChicken");
 		
 		footChicken = new MItem().setUnlocalizedName("chicken_foot").setCreativeTab(tabItems).setTextureName(MAssetManager.getEMDTexture("footChicken"));
-		GameRegistry.registerItem(footChicken, "footChicken");
 		
 		chickenWingRaw = new MItemFood(1, 0.1F).setPotionEffect(Potion.hunger.id, 10 * 20, 1, 0.3F).setTextureName(MAssetManager.getEMDTexture("chickenWingRaw")).setUnlocalizedName("raw_chicken_wing").setCreativeTab(tabItems);
-		GameRegistry.registerItem(chickenWingRaw, "chickenWingRaw");
 		chickenWingCooked = new MItemFood(4, 0.65F).setUnlocalizedName("cooked_chicken_wing").setTextureName(MAssetManager.getEMDTexture("chickenWingCooked")).setCreativeTab(tabItems);
-		GameRegistry.registerItem(chickenWingCooked, "chickenWingCooked");
 		
 		lambchopRaw = new MItemFood(3, 0.2F).setUnlocalizedName("raw_lamb_chop").setTextureName(MAssetManager.getEMDTexture("lambChopRaw")).setCreativeTab(tabItems);
-		GameRegistry.registerItem(lambchopRaw, "lambChopRaw");
 		lambchopCooked = new ItemCookedLambchop(6, 0.8F).setUnlocalizedName("cooked_lamb_chop").setTextureName(MAssetManager.getEMDTexture("lambChopCooked")).setCreativeTab(tabItems);
-		GameRegistry.registerItem(lambchopCooked, "lambChopCooked");
 		
 		sheepHoof = new MItem().setUnlocalizedName("sheep_hoof").setTextureName(MAssetManager.getEMDTexture("footSheep")).setCreativeTab(tabItems);
-		GameRegistry.registerItem(sheepHoof, "sheepHoof");
 		
 		squidTentacle = new MItemFood(2, 0.1F).setPotionEffect(Potion.hunger.id, 8 * 20, 1, 1F).setTextureName(MAssetManager.getEMDTexture("tentacleSquid")).setUnlocalizedName("tentacle").setCreativeTab(tabItems);
-		GameRegistry.registerItem(squidTentacle, "squidTentacle");
 		calimari = new ItemCalimari(2, 0.6F).setUnlocalizedName("calamari").setTextureName(MAssetManager.getEMDTexture("calimari")).setCreativeTab(tabItems);
-		GameRegistry.registerItem(calimari, "calimari");
 		
 		infectiousFungus = new ItemInfectiousFungus(0, 0F).setUnlocalizedName("infectious_fungus").setTextureName(MAssetManager.getEMDTexture("infectiousFungus")).setCreativeTab(tabItems);
-		GameRegistry.registerItem(infectiousFungus, "infectiousFungus");
 		
 		airSack = new ItemAirSack().setUnlocalizedName("air_sack").setTextureName(MAssetManager.getEMDTexture("sackAir")).setCreativeTab(tabItems);
-		GameRegistry.registerItem(airSack, "airSack");
 		
 		whisker = new MItem().setUnlocalizedName("whisker").setCreativeTab(tabItems).setTextureName(MAssetManager.getEMDTexture("whisker"));
-		GameRegistry.registerItem(whisker, "whisker");
 		
 		catEye = new ItemCatEye(0, 0.0F).setUnlocalizedName("cat_eye").setCreativeTab(tabItems).setTextureName(MAssetManager.getEMDTexture("catEye"));
-		GameRegistry.registerItem(catEye, "catEye");
 		
 		wolfHide = new MItem().setUnlocalizedName("wolf_hide").setCreativeTab(tabItems).setTextureName(MAssetManager.getEMDTexture("hideWolf"));
-		GameRegistry.registerItem(wolfHide, "wolfHide");
 		
 		flesh = new MItemFood(4, 0.35F).setPotionEffect(Potion.hunger.id, 20, 0, 0.05F).setUnlocalizedName("flesh").setTextureName(MAssetManager.getEMDTexture("flesh")).setCreativeTab(tabItems);
-		GameRegistry.registerItem(flesh, "flesh");
 		
 		marrow = new MItemFood(5, 0.0F).setUnlocalizedName("marrow").setCreativeTab(tabItems).setTextureName(MAssetManager.getEMDTexture("bowlMarrow"));
-		GameRegistry.registerItem(marrow, "marrow");
+		
 		
 		legSpider = new MItem().setUnlocalizedName("spider_leg").setCreativeTab(tabItems).setTextureName(MAssetManager.getEMDTexture("armSpider"));
-		GameRegistry.registerItem(legSpider, "legSpider");
 		poisonSack = new MItem().setUnlocalizedName("poison_sack").setCreativeTab(tabItems).setTextureName(MAssetManager.getEMDTexture("sackPoison"));
-		GameRegistry.registerItem(poisonSack, "poisonSack");
-		
 		swordPoisonWood = new ItemPoisonSword(ToolMaterial.WOOD, Items.wooden_sword).setUnlocalizedName("woodSwordPoison").setTextureName("wood_sword").setCreativeTab(tabItems);
-		GameRegistry.registerItem(swordPoisonWood, "swordPoisonWood");
 		swordPoisonStone = new ItemPoisonSword(ToolMaterial.STONE, Items.stone_sword).setUnlocalizedName("stoneSwordPoison").setTextureName("stone_sword").setCreativeTab(tabItems);
-		GameRegistry.registerItem(swordPoisonStone, "swordPoisonStone");
 		swordPoisonIron = new ItemPoisonSword(ToolMaterial.IRON, Items.iron_sword).setUnlocalizedName("ironSwordPoison").setTextureName("iron_sword").setCreativeTab(tabItems);
-		GameRegistry.registerItem(swordPoisonIron, "swordPoisonIron");
 		swordPoisonDiamond = new ItemPoisonSword(ToolMaterial.EMERALD, Items.diamond_sword).setUnlocalizedName("diamondSwordPoison").setTextureName("diamond_sword").setCreativeTab(tabItems);
-		GameRegistry.registerItem(swordPoisonDiamond, "swordPoisonDiamond");
 		swordPoisonGold = new ItemPoisonSword(ToolMaterial.GOLD, Items.golden_sword).setUnlocalizedName("goldSwordPoison").setTextureName("gold_sword").setCreativeTab(tabItems);
-		GameRegistry.registerItem(swordPoisonGold, "swordPoisonGold");
 		
 		guano = new ItemGuano().setUnlocalizedName("guano").setTextureName(MAssetManager.getEMDTexture("guano")).setCreativeTab(tabItems);
-		GameRegistry.registerItem(guano, "guano");
 		carcassSilverfish = new MItem().setUnlocalizedName("silverfish_carcass").setTextureName(MAssetManager.getEMDTexture("silverfishCarcass")).setCreativeTab(tabItems);
-		GameRegistry.registerItem(carcassSilverfish, "carcassSilverFish");
 		
 		hideCreeper = new MItem().setUnlocalizedName("creeper_hide").setCreativeTab(tabItems).setTextureName(MAssetManager.getEMDTexture("hideCreeper"));
-		GameRegistry.registerItem(hideCreeper, "hideCreeper");
 		
 		slimeCore = new MItem().setUnlocalizedName("slime_core").setCreativeTab(tabItems).setTextureName(MAssetManager.getEMDTexture("coreSlime"));
-		GameRegistry.registerItem(slimeCore, "slimeCore");
 		enderCore = new ItemEnderCore(0, 0).setUnlocalizedName("ender_core").setTextureName(MAssetManager.getEMDTexture("coreEnder")).setCreativeTab(tabItems);
-		GameRegistry.registerItem(enderCore, "enderCore");
 		
 		ghastTentacle = new ItemGhastTentacle().setUnlocalizedName("ghast_tentacle").setTextureName(MAssetManager.getEMDTexture("tentacleGhast")).setCreativeTab(tabItems);
-		GameRegistry.registerItem(ghastTentacle, "ghastTentacle");
 		
 		horseHoof = new MItem().setCreativeTab(tabItems).setUnlocalizedName("horse_foot").setTextureName(MAssetManager.getEMDTexture("footHorse"));
-		GameRegistry.registerItem(horseHoof, "horseHoof");
 		rawHorseHaunch = new MItemFood(4, 0.4F).setCreativeTab(tabItems).setUnlocalizedName("raw_horse_haunch").setTextureName(MAssetManager.getEMDTexture("horseHaunchRaw"));
-		GameRegistry.registerItem(rawHorseHaunch, "rawHorseHaunch");
 		cookedHorseHaunch = new MItemFood(10, 0.8F).setCreativeTab(tabItems).setUnlocalizedName("cooked_horse_haunch").setTextureName(MAssetManager.getEMDTexture("horseHaunchCooked"));
-		GameRegistry.registerItem(cookedHorseHaunch, "cookedHorseHaunch");
 		horseHair = new MItem().setCreativeTab(tabItems).setUnlocalizedName("horse_hair").setTextureName(MAssetManager.getEMDTexture("horseHair"));
-		GameRegistry.registerItem(horseHair, "horseHair");
 		
 		genes = new ItemGene().setUnlocalizedName("gene");
-		GameRegistry.registerItem(genes, "genes");
 		
 		charms = new ItemCharm().setUnlocalizedName("charm").setCreativeTab(tabItems);
-		GameRegistry.registerItem(charms, "charms");
 		
 		amuletPorcum = new ItemAmuletPorcum().setUnlocalizedName("PorcumAmulet").setCreativeTab(tabItems).setTextureName(MAssetManager.getEMDTexture("amuletPig"));
-		GameRegistry.registerItem(amuletPorcum, "amuletPorcum");
 		amuletVaccam = new ItemAmuletVaccam().setUnlocalizedName("VaccamAmulet").setCreativeTab(tabItems).setTextureName(MAssetManager.getEMDTexture("amuletHorse"));
-		GameRegistry.registerItem(amuletVaccam, "amuletVaccam");
 		amuletPullum = new ItemAmuletPullum().setUnlocalizedName("PullumAmulet").setCreativeTab(tabItems).setTextureName(MAssetManager.getEMDTexture("amuletChicken"));
-		GameRegistry.registerItem(amuletPullum, "amuletPullum");
 		amuletOves = new ItemAmuletOves().setUnlocalizedName("OvesAmulet").setCreativeTab(tabItems).setTextureName(MAssetManager.getEMDTexture("amuletSheep"));
-		GameRegistry.registerItem(amuletOves, "amuletOves");
 		
 		wingSinew = new MItem().setUnlocalizedName("wing_sinew").setCreativeTab(tabItems).setTextureName(MAssetManager.getEMDTexture("wingSinew"));
-		GameRegistry.registerItem(wingSinew, "wingSinew");
 		wingSegment = new MItem().setUnlocalizedName("wing_segment").setCreativeTab(tabItems).setTextureName(MAssetManager.getEMDTexture("hangGliderSegment"));
-		GameRegistry.registerItem(wingSegment, "wingSegment");
 		
 		hangGlider = new ItemHangGlider().setUnlocalizedName("hangglider").setCreativeTab(tabItems).setTextureName(MAssetManager.getEMDTexture("hangGlider"));
-		GameRegistry.registerItem(hangGlider, "hangGlider");
 		
 		enderAura = new MItem().setUnlocalizedName("item_EnderAura1").setCreativeTab(tabItems).setTextureName(MAssetManager.getEMDTexture("enderAura"));
-		GameRegistry.registerItem(enderAura, "enderAura");
 		
 		ghastlySoul = new MItem().setUnlocalizedName("item_GhastlySoul").setCreativeTab(tabItems).setTextureName(MAssetManager.getEMDTexture("ghastlySoul"));
-		GameRegistry.registerItem(ghastlySoul, "ghastlySoul");
 		
 		witheredBone = new MItem().setUnlocalizedName("withered_bone").setCreativeTab(tabItems).setTextureName(MAssetManager.getEMDTexture("witherBone"));
-		GameRegistry.registerItem(witheredBone, "witheredBone");
 		
 		horseHairFibre = new MItem().setUnlocalizedName("horse_hair_fibre").setCreativeTab(tabItems).setTextureName(MAssetManager.getEMDTexture("horseHairFibre"));
-		GameRegistry.registerItem(horseHairFibre, "horseHairFibre");
 		horseHairBow = new ItemHorseHairBow().setUnlocalizedName("horsehair_bow").setCreativeTab(tabItems);
+		
+		GameRegistry.registerItem(snout, "snout");
+		GameRegistry.registerItem(pigHoof, "pigHoof");
+		GameRegistry.registerItem(fat, "fat");
+		GameRegistry.registerItem(grease, "grease");
+		GameRegistry.registerItem(friedApple, "friedApple");
+		GameRegistry.registerItem(friedBeef, "friedBeef");
+		GameRegistry.registerItem(friedBread, "friedBread");
+		GameRegistry.registerItem(friedCarrot, "friedCarrot");
+		GameRegistry.registerItem(friedCookie, "friedCookie");
+		GameRegistry.registerItem(friedFlesh, "friedFlesh");
+		GameRegistry.registerItem(animalBones, "animalBones");
+		GameRegistry.registerItem(cowHoof, "cowHoof");
+		GameRegistry.registerItem(horn, "horn");
+		GameRegistry.registerItem(hornSwordWood, "hornSwordWood");
+		GameRegistry.registerItem(hornSwordStone, "hornSwordStone");
+		GameRegistry.registerItem(hornSwordIron, "hornSwordIron");
+		GameRegistry.registerItem(hornSwordDiamond, "hornSwordDiamond");
+		GameRegistry.registerItem(hornSwordGold, "hornSwordGold");
+		GameRegistry.registerItem(beakChicken, "beakChicken");
+		GameRegistry.registerItem(footChicken, "footChicken");
+		GameRegistry.registerItem(chickenWingRaw, "chickenWingRaw");
+		GameRegistry.registerItem(chickenWingCooked, "chickenWingCooked");
+		GameRegistry.registerItem(lambchopRaw, "lambChopRaw");
+		GameRegistry.registerItem(lambchopCooked, "lambChopCooked");
+		GameRegistry.registerItem(sheepHoof, "sheepHoof");
+		GameRegistry.registerItem(squidTentacle, "squidTentacle");
+		GameRegistry.registerItem(calimari, "calimari");
+		GameRegistry.registerItem(infectiousFungus, "infectiousFungus");
+		GameRegistry.registerItem(airSack, "airSack");
+		GameRegistry.registerItem(whisker, "whisker");
+		GameRegistry.registerItem(catEye, "catEye");
+		GameRegistry.registerItem(wolfHide, "wolfHide");
+		GameRegistry.registerItem(flesh, "flesh");
+		GameRegistry.registerItem(marrow, "marrow");
+		GameRegistry.registerItem(legSpider, "legSpider");
+		GameRegistry.registerItem(poisonSack, "poisonSack");
+		GameRegistry.registerItem(swordPoisonWood, "swordPoisonWood");
+		GameRegistry.registerItem(swordPoisonStone, "swordPoisonStone");
+		GameRegistry.registerItem(swordPoisonIron, "swordPoisonIron");
+		GameRegistry.registerItem(swordPoisonDiamond, "swordPoisonDiamond");
+		GameRegistry.registerItem(swordPoisonGold, "swordPoisonGold");
+		GameRegistry.registerItem(guano, "guano");
+		GameRegistry.registerItem(carcassSilverfish, "carcassSilverFish");
+		GameRegistry.registerItem(hideCreeper, "hideCreeper");
+		GameRegistry.registerItem(slimeCore, "slimeCore");
+		GameRegistry.registerItem(enderCore, "enderCore");
+		GameRegistry.registerItem(ghastTentacle, "ghastTentacle");
+		GameRegistry.registerItem(horseHoof, "horseHoof");
+		GameRegistry.registerItem(rawHorseHaunch, "rawHorseHaunch");
+		GameRegistry.registerItem(cookedHorseHaunch, "cookedHorseHaunch");
+		GameRegistry.registerItem(horseHair, "horseHair");
+		GameRegistry.registerItem(genes, "genes");
+		GameRegistry.registerItem(charms, "charms");
+		GameRegistry.registerItem(amuletPorcum, "amuletPorcum");
+		GameRegistry.registerItem(amuletVaccam, "amuletVaccam");
+		GameRegistry.registerItem(amuletPullum, "amuletPullum");
+		GameRegistry.registerItem(amuletOves, "amuletOves");
+		GameRegistry.registerItem(wingSinew, "wingSinew");
+		GameRegistry.registerItem(wingSegment, "wingSegment");
+		GameRegistry.registerItem(hangGlider, "hangGlider");
+		GameRegistry.registerItem(enderAura, "enderAura");
+		GameRegistry.registerItem(ghastlySoul, "ghastlySoul");
+		GameRegistry.registerItem(witheredBone, "witheredBone");
+		GameRegistry.registerItem(horseHairFibre, "horseHairFibre");
 		GameRegistry.registerItem(horseHairBow, "horseHairBow");
 	}
 	

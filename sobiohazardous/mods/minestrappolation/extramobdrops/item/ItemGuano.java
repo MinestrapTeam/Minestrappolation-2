@@ -2,12 +2,14 @@ package sobiohazardous.mods.minestrappolation.extramobdrops.item;
 
 import java.util.List;
 
+import sobiohazardous.mods.minestrappolation.core.item.MItem;
+import clashsoft.cslib.minecraft.lang.I18n;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import sobiohazardous.mods.minestrappolation.core.item.MItem;
 
 public class ItemGuano extends MItem
 {
@@ -16,25 +18,20 @@ public class ItemGuano extends MItem
 		super();
 	}
 	
-	/**
-	 * Callback for item usage. If the item does something special on right
-	 * clicking, he will have one of those. Return True if something happen and
-	 * false if it don't. This is for ITEMS, not BLOCKS
-	 */
 	@Override
-	public boolean onItemUse(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, World par3World, int par4, int par5, int par6, int par7, float par8, float par9, float par10)
+	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
 	{
-		if (!par2EntityPlayer.canPlayerEdit(par4, par5, par6, par7, par1ItemStack))
+		if (!player.canPlayerEdit(x, y, z, side, stack))
 		{
 			return false;
 		}
 		else
 		{
-			if (applyBonemeal(par1ItemStack, par3World, par4, par5, par6))
+			if (applyBonemeal(stack, world, x, y, z))
 			{
-				if (!par3World.isRemote)
+				if (!world.isRemote)
 				{
-					par3World.playAuxSFX(2005, par4, par5, par6, 0);
+					world.playAuxSFX(2005, x, y, z, 0);
 				}
 				
 				return true;
@@ -45,19 +42,19 @@ public class ItemGuano extends MItem
 	
 	public static boolean applyBonemeal(ItemStack item, World world, int x, int y, int z)
 	{
-		Block var5 = world.getBlock(x, y, z);
-		
-		if (var5 instanceof IGrowable)
+		if (!world.isRemote)
 		{
-			IGrowable var6 = (IGrowable) var5;
+			Block block = world.getBlock(x, y, z);
 			
-			if (var6.func_149851_a(world, x, y, z, world.isRemote))
+			if (block instanceof IGrowable)
 			{
-				if (!world.isRemote)
+				IGrowable growable = (IGrowable) block;
+				
+				if (growable.func_149851_a(world, x, y, z, world.isRemote))
 				{
-					if (var6.func_149852_a(world, world.rand, x, y, z))
+					if (growable.func_149852_a(world, world.rand, x, y, z))
 					{
-						var6.func_149853_b(world, world.rand, x, y, z);
+						growable.func_149853_b(world, world.rand, x, y, z);
 					}
 					
 					--item.stackSize;
@@ -71,10 +68,10 @@ public class ItemGuano extends MItem
 	}
 	
 	@Override
-	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean flag)
 	{
-		par3List.add("Instantly grow anything");
-		par3List.add("Cook up to 10 Items");
+		list.add(I18n.getString("item.guano.desc"));
+		list.add(I18n.getString("item.guano.desc2"));
 	}
 	
 }

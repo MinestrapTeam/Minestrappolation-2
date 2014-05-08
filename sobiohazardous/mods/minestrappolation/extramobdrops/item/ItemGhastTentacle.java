@@ -13,14 +13,14 @@ public class ItemGhastTentacle extends MItemFood
 {
 	public ItemGhastTentacle()
 	{
-		super(0, 0.0f);
+		super(0, 0F);
 		this.setAlwaysEdible();
 	}
 	
 	@Override
-	protected void onFoodEaten(ItemStack par1ItemStack, World par2World, EntityPlayer player)
+	protected void onFoodEaten(ItemStack stack, World world, EntityPlayer player)
 	{
-		super.onFoodEaten(par1ItemStack, par2World, player);
+		super.onFoodEaten(stack, world, player);
 		
 		if (player instanceof EntityPlayerMP)
 		{
@@ -34,6 +34,6 @@ public class ItemGhastTentacle extends MItemFood
 		
 		player.addPotionEffect(new PotionEffect(Potion.confusion.id, EMDPlayerTickHandler.gTime * 20));
 		// nether neutrality
-		EMDPlayerTickHandler.gTentacleEffect = true;
+		EMDPlayerTickHandler.ghastTentacleEffect = true;
 	}
 }

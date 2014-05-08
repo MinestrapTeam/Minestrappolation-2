@@ -1,1 +1,4 @@
-add names!
+item.guano.desc=Instantly grow anything!
+item.guano.desc2=Cook up to 10 Items!
+
+item.poisonSword.desc=Poisoned: +%.1f

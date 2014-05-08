@@ -2,57 +2,71 @@ package sobiohazardous.mods.minestrappolation.extramobdrops.item;
 
 import java.util.List;
 
-import net.minecraft.client.renderer.texture.IIconRegister;
+import sobiohazardous.mods.minestrappolation.core.item.MItemSword;
+import clashsoft.cslib.minecraft.lang.I18n;
+
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.EnumChatFormatting;
-import sobiohazardous.mods.minestrappolation.core.item.MItemSword;
 
 public class ItemPoisonSword extends MItemSword
 {
-	private float	poisonLevel	= 4;
-	private Item	normSword;
+	private Item	normalSword;
 	
-	public ItemPoisonSword(ToolMaterial par2EnumToolMaterial, Item normalSword)
+	public ItemPoisonSword(ToolMaterial material, Item normalSword)
 	{
-		super(par2EnumToolMaterial, null);
-		this.normSword = normalSword;
+		super(material, null);
+		this.normalSword = normalSword;
+	}
+	
+	public static float getPoisonLevel(ItemStack stack)
+	{
+		if (stack.stackTagCompound != null)
+		{
+			return stack.stackTagCompound.getFloat("PoisonLevel");
+		}
+		return 4F;
+	}
+	
+	public static void setPoisonLevel(ItemStack stack, float level)
+	{
+		if (stack.stackTagCompound == null)
+		{
+			stack.stackTagCompound = new NBTTagCompound();
+		}
+		stack.stackTagCompound.setFloat("PoisonLevel", level);
 	}
 	
 	@Override
-	public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase par2EntityLivingBase, EntityLivingBase par3EntityLivingBase)
+	public boolean hitEntity(ItemStack stack, EntityLivingBase entity, EntityLivingBase attacker)
 	{
-		if (this.poisonLevel > 0)
+		float level = getPoisonLevel(stack);
+		if (level > 0)
 		{
-			par2EntityLivingBase.addPotionEffect(new PotionEffect(Potion.poison.id, 20 * 12, 0));
-			this.poisonLevel -= 0.5;
+			entity.addPotionEffect(new PotionEffect(Potion.poison.id, 20 * 12, 0));
+			level -= 0.5F;
+			setPoisonLevel(stack, level);
 		}
 		
-		if (this.poisonLevel == 1)
+		if (level == 0F)
 		{
-			EntityPlayer player = (EntityPlayer) par3EntityLivingBase;
+			EntityPlayer player = (EntityPlayer) attacker;
 			// changes the current item?
-			player.inventory.func_70439_a(this.normSword, 0);
+			player.inventory.func_70439_a(this.normalSword, 0);
 		}
 		
-		par1ItemStack.damageItem(1, par3EntityLivingBase);
+		stack.damageItem(1, attacker);
 		return true;
 	}
 	
 	@Override
-	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean flag)
 	{
-		super.addInformation(par1ItemStack, par2EntityPlayer, par3List, par4);
-		par3List.add(EnumChatFormatting.GREEN + "Poisoned +" + (int) this.poisonLevel);
-	}
-	
-	@Override
-	public void registerIcons(IIconRegister par1IconRegister)
-	{
-		this.itemIcon = par1IconRegister.registerIcon(this.getIconString());
+		super.addInformation(stack, player, list, flag);
+		list.add(I18n.getString("item.poisonSword.desc", getPoisonLevel(stack)));
 	}
 }

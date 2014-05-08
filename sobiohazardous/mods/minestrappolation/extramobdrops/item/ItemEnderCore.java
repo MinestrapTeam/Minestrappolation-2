@@ -9,21 +9,21 @@ import sobiohazardous.mods.minestrappolation.core.item.MItemFood;
 
 public class ItemEnderCore extends MItemFood
 {
-	public ItemEnderCore(int healAmt, float sat)
+	public ItemEnderCore(int healAmount, float saturationModifier)
 	{
-		super(healAmt, sat);
+		super(healAmount, saturationModifier);
 		this.setMaxStackSize(16);
 		this.setAlwaysEdible();
 	}
 	
 	@Override
-	protected void onFoodEaten(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
+	protected void onFoodEaten(ItemStack stack, World world, EntityPlayer player)
 	{
-		par3EntityPlayer.addPotionEffect(new PotionEffect(Potion.invisibility.id, 30 * 20, 0));
-		par3EntityPlayer.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 30 * 20, 2));
-		// TODO Hydrophobia potion effect (no idea what that is)
+		player.addPotionEffect(new PotionEffect(Potion.invisibility.id, 30 * 20, 0));
+		player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 30 * 20, 2));
+		// TODO Hydrophobia potion effect
 		
-		super.onFoodEaten(par1ItemStack, par2World, par3EntityPlayer);
+		super.onFoodEaten(stack, world, player);
 	}
 	
 }

@@ -10,7 +10,8 @@ import cpw.mods.fml.common.gameevent.TickEvent.PlayerTickEvent;
 
 public class EMDPlayerTickHandler
 {
-	public static boolean	gTentacleEffect	= false;
+	public static boolean	ghastTentacleEffect	= false;
+	
 	static int				ticks			= 0;
 	static Random			rand			= new Random();
 	public static int		gTime			= 30 + rand.nextInt(150);
@@ -22,18 +23,17 @@ public class EMDPlayerTickHandler
 		
 		if (evt.phase == Phase.START)
 		{
-			if (gTentacleEffect)
+			if (ghastTentacleEffect)
 			{
 				ticks++;
 				if (ticks == gTime * 20)
 				{
-					gTentacleEffect = false;
+					ghastTentacleEffect = false;
 					EntityPlayerMP playermp = (EntityPlayerMP) player;
 					playermp.mcServer.getConfigurationManager().transferPlayerToDimension(playermp, 0);
 				}
 			}
-			
-			if (!gTentacleEffect)
+			else
 			{
 				ticks = 0;
 			}
