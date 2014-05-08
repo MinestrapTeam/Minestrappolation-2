@@ -1,12 +1,6 @@
 package sobiohazardous.mods.minestrappolation.core.recipes;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
-
-import sobiohazardous.mods.minestrappolation.core.tileentity.InventoryStonecutterExtraSlot;
+import java.util.*;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -23,14 +17,6 @@ public class StonecutterCraftingManager
 	
 	/** A list of all the recipes added */
 	private List									recipes		= new ArrayList();
-	
-	/**
-	 * Returns the static instance of this class
-	 */
-	public static final StonecutterCraftingManager getInstance()
-	{
-		return instance;
-	}
 	
 	private StonecutterCraftingManager()
 	{
@@ -56,184 +42,144 @@ public class StonecutterCraftingManager
 		
 		Collections.sort(this.recipes, new Comparator()
 		{
-			public int compare(IStonecutterRecipe par1IRecipe, IStonecutterRecipe par2IRecipe)
+			public int compare(IStonecutterRecipe recipe1, IStonecutterRecipe recipe2)
 			{
-				return par1IRecipe instanceof StonecutterShapelessRecipes && par2IRecipe instanceof StonecutterShapedRecipes ? 1 : par2IRecipe instanceof StonecutterShapelessRecipes && par1IRecipe instanceof StonecutterShapedRecipes ? -1 : par2IRecipe.getRecipeSize() < par1IRecipe.getRecipeSize() ? -1 : par2IRecipe.getRecipeSize() > par1IRecipe.getRecipeSize() ? 1 : 0;
+				boolean flag1 = recipe1 instanceof StonecutterShapedRecipes;
+				boolean flag2 = recipe1 instanceof StonecutterShapelessRecipes;
+				boolean flag3 = recipe2 instanceof StonecutterShapedRecipes;
+				boolean flag4 = recipe2 instanceof StonecutterShapelessRecipes;
+				return flag2 && flag3 ? 1 : flag4 && flag1 ? -1 : recipe2.getRecipeSize() < recipe1.getRecipeSize() ? -1 : recipe2.getRecipeSize() > recipe1.getRecipeSize() ? 1 : 0;
 			}
 			
 			@Override
-			public int compare(Object par1Obj, Object par2Obj)
+			public int compare(Object o1, Object o2)
 			{
-				return this.compare((IStonecutterRecipe) par1Obj, (IStonecutterRecipe) par2Obj);
+				return this.compare((IStonecutterRecipe) o1, (IStonecutterRecipe) o2);
 			}
 		});
 	}
 	
-	StonecutterShapedRecipes addRecipe(ItemStack par1ItemStack, ItemStack extraSlot, Object... par2ArrayOfObj)
+	public StonecutterShapedRecipes addRecipe(ItemStack stack, ItemStack extraSlot, Object... data)
 	{
-		String var3 = "";
-		int var4 = 0;
-		int var5 = 0;
-		int var6 = 0;
+		String s = "";
+		int index = 0;
+		int width = 0;
+		int height = 0;
 		
-		if (par2ArrayOfObj[var4] instanceof String[])
+		if (data[index] instanceof String[])
 		{
-			String[] var7 = (String[]) par2ArrayOfObj[var4++];
+			String[] strings = (String[]) data[index++];
 			
-			for (String var9 : var7)
+			for (String s1 : strings)
 			{
-				++var6;
-				var5 = var9.length();
-				var3 = var3 + var9;
+				++height;
+				width = s1.length();
+				s += s1;
 			}
 		}
 		else
 		{
-			while (par2ArrayOfObj[var4] instanceof String)
+			while (data[index] instanceof String)
 			{
-				String var11 = (String) par2ArrayOfObj[var4++];
-				++var6;
-				var5 = var11.length();
-				var3 = var3 + var11;
+				String s1 = (String) data[index++];
+				++height;
+				width = s1.length();
+				s += s1;
 			}
 		}
 		
-		HashMap var12;
+		HashMap map;
 		
-		for (var12 = new HashMap(); var4 < par2ArrayOfObj.length; var4 += 2)
+		for (map = new HashMap(); index < data.length; index += 2)
 		{
-			Character var13 = (Character) par2ArrayOfObj[var4];
-			ItemStack var14 = null;
+			Character c = (Character) data[index];
+			int index1 = index + 1;
+			ItemStack stack1 = null;
 			
-			if (par2ArrayOfObj[var4 + 1] instanceof Item)
+			if (data[index1] instanceof Item)
 			{
-				var14 = new ItemStack((Item) par2ArrayOfObj[var4 + 1]);
+				stack1 = new ItemStack((Item) data[index1]);
 			}
-			else if (par2ArrayOfObj[var4 + 1] instanceof Block)
+			else if (data[index1] instanceof Block)
 			{
-				var14 = new ItemStack((Block) par2ArrayOfObj[var4 + 1], 1, 32767);
+				stack1 = new ItemStack((Block) data[index1], 1, 32767);
 			}
-			else if (par2ArrayOfObj[var4 + 1] instanceof ItemStack)
+			else if (data[index1] instanceof ItemStack)
 			{
-				var14 = (ItemStack) par2ArrayOfObj[var4 + 1];
+				stack1 = (ItemStack) data[index1];
 			}
 			
-			var12.put(var13, var14);
+			map.put(c, stack1);
 		}
 		
-		ItemStack[] var15 = new ItemStack[var5 * var6];
+		int len = width * height;
+		ItemStack[] stacks = new ItemStack[len];
 		
-		for (int var16 = 0; var16 < var5 * var6; ++var16)
+		for (int i = 0; i < len; ++i)
 		{
-			char var10 = var3.charAt(var16);
+			char c = s.charAt(i);
 			
-			if (var12.containsKey(Character.valueOf(var10)))
+			if (map.containsKey(Character.valueOf(c)))
 			{
-				var15[var16] = ((ItemStack) var12.get(Character.valueOf(var10))).copy();
+				stacks[i] = ((ItemStack) map.get(Character.valueOf(c))).copy();
 			}
 			else
 			{
-				var15[var16] = null;
+				stacks[i] = null;
 			}
 		}
 		
-		StonecutterShapedRecipes var17 = new StonecutterShapedRecipes(var5, var6, var15, par1ItemStack, extraSlot);
-		this.recipes.add(var17);
-		return var17;
+		StonecutterShapedRecipes recipe = new StonecutterShapedRecipes(width, height, stacks, stack, extraSlot);
+		this.recipes.add(recipe);
+		return recipe;
 	}
 	
-	void addShapelessRecipe(ItemStack par1ItemStack, ItemStack extra, Object... par2ArrayOfObj)
+	public StonecutterShapelessRecipes addShapelessRecipe(ItemStack stack, ItemStack extra, Object... data)
 	{
-		ArrayList var3 = new ArrayList();
-		Object[] var4 = par2ArrayOfObj;
-		int var5 = par2ArrayOfObj.length;
+		ArrayList list = new ArrayList();
+		int len = data.length;
 		
-		for (int var6 = 0; var6 < var5; ++var6)
+		for (int i = 0; i < len; ++i)
 		{
-			Object var7 = var4[var6];
+			Object o = data[i];
 			
-			if (var7 instanceof ItemStack)
+			if (o instanceof ItemStack)
 			{
-				var3.add(((ItemStack) var7).copy());
+				list.add(((ItemStack) o).copy());
 			}
-			else if (var7 instanceof Item)
+			else if (o instanceof Item)
 			{
-				var3.add(new ItemStack((Item) var7));
+				list.add(new ItemStack((Item) o));
+			}
+			else if (o instanceof Block)
+			{
+				list.add(new ItemStack((Block) o));
 			}
 			else
 			{
-				if (!(var7 instanceof Block))
-				{
-					throw new RuntimeException("Invalid shapeless recipy!");
-				}
-				
-				var3.add(new ItemStack((Block) var7));
+				throw new RuntimeException("Invalid shapeless recipy!");
 			}
 		}
 		
-		this.recipes.add(new StonecutterShapelessRecipes(par1ItemStack, var3, extra));
+		StonecutterShapelessRecipes recipe = new StonecutterShapelessRecipes(stack, list, extra);
+		this.recipes.add(recipe);
+		return recipe;
 	}
 	
-	public ItemStack findMatchingRecipe(InventoryCrafting par1InventoryCrafting, InventoryStonecutterExtraSlot extra, World par2World)
+	public ItemStack findMatchingRecipe(InventoryCrafting inventory, ItemStack extra, World world)
 	{
-		int var3 = 0;
-		ItemStack var4 = null;
-		ItemStack var5 = null;
-		int var6;
-		
-		for (var6 = 0; var6 < par1InventoryCrafting.getSizeInventory(); ++var6)
+		for (int i = 0; i < this.recipes.size(); ++i)
 		{
-			ItemStack var7 = par1InventoryCrafting.getStackInSlot(var6);
-			
-			if (var7 != null)
+			IStonecutterRecipe recipe = (IStonecutterRecipe) this.recipes.get(i);
+			if (recipe.matches(inventory, extra, world))
 			{
-				if (var3 == 0)
-				{
-					var4 = var7;
-				}
-				
-				if (var3 == 1)
-				{
-					var5 = var7;
-				}
-				
-				++var3;
+				return recipe.getCraftingResult(inventory, extra);
 			}
 		}
 		
-		if (var3 == 2 && var4.getItem() == var5.getItem() && var4.stackSize == 1 && var5.stackSize == 1 && var4.getItem().isDamageable())
-		{
-			Item var11 = var4.getItem();
-			int var13 = var11.getMaxDamage() - var4.getItemDamageForDisplay();
-			int var8 = var11.getMaxDamage() - var5.getItemDamageForDisplay();
-			int var9 = var13 + var8 + var11.getMaxDamage() * 5 / 100;
-			int var10 = var11.getMaxDamage() - var9;
-			
-			if (var10 < 0)
-			{
-				var10 = 0;
-			}
-			
-			return new ItemStack(var4.getItem(), 1, var10);
-		}
-		else
-		{
-			for (var6 = 0; var6 < this.recipes.size(); ++var6)
-			{
-				IStonecutterRecipe var12 = (IStonecutterRecipe) this.recipes.get(var6);
-				if (var12.matches(par1InventoryCrafting, extra, par2World))
-				{
-					return var12.getCraftingResult(par1InventoryCrafting, extra);
-				}
-			}
-			
-			return null;
-		}
+		return null;
 	}
 	
-	/**
-	 * returns the List<> of all recipes
-	 */
 	public List getRecipeList()
 	{
 		return this.recipes;

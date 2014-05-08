@@ -7,20 +7,20 @@ import net.minecraft.item.ItemStack;
 
 public class SlotStonecutterCrafting extends SlotCrafting
 {
-	private InventoryStonecutterExtraSlot	extraSlotInv;
-	private EntityPlayer					thePlayer;
+	private IInventory		extraSlotInv;
+	private EntityPlayer	thePlayer;
 	
-	public SlotStonecutterCrafting(EntityPlayer par1EntityPlayer, IInventory par2iInventory, IInventory par3iInventory, InventoryStonecutterExtraSlot extraSlotInv, int par4, int par5, int par6)
+	public SlotStonecutterCrafting(EntityPlayer player, IInventory craftMatrix, IInventory craftResult, IInventory extraSlot, int slotID, int x, int y)
 	{
-		super(par1EntityPlayer, par2iInventory, par3iInventory, par4, par5, par6);
-		this.extraSlotInv = extraSlotInv;
-		this.thePlayer = par1EntityPlayer;
+		super(player, craftMatrix, craftResult, slotID, x, y);
+		this.extraSlotInv = extraSlot;
+		this.thePlayer = player;
 	}
 	
 	@Override
-	public void onPickupFromSlot(EntityPlayer par1EntityPlayer, ItemStack par2ItemStack)
+	public void onPickupFromSlot(EntityPlayer player, ItemStack stack)
 	{
-		super.onPickupFromSlot(par1EntityPlayer, par2ItemStack);
+		super.onPickupFromSlot(player, stack);
 		
 		ItemStack extraSlotItem = this.extraSlotInv.getStackInSlot(0);
 		

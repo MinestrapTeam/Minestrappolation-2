@@ -1,35 +1,24 @@
 package sobiohazardous.mods.minestrappolation.core.tileentity;
 
-import sobiohazardous.mods.minestrappolation.core.lib.MBlocks;
 import sobiohazardous.mods.minestrappolation.core.recipes.StonecutterCraftingManager;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.Container;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.InventoryCraftResult;
-import net.minecraft.inventory.InventoryCrafting;
-import net.minecraft.inventory.Slot;
+import net.minecraft.inventory.*;
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
 
 public class ContainerStonecutter extends Container
 {
-	/** The crafting matrix inventory (3x3). */
 	public InventoryCrafting				craftMatrix	= new InventoryCrafting(this, 3, 3);
 	public IInventory						craftResult	= new InventoryCraftResult();
-	public InventoryStonecutterExtraSlot	extraSlot	= new InventoryStonecutterExtraSlot(this);
-	private World							worldObj;
-	private int								posX;
-	private int								posY;
-	private int								posZ;
+	public IInventory	extraSlot	= new InventoryBasic("ExtraSlot", true, 1);
+	public TileEntityStonecutter stoneCutter;
 	
-	public ContainerStonecutter(InventoryPlayer par1InventoryPlayer, TileEntityStonecutter te, World par2World, int par3, int par4, int par5)
+	public ContainerStonecutter(InventoryPlayer inventory, TileEntityStonecutter te)
 	{
-		this.worldObj = par2World;
-		this.posX = par3;
-		this.posY = par4;
-		this.posZ = par5;
-		this.addSlotToContainer(new SlotStonecutterCrafting(par1InventoryPlayer.player, this.craftMatrix, this.craftResult, this.extraSlot, 0, 124 + 14, 35));
+		this.stoneCutter = te;
+		
+		this.addSlotToContainer(new SlotStonecutterCrafting(inventory.player, this.craftMatrix, this.craftResult, this.extraSlot, 0, 124 + 14, 35));
 		int l;
 		int i1;
 		
@@ -45,13 +34,13 @@ public class ContainerStonecutter extends Container
 		{
 			for (i1 = 0; i1 < 9; ++i1)
 			{
-				this.addSlotToContainer(new Slot(par1InventoryPlayer, i1 + l * 9 + 9, 8 + i1 * 18, 84 + l * 18));
+				this.addSlotToContainer(new Slot(inventory, i1 + l * 9 + 9, 8 + i1 * 18, 84 + l * 18));
 			}
 		}
 		
 		for (l = 0; l < 9; ++l)
 		{
-			this.addSlotToContainer(new Slot(par1InventoryPlayer, l, 8 + l * 18, 142));
+			this.addSlotToContainer(new Slot(inventory, l, 8 + l * 18, 142));
 		}
 		
 		// extra slot
@@ -63,18 +52,15 @@ public class ContainerStonecutter extends Container
 	@Override
 	public void onCraftMatrixChanged(IInventory par1IInventory)
 	{
-		this.craftResult.setInventorySlotContents(0, StonecutterCraftingManager.instance.findMatchingRecipe(this.craftMatrix, this.extraSlot, this.worldObj));
+		this.craftResult.setInventorySlotContents(0, StonecutterCraftingManager.instance.findMatchingRecipe(this.craftMatrix, this.extraSlot.getStackInSlot(0), this.stoneCutter.getWorldObj()));
 	}
 	
-	/**
-	 * Called when the container is closed.
-	 */
 	@Override
 	public void onContainerClosed(EntityPlayer par1EntityPlayer)
 	{
 		super.onContainerClosed(par1EntityPlayer);
 		
-		if (!this.worldObj.isRemote)
+		if (!this.stoneCutter.getWorldObj().isRemote)
 		{
 			for (int i = 0; i < 9; ++i)
 			{
@@ -95,27 +81,23 @@ public class ContainerStonecutter extends Container
 	}
 	
 	@Override
-	public boolean canInteractWith(EntityPlayer par1EntityPlayer)
+	public boolean canInteractWith(EntityPlayer player)
 	{
-		return this.worldObj.getBlock(this.posX, this.posY, this.posZ) != MBlocks.stoneCutter ? false : par1EntityPlayer.getDistanceSq(this.posX + 0.5D, this.posY + 0.5D, this.posZ + 0.5D) <= 64.0D;
+		return this.stoneCutter.isUseableByPlayer(player);
 	}
 	
-	/**
-	 * Called when a player shift-clicks on a slot. You must override this or
-	 * you will crash when someone does that.
-	 */
 	@Override
-	public ItemStack transferStackInSlot(EntityPlayer par1EntityPlayer, int par2)
+	public ItemStack transferStackInSlot(EntityPlayer player, int slotID)
 	{
 		ItemStack itemstack = null;
-		Slot slot = (Slot) this.inventorySlots.get(par2);
+		Slot slot = (Slot) this.inventorySlots.get(slotID);
 		
 		if (slot != null && slot.getHasStack())
 		{
 			ItemStack itemstack1 = slot.getStack();
 			itemstack = itemstack1.copy();
 			
-			if (par2 == 0)
+			if (slotID == 0)
 			{
 				if (!this.mergeItemStack(itemstack1, 10, 46, true))
 				{
@@ -124,14 +106,14 @@ public class ContainerStonecutter extends Container
 				
 				slot.onSlotChange(itemstack1, itemstack);
 			}
-			else if (par2 >= 10 && par2 < 37)
+			else if (slotID >= 10 && slotID < 37)
 			{
 				if (!this.mergeItemStack(itemstack1, 37, 46, false))
 				{
 					return null;
 				}
 			}
-			else if (par2 >= 37 && par2 < 46)
+			else if (slotID >= 37 && slotID < 46)
 			{
 				if (!this.mergeItemStack(itemstack1, 10, 37, false))
 				{
@@ -157,7 +139,7 @@ public class ContainerStonecutter extends Container
 				return null;
 			}
 			
-			slot.onPickupFromSlot(par1EntityPlayer, itemstack1);
+			slot.onPickupFromSlot(player, itemstack1);
 		}
 		
 		return itemstack;
