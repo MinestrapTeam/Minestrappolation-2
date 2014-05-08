@@ -1,6 +1,6 @@
-package sobiohazardous.mods.minestrappolation.core.proxy;
+package sobiohazardous.mods.minestrappolation.core.common;
 
-import sobiohazardous.mods.minestrappolation.core.tileentity.ContainerStonecutter;
+import sobiohazardous.mods.minestrappolation.core.inventory.ContainerStonecutter;
 import sobiohazardous.mods.minestrappolation.core.tileentity.TileEntityStonecutter;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 
 import cpw.mods.fml.common.network.IGuiHandler;
 
-public class CommonProxy implements IGuiHandler
+public class MCommonProxy implements IGuiHandler
 {
 	public void registerRenderers()
 	{

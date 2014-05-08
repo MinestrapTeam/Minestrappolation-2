@@ -1,4 +1,4 @@
-package sobiohazardous.mods.minestrappolation.core.tileentity;
+package sobiohazardous.mods.minestrappolation.core.inventory;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;

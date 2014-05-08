@@ -1,4 +1,4 @@
-package sobiohazardous.mods.minestrappolation.core;
+package sobiohazardous.mods.minestrappolation.core.common;
 
 import java.io.BufferedReader;
 import java.io.IOException;

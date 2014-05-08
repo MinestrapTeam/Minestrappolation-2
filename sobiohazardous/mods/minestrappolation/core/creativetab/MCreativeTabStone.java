@@ -1,4 +1,4 @@
-package sobiohazardous.mods.minestrappolation.core.creativetabs;
+package sobiohazardous.mods.minestrappolation.core.creativetab;
 
 import sobiohazardous.mods.minestrappolation.core.lib.MBlocks;
 import net.minecraft.creativetab.CreativeTabs;

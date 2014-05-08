@@ -1,9 +1,10 @@
-package sobiohazardous.mods.minestrappolation.core.tileentity;
+package sobiohazardous.mods.minestrappolation.core.client.render.tileentity;
 
 import org.lwjgl.opengl.GL11;
 
-import sobiohazardous.mods.minestrappolation.core.model.ModelStonecutter;
+import sobiohazardous.mods.minestrappolation.core.client.model.ModelStonecutter;
 import sobiohazardous.mods.minestrappolation.core.util.MAssetManager;
+
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;

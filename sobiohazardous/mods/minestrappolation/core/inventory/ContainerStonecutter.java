@@ -1,6 +1,7 @@
-package sobiohazardous.mods.minestrappolation.core.tileentity;
+package sobiohazardous.mods.minestrappolation.core.inventory;
 
 import sobiohazardous.mods.minestrappolation.core.recipes.StonecutterCraftingManager;
+import sobiohazardous.mods.minestrappolation.core.tileentity.TileEntityStonecutter;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;

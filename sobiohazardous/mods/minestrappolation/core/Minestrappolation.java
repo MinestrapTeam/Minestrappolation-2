@@ -1,8 +1,9 @@
 package sobiohazardous.mods.minestrappolation.core;
 
-import sobiohazardous.mods.minestrappolation.core.creativetabs.MCreativeTabStone;
+import sobiohazardous.mods.minestrappolation.core.common.MCommonProxy;
+import sobiohazardous.mods.minestrappolation.core.common.MEventHandler;
+import sobiohazardous.mods.minestrappolation.core.creativetab.MCreativeTabStone;
 import sobiohazardous.mods.minestrappolation.core.lib.*;
-import sobiohazardous.mods.minestrappolation.core.proxy.CommonProxy;
 import sobiohazardous.mods.minestrappolation.core.tileentity.TileEntityStonecutter;
 import clashsoft.brewingapi.BrewingAPI;
 import cpw.mods.fml.common.*;
@@ -24,7 +25,7 @@ public class Minestrappolation
 	public static Minestrappolation	instance;
 	
 	@SidedProxy(modId = MReference.MODID_MAPI, clientSide = "sobiohazardous.mods.minestrappolation.core.proxy.ClientProxy", serverSide = "sobiohazardous.mods.minestrappolation.core.proxy.CommonProxy")
-	public static CommonProxy		proxy;
+	public static MCommonProxy		proxy;
 	
 	public static CreativeTabs		creativeTabStone	= new MCreativeTabStone(CreativeTabs.getNextID(), "minestrap_stone");
 	

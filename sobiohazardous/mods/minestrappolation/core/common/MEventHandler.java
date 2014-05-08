@@ -1,4 +1,4 @@
-package sobiohazardous.mods.minestrappolation.core;
+package sobiohazardous.mods.minestrappolation.core.common;
 
 import sobiohazardous.mods.minestrappolation.core.util.MChatMessageHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;

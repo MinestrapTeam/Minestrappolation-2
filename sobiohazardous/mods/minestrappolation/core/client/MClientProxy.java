@@ -1,7 +1,8 @@
-package sobiohazardous.mods.minestrappolation.core.proxy;
+package sobiohazardous.mods.minestrappolation.core.client;
 
 import sobiohazardous.mods.minestrappolation.core.client.gui.GuiStonecutter;
-import sobiohazardous.mods.minestrappolation.core.tileentity.RendererStonecutter;
+import sobiohazardous.mods.minestrappolation.core.client.render.tileentity.RendererStonecutter;
+import sobiohazardous.mods.minestrappolation.core.common.MCommonProxy;
 import sobiohazardous.mods.minestrappolation.core.tileentity.TileEntityStonecutter;
 import cpw.mods.fml.client.registry.ClientRegistry;
 
@@ -12,7 +13,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
-public class ClientProxy extends CommonProxy
+public class MClientProxy extends MCommonProxy
 {
 	public static final String capeURL = "https://raw.githubusercontent.com/SoBiohazardous/Minestrappolation-Recode/master/assets/minestrappolation/textures/misc/cape_dev.png";
 	
