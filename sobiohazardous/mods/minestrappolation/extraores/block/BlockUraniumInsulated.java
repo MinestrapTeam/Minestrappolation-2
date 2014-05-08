@@ -13,7 +13,6 @@ import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.AxisAlignedBB;
@@ -24,75 +23,85 @@ import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlocks;
 
 public class BlockUraniumInsulated extends Block
 {
-	private static final EntityLivingBase par6EntityLiving = null;
-	public BlockUraniumInsulated instance;
-	public EntityPlayer player;
-	public EntityLivingBase living;
-	public EntitySkeleton skeleton;
-	public EntityZombie zombie;
-	public World world;
-	private IIcon topbottom;
-
+	private static final EntityLivingBase	par6EntityLiving	= null;
+	public BlockUraniumInsulated			instance;
+	public EntityPlayer						player;
+	public EntityLivingBase					living;
+	public EntitySkeleton					skeleton;
+	public EntityZombie						zombie;
+	public World							world;
+	private IIcon							topbottom;
+	
 	public BlockUraniumInsulated(Material par3Material)
 	{
 		super(par3Material);
 		this.setCreativeTab(CreativeTabs.tabBlock);
 	}
-
+	
+	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		blockIcon = iconRegister.registerIcon(MAssetManager.getEOTexture("uraniumInsulatedSide"));
-		topbottom = iconRegister.registerIcon("iron_block");
+		this.blockIcon = iconRegister.registerIcon(MAssetManager.getEOTexture("uraniumInsulatedSide"));
+		this.topbottom = iconRegister.registerIcon("iron_block");
 	}
-
+	
+	@Override
 	public IIcon getIcon(int i, int j)
 	{
-		if (i == 0)// bottom
-
-			return topbottom;
-		if (i == 1)// top
-
-			return topbottom;
-
-		if (i == 2) // side
-
-			return blockIcon;
-		if (i == 3)// side
-
-			return blockIcon;
-		if (i == 4) // side
-
-			return blockIcon;
-		if (i == 5) // side
-
-			return blockIcon;
-
+		if (i == 0)
+		{
+			return this.topbottom;
+		}
+		if (i == 1)
+		{
+			return this.topbottom;
+		}
+		
+		if (i == 2)
+		{
+			return this.blockIcon;
+		}
+		if (i == 3)
+		{
+			return this.blockIcon;
+		}
+		if (i == 4)
+		{
+			return this.blockIcon;
+		}
+		if (i == 5)
+		{
+			return this.blockIcon;
+		}
+		
 		if (j == 1)
 		{
-			return blockIcon;
+			return this.blockIcon;
 		}
-		return blockIcon;
+		return this.blockIcon;
 	}
-
+	
 	/**
 	 * Returns the quantity of items to drop on block destruction.
 	 */
+	@Override
 	public int quantityDropped(Random par1Random)
 	{
 		return 1;
 	}
-
+	
+	@Override
 	public void onBlockAdded(World par1World, int par2, int par3, int par4)
 	{
 		par1World.setBlockMetadataWithNotify(par2, par3, par4, 0, par4);
-		par1World.scheduleBlockUpdate(par2, par3, par4, this, tickRate());
+		par1World.scheduleBlockUpdate(par2, par3, par4, this, this.tickRate());
 	}
-
+	
 	public int tickRate()
 	{
 		return 1;
 	}
-
+	
 	public boolean isTraversable(Block i)
 	{
 		if (i == Blocks.lava || i == Blocks.mob_spawner || i != null && i == EOBlocks.UraniumOre)
@@ -101,12 +110,13 @@ public class BlockUraniumInsulated extends Block
 		}
 		return i != null && i.getMaterial() != Material.air && i.isOpaqueCube();
 	}
-
+	
+	@Override
 	public void updateTick(World world, int i, int j, int k, Random random)
 	{
 		if (!world.isRemote && world.isBlockIndirectlyGettingPowered(i, j, k))
 		{
-			world.scheduleBlockUpdate(i, j, k, this, tickRate());
+			world.scheduleBlockUpdate(i, j, k, this, this.tickRate());
 			int l = world.getBlockMetadata(i, j, k);
 			int i1 = 0;
 			int j1 = 0;
@@ -121,13 +131,14 @@ public class BlockUraniumInsulated extends Block
 						break;
 					}
 					Block l1 = world.getBlock(i, j + j1, k);
-					if (isTraversable(l1))
+					if (this.isTraversable(l1))
 					{
 						j1++;
 						break;
 					}
 					j1--;
-				} while (true);
+				}
+				while (true);
 			}
 			else if (l == 1 || l == 7)
 			{
@@ -139,13 +150,14 @@ public class BlockUraniumInsulated extends Block
 						break;
 					}
 					Block i2 = world.getBlock(i, j + j1, k);
-					if (isTraversable(i2))
+					if (this.isTraversable(i2))
 					{
 						j1--;
 						break;
 					}
 					j1++;
-				} while (true);
+				}
+				while (true);
 			}
 			else if (l == 2 || l == 8)
 			{
@@ -157,13 +169,14 @@ public class BlockUraniumInsulated extends Block
 						break;
 					}
 					Block j2 = world.getBlock(i, j, k + k1);
-					if (isTraversable(j2))
+					if (this.isTraversable(j2))
 					{
 						k1++;
 						break;
 					}
 					k1--;
-				} while (true);
+				}
+				while (true);
 			}
 			else if (l == 3 || l == 9)
 			{
@@ -175,13 +188,14 @@ public class BlockUraniumInsulated extends Block
 						break;
 					}
 					Block k2 = world.getBlock(i, j, k + k1);
-					if (isTraversable(k2))
+					if (this.isTraversable(k2))
 					{
 						k1--;
 						break;
 					}
 					k1++;
-				} while (true);
+				}
+				while (true);
 			}
 			else if (l == 4 || l == 10)
 			{
@@ -193,13 +207,14 @@ public class BlockUraniumInsulated extends Block
 						break;
 					}
 					Block l2 = world.getBlock(i + i1, j, k);
-					if (isTraversable(l2))
+					if (this.isTraversable(l2))
 					{
 						i1++;
 						break;
 					}
 					i1--;
-				} while (true);
+				}
+				while (true);
 			}
 			else if (l == 5 || l == 11)
 			{
@@ -211,18 +226,18 @@ public class BlockUraniumInsulated extends Block
 						break;
 					}
 					Block i3 = world.getBlock(i + i1, j, k);
-					if (isTraversable(i3))
+					if (this.isTraversable(i3))
 					{
 						i1--;
 						break;
 					}
 					i1++;
-				} while (true);
+				}
+				while (true);
 			}
-			AxisAlignedBB axisalignedbb = getCollisionBoundingBoxFromPool(world, i, j, k).expand(6, 6, 6);
+			AxisAlignedBB axisalignedbb = this.getCollisionBoundingBoxFromPool(world, i, j, k).expand(6, 6, 6);
 			List list = world.getEntitiesWithinAABB(EntityLivingBase.class, axisalignedbb);
 			Iterator var6 = list.iterator();
-			EntityLivingBase var7;
 			if (list.isEmpty() && world.getBlockMetadata(i, j, k) > 5)
 			{
 				// System.out.println("far");
@@ -232,32 +247,34 @@ public class BlockUraniumInsulated extends Block
 				while (var6.hasNext())
 				{
 					// System.out.println("close");
-					living = (EntityLivingBase) var6.next();
-					living.addPotionEffect(new PotionEffect(Potion.poison.getId(), 180, 2, false));
+					this.living = (EntityLivingBase) var6.next();
+					this.living.addPotionEffect(new PotionEffect(Potion.poison.getId(), 180, 2, false));
 					// varEntityLiving.addPotionEffect(new
 					// PotionEffect(Potion.poison.getId(),200,10));
 				}
 			}
 			List list2 = world.getEntitiesWithinAABB(EntityZombie.class, axisalignedbb);
 			Iterator var8 = list2.iterator();
-			EntityZombie var9;
 			if (list2.isEmpty() && world.getBlockMetadata(i, j, k) > 5)
 			{
 				// System.out.println("far");
 			}
 			else
+			{
 				while (var8.hasNext())
 				{
 					// System.out.println("close");
-					zombie = (EntityZombie) var8.next();
-					zombie.addPotionEffect(new PotionEffect(Potion.moveSpeed.getId(), 300, 2, false));
-					zombie.addPotionEffect(new PotionEffect(Potion.damageBoost.getId(), 300, 1, false));
+					this.zombie = (EntityZombie) var8.next();
+					this.zombie.addPotionEffect(new PotionEffect(Potion.moveSpeed.getId(), 300, 2, false));
+					this.zombie.addPotionEffect(new PotionEffect(Potion.damageBoost.getId(), 300, 1, false));
 					// varEntityLiving.addPotionEffect(new
 					// PotionEffect(Potion.poison.getId(),200,10));
 				}
+			}
 		}
 	}
-
+	
+	@Override
 	public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, Block par5)
 	{
 		if (!par1World.isRemote)

@@ -10,17 +10,18 @@ import sobiohazardous.mods.minestrappolation.extramobdrops.lib.EMDPotions;
 
 public class ItemInfectiousFungus extends MItemFood
 {
-	public ItemInfectiousFungus(int healAmt, float sat) 
+	public ItemInfectiousFungus(int healAmt, float sat)
 	{
 		super(healAmt, sat);
 	}
 	
+	@Override
 	public void onFoodEaten(ItemStack itemStack, World world, EntityPlayer entityPlayer)
 	{
 		super.onFoodEaten(itemStack, world, entityPlayer);
-	        
-	    entityPlayer.addPotionEffect(new PotionEffect(Potion.confusion.id, 30 * 20, 1));
-	    entityPlayer.addPotionEffect(new PotionEffect(EMDPotions.infectious.id, 30 * 20, 1));
+		
+		entityPlayer.addPotionEffect(new PotionEffect(Potion.confusion.id, 30 * 20, 1));
+		entityPlayer.addPotionEffect(new PotionEffect(EMDPotions.infectious.id, 30 * 20, 1));
 	}
-
+	
 }

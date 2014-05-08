@@ -2,122 +2,123 @@ package sobiohazardous.mods.minestrappolation.core.item;
 
 import sobiohazardous.mods.minestrappolation.core.lib.MReference;
 import sobiohazardous.mods.minestrappolation.core.util.MAssetManager;
+
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 public class MItemArmor extends ItemArmor
 {
-	private String armorPrefix;
-
-	private IIcon overlayIcon;
-
-	private ArmorMaterial material;
+	private String			armorPrefix;
 	
-	private ArmorMaterial norm;
-	private ArmorMaterial bronzePlateMat;
-
-	public MItemArmor(ArmorMaterial par2EnumArmorMaterial, ArmorMaterial bronzeMaterial, int par3, int par4, String armorPrefix)
+	public ArmorMaterial	material;
+	
+	private IIcon			overlayIcon;
+	
+	private ArmorMaterial	normalMaterial;
+	private ArmorMaterial	bronzePlateMat;
+	
+	public MItemArmor(ArmorMaterial material, ArmorMaterial bronzeMaterial, int renderIndex, int type, String armorPrefix)
 	{
-		super(par2EnumArmorMaterial, par3, par4);
-		this.material = par2EnumArmorMaterial;
+		super(material, renderIndex, type);
 		this.setCreativeTab(null);
 		this.armorPrefix = armorPrefix;
-		this.norm = par2EnumArmorMaterial;
+		this.normalMaterial = material;
 		this.bronzePlateMat = bronzeMaterial;
 	}
-
-	public void onCreated(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
+	
+	@Override
+	public void onCreated(ItemStack stack, World world, EntityPlayer player)
 	{
-		if (par1ItemStack.stackTagCompound != null && par1ItemStack.stackTagCompound.getBoolean("bronzePlated"))
+		if (MItemTool.isPlated(stack))
 		{
 			this.material = this.bronzePlateMat;
 		}
 		else
 		{
-			this.material = this.norm;
+			this.material = this.normalMaterial;
 		}
 	}
-
-	public void onUpdate(ItemStack par1ItemStack, World par2World, Entity par3Entity, int par4, boolean par5)
+	
+	@Override
+	public void onUpdate(ItemStack stack, World world, Entity entity, int i, boolean flag)
 	{
-		if (par1ItemStack.stackTagCompound != null && par1ItemStack.stackTagCompound.getBoolean("bronzePlated"))
+		if (MItemTool.isPlated(stack))
 		{
 			this.material = this.bronzePlateMat;
 		}
 		else
 		{
-			this.material = this.norm;
+			this.material = this.normalMaterial;
 		}
 	}
-
+	
+	@Override
+	public ArmorMaterial getArmorMaterial()
+	{
+		return this.material;
+	}
+	
 	@Override
 	public boolean requiresMultipleRenderPasses()
 	{
 		return true;
 	}
-
+	
 	@Override
-	public void registerIcons(IIconRegister par1IconRegister)
+	public void registerIcons(IIconRegister iconRegister)
 	{
-		itemIcon = par1IconRegister.registerIcon(this.getIconString());
+		this.itemIcon = iconRegister.registerIcon(this.getIconString());
 		
-		if(this.renderIndex == 0)
+		if (this.renderIndex == 0)
 		{
-			overlayIcon = par1IconRegister.registerIcon(MAssetManager.getEOTexture("overlayArmorHelmBronze"));
+			this.overlayIcon = iconRegister.registerIcon(MAssetManager.getEOTexture("overlayArmorHelmBronze"));
 		}
-		else if(this.renderIndex == 1)
+		else if (this.renderIndex == 1)
 		{
-			overlayIcon = par1IconRegister.registerIcon(MAssetManager.getEOTexture("overlayArmorChestBronze"));
+			this.overlayIcon = iconRegister.registerIcon(MAssetManager.getEOTexture("overlayArmorChestBronze"));
 		}
-		else if(this.renderIndex == 2)
+		else if (this.renderIndex == 2)
 		{
-			overlayIcon = par1IconRegister.registerIcon(MAssetManager.getEOTexture("overlayArmorLegsBronze"));
+			this.overlayIcon = iconRegister.registerIcon(MAssetManager.getEOTexture("overlayArmorLegsBronze"));
 		}
 		else
 		{
-			overlayIcon = par1IconRegister.registerIcon(MAssetManager.getEOTexture("overlayArmorBootsBronze"));
+			this.overlayIcon = iconRegister.registerIcon(MAssetManager.getEOTexture("overlayArmorBootsBronze"));
 		}
 	}
-
+	
+	@Override
 	public IIcon getIcon(ItemStack stack, int renderPass)
 	{
-		if (renderPass == 0)
+		if (renderPass == 1 && MItemTool.isPlated(stack))
 		{
-			return itemIcon;
+			return this.overlayIcon;
 		}
-		else if (stack.getTagCompound() != null && stack.getTagCompound().getBoolean("bronzePlated"))
-		{
-			return overlayIcon;
-		}
-		else
-		{
-			return itemIcon;
-		}
+		return this.itemIcon;
 	}
-
-	private int colorA = 421010;
-
-	public int getColorFromItemStack(ItemStack par1ItemStack, int renderPass)
+	
+	@Override
+	public int getColorFromItemStack(ItemStack stack, int renderPass)
 	{
 		if (renderPass == 0)
 		{
-			return colorA;
+			return 421010;
 		}
 		return 16777215;
 	}
-
+	
+	@Override
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type)
 	{
 		String layer = "1";
-
-		String material = armorPrefix;
-
+		
+		String material = this.armorPrefix;
+		
 		if (slot == 2)
 		{
 			layer = "2";

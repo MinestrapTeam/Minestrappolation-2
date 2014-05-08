@@ -7,50 +7,52 @@ import net.minecraft.block.BlockSlab;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
 import sobiohazardous.mods.minestrappolation.core.util.MAssetManager;
 import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlocks;
 
 public class SteelPlatedStoneBrickSlab extends BlockSlab
 {
-	public static final String[] woodType =
-	{ "steelPlatedStoneBrick" };
-
+	public static final String[]	woodType	= { "steelPlatedStoneBrick" };
+	
 	public SteelPlatedStoneBrickSlab(boolean par2)
 	{
 		super(par2, Material.rock);
 		// setBurnProperties(this.blockID, 5, 20);
-		useNeighborBrightness = true;
+		this.useNeighborBrightness = true;
 	}
-
+	
+	@Override
 	public void registerBlockIcons(IIconRegister par1IconRegister)
 	{
 		this.blockIcon = par1IconRegister.registerIcon(MAssetManager.getEOStonecutterTexture("Stone_Bricks_0_Steel"));
 	}
-
+	
+	@Override
 	public Item getItemDropped(int par1, Random par2Random, int par3)
 	{
 		return Item.getItemFromBlock(EOBlocks.steelPlatedStoneBrickSingleSlab);
 	}
-
+	
+	@Override
 	protected ItemStack createStackedBlock(int par1)
 	{
 		return new ItemStack(EOBlocks.steelPlatedStoneBrickSingleSlab, 2, par1 & 7);
 	}
-
+	
+	@Override
 	public String func_150002_b(int par1)
 	{
-		if ((par1 < 0) || (par1 >= woodType.length))
+		if (par1 < 0 || par1 >= woodType.length)
 		{
 			par1 = 0;
 		}
-
+		
 		return super.getUnlocalizedName() + "." + woodType[par1];
 	}
-
+	
+	@Override
 	public void getSubBlocks(Item par1, CreativeTabs par2CreativeTabs, List par3List)
 	{
 		if (par1 != Item.getItemFromBlock(EOBlocks.steelPlatedStoneBrickDoubleSlab))

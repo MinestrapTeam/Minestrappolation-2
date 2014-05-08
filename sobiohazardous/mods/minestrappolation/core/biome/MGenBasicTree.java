@@ -9,76 +9,70 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class MGenBasicTree extends WorldGenerator
 {
-	Block leavesID;
-	Block woodID;
-	int height;
-	int thickness;
-	int treeType = 1;
-
-
-	public MGenBasicTree(Block leavesBlockID, Block woodBlockID,int height,int leavethickness)
+	Block	leavesID;
+	Block	woodID;
+	int		height;
+	int		thickness;
+	int		treeType	= 1;
+	
+	public MGenBasicTree(Block leavesBlockID, Block woodBlockID, int height, int leavethickness)
 	{
 		this.leavesID = leavesBlockID;
 		this.woodID = woodBlockID;
 		this.height = height;
 		// to thick and the leaves will start to decay
 		this.thickness = leavethickness;
-		if(this.treeType == 1)
+		if (this.treeType == 1)
 		{
 			System.out.println("basic tree type");
 		}
 	}
-
+	
 	@Override
-	public boolean generate(World world, Random random, int i, int j, int k)
+	public boolean generate(World world, Random random, int x, int y, int z)
 	{
-		Block bID = world.getBlock(i, j, k);
-				
-
-		for (boolean var6 = false; ((Block.isEqualTo(bID, Block.getBlockById(0)) || bID == this.leavesID) && j > 0); --j)
+		for (; y > 0 && world.isAirBlock(x, y, z); --y)
 		{
-			;
 		}
-
-		Block block = world.getBlock(i, j, k);
+		
+		Block block = world.getBlock(x, y, z);
 		
 		if (block == Blocks.dirt || block == Blocks.grass)
 		{
-					
-			++j;
+			++y;
 			
-			for(int a = 0;a<height+1;a++)
+			for (int a = 0; a < this.height + 1; a++)
 			{
-				this.setBlockAndNotifyAdequately(world, i, j+a, k, this.woodID, 1);
+				this.setBlockAndNotifyAdequately(world, x, y + a, z, this.woodID, 1);
 			}
-			this.setBlockAndNotifyAdequately(world, i, j+height, k, this.leavesID, 1);
-
-			for (int y = j; y <= j + 1; ++y)
+			this.setBlockAndNotifyAdequately(world, x, y + this.height, z, this.leavesID, 1);
+			
+			for (int y1 = y; y1 <= y + 1; ++y1)
 			{
-				int var9 = y - j;
-					
-				int var10 = 2 - var9;
-					
-				for (int x = i - var10; x <= i + var10; ++x)
+				int y2 = y1 - y;
+				
+				int y3 = 2 - y2;
+				
+				for (int x1 = x - y3; x1 <= x + y3; ++x1)
 				{
-					int var12 = x - i;
-
-					for (int z = k - var10; z <= k + var10; ++z)
+					int x2 = x1 - x;
+					
+					for (int z1 = z - y3; z1 <= z + y3; ++z1)
 					{
-						int var14 = z - k;
-
-						if ((Math.abs(var12) != var10 || Math.abs(var14) != var10 || random.nextInt(2) != 0) && !world.isBlockNormalCubeDefault(x, y, z, true))
+						int z2 = z1 - z;
+						
+						if ((Math.abs(x2) != y3 || Math.abs(z2) != y3 || random.nextInt(2) != 0) && !world.isBlockNormalCubeDefault(x1, y1, z1, true))
 						{
-							for(int v = 0; v < this.thickness; v++)
+							for (int v = 0; v < this.thickness; v++)
 							{
-								this.setBlockAndNotifyAdequately(world, x, y+height-v, z, this.leavesID, 1);
+								this.setBlockAndNotifyAdequately(world, x1, y1 + this.height - v, z1, this.leavesID, 1);
 							}
 						}
 					}
 				}
 			}
 		}
-
+		
 		return true;
 	}
 }

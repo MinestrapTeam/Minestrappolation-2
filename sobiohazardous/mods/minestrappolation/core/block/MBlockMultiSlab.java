@@ -3,8 +3,6 @@ package sobiohazardous.mods.minestrappolation.core.block;
 import java.util.List;
 import java.util.Random;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -14,80 +12,80 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 
 public class MBlockMultiSlab extends BlockSlab
-{ 
-    private IIcon[] sides;
-    private IIcon[] top;
-    
-    private String[] sideImgs;
-    private String[] topImgs;
-
-    public MBlockMultiSlab(boolean isDouble, String[] sideTextures, String[] topTextures)
-    {
-        super(isDouble, Material.rock);
-        this.sideImgs = sideTextures;
-        this.topImgs = topTextures;
-    }
-    
-    public IIcon getIcon(int side, int meta)
-    {
-        int var3 = meta & 12;
-        int var4 = meta & 3;
-        if(this.field_150004_a)
-        {
-            return var3 == 0 && (side == 1 || side == 0) ? this.top[var4] : this.sides[var4];
-        }
-        return var3 == 0 && (side == 1 || side == 0) ? this.top[var4] : (var3 == 4 && (side == 5 || side == 4) ? this.sides[var4] : (var3 == 8 && (side == 2 || side == 3) ? this.sides[var4] : this.top[var4]));
-    }
-    public void registerBlockIcons(IIconRegister par1IconRegister)
-    {
-        this.sides = new IIcon[sideImgs.length];
-        this.top = new IIcon[topImgs.length];
-
-        for (int i = 0; i < this.sides.length; ++i)
-        {
-            this.sides[i] = par1IconRegister.registerIcon(sideImgs[i]);
-        }
-        
-        for (int i = 0; i < this.top.length; ++i)
-        {
-            this.top[i] = par1IconRegister.registerIcon(topImgs[i]);
-        }
-    }
-
-    public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)
-    {
-    	//TODO this should be a single slab somehow.
-        return Item.getItemFromBlock(this);
-    }
-
-    /**
-     * Returns an item stack containing a single instance of the current block type. 'i' is the block's subtype/damage
-     * and is ignored for blocks which do not support subtypes. Blocks which cannot be harvested should return null.
-     */
-    protected ItemStack createStackedBlock(int meta)
-    {
-    	//TODO This should be the single slab somehow.
-        return new ItemStack(this, 2, meta);
-    }
-
-    public String func_150002_b(int meta)
-    {
-        if (meta < 0 || meta >= topImgs.length)
-        {
-        	meta = 0;
-        }
-
-        return super.getUnlocalizedName() + "." + meta;
-    }
-
-    /**
-     * returns a list of blocks with the same ID, but different meta (eg: wood returns 4 blocks)
-     */
-    public void getSubBlocks(Item par1, CreativeTabs par2CreativeTabs, List par3List)
-    {
-    	for(int i=0; i < top.length; i++)
-    	{
-        	par3List.add(new ItemStack(par1, 1, i));
-    	}
-    }
+{
+	private IIcon[]		sideIcons;
+	private IIcon[]		topIcons;
+	
+	private String[]	sideIconNames;
+	private String[]	topIconNames;
+	
+	public MBlockMultiSlab(boolean isDouble, String[] sideIconNames, String[] topIconNames)
+	{
+		super(isDouble, Material.rock);
+		this.sideIconNames = sideIconNames;
+		this.topIconNames = topIconNames;
+	}
+	
+	@Override
+	public IIcon getIcon(int side, int meta)
+	{
+		int var3 = meta & 12;
+		int var4 = meta & 3;
+		if (this.field_150004_a)
+		{
+			return var3 == 0 && (side == 1 || side == 0) ? this.topIcons[var4] : this.sideIcons[var4];
+		}
+		return var3 == 0 && (side == 1 || side == 0) ? this.topIcons[var4] : var3 == 4 && (side == 5 || side == 4) ? this.sideIcons[var4] : var3 == 8 && (side == 2 || side == 3) ? this.sideIcons[var4] : this.topIcons[var4];
+	}
+	
+	@Override
+	public void registerBlockIcons(IIconRegister iconRegister)
+	{
+		this.sideIcons = new IIcon[this.sideIconNames.length];
+		this.topIcons = new IIcon[this.topIconNames.length];
+		
+		for (int i = 0; i < this.sideIcons.length; ++i)
+		{
+			this.sideIcons[i] = iconRegister.registerIcon(this.sideIconNames[i]);
+		}
+		
+		for (int i = 0; i < this.topIcons.length; ++i)
+		{
+			this.topIcons[i] = iconRegister.registerIcon(this.topIconNames[i]);
+		}
+	}
+	
+	@Override
+	public Item getItemDropped(int metadata, Random random, int fortune)
+	{
+		// TODO this should be a single slab somehow.
+		return Item.getItemFromBlock(this);
+	}
+	
+	@Override
+	protected ItemStack createStackedBlock(int meta)
+	{
+		// TODO This should be the single slab somehow.
+		return new ItemStack(this, 2, meta);
+	}
+	
+	@Override
+	public String func_150002_b(int meta)
+	{
+		if (meta < 0 || meta >= this.topIconNames.length)
+		{
+			meta = 0;
+		}
+		
+		return super.getUnlocalizedName() + "." + meta;
+	}
+	
+	@Override
+	public void getSubBlocks(Item item, CreativeTabs tab, List list)
+	{
+		for (int i = 0; i < this.topIconNames.length; i++)
+		{
+			list.add(new ItemStack(item, 1, i));
+		}
+	}
 }

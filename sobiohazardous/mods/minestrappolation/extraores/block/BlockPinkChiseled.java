@@ -1,75 +1,74 @@
 package sobiohazardous.mods.minestrappolation.extraores.block;
 
-import java.util.Random;
-
 import sobiohazardous.mods.minestrappolation.core.util.MAssetManager;
-import sobiohazardous.mods.minestrappolation.extraores.ExtraOres;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlocks;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.Entity;
-import net.minecraft.item.Item;
-import net.minecraft.src.*;
-import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.IIcon;
-import net.minecraft.world.World;
 
 public class BlockPinkChiseled extends Block
 {
-	private IIcon top;
-
+	private IIcon	top;
+	
 	public BlockPinkChiseled()
 	{
 		super(Material.rock);
 		this.setCreativeTab(CreativeTabs.tabBlock);
 	}
-
+	
+	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		blockIcon = iconRegister.registerIcon(MAssetManager.getEOStonecutterTexture("DesertQuartz_Chiseled_Side_0"));
+		this.blockIcon = iconRegister.registerIcon(MAssetManager.getEOStonecutterTexture("DesertQuartz_Chiseled_Side_0"));
 		this.top = iconRegister.registerIcon(MAssetManager.getEOStonecutterTexture("DesertQuartz_Chiseled_Top_0"));
 	}
-
+	
 	/**
 	 * Determines the damage on the item the block drops. Used in cloth and
 	 * wood.
 	 */
+	@Override
 	public int damageDropped(int par1)
 	{
 		return 0;
 	}
-
+	
 	// Args: side, metadata
+	@Override
 	public IIcon getIcon(int i, int j)
 	{
-		if (i == 0)// bottom
-
-			return blockIcon;
-		if (i == 1)// top
-
-			return top;
-
-		if (i == 2) // side
-
-			return blockIcon;
-		if (i == 3)// side
-
-			return blockIcon;
-		if (i == 4) // side
-
-			return blockIcon;
-		if (i == 5) // side
-
-			return blockIcon;
-
+		if (i == 0)
+		{
+			return this.blockIcon;
+		}
+		if (i == 1)
+		{
+			return this.top;
+		}
+		
+		if (i == 2)
+		{
+			return this.blockIcon;
+		}
+		if (i == 3)
+		{
+			return this.blockIcon;
+		}
+		if (i == 4)
+		{
+			return this.blockIcon;
+		}
+		if (i == 5)
+		{
+			return this.blockIcon;
+		}
+		
 		if (j == 1)
 		{
-			return blockIcon;
+			return this.blockIcon;
 		}
-		return top;
+		return this.top;
 	}
-
+	
 }

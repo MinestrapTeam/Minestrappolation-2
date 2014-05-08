@@ -1,98 +1,77 @@
 package sobiohazardous.mods.minestrappolation.core.block;
 
 import java.util.List;
-import java.util.Random;
-
 import sobiohazardous.mods.minestrappolation.core.Minestrappolation;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.src.*;
-import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.IIcon;
-import net.minecraft.world.World;
 
 public class MBlockMultiRoad extends Block
 {
-	private IIcon[] sides;
-	private IIcon[] top;
-	private IIcon[] bottom;
-
-	private String[] sidesImg;
-	private String[] topImg;	
-	private String[] bottomImg;
-
-	public MBlockMultiRoad(Material mat, String[] sidesImgs, String[] topImgs, String[] bottomImgs)
-    {
-        super(Material.rock);
-        this.sidesImg = sidesImgs;
-        this.topImg = topImgs;
-        this.bottomImg = bottomImgs;
-        this.setCreativeTab(Minestrappolation.creativeTabStone);
-    }
-
-    public void registerBlockIcons(IIconRegister par1IconRegister)
-    {
-        this.sides = new IIcon[sidesImg.length];
-        this.top = new IIcon[topImg.length];
-        this.bottom = new IIcon[bottomImg.length];
-        
-        for (int i = 0; i < this.sides.length; ++i)
-        {
-            this.sides[i] = par1IconRegister.registerIcon(sidesImg[i]);
-        }
-        
-        for (int i = 0; i < this.top.length; ++i)
-        {
-            this.top[i] = par1IconRegister.registerIcon(topImg[i]);
-        }
-        
-        for (int i = 0; i < this.bottom.length; ++i)
-        {
-            this.bottom[i] = par1IconRegister.registerIcon(bottomImg[i]);
-        }
-    }
-    
-    public IIcon getIcon(int side, int meta)
-    {
-        if (side != 1 && (side != 0 || meta != 1 && meta != 2))
-        {
-            if (side == 0)
-            {
-            	//bottom
-                return this.bottom[meta];
-            }
-            else
-            {
-                if (meta < 0 || meta >= this.sides.length)
-                {
-                    meta = 0;
-                }
-
-                return this.sides[meta];
-            }
-        }
-        else
-        {
-            return this.top[meta];
-        }
-    }
-
-    /**
-     * returns a list of blocks with the same ID, but different meta (eg: wood returns 4 blocks)
-     */
-    public void getSubBlocks(Item par1, CreativeTabs par2CreativeTabs, List par3List)
-    {
-    	for(int i=0; i < top.length; i++)
-    	{
-        	par3List.add(new ItemStack(par1, 1, i));
-    	}
-    }
+	private IIcon[]		sideIcons;
+	private IIcon[]		topIcons;
+	private IIcon[]		bottomIcons;
+	
+	private String[]	sideIconNames;
+	private String[]	topIconNames;
+	private String[]	bottomIconNames;
+	
+	public MBlockMultiRoad(Material mat, String[] sideIcons, String[] topIcons, String[] bottomIcons)
+	{
+		super(Material.rock);
+		this.sideIconNames = sideIcons;
+		this.topIconNames = topIcons;
+		this.bottomIconNames = bottomIcons;
+		this.setCreativeTab(Minestrappolation.creativeTabStone);
+	}
+	
+	@Override
+	public void registerBlockIcons(IIconRegister iconRegister)
+	{
+		this.sideIcons = new IIcon[this.sideIconNames.length];
+		this.topIcons = new IIcon[this.topIconNames.length];
+		this.bottomIcons = new IIcon[this.bottomIconNames.length];
+		
+		for (int i = 0; i < this.sideIcons.length; ++i)
+		{
+			this.sideIcons[i] = iconRegister.registerIcon(this.sideIconNames[i]);
+		}
+		
+		for (int i = 0; i < this.topIcons.length; ++i)
+		{
+			this.topIcons[i] = iconRegister.registerIcon(this.topIconNames[i]);
+		}
+		
+		for (int i = 0; i < this.bottomIcons.length; ++i)
+		{
+			this.bottomIcons[i] = iconRegister.registerIcon(this.bottomIconNames[i]);
+		}
+	}
+	
+	@Override
+	public IIcon getIcon(int side, int meta)
+	{
+		if (side == 0)
+		{
+			return this.bottomIcons[meta];
+		}
+		else if (side == 1)
+		{
+			return this.topIcons[meta];
+		}
+		return this.sideIcons[meta];
+	}
+	
+	@Override
+	public void getSubBlocks(Item item, CreativeTabs tab, List list)
+	{
+		for (int i = 0; i < this.topIconNames.length; i++)
+		{
+			list.add(new ItemStack(item, 1, i));
+		}
+	}
 }
-    

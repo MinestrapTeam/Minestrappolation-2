@@ -3,6 +3,7 @@ package sobiohazardous.mods.minestrappolation.core.block;
 import java.util.List;
 
 import sobiohazardous.mods.minestrappolation.core.Minestrappolation;
+
 import net.minecraft.block.BlockRotatedPillar;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -10,58 +11,58 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
-import net.minecraft.world.World;
 
 public class MBlockMultiPillar extends BlockRotatedPillar
 {
-    protected IIcon[] sides;
-    protected IIcon[] top;
-    
-    private String[] sidesImg;
-    private String [] topImg;
-
-    public MBlockMultiPillar(Material mat, String[] sideImgs, String[] topImgs)
-    {
-        super(Material.wood);
-        this.setCreativeTab(Minestrappolation.creativeTabStone);
-        this.sidesImg = sideImgs;
-        this.topImg = topImgs;
-    }
-
-    /**
-     * returns a list of blocks with the same ID, but different meta (eg: wood returns 4 blocks)
-     */
-    public void getSubBlocks(Item par1, CreativeTabs par2CreativeTabs, List par3List)
-    {
-    	for(int i=0; i < top.length; i++)
-    	{
-        	par3List.add(new ItemStack(par1, 1, i));
-    	}
-    }
-    
-    public void registerBlockIcons(IIconRegister par1IconRegister)
-    {
-        this.sides = new IIcon[sidesImg.length];
-        this.top = new IIcon[topImg.length];
-
-        for (int i = 0; i < this.sides.length; ++i)
-        {
-            this.sides[i] = par1IconRegister.registerIcon(sidesImg[i]);
-        }
-        
-        for (int i = 0; i < this.top.length; ++i)
-        {
-            this.top[i] = par1IconRegister.registerIcon(topImg[i]);
-        }
-    }
-
-    protected IIcon getSideIcon(int meta)
-    {
-        return this.sides[meta % this.sides.length];
-    }
-
-    protected IIcon getTopIcon(int meta)
-    {
-        return this.top[meta % this.top.length];
-    }
+	protected IIcon[]	sideIcons;
+	protected IIcon[]	topIcons;
+	
+	private String[]	sideIconNames;
+	private String[]	topIconNames;
+	
+	public MBlockMultiPillar(Material mat, String[] sideIcons, String[] topIcons)
+	{
+		super(Material.wood);
+		this.setCreativeTab(Minestrappolation.creativeTabStone);
+		this.sideIconNames = sideIcons;
+		this.topIconNames = topIcons;
+	}
+	
+	@Override
+	public void registerBlockIcons(IIconRegister iconRegister)
+	{
+		this.sideIcons = new IIcon[this.sideIconNames.length];
+		this.topIcons = new IIcon[this.topIconNames.length];
+		
+		for (int i = 0; i < this.sideIcons.length; ++i)
+		{
+			this.sideIcons[i] = iconRegister.registerIcon(this.sideIconNames[i]);
+		}
+		
+		for (int i = 0; i < this.topIcons.length; ++i)
+		{
+			this.topIcons[i] = iconRegister.registerIcon(this.topIconNames[i]);
+		}
+	}
+	
+	@Override
+	protected IIcon getSideIcon(int meta)
+	{
+		return this.sideIcons[meta % this.sideIcons.length];
+	}
+	
+	@Override
+	protected IIcon getTopIcon(int meta)
+	{
+		return this.topIcons[meta % this.topIcons.length];
+	}
+	
+	@Override
+	public void getSubBlocks(Item item, CreativeTabs tab, List list)
+	{
+		for (int i = 0; i < this.topIconNames.length; i++)
+		{
+			list.add(new ItemStack(item, 1, i));
+		}
+	}
 }

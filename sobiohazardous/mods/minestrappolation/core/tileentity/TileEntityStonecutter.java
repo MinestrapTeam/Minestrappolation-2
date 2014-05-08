@@ -1,7 +1,12 @@
 package sobiohazardous.mods.minestrappolation.core.tileentity;
 
-import net.minecraft.tileentity.TileEntity;
+import clashsoft.cslib.minecraft.tileentity.TileEntityInventory;
 
-public class TileEntityStonecutter extends TileEntity 
+public class TileEntityStonecutter extends TileEntityInventory
 {
+	@Override
+	public int getSizeInventory()
+	{
+		return 0;
+	}
 }
