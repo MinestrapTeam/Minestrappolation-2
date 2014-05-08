@@ -1,28 +1,16 @@
 package sobiohazardous.mods.minestrappolation.extraores;
 
 import sobiohazardous.mods.minestrappolation.core.customrecipes.CustomSmeltingLoader;
-import sobiohazardous.mods.minestrappolation.core.customrecipes.PluginFolder;
 import sobiohazardous.mods.minestrappolation.core.lib.MReference;
-import sobiohazardous.mods.minestrappolation.extraores.entity.EntityGrenade;
-import sobiohazardous.mods.minestrappolation.extraores.entity.EntityGrenadeImpact;
-import sobiohazardous.mods.minestrappolation.extraores.entity.EntityGrenadeSticky;
-import sobiohazardous.mods.minestrappolation.extraores.entity.EntityInstantExplosion;
-import sobiohazardous.mods.minestrappolation.extraores.entity.EntityNukePrimed;
+import sobiohazardous.mods.minestrappolation.extraores.entity.*;
 import sobiohazardous.mods.minestrappolation.extraores.fluids.EOFluids;
 import sobiohazardous.mods.minestrappolation.extraores.gen.EOOreGenerator;
 import sobiohazardous.mods.minestrappolation.extraores.handler.BlacksmithTradeHandler;
 import sobiohazardous.mods.minestrappolation.extraores.handler.GuiHandler;
 import sobiohazardous.mods.minestrappolation.extraores.handler.PriestTradeHandler;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlocks;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOConfig;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOFuelHandler;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOIngotAndOreRegistration;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOItems;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EORecipes;
+import sobiohazardous.mods.minestrappolation.extraores.lib.*;
 import sobiohazardous.mods.minestrappolation.extraores.proxy.CommonProxy;
 import sobiohazardous.mods.minestrappolation.extraores.tileentity.TileEntityMelter;
-import net.minecraft.init.Blocks;
-import net.minecraftforge.fluids.Fluid;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Instance;
@@ -35,6 +23,9 @@ import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.VillagerRegistry;
 
+import net.minecraft.init.Blocks;
+import net.minecraftforge.fluids.Fluid;
+
 /**
  * @author SoBiohazardous
  */
@@ -45,7 +36,6 @@ public class ExtraOres
 	public static CommonProxy	proxy;
 	
 	CustomSmeltingLoader		smelter			= new CustomSmeltingLoader();
-	PluginFolder				plug			= new PluginFolder();
 	public static int			plateRenderId	= RenderingRegistry.getNextAvailableRenderId();
 	
 	@Instance("ExtraOres")
@@ -64,9 +54,8 @@ public class ExtraOres
 		EOConfig.initilize(evt);
 		
 		// Lib adding
-		this.plug.createPluginFolder();
-		this.plug.createVanillaandMinestrappolationAlias();
 		this.smelter.loadCustomFuels();
+		
 		EOBlocks.addBlocks();
 		EOItems.addItems();
 		EOIngotAndOreRegistration.registerOresAndIngots();

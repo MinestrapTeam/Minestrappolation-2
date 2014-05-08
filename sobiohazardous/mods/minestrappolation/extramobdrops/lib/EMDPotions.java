@@ -1,18 +1,21 @@
 package sobiohazardous.mods.minestrappolation.extramobdrops.lib;
 
+import sobiohazardous.mods.minestrappolation.core.potion.MPotion;
+import sobiohazardous.mods.minestrappolation.core.util.MAssetManager;
 import clashsoft.brewingapi.potion.IPotionEffectHandler;
 import clashsoft.brewingapi.potion.PotionList;
 import clashsoft.brewingapi.potion.type.PotionType;
-import sobiohazardous.mods.minestrappolation.core.potion.MPotion;
+
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.ResourceLocation;
 
 public class EMDPotions implements IPotionEffectHandler
 {
-	private static String		iconLoc	= "minestrappolation:gui/potion_icons.png";
+	private static ResourceLocation		iconLoc	= MAssetManager.getMAPIResource("gui/potion_icons.png");
 	
 	public static Potion		infectious;
 	
@@ -21,7 +24,7 @@ public class EMDPotions implements IPotionEffectHandler
 	
 	public static void loadPotions()
 	{
-		infectious = new MPotion("potion.infectious", true, 0, false, iconLoc, 0, 6).setInGamePotionName("Potion of Infection");
+		infectious = new MPotion("potion.infectious", 0x000000, true).setIcon(iconLoc, 0, 6);
 	}
 	
 	/**

@@ -8,7 +8,7 @@ public class CommonProxy
 	
 	public void registerRenders()
 	{
-	};
+	}
 	
 	public static int addArmor(String armor)
 	{

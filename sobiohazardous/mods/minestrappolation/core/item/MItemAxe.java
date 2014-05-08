@@ -7,9 +7,14 @@ import net.minecraft.item.ItemStack;
 
 public class MItemAxe extends MItemTool
 {
-	public MItemAxe(ToolMaterial material, ToolMaterial bronzeMaterial, boolean ignites)
+	public MItemAxe(ToolMaterial material, ToolMaterial plateMaterial)
 	{
-		super(ItemDataAxe.baseDamage, material, bronzeMaterial, ItemDataAxe.blocksEffectiveAgainst, "overlayToolAxeBronze", ignites);
+		this(material, plateMaterial, false);
+	}
+	
+	public MItemAxe(ToolMaterial material, ToolMaterial plateMaterial, boolean ignites)
+	{
+		super(ItemDataAxe.baseDamage, material, plateMaterial, ItemDataAxe.blocksEffectiveAgainst, "overlayToolAxeBronze", ignites);
 	}
 	
 	@Override
