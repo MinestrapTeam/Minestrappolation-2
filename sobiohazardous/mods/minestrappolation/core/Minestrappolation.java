@@ -24,7 +24,7 @@ public class Minestrappolation
 	@Instance(MReference.MODID_MAPI)
 	public static Minestrappolation	instance;
 	
-	@SidedProxy(modId = MReference.MODID_MAPI, clientSide = "sobiohazardous.mods.minestrappolation.core.proxy.ClientProxy", serverSide = "sobiohazardous.mods.minestrappolation.core.proxy.CommonProxy")
+	@SidedProxy(modId = MReference.MODID_MAPI, clientSide = "sobiohazardous.mods.minestrappolation.core.client.MClientProxy", serverSide = "sobiohazardous.mods.minestrappolation.core.common.MCommonProxy")
 	public static MCommonProxy		proxy;
 	
 	public static CreativeTabs		creativeTabStone	= new MCreativeTabStone(CreativeTabs.getNextID(), "minestrap_stone");
