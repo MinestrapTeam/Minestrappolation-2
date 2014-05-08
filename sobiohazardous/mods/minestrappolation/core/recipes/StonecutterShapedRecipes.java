@@ -1,188 +1,134 @@
 package sobiohazardous.mods.minestrappolation.core.recipes;
 
-import sobiohazardous.mods.minestrappolation.core.tileentity.InventoryStonecutterExtraSlot;
-import net.minecraft.inventory.InventoryBasic;
+import clashsoft.cslib.minecraft.item.CSStacks;
+
 import net.minecraft.inventory.InventoryCrafting;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
 public class StonecutterShapedRecipes implements IStonecutterRecipe
 {
-    /** How many horizontal slots this recipe is wide. */
-    public final int recipeWidth;
-
-    /** How many vertical slots this recipe uses. */
-    public final int recipeHeight;
-
-    /** Is a array of ItemStack that composes the recipe. */
-    public final ItemStack[] recipeItems;
-
-    /** Is the ItemStack that you get when craft the recipe. */
-    private ItemStack recipeOutput;
-    
-    private boolean field_92101_f;
-    
-    private ItemStack neededExtraSlot;
-    
-    public StonecutterShapedRecipes(int par1, int par2, ItemStack[] par3ArrayOfItemStack, ItemStack par4ItemStack, ItemStack neededExtraSlot)
-    {
-        this.recipeWidth = par1;
-        this.recipeHeight = par2;
-        this.recipeItems = par3ArrayOfItemStack;
-        this.recipeOutput = par4ItemStack;
-        this.neededExtraSlot = neededExtraSlot;
-    }
-
-    public ItemStack getRecipeOutput()
-    {
-        return this.recipeOutput;
-    }
-
-    /**
-     * Used to check if a recipe matches current crafting inventory
-     */
-    public boolean matches(InventoryCrafting par1InventoryCrafting, InventoryStonecutterExtraSlot extra, World par2World)
-    {
-        for (int i = 0; i <= 3 - this.recipeWidth; ++i)
-        {
-            for (int j = 0; j <= 3 - this.recipeHeight; ++j)
-            {
-                if (this.checkMatch(par1InventoryCrafting, extra, i, j, true))
-                {
-                    return true;
-                }
-
-                if (this.checkMatch(par1InventoryCrafting, extra, i, j, false))
-                {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    /**
-     * Checks if the region of a crafting inventory is match for the recipe.
-     */
-    private boolean checkMatch(InventoryCrafting par1InventoryCrafting, InventoryStonecutterExtraSlot extraInv, int par2, int par3,boolean par4)
-    { 	
-    	for (int var5 = 0; var5 < 3; ++var5)
-        {
-            for (int var6 = 0; var6 < 3; ++var6)
-            {
-                int var7 = var5 - par2;
-                int var8 = var6 - par3;
-                ItemStack var9 = null;
-
-                if (var7 >= 0 && var8 >= 0 && var7 < this.recipeWidth && var8 < this.recipeHeight)
-                {
-                    if (par4)
-                    {
-                        var9 = this.recipeItems[this.recipeWidth - var7 - 1 + var8 * this.recipeWidth];
-                    }
-                    else
-                    {
-                        var9 = this.recipeItems[var7 + var8 * this.recipeWidth];
-                    }
-                }
-
-                ItemStack var10 = par1InventoryCrafting.getStackInRowAndColumn(var5, var6);
-                ItemStack currentExtraSlot = extraInv.getStackInSlot(0);
-
-                if (var10 != null || var9 != null)
-                {
-                    if (var10 == null && var9 != null || var10 != null && var9 == null)
-                    {
-                    	return false;
-                    }
-
-                    if (var9.getItem() != var10.getItem())
-                    {
-                        return false;
-                    }
-
-                    if (var9.getItemDamage() != 32767 && var9.getItemDamage() != var10.getItemDamage())
-                    {
-                        return false;
-                    }   
-                    
-                    if(currentExtraSlot == null && neededExtraSlot != null || currentExtraSlot != null && neededExtraSlot == null)
-                    {
-                        return false;
-                    }
-
-                    if(neededExtraSlot == null && currentExtraSlot != null)
-                    {
-                    	return false;
-                    }
-                    if(currentExtraSlot != null && currentExtraSlot.getItem() != neededExtraSlot.getItem())
-                    {
-                    	return false;
-                    }
-                    if (neededExtraSlot.getItemDamage() != 32767 && neededExtraSlot.getItemDamage() != currentExtraSlot.getItemDamage())
-                    {
-                        return false;
-                    } 
-                } 
-                
-                /*
-                if(currentExtraSlot != null || neededExtraSlot != null)
-                {
-                	 if(currentExtraSlot == null && neededExtraSlot != null || currentExtraSlot != null && neededExtraSlot == null)
-                     {
-                     	 System.out.println("4");
-                         return false;
-                     }
-                     if(currentExtraSlot != neededExtraSlot)
-                     {
-                     	System.out.println("5");
-                     	return false;
-                     }
-                }
-                */
-            }
-        }
-        return true;
-    }
-
-    /**
-     * Returns an Item that is the result of this recipe
-     */
-    public ItemStack getCraftingResult(InventoryCrafting par1InventoryCrafting, InventoryStonecutterExtraSlot extra)
-    {
-        ItemStack var2 = this.getRecipeOutput().copy();
-
-        if (this.field_92101_f)
-        {
-            for (int var3 = 0; var3 < par1InventoryCrafting.getSizeInventory(); ++var3)
-            {
-                ItemStack var4 = par1InventoryCrafting.getStackInSlot(var3);
-
-                if (var4 != null && var4.hasTagCompound())
-                {
-                    var2.setTagCompound((NBTTagCompound)var4.stackTagCompound.copy());
-                }
-            }
-        }
-
-        return var2;
-    }
-
-    /**
-     * Returns the size of the recipe area
-     */
-    public int getRecipeSize()
-    {
-        return this.recipeWidth * this.recipeHeight;
-    }
-
-    //setHasNBTResult
-    public StonecutterShapedRecipes func_92100_c()
-    {
-        this.field_92101_f = true;
-        return this;
-    }
-    
+	public final int			recipeWidth;
+	public final int			recipeHeight;
+	
+	public final ItemStack[]	recipeItems;
+	public final ItemStack			recipeOutput;
+	
+	private ItemStack			extraSlot;
+	
+	protected boolean hasNBTResult;
+	
+	public StonecutterShapedRecipes(int width, int height, ItemStack[] data, ItemStack output, ItemStack extra)
+	{
+		this.recipeWidth = width;
+		this.recipeHeight = height;
+		this.recipeItems = data;
+		this.recipeOutput = output;
+		this.extraSlot = extra;
+	}
+	
+	@Override
+	public ItemStack getRecipeOutput()
+	{
+		return this.recipeOutput;
+	}
+	
+	@Override
+	public boolean matches(InventoryCrafting inventory, ItemStack extra, World world)
+	{
+		if (!CSStacks.equals(this.extraSlot, extra))
+		{
+			return false;
+		}
+		
+		for (int i = 0; i <= 3 - this.recipeWidth; ++i)
+		{
+			for (int j = 0; j <= 3 - this.recipeHeight; ++j)
+			{
+				if (this.checkMatch(inventory, i, j, true))
+				{
+					return true;
+				}
+				
+				if (this.checkMatch(inventory, i, j, false))
+				{
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
+	/**
+	 * Checks if the region of a crafting inventory is match for the recipe.
+	 */
+	private boolean checkMatch(InventoryCrafting inventory, int x, int y, boolean mirror)
+	{
+		for (int i = 0; i < 3; ++i)
+		{
+			for (int j = 0; j < 3; ++j)
+			{
+				int i1 = i - x;
+				int j1 = j - y;
+				ItemStack stack1 = null;
+				
+				if (i1 >= 0 && j1 >= 0 && i1 < this.recipeWidth && j1 < this.recipeHeight)
+				{
+					if (mirror)
+					{
+						stack1 = this.recipeItems[this.recipeWidth - i1 - 1 + j1 * this.recipeWidth];
+					}
+					else
+					{
+						stack1 = this.recipeItems[i1 + j1 * this.recipeWidth];
+					}
+				}
+				
+				ItemStack stack2 = inventory.getStackInRowAndColumn(i, j);
+				
+				if (stack2 != null || stack1 != null)
+				{
+					if (!CSStacks.equals(stack1, stack2))
+					{
+						return false;
+					}
+				}
+			}
+		}
+		return true;
+	}
+	
+	@Override
+	public ItemStack getCraftingResult(InventoryCrafting inventory, ItemStack extra)
+	{
+		ItemStack stack = this.getRecipeOutput().copy();
+		
+		if (this.hasNBTResult)
+		{
+			for (int i = 0; i < inventory.getSizeInventory(); ++i)
+			{
+				ItemStack stack1 = inventory.getStackInSlot(i);
+				
+				if (stack1 != null && stack1.hasTagCompound())
+				{
+					stack.setTagCompound((NBTTagCompound) stack1.stackTagCompound.copy());
+				}
+			}
+		}
+		
+		return stack;
+	}
+	
+	@Override
+	public int getRecipeSize()
+	{
+		return this.recipeWidth * this.recipeHeight;
+	}
+	
+	public StonecutterShapedRecipes setHasNBTResult(boolean hasNBTResult)
+	{
+		this.hasNBTResult = hasNBTResult;
+		return this;
+	}
 }

@@ -1,19 +1,18 @@
 package sobiohazardous.mods.minestrappolation.extraores.lib;
 
-import sobiohazardous.mods.minestrappolation.extraores.ExtraOres;
 import net.minecraft.item.ItemStack;
 import cpw.mods.fml.common.IFuelHandler;
 
-public class EOFuelHandler implements IFuelHandler 
+public class EOFuelHandler implements IFuelHandler
 {
 	@Override
-	public int getBurnTime(ItemStack fuel) 
+	public int getBurnTime(ItemStack fuel)
 	{
-		if(fuel.getItem() == EOItems.Plutonium)
+		if (fuel.getItem() == EOItems.Plutonium)
 		{
 			return 35000;
 		}
-		if(fuel.getItem() == EOItems.Uranium)
+		if (fuel.getItem() == EOItems.Uranium)
 		{
 			return 30000;
 		}

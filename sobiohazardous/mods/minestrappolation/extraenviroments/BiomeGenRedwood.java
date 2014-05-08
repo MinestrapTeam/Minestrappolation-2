@@ -3,16 +3,12 @@ package sobiohazardous.mods.minestrappolation.extraenviroments;
 import sobiohazardous.mods.minestrappolation.core.biome.MCustomBiomeDecorator;
 import net.minecraft.world.biome.BiomeGenBase;
 
-public class BiomeGenRedwood extends BiomeGenBase 
-{
-	private MCustomBiomeDecorator biomedec;
-
-	public BiomeGenRedwood(int par1) 
+public class BiomeGenRedwood extends BiomeGenBase
+{	
+	public BiomeGenRedwood(int id)
 	{
-		super(par1);
+		super(id);
 		
-		theBiomeDecorator = new MCustomBiomeDecorator();
-		biomedec = (MCustomBiomeDecorator)theBiomeDecorator;				
-	}
-
+		this.theBiomeDecorator = new MCustomBiomeDecorator();
+	}	
 }

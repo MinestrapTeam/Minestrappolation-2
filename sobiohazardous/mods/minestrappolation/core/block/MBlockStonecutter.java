@@ -7,12 +7,10 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
@@ -24,124 +22,118 @@ public class MBlockStonecutter extends BlockContainer
 		this.setCreativeTab(Minestrappolation.creativeTabStone);
 	}
 	
-	public void registerBlockIcons(IIconRegister i)
+	@Override
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = i.registerIcon(MAssetManager.getMAPITexture("stonecutter"));
+		this.blockIcon = iconRegister.registerIcon(MAssetManager.getMAPITexture("stonecutter"));
 	}
 	
 	@Override
-	public TileEntity createNewTileEntity(World var1, int var2)
+	public TileEntity createNewTileEntity(World world, int metadata)
 	{
 		return new TileEntityStonecutter();
 	}
-
+	
 	@Override
 	public int getRenderType()
 	{
 		return -1;
 	}
-
+	
 	@Override
 	public boolean isOpaqueCube()
 	{
 		return false;
 	}
-
+	
+	@Override
 	public boolean renderAsNormalBlock()
 	{
 		return false;
 	}
-
-	public boolean onBlockActivated(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9)
+	
+	@Override
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ)
 	{
-		if (par1World.isRemote)
+		if (world.isRemote)
 		{
 			return true;
 		}
 		else
 		{
-			TileEntityStonecutter tileentityfurnace = (TileEntityStonecutter) par1World.getTileEntity(par2, par3, par4);
-
-			if (tileentityfurnace != null)
+			if (world.getTileEntity(x, y, z) instanceof TileEntityStonecutter)
 			{
-				par5EntityPlayer.openGui(Minestrappolation.instance, 0, par1World, par2, par3, par4);
+				player.openGui(Minestrappolation.instance, 0, world, x, y, z);
 			}
-
+			
 			return true;
 		}
 	}
-
-	/**
-	 * Called whenever the block is added into the world. Args: world, x, y, z
-	 */
-	public void onBlockAdded(World par1World, int par2, int par3, int par4)
+	
+	@Override
+	public void onBlockAdded(World world, int x, int y, int z)
 	{
-		super.onBlockAdded(par1World, par2, par3, par4);
-		this.setDefaultDirection(par1World, par2, par3, par4);
+		super.onBlockAdded(world, x, y, z);
+		this.setDefaultDirection(world, x, y, z);
 	}
-
-	/**
-	 * set a blocks direction
-	 */
-	private void setDefaultDirection(World par1World, int par2, int par3, int par4)
+	
+	private void setDefaultDirection(World world, int x, int y, int z)
 	{
-		if (!par1World.isRemote)
+		if (!world.isRemote)
 		{
-			Block l = par1World.getBlock(par2, par3, par4 - 1);
-			Block i1 = par1World.getBlock(par2, par3, par4 + 1);
-			Block j1 = par1World.getBlock(par2 - 1, par3, par4);
-			Block k1 = par1World.getBlock(par2 + 1, par3, par4);
+			Block l = world.getBlock(x, y, z - 1);
+			Block i1 = world.getBlock(x, y, z + 1);
+			Block j1 = world.getBlock(x - 1, y, z);
+			Block k1 = world.getBlock(x + 1, y, z);
 			byte b0 = 3;
-
+			
 			if (!Block.isEqualTo(l, i1))
 			{
 				b0 = 3;
 			}
-
+			
 			if (!Block.isEqualTo(i1, l))
 			{
 				b0 = 2;
 			}
-
+			
 			if (!Block.isEqualTo(j1, k1))
 			{
 				b0 = 5;
 			}
-
+			
 			if (!Block.isEqualTo(k1, j1))
 			{
 				b0 = 4;
 			}
-
-			par1World.setBlockMetadataWithNotify(par2, par3, par4, b0, 2);
+			
+			world.setBlockMetadataWithNotify(x, y, z, b0, 2);
 		}
 	}
-
-	/**
-	 * Called when the block is placed in the world.
-	 */
-	public void onBlockPlacedBy(World par1World, int par2, int par3, int par4, EntityLivingBase par5EntityLivingBase, ItemStack par6ItemStack)
+	
+	@Override
+	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack)
 	{
-		int l = MathHelper.floor_double((double) (par5EntityLivingBase.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
-
+		int l = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
+		
 		if (l == 0)
 		{
-			par1World.setBlockMetadataWithNotify(par2, par3, par4, 2, 2);
+			world.setBlockMetadataWithNotify(x, y, z, 2, 2);
 		}
-
+		
 		if (l == 1)
 		{
-			par1World.setBlockMetadataWithNotify(par2, par3, par4, 5, 2);
+			world.setBlockMetadataWithNotify(x, y, z, 5, 2);
 		}
-
+		
 		if (l == 2)
 		{
-			par1World.setBlockMetadataWithNotify(par2, par3, par4, 3, 2);
+			world.setBlockMetadataWithNotify(x, y, z, 3, 2);
 		}
-
+		
 		if (l == 3)
 		{
-			par1World.setBlockMetadataWithNotify(par2, par3, par4, 4, 2);
+			world.setBlockMetadataWithNotify(x, y, z, 4, 2);
 		}
 	}
 }

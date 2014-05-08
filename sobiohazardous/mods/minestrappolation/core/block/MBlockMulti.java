@@ -20,70 +20,56 @@ import net.minecraft.world.World;
 
 public class MBlockMulti extends Block
 {
-    @SideOnly(Side.CLIENT)
-    private IIcon[] iconArray;
-    private String[] iconStringArray = null;
-    
-    public MBlockMulti(Material mat, String[] textures)
-    {
-        super(mat);
-        iconStringArray = textures;
-        this.setCreativeTab(Minestrappolation.creativeTabStone);
-    }
-
-    @SideOnly(Side.CLIENT)
-
-    /**
-     * From the specified side and block metadata retrieves the blocks texture. Args: side, metadata
-     */
-    public IIcon getIcon(int par1, int par2)
-    {
-        return this.iconArray[par2];
-    }
-    
-    /**
-     * Determines the damage on the item the block drops. Used in cloth and wood.
-     */
-    public int damageDropped(int par1)
-    {
-        return par1;
-    }
-
-    @SideOnly(Side.CLIENT)
-
-    /**
-     * returns a list of blocks with the same ID, but different meta (eg: wood returns 4 blocks)
-     */
-    public void getSubBlocks(Item par1, CreativeTabs par2CreativeTabs, List par3List)
-    {
-    	for(int i=0; i < iconStringArray.length; i++)
-    	{
-        	par3List.add(new ItemStack(par1, 1, i));
-    	}
-    }
-
-    @SideOnly(Side.CLIENT)
-
-    /**
-     * When this method is called, your block should register all the icons it needs with the given IconRegister. This
-     * is the only chance you get to register icons.
-     */
-    public void registerBlockIcons(IIconRegister par1IconRegister)
-    {
-        this.iconArray = new IIcon[iconStringArray.length];
-
-        for (int i = 0; i < this.iconArray.length; ++i)
-        {
-            this.iconArray[i] = par1IconRegister.registerIcon(iconStringArray[i]);
-        }
-    }
-    
-    public void harvestBlock(World par1World, EntityPlayer par2EntityPlayer, int par3, int par4, int par5, int par6)
-	 {
-		if(this == MBlockHelper.get(MReference.MODID_ED, "bedrockBlocks")) 
+	@SideOnly(Side.CLIENT)
+	private IIcon[]		icons;
+	private String[]	iconNames;
+	
+	public MBlockMulti(Material mat, String[] textures)
+	{
+		super(mat);
+		this.iconNames = textures;
+		this.setCreativeTab(Minestrappolation.creativeTabStone);
+	}
+	
+	@Override
+	public IIcon getIcon(int side, int metadata)
+	{
+		return this.icons[metadata];
+	}
+	
+	@Override
+	public int damageDropped(int metdata)
+	{
+		return metdata;
+	}
+	
+	@Override
+	public void getSubBlocks(Item item, CreativeTabs tab, List list)
+	{
+		for (int i = 0; i < this.iconNames.length; i++)
 		{
-			par2EntityPlayer.getHeldItem().damageItem(2000, par2EntityPlayer);
-	     	this.dropBlockAsItem(par1World, par3, par4, par5, new ItemStack(this)); 
+			list.add(new ItemStack(item, 1, i));
 		}
-	 }
+	}
+	
+	@Override
+	public void registerBlockIcons(IIconRegister iconRegister)
+	{
+		this.icons = new IIcon[this.iconNames.length];
+		
+		for (int i = 0; i < this.icons.length; ++i)
+		{
+			this.icons[i] = iconRegister.registerIcon(this.iconNames[i]);
+		}
+	}
+	
+	@Override
+	public void harvestBlock(World world, EntityPlayer player, int x, int y, int z, int metadata)
+	{
+		if (this == MBlockHelper.get(MReference.MODID_ED, "bedrockBlocks"))
+		{
+			player.getHeldItem().damageItem(2000, player);
+			this.dropBlockAsItem(world, x, y, z, new ItemStack(this));
+		}
+	}
 }

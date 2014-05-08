@@ -3,26 +3,25 @@ package sobiohazardous.mods.minestrappolation.core.itemblocks;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
 
-public class MItemBlockMulti extends ItemBlock 
+public class MItemBlockMulti extends ItemBlock
 {
-	public MItemBlockMulti(Block block) 
+	public MItemBlockMulti(Block block)
 	{
 		super(block);
-		setMaxDamage(0);
-		setHasSubtypes(true);
+		this.setMaxDamage(0);
+		this.setHasSubtypes(true);
 	}
-
+	
 	@Override
-	public String getUnlocalizedName(ItemStack itemstack)
+	public String getUnlocalizedName(ItemStack stack)
 	{
-		return getUnlocalizedName() + "." + itemstack.getItemDamage();
+		return this.getUnlocalizedName() + "." + stack.getItemDamage();
 	}
-
+	
 	@Override
-	public int getMetadata(int par1) 
+	public int getMetadata(int metadata)
 	{
-		return par1;
+		return metadata;
 	}
 }

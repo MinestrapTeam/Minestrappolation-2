@@ -8,9 +8,11 @@ import sobiohazardous.mods.minestrappolation.extradecor.tileentity.TileEntityEdg
 import sobiohazardous.mods.minestrappolation.extradecor.tileentity.TileEntityGoblet;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-public class EDTileEntityManager {
-
-	public static void registerTileEntitys(){
+public class EDTileEntityManager
+{
+	
+	public static void registerTileEntitys()
+	{
 		GameRegistry.registerTileEntity(TileEntityCrate.class, "tileEntityCrate");
 		GameRegistry.registerTileEntity(TileEntityBarrel.class, "tileEntityBarrel");
 		GameRegistry.registerTileEntity(TileEntityCardboardWet.class, "tileEntityCardboardWet");

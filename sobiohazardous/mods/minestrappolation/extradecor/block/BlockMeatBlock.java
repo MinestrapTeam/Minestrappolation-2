@@ -1,6 +1,5 @@
 package sobiohazardous.mods.minestrappolation.extradecor.block;
 
-import sobiohazardous.mods.minestrappolation.extradecor.ExtraDecor;
 import sobiohazardous.mods.minestrappolation.extradecor.lib.EDBlocks;
 import net.minecraft.block.material.Material;
 
@@ -12,5 +11,5 @@ public class BlockMeatBlock extends EDBlock
 		this.setCreativeTab(EDBlocks.tabDecor);
 	}
 	
-	//TODO Add code from the features list
+	// TODO Add code from the features list
 }

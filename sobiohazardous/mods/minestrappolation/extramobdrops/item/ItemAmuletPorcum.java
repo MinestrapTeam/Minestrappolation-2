@@ -12,45 +12,47 @@ import sobiohazardous.mods.minestrappolation.core.item.MItem;
 
 public class ItemAmuletPorcum extends MItem
 {
-	int tick = 0;
-
-	public ItemAmuletPorcum() 
+	int	tick	= 0;
+	
+	public ItemAmuletPorcum()
 	{
 		super();
 		this.setMaxDamage(50);
 		this.setMaxStackSize(1);
 	}
-
-    public void onUpdate(ItemStack par1ItemStack, World par2World, Entity par3Entity, int par4, boolean par5)
-    {
-    	EntityPlayer player = (EntityPlayer)par3Entity;
-    	Random rand = new Random();
-    	int randnum = rand.nextInt(61);
-    	tick++;
-    	if(player.inventory.hasItem(this))
-    	{
-    		if(tick > 60)
-    		{
-    			if(randnum > 59)
-    			{
-    				tick = 0;
-    				if(player.getFoodStats().needFood())
-    				{
-    					player.getFoodStats().addStats(1, 0F);
-    					par1ItemStack.damageItem(1, player);
-    				}
-    			}
-    		}
-    		else if(tick > 120)
-    		{
-    			tick = 0;
-    		}
-    	}
-    }
-    
-    @SideOnly(Side.CLIENT)
-    public boolean hasEffect(ItemStack par1ItemStack)
-    {
-        return true;
-    }
+	
+	@Override
+	public void onUpdate(ItemStack par1ItemStack, World par2World, Entity par3Entity, int par4, boolean par5)
+	{
+		EntityPlayer player = (EntityPlayer) par3Entity;
+		Random rand = new Random();
+		int randnum = rand.nextInt(61);
+		this.tick++;
+		if (player.inventory.hasItem(this))
+		{
+			if (this.tick > 60)
+			{
+				if (randnum > 59)
+				{
+					this.tick = 0;
+					if (player.getFoodStats().needFood())
+					{
+						player.getFoodStats().addStats(1, 0F);
+						par1ItemStack.damageItem(1, player);
+					}
+				}
+			}
+			else if (this.tick > 120)
+			{
+				this.tick = 0;
+			}
+		}
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public boolean hasEffect(ItemStack par1ItemStack)
+	{
+		return true;
+	}
 }
