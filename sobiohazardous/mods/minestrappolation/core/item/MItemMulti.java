@@ -7,50 +7,48 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
-import net.minecraft.util.MathHelper;
 
 public class MItemMulti extends Item
 {
-	private final String[]	types;
+	private final String[]	iconNames;
 	private IIcon[]			icons;
 	
-	public MItemMulti(String[] textures)
+	public MItemMulti(String[] iconNames)
 	{
 		this.setHasSubtypes(true);
 		this.setMaxDamage(0);
-		this.types = textures;
+		this.iconNames = iconNames;
 	}
 	
 	@Override
-	public IIcon getIconFromDamage(int par1)
+	public IIcon getIconFromDamage(int metadata)
 	{
-		int var2 = MathHelper.clamp_int(par1, 0, 15);
-		return this.icons[var2];
+		return this.icons[metadata % this.icons.length];
 	}
 	
 	@Override
-	public String getUnlocalizedName(ItemStack par1ItemStack)
+	public String getUnlocalizedName(ItemStack stack)
 	{
-		return super.getUnlocalizedName() + "." + par1ItemStack.getItemDamage();
+		return super.getUnlocalizedName() + "." + stack.getItemDamage();
 	}
 	
 	@Override
-	public void getSubItems(Item p_150895_1_, CreativeTabs p_150895_2_, List p_150895_3_)
+	public void getSubItems(Item item, CreativeTabs tab, List list)
 	{
-		for (int var4 = 0; var4 < this.types.length; ++var4)
+		for (int i = 0; i < this.iconNames.length; ++i)
 		{
-			p_150895_3_.add(new ItemStack(p_150895_1_, 1, var4));
+			list.add(new ItemStack(item, 1, i));
 		}
 	}
 	
 	@Override
-	public void registerIcons(IIconRegister par1IconRegister)
+	public void registerIcons(IIconRegister iconRegister)
 	{
-		this.icons = new IIcon[this.types.length];
+		this.icons = new IIcon[this.iconNames.length];
 		
-		for (int var2 = 0; var2 < this.types.length; ++var2)
+		for (int i = 0; i < this.iconNames.length; ++i)
 		{
-			this.icons[var2] = par1IconRegister.registerIcon(this.types[var2]);
+			this.icons[i] = iconRegister.registerIcon(this.iconNames[i]);
 		}
 	}
 }

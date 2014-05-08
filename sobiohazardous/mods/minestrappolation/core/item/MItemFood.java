@@ -5,8 +5,8 @@ import net.minecraft.item.ItemFood;
 public class MItemFood extends ItemFood
 {
 	@Deprecated
-	public MItemFood(int healAmt, float sat)
+	public MItemFood(int healAmount, float saturationModifier)
 	{
-		super(healAmt, sat, false);
+		super(healAmount, saturationModifier, false);
 	}
 }
