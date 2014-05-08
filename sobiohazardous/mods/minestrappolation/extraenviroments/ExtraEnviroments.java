@@ -7,6 +7,7 @@ import sobiohazardous.mods.minestrappolation.extraenviroments.lib.EEItems;
 import sobiohazardous.mods.minestrappolation.extraenviroments.lib.EERecipes;
 import sobiohazardous.mods.minestrappolation.extraenviroments.proxy.CommonProxy;
 import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -26,11 +27,11 @@ public class ExtraEnviroments
 	
 	public static BiomeGenBase	redwood;
 	
-	@Mod.EventHandler
-	public void preLoad(FMLPreInitializationEvent evt)
+	@EventHandler
+	public void preInit(FMLPreInitializationEvent event)
 	{
 		// init libs
-		EEConfig.initilize(evt);
+		EEConfig.initilize(event);
 		EEBlocks.loadBlocks();
 		EEBlocks.registerBlocks();
 		EERecipes.loadRecipes();
@@ -38,18 +39,16 @@ public class ExtraEnviroments
 		EEItems.loadItemNames();
 		
 		redwood = new BiomeGenRedwood(115).setBiomeName("redwood");
-		// TODO Find alternative!
-		// GameRegistry.addBiome(redwood);
 	}
 	
-	@Mod.EventHandler
-	public void load(FMLInitializationEvent evt)
+	@EventHandler
+	public void init(FMLInitializationEvent event)
 	{
 		proxy.registerRenderThings();
 	}
 	
-	@Mod.EventHandler
-	public void postLoad(FMLPostInitializationEvent evt)
+	@EventHandler
+	public void postInit(FMLPostInitializationEvent event)
 	{
 		try
 		{
