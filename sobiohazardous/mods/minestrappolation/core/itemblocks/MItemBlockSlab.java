@@ -20,8 +20,8 @@ public class MItemBlockSlab extends ItemSlab
 	}
 	
 	@Override
-	public String getUnlocalizedName(ItemStack itemStack)
+	public String getUnlocalizedName(ItemStack stack)
 	{
-		return super.getUnlocalizedName() + "." + itemStack.getItemDamage();
+		return super.getUnlocalizedName() + "." + stack.getItemDamage();
 	}
 }

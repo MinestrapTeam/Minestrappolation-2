@@ -10,46 +10,45 @@ import net.minecraft.world.World;
 
 public class MBlockPillar extends Block
 {
-	private IIcon	top;
-	private String	sidesImg;
-	private String	topImg;
+	private IIcon	topIcon;
+	private String	topIconName;
 	
-	public MBlockPillar(String sidesImg, String topImg)
+	public MBlockPillar(String sideIconName, String topIconName)
 	{
 		super(Material.rock);
-		this.sidesImg = sidesImg;
-		this.topImg = topImg;
+		this.setBlockTextureName(sideIconName);
+		this.topIconName = topIconName;
 	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon(this.sidesImg);
-		this.top = iconRegister.registerIcon(this.topImg);
+		super.registerBlockIcons(iconRegister);
+		this.topIcon = iconRegister.registerIcon(this.topIconName);
 	}
 	
 	@Override
-	public int damageDropped(int par1)
+	public int damageDropped(int metadata)
 	{
 		return 0;
 	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public IIcon getIcon(int par1, int par2)
+	public IIcon getIcon(int side, int meta)
 	{
-		int k = par2 & 12;
-		return k == 0 && (par1 == 1 || par1 == 0) ? this.top : k == 4 && (par1 == 5 || par1 == 4) ? this.top : k == 8 && (par1 == 2 || par1 == 3) ? this.top : this.blockIcon;
+		int k = meta & 12;
+		return k == 0 && (side == 1 || side == 0) ? this.topIcon : k == 4 && (side == 5 || side == 4) ? this.topIcon : k == 8 && (side == 2 || side == 3) ? this.topIcon : this.blockIcon;
 	}
 	
 	@Override
-	public int onBlockPlaced(World par1World, int par2, int par3, int par4, int par5, float par6, float par7, float par8, int par9)
+	public int onBlockPlaced(World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int metadata)
 	{
-		int j1 = par9 & 3;
+		int j1 = metadata & 3;
 		byte b0 = 0;
 		
-		switch (par5)
+		switch (side)
 		{
 		case 0:
 		case 1:

@@ -14,14 +14,14 @@ public class MItemBlockMulti extends ItemBlock
 	}
 	
 	@Override
-	public String getUnlocalizedName(ItemStack itemstack)
+	public String getUnlocalizedName(ItemStack stack)
 	{
-		return this.getUnlocalizedName() + "." + itemstack.getItemDamage();
+		return this.getUnlocalizedName() + "." + stack.getItemDamage();
 	}
 	
 	@Override
-	public int getMetadata(int par1)
+	public int getMetadata(int metadata)
 	{
-		return par1;
+		return metadata;
 	}
 }
