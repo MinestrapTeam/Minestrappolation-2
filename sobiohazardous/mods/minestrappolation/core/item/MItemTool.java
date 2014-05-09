@@ -57,7 +57,7 @@ public class MItemTool extends ItemTool
 	
 	protected static void addInformation(ToolMaterial bronzeMaterial, ItemStack stack, List list)
 	{
-		if (MConfig.showDur == true)
+		if (MConfig.showDur == true && bronzeMaterial != null)
 		{
 			int dur = bronzeMaterial.getMaxUses();
 			

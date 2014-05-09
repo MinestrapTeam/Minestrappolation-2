@@ -28,8 +28,8 @@ public class GuiStonecutter extends GuiContainer
 	@Override
 	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
 	{
-		this.fontRendererObj.drawString(StatCollector.translateToLocal("tile.stonecutter.name"), 28, 6, 4210752);
-		this.fontRendererObj.drawString(StatCollector.translateToLocal("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRendererObj.drawString(StatCollector.translateToLocal("tile.stoneCutter.name"), 42, 6, 4210752);
+		this.fontRendererObj.drawString(StatCollector.translateToLocal("container.inventory"), 8, this.ySize - 94, 4210752);
 	}
 	
 	@Override

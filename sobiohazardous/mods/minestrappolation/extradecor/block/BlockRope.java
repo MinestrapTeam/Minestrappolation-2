@@ -3,24 +3,23 @@ package sobiohazardous.mods.minestrappolation.extradecor.block;
 import java.util.Random;
 
 import sobiohazardous.mods.minestrappolation.core.util.MAssetManager;
-import sobiohazardous.mods.minestrappolation.extradecor.ExtraDecor;
 import sobiohazardous.mods.minestrappolation.extradecor.lib.EDBlocks;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockLadder;
+import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class BlockRope extends BlockLadder
+public class BlockRope extends Block
 {
 	public BlockRope()
 	{
-		super();
+		super(Material.cloth);
+		this.setCreativeTab(null);
 		this.setBlockBounds(0.375F, 0.0F, 0.375F, 0.625F, 1.0F, 0.625F);
 	}
 	
@@ -43,9 +42,9 @@ public class BlockRope extends BlockLadder
 	}
 	
 	@Override
-	public int getRenderType()
+	public boolean isLadder(IBlockAccess world, int x, int y, int z, EntityLivingBase entity)
 	{
-		return ExtraDecor.ropeRenderId;
+		return true;
 	}
 	
 	@Override
@@ -64,23 +63,12 @@ public class BlockRope extends BlockLadder
 	public boolean canPlaceBlockAt(World world, int x, int y, int z)
 	{
 		Block block = world.getBlock(x, y + 1, z);
-		return block.isSideSolid(world, x, y, z, ForgeDirection.DOWN);
+		return block == this || block.isSideSolid(world, x, y, z, ForgeDirection.DOWN);
 	}
 	
 	@Override
 	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)
 	{
 		return EDBlocks.itemRope;
-	}
-	
-	@Override
-	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack stack)
-	{
-		if (world.isAirBlock(x, y + 1, z))
-		{
-			world.setBlockToAir(x, y, z);
-			world.scheduleBlockUpdate(x, y, z, this, 4);
-			this.dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
-		}
 	}
 }

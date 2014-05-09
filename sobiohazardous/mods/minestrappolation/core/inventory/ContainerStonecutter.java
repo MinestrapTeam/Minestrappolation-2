@@ -10,16 +10,18 @@ import net.minecraft.item.ItemStack;
 
 public class ContainerStonecutter extends Container
 {
-	public InventoryCrafting				craftMatrix	= new InventoryCrafting(this, 3, 3);
-	public IInventory						craftResult	= new InventoryCraftResult();
-	public IInventory	extraSlot	= new InventoryBasic("ExtraSlot", true, 1);
-	public TileEntityStonecutter stoneCutter;
+	public InventoryCrafting		craftMatrix	= new InventoryCrafting(this, 3, 3);
+	public IInventory				craftResult	= new InventoryCraftResult();
+	public IInventory				extraSlot	= new InventoryBasic("ExtraSlot", true, 1);
+	public TileEntityStonecutter	stoneCutter;
 	
 	public ContainerStonecutter(InventoryPlayer inventory, TileEntityStonecutter te)
 	{
 		this.stoneCutter = te;
 		
 		this.addSlotToContainer(new SlotStonecutterCrafting(inventory.player, this.craftMatrix, this.craftResult, this.extraSlot, 0, 124 + 14, 35));
+		this.addSlotToContainer(new Slot(this.extraSlot, 0, 8, 35));
+		
 		int l;
 		int i1;
 		
@@ -44,9 +46,6 @@ public class ContainerStonecutter extends Container
 			this.addSlotToContainer(new Slot(inventory, l, 8 + l * 18, 142));
 		}
 		
-		// extra slot
-		this.addSlotToContainer(new Slot(this.extraSlot, 37, 8, 35));
-		
 		this.onCraftMatrixChanged(this.craftMatrix);
 	}
 	
@@ -57,9 +56,9 @@ public class ContainerStonecutter extends Container
 	}
 	
 	@Override
-	public void onContainerClosed(EntityPlayer par1EntityPlayer)
+	public void onContainerClosed(EntityPlayer player)
 	{
-		super.onContainerClosed(par1EntityPlayer);
+		super.onContainerClosed(player);
 		
 		if (!this.stoneCutter.getWorldObj().isRemote)
 		{
@@ -69,14 +68,14 @@ public class ContainerStonecutter extends Container
 				
 				if (itemstack != null)
 				{
-					par1EntityPlayer.dropPlayerItemWithRandomChoice(itemstack, true);
+					player.dropPlayerItemWithRandomChoice(itemstack, true);
 				}
 			}
 			
 			ItemStack extraItem = this.extraSlot.getStackInSlotOnClosing(0);
 			if (extraItem != null)
 			{
-				par1EntityPlayer.dropPlayerItemWithRandomChoice(extraItem, true);
+				player.dropPlayerItemWithRandomChoice(extraItem, true);
 			}
 		}
 	}
@@ -147,8 +146,8 @@ public class ContainerStonecutter extends Container
 	}
 	
 	@Override
-	public boolean func_94530_a(ItemStack par1ItemStack, Slot par2Slot)
+	public boolean func_94530_a(ItemStack stack, Slot slot)
 	{
-		return par2Slot.inventory != this.craftResult && super.func_94530_a(par1ItemStack, par2Slot);
+		return slot.inventory != this.craftResult && super.func_94530_a(stack, slot);
 	}
 }

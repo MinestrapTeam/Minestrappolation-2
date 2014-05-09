@@ -38,7 +38,7 @@ public class EntityHangGlider extends Entity
 		// {
 		double absX = Math.abs(this.player.motionX);
 		double absZ = Math.abs(this.player.motionZ);
-		this.player.motionY /= 1.55D;
+		this.player.motionY *= 0.645D;
 		this.player.fallDistance = 0;
 		
 		if (absX < 0.9D)

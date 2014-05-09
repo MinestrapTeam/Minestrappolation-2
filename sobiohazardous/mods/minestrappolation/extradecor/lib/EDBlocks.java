@@ -1,16 +1,7 @@
 package sobiohazardous.mods.minestrappolation.extradecor.lib;
 
-import cpw.mods.fml.common.Loader;
-import cpw.mods.fml.common.registry.GameRegistry;
 import sobiohazardous.mods.minestrappolation.core.Minestrappolation;
-import sobiohazardous.mods.minestrappolation.core.block.MBlockMulti;
-import sobiohazardous.mods.minestrappolation.core.block.MBlockMultiLamp;
-import sobiohazardous.mods.minestrappolation.core.block.MBlockMultiPillar;
-import sobiohazardous.mods.minestrappolation.core.block.MBlockMultiPillarStationary;
-import sobiohazardous.mods.minestrappolation.core.block.MBlockMultiRoad;
-import sobiohazardous.mods.minestrappolation.core.block.MBlockMultiSlab;
-import sobiohazardous.mods.minestrappolation.core.block.MBlockPillar;
-import sobiohazardous.mods.minestrappolation.core.block.MBlock;
+import sobiohazardous.mods.minestrappolation.core.block.*;
 import sobiohazardous.mods.minestrappolation.core.itemblocks.MItemBlockMulti;
 import sobiohazardous.mods.minestrappolation.core.itemblocks.MItemBlockSlab;
 import sobiohazardous.mods.minestrappolation.core.lib.MReference;
@@ -18,7 +9,12 @@ import sobiohazardous.mods.minestrappolation.core.util.MAssetManager;
 import sobiohazardous.mods.minestrappolation.extradecor.CreativeTabExtraDecorBlocks;
 import sobiohazardous.mods.minestrappolation.extradecor.block.*;
 import sobiohazardous.mods.minestrappolation.extradecor.material.MaterialOoze;
-import net.minecraft.block.*;
+import sobiohazardous.mods.minestrappolation.extradecor.tileentity.TileEntityPlate;
+import cpw.mods.fml.common.Loader;
+import cpw.mods.fml.common.registry.GameRegistry;
+
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockSlab;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -387,6 +383,8 @@ public class EDBlocks
 	
 	public static void registerBlocks()
 	{
+		GameRegistry.registerTileEntity(TileEntityPlate.class, "Plate");
+		
 		GameRegistry.registerBlock(GlassDoor, "GlassDoor");
 		GameRegistry.registerBlock(edgeStoneBrickCorner, MItemBlockMulti.class, "edgeCorner");
 		GameRegistry.registerBlock(refinedRoad, "refinedRoad");
