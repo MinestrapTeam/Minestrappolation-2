@@ -20,12 +20,12 @@ import net.minecraft.util.ChatComponentTranslation;
 public class InstallUpdateThread extends Thread
 {
 	/** The mod update to install. */
-	private ModUpdate		update;
+	private Update			update;
 	
 	/** The player used for chat message notifications. */
 	private EntityPlayer	player;
 	
-	public InstallUpdateThread(ModUpdate update, EntityPlayer player)
+	public InstallUpdateThread(Update update, EntityPlayer player)
 	{
 		this.update = update;
 		this.player = player;

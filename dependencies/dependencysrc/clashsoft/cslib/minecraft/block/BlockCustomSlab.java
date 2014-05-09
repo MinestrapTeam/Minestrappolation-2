@@ -77,12 +77,6 @@ public class BlockCustomSlab extends BlockStoneSlab implements ICustomBlock
 	}
 	
 	@Override
-	protected ItemStack createStackedBlock(int metadata)
-	{
-		return new ItemStack(this, 2, metadata & 7);
-	}
-	
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item item, CreativeTabs creativeTab, List list)
 	{
