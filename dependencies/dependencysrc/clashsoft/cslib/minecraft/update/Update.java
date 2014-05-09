@@ -1,5 +1,7 @@
 package clashsoft.cslib.minecraft.update;
 
+import java.util.List;
+
 import clashsoft.cslib.minecraft.lang.I18n;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -11,25 +13,20 @@ import net.minecraft.entity.player.EntityPlayer;
  * 
  * @author Clashsoft
  */
-public class ModUpdate
+public class Update
 {
 	protected String	modName;
 	
 	protected String	version;
 	protected String	newVersion;
 	
-	protected String[]	updateNotes;
+	protected List<String>	updateNotes;
 	protected String	url;
 	
 	protected Boolean	valid;
 	protected int		installStatus;
 	
-	public ModUpdate(String modName, String version, String newVersion, String updateNotes, String updateUrl)
-	{
-		this(modName, version, newVersion, updateNotes == null ? null : updateNotes.split("\\\\n|\\n|\n"), updateUrl);
-	}
-	
-	public ModUpdate(String modName, String version, String newVersion, String[] updateNotes, String updateUrl)
+	public Update(String modName, String version, String newVersion, List<String> updateNotes, String updateUrl)
 	{
 		this.modName = modName;
 		this.version = version;
@@ -88,7 +85,7 @@ public class ModUpdate
 		return this.url == null ? "[none]" : this.url;
 	}
 	
-	public String[] getUpdateNotes()
+	public List<String> getUpdateNotes()
 	{
 		return this.updateNotes;
 	}

@@ -1,6 +1,6 @@
 package clashsoft.cslib.minecraft.client.gui;
 
-import clashsoft.cslib.minecraft.update.ModUpdate;
+import clashsoft.cslib.minecraft.update.Update;
 import cpw.mods.fml.client.GuiScrollingList;
 
 import net.minecraft.client.gui.FontRenderer;
@@ -49,7 +49,7 @@ public class GuiModUpdatesSlot extends GuiScrollingList
 		x = this.left;
 		
 		FontRenderer font = this.parent.mc.fontRenderer;
-		ModUpdate update = this.parent.updates.get(slotID);
+		Update update = this.parent.updates.get(slotID);
 		
 		if (update != null)
 		{

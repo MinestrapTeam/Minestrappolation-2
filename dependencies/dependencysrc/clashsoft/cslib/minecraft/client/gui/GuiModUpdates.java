@@ -5,7 +5,7 @@ import java.util.List;
 
 import clashsoft.cslib.minecraft.lang.I18n;
 import clashsoft.cslib.minecraft.update.CSUpdate;
-import clashsoft.cslib.minecraft.update.ModUpdate;
+import clashsoft.cslib.minecraft.update.Update;
 
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiConfirmOpenLink;
@@ -19,8 +19,8 @@ public class GuiModUpdates extends GuiScreen
 	public GuiButton			buttonShowInvalidUpdates;
 	public GuiButton			buttonInstall;
 	
-	public List<ModUpdate>		updates;
-	public ModUpdate			update;
+	public List<Update>		updates;
+	public Update			update;
 	public boolean				showInvalidUpdates;
 	
 	private String				title				= I18n.getString("update.list.title");
@@ -64,7 +64,7 @@ public class GuiModUpdates extends GuiScreen
 		
 		this.drawCenteredString(this.fontRendererObj, this.title, this.width / 2, 14, 0xFFFFFF);
 		
-		ModUpdate update = this.update;
+		Update update = this.update;
 		
 		if (update != null)
 		{
@@ -86,8 +86,8 @@ public class GuiModUpdates extends GuiScreen
 			this.drawString(this.fontRendererObj, update.getStatus(), 260, 90, 0xFFFFFF);
 			
 			int i = 117;
-			String[] updateNotes = update.getUpdateNotes();
-			if (updateNotes != null && updateNotes.length > 0)
+			List<String> updateNotes = update.getUpdateNotes();
+			if (!updateNotes.isEmpty())
 			{
 				this.drawString(this.fontRendererObj, this.update_notes, 160, 105, 0xFFFFFF);
 				
@@ -152,7 +152,7 @@ public class GuiModUpdates extends GuiScreen
 		}
 		else if (button.id == 2)
 		{
-			for (ModUpdate update : this.updates)
+			for (Update update : this.updates)
 			{
 				if (update != null)
 				{

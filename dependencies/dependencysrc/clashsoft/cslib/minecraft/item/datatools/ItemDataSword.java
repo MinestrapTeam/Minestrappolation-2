@@ -14,16 +14,22 @@ import net.minecraft.world.World;
 
 public class ItemDataSword extends ItemDataTool
 {
+	public static float baseDamage = 4F;
+	
 	public float	weaponDamage;
 	
 	public ItemDataSword(ToolMaterial toolMaterial)
 	{
-		super(4F, toolMaterial, Collections.EMPTY_SET, "Sword");
-		this.toolMaterial = toolMaterial;
-		this.maxStackSize = 1;
+		super(baseDamage, toolMaterial, Collections.EMPTY_SET, "Sword");
 		this.setMaxDamage(toolMaterial.getMaxUses());
 		this.setCreativeTab(CreativeTabs.tabCombat);
-		this.weaponDamage = 4 + toolMaterial.getDamageVsEntity();
+		this.maxStackSize = 1;
+		this.weaponDamage = baseDamage + toolMaterial.getDamageVsEntity();
+	}
+	
+	public static boolean isEfficientOnMaterial(Material material)
+	{
+		return material == Material.plants || material == Material.vine || material == Material.coral || material == Material.leaves || material == Material.gourd;
 	}
 	
 	@Override
@@ -35,8 +41,7 @@ public class ItemDataSword extends ItemDataTool
 		}
 		else
 		{
-			Material material = block.getMaterial();
-			float f = (material != Material.plants && material != Material.vine && material != Material.coral && material != Material.leaves && material != Material.gourd) ? 1.0F : 1.5F;
+			float f = isEfficientOnMaterial(block.getMaterial()) ? 1.5F : 1.0F;
 			return super.getDigSpeed(stack, block, metadata) * f;
 		}
 	}

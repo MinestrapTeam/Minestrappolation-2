@@ -11,21 +11,27 @@ import net.minecraft.item.ItemStack;
 
 public class ItemDataAxe extends ItemDataTool
 {
+	public static final float		baseDamage				= 3F;
 	public static final Set<Block>	blocksEffectiveAgainst	= CSReflection.getStaticValue(ItemAxe.class, 0);
 	
 	public ItemDataAxe(ToolMaterial toolMaterial)
 	{
-		super(3F, toolMaterial, blocksEffectiveAgainst, "Axe");
+		super(baseDamage, toolMaterial, blocksEffectiveAgainst, "Axe");
 	}
 	
 	@Override
 	public float getDigSpeed(ItemStack stack, Block block, int metadata)
 	{
 		Material material = block.getMaterial();
-		if (material == Material.wood || material == Material.plants || material == Material.vine)
+		if (isEfficientOnMaterial(material))
 		{
-			super.getDigSpeed(stack, block, metadata);
+			return this.efficiencyOnProperMaterial;
 		}
-		return super.func_150893_a(stack, block);
+		return super.getDigSpeed(stack, block, metadata);
+	}
+	
+	public static boolean isEfficientOnMaterial(Material material)
+	{
+		return material == Material.wood || material == Material.plants || material == Material.vine;
 	}
 }

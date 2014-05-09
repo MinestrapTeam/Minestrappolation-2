@@ -3,7 +3,9 @@ package clashsoft.cslib.minecraft.update;
 import java.util.*;
 
 import clashsoft.cslib.minecraft.CSLib;
-import clashsoft.cslib.minecraft.util.CSWeb;
+import clashsoft.cslib.minecraft.update.updater.IUpdater;
+import clashsoft.cslib.minecraft.update.updater.ModUpdater;
+import clashsoft.cslib.minecraft.update.updater.URLUpdater;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ChatComponentText;
@@ -19,9 +21,9 @@ import net.minecraft.util.ChatComponentTranslation;
 public class CSUpdate
 {
 	/** The updates already found. */
-	public static Map<String, ModUpdate>	updates					= new HashMap();
+	public static Map<String, Update>	updates					= new HashMap();
 	
-	public static Map<String, String[]>		updateFiles				= new HashMap();
+	public static Map<String, IUpdater> updaters = new HashMap();
 	
 	/** The Constant CURRENT_VERSION. Value: {@value} */
 	public static final String				CURRENT_VERSION			= "1.7.2";
@@ -54,44 +56,10 @@ public class CSUpdate
 		return String.format("%s_%s", CURRENT_VERSION, version);
 	}
 	
-	public static ModUpdate readUpdateLine(String line, String modName, String acronym, String version)
+	public static List<Update> getUpdates(boolean invalidUpdates)
 	{
-		boolean flag = modName == null;
-		
-		int i0 = line.indexOf(':');
-		int i1 = line.indexOf('=');
-		int i2 = line.lastIndexOf('@');
-		
-		if (i0 == -1)
-		{
-			return null;
-		}
-		
-		String key = line.substring(0, i0);
-		
-		if (flag || key.equals(modName) || key.equals(acronym))
-		{
-			String newVersion = line.substring(i0 + 1, i1);
-			String updateNotes = null;
-			String updateUrl = null;
-			if (i1 != -1)
-			{
-				updateNotes = line.substring(i1 + 1, i2 == -1 ? line.length() : i2);
-			}
-			if (i2 != -1)
-			{
-				updateUrl = line.substring(i2 + 1);
-			}
-			
-			return new ModUpdate(flag ? key : modName, version, newVersion, updateNotes, updateUrl);
-		}
-		return null;
-	}
-	
-	public static List<ModUpdate> getUpdates(boolean invalidUpdates)
-	{
-		Collection<ModUpdate> collection = updates.values();
-		List<ModUpdate> list = new ArrayList(collection.size());
+		Collection<Update> collection = updates.values();
+		List<Update> list = new ArrayList(collection.size());
 		
 		if (invalidUpdates)
 		{
@@ -99,7 +67,7 @@ public class CSUpdate
 		}
 		else
 		{
-			for (ModUpdate update : collection)
+			for (Update update : collection)
 			{
 				if (update.isValid())
 				{
@@ -111,7 +79,7 @@ public class CSUpdate
 		return list;
 	}
 	
-	public static ModUpdate addUpdate(ModUpdate update)
+	public static Update addUpdate(Update update)
 	{
 		if (update != null)
 		{
@@ -120,77 +88,66 @@ public class CSUpdate
 		return update;
 	}
 	
-	public static ModUpdate getUpdate(String modName)
+	public static Update getUpdate(String modName)
 	{
 		return updates.get(modName);
 	}
 	
-	public static ModUpdate getUpdate(String modName, String acronym)
+	public static IUpdater getUpdater(String modName)
 	{
-		ModUpdate update = getUpdate(modName);
-		if (update == null)
-		{
-			update = getUpdate(acronym);
-		}
-		return update;
+		return updaters.get(modName);
 	}
 	
-	public static String[] getUpdateFile(String url)
-	{
-		String[] updateFile = updateFiles.get(url);
-		if (updateFile == null)
-		{
-			updateFile = CSWeb.readWebsite(url);
-			updateFiles.put(url, updateFile);
-		}
-		return updateFile;
-	}
-	
-	/**
-	 * Reads an update file and adds all available updates to the list.
-	 * 
-	 * @param url
-	 */
 	public static void updateCheck(String url)
 	{
-		new CheckUpdateThread(url).start();
+		updateCheck(new URLUpdater(url));
 	}
 	
 	public static void updateCheck(String[] updateFile)
 	{
-		new CheckUpdateThread(updateFile).start();
+		URLUpdater updater = new URLUpdater(null);
+		updater.setUpdateFile(updateFile);
+		updateCheck(updater);
 	}
 	
 	public static void updateCheck(String modName, String acronym, String version, String url)
 	{
-		new CheckUpdateThread(modName, acronym, version, url).start();
+		updateCheck(new ModUpdater(modName, acronym, version, url));
 	}
 	
 	public static void updateCheck(String modName, String acronym, String version, String[] updateFile)
 	{
-		new CheckUpdateThread(modName, acronym, version, updateFile).start();
+		ModUpdater updater = new ModUpdater(modName, acronym, version, null);
+		updater.setUpdateFile(updateFile);
+		updateCheck(updater);
+	}
+	
+	public static void updateCheck(IUpdater updater)
+	{
+		updaters.put(updater.getName(), updater);
+		new CheckUpdateThread(updater).start();
 	}
 	
 	public static void notifyAll(EntityPlayer player)
 	{
-		List<ModUpdate> updates = getUpdates(false);
+		List<Update> updates = getUpdates(false);
 		if (!updates.isEmpty())
 		{
 			player.addChatMessage(new ChatComponentTranslation("update.found"));
-			for (ModUpdate update : updates)
+			for (Update update : updates)
 			{
 				notify(player, update);
 			}
 		}
 	}
 	
-	public static void notify(EntityPlayer player, ModUpdate update)
+	public static void notify(EntityPlayer player, Update update)
 	{
 		if (update != null && update.isValid())
 		{
 			player.addChatMessage(new ChatComponentTranslation("update.notification", update.getModName(), update.getNewVersion(), update.getVersion()));
 			
-			if (update.getUpdateNotes().length > 0)
+			if (update.getUpdateNotes().size() > 0)
 			{
 				player.addChatMessage(new ChatComponentTranslation("update.notes"));
 				
@@ -213,7 +170,7 @@ public class CSUpdate
 	
 	public static void update(EntityPlayer player, String modName)
 	{
-		ModUpdate update = getUpdate(modName);
+		Update update = getUpdate(modName);
 		if (update != null)
 		{
 			update.install(player);
@@ -228,7 +185,7 @@ public class CSUpdate
 	{
 		if (!updates.isEmpty())
 		{
-			for (ModUpdate update : updates.values())
+			for (Update update : updates.values())
 			{
 				update.install(player);
 			}
