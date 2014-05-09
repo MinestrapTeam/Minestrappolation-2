@@ -1,20 +1,22 @@
-package sobiohazardous.mods.minestrappolation.extradecor.tileentity;
+package sobiohazardous.mods.minestrappolation.extradecor.client.renderer.tileentity;
 
 import org.lwjgl.opengl.GL11;
 
 import sobiohazardous.mods.minestrappolation.core.lib.MReference;
+import sobiohazardous.mods.minestrappolation.extradecor.client.model.ModelPlate;
+
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 
-public class RendererPlate extends TileEntitySpecialRenderer
+public class RenderPlate extends TileEntitySpecialRenderer
 {
 	
 	ResourceLocation	texture	= new ResourceLocation(MReference.MODID_ED + ":textures/blocks/model/plate.png");
 	
 	private ModelPlate	model;
 	
-	public RendererPlate()
+	public RenderPlate()
 	{
 		this.model = new ModelPlate();
 	}

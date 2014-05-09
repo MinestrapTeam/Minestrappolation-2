@@ -3,12 +3,14 @@ package sobiohazardous.mods.minestrappolation.extradecor.block;
 import java.util.Random;
 
 import sobiohazardous.mods.minestrappolation.core.util.MUtil;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class BlockGunpowderBlock extends BlockFalling
@@ -18,53 +20,39 @@ public class BlockGunpowderBlock extends BlockFalling
 		super(material);
 	}
 	
-	/**
-	 * Called whenever the block is added into the world. Args: world, x, y, z
-	 */
 	@Override
-	public void onBlockAdded(World par1World, int par2, int par3, int par4)
+	public void onBlockAdded(World world, int x, int y, int z)
 	{
-		par1World.scheduleBlockUpdate(par2, par3, par4, this, this.tickRate(par1World));
+		world.scheduleBlockUpdate(x, y, z, this, this.tickRate(world));
 	}
 	
-	/**
-	 * Lets the block know when one of its neighbor changes. Doesn't know which
-	 * neighbor changed (coordinates passed are their own) Args: x, y, z,
-	 * neighbor blockID
-	 */
 	@Override
-	public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, Block block)
+	public void onNeighborBlockChange(World world, int x, int y, int z, Block block)
 	{
-		par1World.scheduleBlockUpdate(par2, par3, par4, this, this.tickRate(par1World));
+		world.scheduleBlockUpdate(x, y, z, this, this.tickRate(world));
 	}
 	
-	/**
-	 * Ticks the block if it's been scheduled
-	 */
 	@Override
-	public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random)
+	public void updateTick(World world, int x, int y, int z, Random random)
 	{
-		if (MUtil.isBlockTouchingAnySide(par1World, par2, par3, par4, Blocks.fire))
+		if (MUtil.isBlockTouchingAnySide(world, x, y, z, Blocks.fire))
 		{
-			par1World.createExplosion(null, par2, par3, par4, 4F * 2, true);
+			world.createExplosion(null, x, y, z, 8F, true);
 		}
 	}
 	
 	@Override
-	public boolean onBlockActivated(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9)
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ)
 	{
-		if (par5EntityPlayer.getCurrentEquippedItem() != null && (par5EntityPlayer.getCurrentEquippedItem().getItem() == Items.flint_and_steel || par5EntityPlayer.getCurrentEquippedItem().getItem() == Items.fire_charge))
+		if (!world.isRemote)
 		{
-			if (!par1World.isRemote)
+			ItemStack stack = player.getHeldItem();
+			if (stack != null && (stack.getItem() == Items.flint_and_steel || stack.getItem() == Items.fire_charge))
 			{
-				float size = 4.0F * 2;
-				par1World.createExplosion(par5EntityPlayer, par2, par3, par4, size, true);
+				world.createExplosion(player, x, y, z, 8F, true);
+				return true;
 			}
-			return true;
 		}
-		else
-		{
-			return super.onBlockActivated(par1World, par2, par3, par4, par5EntityPlayer, par6, par7, par8, par9);
-		}
+		return super.onBlockActivated(world, x, y, z, player, side, hitX, hitY, hitZ);
 	}
 }

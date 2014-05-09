@@ -1,4 +1,4 @@
-package sobiohazardous.mods.minestrappolation.extradecor.tileentity;
+package sobiohazardous.mods.minestrappolation.extradecor.client.model;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;

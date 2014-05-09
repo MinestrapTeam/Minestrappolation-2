@@ -6,6 +6,7 @@ import sobiohazardous.mods.minestrappolation.core.util.MAssetManager;
 import sobiohazardous.mods.minestrappolation.extradecor.lib.EDBlocks;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -27,47 +28,31 @@ public class BlockEndStone extends Block
 	}
 	
 	@Override
-	public void registerBlockIcons(IIconRegister par1IconRegister)
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.brick = par1IconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Endstone_Bricks_0_0"));
-		this.refined = par1IconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Endstone_Refined_0_0"));
-		this.smooth = par1IconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Endstone_Raw_0_0"));
-	}
-	
-	@Override
-	public int damageDropped(int par1)
-	{
-		return par1;
+		this.brick = iconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Endstone_Bricks_0_0"));
+		this.refined = iconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Endstone_Refined_0_0"));
+		this.smooth = iconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Endstone_Raw_0_0"));
 	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public IIcon getIcon(int i, int j)
+	public IIcon getIcon(int side, int metadata)
 	{
-		switch (j)
-		{
-		case 0:
+		if (metadata == 0)
 			return this.brick;
-		case 1:
+		else if (metadata == 1)
 			return this.smooth;
-		case 2:
+		else
 			return this.refined;
-		}
-		return this.refined;
-		
 	}
 	
 	@Override
-	@SideOnly(Side.CLIENT)
-	/**
-	 * returns a list of blocks with the same ID, but different meta (eg: wood
-	 * returns 4 blocks)
-	 */
-	public void getSubBlocks(Item par1, CreativeTabs par2CreativeTabs, List par3List)
+	public void getSubBlocks(Item item, CreativeTabs tab, List list)
 	{
-		par3List.add(new ItemStack(par1, 1, 0));
-		par3List.add(new ItemStack(par1, 1, 1));
-		par3List.add(new ItemStack(par1, 1, 2));
+		list.add(new ItemStack(item, 1, 0));
+		list.add(new ItemStack(item, 1, 1));
+		list.add(new ItemStack(item, 1, 2));
 	}
 	
 }

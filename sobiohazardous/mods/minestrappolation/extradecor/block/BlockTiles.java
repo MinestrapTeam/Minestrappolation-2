@@ -3,8 +3,7 @@ package sobiohazardous.mods.minestrappolation.extradecor.block;
 import java.util.List;
 
 import sobiohazardous.mods.minestrappolation.core.util.MAssetManager;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -15,18 +14,15 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-//flintBlock = (new MBlock(EDConfig.flintBlockId, Material.rock)).setHardness(3F).setResistance(10.0F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("block_FlintBlock").setCreativeTab(tabDecorBlocks);
-//netherBrickPattern = (new MBlock(EDConfig.netherBrickPatternId, Material.rock)).setHardness(2.0F).setResistance(10.0F).setCreativeTab(tabDecorBlocks).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("block_PatternBrickNether");
-
 public class BlockTiles extends Block
 {
-	private IIcon	ob;
-	private IIcon	flint;
-	private IIcon	nether;
-	private IIcon	checker;
-	private IIcon	brick;
-	private IIcon	fb;
-	private IIcon	nb;
+	private IIcon	obsidianTiles;
+	private IIcon	flintTiles;
+	private IIcon	netherQuartz;
+	private IIcon	checkerBoard;
+	private IIcon	clayPattern;
+	private IIcon	flintRaw;
+	private IIcon	netherrackPattern;
 	
 	public BlockTiles()
 	{
@@ -34,116 +30,96 @@ public class BlockTiles extends Block
 	}
 	
 	@Override
-	public float getBlockHardness(World par1World, int par2, int par3, int par4)
+	public float getBlockHardness(World world, int x, int y, int z)
 	{
-		int meta = par1World.getBlockMetadata(par2, par3, par4);
+		int meta = world.getBlockMetadata(x, y, z);
 		
-		switch (meta)
+		if (meta == 0)
 		{
-		case 0:
 			return 60F;
-		case 1:
+		}
+		else if (meta == 2)
+		{
+			return 0.8F;
+		}
+		else if (meta == 1 || meta == 3 || meta == 5)
+		{
 			return 3F;
-		case 2:
-			return .8F;
-		case 3:
-			return 3F;
-		case 4:
-			return 2F;
-		case 5:
-			return 3F;
-		case 6:
+		}
+		else if (meta == 4 || meta == 6)
+		{
 			return 2F;
 		}
-		
 		return 5F;
 		
 	}
 	
 	@Override
-	public float getExplosionResistance(Entity par1Entity, World world, int x, int y, int z, double explosionX, double explosionY, double explosionZ)
+	public float getExplosionResistance(Entity entity, World world, int x, int y, int z, double explosionX, double explosionY, double explosionZ)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
-		switch (meta)
+		if (meta == 0)
 		{
-		case 0:
 			return 2000F;
-		case 1:
-			return 10F;
-		case 2:
+		}
+		else if (meta == 2)
+		{
 			return 1F;
-		case 3:
+		}
+		else if (meta == 1 || meta == 3 || meta == 4 || meta == 5 || meta == 6)
+		{
 			return 10F;
-		case 4:
-			return 10F;
-		case 5:
-			return 10F;
-		case 6:
-			return 10F;
-			
 		}
 		return 1F;
 	}
 	
 	@Override
-	public void registerBlockIcons(IIconRegister par1IconRegister)
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.ob = par1IconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Obsidian_Tiles_0_0"));
-		this.flint = par1IconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Flint_Tiles_0_0"));
-		this.nether = par1IconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("NetherQuartz_Tiles_0_0"));
-		this.checker = par1IconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Flint-NetherQuartz_TileChecker_0_0"));
-		this.brick = par1IconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Clay_PatternBricks_0_0"));
-		this.fb = par1IconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Flint_Raw_0_0"));
-		this.nb = par1IconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Netherrack_PatternBricks_0_0"));
-		
+		this.obsidianTiles = iconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Obsidian_Tiles_0_0"));
+		this.flintTiles = iconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Flint_Tiles_0_0"));
+		this.netherQuartz = iconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("NetherQuartz_Tiles_0_0"));
+		this.checkerBoard = iconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Flint-NetherQuartz_TileChecker_0_0"));
+		this.clayPattern = iconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Clay_PatternBricks_0_0"));
+		this.flintRaw = iconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Flint_Raw_0_0"));
+		this.netherrackPattern = iconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Netherrack_PatternBricks_0_0"));
 	}
 	
 	@Override
-	public int damageDropped(int par1)
+	public int damageDropped(int metadata)
 	{
-		return par1;
+		return metadata;
 	}
 	
 	@Override
-	@SideOnly(Side.CLIENT)
-	public IIcon getIcon(int i, int j)
+	public IIcon getIcon(int side, int metadata)
 	{
-		switch (j)
+		switch (metadata)
 		{
 		case 0:
-			return this.ob;
+			return this.obsidianTiles;
 		case 1:
-			return this.flint;
+			return this.flintTiles;
 		case 2:
-			return this.nether;
+			return this.netherQuartz;
 		case 3:
-			return this.checker;
+			return this.checkerBoard;
 		case 4:
-			return this.brick;
+			return this.clayPattern;
 		case 5:
-			return this.fb;
+			return this.flintRaw;
 		case 6:
-			return this.nb;
+			return this.netherrackPattern;
 		}
-		return this.ob;
-		
+		return this.obsidianTiles;
 	}
 	
 	@Override
-	@SideOnly(Side.CLIENT)
-	/**
-	 * returns a list of blocks with the same ID, but different meta (eg: wood
-	 * returns 4 blocks)
-	 */
-	public void getSubBlocks(Item par1, CreativeTabs par2CreativeTabs, List par3List)
+	public void getSubBlocks(Item item, CreativeTabs tab, List list)
 	{
-		par3List.add(new ItemStack(par1, 1, 0));
-		par3List.add(new ItemStack(par1, 1, 1));
-		par3List.add(new ItemStack(par1, 1, 2));
-		par3List.add(new ItemStack(par1, 1, 3));
-		par3List.add(new ItemStack(par1, 1, 4));
-		par3List.add(new ItemStack(par1, 1, 5));
-		par3List.add(new ItemStack(par1, 1, 6));
+		for (int i = 0; i < 7; i++)
+		{
+			list.add(new ItemStack(item, 1, i));
+		}
 	}
-	
 }

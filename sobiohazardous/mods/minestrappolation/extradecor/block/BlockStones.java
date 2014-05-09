@@ -3,8 +3,7 @@ package sobiohazardous.mods.minestrappolation.extradecor.block;
 import java.util.List;
 
 import sobiohazardous.mods.minestrappolation.core.util.MAssetManager;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -16,7 +15,6 @@ import net.minecraft.util.IIcon;
 public class BlockStones extends Block
 {
 	private IIcon	refined;
-	private IIcon	tile;
 	
 	public BlockStones()
 	{
@@ -24,39 +22,32 @@ public class BlockStones extends Block
 	}
 	
 	@Override
-	public void registerBlockIcons(IIconRegister par1IconRegister)
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.tile = par1IconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Stone_Tiles_0_0"));
-		this.refined = par1IconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Stone_Refined_0_0"));
+		this.blockIcon = iconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Stone_Tiles_0_0"));
+		this.refined = iconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Stone_Refined_0_0"));
 	}
 	
 	@Override
-	public int damageDropped(int par1)
+	public int damageDropped(int metadata)
 	{
-		return par1;
+		return metadata;
 	}
 	
 	@Override
-	@SideOnly(Side.CLIENT)
-	public IIcon getIcon(int i, int j)
+	public IIcon getIcon(int side, int metadata)
 	{
-		switch (j)
+		if (metadata == 1)
 		{
-		case 0:
-			return this.tile;
-		case 1:
-			
+			return this.refined;
 		}
-		return this.refined;
-		
+		return this.blockIcon;
 	}
 	
 	@Override
-	@SideOnly(Side.CLIENT)
-	public void getSubBlocks(Item par1, CreativeTabs par2CreativeTabs, List par3List)
+	public void getSubBlocks(Item item, CreativeTabs tabs, List list)
 	{
-		par3List.add(new ItemStack(par1, 1, 0));
-		par3List.add(new ItemStack(par1, 1, 1));
+		list.add(new ItemStack(item, 1, 0));
+		list.add(new ItemStack(item, 1, 1));
 	}
-	
 }

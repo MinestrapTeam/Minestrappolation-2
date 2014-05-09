@@ -6,15 +6,9 @@ import net.minecraft.item.Item;
 
 public final class CreativeTabExtraDecorBlocks extends CreativeTabs
 {
-	public CreativeTabExtraDecorBlocks(int par1, String par2Str)
+	public CreativeTabExtraDecorBlocks(int id, String label)
 	{
-		super(par1, par2Str);
-	}
-	
-	@Override
-	public String getTranslatedTabLabel()
-	{
-		return "Extrapolated Decor";
+		super(id, label);
 	}
 	
 	@Override

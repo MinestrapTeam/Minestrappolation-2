@@ -1,19 +1,14 @@
 package sobiohazardous.mods.minestrappolation.extradecor;
 
 import sobiohazardous.mods.minestrappolation.core.lib.MReference;
-import sobiohazardous.mods.minestrappolation.extradecor.block.*;
+import sobiohazardous.mods.minestrappolation.extradecor.block.EDOreRegistry;
 import sobiohazardous.mods.minestrappolation.extradecor.bridge.EDBridgeRecipes;
 import sobiohazardous.mods.minestrappolation.extradecor.gen.EDOreGenerator;
-import sobiohazardous.mods.minestrappolation.extradecor.handler.EDGuiHandler;
 import sobiohazardous.mods.minestrappolation.extradecor.handler.EDPriestTradeHandler;
-import sobiohazardous.mods.minestrappolation.extradecor.lib.EDBlocks;
-import sobiohazardous.mods.minestrappolation.extradecor.lib.EDConfig;
-import sobiohazardous.mods.minestrappolation.extradecor.lib.EDItems;
-import sobiohazardous.mods.minestrappolation.extradecor.lib.EDRecipes;
-import sobiohazardous.mods.minestrappolation.extradecor.lib.EDTileEntityManager;
+import sobiohazardous.mods.minestrappolation.extradecor.lib.*;
 import sobiohazardous.mods.minestrappolation.extradecor.proxy.CommonProxy;
-import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -29,18 +24,14 @@ import cpw.mods.fml.common.registry.VillagerRegistry;
 @Mod(modid = MReference.MODID_ED, name = MReference.MODNAME_ED, version = MReference.VERSION_ED, dependencies = "required-after:Minestrappolation")
 public class ExtraDecor
 {
+	@Instance(MReference.MODID_ED)
+	public static ExtraDecor	instance;
+	
 	@SidedProxy(clientSide = "sobiohazardous.mods.minestrappolation.extradecor.proxy.ClientProxy", serverSide = "sobiohazardous.mods.minestrappolation.extradecor.proxy.CommonProxy")
 	public static CommonProxy	proxy;
 	
-	@Instance("ExtraDecor")
-	public static ExtraDecor	instance;
-	
-	public static int			paneRenderId	= RenderingRegistry.getNextAvailableRenderId();
-	public static int			ropeRenderId	= RenderingRegistry.getNextAvailableRenderId();
-	public static int			stairsRenderId	= RenderingRegistry.getNextAvailableRenderId();
-	
-	@Mod.EventHandler
-	public void preLoad(FMLPreInitializationEvent event)
+	@EventHandler
+	public void preInit(FMLPreInitializationEvent event)
 	{
 		// load libs
 		EDConfig.initilize(event);
@@ -53,25 +44,21 @@ public class ExtraDecor
 		EDItems.setHarvestLevels();
 	}
 	
-	@Mod.EventHandler
-	public void load(FMLInitializationEvent event)
+	@EventHandler
+	public void init(FMLInitializationEvent event)
 	{
 		EDOreRegistry.oreRegistration();
-		NetworkRegistry.INSTANCE.registerGuiHandler(this, new EDGuiHandler());
+		NetworkRegistry.INSTANCE.registerGuiHandler(this, proxy);
 		EDTileEntityManager.registerTileEntitys();
-		// TODO Find alternative
-		// MinecraftForge.setToolClass(Items.shears, "shears", 0);
 		GameRegistry.registerWorldGenerator(new EDOreGenerator(), 0);
 		VillagerRegistry.instance().registerVillageTradeHandler(2, new EDPriestTradeHandler());
 		EDBlocks.loadVanillaOverwrites();
 		proxy.registerRenderThings();
 	}
 	
-	@Mod.EventHandler
-	public void postLoad(FMLPostInitializationEvent evt)
+	@EventHandler
+	public void postInit(FMLPostInitializationEvent event)
 	{
-		EDItems.addItemsToItemList();
-		
 		try
 		{
 			EDBlocks.loadBridgedBlocks();

@@ -1,19 +1,16 @@
 package sobiohazardous.mods.minestrappolation.extradecor.block;
 
-import java.util.Random;
-
 import sobiohazardous.mods.minestrappolation.core.util.MAssetManager;
 import sobiohazardous.mods.minestrappolation.extradecor.lib.EDBlocks;
-import sobiohazardous.mods.minestrappolation.extradecor.tileentity.TileEntityEdgeStone;
-import net.minecraft.block.BlockContainer;
+
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.item.Item;
-import net.minecraft.tileentity.TileEntity;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.IIcon;
-import net.minecraft.world.World;
+import net.minecraft.world.IBlockAccess;
 
-public class BlockEdgeStoneBrick extends BlockContainer
+public class BlockEdgeStoneBrick extends Block
 {
 	private IIcon	left;
 	private IIcon	right;
@@ -25,58 +22,67 @@ public class BlockEdgeStoneBrick extends BlockContainer
 	}
 	
 	@Override
-	public void registerBlockIcons(IIconRegister par1IconRegister)
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = par1IconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("EdgeStone_Bricks_0_Full"));
-		this.left = par1IconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("EdgeStone_Bricks_0_Left"));
-		this.right = par1IconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("EdgeStone_Bricks_0_Right"));
+		this.blockIcon = iconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("EdgeStone_Bricks_0_Full"));
+		this.left = iconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("EdgeStone_Bricks_0_Left"));
+		this.right = iconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("EdgeStone_Bricks_0_Right"));
 	}
 	
 	@Override
-	public IIcon getIcon(int i, int j)
+	public IIcon getIcon(IBlockAccess world, int x, int y, int z, int side)
 	{
-		if (i == 0)
+		boolean x1 = isBrick(world, x + 1, y, z);
+		boolean z1 = isBrick(world, x, y, z + 1);
+		boolean x2 = isBrick(world, x - 1, y, z);
+		boolean z2 = isBrick(world, x, y, z - 1);
+		if (side == 2) // NORTH
 		{
-			return this.blockIcon;
+			if (x1 != x2)
+			{
+				if (x1)
+					return this.left;
+				else if (x2)
+					return this.right;
+			}
 		}
-		if (i == 1)
+		else if (side == 3) // SOUTH
 		{
-			return this.blockIcon;
+			if (x1 != x2)
+			{
+				if (x1)
+					return this.left;
+				else if (x2)
+					return this.right;
+			}
+		}
+		else if (side == 4)
+		{
+			if (z1 != z2)
+			{
+				if (z1)
+					return this.left;
+				else if (z2)
+					return this.right;
+			}
+		}
+		else if (side == 5)
+		{
+			if (z1 != z2)
+			{
+				if (z1)
+					return this.left;
+				else if (z2)
+					return this.right;
+			}
 		}
 		
-		if (i == 2)
-		{
-			return this.blockIcon;
-		}
-		if (i == 3)
-		{
-			return this.blockIcon;
-		}
-		if (i == 4)
-		{
-			return this.blockIcon;
-		}
-		if (i == 5)
-		{
-			return this.blockIcon;
-		}
-		
-		if (j == 1)
-		{
-			return this.blockIcon;
-		}
 		return this.blockIcon;
 	}
 	
-	@Override
-	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)
+	public boolean isBrick(IBlockAccess world, int x, int y, int z)
 	{
-		return Item.getItemFromBlock(EDBlocks.edgeStoneBrick);
-	}
-	
-	@Override
-	public TileEntity createNewTileEntity(World var1, int var2)
-	{
-		return new TileEntityEdgeStone();
+		Block block = world.getBlock(x, y, z);
+		return block == this || block == Blocks.stonebrick;
 	}
 }

@@ -37,7 +37,6 @@ public class EDBlocks
 	public static Block				Plate;
 	
 	public static Block				edgeStoneBrick;
-	public static Block				edgeStoneBrickCorner;
 	
 	public static Block				snowBrick;
 	public static Block				endstone;
@@ -202,7 +201,6 @@ public class EDBlocks
 		Tiles = new BlockTiles().setCreativeTab(tabDecor).setStepSound(Block.soundTypeStone).setBlockName("tiles");
 		
 		edgeStoneBrick = new BlockEdgeStoneBrick().setHardness(1.5F).setResistance(10F).setCreativeTab(tabDecor).setStepSound(Block.soundTypeStone).setBlockName("edgeStoneBrick");
-		edgeStoneBrickCorner = new BlockEdgeStoneCorner().setHardness(1.5F).setResistance(10F).setStepSound(Block.soundTypeStone).setBlockName("edgeStoneBrickCorner");
 		
 		snowBrick = new BlockSnowBrick().setHardness(0.3F).setCreativeTab(tabDecor).setStepSound(Block.soundTypeSnow).setBlockName("tilesSnow").setBlockTextureName(MAssetManager.getEDTexture("tilesSnow"));
 		
@@ -240,7 +238,6 @@ public class EDBlocks
 		
 		cardboard = new EDBlockPane("cardboard", "cardboardPaneEdge", Material.cloth, true).setHardness(0.3F).setBlockName("cardboard");
 		cardboardBlock = new BlockCardboard(Material.cloth).setHardness(0.4F).setBlockName("CardboardBlock").setCreativeTab(tabDecor);
-		cardboardWet = new BlockCardboardWet(Material.cloth).setCreativeTab(tabDecor).setHardness(0.2F).setResistance(0.8F).setBlockName("cardboardWet");
 		
 		woodBoardsStairsOak = new EDBlockStairs(woodBoards, 0).setBlockName("woodBoardsStairsOak").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setCreativeTab(tabDecor);
 		woodBoardsStairsBirch = new EDBlockStairs(woodBoards, 1).setBlockName("woodBoardsStairsBirch").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setCreativeTab(tabDecor);
@@ -253,19 +250,18 @@ public class EDBlocks
 		
 		stainedBrick = new BlockStainedBrick().setHardness(2F).setResistance(10F).setCreativeTab(tabDecor).setStepSound(Block.soundTypeStone).setBlockName("stainedBrick");
 		
-		cobbledRoad = new BlockCobbledRoad().setHardness(1).setResistance(5F).setCreativeTab(tabDecor).setStepSound(Block.soundTypeStone).setBlockName("cobbledRoad");
+		cobbledRoad = new EDBlockRoad().setHardness(1).setResistance(5F).setCreativeTab(tabDecor).setStepSound(Block.soundTypeStone).setBlockName("cobbledRoad");
 		infertileDirt = new MBlock(Material.grass).setCreativeTab(tabDecor).setBlockName("InfertileSoil").setHardness(.4F).setStepSound(Block.soundTypeGrass).setBlockTextureName(MAssetManager.getEDTexture("grasslessDirt"));
-		refinedRoad = new BlockRefinedRoad().setHardness(2F).setResistance(5F).setBlockName("RefinedRoad").setStepSound(Block.soundTypeStone).setCreativeTab(tabDecor);
+		refinedRoad = new EDBlockRoad().setHardness(2F).setResistance(5F).setBlockName("RefinedRoad").setStepSound(Block.soundTypeStone).setCreativeTab(tabDecor);
 		
-		sandyRoad = new BlockSandyRoad().setHardness(0.8F).setResistance(4F).setCreativeTab(tabDecor).setStepSound(Block.soundTypeStone).setBlockName("sandyRoad");
-		sandstoneRoad = new BlockSandyRoad().setHardness(1).setResistance(4.5F).setCreativeTab(tabDecor).setStepSound(Block.soundTypeStone).setBlockName("sandstoneRoad");
-		gravelRoad = new BlockSandyRoad().setHardness(1.5F).setResistance(5F).setCreativeTab(tabDecor).setStepSound(Block.soundTypeStone).setBlockName("gravelRoad");
-		netherroad = new BlockRefinedRoad().setHardness(2.2F).setResistance(4F).setBlockName("netherroad").setStepSound(Block.soundTypeStone).setCreativeTab(tabDecor);
-		refinedNetherroad = new BlockRefinedRoad().setHardness(2.8F).setResistance(6F).setBlockName("refinedNetherroad").setStepSound(Block.soundTypeStone).setCreativeTab(tabDecor);
+		sandyRoad = new EDBlockRoad().setHardness(0.8F).setResistance(4F).setCreativeTab(tabDecor).setStepSound(Block.soundTypeStone).setBlockName("sandyRoad");
+		sandstoneRoad = new EDBlockRoad().setHardness(1).setResistance(4.5F).setCreativeTab(tabDecor).setStepSound(Block.soundTypeStone).setBlockName("sandstoneRoad");
+		gravelRoad = new EDBlockRoad().setHardness(1.5F).setResistance(5F).setCreativeTab(tabDecor).setStepSound(Block.soundTypeStone).setBlockName("gravelRoad");
+		netherroad = new EDBlockRoad().setHardness(2.2F).setResistance(4F).setBlockName("netherroad").setStepSound(Block.soundTypeStone).setCreativeTab(tabDecor);
+		refinedNetherroad = new EDBlockRoad().setHardness(2.8F).setResistance(6F).setBlockName("refinedNetherroad").setStepSound(Block.soundTypeStone).setCreativeTab(tabDecor);
 		
 		woodPlanksMossy = new BlockMossyWood().setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setBlockName("woodPlanksMossy").setCreativeTab(tabDecor);
 		
-		// Test
 		Goblet = new BlockGoblet(Material.rock).setHardness(.5F).setBlockName("goblet");
 		Plate = new BlockPlate(Material.rock).setCreativeTab(tabDecor).setBlockName("plate");
 		
@@ -386,7 +382,6 @@ public class EDBlocks
 		GameRegistry.registerTileEntity(TileEntityPlate.class, "Plate");
 		
 		GameRegistry.registerBlock(GlassDoor, "GlassDoor");
-		GameRegistry.registerBlock(edgeStoneBrickCorner, MItemBlockMulti.class, "edgeCorner");
 		GameRegistry.registerBlock(refinedRoad, "refinedRoad");
 		GameRegistry.registerBlock(stoneLamp, MItemBlockMulti.class, "stoneLamp");
 		GameRegistry.registerBlock(edgeStoneBrick, "edgeStoneBrick");

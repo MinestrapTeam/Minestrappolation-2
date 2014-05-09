@@ -19,18 +19,8 @@ public class EDBlockStairs extends BlockStairs
 	{
 		if (world.getBlock(x, y, z) == EDBlocks.woodBoardsStairsOak || world.getBlock(x, y, z) == EDBlocks.woodBoardsStairsBirch || world.getBlock(x, y, z) == EDBlocks.woodBoardsStairsSpruce || world.getBlock(x, y, z) == EDBlocks.woodBoardsStairsJungle)
 		{
-			if (face == ForgeDirection.UP || face == ForgeDirection.DOWN || face == ForgeDirection.NORTH || face == ForgeDirection.SOUTH || face == ForgeDirection.EAST || face == ForgeDirection.WEST)
-			{
-				return 75;
-			}
-			else
-			{
-				return 0;
-			}
+			return 75;
 		}
-		else
-		{
-			return 0;
-		}
+		return 0;
 	}
 }

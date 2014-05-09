@@ -16,45 +16,20 @@ public class BlockRopeCoil extends Block
 	}
 	
 	@Override
-	public void registerBlockIcons(IIconRegister par1IconRegister)
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = par1IconRegister.registerIcon(MAssetManager.getEDTexture("ropeSide"));
-		this.top = par1IconRegister.registerIcon(MAssetManager.getEDTexture("ropeTop"));
+		this.blockIcon = iconRegister.registerIcon(MAssetManager.getEDTexture("ropeSide"));
+		this.top = iconRegister.registerIcon(MAssetManager.getEDTexture("ropeTop"));
 	}
 	
 	@Override
-	public IIcon getIcon(int i, int j)
+	public IIcon getIcon(int side, int metadata)
 	{
-		if (i == 0)
-		{
-			return this.top;
-		}
-		if (i == 1)
+		if (side == 0 || side == 1)
 		{
 			return this.top;
 		}
 		
-		if (i == 2)
-		{
-			return this.blockIcon;
-		}
-		if (i == 3)
-		{
-			return this.blockIcon;
-		}
-		if (i == 4)
-		{
-			return this.blockIcon;
-		}
-		if (i == 5)
-		{
-			return this.blockIcon;
-		}
-		
-		if (j == 1)
-		{
-			return this.blockIcon;
-		}
 		return this.blockIcon;
 	}
 }

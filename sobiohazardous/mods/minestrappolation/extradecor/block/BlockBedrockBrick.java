@@ -14,9 +14,9 @@ public class BlockBedrockBrick extends MBlock
 	}
 	
 	@Override
-	public void harvestBlock(World par1World, EntityPlayer par2EntityPlayer, int par3, int par4, int par5, int par6)
+	public void harvestBlock(World world, EntityPlayer player, int x, int y, int z, int metadata)
 	{
-		par2EntityPlayer.getHeldItem().damageItem(2000, par2EntityPlayer);
-		this.dropBlockAsItem(par1World, par3, par4, par5, new ItemStack(this));
+		player.getHeldItem().damageItem(2000, player);
+		this.dropBlockAsItem(world, x, y, z, new ItemStack(this));
 	}
 }

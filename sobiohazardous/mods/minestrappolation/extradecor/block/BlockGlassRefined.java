@@ -1,77 +1,15 @@
 package sobiohazardous.mods.minestrappolation.extradecor.block;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
-import java.util.Random;
-
 import sobiohazardous.mods.minestrappolation.core.util.MAssetManager;
-import net.minecraft.block.BlockBreakable;
-import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.creativetab.CreativeTabs;
 
-public class BlockGlassRefined extends BlockBreakable
+import net.minecraft.block.BlockGlass;
+import net.minecraft.block.material.Material;
+
+public class BlockGlassRefined extends BlockGlass
 {
-	public BlockGlassRefined(Material par2Material, boolean par3)
+	public BlockGlassRefined(Material material, boolean flag)
 	{
-		super("glass", par2Material, par3);
-		this.setCreativeTab(CreativeTabs.tabBlock);
-	}
-	
-	/**
-	 * Returns the quantity of items to drop on block destruction.
-	 */
-	@Override
-	public int quantityDropped(Random par1Random)
-	{
-		return 0;
-	}
-	
-	@Override
-	@SideOnly(Side.CLIENT)
-	/**
-	 * Returns which pass should this block be rendered on. 0 for solids and 1 for alpha
-	 */
-	public int getRenderBlockPass()
-	{
-		return 0;
-	}
-	
-	/**
-	 * Is this block (a) opaque and (b) a full 1m cube? This determines whether
-	 * or not to render the shared face of two adjacent blocks and also whether
-	 * the player can attach torches, redstone wire, etc to this block.
-	 */
-	@Override
-	public boolean isOpaqueCube()
-	{
-		return false;
-	}
-	
-	/**
-	 * If this block doesn't render as an ordinary block it will return False
-	 * (examples: signs, buttons, stairs, etc)
-	 */
-	@Override
-	public boolean renderAsNormalBlock()
-	{
-		return false;
-	}
-	
-	/**
-	 * Return true if a player with Silk Touch can harvest this block directly,
-	 * and not its normal drops.
-	 */
-	@Override
-	protected boolean canSilkHarvest()
-	{
-		return true;
-	}
-	
-	@Override
-	public void registerBlockIcons(IIconRegister par1IconRegister)
-	{
-		this.blockIcon = par1IconRegister.registerIcon(MAssetManager.getEDTexture("clearGlass"));
+		super(material, flag);
+		this.setBlockTextureName(MAssetManager.getEDTexture("clearGlass"));
 	}
 }

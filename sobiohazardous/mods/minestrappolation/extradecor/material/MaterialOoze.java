@@ -5,24 +5,17 @@ import net.minecraft.block.material.Material;
 
 public class MaterialOoze extends Material
 {
-	
-	public MaterialOoze(MapColor par1MapColor)
+	public MaterialOoze(MapColor mapColor)
 	{
-		super(par1MapColor);
+		super(mapColor);
 	}
 	
-	/**
-	 * Returns if blocks of these materials are liquids.
-	 */
 	@Override
 	public boolean isLiquid()
 	{
 		return true;
 	}
 	
-	/**
-	 * Returns if this material is considered solid or not
-	 */
 	@Override
 	public boolean blocksMovement()
 	{
@@ -40,5 +33,4 @@ public class MaterialOoze extends Material
 	{
 		return 0;
 	}
-	
 }

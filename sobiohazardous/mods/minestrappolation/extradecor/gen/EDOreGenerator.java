@@ -4,11 +4,14 @@ import java.util.Random;
 
 import sobiohazardous.mods.minestrappolation.extradecor.lib.EDBlocks;
 import cpw.mods.fml.common.IWorldGenerator;
+
+import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.ChunkProviderEnd;
 import net.minecraft.world.gen.ChunkProviderGenerate;
 import net.minecraft.world.gen.ChunkProviderHell;
+import net.minecraft.world.gen.feature.WorldGenMinable;
 
 /**
  * @author Crzyguitardude
@@ -39,54 +42,32 @@ public class EDOreGenerator implements IWorldGenerator
 	
 	public void generateSurface(World world, Random rand, int chunkx, int chunkz)
 	{
-		for (int l = 0; l < 20; l++) // 5 = how much veins in a chunk (chunk =
-										// 16x16x128)
+		for (int i = 0; i < 20; i++)
 		{
 			int i1 = chunkx + rand.nextInt(16);
-			int j1 = rand.nextInt(80); // layer it spawns in
+			int j1 = rand.nextInt(80);
 			int k1 = chunkz + rand.nextInt(16);
 			
-			new WorldGenSandstone(EDBlocks.sandstoneBricks, 3).generate(world, rand, i1, j1, k1); // 5
-																									// =
-																									// how
-																									// much
-																									// in
-																									// a
-																									// vain
+			new WorldGenMinable(EDBlocks.sandstoneBricks, 3, Blocks.sandstone).generate(world, rand, i1, j1, k1);
 		}
 		
-		for (int l1 = 0; l1 < 20; l1++) // 5 = how much veins in a chunk (chunk
-										// = 16x16x128)
+		for (int i = 0; i < 20; i++)
 		{
 			int i1 = chunkx + rand.nextInt(16);
-			int j1 = rand.nextInt(256); // layer it spawns in
+			int j1 = rand.nextInt(256);
 			int k1 = chunkz + rand.nextInt(16);
 			
-			new WorldGenSandstone(EDBlocks.sandstoneBricks, 4).generate(world, rand, i1, j1, k1); // 5
-																									// =
-																									// how
-																									// much
-																									// in
-																									// a
-																									// vain
+			new WorldGenMinable(EDBlocks.sandstoneBricks, 4, Blocks.sandstone).generate(world, rand, i1, j1, k1);
 		}
 		
-		for (int l1 = 0; l1 < 20; l1++) // 5 = how much veins in a chunk (chunk
-										// = 16x16x128)
+		for (int i = 0; i < 20; i++)
 		{
 			int i1 = chunkx + rand.nextInt(16);
-			int j1 = rand.nextInt(60); // layer it spawns in
+			int j1 = rand.nextInt(60);
 			int k1 = chunkz + rand.nextInt(16);
 			
-			new WorldGenSandstone(EDBlocks.woodPlanksMossy, 3).generate(world, rand, i1, j1, k1); // 5
-																									// =
-																									// how
-																									// much
-																									// in
-																									// a
-																									// vain
+			new WorldGenMinable(EDBlocks.woodPlanksMossy, 3, Blocks.planks).generate(world, rand, i1, j1, k1);
 		}
-		
 	}
 	
 	public void generateNether(World world, Random rand, int chunkx, int chunkz)
@@ -98,5 +79,4 @@ public class EDOreGenerator implements IWorldGenerator
 	{
 		
 	}
-	
 }

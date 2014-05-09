@@ -1,18 +1,20 @@
-package sobiohazardous.mods.minestrappolation.extradecor.tileentity;
+package sobiohazardous.mods.minestrappolation.extradecor.client.renderer.tileentity;
 
 import org.lwjgl.opengl.GL11;
 
 import sobiohazardous.mods.minestrappolation.core.lib.MReference;
+import sobiohazardous.mods.minestrappolation.extradecor.client.model.ModelGoblet;
+
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 
-public class RendererGoblet extends TileEntitySpecialRenderer
+public class RenderGoblet extends TileEntitySpecialRenderer
 {
 	
 	private ModelGoblet	model;
 	
-	public RendererGoblet()
+	public RenderGoblet()
 	{
 		this.model = new ModelGoblet();
 	}

@@ -15,7 +15,7 @@ import net.minecraft.world.World;
 
 public class BlockBarrel extends BlockFalling implements ITileEntityProvider
 {
-	private IIcon	top;
+	protected IIcon	top;
 	
 	public BlockBarrel()
 	{
@@ -23,37 +23,11 @@ public class BlockBarrel extends BlockFalling implements ITileEntityProvider
 	}
 	
 	@Override
-	public IIcon getIcon(int i, int j)
+	public IIcon getIcon(int side, int metadata)
 	{
-		if (i == 0)
+		if (side == 0 || side == 1)
 		{
 			return this.top;
-		}
-		if (i == 1)
-		{
-			return this.top;
-		}
-		
-		if (i == 2)
-		{
-			return this.blockIcon;
-		}
-		if (i == 3)
-		{
-			return this.blockIcon;
-		}
-		if (i == 4)
-		{
-			return this.blockIcon;
-		}
-		if (i == 5)
-		{
-			return this.blockIcon;
-		}
-		
-		if (j == 1)
-		{
-			return this.blockIcon;
 		}
 		return this.blockIcon;
 	}
@@ -66,48 +40,33 @@ public class BlockBarrel extends BlockFalling implements ITileEntityProvider
 	}
 	
 	@Override
-	public void onBlockAdded(World p_149726_1_, int p_149726_2_, int p_149726_3_, int p_149726_4_)
+	public void breakBlock(World world, int x, int y, int z, Block block, int metadata)
 	{
-		super.onBlockAdded(p_149726_1_, p_149726_2_, p_149726_3_, p_149726_4_);
+		super.breakBlock(world, x, y, z, block, metadata);
+		world.removeTileEntity(x, y, z);
 	}
 	
 	@Override
-	public void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_, int p_149749_6_)
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ)
 	{
-		super.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_, p_149749_6_);
-		p_149749_1_.removeTileEntity(p_149749_2_, p_149749_3_, p_149749_4_);
-	}
-	
-	/**
-	 * Called upon block activation (right click on the block.)
-	 */
-	@Override
-	public boolean onBlockActivated(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9)
-	{
-		if (par1World.isRemote)
+		if (!world.isRemote)
 		{
-			return true;
+			player.openGui(ExtraDecor.instance, 1, world, x, y, z);
 		}
-		else
-		{
-			par5EntityPlayer.openGui(ExtraDecor.instance, 1, par1World, par2, par3, par4);
-			
-			return true;
-		}
+		return true;
 	}
 	
 	@Override
-	public boolean onBlockEventReceived(World p_149696_1_, int p_149696_2_, int p_149696_3_, int p_149696_4_, int p_149696_5_, int p_149696_6_)
+	public boolean onBlockEventReceived(World world, int x, int y, int z, int id, int data)
 	{
-		super.onBlockEventReceived(p_149696_1_, p_149696_2_, p_149696_3_, p_149696_4_, p_149696_5_, p_149696_6_);
-		TileEntity var7 = p_149696_1_.getTileEntity(p_149696_2_, p_149696_3_, p_149696_4_);
-		return var7 != null ? var7.receiveClientEvent(p_149696_5_, p_149696_6_) : false;
+		super.onBlockEventReceived(world, x, y, z, id, data);
+		TileEntity te = world.getTileEntity(x, y, z);
+		return te != null ? te.receiveClientEvent(id, data) : false;
 	}
 	
 	@Override
-	public TileEntity createNewTileEntity(World var1, int var2)
+	public TileEntity createNewTileEntity(World world, int metadata)
 	{
-		TileEntityBarrel tileentitychest = new TileEntityBarrel();
-		return tileentitychest;
+		return new TileEntityBarrel();
 	}
 }
