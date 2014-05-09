@@ -7,9 +7,8 @@ import sobiohazardous.mods.minestrappolation.extramobdrops.common.EMDEventHandle
 import sobiohazardous.mods.minestrappolation.extramobdrops.entity.EntityHangGlider;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.entity.*;
+import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderHangGlider extends Render
@@ -17,20 +16,18 @@ public class RenderHangGlider extends Render
 	public ResourceLocation	texture	= new ResourceLocation("extramobdrops:textures/misc/hangGlider.png");
 	
 	@Override
-	public void doRender(Entity entity, double x, double y, double z, float yaw, float pitch)
+	public void doRender(Entity entity, double x, double y, double z, float yaw, float partialTickTime)
 	{
 		EntityHangGlider glider = (EntityHangGlider) entity;
-		EntityPlayer player = glider.player;
+		Entity rider = glider.riddenByEntity;
 		
 		GL11.glPushMatrix();
 		ModelHangGlider m = new ModelHangGlider();
 		Minecraft.getMinecraft().getTextureManager().bindTexture(this.texture);
-		int tick = 0;
-		tick++;
-		float rotateYaw = EMDEventHandler.interpolateRotation(player.prevRotationYaw, player.rotationYaw, tick);
-		GL11.glRotatef(rotateYaw, 0, -1, 0);
+		float f = EMDEventHandler.interpolateRotation(rider.prevRotationYaw, rider.rotationYaw, partialTickTime);
+		GL11.glRotatef(f, 0, -1, 0);
 		GL11.glRotatef(180F, 0, 0, 1);
-		GL11.glTranslatef(0, 0, -0.5F);
+		GL11.glTranslated(x, y, z - 0.5D);
 		m.render(0.0625F);
 		GL11.glPopMatrix();
 	}
@@ -40,5 +37,4 @@ public class RenderHangGlider extends Render
 	{
 		return this.texture;
 	}
-	
 }

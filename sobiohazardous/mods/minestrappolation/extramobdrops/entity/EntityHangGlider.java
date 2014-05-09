@@ -9,7 +9,6 @@ import net.minecraft.world.World;
 public class EntityHangGlider extends Entity
 {
 	public String		owner;
-	public EntityPlayer	player;
 	
 	boolean				initCheck	= true;
 	boolean				checking	= false;
@@ -25,74 +24,76 @@ public class EntityHangGlider extends Entity
 		super(world);
 		this.setPosition(x, y, z);
 		this.owner = owner.getDisplayName();
-		this.player = owner;
 		this.theItem = item;
+		owner.mountEntity(this);
 	}
 	
 	@Override
 	public void onUpdate()
 	{
-		// if(player.inventory.getCurrentItem() !=
-		// EMDItemManager.hangGlider.getContainerItem(theItem) &&
-		// player.onGround == false && player.isInWater() == false)
-		// {
-		double absX = Math.abs(this.player.motionX);
-		double absZ = Math.abs(this.player.motionZ);
-		this.player.motionY *= 0.645D;
-		this.player.fallDistance = 0;
-		
-		if (absX < 0.9D)
+		Entity player = this.riddenByEntity;
+		if (player != null)
 		{
-			this.player.motionX *= 1.06D;
+			double absX = Math.abs(player.motionX);
+			double absZ = Math.abs(player.motionZ);
+			player.motionY *= 0.645D;
+			player.fallDistance = 0;
+			
+			if (absX < 0.9D)
+			{
+				player.motionX *= 1.06D;
+			}
+			else if (absX < 0.15D)
+			{
+				player.motionX *= 1.1D;
+			}
+			
+			if (absZ < 0.9D)
+			{
+				player.motionZ *= 1.06D;
+			}
+			else if (absZ < 0.15D)
+			{
+				player.motionZ *= 1.1D;
+			}
+			
+			if (this.initCheck && absX + absZ > 0.15D)
+			{
+				this.checking = true;
+				this.initCheck = false;
+			}
+			else if (!player.isCollidedHorizontally)
+			{
+				this.checking = false;
+				this.initCheck = true;
+			}
+			
+			// The problem for no damage is that player.isCollidedHorizontally
+			// only
+			// works client side, so it damages only client side, and not server
+			// side. these packets do nothing.
+			if (this.checking && player.isCollidedHorizontally)
+			{
+				player.motionX = 0D;
+				player.motionZ = 0D;
+				this.checking = false;
+				this.initCheck = true;
+			}
+			
+			// wall colision
+			/*
+			 * if((Math.abs(prev2XMotion) > 0.3 || Math.abs(prev2ZMotion) > 0.3
+			 * || (Math.abs(prev2XMotion) > 0.3 && Math.abs(prev2ZMotion) >
+			 * 0.3)) && player.isCollidedHorizontally &&
+			 * Math.abs(player.motionY) > 0.13) { par1ItemStack.damageItem(1,
+			 * Minecraft.getMinecraft().thePlayer); }
+			 */
+			// System.out.println("Checking" + checking);
+			// System.out.println("InitChecking" + initCheck);
+			// System.out.println("SpeedZ" + player.motionZ);
+			// System.out.println("SpeedX" + player.motionX);
+			// }
 		}
-		else if (absX < 0.15D)
-		{
-			this.player.motionX *= 1.1D;
-		}
-		
-		if (absZ < 0.9D)
-		{
-			this.player.motionZ *= 1.06D;
-		}
-		else if (absZ < 0.15D)
-		{
-			this.player.motionZ *= 1.1D;
-		}
-		
-		if (this.initCheck && absX + absZ > 0.15D)
-		{
-			this.checking = true;
-			this.initCheck = false;
-		}
-		else if (!this.player.isCollidedHorizontally)
-		{
-			this.checking = false;
-			this.initCheck = true;
-		}
-		
-		// The problem for no damage is that player.isCollidedHorizontally only
-		// works client side, so it damages only client side, and not server
-		// side. these packets do nothing.
-		if (this.checking && this.player.isCollidedHorizontally)
-		{
-			this.player.motionX = 0;
-			this.player.motionZ = 0;
-			this.checking = false;
-			this.initCheck = true;
-		}
-		
-		// wall colision
-		/*
-		 * if((Math.abs(prev2XMotion) > 0.3 || Math.abs(prev2ZMotion) > 0.3 ||
-		 * (Math.abs(prev2XMotion) > 0.3 && Math.abs(prev2ZMotion) > 0.3)) &&
-		 * player.isCollidedHorizontally && Math.abs(player.motionY) > 0.13) {
-		 * par1ItemStack.damageItem(1, Minecraft.getMinecraft().thePlayer); }
-		 */
-		// System.out.println("Checking" + checking);
-		// System.out.println("InitChecking" + initCheck);
-		// System.out.println("SpeedZ" + player.motionZ);
-		// System.out.println("SpeedX" + player.motionX);
-		// }
 	}
 	
 	@Override
@@ -112,5 +113,4 @@ public class EntityHangGlider extends Entity
 	{
 		nbt.setString(this.owner, "owner");
 	}
-	
 }

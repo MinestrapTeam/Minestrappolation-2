@@ -9,9 +9,6 @@ import net.minecraft.world.World;
 
 public class ItemHangGlider extends MItem
 {
-	boolean	initCheck	= true;
-	boolean	checking	= false;
-	
 	public ItemHangGlider()
 	{
 		super();
