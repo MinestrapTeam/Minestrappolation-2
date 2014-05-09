@@ -14,6 +14,21 @@ public class MAssetManager
 		return new ResourceLocation(MReference.MODID_MAPI, name);
 	}
 	
+	public static ResourceLocation getEOResource(String name)
+	{
+		return new ResourceLocation(MReference.MODID_EO, name);
+	}
+	
+	public static ResourceLocation getEDResource(String name)
+	{
+		return new ResourceLocation(MReference.MODID_ED, name);
+	}
+	
+	public static ResourceLocation getEMDResource(String name)
+	{
+		return new ResourceLocation(MReference.MODID_EMD, name);
+	}
+	
 	public static String getMAPITexture(String name)
 	{
 		return MReference.MODID_MAPI + ":" + name;
@@ -36,11 +51,11 @@ public class MAssetManager
 	
 	public static String getEDStonecutterTexture(String name)
 	{
-		return MReference.MODID_ED + ":" + "stoneCutter/" + name;
+		return MReference.MODID_ED + ":stoneCutter/" + name;
 	}
 	
 	public static String getEOStonecutterTexture(String name)
 	{
-		return MReference.MODID_EO + ":" + "stoneCutter/" + name;
+		return MReference.MODID_EO + ":stoneCutter/" + name;
 	}
 }

@@ -2,6 +2,7 @@ package sobiohazardous.mods.minestrappolation.core.util;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Random;
 
 import clashsoft.cslib.minecraft.item.CSStacks;
 
@@ -114,6 +115,20 @@ public class MUtil
 	public static boolean isRaining(World world, int x, int y, int z)
 	{
 		return world.isRaining() && world.getBiomeGenForCoords(x, z).canSpawnLightningBolt();
+	}
+	
+	public static void spawnParticle(World world, int x, int y, int z, Random random, String name)
+	{
+		int rx = random.nextInt(2) * 2 - 1;
+		int rz = random.nextInt(2) * 2 - 1;
+		double posX = x + 0.5D + 0.25D * rx;
+		double posY = y + random.nextFloat();
+		double posZ = z + 0.5D + 0.25D * rz;
+		double velocityX = random.nextFloat() * 1.0F * rx;
+		double velocityY = (random.nextFloat() - 0.5D) * 0.125D;
+		double velocityZ = random.nextFloat() * 1.0F * rz;
+		
+		world.spawnParticle("portal", posX, posY, posZ, velocityX, velocityY, velocityZ);
 	}
 	
 	/**

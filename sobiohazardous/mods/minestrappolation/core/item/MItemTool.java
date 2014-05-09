@@ -96,7 +96,7 @@ public class MItemTool extends ItemTool
 	
 	protected void updateNBTs(ItemStack stack)
 	{
-		if (stack.stackTagCompound.getBoolean("bronzePlated"))
+		if (stack.stackTagCompound != null && stack.stackTagCompound.getBoolean("bronzePlated"))
 		{
 			this.toolMaterial = this.plateMaterial;
 		}
