@@ -1,82 +1,109 @@
-buildscript {
-    repositories {
+buildscript
+{
+    repositories
+    {
         mavenCentral()
-        maven {
+        maven
+        {
             name = "forge"
             url = "http://files.minecraftforge.net/maven"
         }
-        maven {
+        maven
+        {
             name = "sonatype"
             url = "https://oss.sonatype.org/content/repositories/snapshots/"
         }
     }
-    dependencies {
+    dependencies
+    {
         classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
     }
 }
 apply plugin: 'forge'
 
 version = "1.7.2-2.1.3"
-group= "" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+group = ""
 archivesBaseName = "Minestrappolation"
-sourceSets.main.java{srcDirs project.projectDir.getPath() include("sobiohazardous/**")}
-sourceSets.main.resources{srcDirs project.projectDir.getPath() include("assets/**")}
+
+sourceSets.main.java
+{
+    srcDirs project.projectDir.getPath() include("sobiohazardous/**")
+}
+sourceSets.main.resources
+{
+    srcDirs project.projectDir.getPath() include("assets/**")
+}
 
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
 
-minecraft {
+minecraft
+{
     version = "1.7.2-10.12.1.1074"
   
-	if(file('../run').exists()) {
+	if(file('../run').exists())
+	{
 		assetDir = "../run/assets/"
-	} else {
+	}
+	else
+	{
 		assetDir = "eclipse/assets"
 	}
 }
 
-dependencies {
-	compile fileTree(dir:'dependencies',include:'*.zip')
+dependencies
+{
+	compile fileTree(dir:'libs',include:'*.zip')
 }
 
-jar {
+jar
+{
     //Keep the jar as clean as possible
     includeEmptyDirs = false
 	//package dependencies in.
 	//from configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
 }
 
-processResources {
+processResources
+{
     // copy everything else, thats not mcmod.info
-    from(project.sourceSets.main.resources.srcDirs) {
+    from(project.sourceSets.main.resources.srcDirs)
+    {
         include("*.png", "*.lang")
     }
 }
 
 task unJar(type:Copy, dependsOn:'build')
-unJar{
+unJar
+{
     from zipTree(jar.archivePath)
     into 'build/unjar'
 }
 
 task buildAPI(type:Jar, dependsOn:'unJar')
-buildAPI{
-    archiveName = "MAPI" + "-" + minecraft.version + "-" + "1.3.1" +"." + extension
+buildAPI
+{
+    archiveName = "MAPI " + minecraft.version + "-1.3.1." + extension
     from 'build/unjar'
-    include('assets/**', 'sobiohazardous/minestrappolation/api/**')
-    from('api_info'){
-    include('mcmod.info')
-    // replace version and mcversion
-    expand([version:version, mcversion:minecraft.version])
+    include('assets/**', 'sobiohazardous/minestrappolation/core/**')
+    
+    from('api_info')
+    {
+        include('mcmod.info')
+        // replace version and mcversion
+        expand([version:version, mcversion:minecraft.version])
     }
 }
 
 task buildEO(type:Jar, dependsOn:'unJar')
-buildEO{
-    archiveName = "Extrapolated Ores" + "-" + minecraft.version + "-" + "1.5.1" +"." + extension
+buildEO
+{
+    archiveName = "Extrapolated Ores" + minecraft.version + "-1.5.1." + extension
     from 'build/unjar'
     include('assets/**', 'sobiohazardous/minestrappolation/extraores/**')
-    from('eo_info'){
+    
+    from('eo_info')
+    {
         include('mcmod.info')
         // replace version and mcversion
         expand([version:version, mcversion:minecraft.version])
@@ -84,11 +111,14 @@ buildEO{
 }
 
 task buildED(type:Jar, dependsOn:'unJar')
-buildED{
-    archiveName = "Extrapolated Decor" + "-" + minecraft.version + "-" + "1.4.2" +"." + extension
+buildED
+{
+    archiveName = "Extrapolated Decor" + minecraft.version + "-1.4.2." + extension
     from 'build/unjar'
     include('assets/**', 'sobiohazardous/minestrappolation/extradecor/**')
-    from('ed_info'){
+    
+    from('ed_info')
+    {
         include('mcmod.info')
         // replace version and mcversion
         expand([version:version, mcversion:minecraft.version])
@@ -96,11 +126,14 @@ buildED{
 }
 
 task buildEMD(type:Jar, dependsOn:'unJar')
-buildEMD{
-    archiveName = "Extrapolated Mob Drops" + "-" + minecraft.version + "-" + "1.0" +"." + extension
+buildEMD
+{
+    archiveName = "Extrapolated Mob Drops" + minecraft.version + "-1.0.0." + extension
     from 'build/unjar'
     include('assets/**', 'sobiohazardous/minestrappolation/extramobdrops/**')
-    from('emd_info'){
+    
+    from('emd_info')
+    {
         include('mcmod.info')
         // replace version and mcversion
         expand([version:version, mcversion:minecraft.version])
@@ -108,15 +141,19 @@ buildEMD{
 }
 
 task buildEE(type:Jar, dependsOn:'unJar')
-buildEE{
-    archiveName = "Extrapolated Enviroments Ores" + "-" + minecraft.version + "-" + "1.0" +"." + extension
+buildEE
+{
+    archiveName = "Extrapolated Environments" + "-" + minecraft.version + "-1.0.0." + extension
     from 'build/unjar'
     include('assets/**', 'sobiohazardous/minestrappolation/extraenviroments/**')
-    from('ee_info'){
+    
+    from('ee_info')
+    {
         include('mcmod.info')
         // replace version and mcversion
         expand([version:version, mcversion:minecraft.version])
     }
 }
+
 task buildPack(dependsOn:['buildAPI','buildEO','buildED'])
 task buildAll(dependsOn:['buildAPI','buildEO','buildED', 'buildEMD', 'buildEE'])
