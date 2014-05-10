@@ -26,7 +26,7 @@ public class SteelPlatedGraniteBrickSlab extends BlockSlab
 	@Override
 	public void registerBlockIcons(IIconRegister par1IconRegister)
 	{
-		this.blockIcon = par1IconRegister.registerIcon(MAssetManager.getEOStonecutterTexture("Granite_Bricks_0_Steel"));
+		this.blockIcon = par1IconRegister.registerIcon(MAssetManager.getEOTextureSC("Granite_Bricks_0_Steel"));
 	}
 	
 	@Override

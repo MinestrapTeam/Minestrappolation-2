@@ -34,7 +34,7 @@ public class ExtraDecor
 	public void preInit(FMLPreInitializationEvent event)
 	{
 		// load libs
-		EDConfig.initilize(event);
+		EDConfig.init(event);
 		EDBlocks.createBlocks();
 		EDBlocks.registerBlocks();
 		EDItems.addItems();

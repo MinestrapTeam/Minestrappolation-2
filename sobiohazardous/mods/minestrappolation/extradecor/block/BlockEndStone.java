@@ -30,9 +30,9 @@ public class BlockEndStone extends Block
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.brick = iconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Endstone_Bricks_0_0"));
-		this.refined = iconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Endstone_Refined_0_0"));
-		this.smooth = iconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Endstone_Raw_0_0"));
+		this.brick = iconRegister.registerIcon(MAssetManager.getEDTextureSC("Endstone_Bricks_0_0"));
+		this.refined = iconRegister.registerIcon(MAssetManager.getEDTextureSC("Endstone_Refined_0_0"));
+		this.smooth = iconRegister.registerIcon(MAssetManager.getEDTextureSC("Endstone_Raw_0_0"));
 	}
 	
 	@Override

@@ -49,12 +49,12 @@ public class MAssetManager
 		return MReference.MODID_EMD + ":" + name;
 	}
 	
-	public static String getEDStonecutterTexture(String name)
+	public static String getEDTextureSC(String name)
 	{
 		return MReference.MODID_ED + ":stoneCutter/" + name;
 	}
 	
-	public static String getEOStonecutterTexture(String name)
+	public static String getEOTextureSC(String name)
 	{
 		return MReference.MODID_EO + ":stoneCutter/" + name;
 	}

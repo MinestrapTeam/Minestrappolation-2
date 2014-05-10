@@ -76,13 +76,13 @@ public class BlockTiles extends Block
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.obsidianTiles = iconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Obsidian_Tiles_0_0"));
-		this.flintTiles = iconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Flint_Tiles_0_0"));
-		this.netherQuartz = iconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("NetherQuartz_Tiles_0_0"));
-		this.checkerBoard = iconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Flint-NetherQuartz_TileChecker_0_0"));
-		this.clayPattern = iconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Clay_PatternBricks_0_0"));
-		this.flintRaw = iconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Flint_Raw_0_0"));
-		this.netherrackPattern = iconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Netherrack_PatternBricks_0_0"));
+		this.obsidianTiles = iconRegister.registerIcon(MAssetManager.getEDTextureSC("Obsidian_Tiles_0_0"));
+		this.flintTiles = iconRegister.registerIcon(MAssetManager.getEDTextureSC("Flint_Tiles_0_0"));
+		this.netherQuartz = iconRegister.registerIcon(MAssetManager.getEDTextureSC("NetherQuartz_Tiles_0_0"));
+		this.checkerBoard = iconRegister.registerIcon(MAssetManager.getEDTextureSC("Flint-NetherQuartz_TileChecker_0_0"));
+		this.clayPattern = iconRegister.registerIcon(MAssetManager.getEDTextureSC("Clay_PatternBricks_0_0"));
+		this.flintRaw = iconRegister.registerIcon(MAssetManager.getEDTextureSC("Flint_Raw_0_0"));
+		this.netherrackPattern = iconRegister.registerIcon(MAssetManager.getEDTextureSC("Netherrack_PatternBricks_0_0"));
 	}
 	
 	@Override

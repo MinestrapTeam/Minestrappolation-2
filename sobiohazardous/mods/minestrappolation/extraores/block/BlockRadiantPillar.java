@@ -9,7 +9,7 @@ public class BlockRadiantPillar extends MBlockPillar
 {
 	public BlockRadiantPillar()
 	{
-		super(MAssetManager.getEOStonecutterTexture("RadiantQuartz_Pillar_Side_0"), MAssetManager.getEOStonecutterTexture("RadiantQuartz_Raw_0_0"));
+		super(MAssetManager.getEOTextureSC("RadiantQuartz_Pillar_Side_0"), MAssetManager.getEOTextureSC("RadiantQuartz_Raw_0_0"));
 		this.setCreativeTab(CreativeTabs.tabBlock);
 	}
 }

@@ -26,7 +26,7 @@ public class BronzePlatedCobbleSlab extends BlockSlab
 	@Override
 	public void registerBlockIcons(IIconRegister par1IconRegister)
 	{
-		this.blockIcon = par1IconRegister.registerIcon(MAssetManager.getEOStonecutterTexture("Stone_Cobbled_0_Bronze"));
+		this.blockIcon = par1IconRegister.registerIcon(MAssetManager.getEOTextureSC("Stone_Cobbled_0_Bronze"));
 	}
 	
 	@Override
