@@ -19,12 +19,10 @@ public class EOItemSlab extends ItemSlab
 	}
 	
 	@Override
-	public String getUnlocalizedName(ItemStack itemStack)
+	public String getUnlocalizedName(ItemStack stack)
 	{
-		// TODO: getBlockFromItem
-		BlockSlab slab = (BlockSlab) Block.getBlockFromItem(itemStack.getItem());
+		BlockSlab slab = (BlockSlab) Block.getBlockFromItem(stack.getItem());
 		
-		// TODO: getFullSlabName()
-		return super.getUnlocalizedName() + "." + new StringBuilder().append(slab.func_150002_b(itemStack.getItemDamage())).toString();
+		return super.getUnlocalizedName() + "." + slab.func_150002_b(stack.getItemDamage()).toString();
 	}
 }

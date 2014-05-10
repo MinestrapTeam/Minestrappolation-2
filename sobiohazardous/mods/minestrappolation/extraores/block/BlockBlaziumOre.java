@@ -26,41 +26,28 @@ public class BlockBlaziumOre extends Block
 		this.blockIcon = iconRegister.registerIcon(MAssetManager.getEOTexture("oreBlazium"));
 	}
 	
-	/**
-	 * Returns the usual quantity dropped by the block plus a bonus of 1 to 'i'
-	 * (inclusive).
-	 */
 	@Override
-	public int quantityDroppedWithBonus(int par1, Random par2Random)
+	public int quantityDroppedWithBonus(int fortune, Random random)
 	{
-		return MathHelper.clamp_int(this.quantityDropped(par2Random) + par2Random.nextInt(par1 + 1), 1, 4);
-	}
-	
-	/**
-	 * Returns the quantity of items to drop on block destruction.
-	 */
-	@Override
-	public int quantityDropped(Random par1Random)
-	{
-		return 2 + par1Random.nextInt(1);
+		return MathHelper.clamp_int(this.quantityDropped(random) + random.nextInt(fortune + 1), 1, 4);
 	}
 	
 	@Override
-	public Item getItemDropped(int par1, Random par2Random, int par3)
+	public int quantityDropped(Random random)
+	{
+		return 2 + random.nextInt(1);
+	}
+	
+	@Override
+	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
 		return Items.blaze_powder;
 	}
 	
 	@Override
-	public void onBlockDestroyedByPlayer(World par1World, int par2, int par3, int par4, int par5)
+	public void onBlockDestroyedByPlayer(World world, int x, int y, int z, int metadata)
 	{
-		this.dropXpOnBlockBreak(par1World, par2, par3, par4, 1); /*
-																 * the 1 means
-																 * it drops 1
-																 * xp, change it
-																 * to 20, 100,
-																 * as much as
-																 * you want.
-																 */
+		// the 1 means it drops 1 xp, change it to 20, 100, as much as you want.
+		this.dropXpOnBlockBreak(world, x, y, z, 1);
 	}
 }

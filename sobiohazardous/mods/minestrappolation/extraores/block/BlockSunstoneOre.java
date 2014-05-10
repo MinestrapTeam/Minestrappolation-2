@@ -2,85 +2,45 @@ package sobiohazardous.mods.minestrappolation.extraores.block;
 
 import java.util.Random;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.item.Item;
-import net.minecraft.util.MathHelper;
-import net.minecraft.world.World;
 import sobiohazardous.mods.minestrappolation.core.util.MAssetManager;
 import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlocks;
 import sobiohazardous.mods.minestrappolation.extraores.lib.EOItems;
 
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.item.Item;
+import net.minecraft.world.World;
+
 public class BlockSunstoneOre extends Block
 {
-	Random	rand	= new Random();
-	
 	public BlockSunstoneOre()
 	{
 		super(Material.rock);
 		this.setCreativeTab(EOBlocks.tabOresBlocks);
+		this.setBlockTextureName(MAssetManager.getEOTexture("oreSunstone"));
 	}
 	
 	@Override
-	public void registerBlockIcons(IIconRegister iconRegister)
+	public int quantityDroppedWithBonus(int fortune, Random random)
 	{
-		this.blockIcon = iconRegister.registerIcon(MAssetManager.getEOTexture("oreSunstone"));
+		return this.quantityDropped(random) + random.nextInt(fortune + 1);
 	}
 	
-	/**
-	 * Returns the usual quantity dropped by the block plus a bonus of 1 to 'i'
-	 * (inclusive).
-	 */
 	@Override
-	public int quantityDroppedWithBonus(int par1, Random par2Random)
+	public int quantityDropped(Random random)
 	{
-		return MathHelper.clamp_int(this.quantityDropped(par2Random) + par2Random.nextInt(par1 + 1), 1, 4);
+		return 2 + random.nextInt(3);
 	}
 	
-	/**
-	 * Returns the quantity of items to drop on block destruction.
-	 */
 	@Override
-	public int quantityDropped(Random par1Random)
-	{
-		return 2 + par1Random.nextInt(3);
-	}
-	
-	/**
-	 * Returns the ID of the items to drop on destruction.
-	 */
-	@Override
-	public Item getItemDropped(int par1, Random par2Random, int par3)
+	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
 		return EOItems.SunstoneDust;
 	}
 	
 	@Override
-	public void onBlockDestroyedByPlayer(World par1World, int par2, int par3, int par4, int par5)
+	public void onBlockDestroyedByPlayer(World world, int x, int y, int z, int metadata)
 	{
-		this.dropXpOnBlockBreak(par1World, par2, par3, par4, this.rand.nextInt(5) + 3); /*
-																						 * the
-																						 * 1
-																						 * means
-																						 * it
-																						 * drops
-																						 * 1
-																						 * xp
-																						 * ,
-																						 * change
-																						 * it
-																						 * to
-																						 * 20
-																						 * ,
-																						 * 100
-																						 * ,
-																						 * as
-																						 * much
-																						 * as
-																						 * you
-																						 * want
-																						 * .
-																						 */
+		this.dropXpOnBlockBreak(world, x, y, z, world.rand.nextInt(5) + 3);
 	}
 }

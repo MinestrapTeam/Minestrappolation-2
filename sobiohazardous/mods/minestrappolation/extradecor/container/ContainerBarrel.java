@@ -12,12 +12,12 @@ public class ContainerBarrel extends ContainerInventory
 	{
 		super(player, barrel);
 		
-		this.addInventorySlots(0, 0);
+		this.addInventorySlots(0, 21);
 		for (int j = 0; j < 4; ++j)
 		{
 			for (int k = 0; k < 9; ++k)
 			{
-				this.addSlotToContainer(new Slot(barrel, k + j * 9, 8 + k * 18, 18 + j * 18 - 10));
+				this.addSlotToContainer(new Slot(barrel, k + j * 9, 8 + k * 18, 19 + j * 18));
 			}
 		}
 	}

@@ -3,10 +3,10 @@ package sobiohazardous.mods.minestrappolation.extradecor;
 import sobiohazardous.mods.minestrappolation.core.lib.MReference;
 import sobiohazardous.mods.minestrappolation.extradecor.block.EDOreRegistry;
 import sobiohazardous.mods.minestrappolation.extradecor.bridge.EDBridgeRecipes;
+import sobiohazardous.mods.minestrappolation.extradecor.common.EDCommonProxy;
 import sobiohazardous.mods.minestrappolation.extradecor.gen.EDOreGenerator;
 import sobiohazardous.mods.minestrappolation.extradecor.handler.EDPriestTradeHandler;
 import sobiohazardous.mods.minestrappolation.extradecor.lib.*;
-import sobiohazardous.mods.minestrappolation.extradecor.proxy.CommonProxy;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -27,14 +27,14 @@ public class ExtraDecor
 	@Instance(MReference.MODID_ED)
 	public static ExtraDecor	instance;
 	
-	@SidedProxy(clientSide = "sobiohazardous.mods.minestrappolation.extradecor.proxy.ClientProxy", serverSide = "sobiohazardous.mods.minestrappolation.extradecor.proxy.CommonProxy")
-	public static CommonProxy	proxy;
+	@SidedProxy(clientSide = "sobiohazardous.mods.minestrappolation.extradecor.client.EDClientProxy", serverSide = "sobiohazardous.mods.minestrappolation.extradecor.common.EDCommonProxy")
+	public static EDCommonProxy	proxy;
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
 		// load libs
-		EDConfig.initilize(event);
+		EDConfig.init(event);
 		EDBlocks.createBlocks();
 		EDBlocks.registerBlocks();
 		EDItems.addItems();

@@ -26,51 +26,18 @@ public class BlockSteel extends Block
 		this.bottom = iconRegister.registerIcon(MAssetManager.getEOTexture("blockSteelBottom"));
 	}
 	
-	/**
-	 * Determines the damage on the item the block drops. Used in cloth and
-	 * wood.
-	 */
 	@Override
-	public int damageDropped(int par1)
+	public IIcon getIcon(int side, int metadata)
 	{
-		return 0;
-	}
-	
-	// Args: side, metadata
-	
-	@Override
-	public IIcon getIcon(int i, int j)
-	{
-		if (i == 0)
+		if (side == 0)
 		{
 			return this.bottom;
 		}
-		if (i == 1)
+		else if (side == 1)
 		{
 			return this.top;
 		}
 		
-		if (i == 2)
-		{
-			return this.blockIcon;
-		}
-		if (i == 3)
-		{
-			return this.blockIcon;
-		}
-		if (i == 4)
-		{
-			return this.blockIcon;
-		}
-		if (i == 5)
-		{
-			return this.blockIcon;
-		}
-		
-		if (j == 1)
-		{
-			return this.blockIcon;
-		}
-		return this.top;
+		return this.blockIcon;
 	}
 }

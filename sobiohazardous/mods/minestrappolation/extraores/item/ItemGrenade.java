@@ -12,30 +12,24 @@ public class ItemGrenade extends Item
 	public ItemGrenade()
 	{
 		super();
-		this.maxStackSize = 16;
+		this.setMaxStackSize(16);
 		this.setCreativeTab(EOItems.tabOresItems);
 	}
 	
-	/**
-	 * Called whenever this item is equipped and the right mouse button is
-	 * pressed. Args: itemStack, world, entityPlayer
-	 */
 	@Override
-	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
+	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
 	{
-		if (!par3EntityPlayer.capabilities.isCreativeMode)
+		if (!world.isRemote)
 		{
-			--par1ItemStack.stackSize;
+			if (!player.capabilities.isCreativeMode)
+			{
+				--stack.stackSize;
+			}
+			
+			world.playSoundAtEntity(player, "random.bow", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
+			world.spawnEntityInWorld(new EntityGrenade(world, player));
 		}
 		
-		par2World.playSoundAtEntity(par3EntityPlayer, "random.bow", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
-		
-		if (!par2World.isRemote)
-		{
-			par2World.spawnEntityInWorld(new EntityGrenade(par2World, par3EntityPlayer));
-		}
-		
-		return par1ItemStack;
+		return stack;
 	}
-	
 }

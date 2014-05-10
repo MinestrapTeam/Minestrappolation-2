@@ -2,11 +2,11 @@ package sobiohazardous.mods.minestrappolation.extraores.gen;
 
 import java.util.Random;
 
-import sobiohazardous.mods.minestrappolation.extraores.ExtraOres;
 import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlocks;
 import cpw.mods.fml.common.IWorldGenerator;
+
+import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.BiomeGenJungle;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.ChunkProviderEnd;
@@ -18,14 +18,7 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
  * @author SoBiohazardous
  */
 public class EOOreGenerator implements IWorldGenerator
-{
-	public static ExtraOres	BASEMOD;
-	
-	public EOOreGenerator()
-	{
-		
-	}
-	
+{	
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider)
 	{
@@ -43,158 +36,150 @@ public class EOOreGenerator implements IWorldGenerator
 		}
 	}
 	
-	public void generateSurface(World world, Random rand, int chunkx, int chunkz)
+	public void generateSurface(World world, Random rand, int chunkX, int chunkZ)
 	{
+		int x1;
+		int y1;
+		int z1;
+		
 		// Zirconium Ore
-		for (int l = 0; l < 5; l++) // 5 = how much veins in a chunk (chunk =
-									// 16x16x128)
+		for (int i = 0; i < 5; i++)
 		{
-			int i1 = chunkx + rand.nextInt(16);
-			int j1 = rand.nextInt(28); // layer it spawns in
-			int k1 = chunkz + rand.nextInt(16);
+			x1 = chunkX + rand.nextInt(16);
+			y1 = rand.nextInt(28); // layer it spawns in
+			z1 = chunkZ + rand.nextInt(16);
 			
-			new WorldGenMinable(EOBlocks.meuroditeOre, 5).generate(world, rand, i1, j1, k1); // 5
-																								// =
-																								// how
-																								// much
-																								// in
-																								// a
-																								// vain
+			new WorldGenMinable(EOBlocks.meuroditeOre, 5).generate(world, rand, x1, y1, z1);
 		}
 		// Uranium Ore
-		for (int o = 0; o < 8; o++)
+		for (int i = 0; i < 8; i++)
 		{
-			int i2 = chunkx + rand.nextInt(16);
-			int j2 = rand.nextInt(32);
-			int k2 = chunkz + rand.nextInt(16);
+			x1 = chunkX + rand.nextInt(16);
+			y1 = rand.nextInt(32);
+			z1 = chunkZ + rand.nextInt(16);
 			
-			new WorldGenMinable(EOBlocks.UraniumOre, 3).generate(world, rand, i2, j2, k2);
+			new WorldGenMinable(EOBlocks.UraniumOre, 3).generate(world, rand, x1, y1, z1);
 		}
-		
 		// Plutonium Ore
-		for (int u = 0; u < 8; u++)
+		for (int i = 0; i < 8; i++)
 		{
-			int i3 = chunkx + rand.nextInt(16);
-			int j3 = rand.nextInt(32);
-			int k3 = chunkz + rand.nextInt(16);
+			x1 = chunkX + rand.nextInt(16);
+			y1 = rand.nextInt(32);
+			z1 = chunkZ + rand.nextInt(16);
 			
-			new WorldGenMinable(EOBlocks.PlutoniumOre, 3).generate(world, rand, i3, j3, k3);
+			new WorldGenMinable(EOBlocks.PlutoniumOre, 3).generate(world, rand, x1, y1, z1);
 		}
 		// Titanium Ore
-		for (int q = 0; q < 8; q++)
+		for (int i = 0; i < 8; i++)
 		{
-			int i4 = chunkx + rand.nextInt(16);
-			int j4 = rand.nextInt(16);
-			int k4 = chunkz + rand.nextInt(16);
+			x1 = chunkX + rand.nextInt(16);
+			y1 = rand.nextInt(16);
+			z1 = chunkZ + rand.nextInt(16);
 			
-			new WorldGenMinable(EOBlocks.TitaniumOre, 3).generate(world, rand, i4, j4, k4);
+			new WorldGenMinable(EOBlocks.TitaniumOre, 3).generate(world, rand, x1, y1, z1);
 		}
 		// torite ore
-		BiomeGenBase biome2 = world.getWorldChunkManager().getBiomeGenAt(chunkx, chunkz);
-		if (biome2 instanceof BiomeGenJungle)
-		{
 			for (int h = 0; h < 12; h++)
 			{
-				int i5 = chunkx + rand.nextInt(16);
-				int j5 = rand.nextInt(30);
-				int k5 = chunkz + rand.nextInt(16);
+				x1 = chunkX + rand.nextInt(16);
+				y1 = rand.nextInt(30);
+				z1 = chunkZ + rand.nextInt(16);
 				
-				new WorldGenMinable(EOBlocks.ToriteOre, 4).generate(world, rand, i5, j5, k5);
+				if (world.getBiomeGenForCoords(x1, z1) instanceof BiomeGenJungle)
+				{
+				new WorldGenMinable(EOBlocks.ToriteOre, 4).generate(world, rand, x1, y1, z1);}
 			}
-		}
 		// sunstone ore
-		for (int h = 0; h < 10; h++)
+		for (int i = 0; i < 10; i++)
 		{
-			int i5 = chunkx + rand.nextInt(16);
-			int j5 = rand.nextInt(42);
-			int k5 = chunkz + rand.nextInt(16);
+			x1= chunkX + rand.nextInt(16);
+			y1= rand.nextInt(42);
+			z1= chunkZ + rand.nextInt(16);
 			
-			new WorldGenMinable(EOBlocks.SunstoneOre, 3).generate(world, rand, i5, j5, k5);
+			new WorldGenMinable(EOBlocks.SunstoneOre, 3).generate(world, rand, x1, y1, z1);
 		}
 		// granite
-		for (int h = 0; h < 12; h++)
+		for (int i = 0; i < 12; i++)
 		{
-			int i5 = chunkx + rand.nextInt(16);
-			int j5 = rand.nextInt(256);
-			int k5 = chunkz + rand.nextInt(16);
+			x1 = chunkX + rand.nextInt(16);
+			y1 = rand.nextInt(256);
+			z1 = chunkZ + rand.nextInt(16);
 			
-			new WorldGenMinable(EOBlocks.Granite, 50).generate(world, rand, i5, j5, k5);
+			new WorldGenMinable(EOBlocks.Granite, 50).generate(world, rand, x1, y1, z1);
 		}
 		// quartzite
-		for (int h = 0; h < 12; h++)
+		for (int i = 0; i < 12; i++)
 		{
-			int i5 = chunkx + rand.nextInt(16);
-			int j5 = rand.nextInt(8 + 100);
-			int k5 = chunkz + rand.nextInt(16);
+			x1 = chunkX + rand.nextInt(16);
+			y1 = rand.nextInt(8 + 100);
+			z1 = chunkZ + rand.nextInt(16);
 			
-			new WorldGenDesertQuartzSpire().generate(world, rand, i5, j5, k5);
+			new WorldGenDesertQuartzSpire().generate(world, rand, x1, y1, z1);
 		}
 		// copper ore
-		for (int h = 0; h < 13; h++)
+		for (int i = 0; i < 13; i++)
 		{
-			int i5 = chunkx + rand.nextInt(16);
-			int j5 = rand.nextInt(1 + 64);
-			int k5 = chunkz + rand.nextInt(16);
+			x1 = chunkX + rand.nextInt(16);
+			y1 = rand.nextInt(1 + 64);
+			z1 = chunkZ + rand.nextInt(16);
 			
-			new WorldGenMinable(EOBlocks.CopperOre, 10).generate(world, rand, i5, j5, k5);
+			new WorldGenMinable(EOBlocks.CopperOre, 10).generate(world, rand, x1, y1, z1);
 		}
 		// tin ore
-		for (int h = 0; h < 14; h++)
+		for (int i = 0; i < 14; i++)
 		{
-			int i5 = chunkx + rand.nextInt(16);
-			int j5 = rand.nextInt(1 + 64);
-			int k5 = chunkz + rand.nextInt(16);
+			x1 = chunkX + rand.nextInt(16);
+			y1 = rand.nextInt(1 + 64);
+			z1 = chunkZ + rand.nextInt(16);
 			
-			new WorldGenMinable(EOBlocks.TinOre, 11).generate(world, rand, i5, j5, k5);
-		}
-		// invincium
-		for (int h = 0; h < 400; h++)
-		{
-			int i5 = chunkx + rand.nextInt(16);
-			int j5 = rand.nextInt(1);
-			int k5 = chunkz + rand.nextInt(16);
-			
-			new WorldGenInvincium(EOBlocks.Invincium, 20).generate(world, rand, i5, j5, k5);
+			new WorldGenMinable(EOBlocks.TinOre, 11).generate(world, rand, x1, y1, z1);
 		}
 		// Radiant Quartz
-		for (int q = 0; q < 9; q++)
+		for (int i = 0; i < 9; i++)
 		{
-			int i4 = chunkx + rand.nextInt(16);
-			int j4 = rand.nextInt(256);
-			int k4 = chunkz + rand.nextInt(16);
+			x1 = chunkX + rand.nextInt(16);
+			y1 = rand.nextInt(256);
+			z1 = chunkZ + rand.nextInt(16);
 			
-			new WorldGenMinable(EOBlocks.RadiantQuartzOre, 3).generate(world, rand, i4, j4, k4);
+			new WorldGenMinable(EOBlocks.RadiantQuartzOre, 3).generate(world, rand, x1, y1, z1);
+		}
+		
+		for (int i = 0; i < 16; i++)
+		{
+			for (int j = 0; j < 16; j++)
+			{
+				world.setBlock(chunkX + i, 0, chunkZ + j, EOBlocks.Invincium);
+			}
 		}
 	}
 	
-	public void generateNether(World world, Random rand, int chunkx, int chunkz)
+	public void generateNether(World world, Random rand, int chunkX, int chunkZ)
 	{
 		// blazium ore
 		for (int h = 0; h < 9; h++)
 		{
-			int i5 = chunkx + rand.nextInt(16);
-			int j5 = rand.nextInt(256);
-			int k5 = chunkz + rand.nextInt(16);
+			int i5 = chunkX + rand.nextInt(16);
+			int j5 = rand.nextInt(128);
+			int k5 = chunkZ + rand.nextInt(16);
 			
-			new WorldGenNether(EOBlocks.BlaziumOre, 13).generate(world, rand, i5, j5, k5);
+			new WorldGenMinable(EOBlocks.BlaziumOre, 13, Blocks.netherrack).generate(world, rand, i5, j5, k5);
 		}
 		// soul ore
 		for (int h = 0; h < 28; h++)
 		{
-			int i5 = chunkx + rand.nextInt(16);
-			int j5 = rand.nextInt(256);
-			int k5 = chunkz + rand.nextInt(16);
+			int i5 = chunkX + rand.nextInt(16);
+			int j5 = rand.nextInt(128);
+			int k5 = chunkZ + rand.nextInt(16);
 			
-			new WorldGenSoulSand(EOBlocks.SoulOre, 15).generate(world, rand, i5, j5, k5);
+			new WorldGenMinable(EOBlocks.SoulOre, 15, Blocks.soul_sand).generate(world, rand, i5, j5, k5);
 		}
 		// invincium
-		for (int h = 0; h < 400; h++)
+		for (int i = 0; i < 16; i++)
 		{
-			int i5 = chunkx + rand.nextInt(16);
-			int j5 = rand.nextInt(1);
-			int k5 = chunkz + rand.nextInt(16);
-			
-			new WorldGenInvincium(EOBlocks.Invincium, 20).generate(world, rand, i5, j5, k5);
+			for (int j = 0; j < 16; j++)
+			{
+				world.setBlock(chunkX + i, 0, chunkZ + j, EOBlocks.Invincium);
+			}
 		}
 	}
 	
@@ -202,5 +187,4 @@ public class EOOreGenerator implements IWorldGenerator
 	{
 		
 	}
-	
 }

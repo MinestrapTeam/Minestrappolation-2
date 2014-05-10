@@ -5,9 +5,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
-public class EOIngotAndOreRegistration
+public class EOOreDictionary
 {
-	public static void registerOresAndIngots()
+	public static void init()
 	{
 		add("ingotCopper", EOItems.CopperIngot);
 		add("oreCopper", EOBlocks.CopperOre);

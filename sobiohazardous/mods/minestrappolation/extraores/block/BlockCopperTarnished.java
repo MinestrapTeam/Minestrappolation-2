@@ -24,55 +24,18 @@ public class BlockCopperTarnished extends MBlock
 		this.top = iconRegister.registerIcon(MAssetManager.getEOTexture("blockCopperTarnishedTop"));
 	}
 	
-	// Args: side, metadata
-	
 	@Override
-	public IIcon getIcon(int i, int j)
+	public IIcon getIcon(int side, int metadata)
 	{
-		if (i == 0)
+		if (side == 0)
 		{
 			return this.blockIcon;
 		}
-		if (i == 1)
+		else if (side == 1)
 		{
 			return this.top;
 		}
 		
-		if (i == 2)
-		{
-			return this.blockIcon;
-		}
-		if (i == 3)
-		{
-			return this.blockIcon;
-		}
-		if (i == 4)
-		{
-			return this.blockIcon;
-		}
-		if (i == 5)
-		{
-			return this.blockIcon;
-		}
-		
-		if (j == 1)
-		{
-			return this.blockIcon;
-		}
-		return this.top;
+		return this.blockIcon;
 	}
-	
-	/*
-	 * public boolean onBlockActivated(World par1World, int par2, int par3, int
-	 * par4, EntityPlayer par5EntityPlayer, int par6, float par7, float par8,
-	 * float par9) { if (par5EntityPlayer.getCurrentEquippedItem() != null &&
-	 * (par5EntityPlayer.getCurrentEquippedItem().getItem() ==
-	 * EMDItemManager.grease ||
-	 * par5EntityPlayer.getCurrentEquippedItem().getItem() ==
-	 * Items.fire_charge)) {
-	 * par5EntityPlayer.getCurrentEquippedItem().stackSize--;
-	 * par1World.setBlock(par2, par3, par4, EOBlockManager.CopperBlock); return
-	 * true; }else if(par5EntityPlayer.getCurrentEquippedItem() == null){ return
-	 * false; } return false; }
-	 */
 }

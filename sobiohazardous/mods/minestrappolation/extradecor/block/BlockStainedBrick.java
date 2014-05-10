@@ -19,8 +19,8 @@ public class BlockStainedBrick extends Block
 {
 	@SideOnly(Side.CLIENT)
 	private IIcon[]					iconArray;
-	public static final String[]	stainedBrickTextures	= new String[] { MAssetManager.getEDStonecutterTexture("Clay_Bricks_0_Black"), MAssetManager.getEDStonecutterTexture("Clay_Bricks_0_Blue"), MAssetManager.getEDStonecutterTexture("Clay_Bricks_0_Brown"), MAssetManager.getEDStonecutterTexture("Clay_Bricks_0_Cyan"), MAssetManager.getEDStonecutterTexture("Clay_Bricks_0_Green"), MAssetManager.getEDStonecutterTexture("Clay_Bricks_0_Grey"), MAssetManager.getEDStonecutterTexture("Clay_Bricks_0_LightBlue"), MAssetManager.getEDStonecutterTexture("Clay_Bricks_0_Lime"), MAssetManager.getEDStonecutterTexture("Clay_Bricks_0_Magenta"), MAssetManager.getEDStonecutterTexture("Clay_Bricks_0_Orange"), MAssetManager.getEDStonecutterTexture("Clay_Bricks_0_Pink"), MAssetManager.getEDStonecutterTexture("Clay_Bricks_0_Purple"), MAssetManager.getEDStonecutterTexture("Clay_Bricks_0_Red"), MAssetManager.getEDStonecutterTexture("Clay_Bricks_0_Silver"),
-			MAssetManager.getEDStonecutterTexture("Clay_Bricks_0_White"), MAssetManager.getEDStonecutterTexture("Clay_Bricks_0_Yellow") };
+	public static final String[]	stainedBrickTextures	= new String[] { MAssetManager.getEDTextureSC("Clay_Bricks_0_Black"), MAssetManager.getEDTextureSC("Clay_Bricks_0_Blue"), MAssetManager.getEDTextureSC("Clay_Bricks_0_Brown"), MAssetManager.getEDTextureSC("Clay_Bricks_0_Cyan"), MAssetManager.getEDTextureSC("Clay_Bricks_0_Green"), MAssetManager.getEDTextureSC("Clay_Bricks_0_Grey"), MAssetManager.getEDTextureSC("Clay_Bricks_0_LightBlue"), MAssetManager.getEDTextureSC("Clay_Bricks_0_Lime"), MAssetManager.getEDTextureSC("Clay_Bricks_0_Magenta"), MAssetManager.getEDTextureSC("Clay_Bricks_0_Orange"), MAssetManager.getEDTextureSC("Clay_Bricks_0_Pink"), MAssetManager.getEDTextureSC("Clay_Bricks_0_Purple"), MAssetManager.getEDTextureSC("Clay_Bricks_0_Red"), MAssetManager.getEDTextureSC("Clay_Bricks_0_Silver"),
+			MAssetManager.getEDTextureSC("Clay_Bricks_0_White"), MAssetManager.getEDTextureSC("Clay_Bricks_0_Yellow") };
 	
 	public BlockStainedBrick()
 	{

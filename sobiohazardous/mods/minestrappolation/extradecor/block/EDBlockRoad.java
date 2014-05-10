@@ -29,14 +29,14 @@ public class EDBlockRoad extends Block
 	{
 		if (this == EDBlocks.refinedRoad)
 		{
-			this.blockIcon = iconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Stone_Road_Side_0"));
-			this.top = iconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Stone_PatternBricks_0_0"));
+			this.blockIcon = iconRegister.registerIcon(MAssetManager.getEDTextureSC("Stone_Road_Side_0"));
+			this.top = iconRegister.registerIcon(MAssetManager.getEDTextureSC("Stone_PatternBricks_0_0"));
 			this.bottom = iconRegister.registerIcon(MAssetManager.getEDTexture("roadStoneBottom"));
 		}
 		else if (this == EDBlocks.refinedNetherroad)
 		{
-			this.blockIcon = iconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Netherrack_Road_Side_0"));
-			this.top = iconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Netherrack_PatternBricks_0_0"));
+			this.blockIcon = iconRegister.registerIcon(MAssetManager.getEDTextureSC("Netherrack_Road_Side_0"));
+			this.top = iconRegister.registerIcon(MAssetManager.getEDTextureSC("Netherrack_PatternBricks_0_0"));
 			this.bottom = iconRegister.registerIcon(MAssetManager.getEDTexture("roadNetherrackBottom"));
 		}
 		else if (this == EDBlocks.cobbledRoad)
@@ -53,8 +53,8 @@ public class EDBlockRoad extends Block
 		}
 		else if (this == EDBlocks.sandstoneRoad)
 		{
-			this.blockIcon = iconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Sandstone_Road_Side_0"));
-			this.top = iconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Sandstone_PatternBricks_0_0"));
+			this.blockIcon = iconRegister.registerIcon(MAssetManager.getEDTextureSC("Sandstone_Road_Side_0"));
+			this.top = iconRegister.registerIcon(MAssetManager.getEDTextureSC("Sandstone_PatternBricks_0_0"));
 			this.bottom = iconRegister.registerIcon(MAssetManager.getEDTexture("roadSandBottom"));
 		}
 		else if (this == EDBlocks.gravelRoad)

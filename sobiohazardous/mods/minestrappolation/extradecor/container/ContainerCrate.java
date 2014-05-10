@@ -12,7 +12,7 @@ public class ContainerCrate extends ContainerInventory
 	{
 		super(player, crate);
 		
-		this.addInventorySlots(0, 0);
+		this.addInventorySlots(0, -18);
 		for (int j = 0; j < 2; ++j)
 		{
 			for (int k = 0; k < 9; ++k)

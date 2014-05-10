@@ -26,7 +26,7 @@ public class RadiantQuartzSlab extends BlockSlab
 	@Override
 	public void registerBlockIcons(IIconRegister par1IconRegister)
 	{
-		this.blockIcon = par1IconRegister.registerIcon(MAssetManager.getEOStonecutterTexture("RadiantQuartz_Raw_0_0"));
+		this.blockIcon = par1IconRegister.registerIcon(MAssetManager.getEOTextureSC("RadiantQuartz_Raw_0_0"));
 	}
 	
 	@Override

@@ -6,7 +6,9 @@ import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
 import sobiohazardous.mods.minestrappolation.core.block.MBlock;
+import sobiohazardous.mods.minestrappolation.core.util.MUtil;
 import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlocks;
 
 public class BlockSoulBlock extends MBlock
@@ -19,50 +21,31 @@ public class BlockSoulBlock extends MBlock
 		this.setCreativeTab(EOBlocks.tabOresBlocks);
 	}
 	
-	/**
-	 * A randomly called display update to be able to add particles or other
-	 * items for display
-	 */
 	@Override
-	public void randomDisplayTick(World p_149734_1_, int p_149734_2_, int p_149734_3_, int p_149734_4_, Random p_149734_5_)
+	public void randomDisplayTick(World world, int x, int y, int z, Random random)
 	{
 		for (int var6 = 0; var6 < 3; ++var6)
 		{
-			double var9 = p_149734_3_ + p_149734_5_.nextFloat();
-			double var13 = 0.0D;
-			double var15 = 0.0D;
-			double var17 = 0.0D;
-			int var19 = p_149734_5_.nextInt(2) * 2 - 1;
-			int var20 = p_149734_5_.nextInt(2) * 2 - 1;
-			var13 = (p_149734_5_.nextFloat() - 0.5D) * 0.125D;
-			var15 = (p_149734_5_.nextFloat() - 0.5D) * 0.125D;
-			var17 = (p_149734_5_.nextFloat() - 0.5D) * 0.125D;
-			double var11 = p_149734_4_ + 0.5D + 0.25D * var20;
-			var17 = p_149734_5_.nextFloat() * 1.0F * var20;
-			double var7 = p_149734_2_ + 0.5D + 0.25D * var19;
-			var13 = p_149734_5_.nextFloat() * 1.0F * var19;
-			p_149734_1_.spawnParticle("portal", var7, var9, var11, var13, var15, var17);
+			MUtil.spawnParticle(world, x, y, z, random, "portal");
 		}
 	}
 	
 	@Override
-	public int quantityDropped(Random par1Random)
+	public int quantityDropped(Random random)
 	{
-		return 1 + par1Random.nextInt(4);
+		return 1 + random.nextInt(4);
 	}
 	
 	@Override
-	public Item getItemDropped(int par1, Random par2Random, int par3)
+	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
 		return EOBlocks.SoulGem;
 	}
 	
 	@Override
-	public void dropBlockAsItemWithChance(World par1World, int par2, int par3, int par4, int par5, float par6, int par7)
+	public void onBlockDestroyedByPlayer(World world, int x, int y, int z, int metadata)
 	{
-		super.dropBlockAsItemWithChance(par1World, par2, par3, par4, par5, par6, par7);
-		int j1 = MathHelper.getRandomIntegerInRange(par1World.rand, 140, 220);
-		this.dropXpOnBlockBreak(par1World, par2, par3, par4, j1);
+		int amount = MathHelper.getRandomIntegerInRange(world.rand, 140, 220);
+		this.dropXpOnBlockBreak(world, x, y, z, amount);
 	}
-	
 }

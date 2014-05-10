@@ -24,8 +24,8 @@ public class BlockStones extends Block
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Stone_Tiles_0_0"));
-		this.refined = iconRegister.registerIcon(MAssetManager.getEDStonecutterTexture("Stone_Refined_0_0"));
+		this.blockIcon = iconRegister.registerIcon(MAssetManager.getEDTextureSC("Stone_Tiles_0_0"));
+		this.refined = iconRegister.registerIcon(MAssetManager.getEDTextureSC("Stone_Refined_0_0"));
 	}
 	
 	@Override

@@ -1,37 +1,26 @@
 package sobiohazardous.mods.minestrappolation.extraores.block;
 
-import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
+
+import org.lwjgl.opengl.GL11;
 
 import sobiohazardous.mods.minestrappolation.core.util.MAssetManager;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.boss.EntityWither;
-import net.minecraft.entity.monster.EntityEnderman;
-import net.minecraft.entity.monster.EntitySkeleton;
-import net.minecraft.entity.monster.EntityZombie;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
 public class BlockGodstone extends Block
 {
-	public BlockGodstone	instance;
-	public EntityPlayer		player;
-	public EntityLiving		living;
-	public EntityZombie		zombie;
-	public EntitySkeleton	skeleton;
-	public EntityEnderman	enderman;
-	public EntityWither		wither;
-	
-	public BlockGodstone(Material par3Material)
+	public BlockGodstone(Material material)
 	{
-		super(par3Material);
+		super(material);
 		this.setCreativeTab(CreativeTabs.tabBlock);
 	}
 	
@@ -41,250 +30,65 @@ public class BlockGodstone extends Block
 	}
 	
 	@Override
-	public int quantityDropped(Random par1Random)
+	public int quantityDropped(Random random)
 	{
 		return 1;
 	}
 	
-	// public void onBlockPlacedBy(World par1World, int i, int j, int k,
-	// EntityLiving par5EntityLiving)
-	// {
-	// par1World.setBlockMetadataWithNotify(i, j, k, blockIndexInTexture);
-	// par1World.scheduleBlockUpdate(i, j, k, blockID, tickRate());
-	// }
-	
 	@Override
-	public void onBlockAdded(World par1World, int par2, int par3, int par4)
+	public void onBlockAdded(World world, int x, int y, int z)
 	{
-		par1World.setBlockMetadataWithNotify(par2, par3, par4, 0, par4);
-		par1World.scheduleBlockUpdate(par2, par3, par4, this, this.tickRate());
-		/*
-		 * Random random = new Random(432L); Tessellator tessellator =
-		 * Tessellator.instance; for (int i = 0; (float)i < 50; ++i) {
-		 * GL11.glRotatef(random.nextFloat() * 360.0F, 1.0F, 0.0F, 0.0F);
-		 * GL11.glRotatef(random.nextFloat() * 360.0F, 0.0F, 1.0F, 0.0F);
-		 * GL11.glRotatef(random.nextFloat() * 360.0F, 0.0F, 0.0F, 1.0F);
-		 * GL11.glRotatef(random.nextFloat() * 360.0F, 1.0F, 0.0F, 0.0F);
-		 * GL11.glRotatef(random.nextFloat() * 360.0F, 0.0F, 1.0F, 0.0F);
-		 * GL11.glRotatef(random.nextFloat() * 360.0F + 50 * 90.0F, 0.0F, 0.0F,
-		 * 1.0F); tessellator.startDrawing(6); float f3 = random.nextFloat() *
-		 * 20.0F + 5.0F + 50 * 10.0F; float f4 = random.nextFloat() * 2.0F +
-		 * 1.0F + 50 * 2.0F; tessellator.setColorRGBA_I(16777215, (int)(255.0F *
-		 * (1.0F - 50))); tessellator.addVertex(0.0D, 0.0D, 0.0D);
-		 * tessellator.setColorRGBA_I(16711935, 0);
-		 * tessellator.addVertex(-0.866D * (double)50, (double)50,
-		 * (double)(-0.5F * 50)); tessellator.addVertex(0.866D * (double)50,
-		 * (double)50, (double)(-0.5F * 50)); tessellator.addVertex(0.0D,
-		 * (double)50, (double)(1.0F * 50)); tessellator.addVertex(-0.866D *
-		 * (double)50, (double)50, (double)(-0.5F * 50)); tessellator.draw(); }
-		 */
-		// My bullshit code didn't work. This is SUPPOSED to make the block emit
-		// ender dragon beam particles, but obviously I put it in the wrong
-		// place, because it only makes it crash when placed.
-		// If you can figure out how to fix this, please do.
+		world.setBlockMetadataWithNotify(x, y, z, 0, z);
+		world.scheduleBlockUpdate(x, y, z, this, this.tickRate());
 	}
 	
 	public int tickRate()
 	{
-		return 1;
-	}
-	
-	public boolean isTraversable(Block i)
-	{
-		return this != null && this.blockMaterial != Material.air && this.isOpaqueCube();
+		return 5;
 	}
 	
 	@Override
-	public void updateTick(World world, int i, int j, int k, Random random)
+	public void updateTick(World world, int x, int y, int z, Random random)
 	{
-		world.scheduleBlockUpdate(i, j, k, this, this.tickRate());
-		int l = world.getBlockMetadata(i, j, k);
-		int i1 = 0;
-		int j1 = 0;
-		int k1 = 0;
-		if (l == 0 || l == 6)
+		if (!world.isRemote)
 		{
-			j1 = -1;
-			do
+			world.scheduleBlockUpdate(x, y, z, this, this.tickRate());
+			AxisAlignedBB axisalignedbb = this.getCollisionBoundingBoxFromPool(world, x, y, z).expand(6, 6, 6);
+			
+			List<EntityMob> list = world.getEntitiesWithinAABB(EntityMob.class, axisalignedbb);
+			for (EntityMob mob : list)
 			{
-				if (j1 < -15)
-				{
-					break;
-				}
-				Block l1 = world.getBlock(i, j + j1, k);
-				if (this.isTraversable(l1))
-				{
-					j1++;
-					break;
-				}
-				j1--;
+				mob.setFire(20);
 			}
-			while (true);
 		}
-		else if (l == 1 || l == 7)
-		{
-			j1 = 1;
-			do
-			{
-				if (j1 > 15)
-				{
-					break;
-				}
-				Block i2 = world.getBlock(i, j + j1, k);
-				if (this.isTraversable(i2))
-				{
-					j1--;
-					break;
-				}
-				j1++;
-			}
-			while (true);
-		}
-		else if (l == 2 || l == 8)
-		{
-			k1 = -1;
-			do
-			{
-				if (k1 < -15)
-				{
-					break;
-				}
-				Block j2 = world.getBlock(i, j, k + k1);
-				if (this.isTraversable(j2))
-				{
-					k1++;
-					break;
-				}
-				k1--;
-			}
-			while (true);
-		}
-		else if (l == 3 || l == 9)
-		{
-			k1 = 1;
-			do
-			{
-				if (k1 > 15)
-				{
-					break;
-				}
-				Block k2 = world.getBlock(i, j, k + k1);
-				if (this.isTraversable(k2))
-				{
-					k1--;
-					break;
-				}
-				k1++;
-			}
-			while (true);
-		}
-		else if (l == 4 || l == 10)
-		{
-			i1 = -1;
-			do
-			{
-				if (i1 < -15)
-				{
-					break;
-				}
-				Block l2 = world.getBlock(i + i1, j, k);
-				if (this.isTraversable(l2))
-				{
-					i1++;
-					break;
-				}
-				i1--;
-			}
-			while (true);
-		}
-		else if (l == 5 || l == 11)
-		{
-			i1 = 1;
-			do
-			{
-				if (i1 > 15)
-				{
-					break;
-				}
-				Block i3 = world.getBlock(i + i1, j, k);
-				if (this.isTraversable(i3))
-				{
-					i1--;
-					break;
-				}
-				i1++;
-			}
-			while (true);
-		}
-		AxisAlignedBB axisalignedbb = this.getCollisionBoundingBoxFromPool(world, i, j, k).expand(6, 6, 6);
+	}
+	
+	@Override
+	public void randomDisplayTick(World world, int x, int y, int z, Random random)
+	{
+		Tessellator tessellator = Tessellator.instance;
 		
-		List list2 = world.getEntitiesWithinAABB(EntityZombie.class, axisalignedbb);
-		Iterator var8 = list2.iterator();
-		if (list2.isEmpty() && world.getBlockMetadata(i, j, k) > 5)
-		{
-			// System.out.println("far");
-		}
-		else
-		{
-			while (var8.hasNext())
-			{
-				// System.out.println("close");
-				this.zombie = (EntityZombie) var8.next();
-				this.zombie.setFire(20);
-				// varEntityLiving.addPotionEffect(new
-				// PotionEffect(Potion.poison.getId(),200,10));
-			}
-		}
-		List list3 = world.getEntitiesWithinAABB(EntitySkeleton.class, axisalignedbb);
-		Iterator var10 = list3.iterator();
-		if (list3.isEmpty() && world.getBlockMetadata(i, j, k) > 5)
-		{
-			// System.out.println("far");
-		}
-		else
-		{
-			while (var10.hasNext())
-			{
-				// System.out.println("close");
-				this.skeleton = (EntitySkeleton) var10.next();
-				this.skeleton.setFire(20);
-				// varEntityLiving.addPotionEffect(new
-				// PotionEffect(Potion.poison.getId(),200,10));
-			}
-		}
-		List list4 = world.getEntitiesWithinAABB(EntityEnderman.class, axisalignedbb);
-		Iterator var12 = list4.iterator();
-		if (list4.isEmpty() && world.getBlockMetadata(i, j, k) > 5)
-		{
-			// System.out.println("far");
-		}
-		else
-		{
-			while (var12.hasNext())
-			{
-				// System.out.println("close");
-				this.enderman = (EntityEnderman) var12.next();
-				this.enderman.setFire(20);
-				// varEntityLiving.addPotionEffect(new
-				// PotionEffect(Potion.poison.getId(),200,10));
-			}
-		}
-		List list5 = world.getEntitiesWithinAABB(EntityWither.class, axisalignedbb);
-		Iterator var14 = list5.iterator();
-		if (list5.isEmpty() && world.getBlockMetadata(i, j, k) > 5)
-		{
-			// System.out.println("far");
-		}
-		else
-		{
-			while (var14.hasNext())
-			{
-				// System.out.println("close");
-				this.wither = (EntityWither) var14.next();
-				this.wither.setFire(20);
-				// varEntityLiving.addPotionEffect(new
-				// PotionEffect(Potion.poison.getId(),200,10));
-			}
-		}
+		GL11.glPushMatrix();
+		
+		GL11.glRotatef(random.nextFloat() * 360.0F, 1.0F, 0.0F, 0.0F);
+		GL11.glRotatef(random.nextFloat() * 360.0F, 0.0F, 1.0F, 0.0F);
+		GL11.glRotatef(random.nextFloat() * 360.0F, 0.0F, 0.0F, 1.0F);
+		GL11.glRotatef(random.nextFloat() * 360.0F, 1.0F, 0.0F, 0.0F);
+		GL11.glRotatef(random.nextFloat() * 360.0F, 0.0F, 1.0F, 0.0F);
+		GL11.glRotatef(random.nextFloat() * 360.0F, 0.0F, 0.0F, 1.0F);
+		
+		tessellator.startDrawing(6);
+		
+		tessellator.setColorRGBA_F(1F, 1F, 1F, 1F);
+		tessellator.addVertex(0.0D, 0.0D, 0.0D);
+		
+		tessellator.setColorRGBA_I(16711935, 0);
+		tessellator.addVertex(-0.866D * 50D, 50D, -25D);
+		tessellator.addVertex(0.866D * 50D, 50D, -25D);
+		tessellator.addVertex(0.0D, 50D, 50D);
+		tessellator.addVertex(-0.866D * 50D, 50D, -25D);
+		tessellator.draw();
+		
+		GL11.glPopMatrix();
 	}
 }

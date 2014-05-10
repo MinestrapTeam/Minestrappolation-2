@@ -12,10 +12,10 @@ public class ItemSoulGem extends EItemFoiled
 	}
 	
 	@Override
-	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
+	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
 	{
-		par3EntityPlayer.addExperience(20);
-		--par1ItemStack.stackSize;
-		return par1ItemStack;
+		player.addExperience(20);
+		--stack.stackSize;
+		return stack;
 	}
 }

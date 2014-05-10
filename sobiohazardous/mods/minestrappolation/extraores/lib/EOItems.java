@@ -12,6 +12,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraftforge.common.ChestGenHooks;
 import net.minecraftforge.common.util.EnumHelper;
+
 import sobiohazardous.mods.minestrappolation.core.item.MItemArmor;
 import sobiohazardous.mods.minestrappolation.core.item.MItemAxe;
 import sobiohazardous.mods.minestrappolation.core.item.MItemHoe;
@@ -19,7 +20,8 @@ import sobiohazardous.mods.minestrappolation.core.item.MItemPickaxe;
 import sobiohazardous.mods.minestrappolation.core.item.MItemShovel;
 import sobiohazardous.mods.minestrappolation.core.item.MItemSword;
 import sobiohazardous.mods.minestrappolation.core.util.MAssetManager;
-import sobiohazardous.mods.minestrappolation.extraores.CreativeTabExtraoresItems;
+import sobiohazardous.mods.minestrappolation.extraores.common.EOCommonProxy;
+import sobiohazardous.mods.minestrappolation.extraores.creativetab.CreativeTabEOItems;
 import sobiohazardous.mods.minestrappolation.extraores.item.EOItem;
 import sobiohazardous.mods.minestrappolation.extraores.item.ItemGrenade;
 import sobiohazardous.mods.minestrappolation.extraores.item.ItemGrenadeImpact;
@@ -29,11 +31,10 @@ import sobiohazardous.mods.minestrappolation.extraores.item.ItemLock;
 import sobiohazardous.mods.minestrappolation.extraores.item.ToriteToolAxe;
 import sobiohazardous.mods.minestrappolation.extraores.item.ToriteToolPickaxe;
 import sobiohazardous.mods.minestrappolation.extraores.item.ToriteToolShovel;
-import sobiohazardous.mods.minestrappolation.extraores.proxy.CommonProxy;
 
 public class EOItems
 {
-	public static CreativeTabs	tabOresItems			= new CreativeTabExtraoresItems(CreativeTabs.getNextID(), "Extrappolated Ores - Items");
+	public static CreativeTabs	tabOresItems			= new CreativeTabEOItems(CreativeTabs.getNextID(), "Extrappolated Ores - Items");
 	
 	static ArmorMaterial		MaterialMeurodite		= EnumHelper.addArmorMaterial("meurodite", 18, new int[] { 2, 7, 6, 2 }, 15);
 	static ArmorMaterial		MaterialTitanium		= EnumHelper.addArmorMaterial("titanium", 66, new int[] { 4, 10, 8, 5 }, 11);
@@ -253,13 +254,13 @@ public class EOItems
 		Uranium = new EOItem().setUnlocalizedName("uranium").setCreativeTab(tabOresItems).setTextureName(MAssetManager.getEOTexture("dustUranium"));
 		GameRegistry.registerItem(Uranium, "dustUranium");
 		
-		BlaziumHelmet = new MItemArmor(MaterialBlazium, MaterialBPBlazium, CommonProxy.addArmor("fire"), 0, "fire").setCreativeTab(tabOresItems).setUnlocalizedName("item_FireHelmet").setTextureName(MAssetManager.getEOTexture("armorHelmFire"));
+		BlaziumHelmet = new MItemArmor(MaterialBlazium, MaterialBPBlazium, EOCommonProxy.addArmor("fire"), 0, "fire").setCreativeTab(tabOresItems).setUnlocalizedName("item_FireHelmet").setTextureName(MAssetManager.getEOTexture("armorHelmFire"));
 		GameRegistry.registerItem(BlaziumHelmet, "armorHelmetBlazium");
-		BlaziumChest = new MItemArmor(MaterialBlazium, MaterialBPBlazium, CommonProxy.addArmor("fire"), 1, "fire").setCreativeTab(tabOresItems).setUnlocalizedName("item_FireChestplate").setTextureName(MAssetManager.getEOTexture("armorChestFire"));
+		BlaziumChest = new MItemArmor(MaterialBlazium, MaterialBPBlazium, EOCommonProxy.addArmor("fire"), 1, "fire").setCreativeTab(tabOresItems).setUnlocalizedName("item_FireChestplate").setTextureName(MAssetManager.getEOTexture("armorChestFire"));
 		GameRegistry.registerItem(BlaziumChest, "armorChestBlazium");
-		BlaziumPants = new MItemArmor(MaterialBlazium, MaterialBPBlazium, CommonProxy.addArmor("fire"), 2, "fire").setCreativeTab(tabOresItems).setUnlocalizedName("item_FireLeggings").setTextureName(MAssetManager.getEOTexture("armorLegsFire"));
+		BlaziumPants = new MItemArmor(MaterialBlazium, MaterialBPBlazium, EOCommonProxy.addArmor("fire"), 2, "fire").setCreativeTab(tabOresItems).setUnlocalizedName("item_FireLeggings").setTextureName(MAssetManager.getEOTexture("armorLegsFire"));
 		GameRegistry.registerItem(BlaziumPants, "armorPantsBlazium");
-		BlaziumBoots = new MItemArmor(MaterialBlazium, MaterialBPBlazium, CommonProxy.addArmor("fire"), 3, "fire").setCreativeTab(tabOresItems).setUnlocalizedName("item_FireBoots").setTextureName(MAssetManager.getEOTexture("armorBootsFire"));
+		BlaziumBoots = new MItemArmor(MaterialBlazium, MaterialBPBlazium, EOCommonProxy.addArmor("fire"), 3, "fire").setCreativeTab(tabOresItems).setUnlocalizedName("item_FireBoots").setTextureName(MAssetManager.getEOTexture("armorBootsFire"));
 		GameRegistry.registerItem(BlaziumBoots, "armorBootsBlazium");
 		
 		CoalIronIngot = new EOItem().setCreativeTab(tabOresItems).setUnlocalizedName("item_CoalIronIngot").setTextureName(MAssetManager.getEOTexture("ingotCoalIron"));
@@ -294,31 +295,31 @@ public class EOItems
 		GameRegistry.registerItem(TitaniumHoe, "toolHoeTitanium");
 		TitaniumAxe = new MItemAxe(toolMaterialTitanium, toolMaterialBPTitanium).setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumAxe").setTextureName(MAssetManager.getEOTexture("toolAxeTitanium"));
 		GameRegistry.registerItem(TitaniumAxe, "toolAxeTitanium");
-		meuroditeHelmet = new MItemArmor(MaterialMeurodite, MaterialBPMeurodite, CommonProxy.addArmor("Meurodite"), 0, "meurodite").setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditeHelmet").setTextureName(MAssetManager.getEOTexture("armorHelmMeurodite"));
+		meuroditeHelmet = new MItemArmor(MaterialMeurodite, MaterialBPMeurodite, EOCommonProxy.addArmor("Meurodite"), 0, "meurodite").setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditeHelmet").setTextureName(MAssetManager.getEOTexture("armorHelmMeurodite"));
 		GameRegistry.registerItem(meuroditeHelmet, "armorHelmetMeirodite");
-		meuroditeChest = new MItemArmor(MaterialMeurodite, MaterialBPMeurodite, CommonProxy.addArmor("Meurodite"), 1, "meurodite").setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditeChestplate").setTextureName(MAssetManager.getEOTexture("armorChestMeurodite"));
+		meuroditeChest = new MItemArmor(MaterialMeurodite, MaterialBPMeurodite, EOCommonProxy.addArmor("Meurodite"), 1, "meurodite").setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditeChestplate").setTextureName(MAssetManager.getEOTexture("armorChestMeurodite"));
 		GameRegistry.registerItem(meuroditeChest, "armorChestMeurodite");
-		meuroditePants = new MItemArmor(MaterialMeurodite, MaterialBPMeurodite, CommonProxy.addArmor("Meurodite"), 2, "meurodite").setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditeLeggings").setTextureName(MAssetManager.getEOTexture("armorLegsMeurodite"));
+		meuroditePants = new MItemArmor(MaterialMeurodite, MaterialBPMeurodite, EOCommonProxy.addArmor("Meurodite"), 2, "meurodite").setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditeLeggings").setTextureName(MAssetManager.getEOTexture("armorLegsMeurodite"));
 		GameRegistry.registerItem(meuroditePants, "armorPantsMeurodite");
-		meuroditeBoots = new MItemArmor(MaterialMeurodite, MaterialBPMeurodite, CommonProxy.addArmor("Meurodite"), 3, "meurodite").setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditeBoots").setTextureName(MAssetManager.getEOTexture("armorBootsMeurodite"));
+		meuroditeBoots = new MItemArmor(MaterialMeurodite, MaterialBPMeurodite, EOCommonProxy.addArmor("Meurodite"), 3, "meurodite").setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditeBoots").setTextureName(MAssetManager.getEOTexture("armorBootsMeurodite"));
 		GameRegistry.registerItem(meuroditeBoots, "armorBootsMeurodite");
 		
-		TitaniumHelmet = new MItemArmor(MaterialTitanium, MaterialBPTitanium, CommonProxy.addArmor("titanium"), 0, "meurodite").setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumHelmet").setTextureName(MAssetManager.getEOTexture("armorHelmTitanium"));
+		TitaniumHelmet = new MItemArmor(MaterialTitanium, MaterialBPTitanium, EOCommonProxy.addArmor("titanium"), 0, "meurodite").setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumHelmet").setTextureName(MAssetManager.getEOTexture("armorHelmTitanium"));
 		GameRegistry.registerItem(TitaniumHelmet, "armorHelmetTitanium");
-		TitaniumChest = new MItemArmor(MaterialTitanium, MaterialBPTitanium, CommonProxy.addArmor("titanium"), 1, "meurodite").setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumChestplate").setTextureName(MAssetManager.getEOTexture("armorChestTitanium"));
+		TitaniumChest = new MItemArmor(MaterialTitanium, MaterialBPTitanium, EOCommonProxy.addArmor("titanium"), 1, "meurodite").setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumChestplate").setTextureName(MAssetManager.getEOTexture("armorChestTitanium"));
 		GameRegistry.registerItem(TitaniumChest, "armorChestTitanium");
-		TitaniumPants = new MItemArmor(MaterialTitanium, MaterialBPTitanium, CommonProxy.addArmor("titanium"), 2, "meurodite").setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumLeggings").setTextureName(MAssetManager.getEOTexture("armorLegsTitanium"));
+		TitaniumPants = new MItemArmor(MaterialTitanium, MaterialBPTitanium, EOCommonProxy.addArmor("titanium"), 2, "meurodite").setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumLeggings").setTextureName(MAssetManager.getEOTexture("armorLegsTitanium"));
 		GameRegistry.registerItem(TitaniumPants, "armorPantsTitanium");
-		TitaniumBoots = new MItemArmor(MaterialTitanium, MaterialBPTitanium, CommonProxy.addArmor("titanium"), 3, "meurodite").setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumBoots").setTextureName(MAssetManager.getEOTexture("armorBootsTitanium"));
+		TitaniumBoots = new MItemArmor(MaterialTitanium, MaterialBPTitanium, EOCommonProxy.addArmor("titanium"), 3, "meurodite").setCreativeTab(tabOresItems).setUnlocalizedName("item_TitaniumBoots").setTextureName(MAssetManager.getEOTexture("armorBootsTitanium"));
 		GameRegistry.registerItem(TitaniumBoots, "armorBootsTitanium");
 		
-		ToriteHelmet = new MItemArmor(MaterialTorite, MaterialBPTorite, CommonProxy.addArmor("torite"), 0, "torite").setCreativeTab(tabOresItems).setUnlocalizedName("item_ToriteHelmet").setTextureName(MAssetManager.getEOTexture("armorHelmTorite"));
+		ToriteHelmet = new MItemArmor(MaterialTorite, MaterialBPTorite, EOCommonProxy.addArmor("torite"), 0, "torite").setCreativeTab(tabOresItems).setUnlocalizedName("item_ToriteHelmet").setTextureName(MAssetManager.getEOTexture("armorHelmTorite"));
 		GameRegistry.registerItem(ToriteHelmet, "armorHelmetTorite");
-		ToriteChest = new MItemArmor(MaterialTorite, MaterialBPTorite, CommonProxy.addArmor("torite"), 1, "torite").setCreativeTab(tabOresItems).setUnlocalizedName("item_ToriteChestplate").setTextureName(MAssetManager.getEOTexture("armorChestTorite"));
+		ToriteChest = new MItemArmor(MaterialTorite, MaterialBPTorite, EOCommonProxy.addArmor("torite"), 1, "torite").setCreativeTab(tabOresItems).setUnlocalizedName("item_ToriteChestplate").setTextureName(MAssetManager.getEOTexture("armorChestTorite"));
 		GameRegistry.registerItem(ToriteChest, "armorChestTorite");
-		ToritePants = new MItemArmor(MaterialTorite, MaterialBPTorite, CommonProxy.addArmor("torite"), 2, "torite").setCreativeTab(tabOresItems).setUnlocalizedName("item_ToriteLeggings").setTextureName(MAssetManager.getEOTexture("armorLegsTorite"));
+		ToritePants = new MItemArmor(MaterialTorite, MaterialBPTorite, EOCommonProxy.addArmor("torite"), 2, "torite").setCreativeTab(tabOresItems).setUnlocalizedName("item_ToriteLeggings").setTextureName(MAssetManager.getEOTexture("armorLegsTorite"));
 		GameRegistry.registerItem(ToritePants, "armorPantsTorite");
-		ToriteBoots = new MItemArmor(MaterialTorite, MaterialBPTorite, CommonProxy.addArmor("torite"), 3, "torite").setCreativeTab(tabOresItems).setUnlocalizedName("item_ToriteBoots").setTextureName(MAssetManager.getEOTexture("armorBootsTorite"));
+		ToriteBoots = new MItemArmor(MaterialTorite, MaterialBPTorite, EOCommonProxy.addArmor("torite"), 3, "torite").setCreativeTab(tabOresItems).setUnlocalizedName("item_ToriteBoots").setTextureName(MAssetManager.getEOTexture("armorBootsTorite"));
 		GameRegistry.registerItem(ToriteBoots, "armorBootsTorite");
 		
 		TinIngot = new EOItem().setUnlocalizedName("ingotTin").setTextureName(MAssetManager.getEOTexture("ingotTin"));
@@ -345,13 +346,13 @@ public class EOItems
 		SteelSword = new MItemSword(toolMaterialSteel, toolMaterialBPSteel).setCreativeTab(tabOresItems).setUnlocalizedName("item_SteelSword").setTextureName(MAssetManager.getEOTexture("weaponSwordSteel"));
 		GameRegistry.registerItem(SteelSword, "weaponSwordSteel");
 		
-		SteelHelmet = new MItemArmor(MaterialSteel, MaterialBPSteel, CommonProxy.addArmor("steel"), 0, "steel").setCreativeTab(tabOresItems).setUnlocalizedName("item_SteelHelmet").setTextureName(MAssetManager.getEOTexture("armorHelmSteel"));
+		SteelHelmet = new MItemArmor(MaterialSteel, MaterialBPSteel, EOCommonProxy.addArmor("steel"), 0, "steel").setCreativeTab(tabOresItems).setUnlocalizedName("item_SteelHelmet").setTextureName(MAssetManager.getEOTexture("armorHelmSteel"));
 		GameRegistry.registerItem(SteelHelmet, "armorHelmetSteel");
-		SteelChest = new MItemArmor(MaterialSteel, MaterialBPSteel, CommonProxy.addArmor("steel"), 1, "steel").setCreativeTab(tabOresItems).setUnlocalizedName("item_SteelChestplate").setTextureName(MAssetManager.getEOTexture("armorChestSteel"));
+		SteelChest = new MItemArmor(MaterialSteel, MaterialBPSteel, EOCommonProxy.addArmor("steel"), 1, "steel").setCreativeTab(tabOresItems).setUnlocalizedName("item_SteelChestplate").setTextureName(MAssetManager.getEOTexture("armorChestSteel"));
 		GameRegistry.registerItem(SteelChest, "armorChestSteel");
-		SteelPants = new MItemArmor(MaterialSteel, MaterialBPSteel, CommonProxy.addArmor("steel"), 2, "steel").setCreativeTab(tabOresItems).setUnlocalizedName("item_SteelLeggings").setTextureName(MAssetManager.getEOTexture("armorLegsSteel"));
+		SteelPants = new MItemArmor(MaterialSteel, MaterialBPSteel, EOCommonProxy.addArmor("steel"), 2, "steel").setCreativeTab(tabOresItems).setUnlocalizedName("item_SteelLeggings").setTextureName(MAssetManager.getEOTexture("armorLegsSteel"));
 		GameRegistry.registerItem(SteelPants, "armorPantsSteel");
-		SteelBoots = new MItemArmor(MaterialSteel, MaterialBPSteel, CommonProxy.addArmor("steel"), 3, "steel").setCreativeTab(tabOresItems).setUnlocalizedName("item_SteelBoots").setTextureName(MAssetManager.getEOTexture("armorBootsSteel"));
+		SteelBoots = new MItemArmor(MaterialSteel, MaterialBPSteel, EOCommonProxy.addArmor("steel"), 3, "steel").setCreativeTab(tabOresItems).setUnlocalizedName("item_SteelBoots").setTextureName(MAssetManager.getEOTexture("armorBootsSteel"));
 		GameRegistry.registerItem(SteelBoots, "armorBootsSteel");
 		
 		BronzeIngot = new EOItem().setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzeIngot").setTextureName(MAssetManager.getEOTexture("ingotCopper"));
@@ -366,13 +367,13 @@ public class EOItems
 		GameRegistry.registerItem(BronzeHoe, "toolHoeBronze");
 		BronzeSword = new MItemSword(toolMaterialBronze, null).setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzeSword").setTextureName(MAssetManager.getEOTexture("weaponSwordBronze"));
 		GameRegistry.registerItem(BronzeSword, "weaponSwordBronze");
-		BronzeHelmet = new MItemArmor(MaterialBronze, null, CommonProxy.addArmor("bronze"), 0, "bronze").setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzeHelmet").setTextureName(MAssetManager.getEOTexture("armorHelmBronze"));
+		BronzeHelmet = new MItemArmor(MaterialBronze, null, EOCommonProxy.addArmor("bronze"), 0, "bronze").setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzeHelmet").setTextureName(MAssetManager.getEOTexture("armorHelmBronze"));
 		GameRegistry.registerItem(BronzeHelmet, "armorHelmetBronze");
-		BronzeChest = new MItemArmor(MaterialBronze, null, CommonProxy.addArmor("bronze"), 1, "bronze").setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzeChestplate").setTextureName(MAssetManager.getEOTexture("armorChestBronze"));
+		BronzeChest = new MItemArmor(MaterialBronze, null, EOCommonProxy.addArmor("bronze"), 1, "bronze").setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzeChestplate").setTextureName(MAssetManager.getEOTexture("armorChestBronze"));
 		GameRegistry.registerItem(BronzeChest, "armorChestBronze");
-		BronzePants = new MItemArmor(MaterialBronze, null, CommonProxy.addArmor("bronze"), 2, "bronze").setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzeLeggings").setTextureName(MAssetManager.getEOTexture("armorLegsBronze"));
+		BronzePants = new MItemArmor(MaterialBronze, null, EOCommonProxy.addArmor("bronze"), 2, "bronze").setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzeLeggings").setTextureName(MAssetManager.getEOTexture("armorLegsBronze"));
 		GameRegistry.registerItem(BronzePants, "armorPantsBronze");
-		BronzeBoots = new MItemArmor(MaterialBronze, null, CommonProxy.addArmor("bronze"), 3, "bronze").setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzeBoots").setTextureName(MAssetManager.getEOTexture("armorBootsBronze"));
+		BronzeBoots = new MItemArmor(MaterialBronze, null, EOCommonProxy.addArmor("bronze"), 3, "bronze").setCreativeTab(tabOresItems).setUnlocalizedName("item_BronzeBoots").setTextureName(MAssetManager.getEOTexture("armorBootsBronze"));
 		GameRegistry.registerItem(BronzeBoots, "armorBootsBronze");
 		
 		BedrockPickaxe = new MItemPickaxe(toolMaterialBedrock, toolMaterialBPBedrock).setCreativeTab(tabOresItems).setUnlocalizedName("item_BedrockPickaxe").setTextureName(MAssetManager.getEOTexture("toolPickBedrock"));
@@ -422,126 +423,73 @@ public class EOItems
 	
 	public static void addItemsToChests()
 	{
-		ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(CopperIngot), 1, 5, 30));
-		ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(TinIngot), 1, 5, 30));
-		ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(BronzeIngot), 1, 3, 25));
-		ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(CoalIronIngot), 1, 5, 17));
-		ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(SteelIngot), 1, 5, 17));
-		ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(CopperIngot), 1, 5, 30));
-		ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(TinIngot), 1, 5, 30));
-		ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(meuroditeIngot), 1, 4, 15));
-		ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(ToriteIngot), 1, 3, 8));
-		ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(TitaniumIngot), 1, 2, 2));
-		ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(SunstoneDust), 1, 7, 25));
-		ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(Uranium), 1, 2, 10));
-		ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(Plutonium), 1, 2, 10));
-		ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(BronzePickaxe), 1, 1, 11));
-		ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(SteelPickaxe), 1, 1, 11));
-		ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(CopperIngot), 1, 5, 25));
-		ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(TinIngot), 1, 5, 30));
-		ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(meuroditeIngot), 1, 4, 15));
-		ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(ToriteIngot), 1, 3, 8));
-		ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(TitaniumIngot), 1, 2, 2));
-		ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(SunstoneDust), 1, 7, 25));
-		ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(Uranium), 1, 2, 10));
-		ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(Plutonium), 1, 2, 10));
-		ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(BronzePickaxe), 1, 1, 11));
-		ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(SteelPickaxe), 1, 1, 11));
-		ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(CoalIronIngot), 1, 5, 17));
-		ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(BronzeIngot), 1, 3, 25));
-		ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(BlaziumIngot), 1, 2, 7));
-		ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(SteelSword), 1, 1, 11));
-		ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(BronzeSword), 1, 1, 11));
-		ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING).addItem(new WeightedRandomChestContent(new ItemStack(CopperIngot), 1, 5, 25));
-		ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING).addItem(new WeightedRandomChestContent(new ItemStack(TinIngot), 1, 5, 30));
-		ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING).addItem(new WeightedRandomChestContent(new ItemStack(meuroditeIngot), 1, 4, 15));
-		ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING).addItem(new WeightedRandomChestContent(new ItemStack(ToriteIngot), 1, 3, 8));
-		ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING).addItem(new WeightedRandomChestContent(new ItemStack(TitaniumIngot), 1, 2, 2));
-		ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING).addItem(new WeightedRandomChestContent(new ItemStack(SunstoneDust), 1, 7, 25));
-		ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING).addItem(new WeightedRandomChestContent(new ItemStack(Uranium), 1, 2, 10));
-		ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING).addItem(new WeightedRandomChestContent(new ItemStack(Plutonium), 1, 2, 10));
-		ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING).addItem(new WeightedRandomChestContent(new ItemStack(BronzePickaxe), 1, 1, 11));
-		ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING).addItem(new WeightedRandomChestContent(new ItemStack(SteelPickaxe), 1, 1, 11));
-		ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING).addItem(new WeightedRandomChestContent(new ItemStack(CoalIronIngot), 1, 5, 17));
-		ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING).addItem(new WeightedRandomChestContent(new ItemStack(BronzeIngot), 1, 3, 25));
-		ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING).addItem(new WeightedRandomChestContent(new ItemStack(BlaziumIngot), 1, 2, 7));
-		ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING).addItem(new WeightedRandomChestContent(new ItemStack(SteelSword), 1, 1, 11));
-		ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING).addItem(new WeightedRandomChestContent(new ItemStack(BronzeSword), 1, 1, 11));
-		ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_LIBRARY).addItem(new WeightedRandomChestContent(new ItemStack(EOBlocks.SoulGem), 1, 3, 12));
-		ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_JUNGLE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(ToriteIngot), 1, 3, 8));
-		ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_JUNGLE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(SunstoneDust), 1, 7, 25));
-		ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_DESERT_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(PinkQuartz), 1, 10, 25));
-		ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_DESERT_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(EOBlocks.RadiantQuartz), 1, 3, 10));
-		ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH).addItem(new WeightedRandomChestContent(new ItemStack(CopperIngot), 1, 5, 30));
-		ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH).addItem(new WeightedRandomChestContent(new ItemStack(TinIngot), 1, 5, 30));
-		ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH).addItem(new WeightedRandomChestContent(new ItemStack(BronzeIngot), 1, 3, 25));
-		ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH).addItem(new WeightedRandomChestContent(new ItemStack(CoalIronIngot), 1, 5, 17));
-		ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH).addItem(new WeightedRandomChestContent(new ItemStack(SteelIngot), 1, 5, 17));
+		ChestGenHooks dungeonChest = ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST);
+		ChestGenHooks mineshaftCorridor = ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR);
+		ChestGenHooks strongholdCorridor = ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CORRIDOR);
+		ChestGenHooks strongholdCrossing = ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING);
+		ChestGenHooks jungleChest = ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_JUNGLE_CHEST);
+		ChestGenHooks desertChest = ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_DESERT_CHEST);
+		ChestGenHooks blacksmithChest = ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH);
 		
-		// TODO find alternative
-		/*
-		 * MinecraftForge.setToolClass(BPGoldShovel, "shovel", 0);
-		 * MinecraftForge.setToolClass(BPIronShovel, "shovel", 2);
-		 * MinecraftForge.setToolClass(BPDiamondShovel, "shovel", 3);
-		 * MinecraftForge.setToolClass(BPWoodShovel, "shovel", 0);
-		 * MinecraftForge.setToolClass(BPStoneShovel, "shovel", 1);
-		 * MinecraftForge.setToolClass(GraniteShovel, "shovel", 1);
-		 * MinecraftForge.setToolClass(BPGraniteShovel, "shovel", 1);
-		 * MinecraftForge.setToolClass(meuroditeShovel, "shovel", 2);
-		 * MinecraftForge.setToolClass(BPMeuroditeShovel, "shovel", 2);
-		 * MinecraftForge.setToolClass(BedrockShovel, "shovel", 4);
-		 * MinecraftForge.setToolClass(BPBedrockShovel, "shovel", 4);
-		 * MinecraftForge.setToolClass(BronzeShovel, "shovel", 2);
-		 * MinecraftForge.setToolClass(SteelShovel, "shovel", 2);
-		 * MinecraftForge.setToolClass(BPSteelShovel, "shovel", 2);
-		 * MinecraftForge.setToolClass(CopperShovel, "shovel", 1);
-		 * MinecraftForge.setToolClass(BPCopperShovel, "shovel", 1);
-		 * MinecraftForge.setToolClass(BlaziumShovel, "shovel", 2);
-		 * MinecraftForge.setToolClass(BPBlaziumShovel, "shovel", 2);
-		 * MinecraftForge.setToolClass(ToriteShovel, "shovel", 2);
-		 * MinecraftForge.setToolClass(BPToriteShovel, "shovel", 2);
-		 * MinecraftForge.setToolClass(TitaniumShovel, "shovel", 4);
-		 * MinecraftForge.setToolClass(BPTitaniumShovel, "shovel", 4);
-		 * MinecraftForge.setToolClass(meuroditeShovel, "shovel", 2);
-		 * MinecraftForge.setToolClass(BPMeuroditeShovel, "shovel", 2);
-		 * MinecraftForge.setToolClass(SandstoneShovel, "shovel", 1);
-		 * MinecraftForge.setToolClass(BPSandstoneShovel, "shovel", 1);
-		 */
+		dungeonChest.addItem(new WeightedRandomChestContent(new ItemStack(CopperIngot), 1, 5, 30));
+		dungeonChest.addItem(new WeightedRandomChestContent(new ItemStack(TinIngot), 1, 5, 30));
+		dungeonChest.addItem(new WeightedRandomChestContent(new ItemStack(BronzeIngot), 1, 3, 25));
+		dungeonChest.addItem(new WeightedRandomChestContent(new ItemStack(CoalIronIngot), 1, 5, 17));
+		dungeonChest.addItem(new WeightedRandomChestContent(new ItemStack(SteelIngot), 1, 5, 17));
+		mineshaftCorridor.addItem(new WeightedRandomChestContent(new ItemStack(CopperIngot), 1, 5, 30));
+		mineshaftCorridor.addItem(new WeightedRandomChestContent(new ItemStack(TinIngot), 1, 5, 30));
+		mineshaftCorridor.addItem(new WeightedRandomChestContent(new ItemStack(meuroditeIngot), 1, 4, 15));
+		mineshaftCorridor.addItem(new WeightedRandomChestContent(new ItemStack(ToriteIngot), 1, 3, 8));
+		mineshaftCorridor.addItem(new WeightedRandomChestContent(new ItemStack(TitaniumIngot), 1, 2, 2));
+		mineshaftCorridor.addItem(new WeightedRandomChestContent(new ItemStack(SunstoneDust), 1, 7, 25));
+		mineshaftCorridor.addItem(new WeightedRandomChestContent(new ItemStack(Uranium), 1, 2, 10));
+		mineshaftCorridor.addItem(new WeightedRandomChestContent(new ItemStack(Plutonium), 1, 2, 10));
+		mineshaftCorridor.addItem(new WeightedRandomChestContent(new ItemStack(BronzePickaxe), 1, 1, 11));
+		mineshaftCorridor.addItem(new WeightedRandomChestContent(new ItemStack(SteelPickaxe), 1, 1, 11));
+		strongholdCorridor.addItem(new WeightedRandomChestContent(new ItemStack(CopperIngot), 1, 5, 25));
+		strongholdCorridor.addItem(new WeightedRandomChestContent(new ItemStack(TinIngot), 1, 5, 30));
+		strongholdCorridor.addItem(new WeightedRandomChestContent(new ItemStack(meuroditeIngot), 1, 4, 15));
+		strongholdCorridor.addItem(new WeightedRandomChestContent(new ItemStack(ToriteIngot), 1, 3, 8));
+		strongholdCorridor.addItem(new WeightedRandomChestContent(new ItemStack(TitaniumIngot), 1, 2, 2));
+		strongholdCorridor.addItem(new WeightedRandomChestContent(new ItemStack(SunstoneDust), 1, 7, 25));
+		strongholdCorridor.addItem(new WeightedRandomChestContent(new ItemStack(Uranium), 1, 2, 10));
+		strongholdCorridor.addItem(new WeightedRandomChestContent(new ItemStack(Plutonium), 1, 2, 10));
+		strongholdCorridor.addItem(new WeightedRandomChestContent(new ItemStack(BronzePickaxe), 1, 1, 11));
+		strongholdCorridor.addItem(new WeightedRandomChestContent(new ItemStack(SteelPickaxe), 1, 1, 11));
+		strongholdCorridor.addItem(new WeightedRandomChestContent(new ItemStack(CoalIronIngot), 1, 5, 17));
+		strongholdCorridor.addItem(new WeightedRandomChestContent(new ItemStack(BronzeIngot), 1, 3, 25));
+		strongholdCorridor.addItem(new WeightedRandomChestContent(new ItemStack(BlaziumIngot), 1, 2, 7));
+		strongholdCorridor.addItem(new WeightedRandomChestContent(new ItemStack(SteelSword), 1, 1, 11));
+		strongholdCorridor.addItem(new WeightedRandomChestContent(new ItemStack(BronzeSword), 1, 1, 11));
+		strongholdCrossing.addItem(new WeightedRandomChestContent(new ItemStack(CopperIngot), 1, 5, 25));
+		strongholdCrossing.addItem(new WeightedRandomChestContent(new ItemStack(TinIngot), 1, 5, 30));
+		strongholdCrossing.addItem(new WeightedRandomChestContent(new ItemStack(meuroditeIngot), 1, 4, 15));
+		strongholdCrossing.addItem(new WeightedRandomChestContent(new ItemStack(ToriteIngot), 1, 3, 8));
+		strongholdCrossing.addItem(new WeightedRandomChestContent(new ItemStack(TitaniumIngot), 1, 2, 2));
+		strongholdCrossing.addItem(new WeightedRandomChestContent(new ItemStack(SunstoneDust), 1, 7, 25));
+		strongholdCrossing.addItem(new WeightedRandomChestContent(new ItemStack(Uranium), 1, 2, 10));
+		strongholdCrossing.addItem(new WeightedRandomChestContent(new ItemStack(Plutonium), 1, 2, 10));
+		strongholdCrossing.addItem(new WeightedRandomChestContent(new ItemStack(BronzePickaxe), 1, 1, 11));
+		strongholdCrossing.addItem(new WeightedRandomChestContent(new ItemStack(SteelPickaxe), 1, 1, 11));
+		strongholdCrossing.addItem(new WeightedRandomChestContent(new ItemStack(CoalIronIngot), 1, 5, 17));
+		strongholdCrossing.addItem(new WeightedRandomChestContent(new ItemStack(BronzeIngot), 1, 3, 25));
+		strongholdCrossing.addItem(new WeightedRandomChestContent(new ItemStack(BlaziumIngot), 1, 2, 7));
+		strongholdCrossing.addItem(new WeightedRandomChestContent(new ItemStack(SteelSword), 1, 1, 11));
+		strongholdCrossing.addItem(new WeightedRandomChestContent(new ItemStack(BronzeSword), 1, 1, 11));
+		ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_LIBRARY).addItem(new WeightedRandomChestContent(new ItemStack(EOBlocks.SoulGem), 1, 3, 12));
+		jungleChest.addItem(new WeightedRandomChestContent(new ItemStack(ToriteIngot), 1, 3, 8));
+		jungleChest.addItem(new WeightedRandomChestContent(new ItemStack(SunstoneDust), 1, 7, 25));
+		desertChest.addItem(new WeightedRandomChestContent(new ItemStack(PinkQuartz), 1, 10, 25));
+		desertChest.addItem(new WeightedRandomChestContent(new ItemStack(EOBlocks.RadiantQuartz), 1, 3, 10));
+		blacksmithChest.addItem(new WeightedRandomChestContent(new ItemStack(CopperIngot), 1, 5, 30));
+		blacksmithChest.addItem(new WeightedRandomChestContent(new ItemStack(TinIngot), 1, 5, 30));
+		blacksmithChest.addItem(new WeightedRandomChestContent(new ItemStack(BronzeIngot), 1, 3, 25));
+		blacksmithChest.addItem(new WeightedRandomChestContent(new ItemStack(CoalIronIngot), 1, 5, 17));
+		blacksmithChest.addItem(new WeightedRandomChestContent(new ItemStack(SteelIngot), 1, 5, 17));
 	}
 	
 	public static void setHarvestLevels()
 	{
-		// TODO find alternative
-		/*
-		 * MinecraftForge.setToolClass(BPGoldPickaxe, "pickaxe", 0);
-		 * MinecraftForge.setToolClass(BPIronPickaxe, "pickaxe", 2);
-		 * MinecraftForge.setToolClass(BPDiamondPickaxe, "pickaxe", 3);
-		 * MinecraftForge.setToolClass(BPWoodPickaxe, "pickaxe", 0);
-		 * MinecraftForge.setToolClass(BPStonePickaxe, "pickaxe", 1);
-		 * MinecraftForge.setToolClass(GranitePickaxe, "pickaxe", 1);
-		 * MinecraftForge.setToolClass(BPGranitePickaxe, "pickaxe", 1);
-		 * MinecraftForge.setToolClass(meuroditePickaxe, "pickaxe", 2);
-		 * MinecraftForge.setToolClass(BPMeuroditePickaxe, "pickaxe", 2);
-		 * MinecraftForge.setToolClass(BedrockPickaxe, "pickaxe", 4);
-		 * MinecraftForge.setToolClass(BPBedrockPickaxe, "pickaxe", 4);
-		 * MinecraftForge.setToolClass(BronzePickaxe, "pickaxe", 2);
-		 * MinecraftForge.setToolClass(SteelPickaxe, "pickaxe", 2);
-		 * MinecraftForge.setToolClass(BPSteelPickaxe, "pickaxe", 2);
-		 * MinecraftForge.setToolClass(CopperPickaxe, "pickaxe", 1);
-		 * MinecraftForge.setToolClass(BPCopperPickaxe, "pickaxe", 1);
-		 * MinecraftForge.setToolClass(BlaziumPickaxe, "pickaxe", 2);
-		 * MinecraftForge.setToolClass(BPBlaziumPickaxe, "pickaxe", 2);
-		 * MinecraftForge.setToolClass(ToritePickaxe, "pickaxe", 2);
-		 * MinecraftForge.setToolClass(BPToritePickaxe, "pickaxe", 2);
-		 * MinecraftForge.setToolClass(TitaniumPickaxe, "pickaxe", 4);
-		 * MinecraftForge.setToolClass(BPTitaniumPickaxe, "pickaxe", 4);
-		 * MinecraftForge.setToolClass(meuroditePickaxe, "pickaxe", 2);
-		 * MinecraftForge.setToolClass(BPMeuroditePickaxe, "pickaxe", 2);
-		 * MinecraftForge.setToolClass(SandstonePickaxe, "pickaxe", 1);
-		 * MinecraftForge.setToolClass(BPSandstonePickaxe, "pickaxe", 1);
-		 */
-		
-		// TODO Why aren't these in the instantiation?
 		EOBlocks.CopperOre.setHarvestLevel("pickaxe", 0);
 		EOBlocks.CopperBlock.setHarvestLevel("pickaxe", 0);
 		EOBlocks.TinOre.setHarvestLevel("pickaxe", 1);
@@ -589,7 +537,7 @@ public class EOItems
 		EOBlocks.ChiseledRadiantQuartz.setHarvestLevel("pickaxe", 3);
 		EOBlocks.RadiantQuartzOre.setHarvestLevel("pickaxe", 3);
 		EOBlocks.Godstone.setHarvestLevel("pickaxe", 2);
-		Blocks.bedrock.setHarvestLevel("pickaxe", 4);
 		EOBlocks.soulBlock.setHarvestLevel("pickaxe", 4);
+		Blocks.bedrock.setHarvestLevel("pickaxe", 4);
 	}
 }

@@ -4,15 +4,15 @@ import net.minecraft.creativetab.CreativeTabs;
 import sobiohazardous.mods.minestrappolation.core.block.MBlockPillar;
 import sobiohazardous.mods.minestrappolation.core.util.MAssetManager;
 
-public class BlockPinkPillar extends MBlockPillar
+public class BlockDesertQuartzPillar extends MBlockPillar
 {
 	/**
 	 * @Deprecated due to the 1.7.2 update, please instantiate BlockPillar
 	 */
 	@Deprecated
-	public BlockPinkPillar()
+	public BlockDesertQuartzPillar()
 	{
-		super(MAssetManager.getEOStonecutterTexture("DesertQuartz_Pillar_Side_0"), MAssetManager.getEOStonecutterTexture("DesertQuartz_Pillar_Top_0"));
+		super(MAssetManager.getEOTextureSC("DesertQuartz_Pillar_Side_0"), MAssetManager.getEOTextureSC("DesertQuartz_Pillar_Top_0"));
 		this.setCreativeTab(CreativeTabs.tabBlock);
 	}
 }

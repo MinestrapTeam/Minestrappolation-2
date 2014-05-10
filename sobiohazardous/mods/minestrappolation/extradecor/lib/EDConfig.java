@@ -7,7 +7,7 @@ public class EDConfig
 {
 	public static int	daysUntilMossy;
 	
-	public static void initilize(FMLPreInitializationEvent event)
+	public static void init(FMLPreInitializationEvent event)
 	{
 		Configuration config = new Configuration(event.getSuggestedConfigurationFile());
 		config.load();

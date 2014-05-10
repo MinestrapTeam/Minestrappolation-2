@@ -1,4 +1,4 @@
-package sobiohazardous.mods.minestrappolation.extradecor.proxy;
+package sobiohazardous.mods.minestrappolation.extradecor.common;
 
 import sobiohazardous.mods.minestrappolation.extradecor.container.ContainerBarrel;
 import sobiohazardous.mods.minestrappolation.extradecor.container.ContainerCrate;
@@ -9,7 +9,7 @@ import cpw.mods.fml.common.network.IGuiHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
-public class CommonProxy implements IGuiHandler
+public class EDCommonProxy implements IGuiHandler
 {	
 	public void registerRenderThings()
 	{
