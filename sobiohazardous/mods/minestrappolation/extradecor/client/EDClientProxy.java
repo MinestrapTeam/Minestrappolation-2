@@ -1,9 +1,10 @@
-package sobiohazardous.mods.minestrappolation.extradecor.proxy;
+package sobiohazardous.mods.minestrappolation.extradecor.client;
 
 import sobiohazardous.mods.minestrappolation.extradecor.client.gui.GuiBarrel;
 import sobiohazardous.mods.minestrappolation.extradecor.client.gui.GuiCrate;
 import sobiohazardous.mods.minestrappolation.extradecor.client.renderer.tileentity.RenderGoblet;
 import sobiohazardous.mods.minestrappolation.extradecor.client.renderer.tileentity.RenderPlate;
+import sobiohazardous.mods.minestrappolation.extradecor.common.EDCommonProxy;
 import sobiohazardous.mods.minestrappolation.extradecor.tileentity.TileEntityBarrel;
 import sobiohazardous.mods.minestrappolation.extradecor.tileentity.TileEntityCrate;
 import sobiohazardous.mods.minestrappolation.extradecor.tileentity.TileEntityGoblet;
@@ -13,7 +14,7 @@ import cpw.mods.fml.client.registry.ClientRegistry;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
-public class ClientProxy extends CommonProxy
+public class EDClientProxy extends EDCommonProxy
 {
 	@Override
 	public void registerRenderThings()

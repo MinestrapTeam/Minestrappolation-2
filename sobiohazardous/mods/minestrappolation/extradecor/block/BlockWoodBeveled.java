@@ -1,8 +1,6 @@
 package sobiohazardous.mods.minestrappolation.extradecor.block;
 
 import sobiohazardous.mods.minestrappolation.core.lib.MReference;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
@@ -10,9 +8,6 @@ import net.minecraft.util.IIcon;
 public class BlockWoodBeveled extends BlockWoodPanel
 {
 	public static final String[]	beveledTextures	= new String[] { MReference.MODID_ED + ":bevelOak", MReference.MODID_ED + ":bevelBirch", MReference.MODID_ED + ":bevelSpruce", MReference.MODID_ED + ":bevelJungle" };
-	
-	@SideOnly(Side.CLIENT)
-	private IIcon[]					iconArray;
 	
 	public BlockWoodBeveled()
 	{

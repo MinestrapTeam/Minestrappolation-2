@@ -6,8 +6,8 @@ import sobiohazardous.mods.minestrappolation.core.itemblocks.MItemBlockMulti;
 import sobiohazardous.mods.minestrappolation.core.itemblocks.MItemBlockSlab;
 import sobiohazardous.mods.minestrappolation.core.lib.MReference;
 import sobiohazardous.mods.minestrappolation.core.util.MAssetManager;
-import sobiohazardous.mods.minestrappolation.extradecor.CreativeTabExtraDecorBlocks;
 import sobiohazardous.mods.minestrappolation.extradecor.block.*;
+import sobiohazardous.mods.minestrappolation.extradecor.creativetab.CreativeTabEDBlocks;
 import sobiohazardous.mods.minestrappolation.extradecor.material.MaterialOoze;
 import sobiohazardous.mods.minestrappolation.extradecor.tileentity.TileEntityPlate;
 import cpw.mods.fml.common.Loader;
@@ -72,7 +72,6 @@ public class EDBlocks
 	
 	public static Block				cardboard;
 	public static Block				cardboardBlock;
-	public static Block				cardboardWet;
 	
 	public static Block				woodBoardsStairsOak;
 	public static Block				woodBoardsStairsBirch;
@@ -190,7 +189,7 @@ public class EDBlocks
 	public static MBlockMultiSlab	redSandstoneSlabSingle;
 	public static MBlockMultiSlab	redSandstoneSlabDouble;
 	
-	public static CreativeTabs		tabDecor		= new CreativeTabExtraDecorBlocks(CreativeTabs.getNextID(), "Extrappolated Decor");
+	public static CreativeTabs		tabDecor		= new CreativeTabEDBlocks(CreativeTabs.getNextID(), "Extrappolated Decor");
 	
 	public static void createBlocks()
 	{
@@ -408,7 +407,6 @@ public class EDBlocks
 		GameRegistry.registerBlock(barrel, "barrel");
 		GameRegistry.registerBlock(cardboard, "cardboard");
 		GameRegistry.registerBlock(cardboardBlock, "cardboardBlock");
-		GameRegistry.registerBlock(cardboardWet, "cardboardWet");
 		GameRegistry.registerBlock(woodBoardsStairsOak, "woodBoardStairsOak");
 		GameRegistry.registerBlock(woodBoardsStairsBirch, "woodBoardStairsBirch");
 		GameRegistry.registerBlock(woodBoardsStairsSpruce, "woodBoardStairsSpruce");

@@ -20,18 +20,16 @@ public class GuiBarrel extends GuiContainer
 	public GuiBarrel(EntityPlayer player, TileEntityBarrel barrel)
 	{	
 		super(new ContainerBarrel(player, barrel));
-		
 		this.barrel = barrel;
-		
-		this.ySize = 185;
+		this.ySize = 186;
 	}
 	
 	@Override
 	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
 	{
 		String s = this.barrel.hasCustomInventoryName() ? this.barrel.getInventoryName() : StatCollector.translateToLocal("tile.barrel.name");
-		this.fontRendererObj.drawString(s, 6, 6, 4210752);
-		this.fontRendererObj.drawString(StatCollector.translateToLocal("container.inventory"), 6, this.ySize - 102, 4210752);
+		this.fontRendererObj.drawString(s, 7, 7, 4210752);
+		this.fontRendererObj.drawString(StatCollector.translateToLocal("container.inventory"), 7, this.ySize - 92, 4210752);
 	}
 	
 	@Override
