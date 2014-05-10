@@ -9,7 +9,7 @@ public class BlockSugarBlock extends BlockFalling
 	public BlockSugarBlock()
 	{
 		super(Material.ground);
-		this.setCreativeTab(EDBlocks.tabDecor);
+		this.setCreativeTab(EDBlocks.tabBlocks);
 	}
 	
 	// TODO Add code from the features list

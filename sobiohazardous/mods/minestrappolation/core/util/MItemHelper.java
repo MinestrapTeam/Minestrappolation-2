@@ -28,7 +28,7 @@ public class MItemHelper
 	 */
 	public static Item get(String name)
 	{
-		return GameRegistry.findItem(MReference.MODID_MAPI, name);
+		return GameRegistry.findItem(MReference.MAPI_MODID, name);
 	}
 	
 	public static String getUniqueName(Item item)

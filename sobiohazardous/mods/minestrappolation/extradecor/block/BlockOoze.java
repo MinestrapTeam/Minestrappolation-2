@@ -13,7 +13,7 @@ public class BlockOoze extends Block
 	public BlockOoze(Material material)
 	{
 		super(material);
-		this.setCreativeTab(EDBlocks.tabDecor);
+		this.setCreativeTab(EDBlocks.tabBlocks);
 	}
 	
 	@Override

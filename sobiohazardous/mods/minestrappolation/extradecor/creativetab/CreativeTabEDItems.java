@@ -1,13 +1,12 @@
 package sobiohazardous.mods.minestrappolation.extradecor.creativetab;
 
-import sobiohazardous.mods.minestrappolation.extradecor.lib.EDBlocks;
-
+import sobiohazardous.mods.minestrappolation.extradecor.lib.EDItems;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
-public final class CreativeTabEDBlocks extends CreativeTabs
+public final class CreativeTabEDItems extends CreativeTabs
 {
-	public CreativeTabEDBlocks(int id, String label)
+	public CreativeTabEDItems(int id, String label)
 	{
 		super(id, label);
 	}
@@ -15,6 +14,6 @@ public final class CreativeTabEDBlocks extends CreativeTabs
 	@Override
 	public Item getTabIconItem()
 	{
-		return Item.getItemFromBlock(EDBlocks.Tiles);
+		return EDItems.sandstoneBrick;
 	}
 }

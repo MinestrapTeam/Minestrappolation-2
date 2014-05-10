@@ -21,10 +21,10 @@ import cpw.mods.fml.common.registry.VillagerRegistry;
 /**
  * @author SoBiohazardous
  */
-@Mod(modid = MReference.MODID_ED, name = MReference.MODNAME_ED, version = MReference.VERSION_ED, dependencies = "required-after:Minestrappolation")
+@Mod(modid = MReference.ED_MODID, name = MReference.ED_NAME, version = MReference.ED_VERSION, dependencies = MReference.DEPENDENCY)
 public class ExtraDecor
 {
-	@Instance(MReference.MODID_ED)
+	@Instance(MReference.ED_MODID)
 	public static ExtraDecor	instance;
 	
 	@SidedProxy(clientSide = "sobiohazardous.mods.minestrappolation.extradecor.client.EDClientProxy", serverSide = "sobiohazardous.mods.minestrappolation.extradecor.common.EDCommonProxy")

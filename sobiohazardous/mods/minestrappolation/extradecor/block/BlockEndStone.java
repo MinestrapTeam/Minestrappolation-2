@@ -24,7 +24,7 @@ public class BlockEndStone extends Block
 	public BlockEndStone()
 	{
 		super(Material.rock);
-		this.setCreativeTab(EDBlocks.tabDecor);
+		this.setCreativeTab(EDBlocks.tabBlocks);
 	}
 	
 	@Override

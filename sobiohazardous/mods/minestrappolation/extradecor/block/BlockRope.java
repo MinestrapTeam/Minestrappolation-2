@@ -3,7 +3,7 @@ package sobiohazardous.mods.minestrappolation.extradecor.block;
 import java.util.Random;
 
 import sobiohazardous.mods.minestrappolation.core.util.MAssetManager;
-import sobiohazardous.mods.minestrappolation.extradecor.lib.EDBlocks;
+import sobiohazardous.mods.minestrappolation.extradecor.lib.EDItems;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -69,6 +69,6 @@ public class BlockRope extends Block
 	@Override
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
-		return EDBlocks.itemRope;
+		return EDItems.ropeItem;
 	}
 }

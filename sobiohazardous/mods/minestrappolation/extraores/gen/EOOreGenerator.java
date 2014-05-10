@@ -9,31 +9,28 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenJungle;
 import net.minecraft.world.chunk.IChunkProvider;
-import net.minecraft.world.gen.ChunkProviderEnd;
-import net.minecraft.world.gen.ChunkProviderGenerate;
-import net.minecraft.world.gen.ChunkProviderHell;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
 /**
  * @author SoBiohazardous
  */
 public class EOOreGenerator implements IWorldGenerator
-{	
+{
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider)
 	{
-		if (chunkGenerator instanceof ChunkProviderGenerate)
-		{
-			this.generateSurface(world, random, chunkX << 4, chunkZ << 4);
-		}
-		else if (chunkGenerator instanceof ChunkProviderHell)
-		{
-			this.generateNether(world, random, chunkX << 4, chunkZ << 4);
-		}
-		else if (chunkGenerator instanceof ChunkProviderEnd)
-		{
-			this.generateEnd(world, random, chunkX << 4, chunkZ << 4);
-		}
+		// if (chunkGenerator instanceof ChunkProviderGenerate)
+		// {
+		// this.generateSurface(world, random, chunkX << 4, chunkZ << 4);
+		// }
+		// else if (chunkGenerator instanceof ChunkProviderHell)
+		// {
+		// this.generateNether(world, random, chunkX << 4, chunkZ << 4);
+		// }
+		// else if (chunkGenerator instanceof ChunkProviderEnd)
+		// {
+		// this.generateEnd(world, random, chunkX << 4, chunkZ << 4);
+		// }
 	}
 	
 	public void generateSurface(World world, Random rand, int chunkX, int chunkZ)
@@ -79,22 +76,23 @@ public class EOOreGenerator implements IWorldGenerator
 			new WorldGenMinable(EOBlocks.TitaniumOre, 3).generate(world, rand, x1, y1, z1);
 		}
 		// torite ore
-			for (int h = 0; h < 12; h++)
+		for (int h = 0; h < 12; h++)
+		{
+			x1 = chunkX + rand.nextInt(16);
+			y1 = rand.nextInt(30);
+			z1 = chunkZ + rand.nextInt(16);
+			
+			if (world.getBiomeGenForCoords(x1, z1) instanceof BiomeGenJungle)
 			{
-				x1 = chunkX + rand.nextInt(16);
-				y1 = rand.nextInt(30);
-				z1 = chunkZ + rand.nextInt(16);
-				
-				if (world.getBiomeGenForCoords(x1, z1) instanceof BiomeGenJungle)
-				{
-				new WorldGenMinable(EOBlocks.ToriteOre, 4).generate(world, rand, x1, y1, z1);}
+				new WorldGenMinable(EOBlocks.ToriteOre, 4).generate(world, rand, x1, y1, z1);
 			}
+		}
 		// sunstone ore
 		for (int i = 0; i < 10; i++)
 		{
-			x1= chunkX + rand.nextInt(16);
-			y1= rand.nextInt(42);
-			z1= chunkZ + rand.nextInt(16);
+			x1 = chunkX + rand.nextInt(16);
+			y1 = rand.nextInt(42);
+			z1 = chunkZ + rand.nextInt(16);
 			
 			new WorldGenMinable(EOBlocks.SunstoneOre, 3).generate(world, rand, x1, y1, z1);
 		}
@@ -107,11 +105,11 @@ public class EOOreGenerator implements IWorldGenerator
 			
 			new WorldGenMinable(EOBlocks.Granite, 50).generate(world, rand, x1, y1, z1);
 		}
-		// quartzite
+		// Desert Quartz
 		for (int i = 0; i < 12; i++)
 		{
 			x1 = chunkX + rand.nextInt(16);
-			y1 = rand.nextInt(8 + 100);
+			y1 = rand.nextInt(108);
 			z1 = chunkZ + rand.nextInt(16);
 			
 			new WorldGenDesertQuartzSpire().generate(world, rand, x1, y1, z1);

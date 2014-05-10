@@ -35,7 +35,7 @@ public class MelterRecipes extends ExperienceRecipeManager
 		this.addRecipe(EOBlocks.Granite, new ItemStack(Items.lava_bucket, 1, 0), 0.7F);
 		this.addRecipe(Blocks.glowstone, new ItemStack(EOBlocks.glowGlass), 0.7F);
 		
-		if (Loader.isModLoaded(MReference.MODID_ED))
+		if (Loader.isModLoaded(MReference.ED_MODID))
 		{
 			// addSmelting(EDBlockManager.obsidianTile, new
 			// ItemStack(EOItemManager.bucketMagma,1,0), 0.7F);

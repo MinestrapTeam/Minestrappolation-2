@@ -24,12 +24,12 @@ public class ItemHorseHairBow extends ItemBow
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister iconRegister)
 	{
-		this.itemIcon = iconRegister.registerIcon(MReference.MODID_EMD + ":horseHairBow");
+		this.itemIcon = iconRegister.registerIcon(MReference.EMD_MODID + ":horseHairBow");
 		this.iconArray = new IIcon[3];
 		
 		for (int i = 0; i < this.iconArray.length; ++i)
 		{
-			this.iconArray[i] = iconRegister.registerIcon(MReference.MODID_EMD + "horseHairBow" + i);
+			this.iconArray[i] = iconRegister.registerIcon(MReference.EMD_MODID + "horseHairBow" + i);
 		}
 	}
 	

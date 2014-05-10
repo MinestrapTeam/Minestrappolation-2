@@ -7,7 +7,7 @@ import net.minecraft.util.IIcon;
 
 public class BlockWoodBeveled extends BlockWoodPanel
 {
-	public static final String[]	beveledTextures	= new String[] { MReference.MODID_ED + ":bevelOak", MReference.MODID_ED + ":bevelBirch", MReference.MODID_ED + ":bevelSpruce", MReference.MODID_ED + ":bevelJungle" };
+	public static final String[]	beveledTextures	= new String[] { MReference.ED_MODID + ":bevelOak", MReference.ED_MODID + ":bevelBirch", MReference.ED_MODID + ":bevelSpruce", MReference.ED_MODID + ":bevelJungle" };
 	
 	public BlockWoodBeveled()
 	{

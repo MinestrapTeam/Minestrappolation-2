@@ -52,7 +52,7 @@ public class ItemCharm extends Item
 		
 		for (int i = 0; i < geneNames.length; ++i)
 		{
-			this.geneIcons[i] = iconRegister.registerIcon(MReference.MODID_EMD + ":charm" + geneNames[i]);
+			this.geneIcons[i] = iconRegister.registerIcon(MReference.EMD_MODID + ":charm" + geneNames[i]);
 		}
 	}
 }

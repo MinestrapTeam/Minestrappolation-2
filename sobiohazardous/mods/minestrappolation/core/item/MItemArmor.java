@@ -123,6 +123,6 @@ public class MItemArmor extends ItemArmor
 		{
 			layer = "2";
 		}
-		return MReference.MODID_EO + ":textures/armor/" + material + layer + ".png";
+		return MReference.EO_MODID + ":textures/armor/" + material + layer + ".png";
 	}
 }

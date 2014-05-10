@@ -760,7 +760,7 @@ public class EORecipes
 	
 	public static void loadBridgedRecipes() throws Exception
 	{
-		if (Loader.isModLoaded(MReference.MODID_ED))
+		if (Loader.isModLoaded(MReference.ED_MODID))
 		{
 			GameRegistry.addSmelting(Blocks.glowstone, new ItemStack(EOBlocks.glowGlass), 0.5F);
 		}

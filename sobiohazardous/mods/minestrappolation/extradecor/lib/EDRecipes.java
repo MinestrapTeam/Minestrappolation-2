@@ -12,8 +12,7 @@ public class EDRecipes
 	
 	public static void loadAllRecipes()
 	{
-		
-		GameRegistry.addRecipe(new ItemStack(EDItems.gobletItem, 1), new Object[] { "D D", " D ", Character.valueOf('D'), Items.gold_ingot });
+		GameRegistry.addRecipe(new ItemStack(EDItems.goblet, 1), new Object[] { "D D", " D ", Character.valueOf('D'), Items.gold_ingot });
 		
 		GameRegistry.addRecipe(new ItemStack(EDBlocks.infertileDirt, 8), new Object[] { "DDD", "DBD", "DDD", Character.valueOf('D'), Blocks.dirt, Character.valueOf('B'), Items.bucket.setContainerItem(Items.water_bucket) });
 		
@@ -22,12 +21,10 @@ public class EDRecipes
 		GameRegistry.addRecipe(new ItemStack(EDBlocks.stones, 9, 1), new Object[] { "SSS", "SSS", "SSS", Character.valueOf('S'), Blocks.stone });
 		
 		GameRegistry.addRecipe(new ItemStack(EDBlocks.stonePillar, 2), new Object[] { "S", "S", Character.valueOf('S'), new ItemStack(EDBlocks.stones, 1, 1) });
-		GameRegistry.addRecipe(new ItemStack(EDBlocks.stones, 4, 0), new Object[] { "SS", "SS", Character.valueOf('S'), new ItemStack(EDBlocks.stones, 1, 1) });
-		/*
-		 * GameRegistry.addRecipe(new ItemStack(EDBlocks.edgeStoneBrick, 1), new
-		 * Object[] { "SG", "SG", Character.valueOf('S'),
-		 * EDItems.stoneBrickItem, Character.valueOf('G'), Items.quartz });
-		 */
+		GameRegistry.addRecipe(new ItemStack(EDBlocks.stones, 4), new Object[] { "SS", "SS", Character.valueOf('S'), new ItemStack(EDBlocks.stones, 1, 1) });
+		
+		// GameRegistry.addRecipe(new ItemStack(EDBlocks.edgeStoneBrick), new Object[] { "SQ", "SQ", 'S', MItems.brickStone, 'Q', Items.quartz });
+		
 		GameRegistry.addRecipe(new ItemStack(EDBlocks.Tiles, 2, 4), new Object[] { "SSS", "SSS", "SSS", Character.valueOf('S'), Items.brick });
 		GameRegistry.addRecipe(new ItemStack(EDBlocks.Tiles, 4, 0), new Object[] { "SS", "SS", Character.valueOf('S'), Blocks.obsidian });
 		GameRegistry.addRecipe(new ItemStack(EDBlocks.snowBrick, 4), new Object[] { "SS", "SS", Character.valueOf('S'), Blocks.snow });
@@ -40,9 +37,9 @@ public class EDRecipes
 		GameRegistry.addRecipe(new ItemStack(Items.flint, 2), new Object[] { "S", Character.valueOf('S'), new ItemStack(EDBlocks.Tiles, 1, 5) });
 		GameRegistry.addRecipe(new ItemStack(EDBlocks.gunpowderBlock, 1), new Object[] { "SSS", "SSS", "SSS", Character.valueOf('S'), Items.gunpowder });
 		GameRegistry.addRecipe(new ItemStack(Items.gunpowder, 9), new Object[] { "S", Character.valueOf('S'), EDBlocks.gunpowderBlock });
-		GameRegistry.addRecipe(new ItemStack(EDBlocks.itemRope, 1), new Object[] { "S", "S", "S", Character.valueOf('S'), Items.string });
-		GameRegistry.addRecipe(new ItemStack(EDBlocks.ropeCoil, 1), new Object[] { "SSS", "SSS", "SSS", Character.valueOf('S'), EDBlocks.itemRope });
-		GameRegistry.addRecipe(new ItemStack(EDBlocks.itemRope, 9), new Object[] { "S", Character.valueOf('S'), EDBlocks.ropeCoil });
+		GameRegistry.addRecipe(new ItemStack(EDItems.ropeItem, 1), new Object[] { "S", "S", "S", Character.valueOf('S'), Items.string });
+		GameRegistry.addRecipe(new ItemStack(EDItems.ropeItem, 9), new Object[] { "S", Character.valueOf('S'), EDBlocks.ropeCoil });
+		GameRegistry.addRecipe(new ItemStack(EDBlocks.ropeCoil, 1), new Object[] { "SSS", "SSS", "SSS", Character.valueOf('S'), EDItems.ropeItem });
 		GameRegistry.addRecipe(new ItemStack(EDBlocks.oozeSlime, 1), new Object[] { "SSS", "SSS", "SSS", Character.valueOf('S'), Items.slime_ball });
 		GameRegistry.addRecipe(new ItemStack(Items.slime_ball, 9), new Object[] { "S", Character.valueOf('S'), EDBlocks.oozeSlime });
 		
@@ -82,14 +79,14 @@ public class EDRecipes
 		GameRegistry.addRecipe(new ItemStack(EDBlocks.barrel), new Object[] { "I", "C", "I", Character.valueOf('I'), Items.iron_ingot, Character.valueOf('C'), EDBlocks.crate });
 		GameRegistry.addRecipe(new ItemStack(EDItems.cardboardItem, 3), new Object[] { "SSS", "SSS", Character.valueOf('S'), Items.paper });
 		GameRegistry.addRecipe(new ItemStack(EDBlocks.cardboardBlock, 2), new Object[] { "CCC", " C ", " CC", Character.valueOf('C'), EDItems.cardboardItem });
-		GameRegistry.addSmelting(Blocks.sandstone, new ItemStack(EDItems.sandstoneBrickItem, 4), 0.8F);
+		GameRegistry.addSmelting(Blocks.sandstone, new ItemStack(EDItems.sandstoneBrick, 4), 0.8F);
 		/*
 		 * GameRegistry.addRecipe(new ItemStack(Blocks.stonebrick, 2, 3), new
 		 * Object[] { "BBB", "BBB", "BBB", Character.valueOf('B'),
 		 * EDItems.stoneBrickItem });
 		 */
-		GameRegistry.addRecipe(new ItemStack(EDBlocks.sandstoneBricks, 1, 0), new Object[] { "BB", "BB", Character.valueOf('B'), EDItems.sandstoneBrickItem });
-		GameRegistry.addRecipe(new ItemStack(EDBlocks.sandstoneBricks, 2, 1), new Object[] { "BBB", "BBB", "BBB", Character.valueOf('B'), EDItems.sandstoneBrickItem });
+		GameRegistry.addRecipe(new ItemStack(EDBlocks.sandstoneBricks, 1, 0), new Object[] { "BB", "BB", Character.valueOf('B'), EDItems.sandstoneBrick });
+		GameRegistry.addRecipe(new ItemStack(EDBlocks.sandstoneBricks, 2, 1), new Object[] { "BBB", "BBB", "BBB", Character.valueOf('B'), EDItems.sandstoneBrick });
 		GameRegistry.addRecipe(new ItemStack(EDBlocks.Tiles, 4, 3), new Object[] { "FQ", "QF", Character.valueOf('F'), new ItemStack(EDBlocks.Tiles, 1, 1), Character.valueOf('Q'), new ItemStack(EDBlocks.Tiles, 1, 2) });
 		GameRegistry.addRecipe(new ItemStack(EDBlocks.woodBoardsSingleSlab, 6, 0), new Object[] { "FFF", Character.valueOf('F'), new ItemStack(EDBlocks.woodBoards, 1, 0) });
 		GameRegistry.addRecipe(new ItemStack(EDBlocks.woodBoardsSingleSlab, 6, 1), new Object[] { "FFF", Character.valueOf('F'), new ItemStack(EDBlocks.woodBoards, 1, 1) });
@@ -138,7 +135,7 @@ public class EDRecipes
 		
 		GameRegistry.addRecipe(new ItemStack(EDBlocks.cobbledRoad, 2), new Object[] { "CC", "DD", Character.valueOf('C'), Blocks.cobblestone, Character.valueOf('D'), Blocks.dirt });
 		
-		GameRegistry.addRecipe(new ItemStack(EDBlocks.sandstoneRoad, 2), new Object[] { "CCC", "CCC", "DDD", Character.valueOf('C'), EDItems.sandstoneBrickItem, Character.valueOf('D'), Blocks.sand });
+		GameRegistry.addRecipe(new ItemStack(EDBlocks.sandstoneRoad, 2), new Object[] { "CCC", "CCC", "DDD", Character.valueOf('C'), EDItems.sandstoneBrick, Character.valueOf('D'), Blocks.sand });
 		
 		GameRegistry.addRecipe(new ItemStack(EDBlocks.sandyRoad, 2), new Object[] { "CC", "DD", Character.valueOf('C'), Blocks.cobblestone, Character.valueOf('D'), Blocks.sand });
 		

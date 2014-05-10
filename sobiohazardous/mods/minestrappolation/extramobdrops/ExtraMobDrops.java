@@ -25,10 +25,10 @@ import net.minecraftforge.common.MinecraftForge;
 /**
  * @author SoBiohazardous
  */
-@Mod(modid = MReference.MODID_EMD, name = MReference.MODNAME_EMD, version = MReference.VERSION_EMD, dependencies = "required-after:Minestrappolation")
+@Mod(modid = MReference.EMD_MODID, name = MReference.EMD_NAME, version = MReference.EMD_VERSION, dependencies = "required-after:Minestrappolation")
 public class ExtraMobDrops
 {
-	@Instance(MReference.MODID_EMD)
+	@Instance(MReference.EMD_MODID)
 	public static ExtraMobDrops				instance;
 	
 	@SidedProxy(clientSide = "sobiohazardous.mods.minestrappolation.extramobdrops.client.ClientProxy", serverSide = "sobiohazardous.mods.minestrappolation.extramobdrops.common.CommonProxy")

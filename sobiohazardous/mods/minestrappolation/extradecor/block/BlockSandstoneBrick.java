@@ -23,7 +23,7 @@ public class BlockSandstoneBrick extends Block
 	public BlockSandstoneBrick()
 	{
 		super(Material.rock);
-		this.setCreativeTab(EDBlocks.tabDecor);
+		this.setCreativeTab(EDBlocks.tabBlocks);
 	}
 	
 	@Override

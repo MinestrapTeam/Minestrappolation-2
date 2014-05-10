@@ -18,7 +18,7 @@ public class BlockEdgeStoneBrick extends Block
 	public BlockEdgeStoneBrick()
 	{
 		super(Material.rock);
-		this.setCreativeTab(EDBlocks.tabDecor);
+		this.setCreativeTab(EDBlocks.tabBlocks);
 	}
 	
 	@Override

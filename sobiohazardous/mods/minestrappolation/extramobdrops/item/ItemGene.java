@@ -55,7 +55,7 @@ public class ItemGene extends Item
 		
 		for (int i = 0; i < geneNames.length; ++i)
 		{
-			this.geneIcons[i] = iconRegister.registerIcon(MReference.MODID_EMD + ":gene" + geneNames[i]);
+			this.geneIcons[i] = iconRegister.registerIcon(MReference.EMD_MODID + ":gene" + geneNames[i]);
 		}
 	}
 }

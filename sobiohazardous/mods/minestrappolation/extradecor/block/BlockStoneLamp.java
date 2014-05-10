@@ -19,12 +19,12 @@ public class BlockStoneLamp extends Block
 {
 	@SideOnly(Side.CLIENT)
 	private IIcon[]					iconArray;
-	public static final String[]	stoneLampTextures	= new String[] { MReference.MODID_ED + ":/stoneCutter/Stone_LampGlowstone_0_0", MReference.MODID_ED + ":/stoneCutter/Stone_LampSunstone_0_0" };
+	public static final String[]	stoneLampTextures	= new String[] { MReference.ED_MODID + ":/stoneCutter/Stone_LampGlowstone_0_0", MReference.ED_MODID + ":/stoneCutter/Stone_LampSunstone_0_0" };
 	
 	public BlockStoneLamp()
 	{
 		super(Material.rock);
-		this.setCreativeTab(EDBlocks.tabDecor);
+		this.setCreativeTab(EDBlocks.tabBlocks);
 	}
 	
 	@Override

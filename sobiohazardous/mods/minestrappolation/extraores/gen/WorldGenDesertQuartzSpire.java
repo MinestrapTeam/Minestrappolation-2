@@ -18,16 +18,7 @@ public class WorldGenDesertQuartzSpire extends WorldGenerator
 	@Override
 	public boolean generate(World world, Random random, int x, int y, int z)
 	{
-		if (world.getBlock(x, y, z) != Blocks.sand && world.getBlock(x, y - 1, z) != Blocks.sand && world.getBlock(x + 1, y, z) != Blocks.sand && world.getBlock(x, y - 1, z) != Blocks.sand)
-		{
-			return false;
-		}
-		else if (world.getBlock(x, y, z) == Blocks.water || world.getBlock(x, y + 1, z) == Blocks.water || world.getBlock(x, y - 1, z) == Blocks.water || world.getBlock(x + 1, y, z) == Blocks.water || world.getBlock(x - 1, y, z) == Blocks.water)
-		{
-			System.out.println("water found skipping");
-			return false;
-		}
-		else if (world.getBlock(x, y + 1, z) != Blocks.air)
+		if (world.getBlock(x, y + 1, z) == Blocks.air && world.getBlock(x, y, z) == Blocks.sand)
 		{
 			System.out.println("not air skipping");
 			return false;
@@ -36,11 +27,12 @@ public class WorldGenDesertQuartzSpire extends WorldGenerator
 		int depth = random.nextInt(this.maxDepth) + 2;
 		for (int i = 0; i < depth; z++)
 		{
-			world.setBlock(x, y - depth, z, EOBlocks.Quartzite);
-			world.setBlock(x + 1, y - depth, z, EOBlocks.Quartzite);
-			world.setBlock(x - 1, y - depth, z, EOBlocks.Quartzite);
-			world.setBlock(x, y - depth, z + 1, EOBlocks.Quartzite);
-			world.setBlock(x, y - depth, z - 1, EOBlocks.Quartzite);
+			int y1 = y - depth;
+			world.setBlock(x, y1, z, EOBlocks.Quartzite);
+			world.setBlock(x + 1, y1, z, EOBlocks.Quartzite);
+			world.setBlock(x - 1, y1, z, EOBlocks.Quartzite);
+			world.setBlock(x, y1, z + 1, EOBlocks.Quartzite);
+			world.setBlock(x, y1, z - 1, EOBlocks.Quartzite);
 		}
 		
 		int height = random.nextInt(this.maxTopHeight);

@@ -16,7 +16,7 @@ import net.minecraft.item.ItemStack;
  */
 public class EDBridgeRecipes
 {
-	private static boolean	hasExtraOres	= Loader.isModLoaded(MReference.MODID_EO);
+	private static boolean	hasExtraOres	= Loader.isModLoaded(MReference.EO_MODID);
 	
 	public static void loadBridgeRecipes() throws Exception
 	{

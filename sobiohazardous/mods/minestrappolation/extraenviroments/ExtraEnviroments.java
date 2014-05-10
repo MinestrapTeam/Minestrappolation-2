@@ -16,10 +16,10 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
 import net.minecraft.world.biome.BiomeGenBase;
 
-@Mod(modid = MReference.MODID_EE, name = MReference.MODNAME_EE, version = MReference.VERSION_EE)
+@Mod(modid = MReference.EE_MODID, name = MReference.EE_MODNAME, version = MReference.EE_VERSION)
 public class ExtraEnviroments
 {
-	@Instance(MReference.MODID_EE)
+	@Instance(MReference.EE_MODID)
 	public ExtraEnviroments		instance;
 	
 	@SidedProxy(clientSide = "sobiohazardous.mods.minestrappolation.extraenviroments.proxy.ClientProxy", serverSide = "sobiohazardous.mods.minestrappolation.extraenviroments.proxy.ClientProxy")

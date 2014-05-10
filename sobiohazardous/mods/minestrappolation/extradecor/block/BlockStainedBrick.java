@@ -25,7 +25,7 @@ public class BlockStainedBrick extends Block
 	public BlockStainedBrick()
 	{
 		super(Material.rock);
-		this.setCreativeTab(EDBlocks.tabDecor);
+		this.setCreativeTab(EDBlocks.tabBlocks);
 	}
 	
 	@Override

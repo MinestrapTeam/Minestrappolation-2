@@ -20,7 +20,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 public class BlockWoodPanel extends Block
 {
-	public static final String[]	panelTextures	= new String[] { MReference.MODID_ED + ":panelOak", MReference.MODID_ED + ":panelBirch", MReference.MODID_ED + ":panelSpruce", MReference.MODID_ED + ":panelJungle" };
+	public static final String[]	panelTextures	= new String[] { MReference.ED_MODID + ":panelOak", MReference.ED_MODID + ":panelBirch", MReference.ED_MODID + ":panelSpruce", MReference.ED_MODID + ":panelJungle" };
 	
 	@SideOnly(Side.CLIENT)
 	protected IIcon[]					iconArray;
@@ -28,7 +28,7 @@ public class BlockWoodPanel extends Block
 	public BlockWoodPanel()
 	{
 		super(Material.wood);
-		this.setCreativeTab(EDBlocks.tabDecor);
+		this.setCreativeTab(EDBlocks.tabBlocks);
 	}
 	
 	@Override

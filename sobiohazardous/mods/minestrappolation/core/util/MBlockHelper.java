@@ -28,7 +28,7 @@ public class MBlockHelper
 	 */
 	public static Block get(String name)
 	{
-		return GameRegistry.findBlock(MReference.MODID_MAPI, name);
+		return GameRegistry.findBlock(MReference.MAPI_MODID, name);
 	}
 	
 	public static String getUniqueName(Block block)

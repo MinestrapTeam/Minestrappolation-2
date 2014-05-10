@@ -29,19 +29,19 @@ public class RenderGoblet extends TileEntitySpecialRenderer
 		switch (meta)
 		{
 		case 0:
-			texture = new ResourceLocation(MReference.MODID_ED + ":textures/blocks/model/gobletEmpty.png");
+			texture = new ResourceLocation(MReference.ED_MODID + ":textures/blocks/model/gobletEmpty.png");
 			break;
 		case 1:
-			texture = new ResourceLocation(MReference.MODID_ED + ":textures/blocks/model/gobletWater.png");
+			texture = new ResourceLocation(MReference.ED_MODID + ":textures/blocks/model/gobletWater.png");
 			break;
 		case 2:
-			texture = new ResourceLocation(MReference.MODID_ED + ":textures/blocks/model/gobletMilk.png");
+			texture = new ResourceLocation(MReference.ED_MODID + ":textures/blocks/model/gobletMilk.png");
 			break;
 		case 3:
-			texture = new ResourceLocation(MReference.MODID_ED + ":textures/blocks/model/gobletInvisibility.png");
+			texture = new ResourceLocation(MReference.ED_MODID + ":textures/blocks/model/gobletInvisibility.png");
 			break;
 		case 4:
-			texture = new ResourceLocation(MReference.MODID_ED + ":textures/blocks/model/gobletRegeneration.png");
+			texture = new ResourceLocation(MReference.ED_MODID + ":textures/blocks/model/gobletRegeneration.png");
 			break;
 		
 		}

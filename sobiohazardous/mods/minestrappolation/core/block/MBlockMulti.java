@@ -66,7 +66,7 @@ public class MBlockMulti extends Block
 	@Override
 	public void harvestBlock(World world, EntityPlayer player, int x, int y, int z, int metadata)
 	{
-		if (this == MBlockHelper.get(MReference.MODID_ED, "bedrockBlocks"))
+		if (this == MBlockHelper.get(MReference.ED_MODID, "bedrockBlocks"))
 		{
 			player.getHeldItem().damageItem(2000, player);
 			this.dropBlockAsItem(world, x, y, z, new ItemStack(this));

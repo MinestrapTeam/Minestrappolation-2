@@ -19,7 +19,7 @@ public class EDItemDoor extends MItem
 		super();
 		this.doorBlock = block;
 		this.maxStackSize = 1;
-		this.setCreativeTab(EDBlocks.tabDecor);
+		this.setCreativeTab(EDBlocks.tabBlocks);
 	}
 	
 	@Override

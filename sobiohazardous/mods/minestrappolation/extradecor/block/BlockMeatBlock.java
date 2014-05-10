@@ -7,10 +7,10 @@ import net.minecraft.block.material.Material;
 
 public class BlockMeatBlock extends Block
 {
-	public BlockMeatBlock(String texture)
+	public BlockMeatBlock()
 	{
 		super(Material.cloth);
-		this.setCreativeTab(EDBlocks.tabDecor);
+		this.setCreativeTab(EDBlocks.tabBlocks);
 	}
 	
 	// TODO Add code from the features list

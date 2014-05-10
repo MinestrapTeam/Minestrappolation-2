@@ -104,7 +104,7 @@ public class BlockGoblet extends BlockContainer
 	@Override
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
-		return EDItems.gobletItem;
+		return EDItems.goblet;
 	}
 	
 	@Override

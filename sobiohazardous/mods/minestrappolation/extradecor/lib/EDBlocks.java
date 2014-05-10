@@ -18,12 +18,12 @@ import net.minecraft.block.BlockSlab;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemReed;
 
 public class EDBlocks
 {
 	public static final Material	materialOoze	= new MaterialOoze(MapColor.foliageColor);
+
+	public static CreativeTabs		tabBlocks = new CreativeTabEDBlocks(CreativeTabs.getNextID(), "ed_blocks");
 	
 	// bridged blocks
 	public static Block				bedrockBrick;
@@ -50,7 +50,6 @@ public class EDBlocks
 	public static Block				gunpowderBlock;
 	
 	public static Block				rope;
-	public static Item				itemRope;
 	public static Block				ropeCoil;
 	
 	public static Block				oozeSlime;
@@ -105,10 +104,10 @@ public class EDBlocks
 	public static MBlockMultiSlab	bedrockSlabsSingle;
 	public static MBlockMultiSlab	bedrockSlabsDouble;
 	
-	public static Block				clayBlocks;
-	public static Block				clayBlocks2;
-	public static Block				clayBlocks3;
-	public static Block				clayBlocks4;
+	public static Block				clayBricks;
+	public static Block				refinedClay;
+	public static Block				clayPatternedBricks;
+	public static Block				clayTiles;
 	public static Block				clayPillars;
 	public static Block				clayPillars2;
 	public static Block				clayPillars3;
@@ -189,29 +188,26 @@ public class EDBlocks
 	public static MBlockMultiSlab	redSandstoneSlabSingle;
 	public static MBlockMultiSlab	redSandstoneSlabDouble;
 	
-	public static CreativeTabs		tabDecor		= new CreativeTabEDBlocks(CreativeTabs.getNextID(), "ed_decor");
-	
 	public static void createBlocks()
 	{
-		stonePillar = new MBlockPillar(MAssetManager.getEDTextureSC("Stone_Pillar_Side_0"), MAssetManager.getEDTextureSC("Stone_Pillar_Top_0")).setHardness(1.5F).setResistance(10F).setCreativeTab(tabDecor).setStepSound(Block.soundTypeStone).setBlockName("stonePillar");
-		stoneLamp = new BlockStoneLamp().setHardness(1.5F).setResistance(8F).setCreativeTab(tabDecor).setStepSound(Block.soundTypeStone).setLightLevel(1.0F).setBlockName("stoneLamp");
-		stones = new BlockStones().setHardness(1.5F).setResistance(10F).setCreativeTab(tabDecor).setStepSound(Block.soundTypeStone).setBlockName("stones");
+		stonePillar = new MBlockPillar(MAssetManager.getEDTextureSC("Stone_Pillar_Side_0"), MAssetManager.getEDTextureSC("Stone_Pillar_Top_0")).setHardness(1.5F).setResistance(10F).setCreativeTab(tabBlocks).setStepSound(Block.soundTypeStone).setBlockName("stonePillar");
+		stoneLamp = new BlockStoneLamp().setHardness(1.5F).setResistance(8F).setCreativeTab(tabBlocks).setStepSound(Block.soundTypeStone).setLightLevel(1.0F).setBlockName("stoneLamp");
+		stones = new BlockStones().setHardness(1.5F).setResistance(10F).setCreativeTab(tabBlocks).setStepSound(Block.soundTypeStone).setBlockName("stones");
 		
-		Tiles = new BlockTiles().setCreativeTab(tabDecor).setStepSound(Block.soundTypeStone).setBlockName("tiles");
+		Tiles = new BlockTiles().setCreativeTab(tabBlocks).setStepSound(Block.soundTypeStone).setBlockName("tiles");
 		
-		edgeStoneBrick = new BlockEdgeStoneBrick().setHardness(1.5F).setResistance(10F).setCreativeTab(tabDecor).setStepSound(Block.soundTypeStone).setBlockName("edgeStoneBrick");
+		edgeStoneBrick = new BlockEdgeStoneBrick().setHardness(1.5F).setResistance(10F).setCreativeTab(tabBlocks).setStepSound(Block.soundTypeStone).setBlockName("edgeStoneBrick");
 		
-		snowBrick = new BlockSnowBrick().setHardness(0.3F).setCreativeTab(tabDecor).setStepSound(Block.soundTypeSnow).setBlockName("tilesSnow").setBlockTextureName(MAssetManager.getEDTexture("tilesSnow"));
+		snowBrick = new BlockSnowBrick().setHardness(0.3F).setCreativeTab(tabBlocks).setStepSound(Block.soundTypeSnow).setBlockName("tilesSnow").setBlockTextureName(MAssetManager.getEDTexture("tilesSnow"));
 		
-		endstone = new BlockEndStone().setHardness(3.0F).setResistance(15.0F).setCreativeTab(tabDecor).setStepSound(Block.soundTypeStone).setBlockName("Endstone");
+		endstone = new BlockEndStone().setHardness(3.0F).setResistance(15.0F).setCreativeTab(tabBlocks).setStepSound(Block.soundTypeStone).setBlockName("Endstone");
 		
-		glassRefined = new BlockGlassRefined(Material.glass, false).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(tabDecor).setBlockName("glassRefined");
-		glassRefinedPane = new EDBlockPane("ClearGlass", "clearGlassPaneEdge", Material.glass, false).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(tabDecor).setBlockName("glassRefinedPane");
+		glassRefined = new BlockGlassRefined(Material.glass, false).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(tabBlocks).setBlockName("glassRefined");
+		glassRefinedPane = new EDBlockPane("ClearGlass", "clearGlassPaneEdge", Material.glass, false).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(tabBlocks).setBlockName("glassRefinedPane");
 		gunpowderBlock = new BlockGunpowderBlock(Material.ground).setHardness(0.6F).setStepSound(Block.soundTypeGravel).setBlockName("GunpowderBlock").setBlockTextureName(MAssetManager.getEDTexture("blockGunpowder"));
 		
 		rope = new BlockRope().setHardness(0.9F).setStepSound(Block.soundTypeCloth).setBlockName("rope");
-		itemRope = new ItemReed(rope).setUnlocalizedName("rope").setCreativeTab(tabDecor).setTextureName(MAssetManager.getEDTexture("rope"));
-		ropeCoil = new BlockRopeCoil().setHardness(0.9F).setCreativeTab(tabDecor).setStepSound(Block.soundTypeCloth).setBlockName("ropeCoil");
+		ropeCoil = new BlockRopeCoil().setHardness(0.9F).setCreativeTab(tabBlocks).setStepSound(Block.soundTypeCloth).setBlockName("ropeCoil");
 		
 		oozeSlime = new BlockOoze(materialOoze).setHardness(1F).setResistance(2000F).setStepSound(Block.soundTypeCloth).setBlockName("SlimeOoze").setBlockTextureName(MAssetManager.getEDTexture("oozeSlime"));
 		
@@ -226,43 +222,43 @@ public class EDBlocks
 		// TODO add the rest of the boards after Extrapolated Enviroments
 		
 		sugarBlock = new BlockSugarBlock().setHardness(0.6F).setStepSound(Block.soundTypeGravel).setBlockName("SugarBlock").setBlockTextureName(MAssetManager.getEDTexture("blockSugar"));
-		meatBlock = new BlockMeatBlock("MeatBlock").setHardness(0.8F).setStepSound(Block.soundTypeCloth).setBlockName("MeatBlock").setBlockTextureName(MAssetManager.getEDTexture("blockRawMeat"));
+		meatBlock = new BlockMeatBlock().setHardness(0.8F).setStepSound(Block.soundTypeCloth).setBlockName("MeatBlock").setBlockTextureName(MAssetManager.getEDTexture("blockRawMeat"));
 		
 		magmaOoze = new BlockOoze(materialOoze).setHardness(1F).setResistance(2000F).setStepSound(Block.soundTypeCloth).setBlockName("MagmaOoze").setBlockTextureName(MAssetManager.getEDTexture("oozeMagma"));
 		
-		enderBlock = new BlockEnderblock().setHardness(3.0F).setResistance(4.0F).setBlockName("EnderBlock").setStepSound(Block.soundTypeGlass).setCreativeTab(tabDecor).setBlockTextureName(MAssetManager.getEDTexture("blockEnderPearl"));
+		enderBlock = new BlockEnderblock().setHardness(3.0F).setResistance(4.0F).setBlockName("EnderBlock").setStepSound(Block.soundTypeGlass).setCreativeTab(tabBlocks).setBlockTextureName(MAssetManager.getEDTexture("blockEnderPearl"));
 		
-		crate = new BlockCrate().setHardness(2.5F).setStepSound(Block.soundTypeWood).setCreativeTab(tabDecor).setBlockName("crate");
-		barrel = new BlockBarrel().setHardness(3F).setResistance(6.0F).setStepSound(Block.soundTypeWood).setCreativeTab(tabDecor).setBlockName("barrel");
+		crate = new BlockCrate().setHardness(2.5F).setStepSound(Block.soundTypeWood).setCreativeTab(tabBlocks).setBlockName("crate");
+		barrel = new BlockBarrel().setHardness(3F).setResistance(6.0F).setStepSound(Block.soundTypeWood).setCreativeTab(tabBlocks).setBlockName("barrel");
 		
 		cardboard = new EDBlockPane("cardboard", "cardboardPaneEdge", Material.cloth, true).setHardness(0.3F).setBlockName("cardboard");
-		cardboardBlock = new BlockCardboard(Material.cloth).setHardness(0.4F).setBlockName("CardboardBlock").setCreativeTab(tabDecor);
+		cardboardBlock = new BlockCardboard(Material.cloth).setHardness(0.4F).setBlockName("CardboardBlock").setCreativeTab(tabBlocks);
 		
-		woodBoardsStairsOak = new EDBlockStairs(woodBoards, 0).setBlockName("woodBoardsStairsOak").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setCreativeTab(tabDecor);
-		woodBoardsStairsBirch = new EDBlockStairs(woodBoards, 1).setBlockName("woodBoardsStairsBirch").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setCreativeTab(tabDecor);
-		woodBoardsStairsSpruce = new EDBlockStairs(woodBoards, 2).setBlockName("woodBoardsStairsSpruce").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setCreativeTab(tabDecor);
-		woodBoardsStairsJungle = new EDBlockStairs(woodBoards, 3).setBlockName("woodBoardsStairsJungle").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setCreativeTab(tabDecor);
+		woodBoardsStairsOak = new EDBlockStairs(woodBoards, 0).setBlockName("woodBoardsStairsOak").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setCreativeTab(tabBlocks);
+		woodBoardsStairsBirch = new EDBlockStairs(woodBoards, 1).setBlockName("woodBoardsStairsBirch").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setCreativeTab(tabBlocks);
+		woodBoardsStairsSpruce = new EDBlockStairs(woodBoards, 2).setBlockName("woodBoardsStairsSpruce").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setCreativeTab(tabBlocks);
+		woodBoardsStairsJungle = new EDBlockStairs(woodBoards, 3).setBlockName("woodBoardsStairsJungle").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setCreativeTab(tabBlocks);
 		woodBoardsSingleSlab = (BlockSlab) new BlockWoodBoardSlab(false).setBlockName("woodBoardsSingleSlab").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setLightOpacity(255);
 		woodBoardsDoubleSlab = (BlockSlab) new BlockWoodBoardSlab(true).setBlockName("woodBoardsSingleSlab").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setLightOpacity(255);
 		
-		checkerTileStairs = new EDBlockStairs(Tiles, 3).setBlockName("checkerTileStairs").setHardness(3F).setResistance(10.0F).setStepSound(Block.soundTypeStone).setCreativeTab(tabDecor);
+		checkerTileStairs = new EDBlockStairs(Tiles, 3).setBlockName("checkerTileStairs").setHardness(3F).setResistance(10.0F).setStepSound(Block.soundTypeStone).setCreativeTab(tabBlocks);
 		
-		stainedBrick = new BlockStainedBrick().setHardness(2F).setResistance(10F).setCreativeTab(tabDecor).setStepSound(Block.soundTypeStone).setBlockName("stainedBrick");
+		stainedBrick = new BlockStainedBrick().setHardness(2F).setResistance(10F).setCreativeTab(tabBlocks).setStepSound(Block.soundTypeStone).setBlockName("stainedBrick");
 		
-		cobbledRoad = new EDBlockRoad().setHardness(1).setResistance(5F).setCreativeTab(tabDecor).setStepSound(Block.soundTypeStone).setBlockName("cobbledRoad");
-		infertileDirt = new MBlock(Material.grass).setCreativeTab(tabDecor).setBlockName("InfertileSoil").setHardness(.4F).setStepSound(Block.soundTypeGrass).setBlockTextureName(MAssetManager.getEDTexture("grasslessDirt"));
-		refinedRoad = new EDBlockRoad().setHardness(2F).setResistance(5F).setBlockName("RefinedRoad").setStepSound(Block.soundTypeStone).setCreativeTab(tabDecor);
+		cobbledRoad = new EDBlockRoad().setHardness(1).setResistance(5F).setCreativeTab(tabBlocks).setStepSound(Block.soundTypeStone).setBlockName("cobbledRoad");
+		infertileDirt = new MBlock(Material.grass).setCreativeTab(tabBlocks).setBlockName("InfertileSoil").setHardness(.4F).setStepSound(Block.soundTypeGrass).setBlockTextureName(MAssetManager.getEDTexture("grasslessDirt"));
+		refinedRoad = new EDBlockRoad().setHardness(2F).setResistance(5F).setBlockName("RefinedRoad").setStepSound(Block.soundTypeStone).setCreativeTab(tabBlocks);
 		
-		sandyRoad = new EDBlockRoad().setHardness(0.8F).setResistance(4F).setCreativeTab(tabDecor).setStepSound(Block.soundTypeStone).setBlockName("sandyRoad");
-		sandstoneRoad = new EDBlockRoad().setHardness(1).setResistance(4.5F).setCreativeTab(tabDecor).setStepSound(Block.soundTypeStone).setBlockName("sandstoneRoad");
-		gravelRoad = new EDBlockRoad().setHardness(1.5F).setResistance(5F).setCreativeTab(tabDecor).setStepSound(Block.soundTypeStone).setBlockName("gravelRoad");
-		netherroad = new EDBlockRoad().setHardness(2.2F).setResistance(4F).setBlockName("netherroad").setStepSound(Block.soundTypeStone).setCreativeTab(tabDecor);
-		refinedNetherroad = new EDBlockRoad().setHardness(2.8F).setResistance(6F).setBlockName("refinedNetherroad").setStepSound(Block.soundTypeStone).setCreativeTab(tabDecor);
+		sandyRoad = new EDBlockRoad().setHardness(0.8F).setResistance(4F).setCreativeTab(tabBlocks).setStepSound(Block.soundTypeStone).setBlockName("sandyRoad");
+		sandstoneRoad = new EDBlockRoad().setHardness(1).setResistance(4.5F).setCreativeTab(tabBlocks).setStepSound(Block.soundTypeStone).setBlockName("sandstoneRoad");
+		gravelRoad = new EDBlockRoad().setHardness(1.5F).setResistance(5F).setCreativeTab(tabBlocks).setStepSound(Block.soundTypeStone).setBlockName("gravelRoad");
+		netherroad = new EDBlockRoad().setHardness(2.2F).setResistance(4F).setBlockName("netherroad").setStepSound(Block.soundTypeStone).setCreativeTab(tabBlocks);
+		refinedNetherroad = new EDBlockRoad().setHardness(2.8F).setResistance(6F).setBlockName("refinedNetherroad").setStepSound(Block.soundTypeStone).setCreativeTab(tabBlocks);
 		
-		woodPlanksMossy = new BlockMossyWood().setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setBlockName("woodPlanksMossy").setCreativeTab(tabDecor);
+		woodPlanksMossy = new BlockMossyWood().setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setBlockName("woodPlanksMossy").setCreativeTab(tabBlocks);
 		
 		Goblet = new BlockGoblet(Material.rock).setHardness(.5F).setBlockName("goblet");
-		Plate = new BlockPlate(Material.rock).setCreativeTab(tabDecor).setBlockName("plate");
+		Plate = new BlockPlate(Material.rock).setCreativeTab(tabBlocks).setBlockName("plate");
 		
 		GlassDoor = (new BlockGlassDoor(Material.glass)).setHardness(1F).setBlockName("doorGlass");
 		
@@ -273,18 +269,20 @@ public class EDBlocks
 		bedrockSlabsSingle = (MBlockMultiSlab) new MBlockMultiSlab(false, new String[] { MAssetManager.getEDTextureSC("Bedrock_RefinedSlab_Side_0"), MAssetManager.getEDTextureSC("Bedrock_RawSlab_Side_0") }, new String[] { MAssetManager.getEDTextureSC("Bedrock_Refined_0_0"), MAssetManager.getEDTextureSC("Bedrock_RawSlab_Top_0") }).setBlockName("bedrockSlabSingle").setCreativeTab(Minestrappolation.creativeTabStone);
 		bedrockSlabsDouble = (MBlockMultiSlab) new MBlockMultiSlab(true, new String[] { MAssetManager.getEDTextureSC("Bedrock_RefinedSlab_Side_0"), MAssetManager.getEDTextureSC("Bedrock_RawSlab_Side_0") }, new String[] { MAssetManager.getEDTextureSC("Bedrock_Refined_0_0"), MAssetManager.getEDTextureSC("Bedrock_RawSlab_Top_0") }).setBlockName("bedrockSlabDouble");
 		
-		clayBlocks = new MBlockMulti(Material.rock, new String[] { MAssetManager.getEDTextureSC("Clay_Bricks_0_Black"), MAssetManager.getEDTextureSC("Clay_Bricks_0_Blue"), MAssetManager.getEDTextureSC("Clay_Bricks_0_Brown"), MAssetManager.getEDTextureSC("Clay_Bricks_0_Cyan"), MAssetManager.getEDTextureSC("Clay_Bricks_0_Green"), MAssetManager.getEDTextureSC("Clay_Bricks_0_Grey"), MAssetManager.getEDTextureSC("Clay_Bricks_0_LightBlue"), MAssetManager.getEDTextureSC("Clay_Bricks_0_Lime"), MAssetManager.getEDTextureSC("Clay_Bricks_0_Magenta"), MAssetManager.getEDTextureSC("Clay_Bricks_0_Orange"), MAssetManager.getEDTextureSC("Clay_Bricks_0_Pink"), MAssetManager.getEDTextureSC("Clay_Bricks_0_Purple"), MAssetManager.getEDTextureSC("Clay_Bricks_0_Red"), MAssetManager.getEDTextureSC("Clay_Bricks_0_Silver"), MAssetManager.getEDTextureSC("Clay_Bricks_0_White"),
+		clayBricks = new MBlockMulti(Material.rock, new String[] { MAssetManager.getEDTextureSC("Clay_Bricks_0_Black"), MAssetManager.getEDTextureSC("Clay_Bricks_0_Blue"), MAssetManager.getEDTextureSC("Clay_Bricks_0_Brown"), MAssetManager.getEDTextureSC("Clay_Bricks_0_Cyan"), MAssetManager.getEDTextureSC("Clay_Bricks_0_Green"), MAssetManager.getEDTextureSC("Clay_Bricks_0_Grey"), MAssetManager.getEDTextureSC("Clay_Bricks_0_LightBlue"), MAssetManager.getEDTextureSC("Clay_Bricks_0_Lime"), MAssetManager.getEDTextureSC("Clay_Bricks_0_Magenta"), MAssetManager.getEDTextureSC("Clay_Bricks_0_Orange"), MAssetManager.getEDTextureSC("Clay_Bricks_0_Pink"), MAssetManager.getEDTextureSC("Clay_Bricks_0_Purple"), MAssetManager.getEDTextureSC("Clay_Bricks_0_Red"), MAssetManager.getEDTextureSC("Clay_Bricks_0_Silver"), MAssetManager.getEDTextureSC("Clay_Bricks_0_White"),
 				MAssetManager.getEDTextureSC("Clay_Bricks_0_Yellow"), }).setBlockName("clayBlocks").setHardness(2.0F).setResistance(8.0F);
-		clayBlocks2 = new MBlockMulti(Material.rock, new String[] { MAssetManager.getEDTextureSC("Clay_Refined_0_Black"), MAssetManager.getEDTextureSC("Clay_Refined_0_Blue"), MAssetManager.getEDTextureSC("Clay_Refined_0_Brown"), MAssetManager.getEDTextureSC("Clay_Refined_0_Cyan"), MAssetManager.getEDTextureSC("Clay_Refined_0_Green"), MAssetManager.getEDTextureSC("Clay_Refined_0_Grey"), MAssetManager.getEDTextureSC("Clay_Refined_0_LightBlue"), MAssetManager.getEDTextureSC("Clay_Refined_0_Lime"), MAssetManager.getEDTextureSC("Clay_Refined_0_Magenta"), MAssetManager.getEDTextureSC("Clay_Refined_0_Orange"), MAssetManager.getEDTextureSC("Clay_Refined_0_Pink"), MAssetManager.getEDTextureSC("Clay_Refined_0_Purple"), MAssetManager.getEDTextureSC("Clay_Refined_0_Red"), MAssetManager.getEDTextureSC("Clay_Refined_0_Silver"),
+		refinedClay = new MBlockMulti(Material.rock, new String[] { MAssetManager.getEDTextureSC("Clay_Refined_0_Black"), MAssetManager.getEDTextureSC("Clay_Refined_0_Blue"), MAssetManager.getEDTextureSC("Clay_Refined_0_Brown"), MAssetManager.getEDTextureSC("Clay_Refined_0_Cyan"), MAssetManager.getEDTextureSC("Clay_Refined_0_Green"), MAssetManager.getEDTextureSC("Clay_Refined_0_Grey"), MAssetManager.getEDTextureSC("Clay_Refined_0_LightBlue"), MAssetManager.getEDTextureSC("Clay_Refined_0_Lime"), MAssetManager.getEDTextureSC("Clay_Refined_0_Magenta"), MAssetManager.getEDTextureSC("Clay_Refined_0_Orange"), MAssetManager.getEDTextureSC("Clay_Refined_0_Pink"), MAssetManager.getEDTextureSC("Clay_Refined_0_Purple"), MAssetManager.getEDTextureSC("Clay_Refined_0_Red"), MAssetManager.getEDTextureSC("Clay_Refined_0_Silver"),
 				MAssetManager.getEDTextureSC("Clay_Refined_0_White"), MAssetManager.getEDTextureSC("Clay_Refined_0_Yellow"), }).setBlockName("clayBlocks2").setHardness(2.0F).setResistance(8.0F);
-		clayBlocks3 = new MBlockMulti(Material.rock, new String[] { MAssetManager.getEDTextureSC("Clay_PatternBricks_0_Black"), MAssetManager.getEDTextureSC("Clay_PatternBricks_0_Blue"), MAssetManager.getEDTextureSC("Clay_PatternBricks_0_Brown"), MAssetManager.getEDTextureSC("Clay_PatternBricks_0_Cyan"), MAssetManager.getEDTextureSC("Clay_PatternBricks_0_Green"), MAssetManager.getEDTextureSC("Clay_PatternBricks_0_Grey"), MAssetManager.getEDTextureSC("Clay_PatternBricks_0_LightBlue"), MAssetManager.getEDTextureSC("Clay_PatternBricks_0_Lime"), MAssetManager.getEDTextureSC("Clay_PatternBricks_0_Magenta"), MAssetManager.getEDTextureSC("Clay_PatternBricks_0_Orange"), MAssetManager.getEDTextureSC("Clay_PatternBricks_0_Pink"), MAssetManager.getEDTextureSC("Clay_PatternBricks_0_Purple"), MAssetManager.getEDTextureSC("Clay_PatternBricks_0_Red"),
+		clayPatternedBricks = new MBlockMulti(Material.rock, new String[] { MAssetManager.getEDTextureSC("Clay_PatternBricks_0_Black"), MAssetManager.getEDTextureSC("Clay_PatternBricks_0_Blue"), MAssetManager.getEDTextureSC("Clay_PatternBricks_0_Brown"), MAssetManager.getEDTextureSC("Clay_PatternBricks_0_Cyan"), MAssetManager.getEDTextureSC("Clay_PatternBricks_0_Green"), MAssetManager.getEDTextureSC("Clay_PatternBricks_0_Grey"), MAssetManager.getEDTextureSC("Clay_PatternBricks_0_LightBlue"), MAssetManager.getEDTextureSC("Clay_PatternBricks_0_Lime"), MAssetManager.getEDTextureSC("Clay_PatternBricks_0_Magenta"), MAssetManager.getEDTextureSC("Clay_PatternBricks_0_Orange"), MAssetManager.getEDTextureSC("Clay_PatternBricks_0_Pink"), MAssetManager.getEDTextureSC("Clay_PatternBricks_0_Purple"), MAssetManager.getEDTextureSC("Clay_PatternBricks_0_Red"),
 				MAssetManager.getEDTextureSC("Clay_PatternBricks_0_Silver"), MAssetManager.getEDTextureSC("Clay_PatternBricks_0_White"), MAssetManager.getEDTextureSC("Clay_PatternBricks_0_Yellow"), }).setBlockName("clayBlocks3").setHardness(2.0F).setResistance(8.0F);
-		clayBlocks4 = new MBlockMulti(Material.rock, new String[] { MAssetManager.getEDTextureSC("Clay_Tiles_0_Black"), MAssetManager.getEDTextureSC("Clay_Tiles_0_Blue"), MAssetManager.getEDTextureSC("Clay_Tiles_0_Brown"), MAssetManager.getEDTextureSC("Clay_Tiles_0_Cyan"), MAssetManager.getEDTextureSC("Clay_Tiles_0_Green"), MAssetManager.getEDTextureSC("Clay_Tiles_0_Grey"), MAssetManager.getEDTextureSC("Clay_Tiles_0_LightBlue"), MAssetManager.getEDTextureSC("Clay_Tiles_0_Lime"), MAssetManager.getEDTextureSC("Clay_Tiles_0_Magenta"), MAssetManager.getEDTextureSC("Clay_Tiles_0_Orange"), MAssetManager.getEDTextureSC("Clay_Tiles_0_Pink"), MAssetManager.getEDTextureSC("Clay_Tiles_0_Purple"), MAssetManager.getEDTextureSC("Clay_Tiles_0_Red"), MAssetManager.getEDTextureSC("Clay_Tiles_0_Silver"), MAssetManager.getEDTextureSC("Clay_Tiles_0_White"),
+		clayTiles = new MBlockMulti(Material.rock, new String[] { MAssetManager.getEDTextureSC("Clay_Tiles_0_Black"), MAssetManager.getEDTextureSC("Clay_Tiles_0_Blue"), MAssetManager.getEDTextureSC("Clay_Tiles_0_Brown"), MAssetManager.getEDTextureSC("Clay_Tiles_0_Cyan"), MAssetManager.getEDTextureSC("Clay_Tiles_0_Green"), MAssetManager.getEDTextureSC("Clay_Tiles_0_Grey"), MAssetManager.getEDTextureSC("Clay_Tiles_0_LightBlue"), MAssetManager.getEDTextureSC("Clay_Tiles_0_Lime"), MAssetManager.getEDTextureSC("Clay_Tiles_0_Magenta"), MAssetManager.getEDTextureSC("Clay_Tiles_0_Orange"), MAssetManager.getEDTextureSC("Clay_Tiles_0_Pink"), MAssetManager.getEDTextureSC("Clay_Tiles_0_Purple"), MAssetManager.getEDTextureSC("Clay_Tiles_0_Red"), MAssetManager.getEDTextureSC("Clay_Tiles_0_Silver"), MAssetManager.getEDTextureSC("Clay_Tiles_0_White"),
 				MAssetManager.getEDTextureSC("Clay_Tiles_0_Yellow") }).setBlockName("clayBlocks4").setHardness(2.0F).setResistance(8.0F);
+		
 		clayPillars = new MBlockMultiPillar(Material.rock, new String[] { MAssetManager.getEDTextureSC("Clay_Pillar_Side_Black"), MAssetManager.getEDTextureSC("Clay_Pillar_Side_Blue"), MAssetManager.getEDTextureSC("Clay_Pillar_Side_Brown"), MAssetManager.getEDTextureSC("Clay_Pillar_Side_Cyan") }, new String[] { MAssetManager.getEDTextureSC("Clay_Pillar_Top_Black"), MAssetManager.getEDTextureSC("Clay_Pillar_Top_Blue"), MAssetManager.getEDTextureSC("Clay_Pillar_Top_Brown"), MAssetManager.getEDTextureSC("Clay_Pillar_Top_Cyan") }).setBlockName("clayPillars").setHardness(2.0F).setResistance(8.0F);
 		clayPillars2 = new MBlockMultiPillar(Material.rock, new String[] { MAssetManager.getEDTextureSC("Clay_Pillar_Side_Green"), MAssetManager.getEDTextureSC("Clay_Pillar_Side_Grey"), MAssetManager.getEDTextureSC("Clay_Pillar_Side_LightBlue"), MAssetManager.getEDTextureSC("Clay_Pillar_Side_Lime") }, new String[] { MAssetManager.getEDTextureSC("Clay_Pillar_Top_Green"), MAssetManager.getEDTextureSC("Clay_Pillar_Top_Grey"), MAssetManager.getEDTextureSC("Clay_Pillar_Top_LightBlue"), MAssetManager.getEDTextureSC("Clay_Pillar_Top_Lime") }).setBlockName("clayPillars2").setHardness(2.0F).setResistance(8.0F);
 		clayPillars3 = new MBlockMultiPillar(Material.rock, new String[] { MAssetManager.getEDTextureSC("Clay_Pillar_Side_Magenta"), MAssetManager.getEDTextureSC("Clay_Pillar_Side_Orange"), MAssetManager.getEDTextureSC("Clay_Pillar_Side_Pink"), MAssetManager.getEDTextureSC("Clay_Pillar_Side_Purple") }, new String[] { MAssetManager.getEDTextureSC("Clay_Pillar_Top_Magenta"), MAssetManager.getEDTextureSC("Clay_Pillar_Top_Orange"), MAssetManager.getEDTextureSC("Clay_Pillar_Top_Pink"), MAssetManager.getEDTextureSC("Clay_Pillar_Top_Purple") }).setBlockName("clayPillars3").setHardness(2.0F).setResistance(8.0F);
 		clayPillars4 = new MBlockMultiPillar(Material.rock, new String[] { MAssetManager.getEDTextureSC("Clay_Pillar_Side_Red"), MAssetManager.getEDTextureSC("Clay_Pillar_Side_Silver"), MAssetManager.getEDTextureSC("Clay_Pillar_Side_White"), MAssetManager.getEDTextureSC("Clay_Pillar_Side_Yellow") }, new String[] { MAssetManager.getEDTextureSC("Clay_Pillar_Top_Red"), MAssetManager.getEDTextureSC("Clay_Pillar_Top_Silver"), MAssetManager.getEDTextureSC("Clay_Pillar_Top_White"), MAssetManager.getEDTextureSC("Clay_Pillar_Top_Yellow") }).setBlockName("clayPillars4").setHardness(2.0F).setResistance(8.0F);
+		
 		clayRoads = new MBlockMultiRoad(Material.rock, new String[] { MAssetManager.getEDTextureSC("Clay_Road_Side_Black"), MAssetManager.getEDTextureSC("Clay_Road_Side_Blue"), MAssetManager.getEDTextureSC("Clay_Road_Side_Brown"), MAssetManager.getEDTextureSC("Clay_Road_Side_Cyan"), MAssetManager.getEDTextureSC("Clay_Road_Side_Green"), MAssetManager.getEDTextureSC("Clay_Road_Side_Grey"), MAssetManager.getEDTextureSC("Clay_Road_Side_LightBlue"), MAssetManager.getEDTextureSC("Clay_Road_Side_Lime"), MAssetManager.getEDTextureSC("Clay_Road_Side_Magenta"), MAssetManager.getEDTextureSC("Clay_Road_Side_Orange"), MAssetManager.getEDTextureSC("Clay_Road_Side_Pink"), MAssetManager.getEDTextureSC("Clay_Road_Side_Purple"), MAssetManager.getEDTextureSC("Clay_Road_Side_Red"), MAssetManager.getEDTextureSC("Clay_Road_Side_Silver"),
 				MAssetManager.getEDTextureSC("Clay_Road_Side_White"), MAssetManager.getEDTextureSC("Clay_Road_Side_Yellow") }, new String[] { MAssetManager.getEDTextureSC("Clay_PatternBricks_0_Black"), MAssetManager.getEDTextureSC("Clay_PatternBricks_0_Blue"), MAssetManager.getEDTextureSC("Clay_PatternBricks_0_Brown"), MAssetManager.getEDTextureSC("Clay_PatternBricks_0_Cyan"), MAssetManager.getEDTextureSC("Clay_PatternBricks_0_Green"), MAssetManager.getEDTextureSC("Clay_PatternBricks_0_Grey"), MAssetManager.getEDTextureSC("Clay_PatternBricks_0_LightBlue"), MAssetManager.getEDTextureSC("Clay_PatternBricks_0_Lime"), MAssetManager.getEDTextureSC("Clay_PatternBricks_0_Magenta"), MAssetManager.getEDTextureSC("Clay_PatternBricks_0_Orange"), MAssetManager.getEDTextureSC("Clay_PatternBricks_0_Pink"), MAssetManager.getEDTextureSC("Clay_PatternBricks_0_Purple"),
 				MAssetManager.getEDTextureSC("Clay_PatternBricks_0_Red"), MAssetManager.getEDTextureSC("Clay_PatternBricks_0_Silver"), MAssetManager.getEDTextureSC("Clay_PatternBricks_0_White"), MAssetManager.getEDTextureSC("Clay_PatternBricks_0_Yellow") }, new String[] { MAssetManager.getEDTexture("grasslessDirt"), MAssetManager.getEDTexture("grasslessDirt"), MAssetManager.getEDTexture("grasslessDirt"), MAssetManager.getEDTexture("grasslessDirt"), MAssetManager.getEDTexture("grasslessDirt"), MAssetManager.getEDTexture("grasslessDirt"), MAssetManager.getEDTexture("grasslessDirt"), MAssetManager.getEDTexture("grasslessDirt"), MAssetManager.getEDTexture("grasslessDirt"), MAssetManager.getEDTexture("grasslessDirt"), MAssetManager.getEDTexture("grasslessDirt"), MAssetManager.getEDTexture("grasslessDirt"), MAssetManager.getEDTexture("grasslessDirt"), MAssetManager.getEDTexture("grasslessDirt"), MAssetManager.getEDTexture("grasslessDirt"),
@@ -380,53 +378,65 @@ public class EDBlocks
 	{
 		GameRegistry.registerTileEntity(TileEntityPlate.class, "Plate");
 		
-		GameRegistry.registerBlock(GlassDoor, "GlassDoor");
+		GameRegistry.registerBlock(stones, MItemBlockMulti.class, "Stones");
+		GameRegistry.registerBlock(Tiles, MItemBlockMulti.class, "tiles");		
+		GameRegistry.registerBlock(checkerTileStairs, "checkerTileStairs");
+		GameRegistry.registerBlock(stonePillar, "stonePillar");
+		
+		GameRegistry.registerBlock(cobbledRoad, "cobbledRoad");
 		GameRegistry.registerBlock(refinedRoad, "refinedRoad");
+		
 		GameRegistry.registerBlock(stoneLamp, MItemBlockMulti.class, "stoneLamp");
 		GameRegistry.registerBlock(edgeStoneBrick, "edgeStoneBrick");
+		
 		GameRegistry.registerBlock(snowBrick, "snowBrick");
-		GameRegistry.registerBlock(endstone, MItemBlockMulti.class, "endstone");
+		
+		GameRegistry.registerBlock(GlassDoor, "GlassDoor");
 		GameRegistry.registerBlock(glassRefined, "glassRefined");
 		GameRegistry.registerBlock(glassRefinedPane, "glassRefinedPane");
+		
 		GameRegistry.registerBlock(gunpowderBlock, "gunpowderBlock");
-		GameRegistry.registerBlock(rope, "rope");
-		GameRegistry.registerItem(itemRope, "itemRope");
-		GameRegistry.registerBlock(ropeCoil, "ropeCoil");
-		GameRegistry.registerBlock(woodPanel, MItemBlockMulti.class, "woodPanel");
-		GameRegistry.registerBlock(woodBeveled, MItemBlockMulti.class, "woodBeveled");
-		GameRegistry.registerBlock(oozeSlime, "oozeSlime");
-		GameRegistry.registerBlock(sandstoneBricks, MItemBlockMulti.class, "sandstoneBricks");
-		GameRegistry.registerBlock(sandstonePillar, "sandstonePillar");
-		GameRegistry.registerBlock(stonePillar, "stonePillar");
-		GameRegistry.registerBlock(woodBoards, MItemBlockMulti.class, "woodBoards");
 		GameRegistry.registerBlock(sugarBlock, "sugarBlock");
 		GameRegistry.registerBlock(meatBlock, "meatBlock");
-		GameRegistry.registerBlock(magmaOoze, "magmaOoze");
 		GameRegistry.registerBlock(enderBlock, "enderBlock");
+		
+		GameRegistry.registerBlock(rope, "rope");
+		GameRegistry.registerBlock(ropeCoil, "ropeCoil");
+		
+		GameRegistry.registerBlock(oozeSlime, "oozeSlime");
+		GameRegistry.registerBlock(magmaOoze, "magmaOoze");
+		
+		
+		GameRegistry.registerBlock(woodBoards, MItemBlockMulti.class, "woodBoards");
+		
 		GameRegistry.registerBlock(crate, "crate");
 		GameRegistry.registerBlock(barrel, "barrel");
 		GameRegistry.registerBlock(cardboard, "cardboard");
 		GameRegistry.registerBlock(cardboardBlock, "cardboardBlock");
+		
+		GameRegistry.registerBlock(infertileDirt, "Infertile Dirt");
+		
+		GameRegistry.registerBlock(sandyRoad, "sandyRoad");
+		GameRegistry.registerBlock(sandstoneRoad, "sandstoneRoad");
+		GameRegistry.registerBlock(gravelRoad, "gravelRoad");
+		GameRegistry.registerBlock(netherroad, "netherroad");
+		GameRegistry.registerBlock(refinedNetherroad, "refinedNetherroad");
+		
+		GameRegistry.registerBlock(woodPanel, MItemBlockMulti.class, "woodPanel");
+		GameRegistry.registerBlock(woodBeveled, MItemBlockMulti.class, "woodBeveled");
+		GameRegistry.registerBlock(woodPlanksMossy, MItemBlockMulti.class, "woodPlanksMossy");
 		GameRegistry.registerBlock(woodBoardsStairsOak, "woodBoardStairsOak");
 		GameRegistry.registerBlock(woodBoardsStairsBirch, "woodBoardStairsBirch");
 		GameRegistry.registerBlock(woodBoardsStairsSpruce, "woodBoardStairsSpruce");
 		GameRegistry.registerBlock(woodBoardsStairsJungle, "woodBoardStairsJungle");
 		GameRegistry.registerBlock(woodBoardsSingleSlab, MItemBlockMulti.class, "woodBoardsSlabSingle");
 		GameRegistry.registerBlock(woodBoardsDoubleSlab, MItemBlockMulti.class, "woodBoardsSlabDouble");
-		GameRegistry.registerBlock(checkerTileStairs, "checkerTileStairs");
-		GameRegistry.registerBlock(stainedBrick, MItemBlockMulti.class, "stainedBrick");
-		GameRegistry.registerBlock(cobbledRoad, "cobbledRoad");
-		GameRegistry.registerBlock(infertileDirt, "Infertile Dirt");
-		GameRegistry.registerBlock(sandyRoad, "sandyRoad");
-		GameRegistry.registerBlock(sandstoneRoad, "sandstoneRoad");
-		GameRegistry.registerBlock(gravelRoad, "gravelRoad");
-		GameRegistry.registerBlock(netherroad, "netherroad");
-		GameRegistry.registerBlock(refinedNetherroad, "refinedNetherroad");
+		
 		GameRegistry.registerBlock(Goblet, MItemBlockMulti.class, "Goblet", "goblet");
 		GameRegistry.registerBlock(Plate, "Plate");
-		GameRegistry.registerBlock(woodPlanksMossy, MItemBlockMulti.class, "woodPlanksMossy");
-		GameRegistry.registerBlock(stones, MItemBlockMulti.class, "Stones");
-		GameRegistry.registerBlock(Tiles, MItemBlockMulti.class, "tiles");
+		
+		GameRegistry.registerBlock(sandstoneBricks, MItemBlockMulti.class, "sandstoneBricks");
+		GameRegistry.registerBlock(sandstonePillar, "sandstonePillar");
 		
 		GameRegistry.registerBlock(bedrockBlocks, MItemBlockMulti.class, "bedrockBlocks");
 		GameRegistry.registerBlock(bedrockLamps, MItemBlockMulti.class, "bedrockLamps");
@@ -435,16 +445,21 @@ public class EDBlocks
 		GameRegistry.registerBlock(bedrockSlabsSingle, MItemBlockSlab.class, "bedrockSlabsSingle", null, bedrockSlabsSingle, bedrockSlabsDouble);
 		GameRegistry.registerBlock(bedrockSlabsDouble, MItemBlockSlab.class, "bedrockSlabsDouble", null, bedrockSlabsSingle, bedrockSlabsDouble);
 		
-		GameRegistry.registerBlock(clayBlocks, MItemBlockMulti.class, "clayBlocks");
-		GameRegistry.registerBlock(clayBlocks2, MItemBlockMulti.class, "clayBlocks2");
-		GameRegistry.registerBlock(clayBlocks3, MItemBlockMulti.class, "clayBlocks3");
-		GameRegistry.registerBlock(clayBlocks4, MItemBlockMulti.class, "clayBlocks4");
+		GameRegistry.registerBlock(stainedBrick, MItemBlockMulti.class, "stainedBrick");
+		
+		GameRegistry.registerBlock(clayBricks, MItemBlockMulti.class, "clayBlocks");
+		GameRegistry.registerBlock(refinedClay, MItemBlockMulti.class, "clayBlocks2");
+		GameRegistry.registerBlock(clayPatternedBricks, MItemBlockMulti.class, "clayBlocks3");
+		GameRegistry.registerBlock(clayTiles, MItemBlockMulti.class, "clayBlocks4");
+		
 		GameRegistry.registerBlock(clayPillars, MItemBlockMulti.class, "clayPillars");
 		GameRegistry.registerBlock(clayPillars2, MItemBlockMulti.class, "clayPillars2");
 		GameRegistry.registerBlock(clayPillars3, MItemBlockMulti.class, "clayPillars3");
 		GameRegistry.registerBlock(clayPillars4, MItemBlockMulti.class, "clayPillars4");
+		
 		GameRegistry.registerBlock(clayRoads, MItemBlockMulti.class, "clayRoads");
 		GameRegistry.registerBlock(clayChiseled, MItemBlockMulti.class, "clayChiseled");
+		
 		GameRegistry.registerBlock(claySlabsSingle, MItemBlockSlab.class, "claySlabsSingle", null, claySlabsSingle, claySlabsDouble);
 		GameRegistry.registerBlock(claySlabsDouble, MItemBlockSlab.class, "claySlabsDouble", null, claySlabsSingle, claySlabsDouble);
 		GameRegistry.registerBlock(claySlabsSingle2, MItemBlockSlab.class, "claySlabsSingle2", null, claySlabsSingle2, claySlabsDouble2);
@@ -462,6 +477,7 @@ public class EDBlocks
 		GameRegistry.registerBlock(claySlabsSingle8, MItemBlockSlab.class, "claySlabsSingle8", null, claySlabsSingle8, claySlabsDouble8);
 		GameRegistry.registerBlock(claySlabsDouble8, MItemBlockSlab.class, "claySlabsDouble8", null, claySlabsSingle8, claySlabsDouble8);
 		
+		GameRegistry.registerBlock(endstone, MItemBlockMulti.class, "endstone");
 		GameRegistry.registerBlock(endstoneBlocks, MItemBlockMulti.class, "endstoneBlocks");
 		GameRegistry.registerBlock(endstonePillars, MItemBlockMulti.class, "endstonePillars");
 		GameRegistry.registerBlock(endstoneRoads, MItemBlockMulti.class, "endstoneRoads");
@@ -518,14 +534,13 @@ public class EDBlocks
 		GameRegistry.registerBlock(redSandstoneRoads, MItemBlockMulti.class, "redSandstoneRoads");
 		GameRegistry.registerBlock(redSandstoneSlabSingle, MItemBlockSlab.class, "redSandstoneSlabSingle", null, redSandstoneSlabSingle, redSandstoneSlabDouble);
 		GameRegistry.registerBlock(redSandstoneSlabDouble, MItemBlockSlab.class, "redSandstoneSlabDouble", null, redSandstoneSlabSingle, redSandstoneSlabDouble);
-		
 	}
 	
 	public static void loadBridgedBlocks() throws Exception
 	{
-		if (Loader.isModLoaded(MReference.MODID_EO))
+		if (Loader.isModLoaded(MReference.EO_MODID))
 		{
-			bedrockBrick = new BlockBedrockBrick().setBlockName("BedrockBrick").setStepSound(Block.soundTypeStone).setResistance(100000000F).setHardness(80F).setCreativeTab(tabDecor).setBlockTextureName(MAssetManager.getEDTextureSC("Bedrock_Bricks_0_0"));
+			bedrockBrick = new BlockBedrockBrick().setBlockName("BedrockBrick").setStepSound(Block.soundTypeStone).setResistance(100000000F).setHardness(80F).setCreativeTab(tabBlocks).setBlockTextureName(MAssetManager.getEDTextureSC("Bedrock_Bricks_0_0"));
 			GameRegistry.registerBlock(bedrockBrick, "BedrockBrick");
 			bedrockBrick.setHarvestLevel("pickaxe", 4);
 		}

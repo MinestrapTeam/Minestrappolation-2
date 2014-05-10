@@ -153,7 +153,7 @@ public class EMDItems
 	public static ToolMaterial	toolMaterialBlaziumH	= EnumHelper.addToolMaterial("ToolBlaziumH", 2, 799, 8.0F, 5, 18);
 	public static ToolMaterial	toolMaterialTitaniumH	= EnumHelper.addToolMaterial("ToolTitaniumH", 4, 2999, 10.0F, 6, 11);
 	
-	public static CreativeTabs	tabItems				= new CreativeTabEMDItems(CreativeTabs.getNextID(), "Extrappolated Mob Drops - Items");
+	public static CreativeTabs	tabItems				= new CreativeTabEMDItems(CreativeTabs.getNextID(), "emd_items");
 	
 	public static void loadItems()
 	{
@@ -325,7 +325,7 @@ public class EMDItems
 	
 	public static void loadBridgedItems() throws Exception
 	{
-		if (Loader.isModLoaded(MReference.MODID_EO))
+		if (Loader.isModLoaded(MReference.EO_MODID))
 		{
 			hornSandstone = new MItemSword(toolMaterialSandstoneH, null).setUnlocalizedName("horned_sandstone_sword").setCreativeTab(tabItems);
 			hornGranite = new MItemSword(toolMaterialGraniteH, null).setUnlocalizedName("horned_granite_sword").setCreativeTab(tabItems);

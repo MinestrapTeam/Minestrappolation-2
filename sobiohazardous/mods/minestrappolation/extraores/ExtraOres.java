@@ -31,27 +31,27 @@ import net.minecraftforge.fluids.FluidRegistry;
 /**
  * @author SoBiohazardous
  */
-@Mod(modid = MReference.MODID_EO, name = MReference.MODNAME_EO, version = MReference.VERSION_EO, dependencies = "required-after:Minestrappolation")
+@Mod(modid = MReference.EO_MODID, name = MReference.EO_NAME, version = MReference.EO_VERSION, dependencies = "required-after:Minestrappolation")
 public class ExtraOres
 {
-	@SidedProxy(clientSide = "sobiohazardous.mods.minestrappolation.extraores.proxy.ClientProxy", serverSide = "sobiohazardous.mods.minestrappolation.extraores.proxy.CommonProxy")
+	@SidedProxy(clientSide = "sobiohazardous.mods.minestrappolation.extraores.client.EOClientProxy", serverSide = "sobiohazardous.mods.minestrappolation.extraores.common.EOCommonProxy")
 	public static EOCommonProxy	proxy;
 	
 	public static CustomRecipeLoader		smelter			= new CustomRecipeLoader("furnace");
 	
-	@Instance(MReference.MODID_EO)
+	@Instance(MReference.EO_MODID)
 	public static ExtraOres		instance;
 	
 	public static Fluid			eoFluid;
 	
-	@Mod.EventHandler
-	public void preLoad(FMLPreInitializationEvent evt)
+	@EventHandler
+	public void preInit(FMLPreInitializationEvent event)
 	{
 		// MinecraftForge.EVENT_BUS.register(new EOBucketHandler());
 		Blocks.bedrock.setHardness(80F);
 		eoFluid = new Fluid("EO Fluid").setViscosity(6500).setDensity(3);
 		FluidRegistry.registerFluid(eoFluid);
-		EOConfig.init(evt);
+		EOConfig.init(event);
 		
 		// Lib adding
 		this.smelter.load();
@@ -91,7 +91,7 @@ public class ExtraOres
 	}
 	
 	@EventHandler
-	public void postInit(FMLPostInitializationEvent evt)
+	public void postInit(FMLPostInitializationEvent event)
 	{
 		EOBlocks.addSlabs();
 	}

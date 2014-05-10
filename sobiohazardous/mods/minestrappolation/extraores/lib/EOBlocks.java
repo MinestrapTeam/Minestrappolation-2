@@ -219,8 +219,6 @@ public class EOBlocks
 		GameRegistry.registerBlock(Sunstone, "blockSunstone");
 		SunstoneOre = new BlockSunstoneOre().setHardness(7F).setResistance(11F).setStepSound(Block.soundTypeStone).setCreativeTab(tabOresBlocks).setBlockName("oreSunstone").setBlockTextureName(MAssetManager.getEOTexture("oreSunstone")).setLightLevel(1F);
 		GameRegistry.registerBlock(SunstoneOre, "oreSunstone");
-		// Old Sunstone Ore code: SunstoneOre = (new BlockSunstoneOre(212,
-		// 40)).setHardness(7F).setStepSound(Block.soundStoneFootstep).setCreativeTab(ExtraOres.tabExtra).setLightLevel(1.0F).setBlockName("Sunstone Ore");
 		
 		ToriteOre = new EOBlock(Material.rock).setHardness(7F).setResistance(11F).setStepSound(Block.soundTypeStone).setCreativeTab(tabOresBlocks).setBlockName("oreTorite").setBlockTextureName(MAssetManager.getEOTexture("oreTorite"));
 		GameRegistry.registerBlock(ToriteOre, "oreTorite");

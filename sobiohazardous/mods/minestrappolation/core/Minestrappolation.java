@@ -18,13 +18,13 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 
-@Mod(modid = MReference.MODID_MAPI, name = MReference.MODNAME_MAPI, version = MReference.VERSION_MAPI, dependencies = "required-after:" + BrewingAPI.MODID)
+@Mod(modid = MReference.MAPI_MODID, name = MReference.MAPI_NAME, version = MReference.MAPI_VERSION, dependencies = "required-after:" + BrewingAPI.MODID)
 public class Minestrappolation
 {
-	@Instance(MReference.MODID_MAPI)
+	@Instance(MReference.MAPI_MODID)
 	public static Minestrappolation	instance;
 	
-	@SidedProxy(modId = MReference.MODID_MAPI, clientSide = "sobiohazardous.mods.minestrappolation.core.client.MClientProxy", serverSide = "sobiohazardous.mods.minestrappolation.core.common.MCommonProxy")
+	@SidedProxy(modId = MReference.MAPI_MODID, clientSide = "sobiohazardous.mods.minestrappolation.core.client.MClientProxy", serverSide = "sobiohazardous.mods.minestrappolation.core.common.MCommonProxy")
 	public static MCommonProxy		proxy;
 	
 	public static CreativeTabs		creativeTabStone	= new MCreativeTabStone(CreativeTabs.getNextID(), "minestrap_stone");

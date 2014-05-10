@@ -12,7 +12,7 @@ import net.minecraft.util.ResourceLocation;
 public class RenderPlate extends TileEntitySpecialRenderer
 {
 	
-	ResourceLocation	texture	= new ResourceLocation(MReference.MODID_ED + ":textures/blocks/model/plate.png");
+	ResourceLocation	texture	= new ResourceLocation(MReference.ED_MODID + ":textures/blocks/model/plate.png");
 	
 	private ModelPlate	model;
 	
