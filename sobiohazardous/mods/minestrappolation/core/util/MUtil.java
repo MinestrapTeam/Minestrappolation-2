@@ -131,6 +131,51 @@ public class MUtil
 		world.spawnParticle("portal", posX, posY, posZ, velocityX, velocityY, velocityZ);
 	}
 	
+	public static void spawnParticle2(World world, int x, int y, int z, Random random, String name)
+	{
+		for (int i = 0; i < 6; i++)
+		{
+			double x1 = x + random.nextFloat();
+			double y1 = y + random.nextFloat();
+			double z1 = z + random.nextFloat();
+			
+			if (i == 0 && !world.isBlockNormalCubeDefault(x, y + 1, z, true))
+			{
+				y1 = y + 1.0625D;
+			}
+			
+			if (i == 1 && !world.isBlockNormalCubeDefault(x, y - 1, z, true))
+			{
+				y1 = y - 0.0625D;
+			}
+			
+			if (i == 2 && !world.isBlockNormalCubeDefault(x, y, z + 1, true))
+			{
+				z1 = z + 1.0625D;
+			}
+			
+			if (i == 3 && !world.isBlockNormalCubeDefault(x, y, z - 1, true))
+			{
+				z1 = z - 0.0625D;
+			}
+			
+			if (i == 4 && !world.isBlockNormalCubeDefault(x + 1, y, z, true))
+			{
+				x1 = x + 1.0625D;
+			}
+			
+			if (i == 5 && !world.isBlockNormalCubeDefault(x - 1, y, z, true))
+			{
+				x1 = x - 0.0625D;
+			}
+			
+			if (x1 < x || x1 > x + 1 || y1 < 0.0D || y1 > y + 1 || z1 < z || z1 > z + 1)
+			{
+				world.spawnParticle(name, x1, y1, z1, 0.0D, 0.0D, 0.0D);
+			}
+		}
+	}
+	
 	/**
 	 * Removes a vanilla recipe based on the result item and amount.
 	 * 
