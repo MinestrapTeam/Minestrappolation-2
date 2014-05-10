@@ -29,101 +29,78 @@ public class BlockBlazium extends MBlock
 		this.blockIcon = iconRegister.registerIcon(MAssetManager.getEOTexture("blockBlazium"));
 	}
 	
-	/**
-	 * Returns the ID of the items to drop on destruction.
-	 */
 	@Override
-	public Item getItemDropped(int par1, Random par2Random, int par3)
+	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
 		return Item.getItemFromBlock(EOBlocks.BlaziumBlock);
 	}
 	
-	/**
-	 * Returns the quantity of items to drop on block destruction.
-	 */
 	@Override
-	public int quantityDropped(Random par1Random)
+	public int quantityDropped(Random random)
 	{
 		return 1;
 	}
 	
 	@Override
-	public int quantityDroppedWithBonus(int par1, Random par2Random)
+	public int quantityDroppedWithBonus(int fortune, Random random)
 	{
-		if (par1 > 0 && this != Block.getBlockFromItem(this.getItemDropped(0, par2Random, par1)))
+		if (fortune > 0 && this != Block.getBlockFromItem(this.getItemDropped(0, random, fortune)))
 		{
-			int var3 = par2Random.nextInt(par1 + 2) - 1;
+			int multiplier = random.nextInt(fortune + 2);
 			
-			if (var3 < 0)
-			{
-				var3 = 0;
-			}
-			
-			return this.quantityDropped(par2Random) * (var3 + 1);
+			return this.quantityDropped(random) * multiplier;
 		}
 		else
 		{
-			return this.quantityDropped(par2Random);
+			return this.quantityDropped(random);
 		}
 	}
 	
-	/**
-	 * Determines the damage on the item the block drops. Used in cloth and
-	 * wood.
-	 */
 	@Override
-	public int damageDropped(int par1)
-	{
-		return 0;
-	}
-	
-	// code to create fire particles
-	@Override
-	public void randomDisplayTick(World par1World, int par2, int par3, int par4, Random par5Random)
+	public void randomDisplayTick(World world, int x, int y, int z, Random random)
 	{
 		for (int var5 = 0; var5 < 3; ++var5)
 		{
-			float var7 = par2 + 0.5F;
-			float var8 = par3 + 0.0F + par5Random.nextFloat() * 16.0F / 16.0F;
-			float var9 = par4 + 0.5F;
-			float var10 = 0.52F;
-			float var11 = par5Random.nextFloat() * 0.6F - 0.3F;
+			float x1 = x + 0.5F;
+			float y1 = y + random.nextFloat();
+			float z1 = z + 0.5F;
+			float f = random.nextFloat() * 0.6F - 0.3F;
+			float x2 = x1 + f;
+			float z2 = z1 + f;
 			
-			par1World.spawnParticle("smoke", var7 - var10, var8, var9 + var11, 0.0D, 0.0D, 0.0D);
-			par1World.spawnParticle("flame", var7 - var10, var8, var9 + var11, 0.0D, 0.0D, 0.0D);
-			par1World.spawnParticle("smoke", var7 + var10, var8, var9 + var11, 0.0D, 0.0D, 0.0D);
-			par1World.spawnParticle("flame", var7 + var10, var8, var9 + var11, 0.0D, 0.0D, 0.0D);
-			par1World.spawnParticle("smoke", var7 + var11, var8, var9 - var10, 0.0D, 0.0D, 0.0D);
-			par1World.spawnParticle("flame", var7 + var11, var8, var9 - var10, 0.0D, 0.0D, 0.0D);
-			par1World.spawnParticle("smoke", var7 + var11, var8, var9 + var10, 0.0D, 0.0D, 0.0D);
-			par1World.spawnParticle("flame", var7 + var11, var8, var9 + var10, 0.0D, 0.0D, 0.0D);
+			world.spawnParticle("smoke", x1 - 0.52F, y1, z2, 0.0D, 0.0D, 0.0D);
+			world.spawnParticle("flame", x1 - 0.52F, y1, z2, 0.0D, 0.0D, 0.0D);
+			world.spawnParticle("smoke", x1 + 0.52F, y1, z2, 0.0D, 0.0D, 0.0D);
+			world.spawnParticle("flame", x1 + 0.52F, y1, z2, 0.0D, 0.0D, 0.0D);
+			world.spawnParticle("smoke", x2, y1, z1 - 0.52F, 0.0D, 0.0D, 0.0D);
+			world.spawnParticle("flame", x2, y1, z1 - 0.52F, 0.0D, 0.0D, 0.0D);
+			world.spawnParticle("smoke", x2, y1, z1 + 0.52F, 0.0D, 0.0D, 0.0D);
+			world.spawnParticle("flame", x2, y1, z1 + 0.52F, 0.0D, 0.0D, 0.0D);
 		}
 	}
 	
 	// code for Blaze-Summoning (Place blazium block over fire)
 	@Override
-	public void onBlockAdded(World par1World, int par2, int par3, int par4)
+	public void onBlockAdded(World world, int x, int y, int z)
 	{
-		super.onBlockAdded(par1World, par2, par3, par4);
+		super.onBlockAdded(world, x, y, z);
 		
-		if (par1World.getBlock(par2, par3 - 1, par4) == Blocks.fire)
+		if (!world.isRemote)
 		{
-			if (!par1World.isRemote)
+			if (world.getBlock(x, y - 1, z) == Blocks.fire)
 			{
-				par1World.setBlock(par2, par3, par4, Blocks.air);
-				par1World.setBlock(par2, par3 - 1, par4, Blocks.air);
-				par1World.setBlock(par2, par3 - 2, par4, Blocks.air);
-				EntityBlaze var9 = new EntityBlaze(par1World);
-				var9.setLocationAndAngles(par2 + 0.5D, par3 - 1.95D, par4 + 0.5D, 0.0F, 0.0F);
-				par1World.spawnEntityInWorld(var9);
-				par1World.notifyBlockChange(par2, par3, par4, Blocks.air);
-				par1World.notifyBlockChange(par2, par3 - 1, par4, Blocks.air);
-				par1World.notifyBlockChange(par2, par3 - 2, par4, Blocks.air);
-			}
-			
-			for (int var10 = 0; var10 < 120; ++var10)
-			{
-				par1World.spawnParticle("smoke", par2 + par1World.rand.nextDouble(), par3 - 2 + par1World.rand.nextDouble() * 2.5D, par4 + par1World.rand.nextDouble(), 0.0D, 0.0D, 0.0D);
+				world.setBlock(x, y, z, Blocks.air);
+				world.setBlock(x, y - 1, z, Blocks.air);
+				world.setBlock(x, y - 2, z, Blocks.air);
+				
+				EntityBlaze blaze = new EntityBlaze(world);
+				blaze.setLocationAndAngles(x + 0.5D, y - 1.95D, z + 0.5D, 0.0F, 0.0F);
+				world.spawnEntityInWorld(blaze);
+				
+				for (int i = 0; i < 120; ++i)
+				{
+					world.spawnParticle("smoke", x + world.rand.nextDouble(), y - 2 + world.rand.nextDouble() * 2.5D, z + world.rand.nextDouble(), 0.0D, 0.0D, 0.0D);
+				}
 			}
 		}
 	}
@@ -131,6 +108,6 @@ public class BlockBlazium extends MBlock
 	@Override
 	public boolean isBeaconBase(IBlockAccess worldObj, int x, int y, int z, int beaconX, int beaconY, int beaconZ)
 	{
-		return this == Blocks.emerald_block || this == Blocks.gold_block || this == Blocks.diamond_block || this == Blocks.iron_block || this == EOBlocks.BlaziumBlock;
+		return true;
 	}
 }

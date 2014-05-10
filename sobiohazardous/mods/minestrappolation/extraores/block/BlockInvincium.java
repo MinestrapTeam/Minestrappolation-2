@@ -1,32 +1,32 @@
 package sobiohazardous.mods.minestrappolation.extraores.block;
 
-import net.minecraft.block.material.Material;
-import net.minecraft.entity.Entity;
-import net.minecraft.world.World;
 import sobiohazardous.mods.minestrappolation.core.block.MBlock;
 import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlocks;
 
+import net.minecraft.block.material.Material;
+import net.minecraft.entity.Entity;
+import net.minecraft.world.World;
+
 public class BlockInvincium extends MBlock
 {
-	public BlockInvincium(Material par2Material)
+	public BlockInvincium(Material material)
 	{
-		super(par2Material);
+		super(material);
 		this.setCreativeTab(EOBlocks.tabOresBlocks);
-		
 	}
 	
 	@Override
-	public void onEntityWalking(World par1World, int par2, int par3, int par4, Entity par5Entity)
+	public void onEntityWalking(World world, int x, int y, int z, Entity entity)
 	{
-		super.onEntityWalking(par1World, par2, par3, par4, par5Entity);
-		par5Entity.setFire(15);
+		super.onEntityWalking(world, x, y, z, entity);
+		entity.setFire(15);
 	}
 	
 	@Override
-	public void onEntityCollidedWithBlock(World par1World, int par2, int par3, int par4, Entity par5Entity)
+	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
 	{
-		super.onEntityCollidedWithBlock(par1World, par2, par3, par4, par5Entity);
-		par5Entity.setFire(15);
+		super.onEntityCollidedWithBlock(world, x, y, z, entity);
+		entity.setFire(15);
 	}
 	
 }

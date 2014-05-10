@@ -15,22 +15,20 @@ import net.minecraft.world.World;
 
 public class BlockPlate extends MBlock
 {
-	protected static BlockPlate	plate;
-	
 	public BlockPlate()
 	{
 		super(Material.circuits);
 		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);
 	}
 	
-	public static final boolean isRailBlockAt(World par0World, int par1, int par2, int par3)
+	public static boolean isRailBlockAt(World world, int x, int y, int z)
 	{
-		Block i = par0World.getBlock(par1, par2, par3);
-		return i == EOBlocks.TinPlate || i == EOBlocks.BronzePlate || i == EOBlocks.SteelPlate || i == EOBlocks.meuroditePlate;
+		Block block = world.getBlock(x, y, z);
+		return block == EOBlocks.TinPlate || block == EOBlocks.BronzePlate || block == EOBlocks.SteelPlate || block == EOBlocks.meuroditePlate;
 	}
 	
 	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int par2, int par3, int i)
+	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int i)
 	{
 		return null;
 	}
