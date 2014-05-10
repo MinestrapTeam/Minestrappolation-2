@@ -5,28 +5,70 @@ import net.minecraft.tileentity.TileEntity;
 
 public class TileEntityLocked extends TileEntity
 {
-	public static String	player	= "";
-	public static boolean	locked	= false;
+	protected boolean	locked;
+	protected String	player;
+	
+	protected TileEntity parent;
 	
 	@Override
-	public void readFromNBT(NBTTagCompound par1NBTTagCompound)
+	public void readFromNBT(NBTTagCompound nbt)
 	{
-		super.readFromNBT(par1NBTTagCompound);
-		TileEntityLocked.player = par1NBTTagCompound.getString("player");
-		TileEntityLocked.locked = par1NBTTagCompound.getBoolean("locked");
+		super.readFromNBT(nbt);
+		this.player = nbt.getString("player");
+		this.locked = nbt.getBoolean("locked");
+		
+		if (nbt.hasKey("TileEntity"))
+		{
+			this.parent = TileEntity.createAndLoadEntity(nbt.getCompoundTag("TileEntity"));
+		}
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound par1NBTTagCompound)
+	public void writeToNBT(NBTTagCompound nbt)
 	{
-		super.writeToNBT(par1NBTTagCompound);
-		par1NBTTagCompound.setString("player", player);
-		par1NBTTagCompound.setBoolean("locked", locked);
+		super.writeToNBT(nbt);
+		nbt.setString("player", player);
+		nbt.setBoolean("locked", locked);
+		if (this.parent != null)
+		{
+			NBTTagCompound nbt1 = new NBTTagCompound();
+			this.parent.writeToNBT(nbt1);
+			nbt.setTag("TileEntity", nbt1);
+		}
+	}
+	
+	public void setParent(TileEntity parent)
+	{
+		this.parent = parent;
+	}
+	
+	public TileEntity getParent()
+	{
+		return this.parent;
 	}
 	
 	public void setPlayer(String name)
 	{
-		TileEntityLocked.player = name;
+		this.player = name;
 	}
 	
+	public String getPlayer()
+	{
+		return this.player;
+	}
+	
+	public void lock()
+	{
+		this.locked = true;
+	}
+	
+	public void unlock()
+	{
+		this.locked = false;
+	}
+	
+	public boolean isLocked()
+	{
+		return this.locked;
+	}
 }

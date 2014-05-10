@@ -1,17 +1,14 @@
 package sobiohazardous.mods.minestrappolation.extraores.item;
 
-import java.util.List;
-
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.EnumChatFormatting;
-import net.minecraft.world.World;
-import sobiohazardous.mods.minestrappolation.core.item.MItem;
 import sobiohazardous.mods.minestrappolation.core.util.MChatMessageHandler;
 import sobiohazardous.mods.minestrappolation.extraores.tileentity.TileEntityLocked;
 
-public class ItemLock extends MItem
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
+
+public class ItemLock extends ItemKey
 {
 	public ItemLock()
 	{
@@ -19,64 +16,44 @@ public class ItemLock extends MItem
 	}
 	
 	@Override
-	public boolean onItemUse(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, World par3World, int par4, int par5, int par6, int par7, float par8, float par9, float par10)
+	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
 	{
-		TileEntityLocked te = (TileEntityLocked) par3World.getTileEntity(par4, par5, par6);
-		
-		if (par1ItemStack.stackTagCompound == null)
+		if (stack.stackTagCompound == null)
 		{
-			ItemLock.createNBT(par1ItemStack, par2EntityPlayer);
+			createNBT(stack, player);
 		}
 		
-		if (te != null && par1ItemStack.stackTagCompound != null && TileEntityLocked.locked == false)
+		TileEntity te = world.getTileEntity(x, y, z);
+		if (te instanceof TileEntityLocked)
 		{
-			TileEntityLocked.player = par1ItemStack.stackTagCompound.getString("player");
-			TileEntityLocked.locked = true;
-			MChatMessageHandler.sendChatToPlayer(par2EntityPlayer, "Lock added!");
-			par1ItemStack.stackSize--;
-			return true;
+			String name = stack.stackTagCompound.getString("player");
+			TileEntityLocked locked = (TileEntityLocked) te;
+			
+			if (name.equals(locked.getPlayer()))
+			{
+				if (locked.isLocked())
+				{
+					locked.unlock();
+					MChatMessageHandler.sendChatToPlayer(player, "Already locked!");
+				}
+				else
+				{
+					locked.lock();
+					stack.stackSize--;
+					MChatMessageHandler.sendChatToPlayer(player, "Lock added!");
+				}
+				return true;
+			}
+			else
+			{
+				MChatMessageHandler.sendChatToPlayer(player, "This is not your lock!");
+			}
 		}
-		
-		if (te != null && TileEntityLocked.locked)
-		{
-			MChatMessageHandler.sendChatToPlayer(par2EntityPlayer, "Already locked!");
-		}
-		
 		else
 		{
-			MChatMessageHandler.sendChatToPlayer(par2EntityPlayer, "Not applicable for a lock!");
+			MChatMessageHandler.sendChatToPlayer(player, "Not applicable for a lock!");
 		}
 		
 		return false;
-	}
-	
-	@Override
-	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)
-	{
-		if (par1ItemStack.stackTagCompound == null)
-		{
-			ItemLock.createNBT(par1ItemStack, par2EntityPlayer);
-		}
-		
-		if (par1ItemStack.stackTagCompound != null)
-		{
-			if (par2EntityPlayer.getDisplayName() != par1ItemStack.stackTagCompound.getString("player"))
-			{
-				par3List.add(EnumChatFormatting.GRAY + "Owner: " + EnumChatFormatting.RED + par1ItemStack.stackTagCompound.getString("player"));
-			}
-			
-			if (par2EntityPlayer.getDisplayName() == par1ItemStack.stackTagCompound.getString("player"))
-			{
-				par3List.add(EnumChatFormatting.GRAY + "Owner: " + EnumChatFormatting.GREEN + par1ItemStack.stackTagCompound.getString("player"));
-			}
-		}
-		par3List.add(EnumChatFormatting.RED + "WIP");
-	}
-	
-	public static void createNBT(ItemStack item, EntityPlayer player)
-	{
-		NBTTagCompound nbt = new NBTTagCompound();
-		item.stackTagCompound = nbt;
-		nbt.setString("player", player.getDisplayName());
 	}
 }

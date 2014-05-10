@@ -8,7 +8,7 @@ public class EOConfig
 	public static boolean	shouldOresEffect	= true;
 	public static int		daysUntilTarnish;
 	
-	public static void initilize(FMLPreInitializationEvent event)
+	public static void init(FMLPreInitializationEvent event)
 	{
 		Configuration config = new Configuration(event.getSuggestedConfigurationFile());
 		config.load();
@@ -18,5 +18,4 @@ public class EOConfig
 		
 		config.save();
 	}
-	
 }

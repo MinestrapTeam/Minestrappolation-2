@@ -19,32 +19,30 @@ public class ItemSoulBottle extends Item
 	}
 	
 	@Override
-	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par2EntityPlayer)
+	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
 	{
-		if (par2EntityPlayer.experienceTotal >= 20)
+		if (player.experienceTotal >= 20)
 		{
-			par2EntityPlayer.addExperience(-20);
-			--par1ItemStack.stackSize;
+			player.addExperience(-20);
+			--stack.stackSize;
 			
-			if (par1ItemStack.stackSize <= 0)
+			if (stack.stackSize <= 0)
 			{
 				return new ItemStack(Items.experience_bottle);
 			}
-			
-			if (!par2EntityPlayer.inventory.addItemStackToInventory(new ItemStack(Items.experience_bottle)))
+			else if (!player.inventory.addItemStackToInventory(new ItemStack(Items.experience_bottle)))
 			{
-				par2EntityPlayer.dropItem(Items.experience_bottle, 1);
+				player.dropItem(Items.experience_bottle, 1);
 			}
 		}
-		System.out.println(par2EntityPlayer.experience);
-		return par1ItemStack;
+		return stack;
 		
 	}
 	
 	@Override
-	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean flag)
 	{
-		par3List.add(EnumChatFormatting.RED + "WIP");
+		list.add(EnumChatFormatting.RED + "WIP");
 	}
 	
 }

@@ -2,14 +2,16 @@ package sobiohazardous.mods.minestrappolation.extraores.item;
 
 import java.util.List;
 
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.EnumChatFormatting;
-import net.minecraft.world.World;
 import sobiohazardous.mods.minestrappolation.core.item.MItem;
 import sobiohazardous.mods.minestrappolation.core.util.MChatMessageHandler;
 import sobiohazardous.mods.minestrappolation.extraores.tileentity.TileEntityLocked;
+
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.world.World;
 
 public class ItemKey extends MItem
 {
@@ -19,55 +21,67 @@ public class ItemKey extends MItem
 	}
 	
 	@Override
-	public void onCreated(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
+	public void onCreated(ItemStack stack, World world, EntityPlayer player)
 	{
-		if (par1ItemStack.stackTagCompound == null)
+		if (stack.stackTagCompound == null)
 		{
-			ItemKey.createNBT(par1ItemStack, par3EntityPlayer);
+			ItemKey.createNBT(stack, player);
 		}
 	}
 	
 	@Override
-	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean flag)
 	{
-		if (par1ItemStack.stackTagCompound == null)
+		if (stack.stackTagCompound == null)
 		{
-			ItemKey.createNBT(par1ItemStack, par2EntityPlayer);
+			ItemKey.createNBT(stack, player);
 		}
-		
-		if (par1ItemStack.stackTagCompound != null)
+		String name = stack.stackTagCompound.getString("player");
+		if (player.getDisplayName().equals(name))
 		{
-			if (par2EntityPlayer.getDisplayName() != par1ItemStack.stackTagCompound.getString("player"))
-			{
-				par3List.add(EnumChatFormatting.GRAY + "Owner: " + EnumChatFormatting.RED + par1ItemStack.stackTagCompound.getString("player"));
-			}
-			
-			if (par2EntityPlayer.getDisplayName() == par1ItemStack.stackTagCompound.getString("player"))
-			{
-				par3List.add(EnumChatFormatting.GRAY + "Owner: " + EnumChatFormatting.GREEN + par1ItemStack.stackTagCompound.getString("player"));
-			}
-		}
-		par3List.add(EnumChatFormatting.RED + "WIP");
-	}
-	
-	@Override
-	public boolean onItemUse(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, World par3World, int par4, int par5, int par6, int par7, float par8, float par9, float par10)
-	{
-		TileEntityLocked te = (TileEntityLocked) par3World.getTileEntity(par4, par5, par6);
-		
-		if (par1ItemStack.stackTagCompound == null)
-		{
-			ItemKey.createNBT(par1ItemStack, par2EntityPlayer);
-		}
-		
-		if (te != null && par1ItemStack.stackTagCompound != null && TileEntityLocked.locked == true)
-		{
-			// unlock
-			return true;
+			list.add(EnumChatFormatting.GRAY + "Owner: " + EnumChatFormatting.GREEN + name);
 		}
 		else
 		{
-			MChatMessageHandler.sendChatToPlayer(par2EntityPlayer, "Not locked or not valid for lock.");
+			list.add(EnumChatFormatting.GRAY + "Owner: " + EnumChatFormatting.RED + name);
+		}
+		
+		list.add(EnumChatFormatting.RED + "WIP");
+	}
+	
+	@Override
+	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
+	{
+		if (stack.stackTagCompound == null)
+		{
+			ItemKey.createNBT(stack, player);
+		}
+		
+		TileEntity te = world.getTileEntity(x, y, z);
+		if (te instanceof TileEntityLocked)
+		{
+			String name = stack.stackTagCompound.getString("player");
+			TileEntityLocked locked = (TileEntityLocked) te;
+			if (name.equals(locked.getPlayer()))
+			{
+				if (locked.isLocked())
+				{
+					locked.unlock();
+				}
+				else
+				{
+					locked.lock();
+				}
+				return true;
+			}
+			else
+			{
+				MChatMessageHandler.sendChatToPlayer(player, "This is not your lock!");
+			}
+		}
+		else
+		{
+			MChatMessageHandler.sendChatToPlayer(player, "Not locked or not valid for lock.");
 		}
 		
 		return false;

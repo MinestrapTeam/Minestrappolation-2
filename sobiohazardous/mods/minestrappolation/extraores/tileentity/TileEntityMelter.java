@@ -1,58 +1,37 @@
 package sobiohazardous.mods.minestrappolation.extraores.tileentity;
 
-import sobiohazardous.mods.minestrappolation.extraores.MelterRecipes;
 import sobiohazardous.mods.minestrappolation.extraores.block.BlockMelter;
+import sobiohazardous.mods.minestrappolation.extraores.crafting.MelterRecipes;
 import sobiohazardous.mods.minestrappolation.extraores.lib.EOItems;
-import sobiohazardous.mods.minestrappolation.extraores.lib.ModdedMelterRecipeLoader;
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
+import clashsoft.cslib.minecraft.tileentity.TileEntityInventory;
+
 import net.minecraft.init.Items;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
-import net.minecraft.tileentity.TileEntity;
+import net.minecraft.tileentity.TileEntityFurnace;
 
-public class TileEntityMelter extends TileEntity implements ISidedInventory
+public class TileEntityMelter extends TileEntityInventory implements ISidedInventory
 {
-	private ItemStack			goldItemStacks[];
-	
-	/** The number of ticks that the furnace will keep burning */
-	public int					goldBurnTime;
-	
-	public static boolean		isActive;
-	
-	public static boolean		hasPower;
-	
-	ModdedMelterRecipeLoader	meltr			= new ModdedMelterRecipeLoader();
-	
-	/**
-	 * The number of ticks that a fresh copy of the currently-burning item would
-	 * keep the furnace burning for
-	 */
-	public int					goldItemBurnTime;
-	
-	/** The number of ticks that the current item has been cooking for */
-	public int					goldCookTime;
-	
+	public int					burnTime;
+	public int					maxBurnTime;
+	public int					meltTime;
 	public int					front;
 	
-	public static boolean		hasBucket;
+	public boolean				hasPower;
+	public boolean				hasBucket;
 	
-	private static final int[]	field_145962_k	= new int[] { 0 };
-	private static final int[]	field_145959_l	= new int[] { 2, 1 };
-	private static final int[]	field_145960_m	= new int[] { 1 };
+	private static final int[]	topInputSlot	= new int[] { 0 };
+	private static final int[]	outputSlots		= new int[] { 2, 1 };
+	private static final int[]	inputSlots		= new int[] { 1 };
 	
 	public TileEntityMelter()
 	{
-		this.goldItemStacks = new ItemStack[4];
-		this.goldBurnTime = 0;
-		this.goldItemBurnTime = 0;
-		this.goldCookTime = 0;
+		super(4);
+		this.burnTime = 0;
+		this.maxBurnTime = 0;
+		this.meltTime = 0;
 		hasPower = false;
 	}
 	
@@ -66,569 +45,240 @@ public class TileEntityMelter extends TileEntity implements ISidedInventory
 		return this.front;
 	}
 	
-	/**
-	 * Returns the number of slots in the inventory.
-	 */
 	@Override
 	public int getSizeInventory()
 	{
-		return this.goldItemStacks.length;
+		return 4;
 	}
 	
-	/**
-	 * Returns the stack in slot i
-	 */
 	@Override
-	public ItemStack getStackInSlot(int par1)
+	public void readFromNBT(NBTTagCompound nbt)
 	{
-		return this.goldItemStacks[par1];
-	}
-	
-	/**
-	 * Decrease the size of the stack in slot (first int arg) by the amount of
-	 * the second int arg. Returns the new stack.
-	 */
-	@Override
-	public ItemStack decrStackSize(int par1, int par2)
-	{
-		if (this.goldItemStacks[par1] != null)
-		{
-			if (this.goldItemStacks[par1].stackSize <= par2)
-			{
-				ItemStack itemstack = this.goldItemStacks[par1];
-				this.goldItemStacks[par1] = null;
-				return itemstack;
-			}
-			
-			ItemStack itemstack1 = this.goldItemStacks[par1].splitStack(par2);
-			
-			if (this.goldItemStacks[par1].stackSize == 0)
-			{
-				this.goldItemStacks[par1] = null;
-			}
-			
-			return itemstack1;
-		}
-		else
-		{
-			return null;
-		}
-	}
-	
-	/**
-	 * When some containers are closed they call this on each slot, then drop
-	 * whatever it returns as an EntityItem - like when you close a workbench
-	 * GUI.
-	 */
-	@Override
-	public ItemStack getStackInSlotOnClosing(int par1)
-	{
-		if (this.goldItemStacks[par1] != null)
-		{
-			ItemStack itemstack = this.goldItemStacks[par1];
-			this.goldItemStacks[par1] = null;
-			return itemstack;
-		}
-		else
-		{
-			return null;
-		}
-	}
-	
-	/**
-	 * Sets the given item stack to the specified slot in the inventory (can be
-	 * crafting or armor sections).
-	 */
-	@Override
-	public void setInventorySlotContents(int par1, ItemStack par2ItemStack)
-	{
-		this.goldItemStacks[par1] = par2ItemStack;
+		super.readFromNBT(nbt);
 		
-		if (par2ItemStack != null && par2ItemStack.stackSize > this.getInventoryStackLimit())
-		{
-			par2ItemStack.stackSize = this.getInventoryStackLimit();
-		}
-	}
-	
-	/**
-	 * Reads a tile entity from NBT.
-	 */
-	@Override
-	public void readFromNBT(NBTTagCompound par1NBTTagCompound)
-	{
-		super.readFromNBT(par1NBTTagCompound);
-		NBTTagList nbttaglist = par1NBTTagCompound.getTagList("Items", 10);
-		this.goldItemStacks = new ItemStack[this.getSizeInventory()];
-		
-		for (int i = 0; i < nbttaglist.tagCount(); i++)
-		{
-			NBTTagCompound nbttagcompound = nbttaglist.getCompoundTagAt(i);
-			byte byte0 = nbttagcompound.getByte("Slot");
-			
-			if (byte0 >= 0 && byte0 < this.goldItemStacks.length)
-			{
-				this.goldItemStacks[byte0] = ItemStack.loadItemStackFromNBT(nbttagcompound);
-			}
-		}
-		
-		this.front = par1NBTTagCompound.getInteger("FrontDirection");
-		this.goldBurnTime = par1NBTTagCompound.getShort("BurnTime");
-		this.goldCookTime = par1NBTTagCompound.getShort("CookTime");
-		this.goldItemBurnTime = getItemBurnTime(this.goldItemStacks[1]);
-		hasPower = par1NBTTagCompound.getBoolean("hasPower");
-		
-		System.out.println("front:" + this.front);
+		this.front = nbt.getInteger("FrontDirection");
+		this.burnTime = nbt.getShort("BurnTime");
+		this.meltTime = nbt.getShort("CookTime");
+		this.maxBurnTime = getItemBurnTime(this.itemStacks[1]);
+		this.hasPower = nbt.getBoolean("hasPower");
 	}
 	
 	public boolean isPowered()
 	{
-		return TileEntityMelter.hasPower;
+		return this.hasPower;
 	}
 	
-	/**
-	 * Writes a tile entity to NBT.
-	 */
 	@Override
-	public void writeToNBT(NBTTagCompound par1NBTTagCompound)
+	public void writeToNBT(NBTTagCompound nbt)
 	{
-		super.writeToNBT(par1NBTTagCompound);
-		par1NBTTagCompound.setInteger("FrontDirection", this.front);
-		par1NBTTagCompound.setShort("BurnTime", (short) this.goldBurnTime);
-		par1NBTTagCompound.setShort("CookTime", (short) this.goldCookTime);
-		par1NBTTagCompound.setBoolean("hasPower", hasPower);
+		super.writeToNBT(nbt);
 		
-		NBTTagList nbttaglist = new NBTTagList();
-		
-		for (int i = 0; i < this.goldItemStacks.length; i++)
-		{
-			if (this.goldItemStacks[i] != null)
-			{
-				NBTTagCompound nbttagcompound = new NBTTagCompound();
-				nbttagcompound.setByte("Slot", (byte) i);
-				this.goldItemStacks[i].writeToNBT(nbttagcompound);
-				nbttaglist.appendTag(nbttagcompound);
-			}
-		}
-		
-		par1NBTTagCompound.setTag("Items", nbttaglist);
+		nbt.setInteger("FrontDirection", this.front);
+		nbt.setShort("BurnTime", (short) this.burnTime);
+		nbt.setShort("CookTime", (short) this.meltTime);
+		nbt.setBoolean("hasPower", this.hasPower);
 	}
 	
-	/**
-	 * Returns the maximum stack size for a inventory slot. Seems to always be
-	 * 64, possibly will be extended. *Isn't this more of a set than a get?*
-	 */
-	@Override
-	public int getInventoryStackLimit()
-	{
-		return 64;
-	}
-	
-	/**
-	 * Returns an integer between 0 and the passed value representing how close
-	 * the current item is to being completely cooked
-	 */
-	public int getCookProgressScaled(int par1)
+	public int getProgressScaled(int scalar)
 	{
 		if (!hasPower)
 		{
-			return this.goldCookTime * par1 / 200 * 64;
+			return this.meltTime * scalar / 200 * 64;
 		}
-		return this.goldCookTime * par1 / 200 * 32;
+		return this.meltTime * scalar / 200 * 32;
 	}
 	
-	/**
-	 * Returns an integer between 0 and the passed value representing how much
-	 * burn time is left on the current fuel item, where 0 means that the item
-	 * is exhausted and the passed value means that the item is fresh
-	 */
-	public int getBurnTimeRemainingScaled(int par1)
+	public int getBurnTimeRemainingScaled(int scalar)
 	{
-		if (this.goldItemBurnTime == 0)
+		if (this.maxBurnTime == 0)
 		{
-			this.goldItemBurnTime = 200;
+			this.maxBurnTime = 200;
 		}
 		
-		return this.goldBurnTime * par1 / this.goldItemBurnTime;
+		return this.burnTime * scalar / this.maxBurnTime;
 	}
 	
-	/**
-	 * Returns true if the furnace is currently burning
-	 */
 	public boolean isBurning()
 	{
-		return this.goldBurnTime > 0;
+		return this.burnTime > 0;
 	}
 	
-	/**
-	 * Allows the entity to update its state. Overridden in most subclasses,
-	 * e.g. the mob spawner uses this to count ticks and creates a new spawn
-	 * inside its implementation.
-	 */
 	@Override
 	public void updateEntity()
 	{
-		// System.out.println(needBucket);
-		boolean var1 = this.goldBurnTime > 0;
+		boolean var1 = this.burnTime > 0;
 		boolean var2 = false;
-		if (this.goldItemStacks[3] == null)
+		if (this.itemStacks[3] == null)
 		{
-			// System.out.println("no bucket");
-			hasBucket = false;
-			// System.out.println("Has Bucket = "+hasBucket);
+			this.hasBucket = false;
+		}
+		else if (this.itemStacks[3].getItem() == Items.bucket)
+		{
+			this.hasBucket = true;
 		}
 		
-		if (this.goldItemStacks[3] != null && this.goldItemStacks[3].getItem() == Items.bucket)
+		if (this.burnTime > 0)
 		{
-			// System.out.println("Bucket found");
-			hasBucket = true;
-			// System.out.println("Has Bucket = "+hasBucket);
-		}
-		
-		if (this.goldBurnTime > 0)
-		{
-			--this.goldBurnTime;
+			--this.burnTime;
 		}
 		if (!this.worldObj.isRemote)
 		{
-			if (this.goldBurnTime == 0 && this.canSmelt())
+			if (this.burnTime == 0 && this.canSmelt())
 			{
-				this.goldItemBurnTime = this.goldBurnTime = getItemBurnTime(this.goldItemStacks[1]);
-				if (this.goldBurnTime > 0)
+				this.maxBurnTime = this.burnTime = getItemBurnTime(this.itemStacks[1]);
+				if (this.burnTime > 0)
 				{
 					var2 = true;
-					if (this.goldItemStacks[1] != null)
+					if (this.itemStacks[1] != null)
 					{
-						--this.goldItemStacks[1].stackSize;
-						if (this.goldItemStacks[1].stackSize == 0)
+						--this.itemStacks[1].stackSize;
+						if (this.itemStacks[1].stackSize == 0)
 						{
-							this.goldItemStacks[1] = this.goldItemStacks[1].getItem().getContainerItem(this.goldItemStacks[1]);
+							this.itemStacks[1] = this.itemStacks[1].getItem().getContainerItem(this.itemStacks[1]);
 						}
 					}
 				}
 			}
 			if (this.isBurning() && this.canSmelt())
 			{
-				++this.goldCookTime;
-				if (this.goldCookTime == 200)
+				++this.meltTime;
+				if (this.meltTime == 200)
 				{
-					this.goldCookTime = 0;
+					this.meltTime = 0;
 					this.smeltItem();
 					var2 = true;
 				}
 			}
 			else
 			{
-				this.goldCookTime = 0;
+				this.meltTime = 0;
 			}
-			if (var1 != this.goldBurnTime > 0)
+			if (var1 != this.burnTime > 0)
 			{
 				var2 = true;
 				this.validate();
-				BlockMelter.updateFurnaceBlockState(this.goldBurnTime > 0, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
+				BlockMelter.updateFurnaceBlockState(this.burnTime > 0, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
 			}
-		}
-		boolean check = isActive;
-		isActive = this.isBurning();
-		if (isActive != check)
-		{
-			this.worldObj.markBlockForUpdate(this.xCoord, this.yCoord, this.zCoord);
 		}
 		if (var2)
 		{
-			// this.onInventoryChanged();
+			this.markDirty();
 		}
-		
-		if (this.worldObj.isBlockIndirectlyGettingPowered(this.xCoord, this.yCoord, this.zCoord))
-		{
-			hasPower = true;
-		}
-		
-		if (!this.worldObj.isBlockIndirectlyGettingPowered(this.xCoord, this.yCoord, this.zCoord))
-		{
-			hasPower = false;
-		}
+		this.hasPower = this.worldObj.isBlockIndirectlyGettingPowered(this.xCoord, this.yCoord, this.zCoord);
 	}
 	
-	/**
-	 * Returns true if the furnace can smelt an item, i.e. has a source item,
-	 * destination stack isn't full, etc.
-	 */
 	private boolean canSmelt()
 	{
-		if (this.goldItemStacks[0] == null)
+		if (this.itemStacks[0] != null && this.hasBucket)
 		{
-			return false;
-		}
-		if (!hasBucket)
-		{
-			return false;
-		}
-		else
-		{
-			// if(hasBucket == true) return true;
-			ItemStack itemstack = MelterRecipes.smelting().getSmeltingResult(this.goldItemStacks[0]);
+			ItemStack itemstack = MelterRecipes.instance.getResult(this.itemStacks[0]);
 			if (itemstack == null)
 			{
 				return false;
 			}
-			if (this.goldItemStacks[2] == null)
+			if (this.itemStacks[2] == null)
 			{
 				return true;
 			}
-			if (!this.goldItemStacks[2].isItemEqual(itemstack))
+			if (!this.itemStacks[2].isItemEqual(itemstack))
 			{
 				return false;
 			}
-			if (this.goldItemStacks[0] == null && this.goldItemStacks[3].getItem() == Items.bucket)
+			if (this.itemStacks[0] == null && this.itemStacks[3].getItem() == Items.bucket)
 			{
 				return false;
 			}
-			if (this.goldItemStacks[2].stackSize == this.goldItemStacks[2].getMaxStackSize())
+			if (this.itemStacks[2].stackSize == this.itemStacks[2].getMaxStackSize())
 			{
 				return false;
 			}
-			int result = this.goldItemStacks[2].stackSize + itemstack.stackSize;
+			int result = this.itemStacks[2].stackSize + itemstack.stackSize;
 			return result <= this.getInventoryStackLimit() && result <= itemstack.getMaxStackSize();
 		}
+		return false;
 	}
 	
-	/**
-	 * Turn one item from the furnace source stack into the appropriate smelted
-	 * item in the furnace result stack
-	 */
 	public void smeltItem()
 	{
-		if (this.canSmelt() == true)
+		if (this.canSmelt())
 		{
-			ItemStack itemstack = MelterRecipes.smelting().getSmeltingResult(this.goldItemStacks[0]);
-			if (this.goldItemStacks[2] == null)
+			ItemStack itemstack = MelterRecipes.instance.getResult(this.itemStacks[0]);
+			if (this.itemStacks[2] == null)
 			{
-				this.goldItemStacks[2] = itemstack.copy();
+				this.itemStacks[2] = itemstack.copy();
 			}
-			else if (this.goldItemStacks[2].isItemEqual(itemstack))
+			else if (this.itemStacks[2].isItemEqual(itemstack))
 			{
-				this.goldItemStacks[2].stackSize += itemstack.stackSize;
-			}
-			
-			--this.goldItemStacks[0].stackSize;
-			
-			if (this.goldItemStacks[0].stackSize <= 0)
-			{
-				this.goldItemStacks[0] = null;
+				this.itemStacks[2].stackSize += itemstack.stackSize;
 			}
 			
-			if (this.goldItemStacks[3].stackSize <= 1)
+			--this.itemStacks[0].stackSize;
+			
+			if (this.itemStacks[0].stackSize <= 0)
 			{
-				this.goldItemStacks[3] = null;
+				this.itemStacks[0] = null;
+			}
+			
+			if (this.itemStacks[3].stackSize <= 1)
+			{
+				this.itemStacks[3] = null;
 			}
 			else
 			{
-				--this.goldItemStacks[3].stackSize;
+				--this.itemStacks[3].stackSize;
 			}
 			
 		}
 	}
 	
-	/**
-	 * Return true if item is a fuel source (getItemBurnTime() > 0).
-	 */
-	public static boolean isItemFuel(ItemStack par0ItemStack)
+	public boolean isItemFuel(ItemStack stack)
 	{
-		return getItemBurnTime(par0ItemStack) > 0;
+		return this.getItemBurnTime(stack) > 0;
 	}
 	
-	/**
-	 * Returns the number of ticks that the supplied fuel item will keep the
-	 * furnace burning, or 0 if the item isn't fuel
-	 */
-	public static int getItemBurnTime(ItemStack par1ItemStack)
+	public int getItemBurnTime(ItemStack stack)
 	{
-		if (par1ItemStack == null)
+		if (stack == null)
 		{
 			return 0;
 		}
 		
-		Item var1 = par1ItemStack.getItem();
-		
-		if (!hasPower)
+		int i = TileEntityFurnace.getItemBurnTime(stack);
+		if (i == 0)
 		{
-			
-			if (var1 instanceof ItemBlock && Block.getBlockFromItem(var1) != Blocks.air)
+			Item item = stack.getItem();
+			if (item == EOItems.Uranium)
 			{
-				Block var2 = Block.getBlockFromItem(var1);
-				
-				if (var2.getMaterial() == Material.wood)
-				{
-					return 300;
-				}
-				
-				if (var1 == Items.stick)
-				{
-					return 100;
-				}
-				
-				if (var1 == Items.coal)
-				{
-					return 1600;
-				}
-				
-				if (var1 == Items.lava_bucket)
-				{
-					return 20000;
-				}
-				
-				if (var1 == EOItems.Uranium)
-				{
-					return 150000;
-				}
-				
-				if (var1 == EOItems.Plutonium)
-				{
-					return 200000;
-				}
-				
-				if (var2 == Blocks.sapling)
-				{
-					return 100;
-				}
-				
-				if (var1 == Items.blaze_rod)
-				{
-					return 2400;
-				}
+				i = 150000;
+			}
+			else if (item == EOItems.Plutonium)
+			{
+				i = 200000;
 			}
 		}
-		
-		else if (hasPower)
+		if (this.hasPower)
 		{
-			if (var1 instanceof ItemBlock && Block.getBlockFromItem(var1) != Blocks.air)
-			{
-				Block var2 = Block.getBlockFromItem(var1);
-				
-				if (var2.getMaterial() == Material.wood)
-				{
-					return 300 / 4;
-				}
-				
-				if (var1 == Items.stick)
-				{
-					return 100 / 4;
-				}
-				
-				if (var1 == Items.coal)
-				{
-					return 1600 / 4;
-				}
-				
-				if (var1 == Items.lava_bucket)
-				{
-					return 20000 / 4;
-				}
-				
-				if (var1 == EOItems.Uranium)
-				{
-					return 150000 / 4;
-				}
-				
-				if (var1 == EOItems.Plutonium)
-				{
-					return 200000 / 4;
-				}
-				
-				if (var2 == Blocks.sapling)
-				{
-					return 100 / 4;
-				}
-				
-				if (var1 == Items.blaze_rod)
-				{
-					return 2400 / 4;
-				}
-				
-				if (var1 == Items.redstone)
-				{
-					return 1600 / 2;
-				}
-			}
-		}
-		return 0;
-	}
-	
-	/**
-	 * Do not make give this method the name canInteractWith because it clashes
-	 * with Container
-	 */
-	@Override
-	public boolean isUseableByPlayer(EntityPlayer par1EntityPlayer)
-	{
-		if (this.worldObj.getTileEntity(this.xCoord, this.yCoord, this.zCoord) != this)
-		{
-			return false;
+			i *= 2;
 		}
 		
-		return par1EntityPlayer.getDistanceSq(this.xCoord + 0.5D, this.yCoord + 0.5D, this.zCoord + 0.5D) <= 64D;
-	}
-	
-	public boolean isActive()
-	{
-		return TileEntityMelter.isActive;
+		return i;
 	}
 	
 	@Override
-	public boolean isItemValidForSlot(int i, ItemStack itemstack)
+	public boolean canInsertItem(int slotID, ItemStack stack, int side)
 	{
-		return false;
+		return this.isItemValidForSlot(slotID, stack);
 	}
 	
 	@Override
-	public void closeInventory()
+	public boolean canExtractItem(int slotID, ItemStack stack, int side)
 	{
+		return side == 0 && slotID != 1 || stack.getItem() == Items.bucket;
 	}
 	
 	@Override
-	public String getInventoryName()
+	public int[] getAccessibleSlotsFromSide(int side)
 	{
-		return "container.goldOven";
-	}
-	
-	@Override
-	public boolean hasCustomInventoryName()
-	{
-		return false;
-	}
-	
-	@Override
-	public void openInventory()
-	{
-	}
-	
-	/**
-	 * Returns true if automation can insert the given item in the given slot
-	 * from the given side. Args: Slot, item, side
-	 */
-	@Override
-	public boolean canInsertItem(int par1, ItemStack par2ItemStack, int par3)
-	{
-		return this.isItemValidForSlot(par1, par2ItemStack);
-	}
-	
-	/**
-	 * Returns true if automation can extract the given item in the given slot
-	 * from the given side. Args: Slot, item, side
-	 */
-	@Override
-	public boolean canExtractItem(int par1, ItemStack par2ItemStack, int par3)
-	{
-		return par3 != 0 || par1 != 1 || par2ItemStack.getItem() == Items.bucket;
-	}
-	
-	/**
-	 * Returns an array containing the indices of the slots that can be accessed
-	 * by automation on the given side of this block.
-	 */
-	@Override
-	public int[] getAccessibleSlotsFromSide(int par1)
-	{
-		return par1 == 0 ? field_145959_l : par1 == 1 ? field_145962_k : field_145960_m;
+		return side == 0 ? outputSlots : side == 1 ? topInputSlot : inputSlots;
 	}
 }

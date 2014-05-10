@@ -7,28 +7,28 @@ import net.minecraft.world.World;
 
 public class ToriteToolAxe extends MItemAxe
 {
-	public ToriteToolAxe(ToolMaterial par2EnumToolMaterial, ToolMaterial bronzeMaterial)
+	public ToriteToolAxe(ToolMaterial material, ToolMaterial bronzeMaterial)
 	{
-		super(par2EnumToolMaterial, bronzeMaterial);
+		super(material, bronzeMaterial);
 	}
 	
 	@Override
-	public EnumAction getItemUseAction(ItemStack par1ItemStack)
+	public EnumAction getItemUseAction(ItemStack stack)
 	{
 		return EnumAction.block;
 	}
 	
 	@Override
-	public int getMaxItemUseDuration(ItemStack par1ItemStack)
+	public int getMaxItemUseDuration(ItemStack stack)
 	{
 		return 72000;
 	}
 	
 	@Override
-	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
+	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
 	{
-		par3EntityPlayer.setItemInUse(par1ItemStack, this.getMaxItemUseDuration(par1ItemStack));
-		return par1ItemStack;
+		player.setItemInUse(stack, this.getMaxItemUseDuration(stack));
+		return stack;
 	}
 	
 }

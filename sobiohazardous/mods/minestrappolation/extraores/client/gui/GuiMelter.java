@@ -1,39 +1,35 @@
 package sobiohazardous.mods.minestrappolation.extraores.client.gui;
 
-import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.entity.player.InventoryPlayer;
 import org.lwjgl.opengl.GL11;
 
 import sobiohazardous.mods.minestrappolation.core.util.MAssetManager;
+import sobiohazardous.mods.minestrappolation.extraores.inventory.ContainerMelter;
 import sobiohazardous.mods.minestrappolation.extraores.tileentity.TileEntityMelter;
+
+import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.StatCollector;
 
 public class GuiMelter extends GuiContainer
 {
 	private TileEntityMelter	tileEntity;
 	
-	public GuiMelter(InventoryPlayer inventory, TileEntityMelter gold)
+	public GuiMelter(EntityPlayer player, TileEntityMelter melter)
 	{
-		super(new ContainerMelter(inventory, gold));
-		this.tileEntity = gold;
+		super(new ContainerMelter(player, melter));
+		this.tileEntity = melter;
 	}
 	
-	/**
-	 * Draw the foreground layer for the GuiContainer (everythin in front of the
-	 * items)
-	 */
 	@Override
-	protected void drawGuiContainerForegroundLayer(int par1, int par2)
+	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
 	{
-		this.fontRendererObj.drawString("Melter", 8, this.ySize - 96 + 2, 4210752);
+		String s = this.tileEntity.hasCustomInventoryName() ? this.tileEntity.getInventoryName() : StatCollector.translateToLocal("tile.melter.name");
+		this.fontRendererObj.drawString(s, 8, this.ySize - 94, 4210752);
 	}
 	
-	/**
-	 * Draw the background layer for the GuiContainer (everything behind the
-	 * items)
-	 */
 	@Override
-	protected void drawGuiContainerBackgroundLayer(float par1, int par2, int par3)
+	protected void drawGuiContainerBackgroundLayer(float partialTickTime, int mouseX, int mouseY)
 	{
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 		ResourceLocation gui = new ResourceLocation(MAssetManager.getEOTexture("textures/gui/melter.png"));
@@ -53,7 +49,7 @@ public class GuiMelter extends GuiContainer
 			this.drawTexturedModalRect(j + 58, k + 5, 176, 31, 12, 10);
 		}
 		
-		int update = this.tileEntity.getCookProgressScaled(24);
+		int update = this.tileEntity.getProgressScaled(24);
 		this.drawTexturedModalRect(j + 79, k + 34, 176, 14, update + 1, 16);
 	}
 }

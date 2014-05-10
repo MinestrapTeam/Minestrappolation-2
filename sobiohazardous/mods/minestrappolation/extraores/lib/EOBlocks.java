@@ -3,7 +3,6 @@ package sobiohazardous.mods.minestrappolation.extraores.lib;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
 import sobiohazardous.mods.minestrappolation.core.util.MAssetManager;
-import sobiohazardous.mods.minestrappolation.extraores.CreativeTabExtraoresBlocks;
 import sobiohazardous.mods.minestrappolation.extraores.block.BlockBlazium;
 import sobiohazardous.mods.minestrappolation.extraores.block.BlockBlaziumOre;
 import sobiohazardous.mods.minestrappolation.extraores.block.BlockCopper;
@@ -29,9 +28,11 @@ import sobiohazardous.mods.minestrappolation.extraores.block.BlockUraniumInsulat
 import sobiohazardous.mods.minestrappolation.extraores.block.BlockUraniumOre;
 import sobiohazardous.mods.minestrappolation.extraores.block.BlockUraniumRaw;
 import sobiohazardous.mods.minestrappolation.extraores.block.EOBlock;
+import sobiohazardous.mods.minestrappolation.extraores.creativetab.CreativeTabEOBlocks;
 import sobiohazardous.mods.minestrappolation.extraores.item.EItemFoiled;
 import sobiohazardous.mods.minestrappolation.extraores.item.ItemSoulBottle;
 import sobiohazardous.mods.minestrappolation.extraores.item.ItemSoulGem;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.material.Material;
@@ -44,7 +45,7 @@ public class EOBlocks
 	// Bridged Blocks
 	public static Block			glowGlass;
 	
-	public static CreativeTabs	tabOresBlocks	= new CreativeTabExtraoresBlocks(CreativeTabs.getNextID(), "Extrappolated Ores - Blocks");
+	public static CreativeTabs	tabOresBlocks	= new CreativeTabEOBlocks(CreativeTabs.getNextID(), "Extrappolated Ores - Blocks");
 	
 	public static Block			meuroditeOre;
 	public static Block			meuroditeBlock;

@@ -1,9 +1,12 @@
 package sobiohazardous.mods.minestrappolation.extraores.lib;
 
+import sobiohazardous.mods.minestrappolation.core.lib.MReference;
+
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -698,8 +701,6 @@ public class EORecipes
 	
 	public static void loadPlatedRecipes()
 	{
-		// TODO: Yes, I realize this could be neater. If you have a better
-		// system, by all means, code away.
 		ItemStack[] picks = new ItemStack[] { new ItemStack(EOItems.meuroditePickaxe, 1), new ItemStack(EOItems.ToritePickaxe, 1), new ItemStack(EOItems.BlaziumPickaxe, 1), new ItemStack(EOItems.TitaniumPickaxe, 1), new ItemStack(EOItems.SteelPickaxe, 1), new ItemStack(EOItems.SandstonePickaxe, 1), new ItemStack(EOItems.CopperPickaxe, 1), new ItemStack(EOItems.BedrockPickaxe, 1), new ItemStack(EOItems.GranitePickaxe, 1) };
 		ItemStack[] picksWithoutNBT = new ItemStack[] { new ItemStack(EOItems.meuroditePickaxe, 1), new ItemStack(EOItems.ToritePickaxe, 1), new ItemStack(EOItems.BlaziumPickaxe, 1), new ItemStack(EOItems.TitaniumPickaxe, 1), new ItemStack(EOItems.SteelPickaxe, 1), new ItemStack(EOItems.SandstonePickaxe, 1), new ItemStack(EOItems.CopperPickaxe, 1), new ItemStack(EOItems.BedrockPickaxe, 1), new ItemStack(EOItems.GranitePickaxe, 1) };
 		
@@ -759,7 +760,7 @@ public class EORecipes
 	
 	public static void loadBridgedRecipes() throws Exception
 	{
-		if (Loader.isModLoaded("ExtraDecor"))
+		if (Loader.isModLoaded(MReference.MODID_ED))
 		{
 			GameRegistry.addSmelting(Blocks.glowstone, new ItemStack(EOBlocks.glowGlass), 0.5F);
 		}

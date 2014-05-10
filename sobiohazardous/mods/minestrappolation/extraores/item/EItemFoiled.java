@@ -15,7 +15,7 @@ public class EItemFoiled extends EOItem
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public boolean hasEffect(ItemStack par1ItemStack)
+	public boolean hasEffect(ItemStack stack)
 	{
 		return true;
 	}

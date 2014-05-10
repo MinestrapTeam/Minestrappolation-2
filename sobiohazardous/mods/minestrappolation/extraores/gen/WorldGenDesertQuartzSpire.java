@@ -9,60 +9,53 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class WorldGenDesertQuartzSpire extends WorldGenerator
 {
-	
-	Random	rand			= new Random();
 	// add 2 so if you want a depth or 5 you use 3
-	int		maxDepth		= 6;
+	public int	maxDepth		= 6;
 	
 	// how tall the tip of the spire is
-	int		maxTopHeight	= 3;
+	int			maxTopHeight	= 3;
 	
 	@Override
-	public boolean generate(World world, Random random, int i, int j, int k)
+	public boolean generate(World world, Random random, int x, int y, int z)
 	{
-		if (world.getBlock(i, j, k) != Blocks.sand && world.getBlock(i, j - 1, k) != Blocks.sand && world.getBlock(i + 1, j, k) != Blocks.sand && world.getBlock(i, j - 1, k) != Blocks.sand)
+		if (world.getBlock(x, y, z) != Blocks.sand && world.getBlock(x, y - 1, z) != Blocks.sand && world.getBlock(x + 1, y, z) != Blocks.sand && world.getBlock(x, y - 1, z) != Blocks.sand)
 		{
 			return false;
 		}
-		else if (world.getBlock(i, j, k) == Blocks.water || world.getBlock(i, j + 1, k) == Blocks.water || world.getBlock(i, j - 1, k) == Blocks.water || world.getBlock(i + 1, j, k) == Blocks.water || world.getBlock(i - 1, j, k) == Blocks.water)
+		else if (world.getBlock(x, y, z) == Blocks.water || world.getBlock(x, y + 1, z) == Blocks.water || world.getBlock(x, y - 1, z) == Blocks.water || world.getBlock(x + 1, y, z) == Blocks.water || world.getBlock(x - 1, y, z) == Blocks.water)
 		{
 			System.out.println("water found skipping");
 			return false;
 		}
-		else if (world.getBlock(i, j + 1, k) != Blocks.air)
+		else if (world.getBlock(x, y + 1, z) != Blocks.air)
 		{
 			System.out.println("not air skipping");
 			return false;
 		}
 		
-		int a;
-		int randTopHeight;
-		a = this.rand.nextInt(this.maxDepth);
-		randTopHeight = this.rand.nextInt(3);
-		for (int z = 0; z < a + 2; z++)
+		int depth = random.nextInt(this.maxDepth) + 2;
+		for (int i = 0; i < depth; z++)
 		{
-			world.setBlock(i, j - z, k, EOBlocks.Quartzite);
-			world.setBlock(i + 1, j - z, k, EOBlocks.Quartzite);
-			world.setBlock(i - 1, j - z, k, EOBlocks.Quartzite);
-			world.setBlock(i, j - z, k + 1, EOBlocks.Quartzite);
-			world.setBlock(i, j - z, k - 1, EOBlocks.Quartzite);
-			
+			world.setBlock(x, y - depth, z, EOBlocks.Quartzite);
+			world.setBlock(x + 1, y - depth, z, EOBlocks.Quartzite);
+			world.setBlock(x - 1, y - depth, z, EOBlocks.Quartzite);
+			world.setBlock(x, y - depth, z + 1, EOBlocks.Quartzite);
+			world.setBlock(x, y - depth, z - 1, EOBlocks.Quartzite);
 		}
 		
-		world.setBlock(i, j, k, EOBlocks.Quartzite);
-		world.setBlock(i + 1, j, k, EOBlocks.Quartzite);
-		world.setBlock(i - 1, j, k, EOBlocks.Quartzite);
-		world.setBlock(i, j, k + 1, EOBlocks.Quartzite);
-		world.setBlock(i, j, k - 1, EOBlocks.Quartzite);
-		
-		for (int height = 0; height < randTopHeight; height++)
+		int height = random.nextInt(this.maxTopHeight);
+		for (int i = 0; i < height; i++)
 		{
-			world.setBlock(i, j + randTopHeight, k, EOBlocks.Quartzite);
+			world.setBlock(x, y + height, z, EOBlocks.Quartzite);
 		}
 		
-		world.setBlock(i, j + 1, k, EOBlocks.Quartzite);
+		world.setBlock(x, y, z, EOBlocks.Quartzite);
+		world.setBlock(x + 1, y, z, EOBlocks.Quartzite);
+		world.setBlock(x - 1, y, z, EOBlocks.Quartzite);
+		world.setBlock(x, y, z + 1, EOBlocks.Quartzite);
+		world.setBlock(x, y, z - 1, EOBlocks.Quartzite);
 		
-		System.out.println("Spire at: x-" + i + ",y-" + j + ",z-" + k);
+		System.out.println("Spire at: x-" + x + ",y-" + y + ",z-" + z);
 		return true;
 	}
 	

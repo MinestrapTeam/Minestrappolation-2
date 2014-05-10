@@ -8,15 +8,11 @@ import net.minecraft.world.World;
 
 public class ToriteToolPickaxe extends MItemPickaxe
 {
-	public ToriteToolPickaxe(ToolMaterial par2EnumToolMaterial, ToolMaterial bronzeMat)
+	public ToriteToolPickaxe(ToolMaterial material, ToolMaterial plateMaterial)
 	{
-		super(par2EnumToolMaterial, bronzeMat);
+		super(material, plateMaterial);
 	}
 	
-	/**
-	 * returns the action that specifies what animation to play when the items
-	 * is being used
-	 */
 	@Override
 	public EnumAction getItemUseAction(ItemStack par1ItemStack)
 	{
@@ -29,10 +25,6 @@ public class ToriteToolPickaxe extends MItemPickaxe
 		return 72000;
 	}
 	
-	/**
-	 * Called whenever this item is equipped and the right mouse button is
-	 * pressed. Args: itemStack, world, entityPlayer
-	 */
 	@Override
 	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
 	{

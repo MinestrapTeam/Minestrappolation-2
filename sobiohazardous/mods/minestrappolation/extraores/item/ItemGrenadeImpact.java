@@ -2,49 +2,45 @@ package sobiohazardous.mods.minestrappolation.extraores.item;
 
 import java.util.List;
 
+import sobiohazardous.mods.minestrappolation.extraores.entity.EntityGrenade;
+import sobiohazardous.mods.minestrappolation.extraores.lib.EOItems;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
-import sobiohazardous.mods.minestrappolation.extraores.entity.EntityGrenadeImpact;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOItems;
 
 public class ItemGrenadeImpact extends Item
 {
 	public ItemGrenadeImpact()
 	{
 		super();
-		this.maxStackSize = 16;
+		this.setMaxStackSize(16);
 		this.setCreativeTab(EOItems.tabOresItems);
 	}
 	
-	/**
-	 * Called whenever this item is equipped and the right mouse button is
-	 * pressed. Args: itemStack, world, entityPlayer
-	 */
 	@Override
-	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
+	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
 	{
-		if (!par3EntityPlayer.capabilities.isCreativeMode)
+		if (!world.isRemote)
 		{
-			--par1ItemStack.stackSize;
+			if (!player.capabilities.isCreativeMode)
+			{
+				--stack.stackSize;
+			}
+			
+			world.playSoundAtEntity(player, "random.bow", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
+			world.spawnEntityInWorld(new EntityGrenade(world, player));
 		}
 		
-		par2World.playSoundAtEntity(par3EntityPlayer, "random.bow", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
-		
-		if (!par2World.isRemote)
-		{
-			par2World.spawnEntityInWorld(new EntityGrenadeImpact(par2World, par3EntityPlayer));
-		}
-		
-		return par1ItemStack;
+		return stack;
 	}
 	
 	@Override
-	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean flag)
 	{
-		par3List.add(EnumChatFormatting.RED + "WIP");
+		list.add(EnumChatFormatting.RED + "WIP");
 	}
 	
 }
