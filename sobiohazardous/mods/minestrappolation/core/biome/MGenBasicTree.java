@@ -50,7 +50,6 @@ public class MGenBasicTree extends WorldGenerator
 			for (int y1 = y; y1 <= y + 1; ++y1)
 			{
 				int y2 = y1 - y;
-				
 				int y3 = 2 - y2;
 				
 				for (int x1 = x - y3; x1 <= x + y3; ++x1)
