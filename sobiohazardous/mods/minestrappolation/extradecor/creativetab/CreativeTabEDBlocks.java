@@ -5,7 +5,7 @@ import sobiohazardous.mods.minestrappolation.extradecor.lib.EDBlocks;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
-public final class CreativeTabEDBlocks extends CreativeTabs
+public class CreativeTabEDBlocks extends CreativeTabs
 {
 	public CreativeTabEDBlocks(int id, String label)
 	{
@@ -16,5 +16,11 @@ public final class CreativeTabEDBlocks extends CreativeTabs
 	public Item getTabIconItem()
 	{
 		return Item.getItemFromBlock(EDBlocks.Tiles);
+	}
+	
+	@Override
+	public int func_151243_f()
+	{
+		return 4;
 	}
 }
