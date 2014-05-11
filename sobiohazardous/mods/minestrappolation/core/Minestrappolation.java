@@ -2,10 +2,14 @@ package sobiohazardous.mods.minestrappolation.core;
 
 import sobiohazardous.mods.minestrappolation.core.common.MCommonProxy;
 import sobiohazardous.mods.minestrappolation.core.common.MEventHandler;
+import sobiohazardous.mods.minestrappolation.core.common.MVersionChecker;
 import sobiohazardous.mods.minestrappolation.core.creativetab.MCreativeTabStone;
 import sobiohazardous.mods.minestrappolation.core.lib.*;
 import sobiohazardous.mods.minestrappolation.core.tileentity.TileEntityStonecutter;
 import clashsoft.brewingapi.BrewingAPI;
+import clashsoft.cslib.minecraft.update.CSUpdate;
+import clashsoft.cslib.minecraft.update.SimpleUpdateReader;
+import clashsoft.cslib.minecraft.update.updater.ModUpdater;
 import cpw.mods.fml.common.*;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -54,5 +58,6 @@ public class Minestrappolation
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event)
 	{
+		CSUpdate.updateCheck(new ModUpdater(MReference.MAPI_NAME, "MAPI", MReference.MAPI_VERSION, MVersionChecker.versionURL, SimpleUpdateReader.instance));
 	}
 }

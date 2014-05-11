@@ -4,169 +4,93 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
-
-import net.minecraft.util.EnumChatFormatting;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MVersionChecker
 {
+	public static final String versionURL = "https://raw.githubusercontent.com/SoBiohazardous/Minestrappolation-Recode/master/version.txt";
 	
-	public static String checkIfCurrent(String versiontocheck, String urlToCheck, String message)
+	private static List<String>	updateFile;
+	
+	public static void readUpdateFile(String url)
 	{
-		boolean upToDate = false;
+		updateFile = new ArrayList();
 		try
 		{
-			URL url = new URL(urlToCheck);
-			BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
+			URL url1 = new URL(url);
+			BufferedReader in = new BufferedReader(new InputStreamReader(url1.openStream()));
 			String str;
-			String version = "";
 			while ((str = in.readLine()) != null)
 			{
-				version = str.substring(8);
-				if (str.contains("version="))
-				{
-					if (version.equals(versiontocheck))
-					{
-						upToDate = true;
-					}
-				}
+				updateFile.add(str);
 			}
 			in.close();
 		}
 		catch (IOException e)
 		{
-			System.err.println("Version file not found at: " + urlToCheck);
+			System.err.println("Version file not found at: " + url);
 		}
-		if (upToDate == false)
+	}
+	
+	protected static void loadFile(String url)
+	{
+		if (updateFile == null)
 		{
-			return message;
+			readUpdateFile(url);
+		}
+	}
+	
+	public static String updateCheck(String version, String url)
+	{
+		loadFile(url);
+		
+		boolean upToDate = false;
+		String newVersion = null;
+		
+		for (String str : updateFile)
+		{
+			if (str.contains("version="))
+			{
+				newVersion = str.substring(8);
+				if (version.equals(newVersion))
+				{
+					upToDate = true;
+				}
+			}
+		}
+		
+		if (!upToDate)
+		{
+			return "You are using a outdated version. Version " + newVersion + " of Minestrappolation is out!";
 		}
 		else
 		{
 			return "Minestrappolation is up to date!";
-		}
-		
+		}	
 	}
 	
-	public static String getVersion(String urlToCheck)
+	public static String getMOTD(String url)
 	{
-		String version = "";
-		try
-		{
-			URL url = new URL(urlToCheck);
-			BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
-			String str;
-			
-			while ((str = in.readLine()) != null)
-			{
-				if (str.contains("version="))
-				{
-					version = str.substring(8);
-				}
-			}
-			in.close();
-		}
-		catch (IOException e)
-		{
-			System.err.println("Version file not found at: " + urlToCheck);
-		}
-		return version;
+		loadFile(url);
 		
-	}
-	
-	public static String getMOTD(String urlToCheck)
-	{
 		String motd = "";
-		try
+		String color = null;
+		for (String str : updateFile)
 		{
-			URL url = new URL(urlToCheck);
-			BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
-			String str;
-			
-			while ((str = in.readLine()) != null)
+			if (str.contains("motd="))
 			{
-				if (str.contains("motd="))
-				{
-					motd = str.substring(5);
-				}
-				if (str.contains("motdcolor="))
-				{
-					
-				}
-				
+				motd = str.substring(5);
 			}
-			in.close();
+			if (str.contains("motdcolor="))
+			{
+				color = str.substring(10);
+			}
 		}
-		catch (IOException e)
-		{
-			System.err.println("Version file not found at: " + urlToCheck);
-		}
+		
+		if (color != null)
+			return "\u00a7" + color + motd;
 		return motd;
-	}
-	
-	public static EnumChatFormatting getMOTDColor(String urlToCheck)
-	{
-		String motd = "";
-		try
-		{
-			URL url = new URL(urlToCheck);
-			BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
-			String str;
-			
-			while ((str = in.readLine()) != null)
-			{
-				if (str.contains("motdcolor="))
-				{
-					motd = str.substring(10);
-				}
-			}
-			in.close();
-		}
-		catch (IOException e)
-		{
-			System.err.println("Version file not found at: " + urlToCheck);
-		}
-		if (motd.equals("red"))
-		{
-			return EnumChatFormatting.RED;
-		}
-		if (motd.equals("aqua"))
-		{
-			return EnumChatFormatting.AQUA;
-		}
-		if (motd.equals("green"))
-		{
-			return EnumChatFormatting.GREEN;
-		}
-		if (motd.equals("black"))
-		{
-			return EnumChatFormatting.BLACK;
-		}
-		if (motd.equals("yellow"))
-		{
-			return EnumChatFormatting.YELLOW;
-		}
-		if (motd.equals("gold"))
-		{
-			return EnumChatFormatting.GOLD;
-		}
-		if (motd.equals("purple"))
-		{
-			return EnumChatFormatting.DARK_PURPLE;
-		}
-		if (motd.equals("dark red"))
-		{
-			return EnumChatFormatting.DARK_RED;
-		}
-		if (motd.equals("dark green"))
-		{
-			return EnumChatFormatting.DARK_GREEN;
-		}
-		if (motd.equals("blue"))
-		{
-			return EnumChatFormatting.BLUE;
-		}
-		return EnumChatFormatting.WHITE;
-		
 	}
 	
 	public static boolean doesFileExist(String urlToCheck)
@@ -180,7 +104,6 @@ public class MVersionChecker
 		}
 		catch (Exception e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return result;
