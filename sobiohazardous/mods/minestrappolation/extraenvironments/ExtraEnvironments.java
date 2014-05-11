@@ -2,11 +2,11 @@ package sobiohazardous.mods.minestrappolation.extraenvironments;
 
 import sobiohazardous.mods.minestrappolation.core.lib.MReference;
 import sobiohazardous.mods.minestrappolation.extraenvironments.biome.BiomeGenRedwood;
+import sobiohazardous.mods.minestrappolation.extraenvironments.common.EECommonProxy;
 import sobiohazardous.mods.minestrappolation.extraenvironments.lib.EEBlocks;
 import sobiohazardous.mods.minestrappolation.extraenvironments.lib.EEConfig;
 import sobiohazardous.mods.minestrappolation.extraenvironments.lib.EEItems;
 import sobiohazardous.mods.minestrappolation.extraenvironments.lib.EERecipes;
-import sobiohazardous.mods.minestrappolation.extraenvironments.proxy.CommonProxy;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -24,7 +24,7 @@ public class ExtraEnvironments
 	public ExtraEnvironments		instance;
 	
 	@SidedProxy(clientSide = "sobiohazardous.mods.minestrappolation.extraenviroments.client.EEClientProxy", serverSide = "sobiohazardous.mods.minestrappolation.extraenviroments.client.EEClientProxy")
-	public static CommonProxy	proxy;
+	public static EECommonProxy	proxy;
 	
 	public static BiomeGenBase	redwood;
 	
