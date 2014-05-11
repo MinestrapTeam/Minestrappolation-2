@@ -7,11 +7,13 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.minecraft.util.EnumChatFormatting;
+
 public class MVersionChecker
 {
-	public static final String versionURL = "https://raw.githubusercontent.com/SoBiohazardous/Minestrappolation-Recode/master/version.txt";
+	public static final String		versionURL	= "https://raw.githubusercontent.com/SoBiohazardous/Minestrappolation-Recode/master/version.txt";
 	
-	private static List<String>	updateFile;
+	protected static List<String>	updateFile;
 	
 	public static void readUpdateFile(String url)
 	{
@@ -67,7 +69,7 @@ public class MVersionChecker
 		else
 		{
 			return "Minestrappolation is up to date!";
-		}	
+		}
 	}
 	
 	public static String getMOTD(String url)
@@ -88,7 +90,11 @@ public class MVersionChecker
 			}
 		}
 		
-		if (color != null)
+		EnumChatFormatting color1 = EnumChatFormatting.getValueByName(color);
+		
+		if (color1 != null)
+			return color1 + motd;
+		else if (color != null)
 			return "\u00a7" + color + motd;
 		return motd;
 	}

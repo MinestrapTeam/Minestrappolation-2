@@ -58,6 +58,6 @@ public class Minestrappolation
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event)
 	{
-		CSUpdate.updateCheck(new ModUpdater(MReference.MAPI_NAME, "MAPI", MReference.MAPI_VERSION, MVersionChecker.versionURL, SimpleUpdateReader.instance));
+		CSUpdate.updateCheck(new ModUpdater(MReference.MAPI_NAME, "MAPI", MReference.VERSION, MVersionChecker.versionURL, SimpleUpdateReader.instance));
 	}
 }

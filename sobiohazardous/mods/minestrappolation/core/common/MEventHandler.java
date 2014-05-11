@@ -15,8 +15,10 @@ public class MEventHandler
 		String url = MVersionChecker.versionURL;
 		if (MVersionChecker.doesFileExist(url))
 		{
-			MChatMessageHandler.sendChatToPlayer(event.player, MVersionChecker.updateCheck(MReference.MAPI_VERSION, url));
+			MChatMessageHandler.sendChatToPlayer(event.player, MVersionChecker.updateCheck(MReference.VERSION, url));
 			MChatMessageHandler.sendChatToPlayer(event.player, MVersionChecker.getMOTD(url));
+			
+			MVersionChecker.updateFile = null;
 		}
 		else
 		{

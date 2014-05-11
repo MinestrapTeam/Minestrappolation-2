@@ -2,6 +2,8 @@ package sobiohazardous.mods.minestrappolation.core.lib;
 
 public class MReference
 {
+	public static final String	VERSION			= "2.1.2";
+	
 	public static final String	MAPI_MODID		= "Minestrappolation";
 	public static final String	MAPI_NAME		= "Minestrappolation Core";
 	public static final String	MAPI_VERSION	= "1.3.1";
