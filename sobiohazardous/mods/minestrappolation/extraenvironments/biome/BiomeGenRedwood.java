@@ -1,4 +1,4 @@
-package sobiohazardous.mods.minestrappolation.extraenviroments;
+package sobiohazardous.mods.minestrappolation.extraenvironments.biome;
 
 import sobiohazardous.mods.minestrappolation.core.biome.MCustomBiomeDecorator;
 import net.minecraft.world.biome.BiomeGenBase;

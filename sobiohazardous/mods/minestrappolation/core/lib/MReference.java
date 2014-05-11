@@ -2,8 +2,6 @@ package sobiohazardous.mods.minestrappolation.core.lib;
 
 public class MReference
 {
-	// ALL VERSIONS UPDATED AS OF 1.7.2 UPDATE
-	
 	public static final String	MAPI_MODID		= "Minestrappolation";
 	public static final String	MAPI_NAME		= "Minestrappolation Core";
 	public static final String	MAPI_VERSION	= "1.3.1";
@@ -20,8 +18,8 @@ public class MReference
 	public static final String	EMD_NAME		= "Extrapolated Mob Drops";
 	public static final String	EMD_VERSION		= "1.0";
 	
-	public static final String	EE_MODID		= "ExtraEnviroments";
-	public static final String	EE_MODNAME		= "Extrapolated Enviroments";
+	public static final String	EE_MODID		= "ExtraEnvironments";
+	public static final String	EE_NAME			= "Extrapolated Environments";
 	public static final String	EE_VERSION		= "1.0";
 	
 	public static final String	DEPENDENCY		= "required-after:" + MAPI_MODID;

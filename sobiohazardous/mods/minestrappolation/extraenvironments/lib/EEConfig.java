@@ -1,4 +1,4 @@
-package sobiohazardous.mods.minestrappolation.extraenviroments.lib;
+package sobiohazardous.mods.minestrappolation.extraenvironments.lib;
 
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.common.config.Configuration;

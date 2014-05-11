@@ -1,11 +1,12 @@
-package sobiohazardous.mods.minestrappolation.extraenviroments;
+package sobiohazardous.mods.minestrappolation.extraenvironments;
 
 import sobiohazardous.mods.minestrappolation.core.lib.MReference;
-import sobiohazardous.mods.minestrappolation.extraenviroments.lib.EEBlocks;
-import sobiohazardous.mods.minestrappolation.extraenviroments.lib.EEConfig;
-import sobiohazardous.mods.minestrappolation.extraenviroments.lib.EEItems;
-import sobiohazardous.mods.minestrappolation.extraenviroments.lib.EERecipes;
-import sobiohazardous.mods.minestrappolation.extraenviroments.proxy.CommonProxy;
+import sobiohazardous.mods.minestrappolation.extraenvironments.biome.BiomeGenRedwood;
+import sobiohazardous.mods.minestrappolation.extraenvironments.lib.EEBlocks;
+import sobiohazardous.mods.minestrappolation.extraenvironments.lib.EEConfig;
+import sobiohazardous.mods.minestrappolation.extraenvironments.lib.EEItems;
+import sobiohazardous.mods.minestrappolation.extraenvironments.lib.EERecipes;
+import sobiohazardous.mods.minestrappolation.extraenvironments.proxy.CommonProxy;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -16,11 +17,11 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
 import net.minecraft.world.biome.BiomeGenBase;
 
-@Mod(modid = MReference.EE_MODID, name = MReference.EE_MODNAME, version = MReference.EE_VERSION)
-public class ExtraEnviroments
+@Mod(modid = MReference.EE_MODID, name = MReference.EE_NAME, version = MReference.EE_VERSION)
+public class ExtraEnvironments
 {
 	@Instance(MReference.EE_MODID)
-	public ExtraEnviroments		instance;
+	public ExtraEnvironments		instance;
 	
 	@SidedProxy(clientSide = "sobiohazardous.mods.minestrappolation.extraenviroments.proxy.ClientProxy", serverSide = "sobiohazardous.mods.minestrappolation.extraenviroments.proxy.ClientProxy")
 	public static CommonProxy	proxy;

@@ -1,4 +1,4 @@
-package sobiohazardous.mods.minestrappolation.extraenviroments.lib;
+package sobiohazardous.mods.minestrappolation.extraenvironments.lib;
 
 public class EEItems
 {

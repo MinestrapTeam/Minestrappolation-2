@@ -1,4 +1,4 @@
-package sobiohazardous.mods.minestrappolation.extraenviroments.proxy;
+package sobiohazardous.mods.minestrappolation.extraenvironments.proxy;
 
 public class CommonProxy
 {
