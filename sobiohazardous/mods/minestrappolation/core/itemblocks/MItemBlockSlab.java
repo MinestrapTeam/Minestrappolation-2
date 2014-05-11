@@ -10,6 +10,7 @@ public class MItemBlockSlab extends ItemSlab
 	public MItemBlockSlab(Block block, MBlockMultiSlab singleSlab, MBlockMultiSlab doubleSlab)
 	{
 		super(block, singleSlab, doubleSlab, block == doubleSlab);
+		doubleSlab.setOtherSlab(singleSlab);
 		this.hasSubtypes = true;
 	}
 	

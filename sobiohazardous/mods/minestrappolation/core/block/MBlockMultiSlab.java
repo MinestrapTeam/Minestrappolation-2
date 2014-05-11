@@ -3,6 +3,7 @@ package sobiohazardous.mods.minestrappolation.core.block;
 import java.util.List;
 import java.util.Random;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -10,6 +11,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.World;
 
 public class MBlockMultiSlab extends BlockSlab
 {
@@ -19,23 +21,48 @@ public class MBlockMultiSlab extends BlockSlab
 	private String[]	sideIconNames;
 	private String[]	topIconNames;
 	
+	private Item		otherSlab;
+	
 	public MBlockMultiSlab(boolean isDouble, String[] sideIconNames, String[] topIconNames)
 	{
-		super(isDouble, Material.rock);
+		this(Material.rock, isDouble, sideIconNames, topIconNames);
+	}
+	
+	public MBlockMultiSlab(Material material, boolean isDouble, String[] sideIconNames, String[] topIconNames)
+	{
+		super(isDouble, material);
 		this.sideIconNames = sideIconNames;
 		this.topIconNames = topIconNames;
 	}
 	
-	@Override
-	public IIcon getIcon(int side, int meta)
+	public void setOtherSlab(Item item)
 	{
-		int var3 = meta & 12;
-		int var4 = meta & 3;
+		this.otherSlab = item;
+	}
+	
+	public void setOtherSlab(Block block)
+	{
+		this.otherSlab = Item.getItemFromBlock(block);
+	}
+	
+	@Override
+	public IIcon getIcon(int side, int metadata)
+	{
+		int type = metadata & 12;
+		int meta = metadata & 3;
 		if (this.field_150004_a)
 		{
-			return var3 == 0 && (side == 1 || side == 0) ? this.topIcons[var4] : this.sideIcons[var4];
+			return type == 0 && (side == 1 || side == 0) ? this.topIcons[meta] : this.sideIcons[meta];
 		}
-		return var3 == 0 && (side == 1 || side == 0) ? this.topIcons[var4] : var3 == 4 && (side == 5 || side == 4) ? this.sideIcons[var4] : var3 == 8 && (side == 2 || side == 3) ? this.sideIcons[var4] : this.topIcons[var4];
+		
+		if (type == 0 && (side == 1 || side == 0))
+			return this.topIcons[meta];
+		else if (type == 4 && (side == 5 || side == 4))
+			return this.sideIcons[meta];
+		else if (type == 8 && (side == 2 || side == 3))
+			return this.sideIcons[meta];
+		else
+			return this.topIcons[meta];
 	}
 	
 	@Override
@@ -58,25 +85,23 @@ public class MBlockMultiSlab extends BlockSlab
 	@Override
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
-		// TODO this should be a single slab somehow.
-		return Item.getItemFromBlock(this);
+		return this.getItem(metadata);
 	}
 	
 	@Override
-	protected ItemStack createStackedBlock(int meta)
+	public Item getItem(World world, int x, int y, int z)
 	{
-		// TODO This should be the single slab somehow.
-		return new ItemStack(this, 2, meta);
+		return this.getItem(world.getBlockMetadata(x, y, z));
+	}
+	
+	public Item getItem(int metadata)
+	{
+		return Item.getItemFromBlock(this);
 	}
 	
 	@Override
 	public String func_150002_b(int meta)
 	{
-		if (meta < 0 || meta >= this.topIconNames.length)
-		{
-			meta = 0;
-		}
-		
 		return super.getUnlocalizedName() + "." + meta;
 	}
 	
