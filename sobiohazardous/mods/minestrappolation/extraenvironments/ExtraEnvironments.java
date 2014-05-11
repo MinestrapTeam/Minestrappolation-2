@@ -23,7 +23,7 @@ public class ExtraEnvironments
 	@Instance(MReference.EE_MODID)
 	public ExtraEnvironments		instance;
 	
-	@SidedProxy(clientSide = "sobiohazardous.mods.minestrappolation.extraenviroments.client.EEClientProxy", serverSide = "sobiohazardous.mods.minestrappolation.extraenviroments.client.EEClientProxy")
+	@SidedProxy(clientSide = "sobiohazardous.mods.minestrappolation.extraenvironments.client.EEClientProxy", serverSide = "sobiohazardous.mods.minestrappolation.extraenvironments.client.EEClientProxy")
 	public static EECommonProxy	proxy;
 	
 	public static BiomeGenBase	redwood;
