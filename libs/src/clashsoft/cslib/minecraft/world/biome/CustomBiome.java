@@ -86,7 +86,9 @@ public abstract class CustomBiome extends BiomeGenBase implements ICustomBiome
 			if (block != null && block.getMaterial() != Material.air)
 			{
 				if (block != Blocks.stone)
+				{
 					continue;
+				}
 				
 				blocks[index] = this.getStoneBlock(x, y, z);
 				metadatas[index] = this.getStoneMetadata(x, y, z);

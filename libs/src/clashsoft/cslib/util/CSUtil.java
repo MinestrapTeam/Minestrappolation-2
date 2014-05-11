@@ -33,15 +33,15 @@ public class CSUtil
 		
 		for (int i : colors)
 		{
-			r += (i >> 16) & 255;
-			g += (i >> 8) & 255;
-			b += (i >> 0) & 255;
+			r += i >> 16 & 255;
+			g += i >> 8 & 255;
+			b += i >> 0 & 255;
 		}
 		r /= colors.length;
 		g /= colors.length;
 		b /= colors.length;
 		
-		return ((r & 255) << 16) | ((g & 255) << 8) | ((b & 255) << 0);
+		return (r & 255) << 16 | (g & 255) << 8 | (b & 255) << 0;
 	}
 	
 	/**
@@ -79,11 +79,17 @@ public class CSUtil
 	{
 		int i = b > 0 ? 1 : 0;
 		if (g > 0)
+		{
 			i |= 2;
+		}
 		if (r > 0)
+		{
 			i |= 4;
+		}
 		if (light > 0)
+		{
 			i |= 8;
+		}
 		return i;
 	}
 	

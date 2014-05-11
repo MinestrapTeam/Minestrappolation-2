@@ -82,7 +82,9 @@ public class CustomTreeGen extends WorldGenTrees
 						if (y1 >= 0 && y1 < 256)
 						{
 							if (this.isReplaceable(world, x1, y1, z1))
+							{
 								continue;
+							}
 						}
 						flag = false;
 					}
@@ -97,7 +99,7 @@ public class CustomTreeGen extends WorldGenTrees
 			Block block2 = world.getBlock(x, y - 1, z);
 			
 			boolean isSoil = block2.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, (BlockSapling) Blocks.sapling);
-			if ((isSoil) && (y < 256 - height - 1))
+			if (isSoil && y < 256 - height - 1)
 			{
 				block2.onPlantGrow(world, x, y - 1, z, x, y, z);
 				byte b0 = 3;
@@ -106,7 +108,7 @@ public class CustomTreeGen extends WorldGenTrees
 				for (int k1 = y - b0 + height; k1 <= y + height; ++k1)
 				{
 					int i3 = k1 - (y + height);
-					int l1 = b1 + 1 - (i3 / 2);
+					int l1 = b1 + 1 - i3 / 2;
 					
 					for (int i2 = x - l1; i2 <= x + l1; ++i2)
 					{
@@ -116,7 +118,7 @@ public class CustomTreeGen extends WorldGenTrees
 						{
 							int l2 = k2 - z;
 							
-							if (Math.abs(j2) != l1 || Math.abs(l2) != l1 || (random.nextInt(2) != 0 && i3 != 0))
+							if (Math.abs(j2) != l1 || Math.abs(l2) != l1 || random.nextInt(2) != 0 && i3 != 0)
 							{
 								Block block1 = world.getBlock(i2, k1, k2);
 								if (block1.isAir(world, i2, k1, k2) || block1.isLeaves(world, i2, k1, k2))
@@ -132,25 +134,25 @@ public class CustomTreeGen extends WorldGenTrees
 				{
 					Block block = world.getBlock(x, y + k1, z);
 					
-					if ((block.isAir(world, x, y + k1, z)) || (block.isLeaves(world, x, y + k1, z)))
+					if (block.isAir(world, x, y + k1, z) || block.isLeaves(world, x, y + k1, z))
 					{
 						this.setBlockAndNotifyAdequately(world, x, y + k1, z, this.logBlock, this.logMetadata);
 						
 						if (this.vinesGrow && k1 > 0)
 						{
-							if ((random.nextInt(3) > 0) && (world.isAirBlock(x - 1, y + k1, z)))
+							if (random.nextInt(3) > 0 && world.isAirBlock(x - 1, y + k1, z))
 							{
 								this.setBlockAndNotifyAdequately(world, x - 1, y + k1, z, Blocks.vine, 8);
 							}
-							if ((random.nextInt(3) > 0) && (world.isAirBlock(x + 1, y + k1, z)))
+							if (random.nextInt(3) > 0 && world.isAirBlock(x + 1, y + k1, z))
 							{
 								this.setBlockAndNotifyAdequately(world, x + 1, y + k1, z, Blocks.vine, 2);
 							}
-							if ((random.nextInt(3) > 0) && (world.isAirBlock(x, y + k1, z - 1)))
+							if (random.nextInt(3) > 0 && world.isAirBlock(x, y + k1, z - 1))
 							{
 								this.setBlockAndNotifyAdequately(world, x, y + k1, z - 1, Blocks.vine, 1);
 							}
-							if ((random.nextInt(3) > 0) && (world.isAirBlock(x, y + k1, z + 1)))
+							if (random.nextInt(3) > 0 && world.isAirBlock(x, y + k1, z + 1))
 							{
 								this.setBlockAndNotifyAdequately(world, x, y + k1, z + 1, Blocks.vine, 4);
 							}
@@ -163,7 +165,7 @@ public class CustomTreeGen extends WorldGenTrees
 					for (int k1 = y - 3 + height; k1 <= y + height; ++k1)
 					{
 						int i3 = k1 - (y + height);
-						int l1 = 2 - (i3 / 2);
+						int l1 = 2 - i3 / 2;
 						
 						for (int i2 = x - l1; i2 <= x + l1; ++i2)
 						{
@@ -171,20 +173,22 @@ public class CustomTreeGen extends WorldGenTrees
 							{
 								if (world.getBlock(i2, k1, j2).isLeaves(world, i2, k1, j2))
 								{
-									if ((random.nextInt(4) == 0) && (world.getBlock(i2 - 1, k1, j2).isAir(world, i2 - 1, k1, j2)))
+									if (random.nextInt(4) == 0 && world.getBlock(i2 - 1, k1, j2).isAir(world, i2 - 1, k1, j2))
 									{
 										this.growVines(world, i2 - 1, k1, j2, 8);
 									}
-									if ((random.nextInt(4) == 0) && (world.getBlock(i2 + 1, k1, j2).isAir(world, i2 + 1, k1, j2)))
+									if (random.nextInt(4) == 0 && world.getBlock(i2 + 1, k1, j2).isAir(world, i2 + 1, k1, j2))
 									{
 										this.growVines(world, i2 + 1, k1, j2, 2);
 									}
-									if ((random.nextInt(4) == 0) && (world.getBlock(i2, k1, j2 - 1).isAir(world, i2, k1, j2 - 1)))
+									if (random.nextInt(4) == 0 && world.getBlock(i2, k1, j2 - 1).isAir(world, i2, k1, j2 - 1))
 									{
 										this.growVines(world, i2, k1, j2 - 1, 1);
 									}
-									if ((random.nextInt(4) != 0) || (!(world.getBlock(i2, k1, j2 + 1).isAir(world, i2, k1, j2 + 1))))
+									if (random.nextInt(4) != 0 || !world.getBlock(i2, k1, j2 + 1).isAir(world, i2, k1, j2 + 1))
+									{
 										continue;
+									}
 									this.growVines(world, i2, k1, j2 + 1, 4);
 								}
 							}
@@ -193,7 +197,7 @@ public class CustomTreeGen extends WorldGenTrees
 						
 					}
 					
-					if ((random.nextInt(5) == 0) && (height > 5))
+					if (random.nextInt(5) == 0 && height > 5)
 					{
 						for (int k1 = 0; k1 < 2; ++k1)
 						{
@@ -224,7 +228,7 @@ public class CustomTreeGen extends WorldGenTrees
 		{
 			--y;
 			
-			if ((world.getBlock(x, y, z).isAir(world, x, y, z)) || (i1 <= 0))
+			if (world.getBlock(x, y, z).isAir(world, x, y, z) || i1 <= 0)
 			{
 				return;
 			}

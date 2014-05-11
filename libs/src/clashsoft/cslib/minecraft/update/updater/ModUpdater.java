@@ -57,7 +57,7 @@ public class ModUpdater extends URLUpdater
 	{
 		return new Update(this.name, this.version, newVersion, notes, updateURL);
 	}
-
+	
 	@Override
 	public String toString()
 	{

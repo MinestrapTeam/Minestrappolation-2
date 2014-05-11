@@ -36,7 +36,7 @@ public class ItemDataHoe extends ItemDataTool
 	{
 		return onItemUse(stack, player, world, x, y, z, side);
 	}
-
+	
 	public static boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side)
 	{
 		if (!player.canPlayerEdit(x, y, z, side, stack))

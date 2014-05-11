@@ -3,9 +3,6 @@ package clashsoft.cslib.minecraft.block;
 import java.util.List;
 import java.util.Random;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStoneSlab;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -40,7 +37,6 @@ public class BlockCustomSlab extends BlockStoneSlab implements ICustomBlock
 	}
 	
 	@Override
-	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int metadata)
 	{
 		if (this.isOpaqueCube() && (metadata & 8) != 0)
@@ -52,7 +48,6 @@ public class BlockCustomSlab extends BlockStoneSlab implements ICustomBlock
 	}
 	
 	@Override
-	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		for (int i = 0; i < this.topIconNames.length; i++)
@@ -77,12 +72,11 @@ public class BlockCustomSlab extends BlockStoneSlab implements ICustomBlock
 	}
 	
 	@Override
-	@SideOnly(Side.CLIENT)
-	public void getSubBlocks(Item item, CreativeTabs creativeTab, List list)
+	public void getSubBlocks(Item item, CreativeTabs tab, List list)
 	{
 		for (int j = 0; j < this.names.length; ++j)
 		{
-			list.add(new ItemStack(this, 1, j));
+			list.add(new ItemStack(item, 1, j));
 		}
 	}
 	

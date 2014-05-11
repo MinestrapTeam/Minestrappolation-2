@@ -13,7 +13,7 @@ import net.minecraftforge.oredict.OreDictionary;
 
 public class ExperienceRecipeManager extends SimpleRecipeManager
 {
-	private Map<ItemStack, Float>			experienceMap	= new TCustomHashMap(ItemStackHashingStrategy.instance);
+	private Map<ItemStack, Float>	experienceMap	= new TCustomHashMap(ItemStackHashingStrategy.instance);
 	
 	@Override
 	public void addRecipe(ItemStack input, ItemStack output)
@@ -41,7 +41,9 @@ public class ExperienceRecipeManager extends SimpleRecipeManager
 	{
 		float ret = input.getItem().getSmeltingExperience(input);
 		if (ret != -1.0F)
+		{
 			return ret;
+		}
 		
 		Float f = this.experienceMap.get(input);
 		return f == null ? 0F : f.floatValue();

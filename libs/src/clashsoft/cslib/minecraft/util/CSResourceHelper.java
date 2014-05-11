@@ -15,7 +15,7 @@ import net.minecraft.util.ResourceLocation;
 /**
  * The Class CSResourceHelper.
  * <p>
- * This class is a factory for {@link ResourceLocation}s
+ * This class is a factory for {@link ResourceLocation}s.
  * 
  * @author Clashsoft
  */
@@ -106,6 +106,14 @@ public class CSResourceHelper
 		return getIcon(iconRegister, iconName);
 	}
 	
+	/**
+	 * Reads all lines from the given {@link ResourceLocation} {@code rl} and
+	 * returns a list containing the results.
+	 * 
+	 * @param rl
+	 *            the resource location
+	 * @return the list of lines
+	 */
 	public static List<String> readAllLines(ResourceLocation rl)
 	{
 		BufferedReader bufferedreader = null;

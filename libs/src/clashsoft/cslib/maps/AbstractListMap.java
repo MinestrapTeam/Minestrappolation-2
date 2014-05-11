@@ -18,13 +18,13 @@ public abstract class AbstractListMap<K, V> extends AbstractMap<K, V> implements
 		@Override
 		public K getKey()
 		{
-			return key;
+			return this.key;
 		}
 		
 		@Override
 		public V getValue()
 		{
-			return value;
+			return this.value;
 		}
 		
 		@Override
@@ -41,31 +41,31 @@ public abstract class AbstractListMap<K, V> extends AbstractMap<K, V> implements
 	@Override
 	public int size()
 	{
-		return entries.size();
+		return this.entries.size();
 	}
 	
 	@Override
 	public boolean isEmpty()
 	{
-		return entries.isEmpty();
+		return this.entries.isEmpty();
 	}
 	
 	@Override
 	public void clear()
 	{
-		entries.clear();
+		this.entries.clear();
 	}
 	
 	@Override
 	public boolean containsKey(Object key)
 	{
-		return keySet().contains(key);
+		return this.keySet().contains(key);
 	}
 	
 	@Override
 	public boolean containsValue(Object value)
 	{
-		return values().contains(value);
+		return this.values().contains(value);
 	}
 	
 	@Override
@@ -76,10 +76,12 @@ public abstract class AbstractListMap<K, V> extends AbstractMap<K, V> implements
 	
 	protected ListMapEntry<K, V> getEntry(Object key)
 	{
-		for (ListMapEntry<K, V> entry : entries)
+		for (ListMapEntry<K, V> entry : this.entries)
 		{
 			if (Objects.equals(key, entry.key))
+			{
 				return entry;
+			}
 		}
 		return null;
 	}
@@ -87,16 +89,18 @@ public abstract class AbstractListMap<K, V> extends AbstractMap<K, V> implements
 	@Override
 	public V get(Object key)
 	{
-		ListMapEntry<K, V> entry = getEntry(key);
+		ListMapEntry<K, V> entry = this.getEntry(key);
 		return entry != null ? entry.value : null;
 	}
 	
 	@Override
 	public V put(K key, V value)
 	{
-		ListMapEntry<K, V> entry = getEntry(key);
+		ListMapEntry<K, V> entry = this.getEntry(key);
 		if (entry != null)
+		{
 			return entry.setValue(value);
+		}
 		else
 		{
 			entry = new ListMapEntry<K, V>(key, value);
@@ -117,7 +121,7 @@ public abstract class AbstractListMap<K, V> extends AbstractMap<K, V> implements
 	@Override
 	public V remove(Object key)
 	{
-		Iterator<ListMapEntry<K, V>> iterator = entries.iterator();
+		Iterator<ListMapEntry<K, V>> iterator = this.entries.iterator();
 		ListMapEntry<K, V> entry = null;
 		
 		while (iterator.hasNext())

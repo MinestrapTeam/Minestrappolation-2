@@ -121,7 +121,8 @@ public class CSString
 	}
 	
 	/**
-	 * Wraps a string to make multiple lines with a maximum length. It doesn't cut words
+	 * Wraps a string to make multiple lines with a maximum length. It doesn't
+	 * cut words
 	 * 
 	 * @param string
 	 *            the string
@@ -138,7 +139,7 @@ public class CSString
 		int i = 0;
 		while (i < words.length)
 		{
-			while (i < words.length && (temp.append(words[i])).length() <= maxLineLength)
+			while (i < words.length && temp.append(words[i]).length() <= maxLineLength)
 			{
 				temp.append(' ');
 				i++;
@@ -178,7 +179,8 @@ public class CSString
 	 * <p>
 	 * Example:
 	 * <p>
-	 * {@code getAcronym("Hello World")} returns "HW"; {@code getAcronym("Half-Life 3")} returns "HL3"
+	 * {@code getAcronym("Hello World")} returns "HW";
+	 * {@code getAcronym("Half-Life 3")} returns "HL3"
 	 * 
 	 * @param string
 	 *            the string
@@ -202,7 +204,9 @@ public class CSString
 		for (char c : string.toCharArray())
 		{
 			if (c == ch)
+			{
 				count++;
+			}
 		}
 		return count;
 	}
@@ -212,7 +216,8 @@ public class CSString
 	 * <p>
 	 * Modes:
 	 * <p>
-	 * 0: lowercase 1: UPPERCASE 2: lower camelCase 3: Upper CamelCase 4: iNVERTED CASE 5: INVERTED LOWER CAMELcASE 6: iNVERTED uPPER cAMELcASE
+	 * 0: lowercase 1: UPPERCASE 2: lower camelCase 3: Upper CamelCase 4:
+	 * iNVERTED CASE 5: INVERTED LOWER CAMELcASE 6: iNVERTED uPPER cAMELcASE
 	 * 
 	 * @see CSString#firstCharToCase(String, int)
 	 * @param string
@@ -225,42 +230,50 @@ public class CSString
 	{
 		switch (mode)
 		{
-			case LOWERCASE: // lowercase
-				return string.toLowerCase();
-			case UPPERCASE: // UPPERCASE
-				return string.toUpperCase();
-			case LOWER_CAMELCASE: // lower camelCase
+		case LOWERCASE: // lowercase
+			return string.toLowerCase();
+		case UPPERCASE: // UPPERCASE
+			return string.toUpperCase();
+		case LOWER_CAMELCASE: // lower camelCase
+		{
+			String[] array = string.toLowerCase().split(" ");
+			for (int i = 0; i < string.length(); i++)
 			{
-				String[] array = string.toLowerCase().split(" ");
-				for (int i = 0; i < string.length(); i++)
-					array[i] = firstCharToCase(array[i], LOWERCASE);
-				return unsplit(" ", array);
+				array[i] = firstCharToCase(array[i], LOWERCASE);
 			}
-			case UPPER_CAMELCASE: // Upper CamelCase
+			return unsplit(" ", array);
+		}
+		case UPPER_CAMELCASE: // Upper CamelCase
+		{
+			String[] array = string.toLowerCase().split(" ");
+			for (int i = 0; i < string.length(); i++)
 			{
-				String[] array = string.toLowerCase().split(" ");
-				for (int i = 0; i < string.length(); i++)
-					array[i] = firstCharToCase(array[i], UPPERCASE);
-				return unsplit(" ", array);
+				array[i] = firstCharToCase(array[i], UPPERCASE);
 			}
-			case INVERTED_CASE: // iNVERTED CASE
+			return unsplit(" ", array);
+		}
+		case INVERTED_CASE: // iNVERTED CASE
+		{
+			StringBuilder ret = new StringBuilder(string.length());
+			for (char c : string.toCharArray())
 			{
-				StringBuilder ret = new StringBuilder(string.length());
-				for (char c : string.toCharArray())
+				if (Character.isUpperCase(c))
 				{
-					if (Character.isUpperCase(c))
-						ret.append(Character.toLowerCase(c));
-					else
-						ret.append(Character.toUpperCase(c));
+					ret.append(Character.toLowerCase(c));
 				}
-				return ret.toString();
+				else
+				{
+					ret.append(Character.toUpperCase(c));
+				}
 			}
-			case INVERTED_LOWER_CAMELCASE: // INVERTED LOWER CAMELcASE
-				return caseString(caseString(string, 2), 4);
-			case INVERTED_UPPER_CAMELCASE: // iNVERTED uPPER cAMELcASE
-				return caseString(caseString(string, 3), 4);
-			default:
-				return string;
+			return ret.toString();
+		}
+		case INVERTED_LOWER_CAMELCASE: // INVERTED LOWER CAMELcASE
+			return caseString(caseString(string, 2), 4);
+		case INVERTED_UPPER_CAMELCASE: // iNVERTED uPPER cAMELcASE
+			return caseString(caseString(string, 3), 4);
+		default:
+			return string;
 		}
 	}
 	
@@ -280,9 +293,13 @@ public class CSString
 		for (int i = 0; i < array.length; i++)
 		{
 			if (array[i] != null)
+			{
 				result[i] = caseString(array[i], mode);
+			}
 			else
+			{
 				result[i] = "";
+			}
 		}
 		return result;
 	}
@@ -303,9 +320,13 @@ public class CSString
 		for (int i = 0; i < list.size(); i++)
 		{
 			if (list.get(i) != null)
+			{
 				result.add(caseString(list.get(i), mode));
+			}
 			else
+			{
 				result.add("");
+			}
 		}
 		return result;
 	}
@@ -322,14 +343,18 @@ public class CSString
 	public static String unsplit(String split, String... parts)
 	{
 		if (parts.length < 1)
+		{
 			return "";
+		}
 		
 		StringBuilder result = new StringBuilder(parts.length * parts[0].length());
 		for (int i = 0; i < parts.length; i++)
 		{
 			result.append(parts[i]);
 			if (i + 1 != parts.length)
+			{
 				result.append(split);
+			}
 		}
 		return result.toString();
 	}
@@ -337,9 +362,12 @@ public class CSString
 	/**
 	 * Fastly concats an array of strings.
 	 * <p>
-	 * If {@code strings} is null or {@code strings} has a length of 0, this method will return an empty string.
+	 * If {@code strings} is null or {@code strings} has a length of 0, this
+	 * method will return an empty string.
 	 * <p>
-	 * If {@code strings} has a size less than three, concatening will be done using the default {@code +} operator. Otherwise, a new {@link StringBuilder} will be created to compute the result.
+	 * If {@code strings} has a size less than three, concatening will be done
+	 * using the default {@code +} operator. Otherwise, a new
+	 * {@link StringBuilder} will be created to compute the result.
 	 * 
 	 * @see String
 	 * @see StringBuilder
@@ -350,19 +378,25 @@ public class CSString
 	public static String fastConcat(String... strings)
 	{
 		if (strings.length < 1)
+		{
 			return "";
+		}
 		else if (strings.length < 4)
 		{
 			String result = strings[0];
 			for (int i = 1; i < strings.length; i++)
+			{
 				result += strings[i];
+			}
 			return result;
 		}
 		else
 		{
 			StringBuilder result = new StringBuilder(strings.length * strings[0].length());
-			for (int i = 0; i < strings.length; i++)
-				result.append(strings[i]);
+			for (String string : strings)
+			{
+				result.append(string);
+			}
 			return result.toString();
 		}
 	}
@@ -382,16 +416,23 @@ public class CSString
 	{
 		String s;
 		if (prefix != null)
+		{
 			s = prefix + string;
+		}
 		else
+		{
 			s = string;
+		}
 		if (postfix != null)
+		{
 			s = s + postfix;
+		}
 		return s;
 	}
 	
 	/**
-	 * Concats all Strings in {@code array} with the {@code prefix} and the {@code postfix}
+	 * Concats all Strings in {@code array} with the {@code prefix} and the
+	 * {@code postfix}
 	 * 
 	 * @see CSString#concat(String, String, String)
 	 * @param array
@@ -413,7 +454,8 @@ public class CSString
 	}
 	
 	/**
-	 * Concats all Strings in the list {@code list} with the {@code prefix} and the {@code postfix}
+	 * Concats all Strings in the list {@code list} with the {@code prefix} and
+	 * the {@code postfix}
 	 * 
 	 * @see CSString#concat(String, String, String)
 	 * @param list
@@ -493,7 +535,8 @@ public class CSString
 	}
 	
 	/**
-	 * Returns the first index of the any of the {@code regex} in the {@code string}
+	 * Returns the first index of the any of the {@code regex} in the
+	 * {@code string}
 	 * 
 	 * @param string
 	 *            the string
@@ -507,7 +550,9 @@ public class CSString
 		{
 			int index = string.indexOf(regex.charAt(i));
 			if (index != -1)
+			{
 				return index;
+			}
 		}
 		return -1;
 	}
@@ -519,7 +564,8 @@ public class CSString
 	}
 	
 	/**
-	 * Returns the string with the first string being a) a lowercase char or b) an uppercase char
+	 * Returns the string with the first string being a) a lowercase char or b)
+	 * an uppercase char
 	 * <p>
 	 * Modes:
 	 * <p>
@@ -589,7 +635,8 @@ public class CSString
 	}
 	
 	/**
-	 * Returns a new random consonant (b, c, d, f, g, h, j, k, l, m, n, p, q, r, s, t, v, w, x, y, z)
+	 * Returns a new random consonant (b, c, d, f, g, h, j, k, l, m, n, p, q, r,
+	 * s, t, v, w, x, y, z)
 	 * 
 	 * @see CSString#CONSONANTS
 	 * @param random
@@ -614,7 +661,9 @@ public class CSString
 	public static boolean canCharFollowChar(char c1, char c2)
 	{
 		if (isVowel(c1) || isVowel(c2))
+		{
 			return true;
+		}
 		
 		String s = new String(new char[] { Character.toLowerCase(c1), Character.toLowerCase(c2) });
 		return CSArrays.contains(CONSONANTCOMBINATIONS, s);

@@ -1,16 +1,18 @@
 package clashsoft.cslib.minecraft.util;
 
+import clashsoft.cslib.util.CSString;
+
 import net.minecraft.client.Minecraft;
 
 /**
  * The class CSString
  * <p>
- * Extension for {@link clashsoft.cslib.util.CSString} adding String utils only
- * usable with Minecraft.
+ * Extension for {@link CSString} adding String utils only usable with
+ * Minecraft.
  * 
  * @author Clashsoft
  */
-public class CSString extends clashsoft.cslib.util.CSString
+public class CSStringMC
 {
 	/**
 	 * Trims a string to the given render width.

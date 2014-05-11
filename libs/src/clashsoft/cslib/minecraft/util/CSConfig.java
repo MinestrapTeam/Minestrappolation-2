@@ -6,6 +6,9 @@ import clashsoft.cslib.util.CSLog;
 
 import net.minecraftforge.common.config.Configuration;
 
+/**
+ * @author Clashsoft
+ */
 public class CSConfig
 {
 	public static String		configName		= null;

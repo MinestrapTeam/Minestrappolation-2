@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
-import clashsoft.cslib.minecraft.item.meta.IMetaItem;
+import clashsoft.cslib.minecraft.item.meta.ISubItem;
 import clashsoft.cslib.minecraft.lang.I18n;
 import clashsoft.cslib.util.CSArrays;
 import clashsoft.cslib.util.CSString;
@@ -34,8 +34,8 @@ public class CustomItem extends Item
 	
 	public boolean[]			enabled;
 	
-	public List<IMetaItem>		subItems;
-	public List<IMetaItem>		shownSubItems;
+	public List<ISubItem>		subItems;
+	public List<ISubItem>		shownSubItems;
 	
 	/**
 	 * Instantiates a new custom item.
@@ -45,7 +45,7 @@ public class CustomItem extends Item
 	 * @param showSubItems
 	 *            the displaylist
 	 */
-	public CustomItem(List<IMetaItem> subItems, List<IMetaItem> showSubItems)
+	public CustomItem(List<ISubItem> subItems, List<ISubItem> showSubItems)
 	{
 		this.subItems = subItems;
 		this.shownSubItems = showSubItems;
@@ -116,7 +116,7 @@ public class CustomItem extends Item
 		return this.tabs[metadata % this.tabs.length];
 	}
 	
-	public CustomItem addSubItem(IMetaItem metaItem)
+	public CustomItem addSubItem(ISubItem metaItem)
 	{
 		if (metaItem != null)
 		{
@@ -236,7 +236,7 @@ public class CustomItem extends Item
 	{
 		if (this.hasItemMetadataList())
 		{
-			for (IMetaItem subitem : this.shownSubItems)
+			for (ISubItem subitem : this.shownSubItems)
 			{
 				subItems.add(subitem.asStack());
 			}

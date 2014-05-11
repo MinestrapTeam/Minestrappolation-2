@@ -88,9 +88,13 @@ public class CSArrays
 		{
 			Class c = ret.getComponentType();
 			if (c != null && c != ret)
+			{
 				ret = c;
+			}
 			else
+			{
 				break;
+			}
 		}
 		return ret;
 	}
@@ -107,14 +111,16 @@ public class CSArrays
 	public static <T> T[][] split(T[] array, int maxLength)
 	{
 		Class clazz = array.getClass().getComponentType();
-		int arrays = (array.length / maxLength) + 1;
+		int arrays = array.length / maxLength + 1;
 		T[][] ret = (T[][]) Array.newInstance(clazz, arrays, maxLength);
 		
 		for (int i = 0; i < ret.length; i++)
 		{
 			ret[i] = (T[]) Array.newInstance(clazz, maxLength);
-			for (int j = 0; j < maxLength && (j + (i * maxLength)) < array.length; j++)
-				ret[i][j] = array[j + (i * maxLength)];
+			for (int j = 0; j < maxLength && j + i * maxLength < array.length; j++)
+			{
+				ret[i][j] = array[j + i * maxLength];
+			}
 		}
 		return ret;
 	}
@@ -129,9 +135,13 @@ public class CSArrays
 	public static <T> T[] concat(T[]... arrays)
 	{
 		List<T> list = new ArrayList<T>(arrays.length);
-		for (int i = 0; i < arrays.length; i++)
-			for (int j = 0; j < arrays[i].length; j++)
-				list.add(arrays[i][j]);
+		for (T[] array : arrays)
+		{
+			for (int j = 0; j < array.length; j++)
+			{
+				list.add(array[j]);
+			}
+		}
 		return (T[]) fromList(getDeepComponentType(arrays), list);
 	}
 	
@@ -153,11 +163,15 @@ public class CSArrays
 				for (T t2 : result)
 				{
 					if (Objects.equals(t1, t2))
+					{
 						duplicate = true;
+					}
 					break;
 				}
 				if (!duplicate)
+				{
 					result.add(t1);
+				}
 			}
 			return fromList(getComponentType(array), result);
 		}
@@ -236,7 +250,9 @@ public class CSArrays
 		for (int i = start; i < array.length; i++)
 		{
 			if (Objects.equals(object, array[i]))
+			{
 				return i;
+			}
 		}
 		return -1;
 	}
@@ -272,7 +288,9 @@ public class CSArrays
 		for (int i = start; i >= 0; i--)
 		{
 			if (Objects.equals(object, array[i]))
+			{
 				return i;
+			}
 		}
 		return -1;
 	}
@@ -293,7 +311,9 @@ public class CSArrays
 		{
 			int index = indexOf(array, object);
 			if (index != -1)
+			{
 				return index;
+			}
 		}
 		return -1;
 	}
@@ -313,7 +333,9 @@ public class CSArrays
 		{
 			int index = lastIndexOf(array, object);
 			if (index != -1)
+			{
 				return index;
+			}
 		}
 		return -1;
 	}
@@ -344,8 +366,12 @@ public class CSArrays
 	public static <T> boolean containsAny(T[] array, T... objects)
 	{
 		for (Object object : objects)
+		{
 			if (contains(array, object))
+			{
 				return true;
+			}
+		}
 		return false;
 	}
 	
@@ -361,8 +387,12 @@ public class CSArrays
 	public static <T> boolean containsAll(T[] array, T... objects)
 	{
 		for (Object object : objects)
+		{
 			if (!contains(array, object))
+			{
 				return false;
+			}
+		}
 		return true;
 	}
 	
@@ -382,49 +412,63 @@ public class CSArrays
 			boolean[] array1 = (boolean[]) array;
 			result = new Object[array1.length];
 			for (int i = 0; i < array1.length; i++)
+			{
 				result[i] = Boolean.valueOf(array1[i]);
+			}
 		}
 		else if (array instanceof byte[])
 		{
 			byte[] array1 = (byte[]) array;
 			result = new Object[array1.length];
 			for (int i = 0; i < array1.length; i++)
+			{
 				result[i] = Byte.valueOf(array1[i]);
+			}
 		}
 		else if (array instanceof short[])
 		{
 			short[] array1 = (short[]) array;
 			result = new Object[array1.length];
 			for (int i = 0; i < array1.length; i++)
+			{
 				result[i] = Short.valueOf(array1[i]);
+			}
 		}
 		else if (array instanceof int[])
 		{
 			int[] array1 = (int[]) array;
 			result = new Object[array1.length];
 			for (int i = 0; i < array1.length; i++)
+			{
 				result[i] = Integer.valueOf(array1[i]);
+			}
 		}
 		else if (array instanceof float[])
 		{
 			float[] array1 = (float[]) array;
 			result = new Object[array1.length];
 			for (int i = 0; i < array1.length; i++)
+			{
 				result[i] = Float.valueOf(array1[i]);
+			}
 		}
 		else if (array instanceof double[])
 		{
 			double[] array1 = (double[]) array;
 			result = new Object[array1.length];
 			for (int i = 0; i < array1.length; i++)
+			{
 				result[i] = Double.valueOf(array1[i]);
+			}
 		}
 		else if (array instanceof long[])
 		{
 			long[] array1 = (long[]) array;
 			result = new Object[array1.length];
 			for (int i = 0; i < array1.length; i++)
+			{
 				result[i] = Long.valueOf(array1[i]);
+			}
 		}
 		return result;
 	}
@@ -442,8 +486,10 @@ public class CSArrays
 	{
 		for (int i = 0; i < array.length; i++)
 		{
-			if (array[i] == (integer))
+			if (array[i] == integer)
+			{
 				return i;
+			}
 		}
 		return -1;
 	}

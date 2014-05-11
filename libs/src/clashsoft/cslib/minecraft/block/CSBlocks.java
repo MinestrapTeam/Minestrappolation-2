@@ -20,57 +20,12 @@ import net.minecraft.item.ItemStack;
 /**
  * The Class CSBlocks.
  * <p>
- * This class adds several methods for block adding.
+ * This class adds several methods for registering and replacing blocks.
  * 
  * @author Clashsoft
  */
 public class CSBlocks
 {
-	public static boolean replaceBlock(Block block, Block newBlock)
-	{
-		long now = System.currentTimeMillis();
-		try
-		{
-			for (Field field : Blocks.class.getDeclaredFields())
-			{
-				if (Block.class.isAssignableFrom(field.getType()))
-				{
-					Block block1 = (Block) field.get(null);
-					if (block1 == block)
-					{
-						FMLControlledNamespacedRegistry<Block> registry = GameData.getBlockRegistry();
-						String registryName = registry.getNameForObject(block1);
-						int id = Block.getIdFromBlock(block1);
-						ItemBlock item = (ItemBlock) Item.getItemFromBlock(block1);
-						
-						// Set field
-						CSReflection.setModifier(field, Modifier.FINAL, false);
-						field.set(null, newBlock);
-						
-						// Replace registry entry
-						CSReflection.invoke(FMLControlledNamespacedRegistry.class, registry, new Object[] { id, registryName, newBlock }, "addObjectRaw");
-						
-						// Replace ItemBlock reference
-						if (item != null)
-						{
-							CSReflection.setValue(ItemBlock.class, item, newBlock, 0);
-						}
-						
-						now = System.currentTimeMillis() - now;
-						CSLog.info("Replace Item : %s (%s) with %s", new Object[] { field.getName(), block1.getClass().getSimpleName(), newBlock.getClass().getSimpleName(), now });
-						
-						return true;
-					}
-				}
-			}
-		}
-		catch (Exception e)
-		{
-			CSLog.error(e);
-		}
-		return false;
-	}
-	
 	public static void addAllBlocks(Class mod)
 	{
 		Block[] blocks = CSReflection.getStaticObjects(mod, Block.class, true);
@@ -81,6 +36,14 @@ public class CSBlocks
 		}
 	}
 	
+	/**
+	 * Registers the given {@link Block} {@code block}. This uses the
+	 * unlocalized name of the block to compute a registry name and then class
+	 * {@link CSBlocks#addBlock(Block, String)}.
+	 * 
+	 * @param block
+	 *            the block
+	 */
 	public static void addBlock(Block block)
 	{
 		String name = block.getUnlocalizedName();
@@ -139,5 +102,60 @@ public class CSBlocks
 	{
 		addBlock(block, name);
 		CSCrafting.addRecipe(new ItemStack(block, craftingAmount), recipe);
+	}
+	
+	/**
+	 * Replaces the given vanilla {@link Block} {@code block} with the
+	 * {@code newBlock}.
+	 * 
+	 * @param block
+	 *            the block to replace
+	 * @param newBlock
+	 *            the new block
+	 * @return true, if successful
+	 */
+	public static boolean replaceBlock(Block block, Block newBlock)
+	{
+		long now = System.currentTimeMillis();
+		try
+		{
+			for (Field field : Blocks.class.getDeclaredFields())
+			{
+				if (Block.class.isAssignableFrom(field.getType()))
+				{
+					Block block1 = (Block) field.get(null);
+					if (block1 == block)
+					{
+						FMLControlledNamespacedRegistry<Block> registry = GameData.getBlockRegistry();
+						String registryName = registry.getNameForObject(block1);
+						int id = Block.getIdFromBlock(block1);
+						ItemBlock item = (ItemBlock) Item.getItemFromBlock(block1);
+						
+						// Set field
+						CSReflection.setModifier(field, Modifier.FINAL, false);
+						field.set(null, newBlock);
+						
+						// Replace registry entry
+						CSReflection.invoke(FMLControlledNamespacedRegistry.class, registry, new Object[] { id, registryName, newBlock }, "addObjectRaw");
+						
+						// Replace ItemBlock reference
+						if (item != null)
+						{
+							CSReflection.setValue(ItemBlock.class, item, newBlock, 0);
+						}
+						
+						now = System.currentTimeMillis() - now;
+						CSLog.info("Replace Item : %s (%s) with %s", new Object[] { field.getName(), block1.getClass().getSimpleName(), newBlock.getClass().getSimpleName(), now });
+						
+						return true;
+					}
+				}
+			}
+		}
+		catch (Exception e)
+		{
+			CSLog.error(e);
+		}
+		return false;
 	}
 }

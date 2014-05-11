@@ -48,8 +48,7 @@ public class ItemDataTool extends ItemTool
 	{
 		if (stack != null)
 		{
-			ItemDataTool item = (ItemDataTool) stack.getItem();
-			return item.toolSet.getToolMaterial(stack);
+			return DataToolSet.getToolMaterial(stack);
 		}
 		return null;
 	}
@@ -77,13 +76,13 @@ public class ItemDataTool extends ItemTool
 	@Override
 	public IIcon getIconIndex(ItemStack stack)
 	{
-		return this.icons.get(this.toolSet.getToolMaterial(stack));
+		return this.icons.get(DataToolSet.getToolMaterial(stack));
 	}
 	
 	@Override
 	public int getMaxDamage(ItemStack stack)
 	{
-		ToolMaterial tm = this.toolSet.getToolMaterial(stack);
+		ToolMaterial tm = DataToolSet.getToolMaterial(stack);
 		if (tm != null)
 		{
 			return tm.getMaxUses();
@@ -95,7 +94,7 @@ public class ItemDataTool extends ItemTool
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister iconRegister)
 	{
-		for (String key : this.toolSet.nameToMaterial.keySet())
+		for (String key : DataToolSet.nameToMaterial.keySet())
 		{
 			IIcon icon = iconRegister.registerIcon(this.toolType + key);
 			this.icons.put(key, icon);
@@ -105,13 +104,13 @@ public class ItemDataTool extends ItemTool
 	@Override
 	public IIcon getIcon(ItemStack stack, int pass)
 	{
-		return this.icons.get(this.toolSet.getMaterialName(stack));
+		return this.icons.get(DataToolSet.getMaterialName(stack));
 	}
 	
 	@Override
 	public String getItemStackDisplayName(ItemStack stack)
 	{
-		return StatCollector.translateToLocal(this.toolSet.getMaterialName(stack) + " " + this.toolType);
+		return StatCollector.translateToLocal(DataToolSet.getMaterialName(stack) + " " + this.toolType);
 	}
 	
 	@Override
@@ -119,7 +118,7 @@ public class ItemDataTool extends ItemTool
 	{
 		if (this.blocksEffectiveAgainst.contains(block))
 		{
-			ToolMaterial tm = this.toolSet.getToolMaterial(stack);
+			ToolMaterial tm = DataToolSet.getToolMaterial(stack);
 			if (tm == null)
 			{
 				tm = this.toolMaterial;
@@ -179,7 +178,7 @@ public class ItemDataTool extends ItemTool
 	@Override
 	public boolean getIsRepairable(ItemStack stack, ItemStack repairItem)
 	{
-		ToolMaterial tm = this.toolSet.getToolMaterial(stack);
+		ToolMaterial tm = DataToolSet.getToolMaterial(stack);
 		if (tm == null)
 		{
 			tm = this.toolMaterial;
@@ -194,7 +193,7 @@ public class ItemDataTool extends ItemTool
 		for (ToolMaterial tm : this.toolSet.materials)
 		{
 			ItemStack stack = new ItemStack(this);
-			list.add(this.toolSet.setToolMaterial(stack, tm));
+			list.add(DataToolSet.setToolMaterial(stack, tm));
 		}
 	}
 }

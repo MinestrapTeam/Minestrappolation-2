@@ -4,7 +4,7 @@ import java.util.logging.Level;
 
 public class CSLog
 {
-	public static CSLogger logger = new CSLogger();
+	public static CSLogger	logger	= new CSLogger();
 	
 	public static void print(String string)
 	{

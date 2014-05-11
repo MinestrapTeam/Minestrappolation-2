@@ -114,7 +114,9 @@ public class CSBitMath
 	{
 		int len = src.length;
 		for (int i = 0; i < len; i++)
+		{
 			dest[i] = !src[i];
+		}
 		return dest;
 	}
 	
@@ -135,7 +137,9 @@ public class CSBitMath
 		int len = src.length;
 		System.arraycopy(src, n, dest, 0, len - n);
 		if (signed)
+		{
 			dest[len - 1] = src[len - 1];
+		}
 		return dest;
 	}
 	
@@ -186,7 +190,9 @@ public class CSBitMath
 	{
 		int len = src1.length;
 		for (int i = 0; i < len; i++)
+		{
 			dest[i] = src1[i] & src2[i];
+		}
 		return dest;
 	}
 	
@@ -194,7 +200,9 @@ public class CSBitMath
 	{
 		int len = src1.length;
 		for (int i = 0; i < len; i++)
+		{
 			dest[i] = src1[i] | src2[i];
+		}
 		return dest;
 	}
 	
@@ -202,7 +210,9 @@ public class CSBitMath
 	{
 		int len = src1.length;
 		for (int i = 0; i < len; i++)
+		{
 			dest[i] = src1[i] ^ src2[i];
+		}
 		return dest;
 	}
 }

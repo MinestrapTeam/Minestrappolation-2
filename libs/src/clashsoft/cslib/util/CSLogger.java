@@ -5,7 +5,7 @@ import java.util.logging.Logger;
 
 public class CSLogger
 {
-	public static final Logger logger = Logger.getGlobal();
+	public static final Logger	logger	= Logger.getGlobal();
 	
 	public void log(Level level, String msg)
 	{

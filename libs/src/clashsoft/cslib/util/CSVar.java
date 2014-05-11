@@ -1,8 +1,8 @@
 package clashsoft.cslib.util;
 
 /**
- * The Class CSVar.
- * This class a wrapper class for variables, it stores their in-code name, their current value and their previous value.
+ * The Class CSVar. This class a wrapper class for variables, it stores their
+ * in-code name, their current value and their previous value.
  * 
  * @param <T>
  *            the generic variable type
@@ -73,7 +73,8 @@ public class CSVar<T>
 		return this.prevValue;
 	}
 	
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
@@ -81,55 +82,75 @@ public class CSVar<T>
 	{
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((this.prevValue == null) ? 0 : this.prevValue.hashCode());
-		result = prime * result + ((this.name == null) ? 0 : this.name.hashCode());
-		result = prime * result + ((this.value == null) ? 0 : this.value.hashCode());
+		result = prime * result + (this.prevValue == null ? 0 : this.prevValue.hashCode());
+		result = prime * result + (this.name == null ? 0 : this.name.hashCode());
+		result = prime * result + (this.value == null ? 0 : this.value.hashCode());
 		return result;
 	}
 	
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
 	public boolean equals(Object obj)
 	{
 		if (this == obj)
+		{
 			return true;
+		}
 		if (obj == null)
+		{
 			return false;
+		}
 		if (this.getClass() != obj.getClass())
+		{
 			return false;
+		}
 		CSVar other = (CSVar) obj;
 		if (this.prevValue == null)
 		{
 			if (other.prevValue != null)
+			{
 				return false;
+			}
 		}
 		else if (!this.prevValue.equals(other.prevValue))
+		{
 			return false;
+		}
 		if (this.name == null)
 		{
 			if (other.name != null)
+			{
 				return false;
+			}
 		}
 		else if (!this.name.equals(other.name))
+		{
 			return false;
+		}
 		if (this.value == null)
 		{
 			if (other.value != null)
+			{
 				return false;
+			}
 		}
 		else if (!this.value.equals(other.value))
+		{
 			return false;
+		}
 		return true;
 	}
 	
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString()
 	{
-		return this.name + "=" + this.value + (prevValue != null ? "{" + prevValue + "}" : "");
+		return this.name + "=" + this.value + (this.prevValue != null ? "{" + this.prevValue + "}" : "");
 	}
 }

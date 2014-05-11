@@ -15,7 +15,7 @@ public class CSBits
 	{
 		return (number & 1 << pos) != 0;
 	}
-
+	
 	/**
 	 * Sets bit 'pos' in Integer 'n' to 'value'.
 	 * 
@@ -30,7 +30,7 @@ public class CSBits
 	public static long setBit(long number, int pos, boolean value)
 	{
 		long bitToSet = 1L << pos;
-		return value ? (number | bitToSet) : ((number | bitToSet) ^ bitToSet);
+		return value ? number | bitToSet : (number | bitToSet) ^ bitToSet;
 	}
 	
 	public static boolean[] getBits(byte b)
@@ -162,7 +162,9 @@ public class CSBits
 	public static void checkLength(boolean[] bits, int size)
 	{
 		if (bits.length < size)
+		{
 			throw new IllegalArgumentException("Bit array to short! Length must be at least " + size);
+		}
 	}
 	
 	public static byte getByte(boolean[] bits)
@@ -203,6 +205,7 @@ public class CSBits
 	{
 		return (char) getInt(bits);
 	}
+	
 	private static byte getByte_(boolean[] bits)
 	{
 		byte b0 = (byte) ((bits[0] ? 0x1 : 0) | (bits[1] ? 0x2 : 0) | (bits[2] ? 0x4 : 0) | (bits[3] ? 0x8 : 0) | (bits[4] ? 0x10 : 0) | (bits[5] ? 0x20 : 0) | (bits[6] ? 0x40 : 0) | (bits[7] ? 0x80 : 0));

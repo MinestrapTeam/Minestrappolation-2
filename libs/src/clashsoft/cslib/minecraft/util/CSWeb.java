@@ -6,6 +6,11 @@ import java.net.URL;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
 
+/**
+ * A utility class for everything related to connecting to the internet.
+ * 
+ * @author Clashsot
+ */
 public class CSWeb
 {
 	/**
@@ -70,6 +75,16 @@ public class CSWeb
 		}
 	}
 	
+	/**
+	 * Downloads a file from the given {@code url} to the given {@link File}
+	 * {@code output}.
+	 * 
+	 * @param url
+	 *            the URL
+	 * @param output
+	 *            the output file
+	 * @throws IOException
+	 */
 	public static void download(String url, File output) throws IOException
 	{
 		URL url1 = new URL(url);

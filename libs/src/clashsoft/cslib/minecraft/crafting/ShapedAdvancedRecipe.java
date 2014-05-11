@@ -20,23 +20,20 @@ public class ShapedAdvancedRecipe extends ShapedRecipes
 		return new ShapedAdvancedRecipe(recipe.recipeWidth, recipe.recipeHeight, recipe.recipeItems, recipe.getRecipeOutput());
 	}
 	
-	/**
-	 * Used to check if a recipe matches current crafting inventory
-	 */
 	@Override
-	public boolean matches(InventoryCrafting inventoryCrafting, World world)
+	public boolean matches(InventoryCrafting inventory, World world)
 	{
-		int size = (int) MathHelper.sqrt_float(inventoryCrafting.getSizeInventory());
+		int size = (int) MathHelper.sqrt_float(inventory.getSizeInventory());
 		for (int i = 0; i <= size - this.recipeWidth; ++i)
 		{
 			for (int j = 0; j <= size - this.recipeHeight; ++j)
 			{
-				if (this.checkMatch(inventoryCrafting, i, j, true))
+				if (this.checkMatch(inventory, i, j, true))
 				{
 					return true;
 				}
 				
-				if (this.checkMatch(inventoryCrafting, i, j, false))
+				if (this.checkMatch(inventory, i, j, false))
 				{
 					return true;
 				}
@@ -46,9 +43,6 @@ public class ShapedAdvancedRecipe extends ShapedRecipes
 		return false;
 	}
 	
-	/**
-	 * Checks if the region of a crafting inventory is match for the recipe.
-	 */
 	private boolean checkMatch(InventoryCrafting inventoryCrafting, int i, int j, boolean mirror)
 	{
 		int size = (int) MathHelper.sqrt_float(inventoryCrafting.getSizeInventory());

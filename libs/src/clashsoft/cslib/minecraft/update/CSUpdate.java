@@ -23,16 +23,16 @@ public class CSUpdate
 	/** The updates already found. */
 	public static Map<String, Update>	updates					= new HashMap();
 	
-	public static Map<String, IUpdater> updaters = new HashMap();
+	public static Map<String, IUpdater>	updaters				= new HashMap();
 	
 	/** The Constant CURRENT_VERSION. Value: {@value} */
-	public static final String				CURRENT_VERSION			= "1.7.2";
+	public static final String			CURRENT_VERSION			= "1.7.2";
 	
 	/** The Constant CLASHSOFT_ADFLY. Value: {@value} */
-	public static final String				CLASHSOFT_ADFLY			= "http://adf.ly/2175784/";
+	public static final String			CLASHSOFT_ADFLY			= "http://adf.ly/2175784/";
 	
 	/** The Constant CLASHSOFT_UPDATE_NOTES. Value: {@value} */
-	public static final String				CLASHSOFT_UPDATE_NOTES	= "https://dl.dropboxusercontent.com/s/pxm1ki6wbtxlvuv/update.txt";
+	public static final String			CLASHSOFT_UPDATE_NOTES	= "https://dl.dropboxusercontent.com/s/pxm1ki6wbtxlvuv/update.txt";
 	
 	/**
 	 * Creates a version String for Clashsoft mods.

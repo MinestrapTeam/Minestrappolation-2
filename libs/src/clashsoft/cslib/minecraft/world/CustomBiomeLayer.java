@@ -29,7 +29,7 @@ public abstract class CustomBiomeLayer extends GenLayer
 			for (int dx = 0; dx < width; dx++)
 			{
 				this.initChunkSeed(dx + x, dz + z);
-				dest[(dx + dz * width)] = biomes[this.nextInt(biomes.length)].biomeID;
+				dest[dx + dz * width] = biomes[this.nextInt(biomes.length)].biomeID;
 			}
 		}
 		return dest;

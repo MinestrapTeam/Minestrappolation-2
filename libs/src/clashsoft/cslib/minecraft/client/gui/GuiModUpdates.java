@@ -19,8 +19,8 @@ public class GuiModUpdates extends GuiScreen
 	public GuiButton			buttonShowInvalidUpdates;
 	public GuiButton			buttonInstall;
 	
-	public List<Update>		updates;
-	public Update			update;
+	public List<Update>			updates;
+	public Update				update;
 	public boolean				showInvalidUpdates;
 	
 	private String				title				= I18n.getString("update.list.title");
@@ -107,32 +107,37 @@ public class GuiModUpdates extends GuiScreen
 	{
 		super.mouseClicked(x, y, which);
 		
-		String url = this.update.getUpdateURL();
-		int i = this.fontRendererObj.getStringWidth(url);
-		
-		if (x >= 260 && x <= 260 + i && y >= 80 && y < 90)
+		if (this.update != null)
 		{
-			this.mc.displayGuiScreen(new GuiConfirmOpenLink(this, url, 0, false));
+			String url = this.update.getUpdateURL();
+			int i = this.fontRendererObj.getStringWidth(url);
+			
+			if (x >= 260 && x <= 260 + i && y >= 80 && y < 90)
+			{
+				this.mc.displayGuiScreen(new GuiConfirmOpenLink(this, url, 0, false));
+			}
 		}
 	}
 	
 	public int getDiffColor(String line)
 	{
 		if (line.isEmpty())
+		{
 			return 0xFFFFFF;
+		}
 		
 		switch (line.charAt(0))
 		{
-			case '+':
-				return 0x00FF00;
-			case '-':
-				return 0xFF0000;
-			case '*':
-				return 0xFFFF00;
-			case '!':
-				return 0x007FFF;
-			default:
-				return 0xFFFFFF;
+		case '+':
+			return 0x00FF00;
+		case '-':
+			return 0xFF0000;
+		case '*':
+			return 0xFFFF00;
+		case '!':
+			return 0x007FFF;
+		default:
+			return 0xFFFFFF;
 		}
 	}
 	

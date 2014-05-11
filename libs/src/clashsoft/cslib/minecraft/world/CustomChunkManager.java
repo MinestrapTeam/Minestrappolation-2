@@ -63,7 +63,7 @@ public abstract class CustomChunkManager extends WorldChunkManager
 		
 		int len = width * height;
 		
-		if ((store == null) || (store.length < len))
+		if (store == null || store.length < len)
 		{
 			store = new float[len];
 		}
@@ -113,7 +113,7 @@ public abstract class CustomChunkManager extends WorldChunkManager
 		
 		int len = width * height;
 		
-		if ((store == null) || (store.length < len))
+		if (store == null || store.length < len)
 		{
 			store = new BiomeGenBase[len];
 		}
@@ -144,7 +144,7 @@ public abstract class CustomChunkManager extends WorldChunkManager
 	@Override
 	public BiomeGenBase[] loadBlockGeneratorData(BiomeGenBase[] store, int x, int z, int width, int height)
 	{
-		return getBiomeGenAt(store, x, z, width, height, true);
+		return this.getBiomeGenAt(store, x, z, width, height, true);
 	}
 	
 	@Override
@@ -154,7 +154,7 @@ public abstract class CustomChunkManager extends WorldChunkManager
 		
 		int len = width * height;
 		
-		if ((store == null) || (store.length < len))
+		if (store == null || store.length < len)
 		{
 			store = new BiomeGenBase[len];
 		}
@@ -195,7 +195,7 @@ public abstract class CustomChunkManager extends WorldChunkManager
 			{
 				BiomeGenBase biomegenbase = BiomeGenBase.getBiome(ints[i]);
 				
-				if (!(biomes.contains(biomegenbase)))
+				if (!biomes.contains(biomegenbase))
 				{
 					return false;
 				}

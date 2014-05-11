@@ -15,13 +15,13 @@ public class BlockImpl extends Block implements ICustomBlock
 		this.setBlockName(name);
 		this.setBlockTextureName(iconName);
 	}
-
+	
 	@Override
 	public String getUnlocalizedName(ItemStack stack)
 	{
 		return this.getUnlocalizedName();
 	}
-
+	
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List<String> list)
 	{

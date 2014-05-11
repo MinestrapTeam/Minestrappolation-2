@@ -6,7 +6,7 @@ import net.minecraft.world.gen.layer.GenLayerVoronoiZoom;
 import net.minecraft.world.gen.layer.GenLayerZoom;
 
 public abstract class CustomGenLayer
-{	
+{
 	public abstract GenLayer getBiomeGenLayer(long seed, WorldType worldType);
 	
 	public abstract int getBiomeSize(long seed, WorldType worldType);

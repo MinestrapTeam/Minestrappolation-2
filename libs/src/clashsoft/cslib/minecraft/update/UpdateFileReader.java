@@ -6,10 +6,9 @@ import java.util.List;
 
 import clashsoft.cslib.minecraft.update.updater.IUpdater;
 
-
 public class UpdateFileReader
 {
-	public static final UpdateFileReader instance = new UpdateFileReader();
+	public static final UpdateFileReader	instance	= new UpdateFileReader();
 	
 	public void readFile(IUpdater updater, String[] lines)
 	{

@@ -34,11 +34,13 @@ public class ItemStackHashingStrategy implements HashingStrategy<ItemStack>
 	{
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((stack.getItem() == null) ? 0 : Item.getIdFromItem(stack.getItem()));
+		result = prime * result + (stack.getItem() == null ? 0 : Item.getIdFromItem(stack.getItem()));
 		result = prime * result + stack.getItemDamage();
 		if (this.compareStackSize)
+		{
 			result = prime * result + stack.stackSize;
-		result = prime * result + ((stack.stackTagCompound == null) ? 0 : stack.stackTagCompound.hashCode());
+		}
+		result = prime * result + (stack.stackTagCompound == null ? 0 : stack.stackTagCompound.hashCode());
 		return result;
 	}
 	
@@ -49,24 +51,40 @@ public class ItemStackHashingStrategy implements HashingStrategy<ItemStack>
 		int damage2 = o2.getItemDamage();
 		
 		if (o1 == o2)
+		{
 			return true;
-		if ((o1 == null) != (o2 == null))
+		}
+		if (o1 == null != (o2 == null))
+		{
 			return false;
+		}
 		if (o1.getClass() != o2.getClass())
+		{
 			return false;
+		}
 		if (o1.getItem() != o2.getItem())
+		{
 			return false;
+		}
 		if (damage1 != damage2 && damage1 != 32767 && damage2 != 32767)
+		{
 			return false;
+		}
 		if (this.compareStackSize && o1.stackSize != o2.stackSize)
+		{
 			return false;
+		}
 		if (o1.stackTagCompound == null)
 		{
 			if (o2.stackTagCompound != null)
+			{
 				return false;
+			}
 		}
 		else if (!o1.stackTagCompound.equals(o2.stackTagCompound))
+		{
 			return false;
+		}
 		return true;
 	}
 }

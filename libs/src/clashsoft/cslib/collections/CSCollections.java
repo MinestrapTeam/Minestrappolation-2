@@ -27,7 +27,9 @@ public class CSCollections
 	{
 		List<T> list = new ArrayList<T>(array.length);
 		for (T t : array)
+		{
 			list.add(t);
+		}
 		return list;
 	}
 	
@@ -96,9 +98,11 @@ public class CSCollections
 			List<T> sublist = new ArrayList();
 			for (int j = 0; j < maxLength; j++)
 			{
-				int k = j + (i * maxLength);
+				int k = j + i * maxLength;
 				if (k >= list.size())
+				{
 					sublist.add(list.get(k));
+				}
 			}
 			ret.add(sublist);
 		}
@@ -157,11 +161,15 @@ public class CSCollections
 				for (T t2 : result)
 				{
 					if (Objects.equals(t1, t2))
+					{
 						duplicate = true;
+					}
 					break;
 				}
 				if (!duplicate)
+				{
 					result.add(t1);
+				}
 			}
 			
 			return result;
@@ -243,7 +251,9 @@ public class CSCollections
 		for (int i = start; i < list.size(); i++)
 		{
 			if (Objects.equals(object, list.get(i)))
+			{
 				return i;
+			}
 		}
 		return -1;
 	}
@@ -279,7 +289,9 @@ public class CSCollections
 		for (int i = start; i >= 0; i--)
 		{
 			if (Objects.equals(object, list.get(i)))
+			{
 				return i;
+			}
 		}
 		return -1;
 	}
@@ -300,7 +312,9 @@ public class CSCollections
 		{
 			int index = indexOf(list, object);
 			if (index != -1)
+			{
 				return index;
+			}
 		}
 		return -1;
 	}
@@ -320,7 +334,9 @@ public class CSCollections
 		{
 			int index = lastIndexOf(list, object);
 			if (index != -1)
+			{
 				return index;
+			}
 		}
 		return -1;
 	}
@@ -337,8 +353,12 @@ public class CSCollections
 	public static <T> boolean contains(Collection<T> collection, T object)
 	{
 		for (T t : collection)
+		{
 			if (Objects.equals(t, object))
+			{
 				return true;
+			}
+		}
 		return false;
 	}
 	
@@ -354,8 +374,12 @@ public class CSCollections
 	public static <T> boolean containsAny(Collection<T> collection, T... objects)
 	{
 		for (T object : objects)
+		{
 			if (contains(collection, object))
+			{
 				return true;
+			}
+		}
 		return false;
 	}
 	
@@ -371,8 +395,12 @@ public class CSCollections
 	public static <T> boolean containsAll(Collection<T> collection, T... objects)
 	{
 		for (T object : objects)
+		{
 			if (!contains(collection, object))
+			{
 				return false;
+			}
+		}
 		return true;
 	}
 }

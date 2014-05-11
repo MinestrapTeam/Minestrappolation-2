@@ -31,6 +31,7 @@ public class BlockCustomWorkbench extends Block implements ICustomBlock
 	public BlockCustomWorkbench(int blockID, String[] names, String[] topIcons, String[] sideIcons, String[] side2Icons, String[] bottomIcons)
 	{
 		super(Material.wood);
+		this.setStepSound(soundTypeWood);
 		this.setCreativeTab(CreativeTabs.tabDecorations);
 		
 		this.names = names;
@@ -85,23 +86,20 @@ public class BlockCustomWorkbench extends Block implements ICustomBlock
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ)
 	{
-		if (world.isRemote)
-		{
-			return true;
-		}
-		else
+		if (!world.isRemote)
 		{
 			player.displayGUIWorkbench(x, y, z);
 			return true;
 		}
+		return false;
 	}
 	
 	@Override
-	public void getSubBlocks(Item item, CreativeTabs creativeTab, List list)
+	public void getSubBlocks(Item item, CreativeTabs tab, List list)
 	{
 		for (int i = 0; i < this.names.length; i++)
 		{
-			list.add(new ItemStack(this, 1, i));
+			list.add(new ItemStack(item, 1, i));
 		}
 	}
 	

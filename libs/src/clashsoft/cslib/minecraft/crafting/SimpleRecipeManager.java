@@ -13,7 +13,7 @@ import net.minecraftforge.oredict.OreDictionary;
 
 public class SimpleRecipeManager
 {
-	private Map<ItemStack, ItemStack>		recipeMap		= new TCustomHashMap(ItemStackHashingStrategy.instance);
+	private Map<ItemStack, ItemStack>	recipeMap	= new TCustomHashMap(ItemStackHashingStrategy.instance);
 	
 	protected SimpleRecipeManager()
 	{

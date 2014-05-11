@@ -31,19 +31,19 @@ public class ArraySet<E> extends AbstractSet<E>
 	@Override
 	public int size()
 	{
-		return size;
+		return this.size;
 	}
 	
 	@Override
 	public boolean isEmpty()
 	{
-		return size == 0;
+		return this.size == 0;
 	}
 	
 	@Override
 	public boolean contains(Object o)
 	{
-		return CSArrays.contains(entries, o);
+		return CSArrays.contains(this.entries, o);
 	}
 	
 	@Override
@@ -59,49 +59,53 @@ public class ArraySet<E> extends AbstractSet<E>
 		@Override
 		public boolean hasNext()
 		{
-			return currentIndex < size;
+			return this.currentIndex < ArraySet.this.size;
 		}
 		
 		@Override
 		public E next()
 		{
-			E e = (E) entries[currentIndex];
-			currentIndex++;
+			E e = (E) ArraySet.this.entries[this.currentIndex];
+			this.currentIndex++;
 			return e;
 		}
 		
 		@Override
 		public void remove()
 		{
-			ArraySet.this.remove(entries[currentIndex]);
+			ArraySet.this.remove(ArraySet.this.entries[this.currentIndex]);
 		}
 	}
 	
 	@Override
 	public Object[] toArray()
 	{
-		if (toArray != null)
-			return toArray;
+		if (this.toArray != null)
+		{
+			return this.toArray;
+		}
 		else
 		{
 			Object[] o = new Object[this.size];
-			for (int i = 0, i0 = 0; i < entries.length; i++)
-				if (entries[i] != null)
+			for (int i = 0, i0 = 0; i < this.entries.length; i++)
+			{
+				if (this.entries[i] != null)
 				{
-					o[i0] = entries[i];
+					o[i0] = this.entries[i];
 					i0++;
 				}
+			}
 			Arrays.sort(o);
-			return toArray = o;
+			return this.toArray = o;
 		}
 	}
 	
 	@Override
 	public <T> T[] toArray(T[] a)
 	{
-		for (int i = 0; i < size; i++)
+		for (int i = 0; i < this.size; i++)
 		{
-			a[i] = (T) entries[i];
+			a[i] = (T) this.entries[i];
 		}
 		return a;
 	}
@@ -109,13 +113,13 @@ public class ArraySet<E> extends AbstractSet<E>
 	@Override
 	public boolean add(E e)
 	{
-		if (e != null && !contains(e))
+		if (e != null && !this.contains(e))
 		{
-			ensureCapacity(++size);
+			this.ensureCapacity(++this.size);
 			
-			currentIndex = nextIndex();
-			entries[currentIndex] = e;
-			onChanged();
+			this.currentIndex = this.nextIndex();
+			this.entries[this.currentIndex] = e;
+			this.onChanged();
 			return true;
 		}
 		return false;
@@ -130,41 +134,51 @@ public class ArraySet<E> extends AbstractSet<E>
 	{
 		if (minCapacity - this.entries.length > 0)
 		{
-			int oldCapacity = entries.length;
+			int oldCapacity = this.entries.length;
 			int newCapacity = oldCapacity + (oldCapacity >> 1);
 			if (newCapacity - minCapacity < 0)
-				newCapacity = initialCapacity;
+			{
+				newCapacity = this.initialCapacity;
+			}
 			if (newCapacity - MAX_ARRAY_SIZE > 0)
+			{
 				newCapacity = hugeCapacity(minCapacity);
-			this.entries = Arrays.copyOf(entries, newCapacity);
+			}
+			this.entries = Arrays.copyOf(this.entries, newCapacity);
 		}
 	}
 	
 	private static int hugeCapacity(int minCapacity)
 	{
-		if (minCapacity < 0) // overflow
+		if (minCapacity < 0)
+		{
 			throw new OutOfMemoryError();
-		return (minCapacity > MAX_ARRAY_SIZE) ? Integer.MAX_VALUE : MAX_ARRAY_SIZE;
+		}
+		return minCapacity > MAX_ARRAY_SIZE ? Integer.MAX_VALUE : MAX_ARRAY_SIZE;
 	}
 	
 	protected int nextIndex()
 	{
-		for (int i = 0; i < entries.length; i++)
-			if (entries[i] == null)
+		for (int i = 0; i < this.entries.length; i++)
+		{
+			if (this.entries[i] == null)
+			{
 				return i;
-		return currentIndex++;
+			}
+		}
+		return this.currentIndex++;
 	}
 	
 	@Override
 	public boolean remove(Object o)
 	{
-		int index = CSArrays.indexOf(entries, o);
+		int index = CSArrays.indexOf(this.entries, o);
 		if (index != -1)
 		{
-			entries[index] = null;
-			currentIndex = index;
-			--size;
-			onChanged();
+			this.entries[index] = null;
+			this.currentIndex = index;
+			--this.size;
+			this.onChanged();
 			return true;
 		}
 		return false;
@@ -174,8 +188,12 @@ public class ArraySet<E> extends AbstractSet<E>
 	public boolean containsAll(Collection<?> c)
 	{
 		for (Object object : c)
-			if (!CSArrays.contains(entries, object))
+		{
+			if (!CSArrays.contains(this.entries, object))
+			{
 				return false;
+			}
+		}
 		return true;
 	}
 	
@@ -184,8 +202,12 @@ public class ArraySet<E> extends AbstractSet<E>
 	{
 		boolean value = false;
 		for (E e : c)
-			if (add(e))
+		{
+			if (this.add(e))
+			{
 				value = true;
+			}
+		}
 		return value;
 	}
 	
@@ -198,8 +220,10 @@ public class ArraySet<E> extends AbstractSet<E>
 		while (iterator.hasNext())
 		{
 			entry = iterator.next();
-			if (!contains(entry))
+			if (!this.contains(entry))
+			{
 				this.remove(entry);
+			}
 		}
 		
 		return false;
@@ -210,8 +234,12 @@ public class ArraySet<E> extends AbstractSet<E>
 	{
 		boolean value = false;
 		for (Object o : c)
-			if (remove(o))
+		{
+			if (this.remove(o))
+			{
 				value = true;
+			}
+		}
 		return value;
 	}
 	
@@ -219,7 +247,7 @@ public class ArraySet<E> extends AbstractSet<E>
 	public void clear()
 	{
 		this.size = 0;
-		this.entries = new Object[initialCapacity];
+		this.entries = new Object[this.initialCapacity];
 		this.onChanged();
 	}
 }

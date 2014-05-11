@@ -18,7 +18,9 @@ public class IntArrayList
 	public IntArrayList(int initialCapacity)
 	{
 		if (initialCapacity < 0)
+		{
 			throw new IllegalArgumentException("Illegal Capacity: " + initialCapacity);
+		}
 		this.elementData = new int[initialCapacity];
 	}
 	
@@ -31,7 +33,9 @@ public class IntArrayList
 	private void ensureCapacity(int minCapacity)
 	{
 		if (minCapacity - this.elementData.length > 0)
+		{
 			this.grow(minCapacity);
+		}
 	}
 	
 	private void grow(int minCapacity)
@@ -40,18 +44,24 @@ public class IntArrayList
 		int oldCapacity = this.elementData.length;
 		int newCapacity = oldCapacity + (oldCapacity >> 1);
 		if (newCapacity - minCapacity < 0)
+		{
 			newCapacity = minCapacity;
+		}
 		if (newCapacity - MAX_ARRAY_SIZE > 0)
+		{
 			newCapacity = hugeCapacity(minCapacity);
+		}
 		// minCapacity is usually close to size, so this is a win:
 		this.elementData = Arrays.copyOf(this.elementData, newCapacity);
 	}
 	
 	private static int hugeCapacity(int minCapacity)
 	{
-		if (minCapacity < 0) // overflow
+		if (minCapacity < 0)
+		{
 			throw new OutOfMemoryError();
-		return (minCapacity > MAX_ARRAY_SIZE) ? Integer.MAX_VALUE : MAX_ARRAY_SIZE;
+		}
+		return minCapacity > MAX_ARRAY_SIZE ? Integer.MAX_VALUE : MAX_ARRAY_SIZE;
 	}
 	
 	public void set(int index, int i)
@@ -68,7 +78,7 @@ public class IntArrayList
 	
 	public void add(int index, int i)
 	{
-		this.ensureCapacity(this.size + 1);  // Increments modCount!!
+		this.ensureCapacity(this.size + 1); // Increments modCount!!
 		System.arraycopy(this.elementData, index, this.elementData, index + 1, this.size - index);
 		this.elementData[index] = i;
 		this.size++;
@@ -160,7 +170,7 @@ public class IntArrayList
 	
 	public int[] toArray()
 	{
-		return toArray(new int[this.size]);
+		return this.toArray(new int[this.size]);
 	}
 	
 	public int[] toArray(int[] array)

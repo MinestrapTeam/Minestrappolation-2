@@ -17,7 +17,7 @@ public class Point4i extends Point3i
 	
 	public void setW(int w)
 	{
-		this.w = z;
+		this.w = this.z;
 	}
 	
 	@Override

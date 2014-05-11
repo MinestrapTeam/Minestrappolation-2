@@ -10,7 +10,7 @@ import net.minecraft.potion.PotionEffect;
 /**
  * The Interface IItemMetadataList.
  */
-public interface IMetaItem
+public interface ISubItem
 {
 	public ItemStack asStack();
 	
@@ -36,19 +36,19 @@ public interface IMetaItem
 	
 	public boolean isEnabled();
 	
-	public IMetaItem register();
+	public ISubItem register();
 	
-	public IMetaItem setBlockPlaced(Block block, int metadata);
+	public ISubItem setBlockPlaced(Block block, int metadata);
 	
-	public IMetaItem setEffects(PotionEffect... effects);
+	public ISubItem setEffects(PotionEffect... effects);
 	
-	public IMetaItem setEnabled(boolean enabled);
+	public ISubItem setEnabled(boolean enabled);
 	
-	public IMetaItem setFoodValue(int foodValue);
+	public ISubItem setFoodValue(int foodValue);
 	
-	public IMetaItem setIconName(String icon);
+	public ISubItem setIconName(String icon);
 	
-	public IMetaItem setName(String name);
+	public ISubItem setName(String name);
 	
-	public IMetaItemRecipe getRecipe();
+	public ISubItemRecipe getRecipe();
 }

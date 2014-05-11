@@ -63,27 +63,27 @@ public abstract class CustomTeleporter extends Teleporter
 					{
 						int i5 = i + i3 * l + i2 * i1;
 						int i6 = j + i4;
-						int i7 = k + i3 * i1 - (i2 * l);
+						int i7 = k + i3 * i1 - i2 * l;
 						
-						int i8 = (i4 < 0) ? 1 : 0;
+						int i8 = i4 < 0 ? 1 : 0;
 						
-						this.worldServerInstance.setBlock(i5, i6, i7, (i8 != 0) ? this.getFrameBlock() : Blocks.air);
+						this.worldServerInstance.setBlock(i5, i6, i7, i8 != 0 ? this.getFrameBlock() : Blocks.air);
 					}
 				}
 			}
 			
 			entity.setLocationAndAngles(i, j, k, entity.rotationYaw, 0.0F);
-			entity.motionX = (entity.motionY = entity.motionZ = 0.0D);
+			entity.motionX = entity.motionY = entity.motionZ = 0.0D;
 			
 			return;
 		}
-		if (placeInExistingPortal(entity, x, y, z, yaw))
+		if (this.placeInExistingPortal(entity, x, y, z, yaw))
 		{
 			return;
 		}
 		
-		makePortal(entity);
-		placeInExistingPortal(entity, x, y, z, yaw);
+		this.makePortal(entity);
+		this.placeInExistingPortal(entity, x, y, z, yaw);
 	}
 	
 	@Override
@@ -131,7 +131,7 @@ public abstract class CustomTeleporter extends Teleporter
 							
 							double d8 = d7 + 0.5D - entity.posY;
 							double d9 = d3 * d3 + d8 * d8 + d5 * d5;
-							if ((d1 < 0.0D) || (d9 < d1))
+							if (d1 < 0.0D || d9 < d1)
 							{
 								d1 = d9;
 								j = i3;
@@ -162,13 +162,21 @@ public abstract class CustomTeleporter extends Teleporter
 			int i6 = -1;
 			
 			if (this.worldServerInstance.getBlock(i3 - 1, d3, i4) == this.getPortalBlock())
+			{
 				i6 = 2;
+			}
 			if (this.worldServerInstance.getBlock(i3 + 1, d3, i4) == this.getPortalBlock())
+			{
 				i6 = 0;
+			}
 			if (this.worldServerInstance.getBlock(i3, d3, i4 - 1) == this.getPortalBlock())
+			{
 				i6 = 3;
+			}
 			if (this.worldServerInstance.getBlock(i3, d3, i4 + 1) == this.getPortalBlock())
+			{
 				i6 = 1;
+			}
 			
 			int i7 = entity.getTeleportDirection();
 			
@@ -180,10 +188,10 @@ public abstract class CustomTeleporter extends Teleporter
 				int i11 = Direction.offsetX[i8];
 				int i12 = Direction.offsetZ[i8];
 				
-				int i13 = ((!(this.worldServerInstance.isAirBlock(i3 + i9 + i11, d3, i4 + i10 + i12))) || (!(this.worldServerInstance.isAirBlock(i3 + i9 + i11, d3 + 1, i4 + i10 + i12)))) ? 1 : 0;
-				int i14 = ((!(this.worldServerInstance.isAirBlock(i3 + i9, d3, i4 + i10))) || (!(this.worldServerInstance.isAirBlock(i3 + i9, d3 + 1, i4 + i10)))) ? 1 : 0;
+				int i13 = !this.worldServerInstance.isAirBlock(i3 + i9 + i11, d3, i4 + i10 + i12) || !this.worldServerInstance.isAirBlock(i3 + i9 + i11, d3 + 1, i4 + i10 + i12) ? 1 : 0;
+				int i14 = !this.worldServerInstance.isAirBlock(i3 + i9, d3, i4 + i10) || !this.worldServerInstance.isAirBlock(i3 + i9, d3 + 1, i4 + i10) ? 1 : 0;
 				
-				if ((i13 != 0) && (i14 != 0))
+				if (i13 != 0 && i14 != 0)
 				{
 					i6 = Direction.rotateOpposite[i6];
 					i8 = Direction.rotateOpposite[i8];
@@ -196,18 +204,22 @@ public abstract class CustomTeleporter extends Teleporter
 					d4 -= i11;
 					i4 -= i12;
 					d8 -= i12;
-					i13 = ((!(this.worldServerInstance.isAirBlock(i3 + i9 + i11, d3, i4 + i10 + i12))) || (!(this.worldServerInstance.isAirBlock(i3 + i9 + i11, d3 + 1, i4 + i10 + i12)))) ? 1 : 0;
-					i14 = ((!(this.worldServerInstance.isAirBlock(i3 + i9, d3, i4 + i10))) || (!(this.worldServerInstance.isAirBlock(i3 + i9, d3 + 1, i4 + i10)))) ? 1 : 0;
+					i13 = !this.worldServerInstance.isAirBlock(i3 + i9 + i11, d3, i4 + i10 + i12) || !this.worldServerInstance.isAirBlock(i3 + i9 + i11, d3 + 1, i4 + i10 + i12) ? 1 : 0;
+					i14 = !this.worldServerInstance.isAirBlock(i3 + i9, d3, i4 + i10) || !this.worldServerInstance.isAirBlock(i3 + i9, d3 + 1, i4 + i10) ? 1 : 0;
 				}
 				
 				float f1 = 0.5F;
 				float f2 = 0.5F;
 				
-				if ((i13 == 0) && (i14 != 0))
+				if (i13 == 0 && i14 != 0)
+				{
 					f1 = 1.0F;
-				else if ((i13 != 0) && (i14 == 0))
+				}
+				else if (i13 != 0 && i14 == 0)
+				{
 					f1 = 0.0F;
-				else if ((i13 != 0) && (i14 != 0))
+				}
+				else if (i13 != 0 && i14 != 0)
 				{
 					f2 = 0.0F;
 				}
@@ -243,13 +255,13 @@ public abstract class CustomTeleporter extends Teleporter
 				
 				double d10 = entity.motionX;
 				double d11 = entity.motionZ;
-				entity.motionX = (d10 * f3 + d11 * f6);
-				entity.motionZ = (d10 * f5 + d11 * f4);
-				entity.rotationYaw = (yaw - (i7 * 90) + i6 * 90);
+				entity.motionX = d10 * f3 + d11 * f6;
+				entity.motionZ = d10 * f5 + d11 * f4;
+				entity.rotationYaw = yaw - i7 * 90 + i6 * 90;
 			}
 			else
 			{
-				entity.motionX = (entity.motionY = entity.motionZ = 0.0D);
+				entity.motionX = entity.motionY = entity.motionZ = 0.0D;
 			}
 			
 			entity.setLocationAndAngles(d4, d6, d8, entity.rotationYaw, entity.rotationPitch);
@@ -299,7 +311,7 @@ public abstract class CustomTeleporter extends Teleporter
 				{
 					if (this.worldServerInstance.isAirBlock(d5, i7, i4))
 					{
-						while ((i7 > 0) && (this.worldServerInstance.isAirBlock(d5, i7 - 1, i4)))
+						while (i7 > 0 && this.worldServerInstance.isAirBlock(d5, i7 - 1, i4))
 						{
 							--i7;
 						}
@@ -323,18 +335,22 @@ public abstract class CustomTeleporter extends Teleporter
 									{
 										i18 = d5 + (i14 - 1) * i9 + i11 * i10;
 										i19 = i7 + i15;
-										i20 = i4 + (i14 - 1) * i10 - (i11 * i9);
+										i20 = i4 + (i14 - 1) * i10 - i11 * i9;
 										
-										if ((i15 < 0) && (!(this.worldServerInstance.getBlock(i18, i19, i20).getMaterial().isSolid())))
+										if (i15 < 0 && !this.worldServerInstance.getBlock(i18, i19, i20).getMaterial().isSolid())
+										{
 											break label436;
-										if ((i15 >= 0) && (!(this.worldServerInstance.isAirBlock(i18, i19, i20))))
+										}
+										if (i15 >= 0 && !this.worldServerInstance.isAirBlock(i18, i19, i20))
+										{
 											break label436;
+										}
 									}
 								}
 							}
 							double d8 = i7 + 0.5D - entity.posY;
 							double d10 = d6 * d6 + d8 * d8 + d7 * d7;
-							if ((d1 < 0.0D) || (d10 < d1))
+							if (d1 < 0.0D || d10 < d1)
 							{
 								d1 = d10;
 								d3 = d5;
@@ -360,7 +376,7 @@ public abstract class CustomTeleporter extends Teleporter
 					{
 						if (this.worldServerInstance.isAirBlock(d5, i7, i4))
 						{
-							while ((i7 > 0) && (this.worldServerInstance.isAirBlock(d5, i7 - 1, i4)))
+							while (i7 > 0 && this.worldServerInstance.isAirBlock(d5, i7 - 1, i4))
 							{
 								--i7;
 							}
@@ -377,15 +393,19 @@ public abstract class CustomTeleporter extends Teleporter
 										i18 = i7 + i14;
 										i19 = i4 + (i12 - 1) * i10;
 										
-										if ((i14 < 0) && (!(this.worldServerInstance.getBlock(i16, i18, i19).getMaterial().isSolid())))
+										if (i14 < 0 && !this.worldServerInstance.getBlock(i16, i18, i19).getMaterial().isSolid())
+										{
 											break label792;
-										if ((i14 >= 0) && (!(this.worldServerInstance.isAirBlock(i16, i18, i19))))
+										}
+										if (i14 >= 0 && !this.worldServerInstance.isAirBlock(i16, i18, i19))
+										{
 											break label792;
+										}
 									}
 								}
 								double d9 = i7 + 0.5D - entity.posY;
 								double d11 = d6 * d6 + d9 * d9 + d7 * d7;
-								if ((d1 < 0.0D) || (d11 < d1))
+								if (d1 < 0.0D || d11 < d1)
 								{
 									d1 = d11;
 									d3 = d5;
@@ -418,9 +438,13 @@ public abstract class CustomTeleporter extends Teleporter
 		if (d1 < 0.0D)
 		{
 			if (l < 70)
+			{
 				l = 70;
+			}
 			if (l > this.worldServerInstance.getActualHeight() - 10)
+			{
 				l = this.worldServerInstance.getActualHeight() - 10;
+			}
 			i3 = l;
 			
 			for (i7 = -1; i7 <= 1; ++i7)
@@ -431,11 +455,11 @@ public abstract class CustomTeleporter extends Teleporter
 					{
 						i10 = d6 + (i8 - 1) * i5 + i7 * i6;
 						i11 = i3 + i9;
-						i14 = i4 + (i8 - 1) * i6 - (i7 * i5);
+						i14 = i4 + (i8 - 1) * i6 - i7 * i5;
 						
-						i17 = (i9 < 0) ? 1 : 0;
+						i17 = i9 < 0 ? 1 : 0;
 						
-						this.worldServerInstance.setBlock(i10, i11, i14, (i17 != 0) ? this.getFrameBlock() : Blocks.air);
+						this.worldServerInstance.setBlock(i10, i11, i14, i17 != 0 ? this.getFrameBlock() : Blocks.air);
 					}
 				}
 			}
@@ -451,9 +475,9 @@ public abstract class CustomTeleporter extends Teleporter
 					i11 = i3 + i9;
 					i14 = i4 + (i8 - 1) * i6;
 					
-					i17 = ((i8 == 0) || (i8 == 3) || (i9 == -1) || (i9 == 3)) ? 1 : 0;
+					i17 = i8 == 0 || i8 == 3 || i9 == -1 || i9 == 3 ? 1 : 0;
 					if (i17 != 0)
-					{						
+					{
 						this.worldServerInstance.setBlock(i10, i11, i14, this.getFrameBlock(), this.getFrameMetadata(), 2);
 					}
 					else
@@ -492,7 +516,7 @@ public abstract class CustomTeleporter extends Teleporter
 				Long l = (Long) iterator.next();
 				PortalPosition localPortalPosition = (PortalPosition) this.destCoordCache.getValueByKey(l.longValue());
 				
-				if ((localPortalPosition == null) || (localPortalPosition.lastUpdateTime < time1))
+				if (localPortalPosition == null || localPortalPosition.lastUpdateTime < time1)
 				{
 					iterator.remove();
 					this.destCoordCache.remove(l.longValue());

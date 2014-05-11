@@ -12,8 +12,8 @@ import net.minecraft.item.ItemStack;
 
 public class ItemDataPickaxe extends ItemDataTool
 {
-	public static final float baseDamage = 2F;
-	public static final Set	blocksEffectiveAgainst	= CSReflection.getStaticValue(ItemPickaxe.class, 0);
+	public static final float	baseDamage				= 2F;
+	public static final Set		blocksEffectiveAgainst	= CSReflection.getStaticValue(ItemPickaxe.class, 0);
 	
 	public ItemDataPickaxe(ToolMaterial toolMaterial)
 	{
@@ -28,37 +28,37 @@ public class ItemDataPickaxe extends ItemDataTool
 	@Override
 	public boolean canHarvestBlock(Block block, ItemStack stack)
 	{
-		if (this.isEfficientOnMaterial(block.getMaterial()))
+		if (ItemDataPickaxe.isEfficientOnMaterial(block.getMaterial()))
 		{
 			return true;
 		}
 		else if (block == Blocks.obsidian)
 		{
-			return (this.toolMaterial.getHarvestLevel() == 3);
+			return this.toolMaterial.getHarvestLevel() == 3;
 		}
-		else if ((block == Blocks.diamond_block) || (block == Blocks.diamond_ore))
+		else if (block == Blocks.diamond_block || block == Blocks.diamond_ore)
 		{
-			return (this.toolMaterial.getHarvestLevel() >= 2);
+			return this.toolMaterial.getHarvestLevel() >= 2;
 		}
-		else if ((block == Blocks.emerald_ore) || (block == Blocks.emerald_block))
+		else if (block == Blocks.emerald_ore || block == Blocks.emerald_block)
 		{
-			return (this.toolMaterial.getHarvestLevel() >= 2);
+			return this.toolMaterial.getHarvestLevel() >= 2;
 		}
-		else if ((block == Blocks.gold_block) || (block == Blocks.gold_ore))
+		else if (block == Blocks.gold_block || block == Blocks.gold_ore)
 		{
-			return (this.toolMaterial.getHarvestLevel() >= 2);
+			return this.toolMaterial.getHarvestLevel() >= 2;
 		}
-		else if ((block == Blocks.iron_block) || (block == Blocks.iron_ore))
+		else if (block == Blocks.iron_block || block == Blocks.iron_ore)
 		{
-			return (this.toolMaterial.getHarvestLevel() >= 1);
+			return this.toolMaterial.getHarvestLevel() >= 1;
 		}
-		else if ((block == Blocks.lapis_block) || (block == Blocks.lapis_ore))
+		else if (block == Blocks.lapis_block || block == Blocks.lapis_ore)
 		{
-			return (this.toolMaterial.getHarvestLevel() >= 1);
+			return this.toolMaterial.getHarvestLevel() >= 1;
 		}
-		else if ((block == Blocks.redstone_ore) || (block == Blocks.lit_redstone_ore))
+		else if (block == Blocks.redstone_ore || block == Blocks.lit_redstone_ore)
 		{
-			return (this.toolMaterial.getHarvestLevel() >= 2);
+			return this.toolMaterial.getHarvestLevel() >= 2;
 		}
 		return false;
 	}

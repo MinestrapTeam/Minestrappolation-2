@@ -15,16 +15,16 @@ import net.minecraft.entity.player.EntityPlayer;
  */
 public class Update
 {
-	protected String	modName;
+	protected String		modName;
 	
-	protected String	version;
-	protected String	newVersion;
+	protected String		version;
+	protected String		newVersion;
 	
 	protected List<String>	updateNotes;
-	protected String	url;
+	protected String		url;
 	
-	protected Boolean	valid;
-	protected int		installStatus;
+	protected int			compare	= -999;
+	protected int			installStatus;
 	
 	public Update(String modName, String version, String newVersion, List<String> updateNotes, String updateUrl)
 	{
@@ -41,11 +41,13 @@ public class Update
 		this.version = version;
 	}
 	
-	public boolean validate()
+	public int validate()
 	{
-		boolean b = this.version != null && this.newVersion != null && this.newVersion.startsWith(CSUpdate.CURRENT_VERSION) && CSUpdate.compareVersion(this.version, this.newVersion) < 0;
-		this.valid = Boolean.valueOf(b);
-		return b;
+		if (this.compare == -999 && this.version != null && this.newVersion != null && this.newVersion.startsWith(CSUpdate.CURRENT_VERSION))
+		{
+			this.compare = CSUpdate.compareVersion(this.version, this.newVersion);
+		}
+		return this.compare;
 	}
 	
 	public String getModName()
@@ -74,10 +76,7 @@ public class Update
 		{
 			return this.version + " -> " + this.newVersion;
 		}
-		else
-		{
 			return this.version;
-		}
 	}
 	
 	public String getUpdateURL()
@@ -92,11 +91,12 @@ public class Update
 	
 	public boolean isValid()
 	{
-		if (this.valid == null)
-		{
-			return this.validate();
-		}
-		return this.valid.booleanValue();
+		return this.validate() < 0;
+	}
+	
+	public boolean isCurrent()
+	{
+		return this.validate() == 0;
 	}
 	
 	public boolean hasDownload()

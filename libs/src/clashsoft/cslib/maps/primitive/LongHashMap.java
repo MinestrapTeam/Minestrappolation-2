@@ -30,12 +30,12 @@ public class LongHashMap<V>
 	private static int hash(int hash)
 	{
 		hash ^= hash >>> 20 ^ hash >>> 12;
-		return (hash ^ hash >>> 7 ^ hash >>> 4);
+		return hash ^ hash >>> 7 ^ hash >>> 4;
 	}
 	
 	private static int getHashIndex(int hash, int size)
 	{
-		return (hash & size - 1);
+		return hash & size - 1;
 	}
 	
 	public int size()
@@ -49,14 +49,16 @@ public class LongHashMap<V>
 		for (Entry<V> entry = this.hashArray[getHashIndex(i, this.hashArray.length)]; entry != null; entry = entry.next)
 		{
 			if (entry.key == key)
+			{
 				return entry.value;
+			}
 		}
 		return null;
 	}
 	
 	public boolean contains(long key)
 	{
-		return (getEntry(key) != null);
+		return this.getEntry(key) != null;
 	}
 	
 	protected final Entry<V> getEntry(long key)
@@ -65,7 +67,9 @@ public class LongHashMap<V>
 		for (Entry localEntry = this.hashArray[getHashIndex(i, this.hashArray.length)]; localEntry != null; localEntry = localEntry.next)
 		{
 			if (localEntry.key == key)
+			{
 				return localEntry;
+			}
 		}
 		return null;
 	}
@@ -86,7 +90,7 @@ public class LongHashMap<V>
 		
 		this.size++;
 		this.modCount++;
-		createKey(i, key, paramObject, j);
+		this.createKey(i, key, paramObject, j);
 		
 		return null;
 	}
@@ -103,7 +107,7 @@ public class LongHashMap<V>
 		}
 		
 		Entry[] dest = new Entry[newSize];
-		copyHashTableTo(dest);
+		this.copyHashTableTo(dest);
 		this.hashArray = dest;
 		this.capacity = (int) (newSize * this.loadFactor);
 	}
@@ -120,9 +124,9 @@ public class LongHashMap<V>
 				src[j] = null;
 				do
 				{
-					Entry localEntry = ((Entry) entry).next;
-					int k = getHashIndex(((Entry) entry).hash, i);
-					((Entry) entry).next = dest[k];
+					Entry localEntry = entry.next;
+					int k = getHashIndex(entry.hash, i);
+					entry.next = dest[k];
 					dest[k] = entry;
 					entry = localEntry;
 				}
@@ -133,8 +137,8 @@ public class LongHashMap<V>
 	
 	public V remove(long key)
 	{
-		Entry<V> localEntry = removeKey(key);
-		return ((localEntry == null) ? null : localEntry.value);
+		Entry<V> localEntry = this.removeKey(key);
+		return localEntry == null ? null : localEntry.value;
 	}
 	
 	protected final Entry<V> removeKey(long key)
@@ -152,9 +156,13 @@ public class LongHashMap<V>
 				this.modCount++;
 				this.size--;
 				if (entry1 == entry2)
+				{
 					this.hashArray[index] = next;
+				}
 				else
-					((Entry) entry1).next = next;
+				{
+					entry1.next = next;
+				}
 				return entry2;
 			}
 			entry1 = entry2;
@@ -170,7 +178,7 @@ public class LongHashMap<V>
 		this.hashArray[index] = new Entry(hash, key, object, localEntry);
 		if (this.size++ >= this.capacity)
 		{
-			resizeTable(2 * this.hashArray.length);
+			this.resizeTable(2 * this.hashArray.length);
 		}
 	}
 	
@@ -178,7 +186,7 @@ public class LongHashMap<V>
 	{
 		final long	key;
 		final int	hash;
-		V		value;
+		V			value;
 		Entry		next;
 		
 		protected Entry(int hash, long key, V value, Entry next)
@@ -203,7 +211,9 @@ public class LongHashMap<V>
 		public final boolean equals(Object other)
 		{
 			if (!(other instanceof Entry))
+			{
 				return false;
+			}
 			Entry entry = (Entry) other;
 			if (this.getKey() == entry.getKey())
 			{
@@ -224,7 +234,7 @@ public class LongHashMap<V>
 		@Override
 		public final String toString()
 		{
-			return getKey() + "=" + getValue();
+			return this.getKey() + "=" + this.getValue();
 		}
 	}
 }

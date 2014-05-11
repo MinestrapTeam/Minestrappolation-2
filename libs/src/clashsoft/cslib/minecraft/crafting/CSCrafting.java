@@ -8,7 +8,7 @@ import static clashsoft.cslib.minecraft.item.CSStacks.stick;
 import java.util.HashMap;
 import java.util.Map;
 
-import clashsoft.cslib.minecraft.item.meta.IMetaItemRecipe;
+import clashsoft.cslib.minecraft.item.meta.ISubItemRecipe;
 import clashsoft.cslib.util.CSLog;
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -386,15 +386,15 @@ public class CSCrafting
 	 *            the recipe
 	 * @return the item stack[][]
 	 */
-	public static ItemStack[][] analyseCrafting(IMetaItemRecipe recipe)
+	public static ItemStack[][] analyseCrafting(ISubItemRecipe recipe)
 	{
 		try
 		{
-			if (recipe.getCraftingType() == IMetaItemRecipe.FURNACE)
+			if (recipe.getCraftingType() == ISubItemRecipe.FURNACE)
 			{
 				return new ItemStack[][] { { null, (ItemStack) recipe.getData()[0], null }, { null, fire, null }, { null, coal, null } };
 			}
-			else if (recipe.getCraftingType() == IMetaItemRecipe.CRAFTING_SHAPELESS)
+			else if (recipe.getCraftingType() == ISubItemRecipe.CRAFTING_SHAPELESS)
 			{
 				ItemStack[][] ret = new ItemStack[3][3];
 				
@@ -407,7 +407,7 @@ public class CSCrafting
 				
 				return ret;
 			}
-			else if (recipe.getCraftingType() == IMetaItemRecipe.CRAFTING)
+			else if (recipe.getCraftingType() == ISubItemRecipe.CRAFTING)
 			{
 				return analyseCraftingShaped(recipe.getData());
 			}

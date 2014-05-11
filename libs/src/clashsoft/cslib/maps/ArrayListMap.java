@@ -18,6 +18,6 @@ public class ArrayListMap<K, V> extends AbstractListMap<K, V>
 	public ArrayListMap(Map<? extends K, ? extends V> m)
 	{
 		this(m.size());
-		putAll(m);
+		this.putAll(m);
 	}
 }

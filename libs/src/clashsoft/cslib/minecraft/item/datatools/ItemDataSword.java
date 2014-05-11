@@ -14,9 +14,9 @@ import net.minecraft.world.World;
 
 public class ItemDataSword extends ItemDataTool
 {
-	public static float baseDamage = 4F;
+	public static float	baseDamage	= 4F;
 	
-	public float	weaponDamage;
+	public float		weaponDamage;
 	
 	public ItemDataSword(ToolMaterial toolMaterial)
 	{

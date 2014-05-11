@@ -93,18 +93,24 @@ public class CSSource extends CSString
 		boolean charQuote = false;
 		boolean literal = false;
 		
-		for (int i = 0; (i < pos) && (i < string.length()); i++)
+		for (int i = 0; i < pos && i < string.length(); i++)
 		{
 			char c = string.charAt(i);
 			
 			if (!literal)
 			{
 				if (c == '"')
+				{
 					quote = !quote;
+				}
 				else if (c == '\'')
+				{
 					charQuote = !charQuote;
+				}
 				else if (c == '\\')
+				{
 					literal = true;
+				}
 				else if (!quote && !charQuote)
 				{
 					switch (c)
@@ -131,7 +137,9 @@ public class CSSource extends CSString
 				}
 			}
 			else
+			{
 				literal = false;
+			}
 		}
 		
 		other = (literal ? 4 : 0) | (charQuote ? 2 : 0) | (quote ? 1 : 0);
@@ -247,14 +255,17 @@ public class CSSource extends CSString
 			{
 				// String quote switch
 				if (c == '"')
+				{
 					quote = !quote;
-				// Char quote switch
+				}
 				else if (c == '\'')
+				{
 					charQuote = !charQuote;
-				// Literals
+				}
 				else if (c == '\\')
+				{
 					literal = true;
-				// Do not check if the current char is quoted
+				}
 				else if (!quote && !charQuote)
 				{
 					// Comment indicators always start with a '/'
@@ -277,7 +288,9 @@ public class CSSource extends CSString
 				}
 			}
 			else
+			{
 				literal = false;
+			}
 			
 			result.append(c);
 		}
@@ -306,13 +319,21 @@ public class CSSource extends CSString
 			{
 				literal = false;
 				if (c == 'n')
+				{
 					c = '\n';
+				}
 				else if (c == 't')
+				{
 					c = '\t';
+				}
 				else if (c == 'r')
+				{
 					c = '\r';
+				}
 				else if (c == 'b')
+				{
 					c = '\b';
+				}
 				else if (c == 'u' && i + 5 < len)
 				{
 					String u = string.substring(i + 1, i + 5);
@@ -358,13 +379,13 @@ public class CSSource extends CSString
 		{
 			// Get the list of the files contained in the package
 			String[] files = directory.list();
-			for (int i = 0; i < files.length; i++)
+			for (String file : files)
 			{
 				// we are only interested in .class files
-				if (files[i].endsWith(".class"))
+				if (file.endsWith(".class"))
 				{
 					// removes the .class extension
-					String className = packageName + '.' + files[i].substring(0, files[i].length() - 6);
+					String className = packageName + '.' + file.substring(0, file.length() - 6);
 					
 					try
 					{
@@ -388,7 +409,7 @@ public class CSSource extends CSString
 				{
 					JarEntry entry = entries.nextElement();
 					String entryName = entry.getName();
-					if (entryName.startsWith(relPath) && entryName.length() > (relPath.length() + "/".length()))
+					if (entryName.startsWith(relPath) && entryName.length() > relPath.length() + "/".length())
 					{
 						String className = entryName.replace('/', '.').replace('\\', '.').replace(".class", "");
 						

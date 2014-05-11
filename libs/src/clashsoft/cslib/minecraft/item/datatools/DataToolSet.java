@@ -17,22 +17,22 @@ public class DataToolSet
 	public static Map<String, ToolMaterial>	nameToMaterial	= new HashMap();
 	public static Map<ToolMaterial, String>	materialToName	= new HashMap();
 	
-	public List<ToolMaterial>			materials		= new ArrayList();
+	public List<ToolMaterial>				materials		= new ArrayList();
 	
 	/** The sword. */
-	public ItemDataSword				sword;
+	public ItemDataSword					sword;
 	
 	/** The shovel. */
-	public ItemDataSpade				shovel;
+	public ItemDataSpade					shovel;
 	
 	/** The pickaxe. */
-	public ItemDataPickaxe				pickaxe;
+	public ItemDataPickaxe					pickaxe;
 	
 	/** The axe. */
-	public ItemDataAxe					axe;
+	public ItemDataAxe						axe;
 	
 	/** The hoe. */
-	public ItemDataHoe					hoe;
+	public ItemDataHoe						hoe;
 	
 	/**
 	 * Instantiates a new data tool set.
@@ -68,8 +68,8 @@ public class DataToolSet
 	public void registerToolMaterial(ToolMaterial material, String name)
 	{
 		this.materials.add(material);
-		this.materialToName.put(material, name);
-		this.nameToMaterial.put(name, material);
+		DataToolSet.materialToName.put(material, name);
+		DataToolSet.nameToMaterial.put(name, material);
 	}
 	
 	public static ToolMaterial getToolMaterial(ItemStack stack)

@@ -86,6 +86,12 @@ public class URLUpdater implements IUpdater
 	@Override
 	public String toString()
 	{
-		return "URLUpdater [url=" + this.getURL() + "; file=" + Arrays.toString(this.getUpdateFile()) + "]"; 
+		return "URLUpdater [url=" + this.getURL() + "; file=" + Arrays.toString(this.getUpdateFile()) + "]";
+	}
+	
+	@Override
+	public boolean reCheck()
+	{
+		return true;
 	}
 }

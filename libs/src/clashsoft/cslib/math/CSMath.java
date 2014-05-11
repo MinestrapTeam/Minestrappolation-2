@@ -14,44 +14,12 @@ public class CSMath
 			sinTable[i] = (float) Math.sin(i * 3.141592653589793D * 2.0D / 65536.0D);
 		}
 		
-		multiplyDeBruijnBitPosition = new int[] {
-			0,
-			1,
-			28,
-			2,
-			29,
-			14,
-			24,
-			3,
-			30,
-			22,
-			20,
-			15,
-			25,
-			17,
-			4,
-			8,
-			31,
-			27,
-			13,
-			23,
-			21,
-			19,
-			16,
-			7,
-			26,
-			12,
-			18,
-			6,
-			11,
-			5,
-			10,
-			9 };
+		multiplyDeBruijnBitPosition = new int[] { 0, 1, 28, 2, 29, 14, 24, 3, 30, 22, 20, 15, 25, 17, 4, 8, 31, 27, 13, 23, 21, 19, 16, 7, 26, 12, 18, 6, 11, 5, 10, 9 };
 	}
 	
 	public static int abs(int i)
 	{
-		return (i >= 0) ? i : -i;
+		return i >= 0 ? i : -i;
 	}
 	
 	public static long abs(long l)
@@ -61,12 +29,12 @@ public class CSMath
 	
 	public static float abs(float f)
 	{
-		return (f >= 0.0F) ? f : -f;
+		return f >= 0.0F ? f : -f;
 	}
 	
 	public static double abs(double d)
 	{
-		return (d >= 0.0D) ? d : -d;
+		return d >= 0.0D ? d : -d;
 	}
 	
 	public static double abs_max(double d, double max)
@@ -79,41 +47,41 @@ public class CSMath
 		{
 			max = -max;
 		}
-		return ((d > max) ? d : max);
+		return d > max ? d : max;
 	}
 	
 	public static int floor_float(float f)
 	{
 		int i = (int) f;
-		return ((f < i) ? i - 1 : i);
+		return f < i ? i - 1 : i;
 	}
 	
 	public static int floor_double(double d)
 	{
 		int i = (int) d;
-		return ((d < i) ? i - 1 : i);
+		return d < i ? i - 1 : i;
 	}
 	
 	public static int ceiling_float(float f)
 	{
 		int i = (int) f;
-		return ((f > i) ? i + 1 : i);
+		return f > i ? i + 1 : i;
 	}
 	
 	public static int ceiling_double_int(double d)
 	{
 		int i = (int) d;
-		return ((d > i) ? i + 1 : i);
+		return d > i ? i + 1 : i;
 	}
 	
 	public static float sin(float f)
 	{
-		return sinTable[((int) (f * 10430.378F) & 0xFFFF)];
+		return sinTable[(int) (f * 10430.378F) & 0xFFFF];
 	}
 	
 	public static float cos(float f)
 	{
-		return sinTable[((int) (f * 10430.378F + 16384.0F) & 0xFFFF)];
+		return sinTable[(int) (f * 10430.378F + 16384.0F) & 0xFFFF];
 	}
 	
 	public static float sqrt_float(float f)
@@ -128,16 +96,16 @@ public class CSMath
 	
 	public static int truncateDoubleToInt(double d)
 	{
-		return ((int) (d + 1024.0D) - 1024);
+		return (int) (d + 1024.0D) - 1024;
 	}
 	
 	public static int bucketInt(int i, int factor)
 	{
 		if (i < 0)
 		{
-			return (-((-i - 1) / factor) - 1);
+			return -((-i - 1) / factor) - 1;
 		}
-		return (i / factor);
+		return i / factor;
 	}
 	
 	public static int clamp_int(int i, int min, int max)
@@ -202,7 +170,7 @@ public class CSMath
 		{
 			return max;
 		}
-		return (min + (max - min) * d);
+		return min + (max - min) * d;
 	}
 	
 	public static int randomIntClamp(Random rand, int min, int max)
@@ -211,7 +179,7 @@ public class CSMath
 		{
 			return min;
 		}
-		return (rand.nextInt(max - min + 1) + min);
+		return rand.nextInt(max - min + 1) + min;
 	}
 	
 	public static float randomFloatClamp(Random rand, float min, float max)
@@ -220,7 +188,7 @@ public class CSMath
 		{
 			return min;
 		}
-		return (rand.nextFloat() * (max - min) + min);
+		return rand.nextFloat() * (max - min) + min;
 	}
 	
 	public static double randomDoubleClamp(Random rand, double min, double max)
@@ -229,7 +197,7 @@ public class CSMath
 		{
 			return min;
 		}
-		return (rand.nextDouble() * (max - min) + min);
+		return rand.nextDouble() * (max - min) + min;
 	}
 	
 	public static double average(int[] ints)
@@ -241,7 +209,7 @@ public class CSMath
 			i += j;
 		}
 		
-		return (i / ints.length);
+		return i / ints.length;
 	}
 	
 	public static double average(long[] longs)
@@ -253,7 +221,7 @@ public class CSMath
 			l1 += l2;
 		}
 		
-		return (l1 / longs.length);
+		return l1 / longs.length;
 	}
 	
 	public static double average(float[] doubles)
@@ -265,7 +233,7 @@ public class CSMath
 			f1 += f2;
 		}
 		
-		return (f1 / doubles.length);
+		return f1 / doubles.length;
 	}
 	
 	public static double average(double[] doubles)
@@ -277,16 +245,20 @@ public class CSMath
 			d1 += d2;
 		}
 		
-		return (d1 / doubles.length);
+		return d1 / doubles.length;
 	}
 	
 	public static float angle_float(float f)
 	{
 		f %= 360.0F;
 		if (f >= 180.0F)
+		{
 			f -= 360.0F;
+		}
 		if (f < -180.0F)
+		{
 			f += 360.0F;
+		}
 		return f;
 	}
 	
@@ -294,9 +266,13 @@ public class CSMath
 	{
 		d %= 360.0D;
 		if (d >= 180.0D)
+		{
 			d -= 360.0D;
+		}
 		if (d < -180.0D)
+		{
 			d += 360.0D;
+		}
 		return d;
 	}
 	
@@ -368,7 +344,7 @@ public class CSMath
 		j |= j >> 4;
 		j |= j >> 8;
 		j |= j >> 16;
-		return (j + 1);
+		return j + 1;
 	}
 	
 	public static boolean isPowerOfTwo(int i)
@@ -378,12 +354,12 @@ public class CSMath
 	
 	private static int calculateLogBaseTwoDeBruijn(int i)
 	{
-		i = (isPowerOfTwo(i)) ? i : powerOfTwo(i);
-		return multiplyDeBruijnBitPosition[((int) (i * 125613361L >> 27) & 0x1F)];
+		i = isPowerOfTwo(i) ? i : powerOfTwo(i);
+		return multiplyDeBruijnBitPosition[(int) (i * 125613361L >> 27) & 0x1F];
 	}
 	
 	public static int calculateLogBaseTwo(int i)
 	{
-		return (calculateLogBaseTwoDeBruijn(i) - ((isPowerOfTwo(i)) ? 0 : 1));
+		return calculateLogBaseTwoDeBruijn(i) - (isPowerOfTwo(i) ? 0 : 1);
 	}
 }

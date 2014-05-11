@@ -84,26 +84,19 @@ public abstract class CustomChunkProvider implements IChunkProvider
 			for (int k = -2; k <= 2; ++k)
 			{
 				float f = 10.0F / MathHelper.sqrt_float(j * j + k * k + 0.2F);
-				this.parabolicField[(j + 2 + (k + 2) * 5)] = f;
+				this.parabolicField[j + 2 + (k + 2) * 5] = f;
 			}
 		}
 		
-		NoiseGenerator[] noiseGens = {
-				this.noiseGen1,
-				this.noiseGen2,
-				this.noiseGen3,
-				this.noiseGenPerlin,
-				this.noiseGen4,
-				this.noiseGen5,
-				this.noiseGen6 };
+		NoiseGenerator[] noiseGens = { this.noiseGen1, this.noiseGen2, this.noiseGen3, this.noiseGenPerlin, this.noiseGen4, this.noiseGen5, this.noiseGen6 };
 		noiseGens = TerrainGen.getModdedNoiseGenerators(world, this.random, noiseGens);
-		this.noiseGen1 = ((NoiseGeneratorOctaves) noiseGens[0]);
-		this.noiseGen2 = ((NoiseGeneratorOctaves) noiseGens[1]);
-		this.noiseGen3 = ((NoiseGeneratorOctaves) noiseGens[2]);
-		this.noiseGenPerlin = ((NoiseGeneratorPerlin) noiseGens[3]);
-		this.noiseGen4 = ((NoiseGeneratorOctaves) noiseGens[4]);
-		this.noiseGen5 = ((NoiseGeneratorOctaves) noiseGens[5]);
-		this.noiseGen6 = ((NoiseGeneratorOctaves) noiseGens[6]);
+		this.noiseGen1 = (NoiseGeneratorOctaves) noiseGens[0];
+		this.noiseGen2 = (NoiseGeneratorOctaves) noiseGens[1];
+		this.noiseGen3 = (NoiseGeneratorOctaves) noiseGens[2];
+		this.noiseGenPerlin = (NoiseGeneratorPerlin) noiseGens[3];
+		this.noiseGen4 = (NoiseGeneratorOctaves) noiseGens[4];
+		this.noiseGen5 = (NoiseGeneratorOctaves) noiseGens[5];
+		this.noiseGen6 = (NoiseGeneratorOctaves) noiseGens[6];
 	}
 	
 	public void generate(int x, int z, Block[] blocks)
@@ -126,14 +119,14 @@ public abstract class CustomChunkProvider implements IChunkProvider
 				for (int k2 = 0; k2 < 32; ++k2)
 				{
 					double d0 = 0.125D;
-					double d1 = this.noiseArray[(k1 + k2)];
-					double d2 = this.noiseArray[(l1 + k2)];
-					double d3 = this.noiseArray[(i2 + k2)];
-					double d4 = this.noiseArray[(j2 + k2)];
-					double d5 = (this.noiseArray[(k1 + k2 + 1)] - d1) * d0;
-					double d6 = (this.noiseArray[(l1 + k2 + 1)] - d2) * d0;
-					double d7 = (this.noiseArray[(i2 + k2 + 1)] - d3) * d0;
-					double d8 = (this.noiseArray[(j2 + k2 + 1)] - d4) * d0;
+					double d1 = this.noiseArray[k1 + k2];
+					double d2 = this.noiseArray[l1 + k2];
+					double d3 = this.noiseArray[i2 + k2];
+					double d4 = this.noiseArray[j2 + k2];
+					double d5 = (this.noiseArray[k1 + k2 + 1] - d1) * d0;
+					double d6 = (this.noiseArray[l1 + k2 + 1] - d2) * d0;
+					double d7 = (this.noiseArray[i2 + k2 + 1] - d3) * d0;
+					double d8 = (this.noiseArray[j2 + k2 + 1] - d4) * d0;
 					
 					for (int l2 = 0; l2 < 8; ++l2)
 					{
@@ -156,15 +149,15 @@ public abstract class CustomChunkProvider implements IChunkProvider
 							{
 								if ((d15 += d16) > 0.0D)
 								{
-									blocks[(j3 += short1)] = Blocks.stone;
+									blocks[j3 += short1] = Blocks.stone;
 								}
 								else if (k2 * 8 + l2 < 63)
 								{
-									blocks[(j3 += short1)] = Blocks.water;
+									blocks[j3 += short1] = Blocks.water;
 								}
 								else
 								{
-									blocks[(j3 += short1)] = null;
+									blocks[j3 += short1] = null;
 								}
 							}
 							
@@ -187,7 +180,9 @@ public abstract class CustomChunkProvider implements IChunkProvider
 		ChunkProviderEvent.ReplaceBiomeBlocks event = new ChunkProviderEvent.ReplaceBiomeBlocks(this, x, z, blocks, biomes);
 		MinecraftForge.EVENT_BUS.post(event);
 		if (event.getResult() == Event.Result.DENY)
+		{
 			return;
+		}
 		
 		this.stoneNoise = this.noiseGenPerlin.func_151599_a(this.stoneNoise, x << 4, z << 4, 16, 16, 0.0625, 0.0625, 1.0D);
 		
@@ -195,8 +190,8 @@ public abstract class CustomChunkProvider implements IChunkProvider
 		{
 			for (int l = 0; l < 16; ++l)
 			{
-				BiomeGenBase biome = biomes[(l + k * 16)];
-				biome.genTerrainBlocks(this.worldObj, this.random, blocks, metadata, (x << 4) + k, (z << 4) + l, this.stoneNoise[(l + k * 16)]);
+				BiomeGenBase biome = biomes[l + k * 16];
+				biome.genTerrainBlocks(this.worldObj, this.random, blocks, metadata, (x << 4) + k, (z << 4) + l, this.stoneNoise[l + k * 16]);
 			}
 		}
 	}
@@ -204,7 +199,7 @@ public abstract class CustomChunkProvider implements IChunkProvider
 	@Override
 	public Chunk loadChunk(int x, int z)
 	{
-		return provideChunk(x, z);
+		return this.provideChunk(x, z);
 	}
 	
 	@Override
@@ -258,23 +253,23 @@ public abstract class CustomChunkProvider implements IChunkProvider
 				float f1 = 0.0F;
 				float f2 = 0.0F;
 				byte b0 = 2;
-				BiomeGenBase biomegenbase = this.biomesForGeneration[(j1 + 2 + (k1 + 2) * 10)];
+				BiomeGenBase biomegenbase = this.biomesForGeneration[j1 + 2 + (k1 + 2) * 10];
 				
 				for (int l1 = -b0; l1 <= b0; ++l1)
 				{
 					for (int i2 = -b0; i2 <= b0; ++i2)
 					{
-						BiomeGenBase biome = this.biomesForGeneration[(j1 + l1 + 2 + (k1 + i2 + 2) * 10)];
+						BiomeGenBase biome = this.biomesForGeneration[j1 + l1 + 2 + (k1 + i2 + 2) * 10];
 						float f3 = biome.rootHeight;
 						float f4 = biome.heightVariation;
 						
-						if ((this.worldType == WorldType.AMPLIFIED) && (f3 > 0.0F))
+						if (this.worldType == WorldType.AMPLIFIED && f3 > 0.0F)
 						{
 							f3 = 1.0F + f3 * 2.0F;
 							f4 = 1.0F + f4 * 4.0F;
 						}
 						
-						float f5 = this.parabolicField[(l1 + 2 + (i2 + 2) * 5)] / (f3 + 2.0F);
+						float f5 = this.parabolicField[l1 + 2 + (i2 + 2) * 5] / (f3 + 2.0F);
 						
 						if (biome.rootHeight > biomegenbase.rootHeight)
 						{
@@ -385,7 +380,7 @@ public abstract class CustomChunkProvider implements IChunkProvider
 			this.scatteredFeatureGenerator.generateStructuresInChunk(this.worldObj, this.random, x, z);
 		}
 		
-		if ((biome != BiomeGenBase.desert) && (biome != BiomeGenBase.desertHills) && (!(flag)) && (this.random.nextInt(4) == 0) && (TerrainGen.populate(chunkProvider, this.worldObj, this.random, x, z, flag, PopulateChunkEvent.Populate.EventType.LAKE)))
+		if (biome != BiomeGenBase.desert && biome != BiomeGenBase.desertHills && !flag && this.random.nextInt(4) == 0 && TerrainGen.populate(chunkProvider, this.worldObj, this.random, x, z, flag, PopulateChunkEvent.Populate.EventType.LAKE))
 		{
 			int k1 = k + this.random.nextInt(16) + 8;
 			int l1 = this.random.nextInt(256);
@@ -393,20 +388,20 @@ public abstract class CustomChunkProvider implements IChunkProvider
 			new WorldGenLakes(Blocks.water).generate(this.worldObj, this.random, k1, l1, i2);
 		}
 		
-		if ((TerrainGen.populate(chunkProvider, this.worldObj, this.random, x, z, flag, PopulateChunkEvent.Populate.EventType.LAVA)) && (!(flag)) && (this.random.nextInt(8) == 0))
+		if (TerrainGen.populate(chunkProvider, this.worldObj, this.random, x, z, flag, PopulateChunkEvent.Populate.EventType.LAVA) && !flag && this.random.nextInt(8) == 0)
 		{
 			int k1 = k + this.random.nextInt(16) + 8;
 			int l1 = this.random.nextInt(this.random.nextInt(248) + 8);
 			int i2 = l + this.random.nextInt(16) + 8;
 			
-			if ((l1 < 63) || (this.random.nextInt(10) == 0))
+			if (l1 < 63 || this.random.nextInt(10) == 0)
 			{
 				new WorldGenLakes(Blocks.lava).generate(this.worldObj, this.random, k1, l1, i2);
 			}
 		}
 		
 		boolean doGen = TerrainGen.populate(chunkProvider, this.worldObj, this.random, x, z, flag, PopulateChunkEvent.Populate.EventType.DUNGEON);
-		for (int k1 = 0; (doGen) && (k1 < 8); ++k1)
+		for (int k1 = 0; doGen && k1 < 8; ++k1)
 		{
 			int l1 = k + this.random.nextInt(16) + 8;
 			int i2 = this.random.nextInt(256);
@@ -421,7 +416,7 @@ public abstract class CustomChunkProvider implements IChunkProvider
 		
 		if (TerrainGen.populate(chunkProvider, this.worldObj, this.random, x, z, flag, PopulateChunkEvent.Populate.EventType.ICE))
 		{
-			for (int k1 = 0; (k1 < 16); ++k1)
+			for (int k1 = 0; k1 < 16; ++k1)
 			{
 				for (int l1 = 0; l1 < 16; ++l1)
 				{
@@ -432,8 +427,10 @@ public abstract class CustomChunkProvider implements IChunkProvider
 						this.worldObj.setBlock(k1 + k, i2 - 1, l1 + l, Blocks.ice, 0, 2);
 					}
 					
-					if (!(this.worldObj.func_147478_e(k1 + k, i2, l1 + l, true)))
+					if (!this.worldObj.func_147478_e(k1 + k, i2, l1 + l, true))
+					{
 						continue;
+					}
 					this.worldObj.setBlock(k1 + k, i2, l1 + l, Blocks.snow_layer, 0, 2);
 				}
 				
@@ -478,7 +475,7 @@ public abstract class CustomChunkProvider implements IChunkProvider
 	public List getPossibleCreatures(EnumCreatureType type, int x, int y, int z)
 	{
 		BiomeGenBase biomegenbase = this.worldObj.getBiomeGenForCoords(x, z);
-		return (((type == EnumCreatureType.monster) && (this.scatteredFeatureGenerator.func_143030_a(x, y, z))) ? this.scatteredFeatureGenerator.getScatteredFeatureSpawnList() : biomegenbase.getSpawnableList(type));
+		return type == EnumCreatureType.monster && this.scatteredFeatureGenerator.func_143030_a(x, y, z) ? this.scatteredFeatureGenerator.getScatteredFeatureSpawnList() : biomegenbase.getSpawnableList(type);
 	}
 	
 	@Override

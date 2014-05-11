@@ -3,7 +3,7 @@ package clashsoft.cslib.minecraft.item.meta;
 /**
  * The Interface IItemMetadataRecipe.
  */
-public interface IMetaItemRecipe
+public interface ISubItemRecipe
 {
 	public static final int	CRAFTING			= 0;
 	public static final int	CRAFTING_SHAPELESS	= 1;

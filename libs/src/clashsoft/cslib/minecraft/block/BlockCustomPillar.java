@@ -17,7 +17,7 @@ import net.minecraft.world.World;
 
 public class BlockCustomPillar extends BlockRotatedPillar implements ICustomBlock
 {
-public String[]	names, topIconNames, sideIconNames;
+	public String[]	names, topIconNames, sideIconNames;
 	
 	@SideOnly(Side.CLIENT)
 	public IIcon[]	sideIcons;

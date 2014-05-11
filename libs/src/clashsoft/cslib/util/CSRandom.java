@@ -10,10 +10,11 @@ import java.util.Random;
  * @author Clashsoft
  */
 public class CSRandom
-{	
+{
 	
 	/**
-	 * Returns a random bounded int between min (inclusive) and max (exclusive), the minimum result can be min and the maximum result can be max - 1.
+	 * Returns a random bounded int between min (inclusive) and max (exclusive),
+	 * the minimum result can be min and the maximum result can be max - 1.
 	 * <p>
 	 * If min equals max, min will be returned
 	 * <p>
@@ -31,28 +32,40 @@ public class CSRandom
 	public static int nextInt(Random random, int min, int max)
 	{
 		if (max < min)
+		{
 			max = min + 1;
+		}
 		if (max == min)
+		{
 			return min;
+		}
 		return min + random.nextInt(max - min);
 	}
 	
 	public static float nextFloat(Random random, float min, float max)
 	{
 		if (max < min)
+		{
 			max = min + 1;
+		}
 		if (max == min)
+		{
 			return min;
-		return min + random.nextInt((int)(max - min)) * random.nextFloat();
+		}
+		return min + random.nextInt((int) (max - min)) * random.nextFloat();
 	}
 	
 	public static double nextDouble(Random random, double min, double max)
 	{
 		if (max < min)
+		{
 			max = min + 1;
+		}
 		if (max == min)
+		{
 			return min;
-		return min + random.nextInt((int)(max - min)) * random.nextDouble();
+		}
+		return min + random.nextInt((int) (max - min)) * random.nextDouble();
 	}
 	
 	/**
@@ -67,7 +80,9 @@ public class CSRandom
 	public static boolean chance(Random random, float chance)
 	{
 		if (chance < 1)
+		{
 			return random.nextInt((int) (1F / chance)) == 0;
+		}
 		return true;
 	}
 	
@@ -89,9 +104,11 @@ public class CSRandom
 		StringBuilder result = new StringBuilder(length);
 		
 		for (int i = 0; i < length; i++)
-		{	
+		{
 			if (i == 0)
+			{
 				result.append(Character.toUpperCase(CSString.nextLetter(random)));
+			}
 			
 			int lastIndex = result.length() - 1;
 			char last = result.charAt(lastIndex);
@@ -99,7 +116,9 @@ public class CSRandom
 			
 			// Always add a consonant after a vowel
 			if (CSString.isVowel(last))
-				c = (CSString.nextConsonant(random));
+			{
+				c = CSString.nextConsonant(random);
+			}
 			else
 			{
 				int rnd = random.nextInt(6);
@@ -108,15 +127,21 @@ public class CSRandom
 					c = CSString.nextConsonant(random);
 					int i1 = 0;
 					while (!CSString.canCharFollowChar(last, c) && i1++ <= CSString.CONSONANTS.length())
+					{
 						c = CSString.nextConsonant(random);
+					}
 					
 					if (i1 > CSString.CONSONANTS.length())
+					{
 						c = CSString.nextVowel(random);
+					}
 				}
 				else
+				{
 					c = CSString.nextVowel(random); // Add a new vowel
+				}
 			}
-				
+			
 			result.append(c);
 		}
 		

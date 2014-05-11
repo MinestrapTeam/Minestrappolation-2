@@ -7,9 +7,9 @@ import cpw.mods.fml.common.LoaderState;
 
 public class CheckUpdateThread extends Thread
 {
-	public IUpdater updater;
-	public String modName;
-	public String version;
+	public IUpdater	updater;
+	public String	modName;
+	public String	version;
 	
 	public CheckUpdateThread(IUpdater updater)
 	{

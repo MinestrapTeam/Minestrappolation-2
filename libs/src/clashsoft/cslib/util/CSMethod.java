@@ -29,10 +29,14 @@ public abstract class CSMethod<R> implements Callable
 	public CSMethod(String[] argkeys, Object[] argvalues)
 	{
 		if (argvalues.length != argkeys.length)
+		{
 			throw new IllegalArgumentException("Name and value array must be of same size!");
+		}
 		
 		for (int i = 0; i < argkeys.length; i++)
-			args.put(argkeys[i], argvalues[i]);
+		{
+			this.args.put(argkeys[i], argvalues[i]);
+		}
 	}
 	
 	/**
@@ -48,9 +52,13 @@ public abstract class CSMethod<R> implements Callable
 		for (int i = 0; i < args.length; i++)
 		{
 			if ((i & 1) == 0 && args[i] instanceof String)
+			{
 				name = (String) args[i];
+			}
 			else
+			{
 				this.args.put(name, args[i]);
+			}
 		}
 	}
 	

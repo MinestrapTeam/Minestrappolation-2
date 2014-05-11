@@ -37,6 +37,12 @@ public class CSNetHandler extends MessageToMessageCodec<FMLProxyPacket, CSPacket
 	protected boolean							initiliased		= false;
 	protected boolean							postInitialised	= false;
 	
+	/**
+	 * Constructs a new CSNetHandler instance.
+	 * 
+	 * @param name
+	 *            the name
+	 */
 	public CSNetHandler(String name)
 	{
 		this.name = name;
