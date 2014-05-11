@@ -33,25 +33,28 @@ public class ExtraDecor
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
-		// load libs
 		EDConfig.init(event);
-		EDBlocks.createBlocks();
-		EDBlocks.registerBlocks();
-		EDItems.addItems();
-		EDRecipes.loadAllRecipes();
-		EDOreRegistry.addOreRecipes();
+		
+		EDBlocks.init();
+		EDItems.init();
+		EDBlocks.load();
+		EDItems.load();
+		
+		EDOreRegistry.addRecipes();
+		
+		EDRecipes.addRecipes();
 		EDRecipes.removeRecipes();
-		EDItems.setHarvestLevels();
 	}
 	
 	@EventHandler
 	public void init(FMLInitializationEvent event)
 	{
-		EDOreRegistry.oreRegistration();
+		EDOreRegistry.registerOres();
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, proxy);
 		EDTileEntityManager.registerTileEntitys();
 		GameRegistry.registerWorldGenerator(new EDOreGenerator(), 0);
 		VillagerRegistry.instance().registerVillageTradeHandler(2, new EDPriestTradeHandler());
+		
 		EDBlocks.loadVanillaOverwrites();
 		proxy.registerRenderThings();
 	}

@@ -188,7 +188,7 @@ public class EDBlocks
 	public static MBlockMultiSlab	redSandstoneSlabSingle;
 	public static MBlockMultiSlab	redSandstoneSlabDouble;
 	
-	public static void createBlocks()
+	public static void init()
 	{
 		stonePillar = new MBlockPillar(MAssetManager.getEDTextureSC("Stone_Pillar_Side_0"), MAssetManager.getEDTextureSC("Stone_Pillar_Top_0")).setHardness(1.5F).setResistance(10F).setCreativeTab(tabBlocks).setStepSound(Block.soundTypeStone).setBlockName("stonePillar");
 		stoneLamp = new BlockStoneLamp().setHardness(1.5F).setResistance(8F).setCreativeTab(tabBlocks).setStepSound(Block.soundTypeStone).setLightLevel(1.0F).setBlockName("stoneLamp");
@@ -374,7 +374,7 @@ public class EDBlocks
 		// add vanilla overwrites
 	}
 	
-	public static void registerBlocks()
+	public static void load()
 	{
 		GameRegistry.registerTileEntity(TileEntityPlate.class, "Plate");
 		

@@ -9,7 +9,7 @@ public class MItems
 {
 	public static Item	brickStone;
 	
-	public static void loadItems()
+	public static void init()
 	{
 		brickStone = new Item().setTextureName(MAssetManager.getMAPITexture("brickStone")).setUnlocalizedName("brickStone").setCreativeTab(Minestrappolation.creativeTabStone);
 		GameRegistry.registerItem(brickStone, "brickStone");

@@ -38,9 +38,9 @@ public class ExtraMobDrops
 	public void preInit(FMLPreInitializationEvent event)
 	{
 		// Lib init
-		EMDConfig.initConfig(event);
-		EMDItems.loadItems();
-		EMDRecipes.loadRecipes();
+		EMDConfig.init(event);
+		EMDItems.init();
+		EMDRecipes.init();
 	}
 	
 	@EventHandler

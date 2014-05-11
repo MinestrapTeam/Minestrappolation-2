@@ -40,9 +40,9 @@ public class Minestrappolation
 	{
 		GameRegistry.registerTileEntity(TileEntityStonecutter.class, "StoneCutter");
 		
-		MBlocks.loadBlocks();
-		MItems.loadItems();
-		MRecipes.loadRecipes();
+		MBlocks.init();
+		MItems.init();
+		MRecipes.init();
 		
 		FMLCommonHandler.instance().bus().register(new MEventHandler());
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, proxy);

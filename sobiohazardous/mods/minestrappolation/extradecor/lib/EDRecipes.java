@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack;
 public class EDRecipes
 {
 	
-	public static void loadAllRecipes()
+	public static void addRecipes()
 	{
 		GameRegistry.addRecipe(new ItemStack(EDItems.goblet, 1), new Object[] { "D D", " D ", Character.valueOf('D'), Items.gold_ingot });
 		

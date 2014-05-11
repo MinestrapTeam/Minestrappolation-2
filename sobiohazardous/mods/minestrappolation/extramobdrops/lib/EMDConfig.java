@@ -5,7 +5,7 @@ import net.minecraftforge.common.config.Configuration;
 
 public class EMDConfig
 {
-	public static void initConfig(FMLPreInitializationEvent e)
+	public static void init(FMLPreInitializationEvent e)
 	{
 		Configuration config = new Configuration(e.getSuggestedConfigurationFile());
 		config.load();

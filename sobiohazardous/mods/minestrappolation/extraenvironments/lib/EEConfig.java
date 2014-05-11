@@ -5,7 +5,7 @@ import net.minecraftforge.common.config.Configuration;
 
 public class EEConfig
 {
-	public static void initilize(FMLPreInitializationEvent event)
+	public static void init(FMLPreInitializationEvent event)
 	{
 		Configuration config = new Configuration(event.getSuggestedConfigurationFile());
 		config.load();

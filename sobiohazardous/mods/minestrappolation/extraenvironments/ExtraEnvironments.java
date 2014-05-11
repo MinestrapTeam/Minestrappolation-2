@@ -23,7 +23,7 @@ public class ExtraEnvironments
 	@Instance(MReference.EE_MODID)
 	public ExtraEnvironments		instance;
 	
-	@SidedProxy(clientSide = "sobiohazardous.mods.minestrappolation.extraenviroments.proxy.ClientProxy", serverSide = "sobiohazardous.mods.minestrappolation.extraenviroments.proxy.ClientProxy")
+	@SidedProxy(clientSide = "sobiohazardous.mods.minestrappolation.extraenviroments.client.EEClientProxy", serverSide = "sobiohazardous.mods.minestrappolation.extraenviroments.client.EEClientProxy")
 	public static CommonProxy	proxy;
 	
 	public static BiomeGenBase	redwood;
@@ -32,12 +32,12 @@ public class ExtraEnvironments
 	public void preInit(FMLPreInitializationEvent event)
 	{
 		// init libs
-		EEConfig.initilize(event);
-		EEBlocks.loadBlocks();
-		EEBlocks.registerBlocks();
+		EEConfig.init(event);
+		EEBlocks.init();
+		EEItems.init();
+		EEBlocks.load();
+		EEItems.load();
 		EERecipes.loadRecipes();
-		EEItems.loadItems();
-		EEItems.loadItemNames();
 		
 		redwood = new BiomeGenRedwood(115).setBiomeName("redwood");
 	}

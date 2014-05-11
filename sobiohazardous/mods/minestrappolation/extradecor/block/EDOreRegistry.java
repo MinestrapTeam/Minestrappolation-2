@@ -9,7 +9,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class EDOreRegistry
 {
-	public static void oreRegistration()
+	public static void registerOres()
 	{
 		OreDictionary.registerOre("plankWood", new ItemStack(EDBlocks.woodBoards, 1, 0));
 		OreDictionary.registerOre("plankWood", new ItemStack(EDBlocks.woodBoards, 1, 1));
@@ -27,10 +27,10 @@ public class EDOreRegistry
 		OreDictionary.registerOre("meatRaw", new ItemStack(Items.rotten_flesh));
 	}
 	
-	public static void addOreRecipes()
+	public static void addRecipes()
 	{
-		GameRegistry.addRecipe(new ShapedOreRecipe(EDBlocks.meatBlock, true, new Object[] { "MMM", "MMM", "MMM", Character.valueOf('M'), "meatRaw" }));
-		GameRegistry.addRecipe(new ShapedOreRecipe(EDBlocks.crate, true, new Object[] { "WWW", "SSS", "WWW", Character.valueOf('S'), Items.stick, Character.valueOf('W'), "plankWood" }));
+		GameRegistry.addRecipe(new ShapedOreRecipe(EDBlocks.meatBlock, new Object[] { "MMM", "MMM", "MMM", 'M', "meatRaw" }));
+		GameRegistry.addRecipe(new ShapedOreRecipe(EDBlocks.crate, new Object[] { "WWW", "SSS", "WWW", 'S', Items.stick, 'W', "plankWood" }));
 	}
 	
 }

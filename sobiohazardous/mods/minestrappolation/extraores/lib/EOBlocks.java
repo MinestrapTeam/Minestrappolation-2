@@ -197,7 +197,7 @@ public class EOBlocks
 	
 	public static Block			doorWoodOverwrite;
 	
-	public static void addBlocks()
+	public static void init()
 	{
 		meuroditeOre = new EOBlock(Material.rock).setHardness(5F).setCreativeTab(tabOresBlocks).setResistance(10F).setStepSound(Block.soundTypeStone).setBlockName("oreMeurodite").setBlockTextureName(MAssetManager.getEOTexture("oreMeurodite"));
 		GameRegistry.registerBlock(meuroditeOre, "oreMeurodite");

@@ -54,17 +54,18 @@ public class ExtraOres
 		EOConfig.init(event);
 		
 		// Lib adding
-		this.smelter.load();
+		smelter.load();
 		
-		EOBlocks.addBlocks();
-		EOItems.addItems();
+		EOBlocks.init();
+		EOItems.init();
 		EOOreDictionary.init();
-		EORecipes.loadRecipes();
-		EORecipes.loadPlatedRecipes();
-		EOItems.setHarvestLevels();
+		EORecipes.addRecipes();
+		EOItems.load();
+		
 		// FluidContainerRegistry.registerFluidContainer(eoFluid, new
 		// ItemStack(EOItemManager.bucketMagma), new
 		// ItemStack(Item.bucketEmpty));
+		
 		EntityRegistry.registerModEntity(EntityGrenade.class, "Grenade", 2, this, 40, 3, true);
 		EntityRegistry.registerModEntity(EntityNukePrimed.class, "NukePrimed", 6, this, 350, 5, false);
 		EntityRegistry.registerModEntity(EntityGrenadeImpact.class, "GrenadeImpact", 4, this, 40, 3, true);

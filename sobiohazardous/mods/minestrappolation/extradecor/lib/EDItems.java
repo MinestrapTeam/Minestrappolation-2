@@ -24,7 +24,7 @@ public class EDItems
 	
 	public static Item			brickClay;
 	
-	public static void addItems()
+	public static void init()
 	{
 		ropeItem = new ItemReed(EDBlocks.rope).setUnlocalizedName("rope").setCreativeTab(tabItems).setTextureName(MAssetManager.getEDTexture("rope"));
 		cardboardItem = new ItemReed(EDBlocks.cardboard).setCreativeTab(tabItems).setUnlocalizedName("item_Cardboard").setTextureName(MAssetManager.getEDTexture("cardboard"));
@@ -42,7 +42,7 @@ public class EDItems
 		GameRegistry.registerItem(brickClay, "brickClay");
 	}
 	
-	public static void setHarvestLevels()
+	public static void load()
 	{
 		EDBlocks.snowBrick.setHarvestLevel("shovel", 0);
 		EDBlocks.Tiles.setHarvestLevel("pickaxe", 1, 1);

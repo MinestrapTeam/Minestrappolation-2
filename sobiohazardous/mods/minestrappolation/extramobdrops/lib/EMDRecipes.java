@@ -7,7 +7,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class EMDRecipes
 {
-	public static void loadRecipes()
+	public static void init()
 	{
 		GameRegistry.addSmelting(EMDItems.fat, new ItemStack(EMDItems.grease, 1), 0.7F);
 		GameRegistry.addShapelessRecipe(new ItemStack(EMDItems.friedApple, 2), new Object[] { EMDItems.fat, Items.apple, EMDItems.fat });

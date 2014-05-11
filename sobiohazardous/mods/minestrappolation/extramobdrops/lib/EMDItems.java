@@ -155,7 +155,7 @@ public class EMDItems
 	
 	public static CreativeTabs	tabItems				= new CreativeTabEMDItems(CreativeTabs.getNextID(), "emd_items");
 	
-	public static void loadItems()
+	public static void init()
 	{
 		snout = new MItemFood(3, 0.2F).setPotionEffect(Potion.hunger.id, 10 * 20, 1, 0.25F).setTextureName(MAssetManager.getEMDTexture("snout")).setUnlocalizedName("snout").setCreativeTab(tabItems);
 		pigHoof = new MItem().setUnlocalizedName("pigFoot").setCreativeTab(tabItems).setTextureName(MAssetManager.getEMDTexture("footPig"));

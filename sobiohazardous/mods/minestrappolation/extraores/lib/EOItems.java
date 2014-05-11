@@ -203,7 +203,7 @@ public class EOItems
 	
 	// public static Item bucketMagma;
 	
-	public static void addItems()
+	public static void init()
 	{
 		meuroditeIngot = new EOItem().setCreativeTab(tabOresItems).setUnlocalizedName("item_MeuroditeIngot").setTextureName(MAssetManager.getEOTexture("gemMeurodite"));
 		GameRegistry.registerItem(meuroditeIngot, "ingotMeurodite");
@@ -488,7 +488,7 @@ public class EOItems
 		blacksmithChest.addItem(new WeightedRandomChestContent(new ItemStack(SteelIngot), 1, 5, 17));
 	}
 	
-	public static void setHarvestLevels()
+	public static void load()
 	{
 		EOBlocks.CopperOre.setHarvestLevel("pickaxe", 0);
 		EOBlocks.CopperBlock.setHarvestLevel("pickaxe", 0);

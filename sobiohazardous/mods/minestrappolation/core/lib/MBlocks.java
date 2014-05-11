@@ -8,7 +8,7 @@ public class MBlocks
 {
 	public static Block	stoneCutter;
 	
-	public static void loadBlocks()
+	public static void init()
 	{
 		stoneCutter = new MBlockStonecutter().setHardness(3.5F).setStepSound(Block.soundTypeStone).setBlockName("stoneCutter");
 		GameRegistry.registerBlock(stoneCutter, "stoneCutter");

@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 
 public class MRecipes
 {
-	public static void loadRecipes()
+	public static void init()
 	{
 		GameRegistry.addRecipe(new ItemStack(MBlocks.stoneCutter), new Object[] { "CC", "CC", 'C', Blocks.cobblestone });
 		
