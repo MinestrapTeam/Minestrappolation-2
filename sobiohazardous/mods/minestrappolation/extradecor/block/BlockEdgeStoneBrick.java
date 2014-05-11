@@ -14,6 +14,7 @@ public class BlockEdgeStoneBrick extends Block
 {
 	private IIcon	left;
 	private IIcon	right;
+	private IIcon	half;
 	
 	public BlockEdgeStoneBrick()
 	{
@@ -27,6 +28,7 @@ public class BlockEdgeStoneBrick extends Block
 		this.blockIcon = iconRegister.registerIcon(MAssetManager.getEDTextureSC("EdgeStone_Bricks_0_Full"));
 		this.left = iconRegister.registerIcon(MAssetManager.getEDTextureSC("EdgeStone_Bricks_0_Left"));
 		this.right = iconRegister.registerIcon(MAssetManager.getEDTextureSC("EdgeStone_Bricks_0_Right"));
+		this.half = iconRegister.registerIcon(MAssetManager.getEDTextureSC("EdgeStone_Bricks_0_Half"));
 	}
 	
 	@Override
@@ -36,47 +38,47 @@ public class BlockEdgeStoneBrick extends Block
 		boolean z1 = isBrick(world, x, y, z + 1);
 		boolean x2 = isBrick(world, x - 1, y, z);
 		boolean z2 = isBrick(world, x, y, z - 1);
+		byte b = 0;
 		if (side == 2) // NORTH
 		{
-			if (x1 != x2)
-			{
-				if (x1)
-					return this.left;
-				else if (x2)
-					return this.right;
-			}
+			if (x1)
+				b |= 1;
+			if (x2)
+				b |= 2;
 		}
 		else if (side == 3) // SOUTH
 		{
-			if (x1 != x2)
-			{
-				if (x1)
-					return this.left;
-				else if (x2)
-					return this.right;
-			}
+			if (x1)
+				b |= 1;
+			if (x2)
+				b |= 2;
 		}
 		else if (side == 4)
 		{
-			if (z1 != z2)
-			{
-				if (z1)
-					return this.left;
-				else if (z2)
-					return this.right;
-			}
+			if (z1)
+				b |= 1;
+			if (z2)
+				b |= 2;
 		}
 		else if (side == 5)
 		{
-			if (z1 != z2)
-			{
-				if (z1)
-					return this.left;
-				else if (z2)
-					return this.right;
-			}
+			if (z1)
+				b |= 1;
+			if (z2)
+				b |= 2;
 		}
 		
+		switch (b)
+		{
+		case 0:
+			return this.blockIcon;
+		case 1:
+			return this.left;
+		case 2:
+			return this.right;
+		case 3:
+			return this.half;
+		}
 		return this.blockIcon;
 	}
 	
