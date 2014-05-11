@@ -22,7 +22,7 @@ public class BlockPlate extends BlockContainer
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon(MAssetManager.getEDTextureSC("Stone_Tiles_0_0"));
+		this.blockIcon = iconRegister.registerIcon(MAssetManager.getEDTexture("plate"));
 	}
 	
 	@Override
