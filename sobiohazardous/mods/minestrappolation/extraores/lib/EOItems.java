@@ -34,7 +34,7 @@ import sobiohazardous.mods.minestrappolation.extraores.item.ToriteToolShovel;
 
 public class EOItems
 {
-	public static CreativeTabs	tabOresItems			= new CreativeTabEOItems(CreativeTabs.getNextID(), "Extrappolated Ores - Items");
+	public static CreativeTabs	tabOresItems			= new CreativeTabEOItems(CreativeTabs.getNextID(), "eo_items");
 	
 	static ArmorMaterial		MaterialMeurodite		= EnumHelper.addArmorMaterial("meurodite", 18, new int[] { 2, 7, 6, 2 }, 15);
 	static ArmorMaterial		MaterialTitanium		= EnumHelper.addArmorMaterial("titanium", 66, new int[] { 4, 10, 8, 5 }, 11);

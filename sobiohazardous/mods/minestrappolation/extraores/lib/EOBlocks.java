@@ -45,7 +45,7 @@ public class EOBlocks
 	// Bridged Blocks
 	public static Block			glowGlass;
 	
-	public static CreativeTabs	tabOresBlocks	= new CreativeTabEOBlocks(CreativeTabs.getNextID(), "Extrappolated Ores - Blocks");
+	public static CreativeTabs	tabOresBlocks	= new CreativeTabEOBlocks(CreativeTabs.getNextID(), "eo_blocks");
 	
 	public static Block			meuroditeOre;
 	public static Block			meuroditeBlock;
