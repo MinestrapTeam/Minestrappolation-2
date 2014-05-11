@@ -237,19 +237,19 @@ public class EMDItems
 		
 		charms = new ItemCharm().setUnlocalizedName("charm").setCreativeTab(tabItems);
 		
-		amuletPorcum = new ItemAmuletPorcum().setUnlocalizedName("PorcumAmulet").setCreativeTab(tabItems).setTextureName(MAssetManager.getEMDTexture("amuletPig"));
-		amuletVaccam = new ItemAmuletVaccam().setUnlocalizedName("VaccamAmulet").setCreativeTab(tabItems).setTextureName(MAssetManager.getEMDTexture("amuletHorse"));
-		amuletPullum = new ItemAmuletPullum().setUnlocalizedName("PullumAmulet").setCreativeTab(tabItems).setTextureName(MAssetManager.getEMDTexture("amuletChicken"));
-		amuletOves = new ItemAmuletOves().setUnlocalizedName("OvesAmulet").setCreativeTab(tabItems).setTextureName(MAssetManager.getEMDTexture("amuletSheep"));
+		amuletPorcum = new ItemAmuletPorcum().setUnlocalizedName("porcum_amulet").setCreativeTab(tabItems).setTextureName(MAssetManager.getEMDTexture("amuletPig"));
+		amuletVaccam = new ItemAmuletVaccam().setUnlocalizedName("vaccam_amulet").setCreativeTab(tabItems).setTextureName(MAssetManager.getEMDTexture("amuletHorse"));
+		amuletPullum = new ItemAmuletPullum().setUnlocalizedName("pullum_amulet").setCreativeTab(tabItems).setTextureName(MAssetManager.getEMDTexture("amuletChicken"));
+		amuletOves = new ItemAmuletOves().setUnlocalizedName("oves_amulet").setCreativeTab(tabItems).setTextureName(MAssetManager.getEMDTexture("amuletSheep"));
 		
 		wingSinew = new MItem().setUnlocalizedName("wing_sinew").setCreativeTab(tabItems).setTextureName(MAssetManager.getEMDTexture("wingSinew"));
 		wingSegment = new MItem().setUnlocalizedName("wing_segment").setCreativeTab(tabItems).setTextureName(MAssetManager.getEMDTexture("hangGliderSegment"));
 		
 		hangGlider = new ItemHangGlider().setUnlocalizedName("hangglider").setCreativeTab(tabItems).setTextureName(MAssetManager.getEMDTexture("hangGlider"));
 		
-		enderAura = new MItem().setUnlocalizedName("item_EnderAura1").setCreativeTab(tabItems).setTextureName(MAssetManager.getEMDTexture("enderAura"));
+		enderAura = new MItem().setUnlocalizedName("ender_aura").setCreativeTab(tabItems).setTextureName(MAssetManager.getEMDTexture("enderAura"));
 		
-		ghastlySoul = new MItem().setUnlocalizedName("item_GhastlySoul").setCreativeTab(tabItems).setTextureName(MAssetManager.getEMDTexture("ghastlySoul"));
+		ghastlySoul = new MItem().setUnlocalizedName("ghastly_soul").setCreativeTab(tabItems).setTextureName(MAssetManager.getEMDTexture("ghastlySoul"));
 		
 		witheredBone = new MItem().setUnlocalizedName("withered_bone").setCreativeTab(tabItems).setTextureName(MAssetManager.getEMDTexture("witherBone"));
 		
