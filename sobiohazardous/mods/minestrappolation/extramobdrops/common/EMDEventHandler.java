@@ -1,5 +1,7 @@
 package sobiohazardous.mods.minestrappolation.extramobdrops.common;
 
+import java.util.Random;
+
 import sobiohazardous.mods.minestrappolation.extramobdrops.lib.EMDItems;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
@@ -17,13 +19,16 @@ public class EMDEventHandler
 	@SubscribeEvent
 	public void onMobDrops(LivingDropsEvent event)
 	{
-		if ("player".equals(event.source.getDamageType()))
+		Random random = event.entityLiving.getRNG();
+		String damageType = event.source.getDamageType();
+		if ("player".equals(damageType))
 		{
-			double rand = Math.random();
-			double rand2 = Math.random();
-			double rand3 = Math.random();
-			double rand4 = Math.random();
-			double rand5 = Math.random();
+			int looting = event.lootingLevel + 1;
+			double rand = random.nextDouble() / looting;
+			double rand2 = random.nextDouble() / looting;
+			double rand3 = random.nextDouble() / looting;
+			double rand4 = random.nextDouble() / looting;
+			double rand5 = random.nextDouble() / looting;
 			
 			if (event.entityLiving instanceof EntityPig)
 			{
@@ -35,7 +40,6 @@ public class EMDEventHandler
 				if (rand2 < 0.25D)
 				{
 					event.entityLiving.dropItem(EMDItems.pigHoof, 4);
-					
 				}
 				
 				if (rand3 < 0.3D)
