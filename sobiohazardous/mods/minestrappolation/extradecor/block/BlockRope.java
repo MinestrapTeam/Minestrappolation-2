@@ -2,23 +2,20 @@ package sobiohazardous.mods.minestrappolation.extradecor.block;
 
 import java.util.Random;
 
-import sobiohazardous.mods.minestrappolation.core.util.MAssetManager;
 import sobiohazardous.mods.minestrappolation.extradecor.lib.EDItems;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class BlockRope extends Block
+public class BlockRope extends BlockRopeCoil
 {
 	public BlockRope()
 	{
-		super(Material.cloth);
+		super();
 		this.setCreativeTab(null);
 		this.setBlockBounds(0.375F, 0.0F, 0.375F, 0.625F, 1.0F, 0.625F);
 	}
@@ -36,12 +33,6 @@ public class BlockRope extends Block
 	}
 	
 	@Override
-	public boolean getBlocksMovement(IBlockAccess world, int x, int y, int z)
-	{
-		return false;
-	}
-	
-	@Override
 	public boolean isLadder(IBlockAccess world, int x, int y, int z, EntityLivingBase entity)
 	{
 		return true;
@@ -54,12 +45,6 @@ public class BlockRope extends Block
 	}
 	
 	@Override
-	public void registerBlockIcons(IIconRegister iconRegister)
-	{
-		this.blockIcon = iconRegister.registerIcon(MAssetManager.getEDTexture("ropeSide"));
-	}
-	
-	@Override
 	public boolean canPlaceBlockAt(World world, int x, int y, int z)
 	{
 		Block block = world.getBlock(x, y + 1, z);
@@ -68,6 +53,12 @@ public class BlockRope extends Block
 	
 	@Override
 	public Item getItemDropped(int metadata, Random random, int fortune)
+	{
+		return EDItems.ropeItem;
+	}
+	
+	@Override
+	public Item getItem(World world, int x, int y, int z)
 	{
 		return EDItems.ropeItem;
 	}

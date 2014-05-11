@@ -9,7 +9,6 @@ import sobiohazardous.mods.minestrappolation.extradecor.tileentity.TileEntityGob
 
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -21,16 +20,11 @@ import net.minecraft.world.World;
 
 public class BlockGoblet extends BlockContainer
 {
-	public BlockGoblet(Material par2Material)
+	public BlockGoblet(Material material)
 	{
-		super(Material.grass);
+		super(material);
+		this.setBlockTextureName(MAssetManager.getEDTexture("cardboard"));
 		this.setBlockBounds(0.3125F, 0F, 0.3125F, 0.6875F, 0.6875F, 0.6875F);
-	}
-	
-	@Override
-	public void registerBlockIcons(IIconRegister iconRegister)
-	{
-		this.blockIcon = iconRegister.registerIcon(MAssetManager.getEDTexture("cardboard"));
 	}
 	
 	@Override
@@ -62,10 +56,7 @@ public class BlockGoblet extends BlockContainer
 			world.setBlock(x, y, z, EDBlocks.Goblet, 0, 2);
 			if (meta == 1)
 			{
-				if (player.isBurning())
-				{
-					player.extinguish();
-				}
+				player.extinguish();
 			}
 			else if (meta == 2)
 			{
@@ -81,6 +72,12 @@ public class BlockGoblet extends BlockContainer
 			}
 		}
 		return true;
+	}
+	
+	@Override
+	public TileEntity createNewTileEntity(World world, int metadata)
+	{
+		return new TileEntityGoblet();
 	}
 	
 	@Override
@@ -102,15 +99,14 @@ public class BlockGoblet extends BlockContainer
 	}
 	
 	@Override
-	public Item getItemDropped(int metadata, Random random, int fortune)
+	public Item getItem(World world, int x, int y, int z)
 	{
 		return EDItems.goblet;
 	}
 	
 	@Override
-	public TileEntity createNewTileEntity(World world, int metadata)
+	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
-		return new TileEntityGoblet();
+		return EDItems.goblet;
 	}
-	
 }
