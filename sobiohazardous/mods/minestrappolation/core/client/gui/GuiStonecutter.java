@@ -13,12 +13,12 @@ import org.lwjgl.opengl.GL11;
 
 import sobiohazardous.mods.minestrappolation.core.inventory.ContainerStonecutter;
 import sobiohazardous.mods.minestrappolation.core.tileentity.TileEntityStonecutter;
-import sobiohazardous.mods.minestrappolation.core.util.MAssetManager;
+import sobiohazardous.mods.minestrappolation.core.util.MCAssetManager;
 
 @SideOnly(Side.CLIENT)
 public class GuiStonecutter extends GuiContainer
 {
-	private static final ResourceLocation	texture	= new ResourceLocation(MAssetManager.getMAPITexture("textures/gui/stonecutter.png"));
+	private static final ResourceLocation	texture	= new ResourceLocation(MCAssetManager.getMAPITexture("textures/gui/stonecutter.png"));
 	
 	public GuiStonecutter(InventoryPlayer inventory, TileEntityStonecutter te, World world, int x, int y, int z)
 	{

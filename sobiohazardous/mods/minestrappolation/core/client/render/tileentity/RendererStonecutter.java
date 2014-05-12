@@ -3,7 +3,7 @@ package sobiohazardous.mods.minestrappolation.core.client.render.tileentity;
 import org.lwjgl.opengl.GL11;
 
 import sobiohazardous.mods.minestrappolation.core.client.model.ModelStonecutter;
-import sobiohazardous.mods.minestrappolation.core.util.MAssetManager;
+import sobiohazardous.mods.minestrappolation.core.util.MCAssetManager;
 
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
@@ -12,7 +12,7 @@ import net.minecraft.util.ResourceLocation;
 public class RendererStonecutter extends TileEntitySpecialRenderer
 {
 	private final ModelStonecutter	model;
-	ResourceLocation				texture	= new ResourceLocation(MAssetManager.getMAPITexture("textures/blocks/model/stoneCutter.png"));
+	ResourceLocation				texture	= new ResourceLocation(MCAssetManager.getMAPITexture("textures/blocks/model/stoneCutter.png"));
 	
 	public RendererStonecutter()
 	{
