@@ -2,10 +2,10 @@ package sobiohazardous.mods.minestrappolation.lib;
 
 import sobiohazardous.mods.minestrappolation.core.potion.MCPotion;
 import sobiohazardous.mods.minestrappolation.core.util.MCAssetManager;
-import sobiohazardous.mods.minestrappolation.extramobdrops.lib.EMDItems;
 import clashsoft.brewingapi.potion.IPotionEffectHandler;
 import clashsoft.brewingapi.potion.PotionList;
 import clashsoft.brewingapi.potion.type.PotionType;
+
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -33,9 +33,9 @@ public class MPotions implements IPotionEffectHandler
 	 */
 	public static void loadBrewingRecipes()
 	{
-		waterBreathing = new PotionType(new PotionEffect(Potion.waterBreathing.id, 120 * 20, 0), 2, 1, new ItemStack(EMDItems.airSack), PotionList.awkward);
+		waterBreathing = new PotionType(new PotionEffect(Potion.waterBreathing.id, 120 * 20, 0), 2, 1, new ItemStack(MItems.airSack), PotionList.awkward);
 		waterBreathing.register();
-		resistance = new PotionType(new PotionEffect(Potion.resistance.id, 180 * 20), 2, 2, new ItemStack(EMDItems.marrow), PotionList.awkward);
+		resistance = new PotionType(new PotionEffect(Potion.resistance.id, 180 * 20), 2, 2, new ItemStack(MItems.marrow), PotionList.awkward);
 		resistance.register();
 	}
 	

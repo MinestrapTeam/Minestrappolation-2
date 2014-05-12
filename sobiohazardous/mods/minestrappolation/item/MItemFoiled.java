@@ -1,16 +1,16 @@
 package sobiohazardous.mods.minestrappolation.item;
 
-import net.minecraft.item.ItemStack;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOItems;
+import sobiohazardous.mods.minestrappolation.core.item.MCItem;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class EItemFoiled extends EOItem
+import net.minecraft.item.ItemStack;
+
+public class MItemFoiled extends MCItem
 {
-	public EItemFoiled()
+	public MItemFoiled()
 	{
 		super();
-		this.setCreativeTab(EOItems.tabOresItems);
 	}
 	
 	@Override

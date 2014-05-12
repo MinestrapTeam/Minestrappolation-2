@@ -20,7 +20,7 @@ public class EntityGrenade extends EntityThrowableExplosive
 	{
 		super(world, x, y, z);
 	}
-
+	
 	@Override
 	public void affectEntity(EntityLivingBase living)
 	{

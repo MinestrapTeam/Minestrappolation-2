@@ -13,7 +13,7 @@ public class BlockSunstone extends Block
 	public BlockSunstone(Material material)
 	{
 		super(material);
-		this.setBlockTextureName(MCAssetManager.getEOTexture("blockSunstone"));
+		this.setBlockTextureName(MCAssetManager.getTexture("blockSunstone"));
 	}
 	
 	@Override

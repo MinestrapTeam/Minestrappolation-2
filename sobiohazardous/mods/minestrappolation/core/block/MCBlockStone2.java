@@ -23,7 +23,7 @@ import net.minecraft.block.material.Material;
  */
 public class MCBlockStone2 extends Block
 {
-	public String name;
+	public String	name;
 	
 	public MCBlockStone2(String name)
 	{

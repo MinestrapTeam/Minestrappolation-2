@@ -2,8 +2,9 @@ package sobiohazardous.mods.minestrappolation.block.slab;
 
 import java.util.List;
 
+import sobiohazardous.mods.minestrappolation.Minestrappolation;
 import sobiohazardous.mods.minestrappolation.core.block.MCBlockMultiSlab;
-import sobiohazardous.mods.minestrappolation.extradecor.lib.EDBlocks;
+import sobiohazardous.mods.minestrappolation.lib.MBlocks;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -17,13 +18,13 @@ public class BlockWoodBoardSlab extends MCBlockMultiSlab
 	public BlockWoodBoardSlab(boolean doubleSlab)
 	{
 		super(Material.wood, doubleSlab, null, null);
-		this.setCreativeTab(EDBlocks.tabBlocks);
+		this.setCreativeTab(Minestrappolation.tabBuildingBlocks);
 	}
 	
 	@Override
 	public IIcon getIcon(int side, int metadata)
 	{
-		return EDBlocks.woodBoards.getIcon(side, metadata & 7);
+		return MBlocks.woodBoards.getIcon(side, metadata & 7);
 	}
 	
 	@Override
@@ -34,7 +35,7 @@ public class BlockWoodBoardSlab extends MCBlockMultiSlab
 	@Override
 	public Item getItem(int metadata)
 	{
-		return Item.getItemFromBlock(EDBlocks.woodBoards);
+		return Item.getItemFromBlock(MBlocks.woodBoards);
 	}
 	
 	@Override

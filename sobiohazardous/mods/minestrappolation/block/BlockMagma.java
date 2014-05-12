@@ -21,8 +21,8 @@ public class BlockMagma extends BlockFluidClassic
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.stillIcon = iconRegister.registerIcon(MCAssetManager.getEOTexture("liquid/magmaStill"));
-		this.flowingIcon = iconRegister.registerIcon(MCAssetManager.getEOTexture("liquid/magmaFlow"));
+		this.stillIcon = iconRegister.registerIcon(MCAssetManager.getTexture("liquid/magmaStill"));
+		this.flowingIcon = iconRegister.registerIcon(MCAssetManager.getTexture("liquid/magmaFlow"));
 	}
 	
 	@Override

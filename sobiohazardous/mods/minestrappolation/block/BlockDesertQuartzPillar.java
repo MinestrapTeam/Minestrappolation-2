@@ -12,7 +12,7 @@ public class BlockDesertQuartzPillar extends MCBlockPillar
 	@Deprecated
 	public BlockDesertQuartzPillar()
 	{
-		super(MCAssetManager.getEOTextureSC("DesertQuartz_Pillar_Side_0"), MCAssetManager.getEOTextureSC("DesertQuartz_Pillar_Top_0"));
+		super(MCAssetManager.getSCTexture("DesertQuartz_Pillar_Side_0"), MCAssetManager.getSCTexture("DesertQuartz_Pillar_Top_0"));
 		this.setCreativeTab(CreativeTabs.tabBlock);
 	}
 }

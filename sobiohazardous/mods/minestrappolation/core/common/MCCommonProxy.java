@@ -14,13 +14,13 @@ public class MCCommonProxy implements IGuiHandler
 	public void registerRenderers()
 	{
 	}
-
+	
 	@Override
 	public Object getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
 	{
 		return null;
 	}
-
+	
 	@Override
 	public Object getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
 	{

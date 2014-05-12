@@ -12,7 +12,9 @@ import cpw.mods.fml.common.network.IGuiHandler;
 
 public class MCommonProxy implements IGuiHandler
 {
-	public void registerRenderers(){}
+	public void registerRenderers()
+	{
+	}
 	
 	public static int addArmor(String armor)
 	{
@@ -36,7 +38,7 @@ public class MCommonProxy implements IGuiHandler
 		}
 		return null;
 	}
-
+	
 	@Override
 	public Object getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
 	{

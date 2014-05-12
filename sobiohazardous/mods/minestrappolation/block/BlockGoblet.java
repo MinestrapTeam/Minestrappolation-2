@@ -22,7 +22,7 @@ public class BlockGoblet extends BlockContainer
 	public BlockGoblet(Material material)
 	{
 		super(material);
-		this.setBlockTextureName(MCAssetManager.getEDTexture("cardboard"));
+		this.setBlockTextureName(MCAssetManager.getTexture("cardboard"));
 		this.setBlockBounds(0.3125F, 0F, 0.3125F, 0.6875F, 0.6875F, 0.6875F);
 	}
 	

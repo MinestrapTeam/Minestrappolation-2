@@ -13,11 +13,11 @@ public class StonecutterShapedRecipes implements IStonecutterRecipe
 	public final int			recipeHeight;
 	
 	public final ItemStack[]	recipeItems;
-	public final ItemStack			recipeOutput;
+	public final ItemStack		recipeOutput;
 	
 	private ItemStack			extraSlot;
 	
-	protected boolean hasNBTResult;
+	protected boolean			hasNBTResult;
 	
 	public StonecutterShapedRecipes(int width, int height, ItemStack[] data, ItemStack output, ItemStack extra)
 	{

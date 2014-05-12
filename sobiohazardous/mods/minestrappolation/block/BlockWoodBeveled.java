@@ -1,7 +1,5 @@
 package sobiohazardous.mods.minestrappolation.block;
 
-import sobiohazardous.mods.minestrappolation.core.lib.MCReference;
-
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
 

@@ -15,7 +15,7 @@ public class MCEventHandler
 		String url = MCVersionChecker.versionURL;
 		if (MCVersionChecker.doesFileExist(url))
 		{
-			MCChatMessageHandler.sendChatToPlayer(event.player, MCVersionChecker.updateCheck(MCReference.VERSION, url));
+			MCChatMessageHandler.sendChatToPlayer(event.player, MCVersionChecker.updateCheck(MCReference.MINESTRAP_CORE_VERSION, url));
 			MCChatMessageHandler.sendChatToPlayer(event.player, MCVersionChecker.getMOTD(url));
 			
 			MCVersionChecker.updateFile = null;

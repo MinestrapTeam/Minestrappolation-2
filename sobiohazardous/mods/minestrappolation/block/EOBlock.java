@@ -86,7 +86,7 @@ public class EOBlock extends MCBlock
 	
 	// TODO: READ BELOW
 	/*
-	 *  **METHODS DON'T EXIST. PLEASE FIND ALTERNATIVE! //Makes Extra Ores
+	 * **METHODS DON'T EXIST. PLEASE FIND ALTERNATIVE! //Makes Extra Ores
 	 * Bedrock and Invincium impervious to the Ender Dragon. public boolean
 	 * canDragonDestroy(World world, int x, int y, int z) { return blockID !=
 	 * obsidian.blockID && blockID != whiteStone.blockID && blockID !=
@@ -118,19 +118,19 @@ public class EOBlock extends MCBlock
 	{
 		if (this == MBlocks.Quartzite)
 		{
-			this.dropXpOnBlockBreak(par1World, par2, par3, par4, 1); 
+			this.dropXpOnBlockBreak(par1World, par2, par3, par4, 1);
 		}
 		if (this == MBlocks.RadiantQuartzOre)
 		{
-			this.dropXpOnBlockBreak(par1World, par2, par3, par4, this.rand.nextInt(9) + 4); 
+			this.dropXpOnBlockBreak(par1World, par2, par3, par4, this.rand.nextInt(9) + 4);
 		}
 		if (this == MBlocks.meuroditeOre)
 		{
-			this.dropXpOnBlockBreak(par1World, par2, par3, par4, this.rand.nextInt(5) + 2); 
+			this.dropXpOnBlockBreak(par1World, par2, par3, par4, this.rand.nextInt(5) + 2);
 		}
 		if (this == MBlocks.SoulOre)
 		{
-			this.dropXpOnBlockBreak(par1World, par2, par3, par4, this.rand.nextInt(10) + 6); 
+			this.dropXpOnBlockBreak(par1World, par2, par3, par4, this.rand.nextInt(10) + 6);
 		}
 		
 	}

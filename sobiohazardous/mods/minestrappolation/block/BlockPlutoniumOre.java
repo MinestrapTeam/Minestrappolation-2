@@ -25,7 +25,7 @@ public class BlockPlutoniumOre extends BlockRadiation
 	
 	public void registerIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getEOTexture("orePlutonium"));
+		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getTexture("orePlutonium"));
 	}
 	
 	@Override

@@ -5,15 +5,14 @@ import net.minecraft.item.Item;
 
 public class MCreativeTabBuildingBlocks extends CreativeTabs
 {
-	public MCreativeTabBuildingBlocks(int par1, String par2Str)
+	public MCreativeTabBuildingBlocks(String label)
 	{
-		super(par1, par2Str);
+		super(label);
 	}
-
+	
 	@Override
 	public Item getTabIconItem()
 	{
-		return null;			
+		return null;
 	}
-
 }

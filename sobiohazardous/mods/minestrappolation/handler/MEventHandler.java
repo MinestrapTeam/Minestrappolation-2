@@ -2,7 +2,7 @@ package sobiohazardous.mods.minestrappolation.handler;
 
 import java.util.Random;
 
-import sobiohazardous.mods.minestrappolation.extramobdrops.lib.EMDItems;
+import sobiohazardous.mods.minestrappolation.lib.MItems;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 import net.minecraft.entity.boss.EntityWither;
@@ -34,28 +34,28 @@ public class MEventHandler
 			{
 				if (rand < 0.15D)
 				{
-					event.entityLiving.dropItem(EMDItems.snout, 1);
+					event.entityLiving.dropItem(MItems.snout, 1);
 				}
 				
 				if (rand2 < 0.25D)
 				{
-					event.entityLiving.dropItem(EMDItems.pigHoof, 4);
+					event.entityLiving.dropItem(MItems.pigHoof, 4);
 				}
 				
 				if (rand3 < 0.3D)
 				{
-					event.entityLiving.dropItem(EMDItems.animalBones, 4);
+					event.entityLiving.dropItem(MItems.animalBones, 4);
 				}
 				
 				if (rand4 < 0.3D)
 				{
 					if (event.entityLiving.isBurning())
 					{
-						event.entityLiving.dropItem(EMDItems.grease, 5);
+						event.entityLiving.dropItem(MItems.grease, 5);
 					}
 					else
 					{
-						event.entityLiving.dropItem(EMDItems.fat, 5);
+						event.entityLiving.dropItem(MItems.fat, 5);
 					}
 				}
 			}
@@ -63,208 +63,208 @@ public class MEventHandler
 			{
 				if (rand < 0.15D)
 				{
-					event.entityLiving.dropItem(EMDItems.snout, 1);
+					event.entityLiving.dropItem(MItems.snout, 1);
 				}
 				
 				if (rand2 < 0.3D)
 				{
-					event.entityLiving.dropItem(EMDItems.animalBones, 4);
+					event.entityLiving.dropItem(MItems.animalBones, 4);
 				}
 				
 				if (rand3 < 0.25D)
 				{
-					event.entityLiving.dropItem(EMDItems.cowHoof, 4);
+					event.entityLiving.dropItem(MItems.cowHoof, 4);
 				}
 				
 				if (rand4 < 0.05D)
 				{
-					event.entityLiving.dropItem(EMDItems.horn, 2);
+					event.entityLiving.dropItem(MItems.horn, 2);
 				}
 			}
 			else if (event.entityLiving instanceof EntityMooshroom)
 			{
 				if (rand < 0.15D)
 				{
-					event.entityLiving.dropItem(EMDItems.snout, 1);
+					event.entityLiving.dropItem(MItems.snout, 1);
 				}
 				
 				if (rand2 < 0.3D)
 				{
-					event.entityLiving.dropItem(EMDItems.animalBones, 4);
+					event.entityLiving.dropItem(MItems.animalBones, 4);
 				}
 				
 				if (rand3 < 0.25D)
 				{
-					event.entityLiving.dropItem(EMDItems.cowHoof, 4);
+					event.entityLiving.dropItem(MItems.cowHoof, 4);
 				}
 				
 				if (rand4 < 0.05D)
 				{
-					event.entityLiving.dropItem(EMDItems.horn, 2);
+					event.entityLiving.dropItem(MItems.horn, 2);
 				}
 				if (rand5 < 0.1D)
 				{
-					event.entityLiving.dropItem(EMDItems.infectiousFungus, 3);
+					event.entityLiving.dropItem(MItems.infectiousFungus, 3);
 				}
 			}
 			else if (event.entityLiving instanceof EntityHorse)
 			{
 				if (rand < 0.15D)
 				{
-					event.entityLiving.dropItem(EMDItems.snout, 1);
+					event.entityLiving.dropItem(MItems.snout, 1);
 				}
 				
 				if (rand2 < 0.2D)
 				{
-					event.entityLiving.dropItem(EMDItems.animalBones, 4);
+					event.entityLiving.dropItem(MItems.animalBones, 4);
 				}
 				if (rand3 < 0.25D)
 				{
-					event.entityLiving.dropItem(EMDItems.horseHoof, 4);
+					event.entityLiving.dropItem(MItems.horseHoof, 4);
 				}
 				if (rand4 < 0.5)
 				{
-					event.entityLiving.dropItem(EMDItems.rawHorseHaunch, 3);
+					event.entityLiving.dropItem(MItems.rawHorseHaunch, 3);
 				}
 				if (rand5 < 0.3)
 				{
-					event.entityLiving.dropItem(EMDItems.horseHair, 4);
+					event.entityLiving.dropItem(MItems.horseHair, 4);
 				}
 			}
 			else if (event.entityLiving instanceof EntityWolf)
 			{
 				if (rand < 0.05D)
 				{
-					event.entityLiving.dropItem(EMDItems.snout, 1);
+					event.entityLiving.dropItem(MItems.snout, 1);
 				}
 				if (rand2 < 0.4D)
 				{
-					event.entityLiving.dropItem(EMDItems.wolfHide, 4);
+					event.entityLiving.dropItem(MItems.wolfHide, 4);
 				}
 			}
 			else if (event.entityLiving instanceof EntityPigZombie)
 			{
 				if (rand < 0.05D)
 				{
-					event.entityLiving.dropItem(EMDItems.snout, 1);
+					event.entityLiving.dropItem(MItems.snout, 1);
 				}
 				
 				if (rand2 < 0.1D)
 				{
-					event.entityLiving.dropItem(EMDItems.pigHoof, 2);
+					event.entityLiving.dropItem(MItems.pigHoof, 2);
 				}
 				
 				if (rand3 < 0.15D)
 				{
-					event.entityLiving.dropItem(EMDItems.fat, 2);
+					event.entityLiving.dropItem(MItems.fat, 2);
 				}
 				
 				if (rand4 < 0.1D)
 				{
-					event.entityLiving.dropItem(EMDItems.animalBones, 2);
+					event.entityLiving.dropItem(MItems.animalBones, 2);
 				}
 				
 				if (rand5 < 0.1D)
 				{
-					event.entityLiving.dropItem(EMDItems.marrow, 3);
+					event.entityLiving.dropItem(MItems.marrow, 3);
 				}
 			}
 			else if (event.entityLiving instanceof EntitySheep)
 			{
 				if (rand < 0.3D)
 				{
-					event.entityLiving.dropItem(EMDItems.animalBones, 4);
+					event.entityLiving.dropItem(MItems.animalBones, 4);
 				}
 				
 				if (rand2 < 0.9D)
 				{
-					event.entityLiving.dropItem(EMDItems.lambchopRaw, 3);
+					event.entityLiving.dropItem(MItems.lambchopRaw, 3);
 				}
 				if (rand3 < 0.25D)
 				{
-					event.entityLiving.dropItem(EMDItems.sheepHoof, 3);
+					event.entityLiving.dropItem(MItems.sheepHoof, 3);
 				}
 			}
 			else if (event.entityLiving instanceof EntityChicken)
 			{
 				if (rand < 0.2D)
 				{
-					event.entityLiving.dropItem(EMDItems.animalBones, 2);
+					event.entityLiving.dropItem(MItems.animalBones, 2);
 				}
 				if (rand2 < 0.15D)
 				{
-					event.entityLiving.dropItem(EMDItems.beakChicken, 1);
+					event.entityLiving.dropItem(MItems.beakChicken, 1);
 				}
 				if (rand3 < 0.2D)
 				{
-					event.entityLiving.dropItem(EMDItems.footChicken, 2);
+					event.entityLiving.dropItem(MItems.footChicken, 2);
 				}
 				if (rand4 < 0.5D)
 				{
-					event.entityLiving.dropItem(EMDItems.chickenWingRaw, 2);
+					event.entityLiving.dropItem(MItems.chickenWingRaw, 2);
 				}
 			}
 			else if (event.entityLiving instanceof EntitySpider)
 			{
 				if (rand < 0.05D)
 				{
-					event.entityLiving.dropItem(EMDItems.animalBones, 1);
+					event.entityLiving.dropItem(MItems.animalBones, 1);
 				}
 				if (rand2 < 0.15D)
 				{
-					event.entityLiving.dropItem(EMDItems.legSpider, 4);
+					event.entityLiving.dropItem(MItems.legSpider, 4);
 				}
 			}
 			else if (event.entityLiving instanceof EntityCaveSpider)
 			{
 				if (rand < 0.05D)
 				{
-					event.entityLiving.dropItem(EMDItems.animalBones, 1);
+					event.entityLiving.dropItem(MItems.animalBones, 1);
 				}
 				
 				if (rand2 < 0.3D)
 				{
-					event.entityLiving.dropItem(EMDItems.poisonSack, 2);
+					event.entityLiving.dropItem(MItems.poisonSack, 2);
 				}
 				
 				if (rand3 < 0.15D)
 				{
-					event.entityLiving.dropItem(EMDItems.legSpider, 4);
+					event.entityLiving.dropItem(MItems.legSpider, 4);
 				}
 			}
 			else if (event.entityLiving instanceof EntityOcelot)
 			{
 				if (rand < 0.05D)
 				{
-					event.entityLiving.dropItem(EMDItems.footChicken, 1);
+					event.entityLiving.dropItem(MItems.footChicken, 1);
 				}
 				
 				if (rand2 < 0.15D)
 				{
-					event.entityLiving.dropItem(EMDItems.whisker, 4);
+					event.entityLiving.dropItem(MItems.whisker, 4);
 				}
 				if (rand3 < 0.1D)
 				{
-					event.entityLiving.dropItem(EMDItems.catEye, 2);
+					event.entityLiving.dropItem(MItems.catEye, 2);
 				}
 			}
 			else if (event.entityLiving instanceof EntitySquid)
 			{
 				if (rand < 0.4D)
 				{
-					event.entityLiving.dropItem(EMDItems.squidTentacle, 4);
+					event.entityLiving.dropItem(MItems.squidTentacle, 4);
 				}
 				
 				if (rand2 < 0.2D)
 				{
-					event.entityLiving.dropItem(EMDItems.airSack, 1);
+					event.entityLiving.dropItem(MItems.airSack, 1);
 				}
 			}
 			else if (event.entityLiving instanceof EntityVillager)
 			{
 				if (rand < 0.2D)
 				{
-					event.entityLiving.dropItem(EMDItems.flesh, 3);
+					event.entityLiving.dropItem(MItems.flesh, 3);
 				}
 			}
 			else if (event.entityLiving instanceof EntitySkeleton)
@@ -276,67 +276,67 @@ public class MEventHandler
 				{
 					if (rand < 0.2D)
 					{
-						event.entityLiving.dropItem(EMDItems.witheredBone, 3);
+						event.entityLiving.dropItem(MItems.witheredBone, 3);
 					}
 				}
 				else if (rand < 0.15D)
 				{
-					event.entityLiving.dropItem(EMDItems.marrow, 3);
+					event.entityLiving.dropItem(MItems.marrow, 3);
 				}
 			}
 			else if (event.entityLiving instanceof EntityBat)
 			{
 				if (rand < 0.5)
 				{
-					event.entityLiving.dropItem(EMDItems.guano, 2);
+					event.entityLiving.dropItem(MItems.guano, 2);
 				}
 				if (rand < 0.5)
 				{
-					event.entityLiving.dropItem(EMDItems.wingSinew, 2);
+					event.entityLiving.dropItem(MItems.wingSinew, 2);
 				}
 			}
 			else if (event.entityLiving instanceof EntitySilverfish)
 			{
 				if (rand < 0.5)
 				{
-					event.entityLiving.dropItem(EMDItems.carcassSilverfish, 1);
+					event.entityLiving.dropItem(MItems.carcassSilverfish, 1);
 				}
 			}
 			else if (event.entityLiving instanceof EntityCreeper)
 			{
 				if (rand < 0.1)
 				{
-					event.entityLiving.dropItem(EMDItems.hideCreeper, 2);
+					event.entityLiving.dropItem(MItems.hideCreeper, 2);
 				}
 			}
 			else if (event.entityLiving instanceof EntitySlime)
 			{
 				if (rand < 0.1)
 				{
-					event.entityLiving.dropItem(EMDItems.slimeCore, 1);
+					event.entityLiving.dropItem(MItems.slimeCore, 1);
 				}
 			}
 			else if (event.entityLiving instanceof EntityEnderman)
 			{
 				if (rand < 0.25)
 				{
-					event.entityLiving.dropItem(EMDItems.enderCore, 1);
+					event.entityLiving.dropItem(MItems.enderCore, 1);
 				}
 				if (rand < 0.20)
 				{
-					event.entityLiving.dropItem(EMDItems.enderAura, 2);
+					event.entityLiving.dropItem(MItems.enderAura, 2);
 				}
 			}
 			else if (event.entityLiving instanceof EntityGhast)
 			{
 				if (rand < 0.15)
 				{
-					event.entityLiving.dropItem(EMDItems.ghastTentacle, 4);
+					event.entityLiving.dropItem(MItems.ghastTentacle, 4);
 				}
 			}
 			else if (event.entityLiving instanceof EntityWither)
 			{
-				event.entityLiving.dropItem(EMDItems.witheredBone, 15);
+				event.entityLiving.dropItem(MItems.witheredBone, 15);
 			}
 		}
 	}
@@ -367,7 +367,7 @@ public class MEventHandler
 		if (event.target instanceof EntityGhast && inventory.getCurrentItem().getItem() == Items.glass_bottle)
 		{
 			inventory.getCurrentItem().stackSize--;
-			inventory.addItemStackToInventory(new ItemStack(EMDItems.ghastlySoul, 1));
+			inventory.addItemStackToInventory(new ItemStack(MItems.ghastlySoul, 1));
 		}
 	}
 }

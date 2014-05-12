@@ -10,5 +10,5 @@ public class MCBlockMultiLamp extends MCBlockMulti
 		super(mat, textures);
 		this.setStepSound(Block.soundTypeGlass);
 		this.setLightLevel(1F);
-	}	
+	}
 }

@@ -2,7 +2,7 @@ package sobiohazardous.mods.minestrappolation.block;
 
 import sobiohazardous.mods.minestrappolation.Minestrappolation;
 import sobiohazardous.mods.minestrappolation.core.util.MCAssetManager;
-import sobiohazardous.mods.minestrappolation.lib.MBlocks;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -25,47 +25,63 @@ public class BlockEdgeStoneBrick extends Block
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getEDTextureSC("EdgeStone_Bricks_0_Full"));
-		this.left = iconRegister.registerIcon(MCAssetManager.getEDTextureSC("EdgeStone_Bricks_0_Left"));
-		this.right = iconRegister.registerIcon(MCAssetManager.getEDTextureSC("EdgeStone_Bricks_0_Right"));
-		this.half = iconRegister.registerIcon(MCAssetManager.getEDTextureSC("EdgeStone_Bricks_0_Half"));
+		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getSCTexture("EdgeStone_Bricks_0_Full"));
+		this.left = iconRegister.registerIcon(MCAssetManager.getSCTexture("EdgeStone_Bricks_0_Left"));
+		this.right = iconRegister.registerIcon(MCAssetManager.getSCTexture("EdgeStone_Bricks_0_Right"));
+		this.half = iconRegister.registerIcon(MCAssetManager.getSCTexture("EdgeStone_Bricks_0_Half"));
 	}
 	
 	@Override
 	public IIcon getIcon(IBlockAccess world, int x, int y, int z, int side)
 	{
-		boolean x1 = isBrick(world, x + 1, y, z);
-		boolean z1 = isBrick(world, x, y, z + 1);
-		boolean x2 = isBrick(world, x - 1, y, z);
-		boolean z2 = isBrick(world, x, y, z - 1);
+		boolean x1 = this.isBrick(world, x + 1, y, z);
+		boolean z1 = this.isBrick(world, x, y, z + 1);
+		boolean x2 = this.isBrick(world, x - 1, y, z);
+		boolean z2 = this.isBrick(world, x, y, z - 1);
 		byte b = 0;
 		if (side == 2) // NORTH
 		{
 			if (x1)
+			{
 				b |= 1;
+			}
 			if (x2)
+			{
 				b |= 2;
+			}
 		}
 		else if (side == 3) // SOUTH
 		{
 			if (x1)
+			{
 				b |= 1;
+			}
 			if (x2)
+			{
 				b |= 2;
+			}
 		}
 		else if (side == 4)
 		{
 			if (z1)
+			{
 				b |= 1;
+			}
 			if (z2)
+			{
 				b |= 2;
+			}
 		}
 		else if (side == 5)
 		{
 			if (z1)
+			{
 				b |= 1;
+			}
 			if (z2)
+			{
 				b |= 2;
+			}
 		}
 		
 		switch (b)

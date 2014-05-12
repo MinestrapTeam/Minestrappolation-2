@@ -1,7 +1,7 @@
 package sobiohazardous.mods.minestrappolation.core.client;
 
 import sobiohazardous.mods.minestrappolation.core.client.gui.GuiStonecutter;
-import sobiohazardous.mods.minestrappolation.core.client.render.tileentity.RendererStonecutter;
+import sobiohazardous.mods.minestrappolation.core.client.renderer.tileentity.RenderStonecutter;
 import sobiohazardous.mods.minestrappolation.core.common.MCCommonProxy;
 import sobiohazardous.mods.minestrappolation.core.tileentity.TileEntityStonecutter;
 import cpw.mods.fml.client.registry.ClientRegistry;
@@ -15,7 +15,7 @@ import net.minecraft.world.World;
 
 public class MCClientProxy extends MCCommonProxy
 {
-	public static final String capeURL = "https://raw.githubusercontent.com/SoBiohazardous/Minestrappolation-Recode/master/assets/minestrappolation/textures/misc/cape_dev.png";
+	public static final String	capeURL	= "https://raw.githubusercontent.com/SoBiohazardous/Minestrappolation-Recode/master/assets/minestrappolation/textures/misc/cape_dev.png";
 	
 	@Override
 	public Object getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
@@ -31,7 +31,7 @@ public class MCClientProxy extends MCCommonProxy
 	@Override
 	public void registerRenderers()
 	{
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityStonecutter.class, new RendererStonecutter());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityStonecutter.class, new RenderStonecutter());
 		
 		addDevCapes();
 	}

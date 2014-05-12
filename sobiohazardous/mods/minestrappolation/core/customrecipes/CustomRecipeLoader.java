@@ -10,14 +10,14 @@ import net.minecraft.item.ItemStack;
 
 public class CustomRecipeLoader
 {
-	public static File			customPluginsDir			= new File("Custom-Plugins");
+	public static File	customPluginsDir	= new File("Custom-Plugins");
 	
 	static
 	{
 		customPluginsDir.mkdirs();
 	}
 	
-	public String type;
+	public String		type;
 	
 	public CustomRecipeLoader(String type)
 	{
@@ -42,7 +42,7 @@ public class CustomRecipeLoader
 					String line;
 					while ((line = br.readLine()) != null)
 					{
-						processLine(line);
+						this.processLine(line);
 					}
 					br.close();
 				}
@@ -67,35 +67,35 @@ public class CustomRecipeLoader
 		
 		if (!line.isEmpty())
 		{
-		String[] split = line.split(";");
-		
-		for (String s : split)
-		{
-			if (s.startsWith("input="))
+			String[] split = line.split(";");
+			
+			for (String s : split)
 			{
-				input = GameData.getItemRegistry().getObject(s.substring(6));
+				if (s.startsWith("input="))
+				{
+					input = GameData.getItemRegistry().getObject(s.substring(6));
+				}
+				else if (s.startsWith("input_meta="))
+				{
+					inputMeta = Integer.parseInt(s.substring(11));
+				}
+				else if (s.startsWith("output="))
+				{
+					output = GameData.getItemRegistry().getObject(s.substring(7));
+				}
+				else if (s.startsWith("output_meta="))
+				{
+					outputMeta = Integer.parseInt(s.substring(12));
+				}
+				else if (s.startsWith("amount="))
+				{
+					amount = Integer.parseInt(s.substring(7));
+				}
+				else if (s.startsWith("exp="))
+				{
+					exp = Float.parseFloat(s.substring(4));
+				}
 			}
-			else if (s.startsWith("input_meta="))
-			{
-				inputMeta = Integer.parseInt(s.substring(11));
-			}
-			else if (s.startsWith("output="))
-			{
-				output = GameData.getItemRegistry().getObject(s.substring(7));
-			}
-			else if (s.startsWith("output_meta="))
-			{
-				outputMeta = Integer.parseInt(s.substring(12));
-			}
-			else if (s.startsWith("amount="))
-			{
-				amount = Integer.parseInt(s.substring(7));
-			}
-			else if (s.startsWith("exp="))
-			{
-				exp = Float.parseFloat(s.substring(4));
-			}
-		}
 			this.addRecipe(input, inputMeta, output, outputMeta, amount, exp);
 		}
 	}

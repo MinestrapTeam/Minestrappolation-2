@@ -8,14 +8,12 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOItems;
 
 public class ItemSoulBottle extends Item
 {
 	public ItemSoulBottle()
 	{
 		super();
-		this.setCreativeTab(EOItems.tabOresItems);
 	}
 	
 	@Override

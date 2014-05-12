@@ -31,7 +31,7 @@ public class GuiMelter extends GuiContainer
 	protected void drawGuiContainerBackgroundLayer(float partialTickTime, int mouseX, int mouseY)
 	{
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-		ResourceLocation gui = new ResourceLocation(MCAssetManager.getEOTexture("textures/gui/melter.png"));
+		ResourceLocation gui = new ResourceLocation(MCAssetManager.getTexture("textures/gui/melter.png"));
 		this.mc.renderEngine.bindTexture(gui);
 		int j = (this.width - this.xSize) / 2;
 		int k = (this.height - this.ySize) / 2;

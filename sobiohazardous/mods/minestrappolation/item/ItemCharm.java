@@ -2,7 +2,7 @@ package sobiohazardous.mods.minestrappolation.item;
 
 import java.util.List;
 
-import sobiohazardous.mods.minestrappolation.core.lib.MCReference;
+import sobiohazardous.mods.minestrappolation.core.util.MCAssetManager;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -33,7 +33,7 @@ public class ItemCharm extends Item
 	@Override
 	public String getUnlocalizedName(ItemStack stack)
 	{
-		return super.getUnlocalizedName() + "." + geneNames[stack.getItemDamage() % this.geneNames.length];
+		return super.getUnlocalizedName() + "." + geneNames[stack.getItemDamage() % ItemCharm.geneNames.length];
 	}
 	
 	@Override
@@ -52,7 +52,7 @@ public class ItemCharm extends Item
 		
 		for (int i = 0; i < geneNames.length; ++i)
 		{
-			this.geneIcons[i] = iconRegister.registerIcon(MCReference.EMD_MODID + ":charm" + geneNames[i]);
+			this.geneIcons[i] = iconRegister.registerIcon(MCAssetManager.getTexture("charm" + geneNames[i]));
 		}
 	}
 }

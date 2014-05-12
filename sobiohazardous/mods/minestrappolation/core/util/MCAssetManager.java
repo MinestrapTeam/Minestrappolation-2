@@ -11,51 +11,41 @@ public class MCAssetManager
 {
 	public static ResourceLocation getMAPIResource(String name)
 	{
-		return new ResourceLocation(MCReference.MINESTRAPPOLATION_CORE_ID, name);
+		return new ResourceLocation(MCReference.MINESTRAP_CORE_ID, name);
 	}
 	
-	public static ResourceLocation getEOResource(String name)
+	public static ResourceLocation getResource(String name)
 	{
-		return new ResourceLocation(MCReference.EO_MODID, name);
+		return new ResourceLocation(MCReference.MINESTRAP_ID, name);
 	}
 	
-	public static ResourceLocation getEDResource(String name)
+	public static ResourceLocation getModelResource(String name)
 	{
-		return new ResourceLocation(MCReference.ED_MODID, name);
-	}
-	
-	public static ResourceLocation getEMDResource(String name)
-	{
-		return new ResourceLocation(MCReference.EMD_MODID, name);
+		return new ResourceLocation(MCReference.MINESTRAP_ID, "textures/model/" + name + ".png");
 	}
 	
 	public static String getMAPITexture(String name)
 	{
-		return MCReference.MINESTRAPPOLATION_CORE_ID + ":" + name;
+		return MCReference.MINESTRAP_CORE_ID + ":" + name;
 	}
 	
-	public static String getEOTexture(String name)
+	public static String getTexture(String name)
 	{
-		return MCReference.EO_MODID + ":" + name;
+		return MCReference.MINESTRAP_ID + ":" + name;
 	}
 	
-	public static String getEDTexture(String name)
+	public static String getSCTexture(String name)
 	{
-		return MCReference.ED_MODID + ":" + name;
+		return MCReference.MINESTRAP_ID + ":stoneCutter/" + name;
 	}
 	
-	public static String getEMDTexture(String name)
+	public static String getArmorTexture(String name)
 	{
-		return MCReference.EMD_MODID + ":" + name;
+		return MCReference.MINESTRAP_ID + ":textures/armor/" + name + ".png";
 	}
 	
-	public static String getEDTextureSC(String name)
+	public static String getModelTexture(String name)
 	{
-		return MCReference.ED_MODID + ":stoneCutter/" + name;
-	}
-	
-	public static String getEOTextureSC(String name)
-	{
-		return MCReference.EO_MODID + ":stoneCutter/" + name;
+		return MCReference.MINESTRAP_ID + ":textures/model/" + name + ".png";
 	}
 }

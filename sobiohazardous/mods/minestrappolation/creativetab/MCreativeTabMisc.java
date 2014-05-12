@@ -3,9 +3,9 @@ package sobiohazardous.mods.minestrappolation.creativetab;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
-public class MCreativeTabMaterials extends CreativeTabs
+public class MCreativeTabMisc extends CreativeTabs
 {
-	public MCreativeTabMaterials(String label)
+	public MCreativeTabMisc(String label)
 	{
 		super(label);
 	}

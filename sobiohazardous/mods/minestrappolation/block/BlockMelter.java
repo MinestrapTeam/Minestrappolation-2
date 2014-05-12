@@ -161,9 +161,9 @@ public class BlockMelter extends BlockContainer
 	 */
 	public void registerBlockIcons(IIconRegister par1IconRegister)
 	{
-		this.blockIcon = par1IconRegister.registerIcon(MCAssetManager.getEOTexture("melterSide"));
-		this.field_94459_cP = par1IconRegister.registerIcon(this.isActive ? MCAssetManager.getEOTexture("melterFrontOn") : MCAssetManager.getEOTexture("melterFrontOff"));
-		this.field_94458_cO = par1IconRegister.registerIcon(MCAssetManager.getEOTexture("melterTop"));
+		this.blockIcon = par1IconRegister.registerIcon(MCAssetManager.getTexture("melterSide"));
+		this.field_94459_cP = par1IconRegister.registerIcon(this.isActive ? MCAssetManager.getTexture("melterFrontOn") : MCAssetManager.getTexture("melterFrontOff"));
+		this.field_94458_cO = par1IconRegister.registerIcon(MCAssetManager.getTexture("melterTop"));
 	}
 	
 	/**

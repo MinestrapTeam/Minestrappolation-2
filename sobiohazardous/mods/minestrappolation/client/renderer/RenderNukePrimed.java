@@ -1,17 +1,17 @@
 package sobiohazardous.mods.minestrappolation.client.renderer;
 
+import org.lwjgl.opengl.GL11;
+
+import sobiohazardous.mods.minestrappolation.entity.EntityNukePrimed;
+import sobiohazardous.mods.minestrappolation.lib.MBlocks;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
-
-import org.lwjgl.opengl.GL11;
-
-import sobiohazardous.mods.minestrappolation.entity.EntityNukePrimed;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlocks;
 
 @SideOnly(Side.CLIENT)
 public class RenderNukePrimed extends Render
@@ -51,7 +51,7 @@ public class RenderNukePrimed extends Render
 		
 		f2 = (1.0F - (entity.fuse - partialTickTime + 1.0F) / 100.0F) * 0.8F;
 		this.bindEntityTexture(entity);
-		this.blockRenderer.renderBlockAsItem(EOBlocks.nuke, 0, entity.getBrightness(partialTickTime));
+		this.blockRenderer.renderBlockAsItem(MBlocks.nuke, 0, entity.getBrightness(partialTickTime));
 		
 		if (entity.fuse / 5 % 2 == 0)
 		{
@@ -60,7 +60,7 @@ public class RenderNukePrimed extends Render
 			GL11.glEnable(GL11.GL_BLEND);
 			GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_DST_ALPHA);
 			GL11.glColor4f(1.0F, 1.0F, 1.0F, f2);
-			this.blockRenderer.renderBlockAsItem(EOBlocks.nuke, 0, 1.0F);
+			this.blockRenderer.renderBlockAsItem(MBlocks.nuke, 0, 1.0F);
 			GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 			GL11.glDisable(GL11.GL_BLEND);
 			GL11.glEnable(GL11.GL_LIGHTING);

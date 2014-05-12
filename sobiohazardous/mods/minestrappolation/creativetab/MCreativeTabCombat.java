@@ -5,15 +5,15 @@ import net.minecraft.item.Item;
 
 public class MCreativeTabCombat extends CreativeTabs
 {
-	public MCreativeTabCombat(int par1, String par2Str)
+	public MCreativeTabCombat(String label)
 	{
-		super(par1, par2Str);
+		super(label);
 	}
-
+	
 	@Override
 	public Item getTabIconItem()
 	{
-		return null;			
+		return null;
 	}
-
+	
 }

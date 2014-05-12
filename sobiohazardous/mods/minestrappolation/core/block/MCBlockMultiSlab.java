@@ -56,13 +56,21 @@ public class MCBlockMultiSlab extends BlockSlab
 		}
 		
 		if (type == 0 && (side == 1 || side == 0))
+		{
 			return this.topIcons[meta];
+		}
 		else if (type == 4 && (side == 5 || side == 4))
+		{
 			return this.sideIcons[meta];
+		}
 		else if (type == 8 && (side == 2 || side == 3))
+		{
 			return this.sideIcons[meta];
+		}
 		else
+		{
 			return this.topIcons[meta];
+		}
 	}
 	
 	@Override

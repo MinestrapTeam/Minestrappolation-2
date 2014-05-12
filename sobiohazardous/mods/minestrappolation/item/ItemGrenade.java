@@ -1,11 +1,11 @@
 package sobiohazardous.mods.minestrappolation.item;
 
+import sobiohazardous.mods.minestrappolation.entity.EntityGrenade;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import sobiohazardous.mods.minestrappolation.entity.EntityGrenade;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOItems;
 
 public class ItemGrenade extends Item
 {
@@ -13,7 +13,6 @@ public class ItemGrenade extends Item
 	{
 		super();
 		this.setMaxStackSize(16);
-		this.setCreativeTab(EOItems.tabOresItems);
 	}
 	
 	@Override

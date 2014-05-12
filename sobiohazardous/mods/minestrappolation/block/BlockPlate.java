@@ -21,7 +21,7 @@ public class BlockPlate extends BlockContainer
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getEDTexture("plate"));
+		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getTexture("plate"));
 	}
 	
 	@Override

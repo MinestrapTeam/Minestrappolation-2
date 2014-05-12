@@ -11,13 +11,13 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 
 public class GuiBarrel extends GuiContainer
-{	
-	public static ResourceLocation texture = new ResourceLocation(MCAssetManager.getEDTexture("/textures/gui/barrel.png"));
+{
+	public static ResourceLocation	texture	= new ResourceLocation(MCAssetManager.getTexture("/textures/gui/barrel.png"));
 	
-	private TileEntityBarrel barrel;
+	private TileEntityBarrel		barrel;
 	
 	public GuiBarrel(EntityPlayer player, TileEntityBarrel barrel)
-	{	
+	{
 		super(new ContainerBarrel(player, barrel));
 		this.barrel = barrel;
 		this.ySize = 186;

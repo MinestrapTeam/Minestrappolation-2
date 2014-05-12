@@ -26,7 +26,7 @@ public class BlockGodstone extends Block
 	
 	public void registerIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getEOTexture("godstone"));
+		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getTexture("godstone"));
 	}
 	
 	@Override

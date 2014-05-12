@@ -22,16 +22,16 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 
-@Mod(modid = MCReference.MINESTRAPPOLATION_CORE_ID, name = MCReference.MINESTRAPPOLATION_CORE_NAME, version = MCReference.MINESTRAPPOLATION_CORE_VERSION, dependencies = "required-after:" + BrewingAPI.MODID)
+@Mod(modid = MCReference.MINESTRAP_CORE_ID, name = MCReference.MINESTRAP_CORE_NAME, version = MCReference.MINESTRAP_CORE_VERSION, dependencies = "required-after:" + BrewingAPI.MODID)
 public class MinestrappolationCore
 {
-	@Instance(MCReference.MINESTRAPPOLATION_CORE_ID)
+	@Instance(MCReference.MINESTRAP_CORE_ID)
 	public static MinestrappolationCore	instance;
 	
-	@SidedProxy(modId = MCReference.MINESTRAPPOLATION_CORE_ID, clientSide = "sobiohazardous.mods.minestrappolation.core.client.MCClientProxy", serverSide = "sobiohazardous.mods.minestrappolation.core.common.MCCommonProxy")
-	public static MCCommonProxy		proxy;
+	@SidedProxy(modId = MCReference.MINESTRAP_CORE_ID, clientSide = "sobiohazardous.mods.minestrappolation.core.client.MCClientProxy", serverSide = "sobiohazardous.mods.minestrappolation.core.common.MCCommonProxy")
+	public static MCCommonProxy			proxy;
 	
-	public static CreativeTabs		creativeTabStone	= new MCCreativeTabStone(CreativeTabs.getNextID(), "minestrap_stone");
+	public static CreativeTabs			creativeTabStone	= new MCCreativeTabStone(CreativeTabs.getNextID(), "minestrap_stone");
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
@@ -58,6 +58,6 @@ public class MinestrappolationCore
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event)
 	{
-		CSUpdate.updateCheck(new ModUpdater(MCReference.MINESTRAPPOLATION_CORE_NAME, "MAPI", MCReference.MINESTRAPPOLATION_VERSION, MCVersionChecker.versionURL, SimpleUpdateReader.instance));
+		CSUpdate.updateCheck(new ModUpdater(MCReference.MINESTRAP_CORE_NAME, "MAPI", MCReference.MINESTRAP_VERSION, MCVersionChecker.versionURL, SimpleUpdateReader.instance));
 	}
 }

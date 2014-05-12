@@ -1,13 +1,12 @@
 package sobiohazardous.mods.minestrappolation.core.block;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
 import java.util.List;
 
 import sobiohazardous.mods.minestrappolation.core.MinestrappolationCore;
-import sobiohazardous.mods.minestrappolation.core.lib.MCReference;
-import sobiohazardous.mods.minestrappolation.core.util.MCBlockHelper;
+import sobiohazardous.mods.minestrappolation.lib.MBlocks;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -66,7 +65,7 @@ public class MCBlockMulti extends Block
 	@Override
 	public void harvestBlock(World world, EntityPlayer player, int x, int y, int z, int metadata)
 	{
-		if (this == MCBlockHelper.get(MCReference.ED_MODID, "bedrockBlocks"))
+		if (this == MBlocks.bedrockBlocks)
 		{
 			player.getHeldItem().damageItem(2000, player);
 			this.dropBlockAsItem(world, x, y, z, new ItemStack(this));

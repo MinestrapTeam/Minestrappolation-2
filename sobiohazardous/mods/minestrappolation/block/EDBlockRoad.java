@@ -28,45 +28,45 @@ public class EDBlockRoad extends Block
 	{
 		if (this == MBlocks.refinedRoad)
 		{
-			this.blockIcon = iconRegister.registerIcon(MCAssetManager.getEDTextureSC("Stone_Road_Side_0"));
-			this.top = iconRegister.registerIcon(MCAssetManager.getEDTextureSC("Stone_PatternBricks_0_0"));
-			this.bottom = iconRegister.registerIcon(MCAssetManager.getEDTexture("roadStoneBottom"));
+			this.blockIcon = iconRegister.registerIcon(MCAssetManager.getSCTexture("Stone_Road_Side_0"));
+			this.top = iconRegister.registerIcon(MCAssetManager.getSCTexture("Stone_PatternBricks_0_0"));
+			this.bottom = iconRegister.registerIcon(MCAssetManager.getTexture("roadStoneBottom"));
 		}
 		else if (this == MBlocks.refinedNetherroad)
 		{
-			this.blockIcon = iconRegister.registerIcon(MCAssetManager.getEDTextureSC("Netherrack_Road_Side_0"));
-			this.top = iconRegister.registerIcon(MCAssetManager.getEDTextureSC("Netherrack_PatternBricks_0_0"));
-			this.bottom = iconRegister.registerIcon(MCAssetManager.getEDTexture("roadNetherrackBottom"));
+			this.blockIcon = iconRegister.registerIcon(MCAssetManager.getSCTexture("Netherrack_Road_Side_0"));
+			this.top = iconRegister.registerIcon(MCAssetManager.getSCTexture("Netherrack_PatternBricks_0_0"));
+			this.bottom = iconRegister.registerIcon(MCAssetManager.getTexture("roadNetherrackBottom"));
 		}
 		else if (this == MBlocks.cobbledRoad)
 		{
-			this.blockIcon = iconRegister.registerIcon(MCAssetManager.getEDTexture("roadCobbledSide"));
-			this.top = iconRegister.registerIcon(MCAssetManager.getEDTexture("roadCobbledTop"));
-			this.bottom = iconRegister.registerIcon(MCAssetManager.getEDTexture("roadCobbledBottom"));
+			this.blockIcon = iconRegister.registerIcon(MCAssetManager.getTexture("roadCobbledSide"));
+			this.top = iconRegister.registerIcon(MCAssetManager.getTexture("roadCobbledTop"));
+			this.bottom = iconRegister.registerIcon(MCAssetManager.getTexture("roadCobbledBottom"));
 		}
 		else if (this == MBlocks.sandyRoad)
 		{
-			this.blockIcon = iconRegister.registerIcon(MCAssetManager.getEDTexture("roadSandSide"));
-			this.top = iconRegister.registerIcon(MCAssetManager.getEDTexture("roadSandTop"));
-			this.bottom = iconRegister.registerIcon(MCAssetManager.getEDTexture("roadSandBottom"));
+			this.blockIcon = iconRegister.registerIcon(MCAssetManager.getTexture("roadSandSide"));
+			this.top = iconRegister.registerIcon(MCAssetManager.getTexture("roadSandTop"));
+			this.bottom = iconRegister.registerIcon(MCAssetManager.getTexture("roadSandBottom"));
 		}
 		else if (this == MBlocks.sandstoneRoad)
 		{
-			this.blockIcon = iconRegister.registerIcon(MCAssetManager.getEDTextureSC("Sandstone_Road_Side_0"));
-			this.top = iconRegister.registerIcon(MCAssetManager.getEDTextureSC("Sandstone_PatternBricks_0_0"));
-			this.bottom = iconRegister.registerIcon(MCAssetManager.getEDTexture("roadSandBottom"));
+			this.blockIcon = iconRegister.registerIcon(MCAssetManager.getSCTexture("Sandstone_Road_Side_0"));
+			this.top = iconRegister.registerIcon(MCAssetManager.getSCTexture("Sandstone_PatternBricks_0_0"));
+			this.bottom = iconRegister.registerIcon(MCAssetManager.getTexture("roadSandBottom"));
 		}
 		else if (this == MBlocks.gravelRoad)
 		{
-			this.blockIcon = iconRegister.registerIcon(MCAssetManager.getEDTexture("roadGravelSide"));
-			this.top = iconRegister.registerIcon(MCAssetManager.getEDTexture("roadGravelTop"));
-			this.bottom = iconRegister.registerIcon(MCAssetManager.getEDTexture("roadGravelBottom"));
+			this.blockIcon = iconRegister.registerIcon(MCAssetManager.getTexture("roadGravelSide"));
+			this.top = iconRegister.registerIcon(MCAssetManager.getTexture("roadGravelTop"));
+			this.bottom = iconRegister.registerIcon(MCAssetManager.getTexture("roadGravelBottom"));
 		}
 		else
 		{
-			this.blockIcon = iconRegister.registerIcon(MCAssetManager.getEDTexture("roadNetherrackSide"));
-			this.top = iconRegister.registerIcon(MCAssetManager.getEDTexture("roadNetherrackTop"));
-			this.bottom = iconRegister.registerIcon(MCAssetManager.getEDTexture("roadNetherrackBottom"));
+			this.blockIcon = iconRegister.registerIcon(MCAssetManager.getTexture("roadNetherrackSide"));
+			this.top = iconRegister.registerIcon(MCAssetManager.getTexture("roadNetherrackTop"));
+			this.bottom = iconRegister.registerIcon(MCAssetManager.getTexture("roadNetherrackBottom"));
 		}
 	}
 	

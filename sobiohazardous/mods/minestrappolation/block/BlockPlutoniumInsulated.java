@@ -23,7 +23,7 @@ public class BlockPlutoniumInsulated extends BlockInsulatedRadiation
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getEOTexture("plutoniumInsulatedSide"));
+		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getTexture("plutoniumInsulatedSide"));
 		this.topIcon = iconRegister.registerIcon("iron_block");
 	}
 	

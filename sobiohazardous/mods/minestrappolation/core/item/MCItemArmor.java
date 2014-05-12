@@ -1,6 +1,5 @@
 package sobiohazardous.mods.minestrappolation.core.item;
 
-import sobiohazardous.mods.minestrappolation.core.lib.MCReference;
 import sobiohazardous.mods.minestrappolation.core.util.MCAssetManager;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -76,19 +75,19 @@ public class MCItemArmor extends ItemArmor
 		
 		if (this.renderIndex == 0)
 		{
-			this.overlayIcon = iconRegister.registerIcon(MCAssetManager.getEOTexture("overlayArmorHelmBronze"));
+			this.overlayIcon = iconRegister.registerIcon(MCAssetManager.getTexture("overlayArmorHelmBronze"));
 		}
 		else if (this.renderIndex == 1)
 		{
-			this.overlayIcon = iconRegister.registerIcon(MCAssetManager.getEOTexture("overlayArmorChestBronze"));
+			this.overlayIcon = iconRegister.registerIcon(MCAssetManager.getTexture("overlayArmorChestBronze"));
 		}
 		else if (this.renderIndex == 2)
 		{
-			this.overlayIcon = iconRegister.registerIcon(MCAssetManager.getEOTexture("overlayArmorLegsBronze"));
+			this.overlayIcon = iconRegister.registerIcon(MCAssetManager.getTexture("overlayArmorLegsBronze"));
 		}
 		else
 		{
-			this.overlayIcon = iconRegister.registerIcon(MCAssetManager.getEOTexture("overlayArmorBootsBronze"));
+			this.overlayIcon = iconRegister.registerIcon(MCAssetManager.getTexture("overlayArmorBootsBronze"));
 		}
 	}
 	
@@ -123,6 +122,6 @@ public class MCItemArmor extends ItemArmor
 		{
 			layer = "2";
 		}
-		return MCReference.EO_MODID + ":textures/armor/" + material + layer + ".png";
+		return MCAssetManager.getArmorTexture(material + layer);
 	}
 }

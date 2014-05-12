@@ -16,7 +16,7 @@ public class BlockSunstoneOre extends Block
 	{
 		super(Material.rock);
 		this.setCreativeTab(Minestrappolation.tabMaterials);
-		this.setBlockTextureName(MCAssetManager.getEOTexture("oreSunstone"));
+		this.setBlockTextureName(MCAssetManager.getTexture("oreSunstone"));
 	}
 	
 	@Override

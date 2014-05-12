@@ -24,7 +24,7 @@ import net.minecraft.block.material.Material;
  */
 public class MCBlockStone extends Block
 {
-	public String name;
+	public String	name;
 	
 	public MCBlockStone(String name)
 	{

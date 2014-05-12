@@ -2,7 +2,6 @@ package sobiohazardous.mods.minestrappolation.block;
 
 import sobiohazardous.mods.minestrappolation.Minestrappolation;
 import sobiohazardous.mods.minestrappolation.core.block.MCBlock;
-import sobiohazardous.mods.minestrappolation.lib.MBlocks;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.world.World;

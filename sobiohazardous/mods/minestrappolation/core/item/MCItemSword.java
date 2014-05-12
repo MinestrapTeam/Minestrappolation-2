@@ -13,7 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class MCItemSword extends MCItemTool
-{	
+{
 	public MCItemSword(ToolMaterial material, ToolMaterial plateMaterial, boolean ignites)
 	{
 		super(ItemDataSword.baseDamage, material, plateMaterial, Collections.EMPTY_SET, "overlayWeaponSwordBronze", ignites);
@@ -38,6 +38,7 @@ public class MCItemSword extends MCItemTool
 		}
 		return true;
 	}
+	
 	@Override
 	public float getDigSpeed(ItemStack stack, Block block, int metadata)
 	{

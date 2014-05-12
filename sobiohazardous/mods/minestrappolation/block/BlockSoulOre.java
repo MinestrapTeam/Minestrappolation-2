@@ -58,6 +58,6 @@ public class BlockSoulOre extends MCBlock
 	@Override
 	public void onBlockDestroyedByPlayer(World par1World, int par2, int par3, int par4, int par5)
 	{
-		this.dropXpOnBlockBreak(par1World, par2, par3, par4, this.rand.nextInt(6) + 4); 
+		this.dropXpOnBlockBreak(par1World, par2, par3, par4, this.rand.nextInt(6) + 4);
 	}
 }

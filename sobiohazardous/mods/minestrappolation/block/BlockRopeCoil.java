@@ -18,8 +18,8 @@ public class BlockRopeCoil extends Block
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getEDTexture("ropeSide"));
-		this.top = iconRegister.registerIcon(MCAssetManager.getEDTexture("ropeTop"));
+		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getTexture("ropeSide"));
+		this.top = iconRegister.registerIcon(MCAssetManager.getTexture("ropeTop"));
 	}
 	
 	@Override

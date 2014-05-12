@@ -1,6 +1,6 @@
 package sobiohazardous.mods.minestrappolation.item;
 
-import sobiohazardous.mods.minestrappolation.core.lib.MCReference;
+import sobiohazardous.mods.minestrappolation.core.util.MCAssetManager;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -24,12 +24,13 @@ public class ItemHorseHairBow extends ItemBow
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister iconRegister)
 	{
-		this.itemIcon = iconRegister.registerIcon(MCReference.EMD_MODID + ":horseHairBow");
+		String texture = MCAssetManager.getTexture("horseHairBow");
+		this.itemIcon = iconRegister.registerIcon(texture);
 		this.iconArray = new IIcon[3];
 		
 		for (int i = 0; i < this.iconArray.length; ++i)
 		{
-			this.iconArray[i] = iconRegister.registerIcon(MCReference.EMD_MODID + "horseHairBow" + i);
+			this.iconArray[i] = iconRegister.registerIcon(texture + i);
 		}
 	}
 	

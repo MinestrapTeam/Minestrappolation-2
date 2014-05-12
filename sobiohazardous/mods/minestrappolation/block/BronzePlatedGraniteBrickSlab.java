@@ -26,7 +26,7 @@ public class BronzePlatedGraniteBrickSlab extends BlockSlab
 	@Override
 	public void registerBlockIcons(IIconRegister par1IconRegister)
 	{
-		this.blockIcon = par1IconRegister.registerIcon(MCAssetManager.getEOTextureSC("Granite_Bricks_0_Bronze"));
+		this.blockIcon = par1IconRegister.registerIcon(MCAssetManager.getSCTexture("Granite_Bricks_0_Bronze"));
 	}
 	
 	@Override

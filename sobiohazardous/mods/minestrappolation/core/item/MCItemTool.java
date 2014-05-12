@@ -117,14 +117,14 @@ public class MCItemTool extends ItemTool
 	{
 		this.itemIcon = iconRegister.registerIcon(this.getIconString());
 		String s = "overlayTool" + this.toolType;
-		this.overlayIcon = iconRegister.registerIcon(MCAssetManager.getEOTexture(s + "Bronze"));
-		this.overlayIcon2 = iconRegister.registerIcon(MCAssetManager.getEOTexture(s + "Bronze2"));
+		this.overlayIcon = iconRegister.registerIcon(MCAssetManager.getTexture(s + "Bronze"));
+		this.overlayIcon2 = iconRegister.registerIcon(MCAssetManager.getTexture(s + "Bronze2"));
 	}
 	
 	@Override
 	public IIcon getIcon(ItemStack stack, int renderPass)
 	{
-		if (renderPass == 1 && this.isPlated(stack))
+		if (renderPass == 1 && MCItemTool.isPlated(stack))
 		{
 			if (this.toolMaterial.getHarvestLevel() < 5)
 			{

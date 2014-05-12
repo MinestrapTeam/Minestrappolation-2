@@ -13,7 +13,7 @@ public class MBucketHandler
 	@SubscribeEvent
 	public void onBucketFill(FillBucketEvent event)
 	{
-		ItemStack result = fillCustomBucket(event.world, event.target);
+		ItemStack result = this.fillCustomBucket(event.world, event.target);
 		if (result != null)
 		{
 			event.result = result;

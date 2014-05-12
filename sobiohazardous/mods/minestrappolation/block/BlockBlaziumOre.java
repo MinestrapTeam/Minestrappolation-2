@@ -4,7 +4,7 @@ import java.util.Random;
 
 import sobiohazardous.mods.minestrappolation.Minestrappolation;
 import sobiohazardous.mods.minestrappolation.core.util.MCAssetManager;
-import sobiohazardous.mods.minestrappolation.lib.MBlocks;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -24,7 +24,7 @@ public class BlockBlaziumOre extends Block
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getEOTexture("oreBlazium"));
+		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getTexture("oreBlazium"));
 	}
 	
 	@Override

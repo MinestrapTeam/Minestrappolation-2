@@ -2,8 +2,7 @@ package sobiohazardous.mods.minestrappolation.item;
 
 import java.util.List;
 
-import sobiohazardous.mods.minestrappolation.core.lib.MCReference;
-import sobiohazardous.mods.minestrappolation.extramobdrops.lib.EMDItems;
+import sobiohazardous.mods.minestrappolation.core.util.MCAssetManager;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -24,7 +23,6 @@ public class ItemGene extends Item
 	{
 		super();
 		this.setHasSubtypes(true);
-		this.setCreativeTab(EMDItems.tabItems);
 	}
 	
 	@Override
@@ -55,7 +53,7 @@ public class ItemGene extends Item
 		
 		for (int i = 0; i < geneNames.length; ++i)
 		{
-			this.geneIcons[i] = iconRegister.registerIcon(MCReference.EMD_MODID + ":gene" + geneNames[i]);
+			this.geneIcons[i] = iconRegister.registerIcon(MCAssetManager.getTexture("gene" + geneNames[i]));
 		}
 	}
 }

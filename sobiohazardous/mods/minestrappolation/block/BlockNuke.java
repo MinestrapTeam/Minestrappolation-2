@@ -31,9 +31,9 @@ public class BlockNuke extends Block
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getEOTexture("nukeSide"));
-		this.top = iconRegister.registerIcon(MCAssetManager.getEOTexture("nukeTop"));
-		this.bottom = iconRegister.registerIcon(MCAssetManager.getEOTexture("nukeBottom"));
+		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getTexture("nukeSide"));
+		this.top = iconRegister.registerIcon(MCAssetManager.getTexture("nukeTop"));
+		this.bottom = iconRegister.registerIcon(MCAssetManager.getTexture("nukeBottom"));
 	}
 	
 	@Override

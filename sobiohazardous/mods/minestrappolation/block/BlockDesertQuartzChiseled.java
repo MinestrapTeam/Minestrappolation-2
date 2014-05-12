@@ -21,8 +21,8 @@ public class BlockDesertQuartzChiseled extends Block
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getEOTextureSC("DesertQuartz_Chiseled_Side_0"));
-		this.top = iconRegister.registerIcon(MCAssetManager.getEOTextureSC("DesertQuartz_Chiseled_Top_0"));
+		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getSCTexture("DesertQuartz_Chiseled_Side_0"));
+		this.top = iconRegister.registerIcon(MCAssetManager.getSCTexture("DesertQuartz_Chiseled_Top_0"));
 	}
 	
 	@Override

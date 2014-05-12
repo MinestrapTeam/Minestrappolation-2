@@ -29,7 +29,7 @@ public class EntityGrenadeImpact extends EntityThrowableExplosive
 			this.worldObj.createExplosion(null, this.posX, this.posY, this.posZ, 2F, true);
 		}
 	}
-
+	
 	@Override
 	public void affectEntity(EntityLivingBase living)
 	{

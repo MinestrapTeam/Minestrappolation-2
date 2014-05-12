@@ -1,4 +1,4 @@
-package sobiohazardous.mods.minestrappolation.core.client.render;
+package sobiohazardous.mods.minestrappolation.client.renderer;
 
 import org.lwjgl.opengl.GL11;
 

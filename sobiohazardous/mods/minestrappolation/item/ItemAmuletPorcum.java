@@ -20,7 +20,9 @@ public class ItemAmuletPorcum extends ItemAmulet
 	public void onUpdate(ItemStack stack, World world, Entity entity, int i, boolean flag)
 	{
 		if (world.isRemote)
+		{
 			return;
+		}
 		
 		EntityPlayer player = (EntityPlayer) entity;
 		Random rand = new Random();

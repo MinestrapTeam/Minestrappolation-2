@@ -2,7 +2,8 @@ package sobiohazardous.mods.minestrappolation.gen;
 
 import java.util.Random;
 
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlocks;
+import sobiohazardous.mods.minestrappolation.lib.MBlocks;
+
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -28,24 +29,24 @@ public class WorldGenDesertQuartzSpire extends WorldGenerator
 		for (int i = 0; i < depth; z++)
 		{
 			int y1 = y - depth;
-			world.setBlock(x, y1, z, EOBlocks.Quartzite);
-			world.setBlock(x + 1, y1, z, EOBlocks.Quartzite);
-			world.setBlock(x - 1, y1, z, EOBlocks.Quartzite);
-			world.setBlock(x, y1, z + 1, EOBlocks.Quartzite);
-			world.setBlock(x, y1, z - 1, EOBlocks.Quartzite);
+			world.setBlock(x, y1, z, MBlocks.Quartzite);
+			world.setBlock(x + 1, y1, z, MBlocks.Quartzite);
+			world.setBlock(x - 1, y1, z, MBlocks.Quartzite);
+			world.setBlock(x, y1, z + 1, MBlocks.Quartzite);
+			world.setBlock(x, y1, z - 1, MBlocks.Quartzite);
 		}
 		
 		int height = random.nextInt(this.maxTopHeight);
 		for (int i = 0; i < height; i++)
 		{
-			world.setBlock(x, y + height, z, EOBlocks.Quartzite);
+			world.setBlock(x, y + height, z, MBlocks.Quartzite);
 		}
 		
-		world.setBlock(x, y, z, EOBlocks.Quartzite);
-		world.setBlock(x + 1, y, z, EOBlocks.Quartzite);
-		world.setBlock(x - 1, y, z, EOBlocks.Quartzite);
-		world.setBlock(x, y, z + 1, EOBlocks.Quartzite);
-		world.setBlock(x, y, z - 1, EOBlocks.Quartzite);
+		world.setBlock(x, y, z, MBlocks.Quartzite);
+		world.setBlock(x + 1, y, z, MBlocks.Quartzite);
+		world.setBlock(x - 1, y, z, MBlocks.Quartzite);
+		world.setBlock(x, y, z + 1, MBlocks.Quartzite);
+		world.setBlock(x, y, z - 1, MBlocks.Quartzite);
 		
 		System.out.println("Spire at: x-" + x + ",y-" + y + ",z-" + z);
 		return true;

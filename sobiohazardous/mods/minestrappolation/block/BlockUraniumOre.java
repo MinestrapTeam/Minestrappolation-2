@@ -24,7 +24,7 @@ public class BlockUraniumOre extends BlockRadiation
 	
 	public void registerIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getEOTexture("oreUranium"));
+		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getTexture("oreUranium"));
 	}
 	
 	@Override

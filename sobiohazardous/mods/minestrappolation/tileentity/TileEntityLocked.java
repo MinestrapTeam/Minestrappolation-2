@@ -5,10 +5,10 @@ import net.minecraft.tileentity.TileEntity;
 
 public class TileEntityLocked extends TileEntity
 {
-	protected boolean	locked;
-	protected String	player;
+	protected boolean		locked;
+	protected String		player;
 	
-	protected TileEntity parent;
+	protected TileEntity	parent;
 	
 	@Override
 	public void readFromNBT(NBTTagCompound nbt)
@@ -27,8 +27,8 @@ public class TileEntityLocked extends TileEntity
 	public void writeToNBT(NBTTagCompound nbt)
 	{
 		super.writeToNBT(nbt);
-		nbt.setString("player", player);
-		nbt.setBoolean("locked", locked);
+		nbt.setString("player", this.player);
+		nbt.setBoolean("locked", this.locked);
 		if (this.parent != null)
 		{
 			NBTTagCompound nbt1 = new NBTTagCompound();

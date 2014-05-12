@@ -9,5 +9,5 @@ public class ItemBlockClaySlab extends MCItemBlockSlab
 	public ItemBlockClaySlab(Block block, BlockClaySlab singleSlab, BlockClaySlab doubleSlab)
 	{
 		super(block, singleSlab, doubleSlab);
-	}	
+	}
 }

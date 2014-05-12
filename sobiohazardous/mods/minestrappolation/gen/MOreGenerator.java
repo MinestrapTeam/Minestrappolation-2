@@ -2,9 +2,9 @@ package sobiohazardous.mods.minestrappolation.gen;
 
 import java.util.Random;
 
-import sobiohazardous.mods.minestrappolation.extradecor.lib.EDBlocks;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOBlocks;
+import sobiohazardous.mods.minestrappolation.lib.MBlocks;
 import cpw.mods.fml.common.IWorldGenerator;
+
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenJungle;
@@ -15,7 +15,8 @@ import net.minecraft.world.gen.ChunkProviderHell;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
 /**
- * @author Crzyguitardude
+ * @author SoBiohazardous
+ * @author Clashsoft
  */
 public class MOreGenerator implements IWorldGenerator
 {
@@ -53,7 +54,7 @@ public class MOreGenerator implements IWorldGenerator
 			y1 = rand.nextInt(80);
 			z1 = chunkZ + rand.nextInt(16);
 			
-			new WorldGenMinable(EDBlocks.sandstoneBricks, 3, Blocks.sandstone).generate(world, rand, x1, y1, z1);
+			new WorldGenMinable(MBlocks.sandstoneBricks, 3, Blocks.sandstone).generate(world, rand, x1, y1, z1);
 		}
 		
 		for (int i = 0; i < 20; i++)
@@ -62,7 +63,7 @@ public class MOreGenerator implements IWorldGenerator
 			y1 = rand.nextInt(256);
 			z1 = chunkZ + rand.nextInt(16);
 			
-			new WorldGenMinable(EDBlocks.sandstoneBricks, 4, Blocks.sandstone).generate(world, rand, x1, y1, z1);
+			new WorldGenMinable(MBlocks.sandstoneBricks, 4, Blocks.sandstone).generate(world, rand, x1, y1, z1);
 		}
 		
 		for (int i = 0; i < 20; i++)
@@ -71,7 +72,7 @@ public class MOreGenerator implements IWorldGenerator
 			y1 = rand.nextInt(60);
 			z1 = chunkZ + rand.nextInt(16);
 			
-			new WorldGenMinable(EDBlocks.woodPlanksMossy, 3, Blocks.planks).generate(world, rand, x1, y1, z1);
+			new WorldGenMinable(MBlocks.woodPlanksMossy, 3, Blocks.planks).generate(world, rand, x1, y1, z1);
 		}
 		
 		// Zirconium Ore
@@ -81,7 +82,7 @@ public class MOreGenerator implements IWorldGenerator
 			y1 = rand.nextInt(28); // layer it spawns in
 			z1 = chunkZ + rand.nextInt(16);
 			
-			new WorldGenMinable(EOBlocks.meuroditeOre, 5).generate(world, rand, x1, y1, z1);
+			new WorldGenMinable(MBlocks.meuroditeOre, 5).generate(world, rand, x1, y1, z1);
 		}
 		// Uranium Ore
 		for (int i = 0; i < 8; i++)
@@ -90,7 +91,7 @@ public class MOreGenerator implements IWorldGenerator
 			y1 = rand.nextInt(32);
 			z1 = chunkZ + rand.nextInt(16);
 			
-			new WorldGenMinable(EOBlocks.UraniumOre, 3).generate(world, rand, x1, y1, z1);
+			new WorldGenMinable(MBlocks.UraniumOre, 3).generate(world, rand, x1, y1, z1);
 		}
 		// Plutonium Ore
 		for (int i = 0; i < 8; i++)
@@ -99,7 +100,7 @@ public class MOreGenerator implements IWorldGenerator
 			y1 = rand.nextInt(32);
 			z1 = chunkZ + rand.nextInt(16);
 			
-			new WorldGenMinable(EOBlocks.PlutoniumOre, 3).generate(world, rand, x1, y1, z1);
+			new WorldGenMinable(MBlocks.PlutoniumOre, 3).generate(world, rand, x1, y1, z1);
 		}
 		// Titanium Ore
 		for (int i = 0; i < 8; i++)
@@ -108,7 +109,7 @@ public class MOreGenerator implements IWorldGenerator
 			y1 = rand.nextInt(16);
 			z1 = chunkZ + rand.nextInt(16);
 			
-			new WorldGenMinable(EOBlocks.TitaniumOre, 3).generate(world, rand, x1, y1, z1);
+			new WorldGenMinable(MBlocks.TitaniumOre, 3).generate(world, rand, x1, y1, z1);
 		}
 		// torite ore
 		for (int h = 0; h < 12; h++)
@@ -119,7 +120,7 @@ public class MOreGenerator implements IWorldGenerator
 			
 			if (world.getBiomeGenForCoords(x1, z1) instanceof BiomeGenJungle)
 			{
-				new WorldGenMinable(EOBlocks.ToriteOre, 4).generate(world, rand, x1, y1, z1);
+				new WorldGenMinable(MBlocks.ToriteOre, 4).generate(world, rand, x1, y1, z1);
 			}
 		}
 		// sunstone ore
@@ -129,7 +130,7 @@ public class MOreGenerator implements IWorldGenerator
 			y1 = rand.nextInt(42);
 			z1 = chunkZ + rand.nextInt(16);
 			
-			new WorldGenMinable(EOBlocks.SunstoneOre, 3).generate(world, rand, x1, y1, z1);
+			new WorldGenMinable(MBlocks.SunstoneOre, 3).generate(world, rand, x1, y1, z1);
 		}
 		// granite
 		for (int i = 0; i < 12; i++)
@@ -138,7 +139,7 @@ public class MOreGenerator implements IWorldGenerator
 			y1 = rand.nextInt(256);
 			z1 = chunkZ + rand.nextInt(16);
 			
-			new WorldGenMinable(EOBlocks.Granite, 50).generate(world, rand, x1, y1, z1);
+			new WorldGenMinable(MBlocks.Granite, 50).generate(world, rand, x1, y1, z1);
 		}
 		// Desert Quartz
 		for (int i = 0; i < 12; i++)
@@ -156,7 +157,7 @@ public class MOreGenerator implements IWorldGenerator
 			y1 = rand.nextInt(1 + 64);
 			z1 = chunkZ + rand.nextInt(16);
 			
-			new WorldGenMinable(EOBlocks.CopperOre, 10).generate(world, rand, x1, y1, z1);
+			new WorldGenMinable(MBlocks.CopperOre, 10).generate(world, rand, x1, y1, z1);
 		}
 		// tin ore
 		for (int i = 0; i < 14; i++)
@@ -165,7 +166,7 @@ public class MOreGenerator implements IWorldGenerator
 			y1 = rand.nextInt(1 + 64);
 			z1 = chunkZ + rand.nextInt(16);
 			
-			new WorldGenMinable(EOBlocks.TinOre, 11).generate(world, rand, x1, y1, z1);
+			new WorldGenMinable(MBlocks.TinOre, 11).generate(world, rand, x1, y1, z1);
 		}
 		// Radiant Quartz
 		for (int i = 0; i < 9; i++)
@@ -174,14 +175,14 @@ public class MOreGenerator implements IWorldGenerator
 			y1 = rand.nextInt(256);
 			z1 = chunkZ + rand.nextInt(16);
 			
-			new WorldGenMinable(EOBlocks.RadiantQuartzOre, 3).generate(world, rand, x1, y1, z1);
+			new WorldGenMinable(MBlocks.RadiantQuartzOre, 3).generate(world, rand, x1, y1, z1);
 		}
 		
 		for (int i = 0; i < 16; i++)
 		{
 			for (int j = 0; j < 16; j++)
 			{
-				world.setBlock(chunkX + i, 0, chunkZ + j, EOBlocks.Invincium);
+				world.setBlock(chunkX + i, 0, chunkZ + j, MBlocks.Invincium);
 			}
 		}
 	}
@@ -195,7 +196,7 @@ public class MOreGenerator implements IWorldGenerator
 			int j5 = rand.nextInt(128);
 			int k5 = chunkZ + rand.nextInt(16);
 			
-			new WorldGenMinable(EOBlocks.BlaziumOre, 13, Blocks.netherrack).generate(world, rand, i5, j5, k5);
+			new WorldGenMinable(MBlocks.BlaziumOre, 13, Blocks.netherrack).generate(world, rand, i5, j5, k5);
 		}
 		// soul ore
 		for (int h = 0; h < 28; h++)
@@ -204,14 +205,14 @@ public class MOreGenerator implements IWorldGenerator
 			int j5 = rand.nextInt(128);
 			int k5 = chunkZ + rand.nextInt(16);
 			
-			new WorldGenMinable(EOBlocks.SoulOre, 15, Blocks.soul_sand).generate(world, rand, i5, j5, k5);
+			new WorldGenMinable(MBlocks.SoulOre, 15, Blocks.soul_sand).generate(world, rand, i5, j5, k5);
 		}
 		// invincium
 		for (int i = 0; i < 16; i++)
 		{
 			for (int j = 0; j < 16; j++)
 			{
-				world.setBlock(chunkX + i, 0, chunkZ + j, EOBlocks.Invincium);
+				world.setBlock(chunkX + i, 0, chunkZ + j, MBlocks.Invincium);
 			}
 		}
 	}

@@ -93,9 +93,13 @@ public class MCVersionChecker
 		EnumChatFormatting color1 = EnumChatFormatting.getValueByName(color);
 		
 		if (color1 != null)
+		{
 			return color1 + motd;
+		}
 		else if (color != null)
+		{
 			return "\u00a7" + color + motd;
+		}
 		return motd;
 	}
 	

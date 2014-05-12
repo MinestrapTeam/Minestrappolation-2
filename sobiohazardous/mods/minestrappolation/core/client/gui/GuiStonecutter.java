@@ -1,5 +1,10 @@
 package sobiohazardous.mods.minestrappolation.core.client.gui;
 
+import org.lwjgl.opengl.GL11;
+
+import sobiohazardous.mods.minestrappolation.core.inventory.ContainerStonecutter;
+import sobiohazardous.mods.minestrappolation.core.tileentity.TileEntityStonecutter;
+import sobiohazardous.mods.minestrappolation.core.util.MCAssetManager;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -8,12 +13,6 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
-
-import org.lwjgl.opengl.GL11;
-
-import sobiohazardous.mods.minestrappolation.core.inventory.ContainerStonecutter;
-import sobiohazardous.mods.minestrappolation.core.tileentity.TileEntityStonecutter;
-import sobiohazardous.mods.minestrappolation.core.util.MCAssetManager;
 
 @SideOnly(Side.CLIENT)
 public class GuiStonecutter extends GuiContainer

@@ -10,7 +10,7 @@ public class MelterRecipeLoader extends CustomRecipeLoader
 	public MelterRecipeLoader()
 	{
 		super("melter");
-	}	
+	}
 	
 	@Override
 	public void addRecipe(Item input, int inputMeta, Item output, int outputMeta, int amount, float exp)

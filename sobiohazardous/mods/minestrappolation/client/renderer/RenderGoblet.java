@@ -3,7 +3,8 @@ package sobiohazardous.mods.minestrappolation.client.renderer;
 import org.lwjgl.opengl.GL11;
 
 import sobiohazardous.mods.minestrappolation.client.model.ModelGoblet;
-import sobiohazardous.mods.minestrappolation.core.lib.MCReference;
+import sobiohazardous.mods.minestrappolation.core.util.MCAssetManager;
+
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
@@ -28,19 +29,19 @@ public class RenderGoblet extends TileEntitySpecialRenderer
 		switch (meta)
 		{
 		case 0:
-			texture = new ResourceLocation(MCReference.ED_MODID + ":textures/blocks/model/gobletEmpty.png");
+			texture = MCAssetManager.getModelResource("gobletEmpty");
 			break;
 		case 1:
-			texture = new ResourceLocation(MCReference.ED_MODID + ":textures/blocks/model/gobletWater.png");
+			texture = MCAssetManager.getModelResource("gobletWater");
 			break;
 		case 2:
-			texture = new ResourceLocation(MCReference.ED_MODID + ":textures/blocks/model/gobletMilk.png");
+			texture = MCAssetManager.getModelResource("gobletMilk");
 			break;
 		case 3:
-			texture = new ResourceLocation(MCReference.ED_MODID + ":textures/blocks/model/gobletInvisibility.png");
+			texture = MCAssetManager.getModelResource("gobletInvisibility");
 			break;
 		case 4:
-			texture = new ResourceLocation(MCReference.ED_MODID + ":textures/blocks/model/gobletRegeneration.png");
+			texture = MCAssetManager.getModelResource("gobletRegeneration");
 			break;
 		
 		}

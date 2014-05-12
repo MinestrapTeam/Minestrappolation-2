@@ -6,7 +6,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 import java.util.List;
 
 import sobiohazardous.mods.minestrappolation.Minestrappolation;
-import sobiohazardous.mods.minestrappolation.core.lib.MCReference;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -22,7 +21,7 @@ public class BlockWoodPanel extends Block
 	public static final String[]	panelTextures	= new String[] { "extradecor" + ":panelOak", "extradecor" + ":panelBirch", "extradecor" + ":panelSpruce", "extradecor" + ":panelJungle" };
 	
 	@SideOnly(Side.CLIENT)
-	protected IIcon[]					iconArray;
+	protected IIcon[]				iconArray;
 	
 	public BlockWoodPanel()
 	{

@@ -5,7 +5,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 public class MCBlockMultiPillarStationary extends MCBlockMultiPillar
-{	
+{
 	public MCBlockMultiPillarStationary(Material mat, String[] tops, String[] bottoms)
 	{
 		super(mat, tops, bottoms);

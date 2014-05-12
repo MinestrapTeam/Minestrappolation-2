@@ -22,7 +22,7 @@ public class BlockUraniumInsulated extends BlockInsulatedRadiation
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getEOTexture("uraniumInsulatedSide"));
+		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getTexture("uraniumInsulatedSide"));
 		this.topIcon = iconRegister.registerIcon("iron_block");
 	}
 	

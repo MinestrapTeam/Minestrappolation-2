@@ -11,7 +11,7 @@ import net.minecraft.world.World;
 
 public abstract class BlockRadiation extends Block
 {
-	protected float range;
+	protected float	range;
 	
 	protected BlockRadiation(Material material)
 	{

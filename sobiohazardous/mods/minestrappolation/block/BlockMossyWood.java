@@ -56,7 +56,7 @@ public class BlockMossyWood extends Block
 		
 		for (int i = 0; i < this.iconArray.length; ++i)
 		{
-			this.iconArray[i] = iconRegister.registerIcon(MCAssetManager.getEDTexture("mossyPlanks") + types[i]);
+			this.iconArray[i] = iconRegister.registerIcon(MCAssetManager.getTexture("mossyPlanks") + types[i]);
 		}
 	}
 }

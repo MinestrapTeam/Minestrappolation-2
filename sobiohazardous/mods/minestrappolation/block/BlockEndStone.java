@@ -4,7 +4,6 @@ import java.util.List;
 
 import sobiohazardous.mods.minestrappolation.Minestrappolation;
 import sobiohazardous.mods.minestrappolation.core.util.MCAssetManager;
-import sobiohazardous.mods.minestrappolation.lib.MBlocks;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -30,9 +29,9 @@ public class BlockEndStone extends Block
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.brick = iconRegister.registerIcon(MCAssetManager.getEDTextureSC("Endstone_Bricks_0_0"));
-		this.refined = iconRegister.registerIcon(MCAssetManager.getEDTextureSC("Endstone_Refined_0_0"));
-		this.smooth = iconRegister.registerIcon(MCAssetManager.getEDTextureSC("Endstone_Raw_0_0"));
+		this.brick = iconRegister.registerIcon(MCAssetManager.getSCTexture("Endstone_Bricks_0_0"));
+		this.refined = iconRegister.registerIcon(MCAssetManager.getSCTexture("Endstone_Refined_0_0"));
+		this.smooth = iconRegister.registerIcon(MCAssetManager.getSCTexture("Endstone_Raw_0_0"));
 	}
 	
 	@Override
@@ -40,11 +39,17 @@ public class BlockEndStone extends Block
 	public IIcon getIcon(int side, int metadata)
 	{
 		if (metadata == 0)
+		{
 			return this.brick;
+		}
 		else if (metadata == 1)
+		{
 			return this.smooth;
+		}
 		else
+		{
 			return this.refined;
+		}
 	}
 	
 	@Override

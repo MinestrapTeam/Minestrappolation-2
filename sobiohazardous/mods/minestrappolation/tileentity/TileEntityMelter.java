@@ -2,8 +2,9 @@ package sobiohazardous.mods.minestrappolation.tileentity;
 
 import sobiohazardous.mods.minestrappolation.block.BlockMelter;
 import sobiohazardous.mods.minestrappolation.crafting.MelterRecipes;
-import sobiohazardous.mods.minestrappolation.extraores.lib.EOItems;
+import sobiohazardous.mods.minestrappolation.lib.MItems;
 import clashsoft.cslib.minecraft.tileentity.TileEntityInventory;
+
 import net.minecraft.init.Items;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.Item;
@@ -31,7 +32,7 @@ public class TileEntityMelter extends TileEntityInventory implements ISidedInven
 		this.burnTime = 0;
 		this.maxBurnTime = 0;
 		this.meltTime = 0;
-		hasPower = false;
+		this.hasPower = false;
 	}
 	
 	public void setFrontDirection(int f)
@@ -58,7 +59,7 @@ public class TileEntityMelter extends TileEntityInventory implements ISidedInven
 		this.front = nbt.getInteger("FrontDirection");
 		this.burnTime = nbt.getShort("BurnTime");
 		this.meltTime = nbt.getShort("CookTime");
-		this.maxBurnTime = getItemBurnTime(this.itemStacks[1]);
+		this.maxBurnTime = this.getItemBurnTime(this.itemStacks[1]);
 		this.hasPower = nbt.getBoolean("hasPower");
 	}
 	
@@ -80,7 +81,7 @@ public class TileEntityMelter extends TileEntityInventory implements ISidedInven
 	
 	public int getProgressScaled(int scalar)
 	{
-		if (!hasPower)
+		if (!this.hasPower)
 		{
 			return this.meltTime * scalar / 200 * 64;
 		}
@@ -124,7 +125,7 @@ public class TileEntityMelter extends TileEntityInventory implements ISidedInven
 		{
 			if (this.burnTime == 0 && this.canSmelt())
 			{
-				this.maxBurnTime = this.burnTime = getItemBurnTime(this.itemStacks[1]);
+				this.maxBurnTime = this.burnTime = this.getItemBurnTime(this.itemStacks[1]);
 				if (this.burnTime > 0)
 				{
 					var2 = true;
@@ -246,11 +247,11 @@ public class TileEntityMelter extends TileEntityInventory implements ISidedInven
 		if (i == 0)
 		{
 			Item item = stack.getItem();
-			if (item == EOItems.Uranium)
+			if (item == MItems.Uranium)
 			{
 				i = 150000;
 			}
-			else if (item == EOItems.Plutonium)
+			else if (item == MItems.Plutonium)
 			{
 				i = 200000;
 			}

@@ -21,8 +21,10 @@ public class MCChatMessageHandler
 	
 	public static void sendChatToCommandSender(ICommandSender sender, String message)
 	{
-		if (sender instanceof EntityPlayer) {
-			sendChatToPlayer((EntityPlayer) sender, message);}
+		if (sender instanceof EntityPlayer)
+		{
+			sendChatToPlayer((EntityPlayer) sender, message);
+		}
 	}
 	
 	public static void broadcastMessageToPlayers(String message)

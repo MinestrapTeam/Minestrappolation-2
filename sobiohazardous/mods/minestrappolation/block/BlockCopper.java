@@ -14,7 +14,7 @@ public class BlockCopper extends Block
 	public BlockCopper(Material material)
 	{
 		super(material);
-		this.setBlockTextureName(MCAssetManager.getEOTexture("blockCopper"));
+		this.setBlockTextureName(MCAssetManager.getTexture("blockCopper"));
 	}
 	
 	@Override

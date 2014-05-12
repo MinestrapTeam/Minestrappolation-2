@@ -11,7 +11,7 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 
 public class BlockUraniumRaw extends BlockPlutoniumRaw
-{	
+{
 	public BlockUraniumRaw(Material material)
 	{
 		super(material);
@@ -21,7 +21,7 @@ public class BlockUraniumRaw extends BlockPlutoniumRaw
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getEOTexture("blockUranium"));
+		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getTexture("blockUranium"));
 	}
 	
 	@Override

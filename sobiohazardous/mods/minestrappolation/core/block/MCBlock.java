@@ -10,6 +10,7 @@ public class MCBlock extends Block
 	 *             nothing different then vanilla.
 	 * @param par2Material
 	 */
+	@Deprecated
 	public MCBlock(Material material)
 	{
 		super(material);

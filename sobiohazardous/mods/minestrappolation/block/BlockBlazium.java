@@ -26,7 +26,7 @@ public class BlockBlazium extends MCBlock
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getEOTexture("blockBlazium"));
+		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getTexture("blockBlazium"));
 	}
 	
 	@Override

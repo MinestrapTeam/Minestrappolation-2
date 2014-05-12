@@ -13,5 +13,5 @@ public class TileEntityBarrel extends TileEntityInventory
 	public int getSizeInventory()
 	{
 		return 36;
-	}	
+	}
 }
