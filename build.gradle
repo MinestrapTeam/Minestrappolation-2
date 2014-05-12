@@ -27,11 +27,11 @@ archivesBaseName = "Minestrappolation"
 
 sourceSets.main.java
 {
-    srcDirs project.projectDir.getPath() include("sobiohazardous/**")
+    srcDirs project.projectDir.getPath() include("src/main/java/com/minestrappolation/**")
 }
 sourceSets.main.resources
 {
-    srcDirs project.projectDir.getPath() include("assets/**")
+    srcDirs project.projectDir.getPath() include("src/main/resources/assets/**")
 }
 
 sourceCompatibility = 1.7
@@ -80,12 +80,12 @@ unJar
     into 'build/unjar'
 }
 
-task buildAPI(type:Jar, dependsOn:'unJar')
-buildAPI
+task buildCore(type:Jar, dependsOn:'unJar')
+buildCore
 {
-    archiveName = "MAPI " + minecraft.version + "-1.3.1." + extension
+    archiveName = "MinestrappolationCore " + minecraft.version + "-1.0.0." + extension
     from 'build/unjar'
-    include('assets/**', 'sobiohazardous/minestrappolation/core/**')
+    include('assets/**', 'com/minestrappolation/core/**')
     
     from('api_info')
     {
@@ -95,14 +95,16 @@ buildAPI
     }
 }
 
-task buildEO(type:Jar, dependsOn:'unJar')
-buildEO
+task buildM(type:Jar, dependsOn:'unJar')
+buildM
 {
-    archiveName = "Extrapolated Ores" + minecraft.version + "-1.5.1." + extension
+    archiveName = "Minestrappolation " + minecraft.version + "-1.0.0." + extension
     from 'build/unjar'
-    include('assets/**', 'sobiohazardous/minestrappolation/extraores/**')
+    {
+    include('assets/**', 'com/minestrappolation/**')
+    }
     
-    from('eo_info')
+    from('api_info')
     {
         include('mcmod.info')
         // replace version and mcversion
@@ -110,50 +112,4 @@ buildEO
     }
 }
 
-task buildED(type:Jar, dependsOn:'unJar')
-buildED
-{
-    archiveName = "Extrapolated Decor" + minecraft.version + "-1.4.2." + extension
-    from 'build/unjar'
-    include('assets/**', 'sobiohazardous/minestrappolation/extradecor/**')
-    
-    from('ed_info')
-    {
-        include('mcmod.info')
-        // replace version and mcversion
-        expand([version:version, mcversion:minecraft.version])
-    }
-}
-
-task buildEMD(type:Jar, dependsOn:'unJar')
-buildEMD
-{
-    archiveName = "Extrapolated Mob Drops" + minecraft.version + "-1.0.0." + extension
-    from 'build/unjar'
-    include('assets/**', 'sobiohazardous/minestrappolation/extramobdrops/**')
-    
-    from('emd_info')
-    {
-        include('mcmod.info')
-        // replace version and mcversion
-        expand([version:version, mcversion:minecraft.version])
-    }
-}
-
-task buildEE(type:Jar, dependsOn:'unJar')
-buildEE
-{
-    archiveName = "Extrapolated Environments" + "-" + minecraft.version + "-1.0.0." + extension
-    from 'build/unjar'
-    include('assets/**', 'sobiohazardous/minestrappolation/extraenviroments/**')
-    
-    from('ee_info')
-    {
-        include('mcmod.info')
-        // replace version and mcversion
-        expand([version:version, mcversion:minecraft.version])
-    }
-}
-
-task buildPack(dependsOn:['buildAPI','buildEO','buildED'])
-task buildAll(dependsOn:['buildAPI','buildEO','buildED', 'buildEMD', 'buildEE'])
+task buildAll(dependsOn:['buildAPI','build'])
