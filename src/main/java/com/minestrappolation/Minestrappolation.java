@@ -54,15 +54,17 @@ public class Minestrappolation
 	public static CreativeTabs			tabMisc				= new MCreativeTabMisc("minestrap_misc");
 	
 	public static CustomRecipeLoader	smelter				= new CustomRecipeLoader("furnace");
-	public static Fluid					eoFluid;
+	public static MelterRecipeLoader	melter				= new MelterRecipeLoader("melter");
+	
+	public static Fluid					magmaFluid;
 	
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent evt)
 	{
 		Blocks.bedrock.setHardness(80F);
 		// MinecraftForge.EVENT_BUS.register(new EOBucketHandler());
-		eoFluid = new Fluid("EO Fluid").setViscosity(6500).setDensity(3);
-		FluidRegistry.registerFluid(eoFluid);
+		magmaFluid = new Fluid("Magma").setViscosity(6500).setDensity(3);
+		FluidRegistry.registerFluid(magmaFluid);
 		
 		smelter.load();
 		

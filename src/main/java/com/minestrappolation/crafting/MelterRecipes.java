@@ -1,9 +1,8 @@
 package com.minestrappolation.crafting;
 
-import com.minestrappolation.lib.MBlocks;
-import com.minestrappolation.lib.MelterRecipeLoader;
-
 import clashsoft.cslib.minecraft.crafting.ExperienceRecipeManager;
+
+import com.minestrappolation.lib.MBlocks;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -13,12 +12,8 @@ public class MelterRecipes extends ExperienceRecipeManager
 {
 	public static final MelterRecipes	instance		= new MelterRecipes();
 	
-	MelterRecipeLoader					recipeLoader	= new MelterRecipeLoader();
-	
 	private MelterRecipes()
 	{
-		this.recipeLoader.load();
-		
 		this.addRecipe(Blocks.cobblestone, new ItemStack(Items.lava_bucket, 1, 0), 0.4F);
 		this.addRecipe(Blocks.mossy_cobblestone, new ItemStack(Items.lava_bucket, 1, 0), 0.6F);
 		this.addRecipe(Blocks.gravel, new ItemStack(Items.lava_bucket, 1, 0), 0.2F);

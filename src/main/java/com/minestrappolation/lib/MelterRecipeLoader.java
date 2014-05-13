@@ -8,9 +8,9 @@ import net.minecraft.item.ItemStack;
 
 public class MelterRecipeLoader extends CustomRecipeLoader
 {
-	public MelterRecipeLoader()
+	public MelterRecipeLoader(String name)
 	{
-		super("melter");
+		super(name);
 	}
 	
 	@Override

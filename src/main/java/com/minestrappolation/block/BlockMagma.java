@@ -15,7 +15,7 @@ public class BlockMagma extends BlockFluidClassic
 	
 	public BlockMagma(int par1)
 	{
-		super(Minestrappolation.eoFluid, Material.lava);
+		super(Minestrappolation.magmaFluid, Material.lava);
 		this.setLightLevel(.5F);
 	}
 	
