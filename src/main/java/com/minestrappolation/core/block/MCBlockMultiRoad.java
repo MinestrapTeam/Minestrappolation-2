@@ -2,8 +2,6 @@ package com.minestrappolation.core.block;
 
 import java.util.List;
 
-import com.minestrappolation.core.MinestrappolationCore;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -28,7 +26,6 @@ public class MCBlockMultiRoad extends Block
 		this.sideIconNames = sideIcons;
 		this.topIconNames = topIcons;
 		this.bottomIconNames = bottomIcons;
-		this.setCreativeTab(MinestrappolationCore.creativeTabStone);
 	}
 	
 	@Override

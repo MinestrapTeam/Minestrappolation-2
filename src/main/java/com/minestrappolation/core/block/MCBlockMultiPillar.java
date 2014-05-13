@@ -2,8 +2,6 @@ package com.minestrappolation.core.block;
 
 import java.util.List;
 
-import com.minestrappolation.core.MinestrappolationCore;
-
 import net.minecraft.block.BlockRotatedPillar;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -23,7 +21,6 @@ public class MCBlockMultiPillar extends BlockRotatedPillar
 	public MCBlockMultiPillar(Material mat, String[] sideIcons, String[] topIcons)
 	{
 		super(Material.wood);
-		this.setCreativeTab(MinestrappolationCore.creativeTabStone);
 		this.sideIconNames = sideIcons;
 		this.topIconNames = topIcons;
 	}

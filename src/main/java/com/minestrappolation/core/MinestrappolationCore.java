@@ -8,7 +8,6 @@ import clashsoft.cslib.minecraft.update.updater.ModUpdater;
 import com.minestrappolation.core.common.MCCommonProxy;
 import com.minestrappolation.core.common.MCEventHandler;
 import com.minestrappolation.core.common.MCVersionChecker;
-import com.minestrappolation.core.creativetab.MCCreativeTabStone;
 import com.minestrappolation.core.lib.*;
 import com.minestrappolation.core.tileentity.TileEntityStonecutter;
 
@@ -21,7 +20,6 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 
 @Mod(modid = MCReference.MINESTRAP_CORE_ID, name = MCReference.MINESTRAP_CORE_NAME, version = MCReference.MINESTRAP_CORE_VERSION, dependencies = "required-after:" + BrewingAPI.MODID)
@@ -32,8 +30,6 @@ public class MinestrappolationCore
 	
 	@SidedProxy(modId = MCReference.MINESTRAP_CORE_ID, clientSide = "com.minestrappolation.core.client.MCClientProxy", serverSide = "com.minestrappolation.core.common.MCCommonProxy")
 	public static MCCommonProxy			proxy;
-	
-	public static CreativeTabs			creativeTabStone	= new MCCreativeTabStone(CreativeTabs.getNextID(), "minestrap_stone");
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)

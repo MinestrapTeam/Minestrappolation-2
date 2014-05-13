@@ -20,7 +20,6 @@ public class MCBlockStonecutter extends BlockContainer
 	public MCBlockStonecutter()
 	{
 		super(Material.rock);
-		this.setCreativeTab(MinestrappolationCore.creativeTabStone);
 	}
 	
 	@Override

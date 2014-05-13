@@ -2,7 +2,6 @@ package com.minestrappolation.lib;
 
 import com.minestrappolation.Minestrappolation;
 import com.minestrappolation.common.MCommonProxy;
-import com.minestrappolation.core.MinestrappolationCore;
 import com.minestrappolation.core.item.*;
 import com.minestrappolation.core.util.MCAssetManager;
 import com.minestrappolation.item.*;
@@ -562,7 +561,7 @@ public class MItems
 		GameRegistry.registerItem(goblet, "gobletItem");
 		glassDoor = new EDItemDoor(MBlocks.GlassDoor).setUnlocalizedName("item_GlassDoor").setTextureName(MCAssetManager.getTexture("doorGlass"));
 		GameRegistry.registerItem(glassDoor, "glassDoorItem");
-		brickClay = new MCItemMulti(new String[] { MCAssetManager.getTexture("brickClayBlack"), MCAssetManager.getTexture("brickClayBlue"), MCAssetManager.getTexture("brickClayBrown"), MCAssetManager.getTexture("brickClayCyan"), MCAssetManager.getTexture("brickClayGray"), MCAssetManager.getTexture("brickClayGreen"), MCAssetManager.getTexture("brickClayLightBlue"), MCAssetManager.getTexture("brickClayLime"), MCAssetManager.getTexture("brickClayMagenta"), MCAssetManager.getTexture("brickClayOrange"), MCAssetManager.getTexture("brickClayPink"), MCAssetManager.getTexture("brickClayPurple"), MCAssetManager.getTexture("brickClayRed"), MCAssetManager.getTexture("brickClaySilver"), MCAssetManager.getTexture("brickClayWhite"), MCAssetManager.getTexture("brickClayYellow") }).setCreativeTab(MinestrappolationCore.creativeTabStone).setUnlocalizedName("brickClay");
+		brickClay = new MCItemMulti(new String[] { MCAssetManager.getTexture("brickClayBlack"), MCAssetManager.getTexture("brickClayBlue"), MCAssetManager.getTexture("brickClayBrown"), MCAssetManager.getTexture("brickClayCyan"), MCAssetManager.getTexture("brickClayGray"), MCAssetManager.getTexture("brickClayGreen"), MCAssetManager.getTexture("brickClayLightBlue"), MCAssetManager.getTexture("brickClayLime"), MCAssetManager.getTexture("brickClayMagenta"), MCAssetManager.getTexture("brickClayOrange"), MCAssetManager.getTexture("brickClayPink"), MCAssetManager.getTexture("brickClayPurple"), MCAssetManager.getTexture("brickClayRed"), MCAssetManager.getTexture("brickClaySilver"), MCAssetManager.getTexture("brickClayWhite"), MCAssetManager.getTexture("brickClayYellow") }).setCreativeTab(Minestrappolation.tabStoneDecor).setUnlocalizedName("brickClay");
 		GameRegistry.registerItem(brickClay, "brickClay");
 		
 		// TODO ORGANIZE EMD ITEMS

@@ -2,7 +2,6 @@ package com.minestrappolation.core.block;
 
 import java.util.List;
 
-import com.minestrappolation.core.MinestrappolationCore;
 import com.minestrappolation.lib.MBlocks;
 
 import cpw.mods.fml.relauncher.Side;
@@ -28,7 +27,6 @@ public class MCBlockMulti extends Block
 	{
 		super(mat);
 		this.iconNames = textures;
-		this.setCreativeTab(MinestrappolationCore.creativeTabStone);
 	}
 	
 	@Override

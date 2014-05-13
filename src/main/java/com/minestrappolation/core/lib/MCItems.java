@@ -1,6 +1,5 @@
 package com.minestrappolation.core.lib;
 
-import com.minestrappolation.core.MinestrappolationCore;
 import com.minestrappolation.core.util.MCAssetManager;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -13,7 +12,7 @@ public class MCItems
 	
 	public static void init()
 	{
-		brickStone = new Item().setTextureName(MCAssetManager.getMAPITexture("brickStone")).setUnlocalizedName("brickStone").setCreativeTab(MinestrappolationCore.creativeTabStone);
+		brickStone = new Item().setTextureName(MCAssetManager.getMAPITexture("brickStone")).setUnlocalizedName("brickStone");
 		GameRegistry.registerItem(brickStone, "brickStone");
 	}
 }
