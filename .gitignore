@@ -2,16 +2,12 @@
 /*/
 !/src/
 !.gitignore
-!gradlew*
-!/gradle/
 !/ed_info/
 !/ee_info/
 !/emd_info/
 !/eo_info/
 !/api_info/
-!/assets/
 !/dependencies/
-!/sobiohazardous/
 !version.txt
 !build.gradle
 !/libs/
