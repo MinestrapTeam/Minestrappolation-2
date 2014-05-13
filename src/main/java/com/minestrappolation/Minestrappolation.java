@@ -1,7 +1,8 @@
 package com.minestrappolation;
 
+import clashsoft.brewingapi.BrewingAPI;
+
 import com.minestrappolation.common.MCommonProxy;
-import com.minestrappolation.core.MinestrappolationCore;
 import com.minestrappolation.core.customrecipes.CustomRecipeLoader;
 import com.minestrappolation.core.lib.MCReference;
 import com.minestrappolation.creativetab.*;
@@ -14,7 +15,6 @@ import com.minestrappolation.handler.PriestTradeHandler;
 import com.minestrappolation.lib.*;
 import com.minestrappolation.tileentity.TileEntityMelter;
 
-import clashsoft.brewingapi.BrewingAPI;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Instance;
@@ -37,7 +37,7 @@ import net.minecraftforge.fluids.FluidRegistry;
 public class Minestrappolation
 {
 	@Instance(MCReference.MINESTRAP_ID)
-	public static MinestrappolationCore	instance;
+	public static Minestrappolation		instance;
 	
 	@SidedProxy(modId = MCReference.MINESTRAP_ID, clientSide = "com.minestrappolation.client.MClientProxy", serverSide = "com.minestrappolation.common.MCommonProxy")
 	public static MCommonProxy			proxy;

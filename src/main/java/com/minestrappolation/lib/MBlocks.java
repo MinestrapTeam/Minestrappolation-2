@@ -394,8 +394,6 @@ public class MBlocks
 		
 		BlaziumOre = new BlockBlaziumOre().setHardness(7F).setResistance(11F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockName("oreBlazium").setBlockTextureName(MCAssetManager.getTexture("oreBlazium")).setLightLevel(0.5F);
 		GameRegistry.registerBlock(BlaziumOre, "oreBlazium");
-		// Experimental Blazium Ore Code: BlaziumOre = (new BlockBlaziumOre(204,
-		// 5)).setHardness(7F).setResistance(11F).setStepSound(Block.soundMetalFootstep).setCreativeTab(ExtraOres.tabExtra).setLightLevel(0.5F).setBlockName("Blazium Ore");
 		BlaziumBlock = new BlockBlazium().setHardness(8F).setResistance(12F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockName("blockBlazium").setBlockTextureName(MCAssetManager.getTexture("blockBlazium")).setLightLevel(0.7F);
 		GameRegistry.registerBlock(BlaziumBlock, "blockBlazium");
 		
@@ -684,8 +682,7 @@ public class MBlocks
 		// TODO: ORGANIZE ED BLOCKS
 		
 		stonePillar = new MCBlockPillar(MCAssetManager.getSCTexture("Stone_Pillar_Side_0"), MCAssetManager.getSCTexture("Stone_Pillar_Top_0")).setHardness(1.5F).setResistance(10F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("stonePillar");
-		// stoneLamp = new
-		// BlockStoneLamp().setHardness(1.5F).setResistance(8F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setLightLevel(1.0F).setBlockName("stoneLamp");
+		stoneLamp = new BlockStoneLamp().setHardness(1.5F).setResistance(8F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setLightLevel(1.0F).setBlockName("stoneLamp");
 		stones = new BlockStones().setHardness(1.5F).setResistance(10F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("stones");
 		
 		Tiles = new BlockTiles().setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("tiles");
@@ -738,8 +735,7 @@ public class MBlocks
 		
 		checkerTileStairs = new EDBlockStairs(Tiles, 3).setBlockName("checkerTileStairs").setHardness(3F).setResistance(10.0F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks);
 		
-		// stainedBrick = new
-		// BlockStainedBrick().setHardness(2F).setResistance(10F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("stainedBrick");
+		stainedBrick = new BlockStainedBrick().setHardness(2F).setResistance(10F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("stainedBrick");
 		
 		cobbledRoad = new EDBlockRoad().setHardness(1).setResistance(5F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("cobbledRoad");
 		infertileDirt = new MCBlock(Material.grass).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockName("InfertileSoil").setHardness(.4F).setStepSound(Block.soundTypeGrass).setBlockTextureName(MCAssetManager.getTexture("grasslessDirt"));
@@ -900,7 +896,7 @@ public class MBlocks
 		GameRegistry.registerBlock(cardboard, "cardboard");
 		GameRegistry.registerBlock(cardboardBlock, "cardboardBlock");
 		
-		GameRegistry.registerBlock(infertileDirt, "Infertile Dirt");
+		GameRegistry.registerBlock(infertileDirt, "infertileDirt");
 		
 		GameRegistry.registerBlock(sandyRoad, "sandyRoad");
 		GameRegistry.registerBlock(sandstoneRoad, "sandstoneRoad");
@@ -918,7 +914,7 @@ public class MBlocks
 		GameRegistry.registerBlock(woodBoardsSingleSlab, ItemBlockWoodBoardSlab.class, "woodBoardsSlabSingle", null, woodBoardsSingleSlab, woodBoardsDoubleSlab);
 		GameRegistry.registerBlock(woodBoardsDoubleSlab, ItemBlockWoodBoardSlab.class, "woodBoardsSlabDouble", null, woodBoardsSingleSlab, woodBoardsDoubleSlab);
 		
-		GameRegistry.registerBlock(Goblet, MCItemBlockMulti.class, "Goblet", "goblet");
+		GameRegistry.registerBlock(Goblet, MCItemBlockMulti.class, "Goblet");
 		GameRegistry.registerBlock(Plate, "Plate");
 		
 		GameRegistry.registerBlock(sandstoneBricks, MCItemBlockMulti.class, "sandstoneBricks");

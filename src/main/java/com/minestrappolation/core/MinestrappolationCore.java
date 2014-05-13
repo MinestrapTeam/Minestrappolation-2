@@ -1,5 +1,10 @@
 package com.minestrappolation.core;
 
+import clashsoft.brewingapi.BrewingAPI;
+import clashsoft.cslib.minecraft.update.CSUpdate;
+import clashsoft.cslib.minecraft.update.SimpleUpdateReader;
+import clashsoft.cslib.minecraft.update.updater.ModUpdater;
+
 import com.minestrappolation.core.common.MCCommonProxy;
 import com.minestrappolation.core.common.MCEventHandler;
 import com.minestrappolation.core.common.MCVersionChecker;
@@ -7,10 +12,6 @@ import com.minestrappolation.core.creativetab.MCCreativeTabStone;
 import com.minestrappolation.core.lib.*;
 import com.minestrappolation.core.tileentity.TileEntityStonecutter;
 
-import clashsoft.brewingapi.BrewingAPI;
-import clashsoft.cslib.minecraft.update.CSUpdate;
-import clashsoft.cslib.minecraft.update.SimpleUpdateReader;
-import clashsoft.cslib.minecraft.update.updater.ModUpdater;
 import cpw.mods.fml.common.*;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;

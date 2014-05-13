@@ -3,6 +3,7 @@ package com.minestrappolation.core.lib;
 public class MCReference
 {
 	// VERSIONS UPDATED AS OF MERGE.
+	
 	public static final String	MINESTRAP_CORE_ID		= "MinestrappolationCore";
 	public static final String	MINESTRAP_CORE_NAME		= "Minestrappolation Core";
 	public static final String	MINESTRAP_CORE_VERSION	= "1.4";
