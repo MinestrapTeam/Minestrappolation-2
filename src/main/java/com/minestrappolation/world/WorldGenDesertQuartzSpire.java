@@ -10,25 +10,28 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class WorldGenDesertQuartzSpire extends WorldGenerator
 {
-	// add 2 so if you want a depth or 5 you use 3
+	/**
+	 * Defines how deep the spire goes into the ground.
+	 */
 	public int	maxDepth		= 6;
 	
-	// how tall the tip of the spire is
-	int			maxTopHeight	= 3;
+	/**
+	 * Defines how tall the tip of the spire is
+	 */
+	public int	maxTopHeight	= 3;
 	
 	@Override
 	public boolean generate(World world, Random random, int x, int y, int z)
 	{
 		if (world.getBlock(x, y + 1, z) == Blocks.air && world.getBlock(x, y, z) == Blocks.sand)
 		{
-			System.out.println("not air skipping");
 			return false;
 		}
 		
-		int depth = random.nextInt(this.maxDepth) + 2;
-		for (int i = 0; i < depth; z++)
+		int depth = random.nextInt(this.maxDepth);
+		for (int i = 0; i < depth; i++)
 		{
-			int y1 = y - depth;
+			int y1 = y - i;
 			world.setBlock(x, y1, z, MBlocks.Quartzite);
 			world.setBlock(x + 1, y1, z, MBlocks.Quartzite);
 			world.setBlock(x - 1, y1, z, MBlocks.Quartzite);
@@ -42,14 +45,6 @@ public class WorldGenDesertQuartzSpire extends WorldGenerator
 			world.setBlock(x, y + height, z, MBlocks.Quartzite);
 		}
 		
-		world.setBlock(x, y, z, MBlocks.Quartzite);
-		world.setBlock(x + 1, y, z, MBlocks.Quartzite);
-		world.setBlock(x - 1, y, z, MBlocks.Quartzite);
-		world.setBlock(x, y, z + 1, MBlocks.Quartzite);
-		world.setBlock(x, y, z - 1, MBlocks.Quartzite);
-		
-		System.out.println("Spire at: x-" + x + ",y-" + y + ",z-" + z);
 		return true;
 	}
-	
 }
