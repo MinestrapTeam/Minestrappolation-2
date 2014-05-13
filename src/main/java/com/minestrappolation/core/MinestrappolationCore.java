@@ -2,7 +2,7 @@ package com.minestrappolation.core;
 
 import clashsoft.brewingapi.BrewingAPI;
 import clashsoft.cslib.minecraft.update.CSUpdate;
-import clashsoft.cslib.minecraft.update.SimpleUpdateReader;
+import clashsoft.cslib.minecraft.update.reader.SimpleUpdateReader;
 import clashsoft.cslib.minecraft.update.updater.ModUpdater;
 
 import com.minestrappolation.core.common.MCCommonProxy;
