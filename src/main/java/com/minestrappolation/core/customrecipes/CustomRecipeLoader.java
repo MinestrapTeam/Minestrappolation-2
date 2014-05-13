@@ -1,6 +1,9 @@
 package com.minestrappolation.core.customrecipes;
 
 import java.io.*;
+import java.util.Arrays;
+
+import org.apache.commons.io.FileUtils;
 
 import cpw.mods.fml.common.registry.GameData;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -15,6 +18,16 @@ public class CustomRecipeLoader
 	static
 	{
 		customPluginsDir.mkdirs();
+		
+		File readme = new File(customPluginsDir, "readme.txt");
+		try
+		{
+			readme.createNewFile();
+			FileUtils.writeLines(readme, Arrays.asList("Custom-Plugins Directory Readme File"));
+		}
+		catch (IOException ex)
+		{
+		}
 	}
 	
 	public String		type;
