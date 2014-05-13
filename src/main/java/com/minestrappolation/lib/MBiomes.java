@@ -1,6 +1,6 @@
 package com.minestrappolation.lib;
 
-import com.minestrappolation.gen.biome.BiomeGenRedwood;
+import com.minestrappolation.biome.BiomeGenRedwood;
 
 import net.minecraft.world.biome.BiomeGenBase;
 

@@ -1,4 +1,4 @@
-package com.minestrappolation.itemblocks;
+package com.minestrappolation.item.block;
 
 import com.minestrappolation.block.slab.BlockWoodBoardSlab;
 import com.minestrappolation.core.itemblocks.MCItemBlockSlab;

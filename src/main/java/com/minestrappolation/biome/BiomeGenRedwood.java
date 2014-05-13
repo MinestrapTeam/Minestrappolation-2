@@ -1,4 +1,4 @@
-package com.minestrappolation.gen.biome;
+package com.minestrappolation.biome;
 
 import com.minestrappolation.core.biome.MCCustomBiomeDecorator;
 

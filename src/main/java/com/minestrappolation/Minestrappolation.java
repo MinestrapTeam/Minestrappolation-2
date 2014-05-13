@@ -7,13 +7,13 @@ import com.minestrappolation.core.customrecipes.CustomRecipeLoader;
 import com.minestrappolation.core.lib.MCReference;
 import com.minestrappolation.creativetab.*;
 import com.minestrappolation.entity.*;
-import com.minestrappolation.gen.MOreGenerator;
 import com.minestrappolation.handler.BlacksmithTradeHandler;
 import com.minestrappolation.handler.MEventHandler;
 import com.minestrappolation.handler.MPlayerTickHandler;
 import com.minestrappolation.handler.PriestTradeHandler;
 import com.minestrappolation.lib.*;
 import com.minestrappolation.tileentity.TileEntityMelter;
+import com.minestrappolation.world.MOreGenerator;
 
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;

@@ -1,4 +1,4 @@
-package com.minestrappolation.gen;
+package com.minestrappolation.world;
 
 import java.util.Random;
 

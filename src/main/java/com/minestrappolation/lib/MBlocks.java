@@ -12,8 +12,8 @@ import com.minestrappolation.core.util.MCAssetManager;
 import com.minestrappolation.item.ItemSoulBottle;
 import com.minestrappolation.item.ItemSoulGem;
 import com.minestrappolation.item.MItemFoiled;
-import com.minestrappolation.itemblocks.ItemBlockClaySlab;
-import com.minestrappolation.itemblocks.ItemBlockWoodBoardSlab;
+import com.minestrappolation.item.block.ItemBlockClaySlab;
+import com.minestrappolation.item.block.ItemBlockWoodBoardSlab;
 import com.minestrappolation.material.MaterialOoze;
 import com.minestrappolation.tileentity.TileEntityPlate;
 
@@ -29,7 +29,6 @@ public class MBlocks
 {
 	// TODO: ORGANIZE EO BLOCKS.
 	
-	// Bridged Blocks
 	public static Block				glowGlass;
 	
 	public static Block				meuroditeOre;
@@ -185,7 +184,6 @@ public class MBlocks
 	// TODO: ORGANIZE ED BLOCKS
 	public static final Material	materialOoze	= new MaterialOoze(MapColor.foliageColor);
 	
-	// bridged blocks
 	public static Block				bedrockBrick;
 	public static Block				stonePillar;
 	public static Block				stoneLamp;
@@ -1032,5 +1030,4 @@ public class MBlocks
 		 * GameRegistry.registerBlock(doorWoodOverwrite, "doorWood");
 		 */
 	}
-	
 }
