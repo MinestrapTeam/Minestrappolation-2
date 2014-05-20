@@ -35,7 +35,7 @@ import net.minecraft.world.World;
  */
 public class MCBlockStone extends Block
 {
-	public static final String[]	types	= new String[] { "raw", "brick", "pattern_brick", "tiles", "road", "refined", "refined_tiles", "chiseled", "chiseled", "cracked", "mossy" };
+	public static final String[]	types	= new String[] { null, "bricks", "pattern_bricks", "tiles", "road", "refined", "refined_tiles", "chiseled", "chiseled", "cracked", "mossy" };
 	
 	public String					name;
 	public float					baseHardness;
@@ -93,19 +93,19 @@ public class MCBlockStone extends Block
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon(this.name);
-		this.brickIcon = iconRegister.registerIcon(this.name + "_brick");
-		this.patternBrickIcon = iconRegister.registerIcon(this.name + "_pattern_brick");
-		this.tilesIcon = iconRegister.registerIcon(this.name + "_tiles");
-		this.roadTopIcon = iconRegister.registerIcon(this.name + "_road_top");
-		this.roadSideIcon = iconRegister.registerIcon(this.name + "_road_side");
-		this.roadBottomIcon = iconRegister.registerIcon(this.name + "_road_bottom");
-		this.refinedIcon = iconRegister.registerIcon(this.name + "_refined");
-		this.refinedTilesIcon = iconRegister.registerIcon(this.name + "_refined_tiles");
-		this.chiseledIcon = iconRegister.registerIcon(this.name + "_chiseled");
-		this.chiseledIcon2 = iconRegister.registerIcon(this.name + "_chiseled_2");
-		this.crackedIcon = iconRegister.registerIcon(this.name + "_cracked");
-		this.mossyIcon = iconRegister.registerIcon(this.name + "_mossy");
+		this.blockIcon = iconRegister.registerIcon(this.getTextureName());
+		this.brickIcon = iconRegister.registerIcon(this.getTextureName() + "_bricks");
+		this.patternBrickIcon = iconRegister.registerIcon(this.getTextureName() + "_pattern_bricks");
+		this.tilesIcon = iconRegister.registerIcon(this.getTextureName() + "_tiles");
+		this.roadTopIcon = iconRegister.registerIcon(this.getTextureName() + "_road_top");
+		this.roadSideIcon = iconRegister.registerIcon(this.getTextureName() + "_road_side");
+		this.roadBottomIcon = iconRegister.registerIcon(this.getTextureName() + "_road_bottom");
+		this.refinedIcon = iconRegister.registerIcon(this.getTextureName() + "_refined");
+		this.refinedTilesIcon = iconRegister.registerIcon(this.getTextureName() + "_refined_tiles");
+		this.chiseledIcon = iconRegister.registerIcon(this.getTextureName() + "_chiseled");
+		this.chiseledIcon2 = iconRegister.registerIcon(this.getTextureName() + "_chiseled_2");
+		this.crackedIcon = iconRegister.registerIcon(this.getTextureName() + "_cracked");
+		this.mossyIcon = iconRegister.registerIcon(this.getTextureName() + "_mossy");
 	}
 	
 	@Override

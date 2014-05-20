@@ -160,16 +160,16 @@ public class MCBlockStone2 extends Block
 		this.topIcons = new IIcon[5];
 		this.sideIcons = new IIcon[5];
 		
-		this.topIcons[0] = iconRegister.registerIcon(this.name + "_pillar_top");
-		this.sideIcons[0] = iconRegister.registerIcon(this.name + "_pillar_side");
-		this.topIcons[1] = iconRegister.registerIcon(this.name + "_slab_top");
-		this.sideIcons[1] = iconRegister.registerIcon(this.name + "_slab_side");
-		this.topIcons[2] = iconRegister.registerIcon(this.name + "_brick_slab_top");
-		this.sideIcons[2] = iconRegister.registerIcon(this.name + "_brick_slab_side");
-		this.topIcons[3] = iconRegister.registerIcon(this.name + "_tile_slab_top");
-		this.sideIcons[3] = iconRegister.registerIcon(this.name + "_tile_slab_side");
-		this.topIcons[4] = iconRegister.registerIcon(this.name + "_refined_slab_top");
-		this.sideIcons[4] = iconRegister.registerIcon(this.name + "_refined_slab_side");
+		this.topIcons[0] = iconRegister.registerIcon(this.getTextureName() + "_pillar_top");
+		this.sideIcons[0] = iconRegister.registerIcon(this.getTextureName() + "_pillar_side");
+		this.topIcons[1] = iconRegister.registerIcon(this.getTextureName() + "_slab_top");
+		this.sideIcons[1] = iconRegister.registerIcon(this.getTextureName() + "_slab_side");
+		this.topIcons[2] = iconRegister.registerIcon(this.getTextureName() + "_brick_slab_top");
+		this.sideIcons[2] = iconRegister.registerIcon(this.getTextureName() + "_brick_slab_side");
+		this.topIcons[3] = iconRegister.registerIcon(this.getTextureName() + "_tile_slab_top");
+		this.sideIcons[3] = iconRegister.registerIcon(this.getTextureName() + "_tile_slab_side");
+		this.topIcons[4] = iconRegister.registerIcon(this.getTextureName() + "_refined_slab_top");
+		this.sideIcons[4] = iconRegister.registerIcon(this.getTextureName() + "_refined_slab_side");
 	}
 	
 	@Override

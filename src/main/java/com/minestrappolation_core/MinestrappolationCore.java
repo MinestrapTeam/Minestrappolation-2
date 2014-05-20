@@ -28,7 +28,7 @@ public class MinestrappolationCore
 	@Instance(MCReference.MINESTRAP_CORE_ID)
 	public static MinestrappolationCore	instance;
 	
-	@SidedProxy(modId = MCReference.MINESTRAP_CORE_ID, clientSide = "com.minestrappolation.core.client.MCClientProxy", serverSide = "com.minestrappolation.core.common.MCCommonProxy")
+	@SidedProxy(modId = MCReference.MINESTRAP_CORE_ID, clientSide = "com.minestrappolation_core.client.MCClientProxy", serverSide = "com.minestrappolation_core.common.MCCommonProxy")
 	public static MCCommonProxy			proxy;
 	
 	@EventHandler

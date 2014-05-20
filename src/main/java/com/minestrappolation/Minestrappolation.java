@@ -67,12 +67,11 @@ public class Minestrappolation
 	public void preInit(FMLPreInitializationEvent evt)
 	{
 		Blocks.bedrock.setHardness(80F);
-		// MinecraftForge.EVENT_BUS.register(new EOBucketHandler());
 		magmaFluid = new Fluid("Magma").setViscosity(6500).setDensity(3);
 		FluidRegistry.registerFluid(magmaFluid);
 		
-		test = MCBlockHelper.createStoneBlock("stone", 1F, tabStoneDecor);
-		test2 = MCBlockHelper.createStoneBlock2("stone", 1F, tabStoneDecor);
+		test = MCBlockHelper.createStoneBlock("stone_bronze", 1F, tabStoneDecor);
+		test2 = MCBlockHelper.createStoneBlock2("stone_bronze", 1F, tabStoneDecor);
 		
 		smelter.load();
 		
