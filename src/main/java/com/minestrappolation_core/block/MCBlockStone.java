@@ -23,11 +23,9 @@ import net.minecraft.world.World;
  * <li>3: Tiles
  * <li>4: Road
  * <li>5: Refined Block
- * <li>6: Refined Tiles
- * <li>7: Chiseled
- * <li>8: Chiseled Variant
- * <li>9: Cracked
- * <li>10: Mossy
+ * <li>6: Chiseled
+ * <li>7: Cracked
+ * <li>8: Mossy
  * </ul>
  * Everything else is added by {@link MBlockStone2}
  * 
@@ -35,7 +33,7 @@ import net.minecraft.world.World;
  */
 public class MCBlockStone extends Block
 {
-	public static final String[]	types	= new String[] { null, "bricks", "pattern_bricks", "tiles", "road", "refined", "refined_tiles", "chiseled", "chiseled", "cracked", "mossy" };
+	public static final String[]	types	= new String[] { null, "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", "cracked", "mossy" };
 	
 	public String					name;
 	public float					baseHardness;
@@ -47,9 +45,8 @@ public class MCBlockStone extends Block
 	public IIcon					roadSideIcon;
 	public IIcon					roadBottomIcon;
 	public IIcon					refinedIcon;
-	public IIcon					refinedTilesIcon;
-	public IIcon					chiseledIcon;
-	public IIcon					chiseledIcon2;
+	public IIcon					chiseledTopIcon;
+	public IIcon chiseledSideIcon;
 	public IIcon					crackedIcon;
 	public IIcon					mossyIcon;
 	
@@ -101,9 +98,8 @@ public class MCBlockStone extends Block
 		this.roadSideIcon = iconRegister.registerIcon(this.getTextureName() + "_road_side");
 		this.roadBottomIcon = iconRegister.registerIcon(this.getTextureName() + "_road_bottom");
 		this.refinedIcon = iconRegister.registerIcon(this.getTextureName() + "_refined");
-		this.refinedTilesIcon = iconRegister.registerIcon(this.getTextureName() + "_refined_tiles");
-		this.chiseledIcon = iconRegister.registerIcon(this.getTextureName() + "_chiseled");
-		this.chiseledIcon2 = iconRegister.registerIcon(this.getTextureName() + "_chiseled_2");
+		this.chiseledTopIcon = iconRegister.registerIcon(this.getTextureName() + "_chiseled_top");
+		this.chiseledSideIcon = iconRegister.registerIcon(this.getTextureName() + "_chiseled_side");
 		this.crackedIcon = iconRegister.registerIcon(this.getTextureName() + "_cracked");
 		this.mossyIcon = iconRegister.registerIcon(this.getTextureName() + "_mossy");
 	}
@@ -131,14 +127,15 @@ public class MCBlockStone extends Block
 		else if (metadata == 5)
 			return this.refinedIcon;
 		else if (metadata == 6)
-			return this.refinedTilesIcon;
+		{
+			if (side == 0 || side == 1)
+				return this.chiseledTopIcon;
+			else
+				return this.chiseledSideIcon;
+		}
 		else if (metadata == 7)
-			return this.chiseledIcon;
-		else if (metadata == 8)
-			return this.chiseledIcon2;
-		else if (metadata == 9)
 			return this.crackedIcon;
-		else if (metadata == 10)
+		else if (metadata == 8)
 			return this.mossyIcon;
 		
 		return this.blockIcon;

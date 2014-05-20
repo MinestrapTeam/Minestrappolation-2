@@ -119,15 +119,15 @@ public class MCBlockStone2 extends Block
 	}
 	
 	@Override
-	protected ItemStack createStackedBlock(int metadata)
+	public int getDamageValue(World world, int x, int y, int z)
 	{
-		return super.createStackedBlock(this.limitToValidMetadata(metadata));
+		return this.limitToValidMetadata(world.getBlockMetadata(x, y, z));
 	}
 	
 	@Override
 	public int damageDropped(int metadata)
 	{
-		return super.damageDropped(this.limitToValidMetadata(metadata));
+		return this.limitToValidMetadata(metadata);
 	}
 	
 	public String getUnlocalizedName(int metadata)
@@ -164,10 +164,10 @@ public class MCBlockStone2 extends Block
 		this.sideIcons[0] = iconRegister.registerIcon(this.getTextureName() + "_pillar_side");
 		this.topIcons[1] = iconRegister.registerIcon(this.getTextureName() + "_slab_top");
 		this.sideIcons[1] = iconRegister.registerIcon(this.getTextureName() + "_slab_side");
-		this.topIcons[2] = iconRegister.registerIcon(this.getTextureName() + "_brick_slab_top");
-		this.sideIcons[2] = iconRegister.registerIcon(this.getTextureName() + "_brick_slab_side");
-		this.topIcons[3] = iconRegister.registerIcon(this.getTextureName() + "_tile_slab_top");
-		this.sideIcons[3] = iconRegister.registerIcon(this.getTextureName() + "_tile_slab_side");
+		this.topIcons[2] = iconRegister.registerIcon(this.getTextureName() + "_bricks");
+		this.sideIcons[2] = iconRegister.registerIcon(this.getTextureName() + "_bricks");
+		this.topIcons[3] = iconRegister.registerIcon(this.getTextureName() + "_tiles");
+		this.sideIcons[3] = iconRegister.registerIcon(this.getTextureName() + "_tiles");
 		this.topIcons[4] = iconRegister.registerIcon(this.getTextureName() + "_refined_slab_top");
 		this.sideIcons[4] = iconRegister.registerIcon(this.getTextureName() + "_refined_slab_side");
 	}

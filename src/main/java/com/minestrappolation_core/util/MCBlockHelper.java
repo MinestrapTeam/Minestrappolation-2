@@ -2,7 +2,7 @@ package com.minestrappolation_core.util;
 
 import com.minestrappolation_core.block.MCBlockStone;
 import com.minestrappolation_core.block.MCBlockStone2;
-import com.minestrappolation_core.itemblocks.MCItemBlockMulti;
+import com.minestrappolation_core.itemblocks.MCItemBlockStone;
 import com.minestrappolation_core.itemblocks.MCItemBlockStone2;
 import com.minestrappolation_core.lib.MCReference;
 
@@ -17,17 +17,19 @@ public class MCBlockHelper
 	public static Block createStoneBlock(String name, float hardness, CreativeTabs tab)
 	{
 		String name1 = "sc_" + name;
-		Block block1 = new MCBlockStone(name, hardness).setBlockName(name1).setBlockTextureName(MCAssetManager.getSCTexture(name)).setCreativeTab(tab);
-		GameRegistry.registerBlock(block1, MCItemBlockMulti.class, name1);
-		return block1;
+		Block block = new MCBlockStone(name, hardness);
+		block.setBlockName(name1).setBlockTextureName(MCAssetManager.getSCTexture(name)).setCreativeTab(tab);
+		GameRegistry.registerBlock(block, MCItemBlockStone.class, name1);
+		return block;
 	}
 	
 	public static Block createStoneBlock2(String name, float hardness, CreativeTabs tab)
 	{
-		String name2 = "sc2_" + name;
-		Block block2 = new MCBlockStone2(name, hardness).setBlockName(name2).setBlockTextureName(MCAssetManager.getSCTexture(name)).setCreativeTab(tab);
-		GameRegistry.registerBlock(block2, MCItemBlockStone2.class, name2);
-		return block2;
+		String name1 = "sc2_" + name;
+		Block block = new MCBlockStone2(name, hardness);
+		block.setBlockName(name1).setBlockTextureName(MCAssetManager.getSCTexture(name)).setCreativeTab(tab);
+		GameRegistry.registerBlock(block, MCItemBlockStone2.class, name1);
+		return block;
 	}
 	
 	/**
