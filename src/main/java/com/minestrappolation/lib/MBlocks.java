@@ -116,7 +116,7 @@ public class MBlocks
 	public static BlockSlab			woodBoardsSingleSlab;
 	public static BlockSlab			woodBoardsDoubleSlab;
 	
-	public static Block				checkerTileStairs;
+	// public static Block checkerTileStairs;
 	
 	public static Block				infertileDirt;
 	
@@ -252,7 +252,8 @@ public class MBlocks
 		woodBoardsSingleSlab = (BlockSlab) new BlockWoodBoardSlab(false).setBlockName("woodBoardsSingleSlab").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setLightOpacity(255);
 		woodBoardsDoubleSlab = (BlockSlab) new BlockWoodBoardSlab(true).setBlockName("woodBoardsSingleSlab").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setLightOpacity(255);
 		
-		// checkerTileStairs = new EDBlockStairs(Tiles, 3).setBlockName("checkerTileStairs").setHardness(3F).setResistance(10.0F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks);
+		// checkerTileStairs = new EDBlockStairs(Tiles,
+		// 3).setBlockName("checkerTileStairs").setHardness(3F).setResistance(10.0F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks);
 		
 		cobbledRoad = new EDBlockRoad().setHardness(1).setResistance(5F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("cobbledRoad");
 		infertileDirt = new MCBlock(Material.grass).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockName("InfertileSoil").setHardness(.4F).setStepSound(Block.soundTypeGrass).setBlockTextureName(MCAssetManager.getTexture("grasslessDirt"));
@@ -276,7 +277,7 @@ public class MBlocks
 		// TODO: ORGANIZE ED BLOCKS;
 		GameRegistry.registerTileEntity(TileEntityPlate.class, "Plate");
 		
-		GameRegistry.registerBlock(checkerTileStairs, "checkerTileStairs");
+		// GameRegistry.registerBlock(checkerTileStairs, "checkerTileStairs");
 		
 		GameRegistry.registerBlock(cobbledRoad, "cobbledRoad");
 		

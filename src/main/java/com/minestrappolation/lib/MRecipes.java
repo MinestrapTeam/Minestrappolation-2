@@ -1,6 +1,5 @@
 package com.minestrappolation.lib;
 
-import com.minestrappolation_core.lib.MCItems;
 import com.minestrappolation_core.util.MCUtil;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -192,7 +191,8 @@ public class MRecipes
 		
 		GameRegistry.addRecipe(new ItemStack(Blocks.dirt, 8), new Object[] { "DDD", "DBD", "DDD", Character.valueOf('D'), MBlocks.infertileDirt, Character.valueOf('B'), Items.water_bucket.setContainerItem(Items.bucket) });
 		
-		GameRegistry.addRecipe(new ItemStack(MBlocks.edgeStoneBrick), new Object[] { "SQ", "SQ", 'S', MCItems.brickStone, 'Q', Items.quartz });
+		// GameRegistry.addRecipe(new ItemStack(MBlocks.edgeStoneBrick), new
+		// Object[] { "SQ", "SQ", 'S', MCItems.brickStone, 'Q', Items.quartz });
 		
 		GameRegistry.addRecipe(new ItemStack(MBlocks.snowBrick, 4), new Object[] { "SS", "SS", Character.valueOf('S'), Blocks.snow });
 		GameRegistry.addSmelting(Blocks.glass, new ItemStack(MBlocks.glassRefined), 20);
@@ -237,7 +237,9 @@ public class MRecipes
 		GameRegistry.addRecipe(new ItemStack(MBlocks.cardboardBlock, 2), new Object[] { "CCC", " C ", " CC", Character.valueOf('C'), MItems.cardboardItem });
 		GameRegistry.addSmelting(Blocks.sandstone, new ItemStack(MItems.sandstoneBrick, 4), 0.8F);
 		
-		GameRegistry.addRecipe(new ItemStack(Blocks.stonebrick, 2, 3), new Object[] { "BBB", "BBB", "BBB", Character.valueOf('B'), MCItems.brickStone });
+		// GameRegistry.addRecipe(new ItemStack(Blocks.stonebrick, 2, 3), new
+		// Object[] { "BBB", "BBB", "BBB", Character.valueOf('B'),
+		// MCItems.brickStone });
 		
 		GameRegistry.addRecipe(new ItemStack(MBlocks.woodBoardsSingleSlab, 6, 0), new Object[] { "FFF", Character.valueOf('F'), new ItemStack(MBlocks.woodBoards, 1, 0) });
 		GameRegistry.addRecipe(new ItemStack(MBlocks.woodBoardsSingleSlab, 6, 1), new Object[] { "FFF", Character.valueOf('F'), new ItemStack(MBlocks.woodBoards, 1, 1) });
