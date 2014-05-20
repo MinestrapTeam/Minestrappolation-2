@@ -85,7 +85,9 @@ buildCore
 {
     archiveName = "MinestrappolationCore " + minecraft.version + "-1.0.0." + extension
     from 'build/unjar'
-    include('assets/**', 'com/minestrappolation/core/**')
+    {
+        include('assets/**', 'com/minestrappolation_core/**')
+    }
     
     from('api_info')
     {
@@ -101,7 +103,7 @@ buildM
     archiveName = "Minestrappolation " + minecraft.version + "-1.0.0." + extension
     from 'build/unjar'
     {
-    include('assets/**', 'com/minestrappolation/**')
+        include('assets/**', 'com/minestrappolation/**')
     }
     
     from('api_info')
