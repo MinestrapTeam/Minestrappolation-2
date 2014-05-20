@@ -2,11 +2,6 @@
 /*/
 !/src/
 !.gitignore
-!/ed_info/
-!/ee_info/
-!/emd_info/
-!/eo_info/
-!/api_info/
 !/dependencies/
 !version.txt
 !build.gradle
