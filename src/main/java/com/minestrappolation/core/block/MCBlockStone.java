@@ -11,6 +11,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.World;
 
 /**
  * The first stonecutter block type.<br>
@@ -34,28 +35,30 @@ import net.minecraft.util.IIcon;
  */
 public class MCBlockStone extends Block
 {
-	public static final String[] types = new String[] { "raw", "brick", "pattern_brick", "tiles", "road", "refined", "refined_tiles", "chiseled", "chiseled", "cracked", "mossy" };
+	public static final String[]	types	= new String[] { "raw", "brick", "pattern_brick", "tiles", "road", "refined", "refined_tiles", "chiseled", "chiseled", "cracked", "mossy" };
 	
-	public String name;
+	public String					name;
+	public float					baseHardness;
 	
-	public IIcon brickIcon;
-	public IIcon patternBrickIcon;
-	public IIcon tilesIcon;
-	public IIcon roadTopIcon;
-	public IIcon roadSideIcon;
-	public IIcon roadBottomIcon;
-	public IIcon refinedIcon;
-	public IIcon refinedTilesIcon;
-	public IIcon chiseledIcon;
-	public IIcon chiseledIcon2;
-	public IIcon crackedIcon;
-	public IIcon mossyIcon;
+	public IIcon					brickIcon;
+	public IIcon					patternBrickIcon;
+	public IIcon					tilesIcon;
+	public IIcon					roadTopIcon;
+	public IIcon					roadSideIcon;
+	public IIcon					roadBottomIcon;
+	public IIcon					refinedIcon;
+	public IIcon					refinedTilesIcon;
+	public IIcon					chiseledIcon;
+	public IIcon					chiseledIcon2;
+	public IIcon					crackedIcon;
+	public IIcon					mossyIcon;
 	
-	public MCBlockStone(String name)
+	public MCBlockStone(String name, float baseHardness)
 	{
 		super(Material.rock);
 		this.setCreativeTab(Minestrappolation.tabStoneDecor);
 		this.name = name;
+		this.baseHardness = baseHardness;
 	}
 	
 	public String getUnlocalizedName(int metadata)
@@ -63,6 +66,28 @@ public class MCBlockStone extends Block
 		if (metadata >= types.length)
 			metadata = 0;
 		return "tile." + this.name + "." + types[metadata];
+	}
+	
+	@Override
+	public float getBlockHardness(World world, int x, int y, int z)
+	{
+		return this.getHardness(world.getBlockMetadata(x, y, z));
+	}
+	
+	public float getHardness(int metadata)
+	{
+		float f = this.baseHardness;
+		if (metadata == 0)
+			return f;
+		else if (metadata == 3)
+			return f + 0.05F;
+		else if (metadata == 4)
+			return f;
+		else if (metadata == 5)
+			return f + 0.1F;
+		else if (metadata == 6)
+			return f + 0.15F;
+		return f;
 	}
 	
 	@Override

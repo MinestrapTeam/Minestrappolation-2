@@ -3,6 +3,7 @@ package com.minestrappolation.core.block;
 import java.util.List;
 
 import com.minestrappolation.Minestrappolation;
+import com.minestrappolation.core.common.MCCommonProxy;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -45,32 +46,24 @@ public class MCBlockStone2 extends Block
 	public static final String[]	types	= new String[] { "pillar", "raw_slab", "brick_slab", "tile_slab", "refined_slab" };
 	
 	public String					name;
+	public float					baseHardness;
 	
 	public IIcon[]					topIcons;
 	public IIcon[]					sideIcons;
 	
-	public MCBlockStone2(String name)
+	public MCBlockStone2(String name, float baseHardness)
 	{
 		super(Material.rock);
 		this.setCreativeTab(Minestrappolation.tabStoneDecor);
 		this.name = name;
+		this.baseHardness = baseHardness;
 	}
 	
 	@Override
 	public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z)
 	{
 		int i = world.getBlockMetadata(x, y, z);
-		if (i < 3)
-			return;
-		
-		int model = i % 3;
-		
-		if (model == 0)
-			this.setBlockBounds(0F, 0F, 0F, 1F, 0.5F, 1F);
-		else if (model == 1)
-			this.setBlockBounds(0F, 0.5F, 0F, 1F, 1F, 1F);
-		else
-			this.setBlockBounds(0F, 0F, 0F, 1F, 1F, 1F);
+		this.setBlockBounds(i);
 	}
 	
 	@Override
@@ -78,6 +71,25 @@ public class MCBlockStone2 extends Block
 	{
 		setBlockBoundsBasedOnState(world, x, y, z);
 		super.addCollisionBoxesToList(world, x, y, z, aabb, list, entity);
+	}
+	
+	public void setBlockBounds(int metadata)
+	{
+		if (metadata < 3)
+		{
+			this.setBlockBounds(0F, 0F, 0F, 1F, 1F, 1F);
+		}
+		else
+		{
+			int model = metadata % 3;
+			
+			if (model == 0)
+				this.setBlockBounds(0F, 0F, 0F, 1F, 0.5F, 1F);
+			else if (model == 1)
+				this.setBlockBounds(0F, 0.5F, 0F, 1F, 1F, 1F);
+			else
+				this.setBlockBounds(0F, 0F, 0F, 1F, 1F, 1F);
+		}
 	}
 	
 	@Override
@@ -124,6 +136,22 @@ public class MCBlockStone2 extends Block
 		if (metadata >= types.length)
 			metadata = 0;
 		return "tile." + this.name + "." + types[metadata];
+	}
+	
+	@Override
+	public float getBlockHardness(World world, int x, int y, int z)
+	{
+		return this.getHardness(world.getBlockMetadata(x, y, z));
+	}
+	
+	public float getHardness(int metadata)
+	{
+		float f = this.baseHardness;
+		if (metadata < 3)
+			return f + 0.5F;
+		else if (metadata % 3 == 2)
+			return f + 1F;
+		return f;
 	}
 	
 	@Override
@@ -188,6 +216,12 @@ public class MCBlockStone2 extends Block
 	public boolean renderAsNormalBlock()
 	{
 		return false;
+	}
+	
+	@Override
+	public int getRenderType()
+	{
+		return MCCommonProxy.stone2RenderType;
 	}
 	
 	@Override

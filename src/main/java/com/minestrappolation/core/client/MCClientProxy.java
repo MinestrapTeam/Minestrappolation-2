@@ -1,11 +1,13 @@
 package com.minestrappolation.core.client;
 
 import com.minestrappolation.core.client.gui.GuiStonecutter;
+import com.minestrappolation.core.client.renderer.block.RenderBlockStone2;
 import com.minestrappolation.core.client.renderer.tileentity.RenderStonecutter;
 import com.minestrappolation.core.common.MCCommonProxy;
 import com.minestrappolation.core.tileentity.TileEntityStonecutter;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
+import cpw.mods.fml.client.registry.RenderingRegistry;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ThreadDownloadImageData;
@@ -32,6 +34,9 @@ public class MCClientProxy extends MCCommonProxy
 	@Override
 	public void registerRenderers()
 	{
+		stone2RenderType = RenderingRegistry.getNextAvailableRenderId();
+		RenderingRegistry.registerBlockHandler(stone2RenderType, new RenderBlockStone2());
+		
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityStonecutter.class, new RenderStonecutter());
 		
 		addDevCapes();

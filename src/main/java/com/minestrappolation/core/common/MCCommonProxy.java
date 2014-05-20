@@ -11,6 +11,8 @@ import cpw.mods.fml.common.network.IGuiHandler;
 
 public class MCCommonProxy implements IGuiHandler
 {
+	public static int stone2RenderType;
+	
 	public void registerRenderers()
 	{
 	}
