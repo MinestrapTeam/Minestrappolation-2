@@ -3,7 +3,7 @@ package com.minestrappolation.block;
 import java.util.Random;
 
 import com.minestrappolation.Minestrappolation;
-import com.minestrappolation.lib.MBlocks;
+import com.minestrappolation.lib.MItems;
 import com.minestrappolation_core.block.MCBlock;
 import com.minestrappolation_core.util.MCUtil;
 
@@ -40,7 +40,7 @@ public class BlockSoulBlock extends MCBlock
 	@Override
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
-		return MBlocks.SoulGem;
+		return MItems.soulGem;
 	}
 	
 	@Override

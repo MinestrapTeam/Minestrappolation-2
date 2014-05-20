@@ -3,7 +3,6 @@ package com.minestrappolation.block;
 import java.util.Random;
 
 import com.minestrappolation.lib.MItems;
-import com.minestrappolation_core.util.MCAssetManager;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -14,7 +13,6 @@ public class BlockSunstone extends Block
 	public BlockSunstone(Material material)
 	{
 		super(material);
-		this.setBlockTextureName(MCAssetManager.getTexture("blockSunstone"));
 	}
 	
 	@Override

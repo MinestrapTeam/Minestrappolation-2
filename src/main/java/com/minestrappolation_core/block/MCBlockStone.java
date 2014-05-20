@@ -8,9 +8,11 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 /**
@@ -26,6 +28,8 @@ import net.minecraft.world.World;
  * <li>6: Chiseled
  * <li>7: Cracked
  * <li>8: Mossy
+ * <li>14: Glowstone Lamp
+ * <li>15: Sunstone Lamp
  * </ul>
  * Everything else is added by {@link MBlockStone2}
  * 
@@ -33,7 +37,7 @@ import net.minecraft.world.World;
  */
 public class MCBlockStone extends Block
 {
-	public static final String[]	types	= new String[] { null, "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", "cracked", "mossy" };
+	public static final String[]	types	= new String[] { null, "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", "cracked", "mossy", null, null, null, null, null, "glowstone_lamp", "sunstone_lamp" };
 	
 	public String					name;
 	public float					baseHardness;
@@ -45,9 +49,11 @@ public class MCBlockStone extends Block
 	public IIcon					roadBottomIcon;
 	public IIcon					refinedIcon;
 	public IIcon					chiseledTopIcon;
-	public IIcon chiseledSideIcon;
+	public IIcon					chiseledSideIcon;
 	public IIcon					crackedIcon;
 	public IIcon					mossyIcon;
+	public IIcon glowstoneLampIcon;
+	public IIcon sunstoneLampIcon;
 	
 	public MCBlockStone(String name, float baseHardness)
 	{
@@ -84,6 +90,21 @@ public class MCBlockStone extends Block
 		else if (metadata == 6)
 			return f + 0.15F;
 		return f;
+	}
+	
+	@Override
+	public int getLightValue(IBlockAccess world, int x, int y, int z)
+	{
+		int metadata = world.getBlockMetadata(x, y, z);
+		if (metadata == 14)
+		{
+			return Blocks.glowstone.getLightValue();
+		}
+		else if (metadata == 15)
+		{
+			return 15;
+		}
+		return super.getLightValue(world, x, y, z);
 	}
 	
 	@Override

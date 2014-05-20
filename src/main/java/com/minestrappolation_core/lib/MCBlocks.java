@@ -15,5 +15,4 @@ public class MCBlocks
 		stoneCutter = new MCBlockStonecutter().setHardness(3.5F).setStepSound(Block.soundTypeStone).setBlockName("stoneCutter");
 		GameRegistry.registerBlock(stoneCutter, "stoneCutter");
 	}
-	
 }

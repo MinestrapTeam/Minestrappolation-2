@@ -33,7 +33,7 @@ public class BlockBlazium extends MCBlock
 	@Override
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
-		return Item.getItemFromBlock(MBlocks.BlaziumBlock);
+		return Item.getItemFromBlock(MBlocks.blaziumBlock);
 	}
 	
 	@Override
