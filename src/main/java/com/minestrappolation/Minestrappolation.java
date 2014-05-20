@@ -14,7 +14,6 @@ import com.minestrappolation.tileentity.TileEntityMelter;
 import com.minestrappolation.world.MOreGenerator;
 import com.minestrappolation_core.customrecipes.CustomRecipeLoader;
 import com.minestrappolation_core.lib.MCReference;
-import com.minestrappolation_core.util.MCBlockHelper;
 
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
@@ -28,7 +27,6 @@ import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.VillagerRegistry;
 
-import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraftforge.common.MinecraftForge;
@@ -60,18 +58,12 @@ public class Minestrappolation
 	
 	public static Fluid					magmaFluid;
 	
-	public static Block test;
-	public static Block test2;
-	
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent evt)
 	{
 		Blocks.bedrock.setHardness(80F);
 		magmaFluid = new Fluid("Magma").setViscosity(6500).setDensity(3);
 		FluidRegistry.registerFluid(magmaFluid);
-		
-		test = MCBlockHelper.createStoneBlock("stone_bronze", 1F, tabStoneDecor);
-		test2 = MCBlockHelper.createStoneBlock2("stone_bronze", 1F, tabStoneDecor);
 		
 		smelter.load();
 		
