@@ -5,6 +5,7 @@ import clashsoft.brewingapi.BrewingAPI;
 import com.minestrappolation.common.MCommonProxy;
 import com.minestrappolation.core.customrecipes.CustomRecipeLoader;
 import com.minestrappolation.core.lib.MCReference;
+import com.minestrappolation.core.util.MCBlockHelper;
 import com.minestrappolation.creativetab.*;
 import com.minestrappolation.entity.*;
 import com.minestrappolation.handler.BlacksmithTradeHandler;
@@ -27,6 +28,7 @@ import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.VillagerRegistry;
 
+import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraftforge.common.MinecraftForge;
@@ -58,6 +60,9 @@ public class Minestrappolation
 	
 	public static Fluid					magmaFluid;
 	
+	public static Block test;
+	public static Block test2;
+	
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent evt)
 	{
@@ -65,6 +70,9 @@ public class Minestrappolation
 		// MinecraftForge.EVENT_BUS.register(new EOBucketHandler());
 		magmaFluid = new Fluid("Magma").setViscosity(6500).setDensity(3);
 		FluidRegistry.registerFluid(magmaFluid);
+		
+		test = MCBlockHelper.createStoneBlock("stone", 1F, tabStoneDecor);
+		test2 = MCBlockHelper.createStoneBlock2("stone", 1F, tabStoneDecor);
 		
 		smelter.load();
 		
