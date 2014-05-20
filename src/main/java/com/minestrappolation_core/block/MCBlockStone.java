@@ -37,7 +37,7 @@ import net.minecraft.world.World;
  */
 public class MCBlockStone extends Block
 {
-	public static final String[]	types	= new String[] { null, "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", "cracked", "mossy", null, null, null, null, null, "glowstone_lamp", "sunstone_lamp" };
+	public static final String[]	types	= new String[] { "raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", "cracked", "mossy", null, null, null, null, null, "glowstone_lamp", "sunstone_lamp" };
 	
 	public String					name;
 	public float					baseHardness;
@@ -165,7 +165,8 @@ public class MCBlockStone extends Block
 	{
 		for (int i = 0; i < types.length; i++)
 		{
-			list.add(new ItemStack(item, 1, i));
+			if (types[i] != null)
+				list.add(new ItemStack(item, 1, i));
 		}
 	}
 }
