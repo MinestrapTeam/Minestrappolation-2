@@ -11,3 +11,5 @@
 !version.txt
 !build.gradle
 !/libs/
+
+.DS_Store

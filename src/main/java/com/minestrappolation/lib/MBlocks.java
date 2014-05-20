@@ -347,9 +347,9 @@ public class MBlocks
 	
 	public static void init()
 	{
-		meuroditeOre = new EOBlock(Material.rock).setHardness(5F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setResistance(10F).setStepSound(Block.soundTypeStone).setBlockName("oreMeurodite").setBlockTextureName(MCAssetManager.getTexture("oreMeurodite"));
+		meuroditeOre = new MCBlock(Material.rock).setHardness(5F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setResistance(10F).setStepSound(Block.soundTypeStone).setBlockName("oreMeurodite").setBlockTextureName(MCAssetManager.getTexture("oreMeurodite"));
 		GameRegistry.registerBlock(meuroditeOre, "oreMeurodite");
-		meuroditeBlock = new EOBlock(Material.iron).setHardness(5F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setResistance(10F).setStepSound(Block.soundTypeStone).setBlockName("blockMeurodite").setBlockTextureName(MCAssetManager.getTexture("blockMeurodite"));
+		meuroditeBlock = new MCBlock(Material.iron).setHardness(5F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setResistance(10F).setStepSound(Block.soundTypeStone).setBlockName("blockMeurodite").setBlockTextureName(MCAssetManager.getTexture("blockMeurodite"));
 		GameRegistry.registerBlock(meuroditeBlock, "blockMeurodite");
 		UraniumOre = new BlockUraniumOre(Material.rock).setHardness(5F).setResistance(10F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("oreUranium").setBlockTextureName(MCAssetManager.getTexture("oreUranium"));
 		GameRegistry.registerBlock(UraniumOre, "oreUranium");
@@ -359,34 +359,34 @@ public class MBlocks
 		GameRegistry.registerBlock(PlutoniumOre, "orePlutonium");
 		RawPlutoniumBlock = new BlockPlutoniumRaw(Material.rock).setHardness(6F).setResistance(9F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("blockPlutonium").setBlockTextureName(MCAssetManager.getTexture("blockPlutonium"));
 		GameRegistry.registerBlock(RawPlutoniumBlock, "blockPlutoniumRaw");
-		TitaniumOre = new EOBlock(Material.rock).setHardness(10F).setResistance(15F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("oreTitanium").setBlockTextureName(MCAssetManager.getTexture("oreTitanium"));
+		TitaniumOre = new MCBlock(Material.rock).setHardness(10F).setResistance(15F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("oreTitanium").setBlockTextureName(MCAssetManager.getTexture("oreTitanium"));
 		GameRegistry.registerBlock(TitaniumOre, "oreTitanium");
-		TitaniumBlock = new EOBlock(Material.iron).setHardness(10F).setResistance(12000000.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("blockTitanium").setBlockTextureName(MCAssetManager.getTexture("blockTitanium"));
+		TitaniumBlock = new MCBlock(Material.iron).setHardness(10F).setResistance(12000000.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("blockTitanium").setBlockTextureName(MCAssetManager.getTexture("blockTitanium"));
 		GameRegistry.registerBlock(TitaniumBlock, "blockTitanium");
 		Sunstone = new BlockSunstone(Material.glass).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(Minestrappolation.tabBuildingBlocks).setLightLevel(1.0F).setBlockName("blockSunstone").setBlockTextureName(MCAssetManager.getTexture("blockSunstone"));
 		GameRegistry.registerBlock(Sunstone, "blockSunstone");
 		SunstoneOre = new BlockSunstoneOre().setHardness(7F).setResistance(11F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockName("oreSunstone").setBlockTextureName(MCAssetManager.getTexture("oreSunstone")).setLightLevel(1F);
 		GameRegistry.registerBlock(SunstoneOre, "oreSunstone");
 		
-		ToriteOre = new EOBlock(Material.rock).setHardness(7F).setResistance(11F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockName("oreTorite").setBlockTextureName(MCAssetManager.getTexture("oreTorite"));
+		ToriteOre = new MCBlock(Material.rock).setHardness(7F).setResistance(11F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockName("oreTorite").setBlockTextureName(MCAssetManager.getTexture("oreTorite"));
 		GameRegistry.registerBlock(ToriteOre, "oreTorite");
-		ToriteBlock = new EOBlock(Material.iron).setHardness(6F).setResistance(10F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("blockTorite").setBlockTextureName(MCAssetManager.getTexture("blockTorite"));
+		ToriteBlock = new MCBlock(Material.iron).setHardness(6F).setResistance(10F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("blockTorite").setBlockTextureName(MCAssetManager.getTexture("blockTorite"));
 		GameRegistry.registerBlock(ToriteBlock, "blockTorite");
-		Granite = new EOBlock(Material.rock).setHardness(5F).setResistance(9F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockName("graniteRaw").setBlockTextureName(MCAssetManager.getSCTexture("Granite_Raw_0_0"));
+		Granite = new MCBlock(Material.rock).setHardness(5F).setResistance(9F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockName("graniteRaw").setBlockTextureName(MCAssetManager.getSCTexture("Granite_Raw_0_0"));
 		GameRegistry.registerBlock(Granite, "granite");
-		GraniteBrick = new EOBlock(Material.rock).setHardness(6F).setResistance(10F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockName("graniteBricks").setBlockTextureName(MCAssetManager.getSCTexture("Granite_Bricks_0_0"));
+		GraniteBrick = new MCBlock(Material.rock).setHardness(6F).setResistance(10F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockName("graniteBricks").setBlockTextureName(MCAssetManager.getSCTexture("Granite_Bricks_0_0"));
 		GameRegistry.registerBlock(GraniteBrick, "brickGranite");
-		Quartzite = new EOBlock(Material.rock).setHardness(5F).setResistance(9F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockName("desertQuartzRaw").setBlockTextureName(MCAssetManager.getSCTexture("DesertQuartz_Raw_0_0"));
+		Quartzite = new MCBlock(Material.rock).setHardness(5F).setResistance(9F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockName("desertQuartzRaw").setBlockTextureName(MCAssetManager.getSCTexture("DesertQuartz_Raw_0_0"));
 		GameRegistry.registerBlock(Quartzite, "quartzDesert");
-		QuartziteTile = new EOBlock(Material.rock).setHardness(6F).setResistance(10F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockName("desertQuartzTilesRaw").setBlockTextureName(MCAssetManager.getSCTexture("DesertQuartz_TilesRaw_0_0"));
+		QuartziteTile = new MCBlock(Material.rock).setHardness(6F).setResistance(10F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockName("desertQuartzTilesRaw").setBlockTextureName(MCAssetManager.getSCTexture("DesertQuartz_TilesRaw_0_0"));
 		GameRegistry.registerBlock(QuartziteTile, "quartzDesertTile");
-		SmoothQuartzite = new EOBlock(Material.rock).setHardness(6F).setResistance(10F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockName("desertQuartzRefined").setBlockTextureName(MCAssetManager.getSCTexture("DesertQuartz_Refined_0_0"));
+		SmoothQuartzite = new MCBlock(Material.rock).setHardness(6F).setResistance(10F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockName("desertQuartzRefined").setBlockTextureName(MCAssetManager.getSCTexture("DesertQuartz_Refined_0_0"));
 		GameRegistry.registerBlock(SmoothQuartzite, "quartzDesertSmooth");
 		PillarQuartzite = new BlockDesertQuartzPillar().setHardness(6F).setResistance(10F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockName("desertQuartzPillar").setBlockTextureName(MCAssetManager.getSCTexture("DesertQuartz_Pillar_Side_0"));
 		GameRegistry.registerBlock(PillarQuartzite, "quartzDesertPillar");
 		ChiseledQuartzite = new BlockDesertQuartzChiseled().setHardness(6F).setResistance(10F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockName("desertQuartzChiseled").setBlockTextureName(MCAssetManager.getSCTexture("DesertQuartz_Chiseled_Side_0"));
 		GameRegistry.registerBlock(ChiseledQuartzite, "quartzDesertChiseled");
-		SmoothQuartzTile = new EOBlock(Material.rock).setHardness(6F).setResistance(10F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockName("desertQuartzTilesRefined").setBlockTextureName(MCAssetManager.getSCTexture("DesertQuartz_TilesRefined_0_0"));
+		SmoothQuartzTile = new MCBlock(Material.rock).setHardness(6F).setResistance(10F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockName("desertQuartzTilesRefined").setBlockTextureName(MCAssetManager.getSCTexture("DesertQuartz_TilesRefined_0_0"));
 		GameRegistry.registerBlock(SmoothQuartzTile, "quartzDesertSmoothTile");
 		
 		BlaziumOre = new BlockBlaziumOre().setHardness(7F).setResistance(11F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockName("oreBlazium").setBlockTextureName(MCAssetManager.getTexture("oreBlazium")).setLightLevel(0.5F);
@@ -394,15 +394,15 @@ public class MBlocks
 		BlaziumBlock = new BlockBlazium().setHardness(8F).setResistance(12F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockName("blockBlazium").setBlockTextureName(MCAssetManager.getTexture("blockBlazium")).setLightLevel(0.7F);
 		GameRegistry.registerBlock(BlaziumBlock, "blockBlazium");
 		
-		CopperOre = new EOBlock(Material.rock).setHardness(3F).setResistance(5F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("oreCopper").setBlockTextureName(MCAssetManager.getTexture("oreCopper"));
+		CopperOre = new MCBlock(Material.rock).setHardness(3F).setResistance(5F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("oreCopper").setBlockTextureName(MCAssetManager.getTexture("oreCopper"));
 		GameRegistry.registerBlock(CopperOre, "oreCopper");
 		CopperBlock = new BlockCopper(Material.iron).setHardness(5F).setResistance(10F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("blockCopper").setBlockTextureName(MCAssetManager.getTexture("blockCopper"));
 		GameRegistry.registerBlock(CopperBlock, "blockCopper");
 		CopperBlockTarnished = new BlockCopperTarnished().setHardness(6F).setResistance(12F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("blockCopperTarnished").setBlockTextureName(MCAssetManager.getTexture("blockCopperTarnishedTop"));
 		GameRegistry.registerBlock(CopperBlockTarnished, "blockCopperTarnished");
-		TinOre = new EOBlock(Material.rock).setHardness(3F).setResistance(5F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("oreTin").setBlockTextureName(MCAssetManager.getTexture("oreTin"));
+		TinOre = new MCBlock(Material.rock).setHardness(3F).setResistance(5F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("oreTin").setBlockTextureName(MCAssetManager.getTexture("oreTin"));
 		GameRegistry.registerBlock(TinOre, "oreTin");
-		TinBlock = new EOBlock(Material.iron).setHardness(3F).setResistance(2F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("blockTin").setBlockTextureName(MCAssetManager.getTexture("blockTin"));
+		TinBlock = new MCBlock(Material.iron).setHardness(3F).setResistance(2F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("blockTin").setBlockTextureName(MCAssetManager.getTexture("blockTin"));
 		GameRegistry.registerBlock(TinBlock, "blockTin");
 		TinPlate = new BlockPlateMetal().setHardness(0.7F).setStepSound(Block.soundTypeStone).setBlockName("platingTin").setBlockTextureName(MCAssetManager.getTexture("blockTin"));
 		GameRegistry.registerBlock(TinPlate, "plateTin");
@@ -418,51 +418,51 @@ public class MBlocks
 		GameRegistry.registerBlock(SoulOre, "oreSoul");
 		SoulGem = new ItemSoulGem().setCreativeTab(Minestrappolation.tabMaterials).setUnlocalizedName("item_SoulGem").setTextureName(MCAssetManager.getTexture("gemSoulGem"));
 		GameRegistry.registerItem(SoulGem, "gemSoul");
-		TinPlatedCobble = new EOBlock(Material.rock).setHardness(2.0F).setResistance(10.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("stoneCobbledTin").setBlockTextureName(MCAssetManager.getSCTexture("Stone_Cobbled_0_Tin"));
+		TinPlatedCobble = new MCBlock(Material.rock).setHardness(2.0F).setResistance(10.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("stoneCobbledTin").setBlockTextureName(MCAssetManager.getSCTexture("Stone_Cobbled_0_Tin"));
 		GameRegistry.registerBlock(TinPlatedCobble, "cobbleTin");
-		TinPlatedMossy = new EOBlock(Material.rock).setHardness(2.0F).setResistance(10.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("stoneCobbledMossyTin").setBlockTextureName(MCAssetManager.getSCTexture("Stone_CobbledMossy_0_Tin"));
+		TinPlatedMossy = new MCBlock(Material.rock).setHardness(2.0F).setResistance(10.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("stoneCobbledMossyTin").setBlockTextureName(MCAssetManager.getSCTexture("Stone_CobbledMossy_0_Tin"));
 		GameRegistry.registerBlock(TinPlatedMossy, "cobbleMossyTin");
-		TinPlatedStoneBrick = new EOBlock(Material.rock).setHardness(1.5F).setResistance(10.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("stoneBricksTin").setBlockTextureName(MCAssetManager.getSCTexture("Stone_Bricks_0_Tin"));
+		TinPlatedStoneBrick = new MCBlock(Material.rock).setHardness(1.5F).setResistance(10.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("stoneBricksTin").setBlockTextureName(MCAssetManager.getSCTexture("Stone_Bricks_0_Tin"));
 		GameRegistry.registerBlock(TinPlatedStoneBrick, "stoneBrickTin");
-		TinPlatedChiseled = new EOBlock(Material.rock).setHardness(1.5F).setResistance(10.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("stoneChiseledTin").setBlockTextureName(MCAssetManager.getSCTexture("Stone_Chiseled_0_Tin"));
+		TinPlatedChiseled = new MCBlock(Material.rock).setHardness(1.5F).setResistance(10.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("stoneChiseledTin").setBlockTextureName(MCAssetManager.getSCTexture("Stone_Chiseled_0_Tin"));
 		GameRegistry.registerBlock(TinPlatedChiseled, "stoneBrickChiseledTin");
-		TinPlatedGranite = new EOBlock(Material.rock).setHardness(6F).setResistance(10.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("graniteBricksTin").setBlockTextureName(MCAssetManager.getSCTexture("Granite_Bricks_0_Tin"));
+		TinPlatedGranite = new MCBlock(Material.rock).setHardness(6F).setResistance(10.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("graniteBricksTin").setBlockTextureName(MCAssetManager.getSCTexture("Granite_Bricks_0_Tin"));
 		GameRegistry.registerBlock(TinPlatedGranite, "graniteTin");
-		BronzeBlock = new EOBlock(Material.iron).setHardness(7F).setResistance(20F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("block_Bronze").setBlockTextureName(MCAssetManager.getTexture("blockBronze"));
+		BronzeBlock = new MCBlock(Material.iron).setHardness(7F).setResistance(20F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("block_Bronze").setBlockTextureName(MCAssetManager.getTexture("blockBronze"));
 		GameRegistry.registerBlock(BronzeBlock, "blockBronze");
-		BronzePlatedCobble = new EOBlock(Material.rock).setHardness(2.0F).setResistance(30.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("block_BronzeCobble").setBlockTextureName(MCAssetManager.getSCTexture("Stone_Cobbled_0_Bronze"));
+		BronzePlatedCobble = new MCBlock(Material.rock).setHardness(2.0F).setResistance(30.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("block_BronzeCobble").setBlockTextureName(MCAssetManager.getSCTexture("Stone_Cobbled_0_Bronze"));
 		GameRegistry.registerBlock(BronzePlatedCobble, "cobbleBronze");
-		BronzePlatedMossy = new EOBlock(Material.rock).setHardness(2.0F).setResistance(30.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("block_BronzeMossy").setBlockTextureName(MCAssetManager.getSCTexture("Stone_CobbledMossy_0_Bronze"));
+		BronzePlatedMossy = new MCBlock(Material.rock).setHardness(2.0F).setResistance(30.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("block_BronzeMossy").setBlockTextureName(MCAssetManager.getSCTexture("Stone_CobbledMossy_0_Bronze"));
 		GameRegistry.registerBlock(BronzePlatedMossy, "cobbleMossyBronze");
-		BronzePlatedStoneBrick = new EOBlock(Material.rock).setHardness(1.5F).setResistance(30.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("block_BronzeStoneBrick").setBlockTextureName(MCAssetManager.getSCTexture("Stone_Bricks_0_Bronze"));
+		BronzePlatedStoneBrick = new MCBlock(Material.rock).setHardness(1.5F).setResistance(30.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("block_BronzeStoneBrick").setBlockTextureName(MCAssetManager.getSCTexture("Stone_Bricks_0_Bronze"));
 		GameRegistry.registerBlock(BronzePlatedStoneBrick, "stoneBrickBronze");
-		BronzePlatedChiseled = new EOBlock(Material.rock).setHardness(1.5F).setResistance(30.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("block_BronzeChiseled").setBlockTextureName(MCAssetManager.getSCTexture("Stone_Chiseled_0_Bronze"));
+		BronzePlatedChiseled = new MCBlock(Material.rock).setHardness(1.5F).setResistance(30.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("block_BronzeChiseled").setBlockTextureName(MCAssetManager.getSCTexture("Stone_Chiseled_0_Bronze"));
 		GameRegistry.registerBlock(BronzePlatedChiseled, "stoneBrickChiseledBronze");
-		BronzePlatedGranite = new EOBlock(Material.rock).setHardness(6F).setResistance(30.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("block_BronzeGraniteBrick").setBlockTextureName(MCAssetManager.getSCTexture("Granite_Bricks_0_Bronze"));
+		BronzePlatedGranite = new MCBlock(Material.rock).setHardness(6F).setResistance(30.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("block_BronzeGraniteBrick").setBlockTextureName(MCAssetManager.getSCTexture("Granite_Bricks_0_Bronze"));
 		GameRegistry.registerBlock(BronzePlatedGranite, "graniteBronze");
 		Invincium = new BlockInvincium(Material.rock).setBlockUnbreakable().setResistance(12000000.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("block_Invincium").setBlockTextureName(MCAssetManager.getTexture("invincium"));
 		GameRegistry.registerBlock(Invincium, "invincium");
-		SteelPlatedCobble = new EOBlock(Material.rock).setHardness(2.0F).setResistance(20.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("block_SteelCobble").setBlockTextureName(MCAssetManager.getSCTexture("Stone_Cobbled_0_Steel"));
+		SteelPlatedCobble = new MCBlock(Material.rock).setHardness(2.0F).setResistance(20.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("block_SteelCobble").setBlockTextureName(MCAssetManager.getSCTexture("Stone_Cobbled_0_Steel"));
 		GameRegistry.registerBlock(SteelPlatedCobble, "cobbleSteel");
-		SteelPlatedMossy = new EOBlock(Material.rock).setHardness(2.0F).setResistance(20.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("block_SteelMossy").setBlockTextureName(MCAssetManager.getSCTexture("Stone_CobbledMossy_0_Steel"));
+		SteelPlatedMossy = new MCBlock(Material.rock).setHardness(2.0F).setResistance(20.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("block_SteelMossy").setBlockTextureName(MCAssetManager.getSCTexture("Stone_CobbledMossy_0_Steel"));
 		GameRegistry.registerBlock(SteelPlatedMossy, "cobbleMossySteel");
-		SteelPlatedStoneBrick = new EOBlock(Material.rock).setHardness(1.5F).setResistance(20.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("block_SteelStoneBrick").setBlockTextureName(MCAssetManager.getSCTexture("Stone_Bricks_0_Steel"));
+		SteelPlatedStoneBrick = new MCBlock(Material.rock).setHardness(1.5F).setResistance(20.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("block_SteelStoneBrick").setBlockTextureName(MCAssetManager.getSCTexture("Stone_Bricks_0_Steel"));
 		GameRegistry.registerBlock(SteelPlatedStoneBrick, "stoneBrickSteel");
-		SteelPlatedChiseled = new EOBlock(Material.rock).setHardness(1.5F).setResistance(20.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("block_SteelChiseled").setBlockTextureName(MCAssetManager.getSCTexture("Stone_Chiseled_0_Steel"));
+		SteelPlatedChiseled = new MCBlock(Material.rock).setHardness(1.5F).setResistance(20.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("block_SteelChiseled").setBlockTextureName(MCAssetManager.getSCTexture("Stone_Chiseled_0_Steel"));
 		GameRegistry.registerBlock(SteelPlatedChiseled, "stoneBrickChiseledSteel");
-		SteelPlatedGranite = new EOBlock(Material.rock).setHardness(6F).setResistance(20.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("block_SteelGraniteBrick").setBlockTextureName(MCAssetManager.getSCTexture("Granite_Bricks_0_Steel"));
+		SteelPlatedGranite = new MCBlock(Material.rock).setHardness(6F).setResistance(20.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("block_SteelGraniteBrick").setBlockTextureName(MCAssetManager.getSCTexture("Granite_Bricks_0_Steel"));
 		GameRegistry.registerBlock(SteelPlatedGranite, "graniteSteel");
 		SoulBottle = new ItemSoulBottle().setCreativeTab(Minestrappolation.tabMaterials).setUnlocalizedName("SoulBottle").setTextureName(MCAssetManager.getTexture("utilitySoulBottle"));
 		GameRegistry.registerItem(SoulBottle, "soulBottle");
 		nuke = new BlockNuke().setHardness(0.0F).setStepSound(Block.soundTypeGrass).setBlockName("nuke");
 		GameRegistry.registerBlock(nuke, "nuke");
-		SmoothRadiantQuartz = new EOBlock(Material.rock).setHardness(6F).setResistance(10F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setLightLevel(0.5F).setBlockName("block_SmoothRadiantQuartz").setBlockTextureName(MCAssetManager.getSCTexture("RadiantQuartz_Raw_0_0"));
+		SmoothRadiantQuartz = new MCBlock(Material.rock).setHardness(6F).setResistance(10F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setLightLevel(0.5F).setBlockName("block_SmoothRadiantQuartz").setBlockTextureName(MCAssetManager.getSCTexture("RadiantQuartz_Raw_0_0"));
 		GameRegistry.registerBlock(SmoothRadiantQuartz, "quartzRadiantSmooth");
-		ChiseledRadiantQuartz = new EOBlock(Material.rock).setHardness(6F).setResistance(10F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setLightLevel(0.5F).setBlockName("block_ChiseledRadiantQuartz").setBlockTextureName(MCAssetManager.getSCTexture("RadiantQuartz_Chiseled_0_0"));
+		ChiseledRadiantQuartz = new MCBlock(Material.rock).setHardness(6F).setResistance(10F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setLightLevel(0.5F).setBlockName("block_ChiseledRadiantQuartz").setBlockTextureName(MCAssetManager.getSCTexture("RadiantQuartz_Chiseled_0_0"));
 		GameRegistry.registerBlock(ChiseledRadiantQuartz, "quartzRadiantChiseled");
 		PillarRadiantQuartz = new BlockRadiantPillar().setHardness(6F).setResistance(10F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setLightLevel(0.5F).setBlockName("PillarRadiantQuartz");
 		GameRegistry.registerBlock(PillarRadiantQuartz, "quartzRadiantPillar");
-		RadiantQuartzOre = new EOBlock(Material.rock).setHardness(5.5F).setResistance(10F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setLightLevel(0.4F).setBlockName("block_RadiantQuartzOre").setBlockTextureName(MCAssetManager.getTexture("oreRadiantQuartz"));
+		RadiantQuartzOre = new MCBlock(Material.rock).setHardness(5.5F).setResistance(10F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setLightLevel(0.4F).setBlockName("block_RadiantQuartzOre").setBlockTextureName(MCAssetManager.getTexture("oreRadiantQuartz"));
 		GameRegistry.registerBlock(RadiantQuartzOre, "oreQuartzRadiant");
 		RadiantQuartz = new MItemFoiled().setCreativeTab(Minestrappolation.tabMaterials).setUnlocalizedName("item_RadiantQuartz").setTextureName(MCAssetManager.getTexture("gemRadiantQuartz"));
 		GameRegistry.registerItem(RadiantQuartz, "quartzRadiant");
@@ -474,7 +474,7 @@ public class MBlocks
 		GameRegistry.registerBlock(melterBurning, "melterBurning");
 		
 		/*
-		 * RadiantQuartzStairs = new EOBlockStairs(SmoothRadiantQuartz,
+		 * RadiantQuartzStairs = new MCBlockStairs(SmoothRadiantQuartz,
 		 * 0).setLightLevel(0.5F).setBlockName("RadiantQuartzStairs");
 		 * GameRegistry.registerBlock(RadiantQuartzStairs,
 		 * "quartzRadiantStairs"); RadiantQuartzSingleSlab = (BlockSlab) new
@@ -489,7 +489,7 @@ public class MBlocks
 		 * registerBlock(RadiantQuartzDoubleSlab, MItemslab.class,
 		 * (BlockSlab)RadiantQuartzSingleSlab,
 		 * (BlockSlab)RadiantQuartzDoubleSlab); PinkQuartzStairs = new
-		 * EOBlockStairs(SmoothQuartzite, 0).setBlockName("PinkQuartzStairs");
+		 * MCBlockStairs(SmoothQuartzite, 0).setBlockName("PinkQuartzStairs");
 		 * GameRegistry.registerBlock(PinkQuartzStairs, "quartzDesertStairs");
 		 * PinkQuartzSingleSlab = (BlockSlab) new
 		 * PinkQuartzSlab(false).setBlockName
@@ -501,7 +501,7 @@ public class MBlocks
 		 * (BlockSlab)PinkQuartzSingleSlab, (BlockSlab)PinkQuartzDoubleSlab);
 		 * registerBlock(PinkQuartzDoubleSlab, MItemslab.class,
 		 * (BlockSlab)PinkQuartzSingleSlab, (BlockSlab)PinkQuartzDoubleSlab);
-		 * graniteBrickStairs = new EOBlockStairs(GraniteBrick,
+		 * graniteBrickStairs = new MCBlockStairs(GraniteBrick,
 		 * 0).setBlockName("graniteBrickStairs");
 		 * GameRegistry.registerBlock(graniteBrickStairs,"graniteBrickStairs");
 		 * graniteBrickSingleSlab = (BlockSlab) new
@@ -516,7 +516,7 @@ public class MBlocks
 		 * registerBlock(graniteBrickDoubleSlab, MItemslab.class,
 		 * (BlockSlab)graniteBrickSingleSlab,
 		 * (BlockSlab)graniteBrickDoubleSlab); tinPlatedCobbleStairs = new
-		 * EOBlockStairs(TinPlatedCobble,
+		 * MCBlockStairs(TinPlatedCobble,
 		 * 0).setBlockName("tinPlatedCobbleStairs");
 		 * GameRegistry.registerBlock(tinPlatedCobbleStairs,"cobbleStairsTin");
 		 * tinPlatedCobbleSingleSlab = (BlockSlab) new
@@ -531,7 +531,7 @@ public class MBlocks
 		 * registerBlock(tinPlatedCobbleDoubleSlab, MItemslab.class,
 		 * (BlockSlab)tinPlatedCobbleSingleSlab,
 		 * (BlockSlab)tinPlatedCobbleDoubleSlab); steelPlatedCobbleStairs = new
-		 * EOBlockStairs(SteelPlatedCobble,
+		 * MCBlockStairs(SteelPlatedCobble,
 		 * 0).setBlockName("steelPlatedCobbleStairs");
 		 * GameRegistry.registerBlock(steelPlatedCobbleStairs,
 		 * "stairsCobbleSteel"); steelPlatedCobbleSingleSlab = (BlockSlab) new
@@ -547,7 +547,7 @@ public class MBlocks
 		 * registerBlock(steelPlatedCobbleDoubleSlab,
 		 * MItemslab.class,(BlockSlab) steelPlatedCobbleSingleSlab,
 		 * (BlockSlab)steelPlatedCobbleDoubleSlab); bronzePlatedCobbleStairs =
-		 * new EOBlockStairs(BronzePlatedCobble,
+		 * new MCBlockStairs(BronzePlatedCobble,
 		 * 0).setBlockName("bronzePlatedCobbleStairs");
 		 * GameRegistry.registerBlock(bronzePlatedCobbleStairs,
 		 * "cobbleStairsBronze"); bronzePlatedCobbleSingleSlab = (BlockSlab) new
@@ -563,7 +563,7 @@ public class MBlocks
 		 * registerBlock(bronzePlatedCobbleDoubleSlab, MItemslab.class,
 		 * (BlockSlab)bronzePlatedCobbleSingleSlab,
 		 * (BlockSlab)bronzePlatedCobbleDoubleSlab); tinPlatedStoneBrickStairs =
-		 * new EOBlockStairs(TinPlatedStoneBrick,
+		 * new MCBlockStairs(TinPlatedStoneBrick,
 		 * 0).setBlockName("tinPlatedStoneBrickStairs");
 		 * GameRegistry.registerBlock(tinPlatedStoneBrickStairs,
 		 * "stoneBrickStairsTin"); tinPlatedStoneBrickSingleSlab = (BlockSlab)
@@ -580,7 +580,7 @@ public class MBlocks
 		 * (BlockSlab)tinPlatedStoneBrickSingleSlab,
 		 * (BlockSlab)tinPlatedStoneBrickDoubleSlab);
 		 * steelPlatedStoneBrickStairs = new
-		 * EOBlockStairs(SteelPlatedStoneBrick,
+		 * MCBlockStairs(SteelPlatedStoneBrick,
 		 * 0).setBlockName("steelPlatedStoneBrickStairs");
 		 * GameRegistry.registerBlock(steelPlatedStoneBrickStairs,
 		 * "stoneBrickStairsSteel"); steelPlatedStoneBrickSingleSlab =
@@ -597,7 +597,7 @@ public class MBlocks
 		 * (BlockSlab)steelPlatedStoneBrickSingleSlab,
 		 * (BlockSlab)steelPlatedStoneBrickDoubleSlab);
 		 * bronzePlatedStoneBrickStairs = new
-		 * EOBlockStairs(BronzePlatedStoneBrick,
+		 * MCBlockStairs(BronzePlatedStoneBrick,
 		 * 0).setBlockName("bronzePlatedStoneBrickStairs");
 		 * GameRegistry.registerBlock(bronzePlatedStoneBrickStairs,
 		 * "stoneBrickStairsBronze"); bronzePlatedStoneBrickSingleSlab =
@@ -613,7 +613,7 @@ public class MBlocks
 		 * registerBlock(bronzePlatedStoneBrickDoubleSlab, MItemslab.class,
 		 * (BlockSlab)bronzePlatedStoneBrickSingleSlab,
 		 * (BlockSlab)bronzePlatedStoneBrickDoubleSlab);
-		 * tinPlatedGraniteBrickStairs = new EOBlockStairs(TinPlatedGranite,
+		 * tinPlatedGraniteBrickStairs = new MCBlockStairs(TinPlatedGranite,
 		 * 0).setBlockName("tinPlatedGraniteBrickStairs");
 		 * GameRegistry.registerBlock(tinPlatedGraniteBrickStairs,
 		 * "graniteStairsTin"); tinPlatedGraniteBrickSingleSlab = (BlockSlab)
@@ -629,7 +629,7 @@ public class MBlocks
 		 * registerBlock(tinPlatedGraniteBrickDoubleSlab, MItemslab.class,
 		 * (BlockSlab)tinPlatedGraniteBrickSingleSlab,(BlockSlab)
 		 * tinPlatedGraniteBrickDoubleSlab); steelPlatedGraniteBrickStairs = new
-		 * EOBlockStairs(SteelPlatedGranite,
+		 * MCBlockStairs(SteelPlatedGranite,
 		 * 0).setBlockName("steelPlatedGraniteBrickStairs");
 		 * GameRegistry.registerBlock(steelPlatedGraniteBrickStairs,
 		 * "graniteBrickStairsSteel"); steelPlatedGraniteBrickSingleSlab =
@@ -645,7 +645,7 @@ public class MBlocks
 		 * registerBlock(steelPlatedGraniteBrickDoubleSlab, MItemslab.class,
 		 * (BlockSlab)steelPlatedGraniteBrickSingleSlab,(BlockSlab)
 		 * steelPlatedGraniteBrickDoubleSlab); bronzePlatedGraniteBrickStairs =
-		 * new EOBlockStairs(BronzePlatedGranite,
+		 * new MCBlockStairs(BronzePlatedGranite,
 		 * 0).setBlockName("bronzePlatedGraniteBrickStairs");
 		 * GameRegistry.registerBlock(bronzePlatedGraniteBrickStairs,
 		 * "graniteBrickStairsBronze"); bronzePlatedGraniteBrickSingleSlab =
