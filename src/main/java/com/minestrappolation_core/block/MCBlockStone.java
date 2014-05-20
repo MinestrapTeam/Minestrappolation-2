@@ -41,7 +41,6 @@ public class MCBlockStone extends Block
 	public IIcon					brickIcon;
 	public IIcon					patternBrickIcon;
 	public IIcon					tilesIcon;
-	public IIcon					roadTopIcon;
 	public IIcon					roadSideIcon;
 	public IIcon					roadBottomIcon;
 	public IIcon					refinedIcon;
@@ -94,7 +93,6 @@ public class MCBlockStone extends Block
 		this.brickIcon = iconRegister.registerIcon(this.getTextureName() + "_bricks");
 		this.patternBrickIcon = iconRegister.registerIcon(this.getTextureName() + "_pattern_bricks");
 		this.tilesIcon = iconRegister.registerIcon(this.getTextureName() + "_tiles");
-		this.roadTopIcon = iconRegister.registerIcon(this.getTextureName() + "_road_top");
 		this.roadSideIcon = iconRegister.registerIcon(this.getTextureName() + "_road_side");
 		this.roadBottomIcon = iconRegister.registerIcon(this.getTextureName() + "_road_bottom");
 		this.refinedIcon = iconRegister.registerIcon(this.getTextureName() + "_refined");
@@ -120,7 +118,7 @@ public class MCBlockStone extends Block
 			if (side == 0)
 				return this.roadBottomIcon;
 			else if (side == 1)
-				return this.roadTopIcon;
+				return this.patternBrickIcon;
 			else
 				return this.roadSideIcon;
 		}
