@@ -1,6 +1,6 @@
 package com.minestrappolation.lib;
 
-import com.minestrappolation.core.util.MCUtil;
+import com.minestrappolation_core.util.MCUtil;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 

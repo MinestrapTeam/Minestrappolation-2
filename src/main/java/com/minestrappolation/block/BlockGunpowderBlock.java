@@ -2,7 +2,7 @@ package com.minestrappolation.block;
 
 import java.util.Random;
 
-import com.minestrappolation.core.util.MCUtil;
+import com.minestrappolation_core.util.MCUtil;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;

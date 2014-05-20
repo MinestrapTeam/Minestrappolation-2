@@ -1,7 +1,7 @@
 package com.minestrappolation.lib;
 
-import com.minestrappolation.core.customrecipes.CustomRecipeLoader;
 import com.minestrappolation.crafting.MelterRecipes;
+import com.minestrappolation_core.customrecipes.CustomRecipeLoader;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

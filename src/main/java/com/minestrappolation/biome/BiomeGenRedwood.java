@@ -1,6 +1,6 @@
 package com.minestrappolation.biome;
 
-import com.minestrappolation.core.biome.MCCustomBiomeDecorator;
+import com.minestrappolation_core.biome.MCCustomBiomeDecorator;
 
 import net.minecraft.world.biome.BiomeGenBase;
 

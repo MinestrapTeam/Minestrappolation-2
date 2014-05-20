@@ -2,7 +2,7 @@ package com.minestrappolation.item;
 
 import java.util.List;
 
-import com.minestrappolation.core.util.MCAssetManager;
+import com.minestrappolation_core.util.MCAssetManager;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

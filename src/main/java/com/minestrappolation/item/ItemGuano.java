@@ -2,7 +2,7 @@ package com.minestrappolation.item;
 
 import java.util.List;
 
-import com.minestrappolation.core.item.MCItem;
+import com.minestrappolation_core.item.MCItem;
 
 import clashsoft.cslib.minecraft.lang.I18n;
 

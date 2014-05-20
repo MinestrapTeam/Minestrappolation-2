@@ -1,7 +1,7 @@
 package com.minestrappolation.lib;
 
-import com.minestrappolation.core.potion.MCPotion;
-import com.minestrappolation.core.util.MCAssetManager;
+import com.minestrappolation_core.potion.MCPotion;
+import com.minestrappolation_core.util.MCAssetManager;
 
 import clashsoft.brewingapi.potion.IPotionEffectHandler;
 import clashsoft.brewingapi.potion.PotionList;

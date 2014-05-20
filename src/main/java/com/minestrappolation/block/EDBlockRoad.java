@@ -1,7 +1,7 @@
 package com.minestrappolation.block;
 
-import com.minestrappolation.core.util.MCAssetManager;
 import com.minestrappolation.lib.MBlocks;
+import com.minestrappolation_core.util.MCAssetManager;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

@@ -2,9 +2,9 @@ package com.minestrappolation.block;
 
 import java.util.Random;
 
-import com.minestrappolation.core.util.MCAssetManager;
 import com.minestrappolation.lib.MBlocks;
 import com.minestrappolation.lib.MConfig;
+import com.minestrappolation_core.util.MCAssetManager;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

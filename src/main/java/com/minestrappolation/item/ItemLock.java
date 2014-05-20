@@ -1,7 +1,7 @@
 package com.minestrappolation.item;
 
-import com.minestrappolation.core.util.MCChatMessageHandler;
 import com.minestrappolation.tileentity.TileEntityLocked;
+import com.minestrappolation_core.util.MCChatMessageHandler;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;

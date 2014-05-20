@@ -3,9 +3,9 @@ package com.minestrappolation.block;
 import java.util.Random;
 
 import com.minestrappolation.Minestrappolation;
-import com.minestrappolation.core.block.MCBlock;
-import com.minestrappolation.core.util.MCUtil;
 import com.minestrappolation.lib.MBlocks;
+import com.minestrappolation_core.block.MCBlock;
+import com.minestrappolation_core.util.MCUtil;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;

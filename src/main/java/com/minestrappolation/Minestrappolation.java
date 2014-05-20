@@ -3,9 +3,6 @@ package com.minestrappolation;
 import clashsoft.brewingapi.BrewingAPI;
 
 import com.minestrappolation.common.MCommonProxy;
-import com.minestrappolation.core.customrecipes.CustomRecipeLoader;
-import com.minestrappolation.core.lib.MCReference;
-import com.minestrappolation.core.util.MCBlockHelper;
 import com.minestrappolation.creativetab.*;
 import com.minestrappolation.entity.*;
 import com.minestrappolation.handler.BlacksmithTradeHandler;
@@ -15,6 +12,9 @@ import com.minestrappolation.handler.PriestTradeHandler;
 import com.minestrappolation.lib.*;
 import com.minestrappolation.tileentity.TileEntityMelter;
 import com.minestrappolation.world.MOreGenerator;
+import com.minestrappolation_core.customrecipes.CustomRecipeLoader;
+import com.minestrappolation_core.lib.MCReference;
+import com.minestrappolation_core.util.MCBlockHelper;
 
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;

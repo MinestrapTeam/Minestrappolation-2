@@ -1,7 +1,7 @@
 package com.minestrappolation.block.slab;
 
-import com.minestrappolation.core.block.MCBlockMultiSlab;
 import com.minestrappolation.lib.MBlocks;
+import com.minestrappolation_core.block.MCBlockMultiSlab;
 
 import net.minecraft.item.Item;
 

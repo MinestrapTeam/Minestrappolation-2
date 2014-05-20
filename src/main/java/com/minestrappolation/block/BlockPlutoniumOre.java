@@ -2,10 +2,10 @@ package com.minestrappolation.block;
 
 import java.util.Random;
 
-import com.minestrappolation.core.util.MCAssetManager;
-import com.minestrappolation.core.util.MCUtil;
 import com.minestrappolation.lib.MConfig;
 import com.minestrappolation.lib.MItems;
+import com.minestrappolation_core.util.MCAssetManager;
+import com.minestrappolation_core.util.MCUtil;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;

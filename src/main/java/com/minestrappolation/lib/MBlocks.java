@@ -4,10 +4,6 @@ import com.minestrappolation.Minestrappolation;
 import com.minestrappolation.block.*;
 import com.minestrappolation.block.slab.BlockClaySlab;
 import com.minestrappolation.block.slab.BlockWoodBoardSlab;
-import com.minestrappolation.core.block.*;
-import com.minestrappolation.core.itemblocks.MCItemBlockMulti;
-import com.minestrappolation.core.itemblocks.MCItemBlockSlab;
-import com.minestrappolation.core.util.MCAssetManager;
 import com.minestrappolation.item.ItemSoulBottle;
 import com.minestrappolation.item.ItemSoulGem;
 import com.minestrappolation.item.MItemFoiled;
@@ -15,6 +11,10 @@ import com.minestrappolation.item.block.ItemBlockClaySlab;
 import com.minestrappolation.item.block.ItemBlockWoodBoardSlab;
 import com.minestrappolation.material.MaterialOoze;
 import com.minestrappolation.tileentity.TileEntityPlate;
+import com.minestrappolation_core.block.*;
+import com.minestrappolation_core.itemblocks.MCItemBlockMulti;
+import com.minestrappolation_core.itemblocks.MCItemBlockSlab;
+import com.minestrappolation_core.util.MCAssetManager;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 

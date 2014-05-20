@@ -3,8 +3,8 @@ package com.minestrappolation.block;
 import java.util.List;
 import java.util.Random;
 
-import com.minestrappolation.core.util.MCAssetManager;
 import com.minestrappolation.lib.MBlocks;
+import com.minestrappolation_core.util.MCAssetManager;
 
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.material.Material;

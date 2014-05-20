@@ -1,7 +1,7 @@
 package com.minestrappolation.item;
 
-import com.minestrappolation.core.item.MCItem;
 import com.minestrappolation.entity.EntityHangGlider;
+import com.minestrappolation_core.item.MCItem;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;

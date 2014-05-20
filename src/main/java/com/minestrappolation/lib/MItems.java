@@ -2,9 +2,9 @@ package com.minestrappolation.lib;
 
 import com.minestrappolation.Minestrappolation;
 import com.minestrappolation.common.MCommonProxy;
-import com.minestrappolation.core.item.*;
-import com.minestrappolation.core.util.MCAssetManager;
 import com.minestrappolation.item.*;
+import com.minestrappolation_core.item.*;
+import com.minestrappolation_core.util.MCAssetManager;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
