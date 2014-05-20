@@ -1,7 +1,7 @@
 package com.minestrappolation.block;
 
-import com.minestrappolation.core.util.MCAssetManager;
 import com.minestrappolation.lib.MBlocks;
+import com.minestrappolation_core.util.MCAssetManager;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -27,19 +27,7 @@ public class EDBlockRoad extends Block
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		if (this == MBlocks.refinedRoad)
-		{
-			this.blockIcon = iconRegister.registerIcon(MCAssetManager.getSCTexture("Stone_Road_Side_0"));
-			this.top = iconRegister.registerIcon(MCAssetManager.getSCTexture("Stone_PatternBricks_0_0"));
-			this.bottom = iconRegister.registerIcon(MCAssetManager.getTexture("roadStoneBottom"));
-		}
-		else if (this == MBlocks.refinedNetherroad)
-		{
-			this.blockIcon = iconRegister.registerIcon(MCAssetManager.getSCTexture("Netherrack_Road_Side_0"));
-			this.top = iconRegister.registerIcon(MCAssetManager.getSCTexture("Netherrack_PatternBricks_0_0"));
-			this.bottom = iconRegister.registerIcon(MCAssetManager.getTexture("roadNetherrackBottom"));
-		}
-		else if (this == MBlocks.cobbledRoad)
+		if (this == MBlocks.cobbledRoad)
 		{
 			this.blockIcon = iconRegister.registerIcon(MCAssetManager.getTexture("roadCobbledSide"));
 			this.top = iconRegister.registerIcon(MCAssetManager.getTexture("roadCobbledTop"));
@@ -88,17 +76,7 @@ public class EDBlockRoad extends Block
 	@Override
 	public void onEntityWalking(World world, int x, int y, int z, Entity entity)
 	{
-		if (this == MBlocks.refinedRoad)
-		{
-			entity.motionX *= 1.6;
-			entity.motionZ *= 1.6;
-		}
-		else if (this == MBlocks.refinedNetherroad)
-		{
-			entity.motionX *= 2.4;
-			entity.motionZ *= 2.4;
-		}
-		else if (this == MBlocks.cobbledRoad)
+		if (this == MBlocks.cobbledRoad)
 		{
 			entity.motionX *= 1.4;
 			entity.motionZ *= 1.4;

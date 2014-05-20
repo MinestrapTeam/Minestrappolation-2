@@ -19,15 +19,15 @@ public class BlockPlateMetal extends BlockRailBase
 	@Override
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
-		if (this == MBlocks.TinPlate)
+		if (this == MBlocks.tinPlate)
 		{
 			return MItems.plateTinItem;
 		}
-		else if (this == MBlocks.BronzePlate)
+		else if (this == MBlocks.bronzePlate)
 		{
 			return MItems.plateBronzeItem;
 		}
-		else if (this == MBlocks.SteelPlate)
+		else if (this == MBlocks.steelPlate)
 		{
 			return MItems.plateSteelItem;
 		}

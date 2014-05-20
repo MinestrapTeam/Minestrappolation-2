@@ -1,6 +1,6 @@
 package com.minestrappolation.block;
 
-import com.minestrappolation.core.block.MCBlock;
+import com.minestrappolation_core.block.MCBlock;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;

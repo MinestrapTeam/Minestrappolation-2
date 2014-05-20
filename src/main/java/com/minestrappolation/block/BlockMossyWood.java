@@ -5,7 +5,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 import java.util.List;
 
-import com.minestrappolation.core.util.MCAssetManager;
+import com.minestrappolation_core.util.MCAssetManager;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

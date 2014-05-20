@@ -1,6 +1,6 @@
 package com.minestrappolation.item;
 
-import com.minestrappolation.core.item.MCItemPickaxe;
+import com.minestrappolation_core.item.MCItemPickaxe;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;

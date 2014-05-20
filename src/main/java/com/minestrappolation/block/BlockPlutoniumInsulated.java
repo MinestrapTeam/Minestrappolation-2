@@ -1,6 +1,6 @@
 package com.minestrappolation.block;
 
-import com.minestrappolation.core.util.MCAssetManager;
+import com.minestrappolation_core.util.MCAssetManager;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;

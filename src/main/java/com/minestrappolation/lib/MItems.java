@@ -2,9 +2,9 @@ package com.minestrappolation.lib;
 
 import com.minestrappolation.Minestrappolation;
 import com.minestrappolation.common.MCommonProxy;
-import com.minestrappolation.core.item.*;
-import com.minestrappolation.core.util.MCAssetManager;
 import com.minestrappolation.item.*;
+import com.minestrappolation_core.item.*;
+import com.minestrappolation_core.util.MCAssetManager;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -66,6 +66,10 @@ public class MItems
 	public static ToolMaterial	toolMaterialBPIron		= EnumHelper.addToolMaterial("ToolBPIron", 2, 500, 6.0F, 2, 14);
 	public static ToolMaterial	toolMaterialBPEmerald	= EnumHelper.addToolMaterial("ToolBPEmerald", 3, 3122, 8.0F, 3, 10);
 	public static ToolMaterial	toolMaterialBPGold		= EnumHelper.addToolMaterial("ToolBPGold", 0, 64, 12.0F, 0, 22);
+	
+	public static Item			soulBottle;
+	public static Item			soulGem;
+	public static Item			radiantQuartz;
 	
 	public static Item			grenade;
 	public static Item			grenadeImpact;
@@ -334,6 +338,13 @@ public class MItems
 	
 	public static void init()
 	{
+		soulGem = new ItemSoulGem().setCreativeTab(Minestrappolation.tabMaterials).setUnlocalizedName("item_SoulGem").setTextureName(MCAssetManager.getTexture("gemSoulGem"));
+		GameRegistry.registerItem(soulGem, "gemSoul");
+		soulBottle = new ItemSoulBottle().setCreativeTab(Minestrappolation.tabMaterials).setUnlocalizedName("SoulBottle").setTextureName(MCAssetManager.getTexture("utilitySoulBottle"));
+		GameRegistry.registerItem(soulBottle, "soulBottle");
+		radiantQuartz = new MItemFoiled().setCreativeTab(Minestrappolation.tabMaterials).setUnlocalizedName("item_RadiantQuartz").setTextureName(MCAssetManager.getTexture("gemRadiantQuartz"));
+		GameRegistry.registerItem(radiantQuartz, "quartzRadiant");
+		
 		// TODO ORGANIZE EO ITEMS
 		meuroditeIngot = new MCItem().setCreativeTab(Minestrappolation.tabTools).setUnlocalizedName("item_MeuroditeIngot").setTextureName(MCAssetManager.getTexture("gemMeurodite"));
 		GameRegistry.registerItem(meuroditeIngot, "ingotMeurodite");
@@ -541,11 +552,11 @@ public class MItems
 		steelLock = new ItemLock().setUnlocalizedName("item_SteelLock").setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getTexture("utilitySteelLock"));
 		GameRegistry.registerItem(steelLock, "mlockSteel");
 		
-		plateTinItem = new ItemReed(MBlocks.TinPlate).setCreativeTab(Minestrappolation.tabTools).setUnlocalizedName("plateTinItem").setTextureName(MCAssetManager.getTexture("platingTin"));
+		plateTinItem = new ItemReed(MBlocks.tinPlate).setCreativeTab(Minestrappolation.tabTools).setUnlocalizedName("plateTinItem").setTextureName(MCAssetManager.getTexture("platingTin"));
 		GameRegistry.registerItem(plateTinItem, "plateTinItem");
-		plateBronzeItem = new ItemReed(MBlocks.BronzePlate).setCreativeTab(Minestrappolation.tabTools).setUnlocalizedName("plateBronzeItem").setTextureName(MCAssetManager.getTexture("platingBronze"));
+		plateBronzeItem = new ItemReed(MBlocks.bronzePlate).setCreativeTab(Minestrappolation.tabTools).setUnlocalizedName("plateBronzeItem").setTextureName(MCAssetManager.getTexture("platingBronze"));
 		GameRegistry.registerItem(plateBronzeItem, "plateBronzeItem");
-		plateSteelItem = new ItemReed(MBlocks.SteelPlate).setCreativeTab(Minestrappolation.tabTools).setUnlocalizedName("plateSteelItem").setTextureName(MCAssetManager.getTexture("platingSteel"));
+		plateSteelItem = new ItemReed(MBlocks.steelPlate).setCreativeTab(Minestrappolation.tabTools).setUnlocalizedName("plateSteelItem").setTextureName(MCAssetManager.getTexture("platingSteel"));
 		GameRegistry.registerItem(plateSteelItem, "plateSteelItem");
 		plateMeuroditeItem = new ItemReed(MBlocks.meuroditePlate).setCreativeTab(Minestrappolation.tabTools).setUnlocalizedName("plateMeuroditeItem").setTextureName(MCAssetManager.getTexture("platingMeurodite"));
 		GameRegistry.registerItem(plateMeuroditeItem, "plateMeuroditeItem");
@@ -789,6 +800,7 @@ public class MItems
 		ChestGenHooks jungleChest = ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_JUNGLE_CHEST);
 		ChestGenHooks desertChest = ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_DESERT_CHEST);
 		ChestGenHooks blacksmithChest = ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH);
+		ChestGenHooks strongholdLibrary = ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_LIBRARY);
 		
 		dungeonChest.addItem(new WeightedRandomChestContent(new ItemStack(CopperIngot), 1, 5, 30));
 		dungeonChest.addItem(new WeightedRandomChestContent(new ItemStack(TinIngot), 1, 5, 30));
@@ -835,11 +847,11 @@ public class MItems
 		strongholdCrossing.addItem(new WeightedRandomChestContent(new ItemStack(BlaziumIngot), 1, 2, 7));
 		strongholdCrossing.addItem(new WeightedRandomChestContent(new ItemStack(SteelSword), 1, 1, 11));
 		strongholdCrossing.addItem(new WeightedRandomChestContent(new ItemStack(BronzeSword), 1, 1, 11));
-		ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_LIBRARY).addItem(new WeightedRandomChestContent(new ItemStack(MBlocks.SoulGem), 1, 3, 12));
+		strongholdLibrary.addItem(new WeightedRandomChestContent(new ItemStack(soulGem), 1, 3, 12));
 		jungleChest.addItem(new WeightedRandomChestContent(new ItemStack(ToriteIngot), 1, 3, 8));
 		jungleChest.addItem(new WeightedRandomChestContent(new ItemStack(SunstoneDust), 1, 7, 25));
 		desertChest.addItem(new WeightedRandomChestContent(new ItemStack(PinkQuartz), 1, 10, 25));
-		desertChest.addItem(new WeightedRandomChestContent(new ItemStack(MBlocks.RadiantQuartz), 1, 3, 10));
+		desertChest.addItem(new WeightedRandomChestContent(new ItemStack(radiantQuartz), 1, 3, 10));
 		blacksmithChest.addItem(new WeightedRandomChestContent(new ItemStack(CopperIngot), 1, 5, 30));
 		blacksmithChest.addItem(new WeightedRandomChestContent(new ItemStack(TinIngot), 1, 5, 30));
 		blacksmithChest.addItem(new WeightedRandomChestContent(new ItemStack(BronzeIngot), 1, 3, 25));
@@ -849,80 +861,42 @@ public class MItems
 	
 	public static void load()
 	{
-		MBlocks.CopperOre.setHarvestLevel("pickaxe", 0);
-		MBlocks.CopperBlock.setHarvestLevel("pickaxe", 0);
-		MBlocks.TinOre.setHarvestLevel("pickaxe", 1);
-		MBlocks.TinBlock.setHarvestLevel("pickaxe", 1);
+		MBlocks.copperOre.setHarvestLevel("pickaxe", 0);
+		MBlocks.copperBlock.setHarvestLevel("pickaxe", 0);
+		MBlocks.tinOre.setHarvestLevel("pickaxe", 1);
+		MBlocks.tinBlock.setHarvestLevel("pickaxe", 1);
 		MBlocks.meuroditeOre.setHarvestLevel("pickaxe", 2);
 		MBlocks.meuroditeBlock.setHarvestLevel("pickaxe", 2);
-		MBlocks.ToriteOre.setHarvestLevel("pickaxe", 2);
-		MBlocks.ToriteBlock.setHarvestLevel("pickaxe", 2);
-		MBlocks.TitaniumOre.setHarvestLevel("pickaxe", 3);
-		MBlocks.TitaniumBlock.setHarvestLevel("pickaxe", 3);
-		MBlocks.UraniumOre.setHarvestLevel("pickaxe", 2);
-		MBlocks.PlutoniumOre.setHarvestLevel("pickaxe", 2);
-		MBlocks.SunstoneOre.setHarvestLevel("pickaxe", 2);
-		MBlocks.Granite.setHarvestLevel("pickaxe", 1);
-		MBlocks.GraniteBrick.setHarvestLevel("pickaxe", 1);
-		MBlocks.Quartzite.setHarvestLevel("pickaxe", 1);
-		MBlocks.QuartziteTile.setHarvestLevel("pickaxe", 1);
-		MBlocks.SmoothQuartzite.setHarvestLevel("pickaxe", 1);
-		MBlocks.PillarQuartzite.setHarvestLevel("pickaxe", 1);
-		MBlocks.ChiseledQuartzite.setHarvestLevel("pickaxe", 1);
-		MBlocks.SmoothQuartzTile.setHarvestLevel("pickaxe", 1);
-		MBlocks.BlaziumOre.setHarvestLevel("pickaxe", 2);
-		MBlocks.BlaziumBlock.setHarvestLevel("pickaxe", 2);
-		MBlocks.SoulOre.setHarvestLevel("shovel", 2);
-		MBlocks.TinPlatedCobble.setHarvestLevel("pickaxe", 1);
-		MBlocks.TinPlatedMossy.setHarvestLevel("pickaxe", 1);
-		MBlocks.TinPlatedStoneBrick.setHarvestLevel("pickaxe", 1);
-		MBlocks.TinPlatedChiseled.setHarvestLevel("pickaxe", 1);
-		MBlocks.TinPlatedGranite.setHarvestLevel("pickaxe", 1);
-		MBlocks.BronzeBlock.setHarvestLevel("pickaxe", 1);
-		MBlocks.BronzePlatedCobble.setHarvestLevel("pickaxe", 2);
-		MBlocks.BronzePlatedMossy.setHarvestLevel("pickaxe", 2);
-		MBlocks.BronzePlatedStoneBrick.setHarvestLevel("pickaxe", 2);
-		MBlocks.BronzePlatedChiseled.setHarvestLevel("pickaxe", 2);
-		MBlocks.BronzePlatedGranite.setHarvestLevel("pickaxe", 2);
-		MBlocks.SteelPlatedCobble.setHarvestLevel("pickaxe", 1);
-		MBlocks.SteelPlatedMossy.setHarvestLevel("pickaxe", 1);
-		MBlocks.SteelPlatedStoneBrick.setHarvestLevel("pickaxe", 1);
-		MBlocks.SteelPlatedChiseled.setHarvestLevel("pickaxe", 1);
-		MBlocks.SteelPlatedGranite.setHarvestLevel("pickaxe", 1);
-		MBlocks.RawUraniumBlock.setHarvestLevel("pickaxe", 0);
-		MBlocks.RawPlutoniumBlock.setHarvestLevel("pickaxe", 0);
-		MBlocks.SmoothRadiantQuartz.setHarvestLevel("pickaxe", 3);
-		MBlocks.PillarRadiantQuartz.setHarvestLevel("pickaxe", 3);
-		MBlocks.ChiseledRadiantQuartz.setHarvestLevel("pickaxe", 3);
-		MBlocks.RadiantQuartzOre.setHarvestLevel("pickaxe", 3);
+		MBlocks.toriteOre.setHarvestLevel("pickaxe", 2);
+		MBlocks.toriteBlock.setHarvestLevel("pickaxe", 2);
+		MBlocks.titaniumOre.setHarvestLevel("pickaxe", 3);
+		MBlocks.titaniumBlock.setHarvestLevel("pickaxe", 3);
+		MBlocks.uraniumOre.setHarvestLevel("pickaxe", 2);
+		MBlocks.plutoniumOre.setHarvestLevel("pickaxe", 2);
+		MBlocks.sunstoneOre.setHarvestLevel("pickaxe", 2);
+		MBlocks.blaziumOre.setHarvestLevel("pickaxe", 2);
+		MBlocks.blaziumBlock.setHarvestLevel("pickaxe", 2);
+		MBlocks.soulOre.setHarvestLevel("shovel", 2);
+		MBlocks.bronzeBlock.setHarvestLevel("pickaxe", 1);
+		MBlocks.uraniumBlock.setHarvestLevel("pickaxe", 0);
+		MBlocks.plutoniumBlock.setHarvestLevel("pickaxe", 0);
 		MBlocks.Godstone.setHarvestLevel("pickaxe", 2);
 		MBlocks.soulBlock.setHarvestLevel("pickaxe", 4);
 		Blocks.bedrock.setHarvestLevel("pickaxe", 4);
 		
 		MBlocks.snowBrick.setHarvestLevel("shovel", 0);
-		MBlocks.Tiles.setHarvestLevel("pickaxe", 1, 1);
-		MBlocks.Tiles.setHarvestLevel("pickaxe", 1, 3);
-		MBlocks.Tiles.setHarvestLevel("pickaxe", 1, 5);
-		MBlocks.Tiles.setHarvestLevel("pickaxe", 3, 0);
 		MBlocks.gunpowderBlock.setHarvestLevel("shovel", 0);
 		MBlocks.sugarBlock.setHarvestLevel("shovel", 0);
 		MBlocks.ropeCoil.setHarvestLevel("shears", 0);
 		MBlocks.rope.setHarvestLevel("shears", 0);
-		MBlocks.checkerTileStairs.setHarvestLevel("pickaxe", 1);
+		// MBlocks.checkerTileStairs.setHarvestLevel("pickaxe", 1);
 		MBlocks.oozeSlime.setHarvestLevel("shovel", 0);
 		MBlocks.magmaOoze.setHarvestLevel("shovel", 0);
 		MBlocks.cobbledRoad.setHarvestLevel("pickaxe", 0);
-		MBlocks.refinedRoad.setHarvestLevel("pickaxe", 0);
 		MBlocks.sandyRoad.setHarvestLevel("pickaxe", 0);
 		MBlocks.sandstoneRoad.setHarvestLevel("pickaxe", 0);
 		MBlocks.gravelRoad.setHarvestLevel("shovel", 0);
 		MBlocks.netherroad.setHarvestLevel("pickaxe", 0);
-		MBlocks.refinedNetherroad.setHarvestLevel("pickaxe", 0);
-		MBlocks.sandstoneBricks.setHarvestLevel("pickaxe", 0, 0);
-		MBlocks.sandstoneBricks.setHarvestLevel("pickaxe", 0, 1);
-		MBlocks.sandstoneBricks.setHarvestLevel("pickaxe", 0, 2);
-		MBlocks.sandstoneBricks.setHarvestLevel("pickaxe", 0, 3);
-		MBlocks.sandstoneBricks.setHarvestLevel("pickaxe", 0, 4);
 		MBlocks.infertileDirt.setHarvestLevel("shovel", 0);
 	}
 }

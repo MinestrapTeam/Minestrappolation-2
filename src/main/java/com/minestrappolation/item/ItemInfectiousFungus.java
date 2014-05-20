@@ -1,7 +1,7 @@
 package com.minestrappolation.item;
 
-import com.minestrappolation.core.item.MCItemFood;
 import com.minestrappolation.lib.MPotions;
+import com.minestrappolation_core.item.MCItemFood;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;

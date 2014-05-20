@@ -2,9 +2,9 @@ package com.minestrappolation.block;
 
 import java.util.Random;
 
-import com.minestrappolation.core.block.MCBlock;
-import com.minestrappolation.core.util.MCAssetManager;
 import com.minestrappolation.lib.MBlocks;
+import com.minestrappolation_core.block.MCBlock;
+import com.minestrappolation_core.util.MCAssetManager;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -33,7 +33,7 @@ public class BlockBlazium extends MCBlock
 	@Override
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
-		return Item.getItemFromBlock(MBlocks.BlaziumBlock);
+		return Item.getItemFromBlock(MBlocks.blaziumBlock);
 	}
 	
 	@Override

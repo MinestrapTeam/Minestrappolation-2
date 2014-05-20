@@ -3,8 +3,8 @@ package com.minestrappolation.client.gui;
 import org.lwjgl.opengl.GL11;
 
 import com.minestrappolation.container.ContainerMelter;
-import com.minestrappolation.core.util.MCAssetManager;
 import com.minestrappolation.tileentity.TileEntityMelter;
+import com.minestrappolation_core.util.MCAssetManager;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;

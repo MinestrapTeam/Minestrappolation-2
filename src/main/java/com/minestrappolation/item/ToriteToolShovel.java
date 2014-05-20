@@ -1,6 +1,6 @@
 package com.minestrappolation.item;
 
-import com.minestrappolation.core.item.MCItemShovel;
+import com.minestrappolation_core.item.MCItemShovel;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;

@@ -1,6 +1,6 @@
 package com.minestrappolation.item;
 
-import com.minestrappolation.core.item.MCItemAxe;
+import com.minestrappolation_core.item.MCItemAxe;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.*;

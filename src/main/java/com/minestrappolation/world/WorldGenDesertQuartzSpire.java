@@ -2,8 +2,6 @@ package com.minestrappolation.world;
 
 import java.util.Random;
 
-import com.minestrappolation.lib.MBlocks;
-
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -28,22 +26,22 @@ public class WorldGenDesertQuartzSpire extends WorldGenerator
 			return false;
 		}
 		
-		int depth = random.nextInt(this.maxDepth);
-		for (int i = 0; i < depth; i++)
-		{
-			int y1 = y - i;
-			world.setBlock(x, y1, z, MBlocks.Quartzite);
-			world.setBlock(x + 1, y1, z, MBlocks.Quartzite);
-			world.setBlock(x - 1, y1, z, MBlocks.Quartzite);
-			world.setBlock(x, y1, z + 1, MBlocks.Quartzite);
-			world.setBlock(x, y1, z - 1, MBlocks.Quartzite);
-		}
-		
-		int height = random.nextInt(this.maxTopHeight);
-		for (int i = 0; i < height; i++)
-		{
-			world.setBlock(x, y + height, z, MBlocks.Quartzite);
-		}
+//		int depth = random.nextInt(this.maxDepth);
+//		for (int i = 0; i < depth; i++)
+//		{
+//			int y1 = y - i;
+//			world.setBlock(x, y1, z, MBlocks.Quartzite);
+//			world.setBlock(x + 1, y1, z, MBlocks.Quartzite);
+//			world.setBlock(x - 1, y1, z, MBlocks.Quartzite);
+//			world.setBlock(x, y1, z + 1, MBlocks.Quartzite);
+//			world.setBlock(x, y1, z - 1, MBlocks.Quartzite);
+//		}
+//		
+//		int height = random.nextInt(this.maxTopHeight);
+//		for (int i = 0; i < height; i++)
+//		{
+//			world.setBlock(x, y + height, z, MBlocks.Quartzite);
+//		}
 		
 		return true;
 	}

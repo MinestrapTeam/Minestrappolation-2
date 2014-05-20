@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack;
 
 public class MelterRecipes extends ExperienceRecipeManager
 {
-	public static final MelterRecipes	instance		= new MelterRecipes();
+	public static final MelterRecipes	instance	= new MelterRecipes();
 	
 	private MelterRecipes()
 	{
@@ -26,7 +26,8 @@ public class MelterRecipes extends ExperienceRecipeManager
 		// ItemStack(EOItemManager.bucketMagma,1,0), 0.7F);
 		// addSmelting(Blocks.bedrock, new
 		// ItemStack(EOItemManager.bucketMagma,1,0), 0.7F);
-		this.addRecipe(MBlocks.Granite, new ItemStack(Items.lava_bucket, 1, 0), 0.7F);
+		// this.addRecipe(MBlocks.Granite, new ItemStack(Items.lava_bucket, 1,
+		// 0), 0.7F);
 		this.addRecipe(Blocks.glowstone, new ItemStack(MBlocks.glowGlass), 0.7F);
 		
 		// addSmelting(EDBlockManager.obsidianTile, new

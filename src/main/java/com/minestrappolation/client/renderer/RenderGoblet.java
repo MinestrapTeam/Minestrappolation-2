@@ -3,7 +3,7 @@ package com.minestrappolation.client.renderer;
 import org.lwjgl.opengl.GL11;
 
 import com.minestrappolation.client.model.ModelGoblet;
-import com.minestrappolation.core.util.MCAssetManager;
+import com.minestrappolation_core.util.MCAssetManager;
 
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;

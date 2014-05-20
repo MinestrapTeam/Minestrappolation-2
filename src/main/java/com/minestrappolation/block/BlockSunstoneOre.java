@@ -2,8 +2,6 @@ package com.minestrappolation.block;
 
 import java.util.Random;
 
-import com.minestrappolation.Minestrappolation;
-import com.minestrappolation.core.util.MCAssetManager;
 import com.minestrappolation.lib.MItems;
 
 import net.minecraft.block.Block;
@@ -16,8 +14,6 @@ public class BlockSunstoneOre extends Block
 	public BlockSunstoneOre()
 	{
 		super(Material.rock);
-		this.setCreativeTab(Minestrappolation.tabMaterials);
-		this.setBlockTextureName(MCAssetManager.getTexture("oreSunstone"));
 	}
 	
 	@Override

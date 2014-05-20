@@ -2,10 +2,10 @@ package com.minestrappolation.block;
 
 import java.util.Random;
 
-import com.minestrappolation.core.util.MCAssetManager;
 import com.minestrappolation.lib.MBlocks;
 import com.minestrappolation.lib.MItems;
 import com.minestrappolation.tileentity.TileEntityGoblet;
+import com.minestrappolation_core.util.MCAssetManager;
 
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
