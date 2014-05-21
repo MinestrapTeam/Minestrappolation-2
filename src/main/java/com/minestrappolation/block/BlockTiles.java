@@ -76,13 +76,13 @@ public class BlockTiles extends Block
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.obsidianTiles = iconRegister.registerIcon(MCAssetManager.getSCTexture("Obsidian_Tiles_0_0"));
-		this.flintTiles = iconRegister.registerIcon(MCAssetManager.getSCTexture("Flint_Tiles_0_0"));
-		this.netherQuartz = iconRegister.registerIcon(MCAssetManager.getSCTexture("NetherQuartz_Tiles_0_0"));
-		this.checkerBoard = iconRegister.registerIcon(MCAssetManager.getSCTexture("Checker_Tiles_0_0"));
-		this.clayPattern = iconRegister.registerIcon(MCAssetManager.getSCTexture("Clay_PatternBricks_0_0"));
-		this.flintRaw = iconRegister.registerIcon(MCAssetManager.getSCTexture("Flint_Raw_0_0"));
-		this.netherrackPattern = iconRegister.registerIcon(MCAssetManager.getSCTexture("Netherrack_PatternBricks_0_0"));
+		this.obsidianTiles = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("Obsidian_Tiles_0_0"));
+		this.flintTiles = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("Flint_Tiles_0_0"));
+		this.netherQuartz = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("NetherQuartz_Tiles_0_0"));
+		this.checkerBoard = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("Checker_Tiles_0_0"));
+		this.clayPattern = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("Clay_PatternBricks_0_0"));
+		this.flintRaw = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("Flint_Raw_0_0"));
+		this.netherrackPattern = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("Netherrack_PatternBricks_0_0"));
 	}
 	
 	@Override

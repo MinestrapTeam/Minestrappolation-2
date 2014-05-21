@@ -18,7 +18,7 @@ public class MCBlockHelper
 	{
 		String name1 = "sc_" + name;
 		Block block = new MCBlockStone(name, hardness);
-		block.setBlockName(name1).setBlockTextureName(MCAssetManager.getSCTexture(name)).setCreativeTab(tab);
+		block.setBlockName(name1).setBlockTextureName(MCAssetManager.getStonecutterTexture(name)).setCreativeTab(tab);
 		GameRegistry.registerBlock(block, MCItemBlockStone.class, name1);
 		return block;
 	}
@@ -27,7 +27,7 @@ public class MCBlockHelper
 	{
 		String name1 = "sc2_" + name;
 		Block block = new MCBlockStone2(name, hardness);
-		block.setBlockName(name1).setBlockTextureName(MCAssetManager.getSCTexture(name)).setCreativeTab(tab);
+		block.setBlockName(name1).setBlockTextureName(MCAssetManager.getStonecutterTexture(name)).setCreativeTab(tab);
 		GameRegistry.registerBlock(block, MCItemBlockStone2.class, name1);
 		return block;
 	}

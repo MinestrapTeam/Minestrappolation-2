@@ -1,6 +1,15 @@
-# Minestrappolation
+﻿# Minestrappolation
 
-itemGroup.minestrap_stone=§8Minestrappolation - Stone Blocks
+itemGroup.minestrap_building_blocks=§9Minestrappolation - Building Blocks
+itemGroup.minestrap_stone_decor=§9Minestrappolation - Stone Blocks
+itemGroup.minestrap_decoration_blocks=§9Minestrappolation - Decor Blocks
+itemGroup.minestrap_tech=§9Minestrappolation - Technology
+itemGroup.minestrap_food=§9Minestrappolation - Foodstuffs
+itemGroup.minestrap_materials=§9Minestrappolation - Materials
+itemGroup.minestrap_combat=§9Minestrappolation - Combat
+itemGroup.minestrap_tools=§9Minestrappolation - Tools
+itemGroup.minestrap_brewing=§9Minestrappolation - Brewing
+itemGroup.minestrap_misc=§9Minestrappolation - Misc
 
 item.brickStone.name=Stone Brick
 

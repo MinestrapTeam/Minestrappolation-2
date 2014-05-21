@@ -24,11 +24,6 @@ public class BlockPlutoniumOre extends BlockRadiation
 		this.range = 1.5F;
 	}
 	
-	public void registerIcons(IIconRegister iconRegister)
-	{
-		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getTexture("orePlutonium"));
-	}
-	
 	@Override
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{

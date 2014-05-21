@@ -11,7 +11,7 @@ public class BlockGlowGlass extends BlockGlass
 	public BlockGlowGlass(Material material, boolean flag)
 	{
 		super(material, flag);
-		this.setBlockTextureName(MCAssetManager.getTexture("GlowGlass"));
+		this.setBlockTextureName(MCAssetManager.getTexture("glow_glass"));
 		this.setCreativeTab(Minestrappolation.tabDecorationBlocks);
 	}
 }

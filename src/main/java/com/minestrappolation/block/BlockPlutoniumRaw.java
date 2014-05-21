@@ -20,11 +20,6 @@ public class BlockPlutoniumRaw extends BlockRadiation
 		this.setCreativeTab(CreativeTabs.tabBlock);
 	}
 	
-	public void registerIcons(IIconRegister iconRegister)
-	{
-		this.blockIcon = iconRegister.registerIcon("Minestrappolation:block_PlutoniumRaw");
-	}
-	
 	@Override
 	public void addPotionEffect(EntityLivingBase living)
 	{

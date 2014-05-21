@@ -24,11 +24,6 @@ public class BlockGodstone extends Block
 		this.setCreativeTab(CreativeTabs.tabBlock);
 	}
 	
-	public void registerIcons(IIconRegister iconRegister)
-	{
-		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getTexture("godstone"));
-	}
-	
 	@Override
 	public int quantityDropped(Random random)
 	{

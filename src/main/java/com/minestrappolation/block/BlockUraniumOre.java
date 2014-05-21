@@ -23,11 +23,6 @@ public class BlockUraniumOre extends BlockRadiation
 		super(material);
 	}
 	
-	public void registerIcons(IIconRegister iconRegister)
-	{
-		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getTexture("oreUranium"));
-	}
-	
 	@Override
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{

@@ -22,9 +22,9 @@ public class BlockSteel extends Block
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getTexture("blockSteelSide"));
-		this.top = iconRegister.registerIcon(MCAssetManager.getTexture("blockSteelTop"));
-		this.bottom = iconRegister.registerIcon(MCAssetManager.getTexture("blockSteelBottom"));
+		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getMineralTexture("steel_block_side"));
+		this.top = iconRegister.registerIcon(MCAssetManager.getMineralTexture("steel_block_top"));
+		this.bottom = iconRegister.registerIcon(MCAssetManager.getMineralTexture("steel_block_bottom"));
 	}
 	
 	@Override

@@ -25,9 +25,9 @@ public class BlockCopper extends Block
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getTexture("blockCopper"));
-		this.tarnishedSideIcon = iconRegister.registerIcon(MCAssetManager.getTexture("blockCopperTarnishedSide"));
-		this.tarnishedTopIcon = iconRegister.registerIcon(MCAssetManager.getTexture("blockCopperTarnishedTop"));
+		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getMineralTexture("copper_block"));
+		this.tarnishedSideIcon = iconRegister.registerIcon(MCAssetManager.getMineralTexture("copper_block_tarnished_side"));
+		this.tarnishedTopIcon = iconRegister.registerIcon(MCAssetManager.getMineralTexture("copper_block_tarnished_top"));
 	}
 	
 	@Override

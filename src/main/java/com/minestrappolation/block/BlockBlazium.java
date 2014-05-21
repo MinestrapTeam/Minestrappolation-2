@@ -25,12 +25,6 @@ public class BlockBlazium extends MCBlock
 	}
 	
 	@Override
-	public void registerBlockIcons(IIconRegister iconRegister)
-	{
-		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getTexture("blockBlazium"));
-	}
-	
-	@Override
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
 		return Item.getItemFromBlock(MBlocks.blaziumBlock);

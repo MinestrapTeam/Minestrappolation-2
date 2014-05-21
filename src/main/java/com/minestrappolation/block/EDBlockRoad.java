@@ -41,8 +41,8 @@ public class EDBlockRoad extends Block
 		}
 		else if (this == MBlocks.sandstoneRoad)
 		{
-			this.blockIcon = iconRegister.registerIcon(MCAssetManager.getSCTexture("Sandstone_Road_Side_0"));
-			this.top = iconRegister.registerIcon(MCAssetManager.getSCTexture("Sandstone_PatternBricks_0_0"));
+			this.blockIcon = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("Sandstone_Road_Side_0"));
+			this.top = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("Sandstone_PatternBricks_0_0"));
 			this.bottom = iconRegister.registerIcon(MCAssetManager.getTexture("roadSandBottom"));
 		}
 		else if (this == MBlocks.gravelRoad)

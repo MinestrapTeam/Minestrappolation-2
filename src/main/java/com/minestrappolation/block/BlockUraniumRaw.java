@@ -19,12 +19,6 @@ public class BlockUraniumRaw extends BlockPlutoniumRaw
 	}
 	
 	@Override
-	public void registerBlockIcons(IIconRegister iconRegister)
-	{
-		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getTexture("blockUranium"));
-	}
-	
-	@Override
 	public void addPotionEffect(EntityLivingBase living)
 	{
 		if (living instanceof EntityZombie)

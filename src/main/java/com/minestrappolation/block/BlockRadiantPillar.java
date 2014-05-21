@@ -9,7 +9,7 @@ public class BlockRadiantPillar extends MCBlockPillar
 {
 	public BlockRadiantPillar()
 	{
-		super(MCAssetManager.getSCTexture("RadiantQuartz_Pillar_Side_0"), MCAssetManager.getSCTexture("RadiantQuartz_Raw_0_0"));
+		super(MCAssetManager.getStonecutterTexture("RadiantQuartz_Pillar_Side_0"), MCAssetManager.getStonecutterTexture("RadiantQuartz_Raw_0_0"));
 		this.setCreativeTab(CreativeTabs.tabBlock);
 	}
 }
