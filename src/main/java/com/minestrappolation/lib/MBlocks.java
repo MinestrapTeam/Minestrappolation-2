@@ -216,7 +216,7 @@ public class MBlocks
 		snowBrick = new BlockSnowBrick().setHardness(0.3F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeSnow).setBlockName("tilesSnow").setBlockTextureName(MCAssetManager.getTexture("tilesSnow"));
 		
 		glassRefined = new BlockGlassRefined(Material.glass, false).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockName("glassRefined");
-		glassRefinedPane = new EDBlockPane("ClearGlass", "clearGlassPaneEdge", Material.glass, false).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockName("glassRefinedPane");
+		glassRefinedPane = new EDBlockPane(Material.glass, MCAssetManager.getTexture("clearGlass"), MCAssetManager.getTexture("clearGlassPaneEdge"), false).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockName("glassRefinedPane");
 		gunpowderBlock = new BlockGunpowderBlock(Material.ground).setHardness(0.6F).setStepSound(Block.soundTypeGravel).setBlockName("GunpowderBlock").setBlockTextureName(MCAssetManager.getTexture("blockGunpowder"));
 		
 		rope = new BlockRope().setHardness(0.9F).setStepSound(Block.soundTypeCloth).setBlockName("rope");
@@ -241,7 +241,7 @@ public class MBlocks
 		crate = new BlockCrate().setHardness(2.5F).setStepSound(Block.soundTypeWood).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockName("crate");
 		barrel = new BlockBarrel().setHardness(3F).setResistance(6.0F).setStepSound(Block.soundTypeWood).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockName("barrel");
 		
-		cardboard = new EDBlockPane("cardboard", "cardboardPaneEdge", Material.cloth, true).setHardness(0.3F).setBlockName("cardboard");
+		cardboard = new EDBlockPane(Material.cloth, MCAssetManager.getTexture("cardboard"), MCAssetManager.getTexture("cardboardPaneEdge"), true).setHardness(0.3F).setBlockName("cardboard");
 		cardboardBlock = new BlockCardboard(Material.cloth).setHardness(0.4F).setBlockName("CardboardBlock").setCreativeTab(Minestrappolation.tabBuildingBlocks);
 		
 		woodBoardsStairsOak = new EDBlockStairs(woodBoards, 0).setBlockName("woodBoardsStairsOak").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setCreativeTab(Minestrappolation.tabBuildingBlocks);

@@ -2,14 +2,13 @@ package com.minestrappolation.block;
 
 import java.util.Random;
 
-import com.minestrappolation.lib.MItems;
 import com.minestrappolation_core.util.MCAssetManager;
 import com.minestrappolation_core.util.MCUtil;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.item.Item;
+import net.minecraft.entity.Entity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -17,7 +16,9 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 public class BlockCardboard extends Block
 {
-	private IIcon	top;
+	private IIcon	topIcon;
+	private IIcon	wetTopIcon;
+	private IIcon	wetSideIcon;
 	
 	public BlockCardboard(Material material)
 	{
@@ -31,15 +32,28 @@ public class BlockCardboard extends Block
 	}
 	
 	@Override
+	public void onEntityWalking(World world, int x, int y, int z, Entity entity)
+	{
+		if (!world.isRemote && world.getBlockMetadata(x, y, z) == 1)
+		{
+			world.func_147480_a(x, y, z, true);
+		}
+	}
+	
+	@Override
 	public IIcon getIcon(int side, int metadata)
 	{
-		if (side == 0)
+		if (metadata == 0)
 		{
-			return this.blockIcon;
+			if (side == 0)
+				return this.topIcon;
 		}
-		else if (side == 1)
+		else if (metadata == 1)
 		{
-			return this.top;
+			if (side == 1)
+				return this.wetTopIcon;
+			else if (side != 0)
+				return this.wetSideIcon;
 		}
 		
 		return this.blockIcon;
@@ -49,13 +63,9 @@ public class BlockCardboard extends Block
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getTexture("cardboard"));
-		this.top = iconRegister.registerIcon(MCAssetManager.getTexture("cardboardTop"));
-	}
-	
-	@Override
-	public Item getItemDropped(int metadata, Random random, int fortune)
-	{
-		return MItems.cardboardItem;
+		this.topIcon = iconRegister.registerIcon(MCAssetManager.getTexture("cardboardTop"));
+		this.wetSideIcon = iconRegister.registerIcon(MCAssetManager.getTexture("cardboardWetSide"));
+		this.wetTopIcon = iconRegister.registerIcon(MCAssetManager.getTexture("cardboardWetTop"));
 	}
 	
 	@Override
@@ -75,10 +85,6 @@ public class BlockCardboard extends Block
 		if (MCUtil.isWaterTouchingAnySide(world, x, y, z))
 		{
 			world.setBlockMetadataWithNotify(x, y, z, 1, 2);
-		}
-		else
-		{
-			world.setBlockMetadataWithNotify(x, y, z, 0, 2);
 		}
 	}
 }

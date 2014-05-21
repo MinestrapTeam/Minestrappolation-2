@@ -24,6 +24,12 @@ public class BlockOoze extends Block
 	}
 	
 	@Override
+	public int getRenderBlockPass()
+	{
+		return 1;
+	}
+	
+	@Override
 	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
 	{
 		entity.setInWeb();
