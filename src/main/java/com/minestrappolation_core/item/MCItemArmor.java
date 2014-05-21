@@ -122,6 +122,6 @@ public class MCItemArmor extends ItemArmor
 		{
 			layer = "2";
 		}
-		return MCAssetManager.getArmorTexture(material + layer);
+		return MCAssetManager.getArmorModel(material + layer);
 	}
 }
