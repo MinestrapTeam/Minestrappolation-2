@@ -1,17 +1,13 @@
 package com.minestrappolation_core.item;
 
+import com.minestrappolation.Minestrappolation;
+
 import net.minecraft.item.Item;
 
 public class MCItem extends Item
 {
-	@Deprecated()
 	public MCItem()
 	{
+		this.setCreativeTab(Minestrappolation.tabMaterials);
 	}
-	
-	/*
-	 * @Override public void registerIcons(IIconRegister r) { itemIcon =
-	 * r.registerIcon("Minestrappolation:" +
-	 * this.getUnlocalizedName().substring(5)); }
-	 */
 }
