@@ -3,11 +3,9 @@ package com.minestrappolation.block;
 import java.util.Random;
 
 import com.minestrappolation.Minestrappolation;
-import com.minestrappolation_core.util.MCAssetManager;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.util.MathHelper;

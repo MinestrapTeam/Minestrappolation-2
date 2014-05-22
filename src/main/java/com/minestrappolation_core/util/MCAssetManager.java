@@ -5,7 +5,10 @@ import com.minestrappolation_core.lib.MCReference;
 import net.minecraft.util.ResourceLocation;
 
 /**
+ * The main class for getting textures and models.
+ * 
  * @author SoBiohazardous
+ * @author Clashsoft
  */
 public class MCAssetManager
 {

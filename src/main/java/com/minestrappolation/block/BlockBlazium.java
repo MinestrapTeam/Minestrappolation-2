@@ -4,11 +4,9 @@ import java.util.Random;
 
 import com.minestrappolation.lib.MBlocks;
 import com.minestrappolation_core.block.MCBlock;
-import com.minestrappolation_core.util.MCAssetManager;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.monster.EntityBlaze;
 import net.minecraft.init.Blocks;

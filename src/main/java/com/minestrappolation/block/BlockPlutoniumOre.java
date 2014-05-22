@@ -4,11 +4,9 @@ import java.util.Random;
 
 import com.minestrappolation.lib.MConfig;
 import com.minestrappolation.lib.MItems;
-import com.minestrappolation_core.util.MCAssetManager;
 import com.minestrappolation_core.util.MCUtil;
 
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
