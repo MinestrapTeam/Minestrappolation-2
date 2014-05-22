@@ -1,4 +1,4 @@
-package com.minestrappolation.container;
+package com.minestrappolation.inventory;
 
 import java.util.List;
 

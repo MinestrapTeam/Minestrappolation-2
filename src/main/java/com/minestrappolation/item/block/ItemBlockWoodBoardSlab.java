@@ -1,7 +1,7 @@
 package com.minestrappolation.item.block;
 
 import com.minestrappolation.block.slab.BlockWoodBoardSlab;
-import com.minestrappolation_core.itemblocks.MCItemBlockSlab;
+import com.minestrappolation_core.item.block.MCItemBlockSlab;
 
 import net.minecraft.block.Block;
 

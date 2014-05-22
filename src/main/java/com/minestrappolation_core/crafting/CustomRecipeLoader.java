@@ -1,4 +1,4 @@
-package com.minestrappolation_core.customrecipes;
+package com.minestrappolation_core.crafting;
 
 import java.io.*;
 import java.util.Arrays;

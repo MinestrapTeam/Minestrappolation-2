@@ -2,8 +2,8 @@ package com.minestrappolation_core.util;
 
 import com.minestrappolation_core.block.MCBlockStone;
 import com.minestrappolation_core.block.MCBlockStone2;
-import com.minestrappolation_core.itemblocks.MCItemBlockStone;
-import com.minestrappolation_core.itemblocks.MCItemBlockStone2;
+import com.minestrappolation_core.item.block.MCItemBlockStone;
+import com.minestrappolation_core.item.block.MCItemBlockStone2;
 import com.minestrappolation_core.lib.MCReference;
 
 import cpw.mods.fml.common.registry.GameData;

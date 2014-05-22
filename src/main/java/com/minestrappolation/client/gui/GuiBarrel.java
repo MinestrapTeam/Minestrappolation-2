@@ -2,7 +2,7 @@ package com.minestrappolation.client.gui;
 
 import org.lwjgl.opengl.GL11;
 
-import com.minestrappolation.container.ContainerBarrel;
+import com.minestrappolation.inventory.ContainerBarrel;
 import com.minestrappolation.tileentity.TileEntityBarrel;
 import com.minestrappolation_core.util.MCAssetManager;
 

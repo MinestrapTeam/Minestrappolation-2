@@ -2,7 +2,7 @@ package com.minestrappolation.client.gui;
 
 import org.lwjgl.opengl.GL11;
 
-import com.minestrappolation.container.ContainerMelter;
+import com.minestrappolation.inventory.ContainerMelter;
 import com.minestrappolation.tileentity.TileEntityMelter;
 import com.minestrappolation_core.util.MCAssetManager;
 

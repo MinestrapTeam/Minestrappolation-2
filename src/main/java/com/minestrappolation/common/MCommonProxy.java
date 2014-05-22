@@ -1,8 +1,8 @@
 package com.minestrappolation.common;
 
-import com.minestrappolation.container.ContainerBarrel;
-import com.minestrappolation.container.ContainerCrate;
-import com.minestrappolation.container.ContainerMelter;
+import com.minestrappolation.inventory.ContainerBarrel;
+import com.minestrappolation.inventory.ContainerCrate;
+import com.minestrappolation.inventory.ContainerMelter;
 import com.minestrappolation.tileentity.TileEntityBarrel;
 import com.minestrappolation.tileentity.TileEntityCrate;
 import com.minestrappolation.tileentity.TileEntityMelter;

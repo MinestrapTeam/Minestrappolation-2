@@ -7,7 +7,7 @@ import com.minestrappolation.item.block.ItemBlockWoodBoardSlab;
 import com.minestrappolation.material.MaterialOoze;
 import com.minestrappolation.tileentity.TileEntityPlate;
 import com.minestrappolation_core.block.MCBlock;
-import com.minestrappolation_core.itemblocks.MCItemBlockMulti;
+import com.minestrappolation_core.item.block.MCItemBlockMulti;
 import com.minestrappolation_core.util.MCAssetManager;
 
 import cpw.mods.fml.common.registry.GameRegistry;

@@ -12,7 +12,7 @@ import com.minestrappolation.handler.PriestTradeHandler;
 import com.minestrappolation.lib.*;
 import com.minestrappolation.tileentity.TileEntityMelter;
 import com.minestrappolation.world.MOreGenerator;
-import com.minestrappolation_core.customrecipes.CustomRecipeLoader;
+import com.minestrappolation_core.crafting.CustomRecipeLoader;
 import com.minestrappolation_core.lib.MCReference;
 
 import cpw.mods.fml.common.FMLCommonHandler;

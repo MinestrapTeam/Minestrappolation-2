@@ -1,4 +1,4 @@
-package com.minestrappolation_core.itemblocks;
+package com.minestrappolation_core.item.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
