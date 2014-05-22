@@ -51,11 +51,6 @@ public class MCAssetManager
 		return getTexture("drinks/" + name);
 	}
 	
-	public static String getToolsTexture(String name)
-	{
-		return getTexture("tools/" + name);
-	}
-	
 	public static String getStonecutterTexture(String name)
 	{
 		return MCReference.MINESTRAP_ID + ":stonecutter/" + name;
