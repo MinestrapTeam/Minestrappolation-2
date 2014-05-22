@@ -25,7 +25,7 @@ public class MCBlockStonecutter extends BlockContainer
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getMAPITexture("stonecutter"));
+		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getMCoreTexture("stonecutter"));
 	}
 	
 	@Override

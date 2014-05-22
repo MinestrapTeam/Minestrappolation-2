@@ -12,7 +12,7 @@ import net.minecraft.util.ResourceLocation;
 public class RenderStonecutter extends TileEntitySpecialRenderer
 {
 	private final ModelStonecutter	model;
-	ResourceLocation				texture	= new ResourceLocation(MCAssetManager.getMAPITexture("textures/blocks/model/stoneCutter.png"));
+	ResourceLocation				texture	= new ResourceLocation(MCAssetManager.getMCoreTexture("textures/blocks/model/stoneCutter.png"));
 	
 	public RenderStonecutter()
 	{

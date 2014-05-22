@@ -12,7 +12,7 @@ public class MCItems
 	
 	public static void init()
 	{
-		brickStone = new Item().setTextureName(MCAssetManager.getMAPITexture("brickStone")).setUnlocalizedName("brickStone");
+		brickStone = new Item().setTextureName(MCAssetManager.getMCoreTexture("brickStone")).setUnlocalizedName("brickStone");
 		GameRegistry.registerItem(brickStone, "brickStone");
 	}
 }
