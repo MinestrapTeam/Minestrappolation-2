@@ -390,6 +390,7 @@ public class MItems
 		GameRegistry.registerItem(ToriteIngot, "ingotTorite");
 		SunstoneDust = new MCItem().setUnlocalizedName("dustSunstone").setCreativeTab(Minestrappolation.tabMaterials).setTextureName(MCAssetManager.getMineralTexture("sunstone_dust"));
 		GameRegistry.registerItem(SunstoneDust, "dustSunstone");
+
 		Plutonium = new MCItem().setUnlocalizedName("plutonium").setCreativeTab(Minestrappolation.tabMaterials).setTextureName(MCAssetManager.getMineralTexture("plutonium"));
 		GameRegistry.registerItem(Plutonium, "dustPlutonium");
 		Uranium = new MCItem().setUnlocalizedName("uranium").setCreativeTab(Minestrappolation.tabMaterials).setTextureName(MCAssetManager.getMineralTexture("uranium"));
