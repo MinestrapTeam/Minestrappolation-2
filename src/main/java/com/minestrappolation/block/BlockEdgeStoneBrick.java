@@ -25,10 +25,10 @@ public class BlockEdgeStoneBrick extends Block
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("EdgeStone_Bricks_0_Full"));
-		this.left = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("EdgeStone_Bricks_0_Left"));
-		this.right = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("EdgeStone_Bricks_0_Right"));
-		this.half = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("EdgeStone_Bricks_0_Half"));
+		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("edgestone"));
+		this.left = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("edgestone_left"));
+		this.right = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("edgestone_right"));
+		this.half = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("edgestone_half"));
 	}
 	
 	@Override

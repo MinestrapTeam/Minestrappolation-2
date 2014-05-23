@@ -10,6 +10,6 @@ public class BlockGlassRefined extends BlockGlass
 	public BlockGlassRefined(Material material, boolean flag)
 	{
 		super(material, flag);
-		this.setBlockTextureName(MCAssetManager.getTexture("clearGlass"));
+		this.setBlockTextureName(MCAssetManager.getTexture("refined_glass"));
 	}
 }
