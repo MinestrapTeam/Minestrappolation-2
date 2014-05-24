@@ -1,19 +1,15 @@
 package com.minestrappolation_core;
 
 import clashsoft.brewingapi.BrewingAPI;
-import clashsoft.cslib.minecraft.update.CSUpdate;
-import clashsoft.cslib.minecraft.update.reader.SimpleUpdateReader;
-import clashsoft.cslib.minecraft.update.updater.ModUpdater;
 
 import com.minestrappolation_core.common.MCCommonProxy;
-import com.minestrappolation_core.common.MCEventHandler;
-import com.minestrappolation_core.common.MCVersionChecker;
 import com.minestrappolation_core.lib.*;
 import com.minestrappolation_core.tileentity.TileEntityStonecutter;
 
-import cpw.mods.fml.common.*;
+import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -46,7 +42,6 @@ public class MinestrappolationCore
 		MCItems.init();
 		MCRecipes.init();
 		
-		FMLCommonHandler.instance().bus().register(new MCEventHandler());
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, proxy);
 		Blocks.bedrock.setHardness(80F);
 		
@@ -56,6 +51,5 @@ public class MinestrappolationCore
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event)
 	{
-		CSUpdate.updateCheck(new ModUpdater(MCReference.MINESTRAP_CORE_NAME, "MAPI", MCReference.MINESTRAP_CORE_VERSION, MCVersionChecker.versionURL, SimpleUpdateReader.instance));
 	}
 }
