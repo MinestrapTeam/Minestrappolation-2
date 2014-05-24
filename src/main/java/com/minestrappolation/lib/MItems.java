@@ -9,7 +9,6 @@ import com.minestrappolation_core.util.MCAssetManager;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.*;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
@@ -266,22 +265,6 @@ public class MItems
 	public static Item			legSpider;
 	public static Item			poisonSack;
 	
-	public static Item			swordPoisonWood;
-	public static Item			swordPoisonStone;
-	public static Item			swordPoisonIron;
-	public static Item			swordPoisonDiamond;
-	public static Item			swordPoisonGold;
-	
-	public static Item			swordPosionSandstone;
-	public static Item			swordPosionGranite;
-	public static Item			swordPosionCopper;
-	public static Item			swordPosionSteel;
-	public static Item			swordPosionBronze;
-	public static Item			swordPosionMeurodite;
-	public static Item			swordPosionTorite;
-	public static Item			swordPosionBlazium;
-	public static Item			swordPosionTitanium;
-	
 	public static Item			guano;
 	public static Item			carcassSilverfish;
 	
@@ -416,13 +399,13 @@ public class MItems
 		GameRegistry.registerItem(SteelShovel, "toolShovelSteel");
 		ToriteSword = new MCItemSword(toolMaterialTorite, toolMaterialBPTorite).setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_ToriteSword").setTextureName(MCAssetManager.getWeaponTexture("torite_sword"));
 		GameRegistry.registerItem(ToriteSword, "weaponSwordTorite");
-		ToritePickaxe = new ToriteToolPickaxe(toolMaterialTorite, toolMaterialBPTorite).setCreativeTab(Minestrappolation.tabTools).setUnlocalizedName("item_ToritePickaxe").setTextureName(MCAssetManager.getToolTexture("torite_pickaxe"));
+		ToritePickaxe = new MCItemPickaxe(toolMaterialTorite, toolMaterialBPTorite).setCreativeTab(Minestrappolation.tabTools).setUnlocalizedName("item_ToritePickaxe").setTextureName(MCAssetManager.getToolTexture("torite_pickaxe"));
 		GameRegistry.registerItem(ToritePickaxe, "toolPickTorite");
-		ToriteShovel = new ToriteToolShovel(toolMaterialTorite, toolMaterialBPTorite).setCreativeTab(Minestrappolation.tabTools).setUnlocalizedName("item_ToriteShovel").setTextureName(MCAssetManager.getToolTexture("torite_shovel"));
+		ToriteShovel = new MCItemShovel(toolMaterialTorite, toolMaterialBPTorite).setCreativeTab(Minestrappolation.tabTools).setUnlocalizedName("item_ToriteShovel").setTextureName(MCAssetManager.getToolTexture("torite_shovel"));
 		GameRegistry.registerItem(ToriteShovel, "toolShovelTorite");
 		ToriteHoe = new MCItemHoe(toolMaterialTorite, toolMaterialBPTorite).setCreativeTab(Minestrappolation.tabTools).setUnlocalizedName("item_ToriteHoe").setTextureName(MCAssetManager.getToolTexture("torite_hoe"));
 		GameRegistry.registerItem(ToriteHoe, "toolHoeTorite");
-		ToriteAxe = new ToriteToolAxe(toolMaterialTorite, toolMaterialBPTorite).setCreativeTab(Minestrappolation.tabTools).setUnlocalizedName("item_ToriteAxe").setTextureName(MCAssetManager.getToolTexture("torite_axe"));
+		ToriteAxe = new MCItemAxe(toolMaterialTorite, toolMaterialBPTorite).setCreativeTab(Minestrappolation.tabTools).setUnlocalizedName("item_ToriteAxe").setTextureName(MCAssetManager.getToolTexture("torite_axe"));
 		GameRegistry.registerItem(ToriteAxe, "toolAxeTorite");
 		TitaniumIngot = new MCItem().setCreativeTab(Minestrappolation.tabMaterials).setUnlocalizedName("item_TitaniumIngot").setTextureName(MCAssetManager.getMineralTexture("titanium_ingot"));
 		GameRegistry.registerItem(TitaniumIngot, "ingotTitanium");
@@ -631,11 +614,6 @@ public class MItems
 		
 		legSpider = new MCItem().setUnlocalizedName("spider_leg").setCreativeTab(Minestrappolation.tabFood).setTextureName(MCAssetManager.getTexture("armSpider"));
 		poisonSack = new MCItem().setUnlocalizedName("poison_sack").setCreativeTab(Minestrappolation.tabFood).setTextureName(MCAssetManager.getTexture("sackPoison"));
-		swordPoisonWood = new ItemPoisonSword(ToolMaterial.WOOD, Items.wooden_sword).setUnlocalizedName("woodSwordPoison").setTextureName("wood_sword").setCreativeTab(Minestrappolation.tabFood);
-		swordPoisonStone = new ItemPoisonSword(ToolMaterial.STONE, Items.stone_sword).setUnlocalizedName("stoneSwordPoison").setTextureName("stone_sword").setCreativeTab(Minestrappolation.tabFood);
-		swordPoisonIron = new ItemPoisonSword(ToolMaterial.IRON, Items.iron_sword).setUnlocalizedName("ironSwordPoison").setTextureName("iron_sword").setCreativeTab(Minestrappolation.tabFood);
-		swordPoisonDiamond = new ItemPoisonSword(ToolMaterial.EMERALD, Items.diamond_sword).setUnlocalizedName("diamondSwordPoison").setTextureName("diamond_sword").setCreativeTab(Minestrappolation.tabFood);
-		swordPoisonGold = new ItemPoisonSword(ToolMaterial.GOLD, Items.golden_sword).setUnlocalizedName("goldSwordPoison").setTextureName("gold_sword").setCreativeTab(Minestrappolation.tabFood);
 		
 		guano = new ItemGuano().setUnlocalizedName("guano").setTextureName(MCAssetManager.getTexture("guano")).setCreativeTab(Minestrappolation.tabFood);
 		carcassSilverfish = new MCItem().setUnlocalizedName("silverfish_carcass").setTextureName(MCAssetManager.getTexture("silverfishCarcass")).setCreativeTab(Minestrappolation.tabFood);
@@ -711,11 +689,6 @@ public class MItems
 		GameRegistry.registerItem(marrow, "marrow");
 		GameRegistry.registerItem(legSpider, "legSpider");
 		GameRegistry.registerItem(poisonSack, "poisonSack");
-		GameRegistry.registerItem(swordPoisonWood, "swordPoisonWood");
-		GameRegistry.registerItem(swordPoisonStone, "swordPoisonStone");
-		GameRegistry.registerItem(swordPoisonIron, "swordPoisonIron");
-		GameRegistry.registerItem(swordPoisonDiamond, "swordPoisonDiamond");
-		GameRegistry.registerItem(swordPoisonGold, "swordPoisonGold");
 		GameRegistry.registerItem(guano, "guano");
 		GameRegistry.registerItem(carcassSilverfish, "carcassSilverFish");
 		GameRegistry.registerItem(hideCreeper, "hideCreeper");

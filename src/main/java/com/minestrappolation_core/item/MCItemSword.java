@@ -16,7 +16,7 @@ public class MCItemSword extends MCItemTool
 {
 	public MCItemSword(ToolMaterial material, ToolMaterial plateMaterial, boolean ignites)
 	{
-		super(ItemDataSword.baseDamage, material, plateMaterial, Collections.EMPTY_SET, "overlayWeaponSwordBronze", ignites);
+		super(ItemDataSword.baseDamage, material, plateMaterial, Collections.EMPTY_SET, "sword", ignites);
 	}
 	
 	public MCItemSword(ToolMaterial material, ToolMaterial plateMaterial)

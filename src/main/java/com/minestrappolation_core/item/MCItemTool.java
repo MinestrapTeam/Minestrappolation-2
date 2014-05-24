@@ -3,16 +3,22 @@ package com.minestrappolation_core.item;
 import java.util.List;
 import java.util.Set;
 
-import com.minestrappolation_core.lib.MCConfig;
+import clashsoft.cslib.minecraft.lang.I18n;
+
+import com.minestrappolation_core.MinestrappolationCore;
 import com.minestrappolation_core.util.MCAssetManager;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTool;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
@@ -46,7 +52,50 @@ public class MCItemTool extends ItemTool
 	
 	public static boolean isPlated(ItemStack stack)
 	{
-		return stack.getTagCompound() != null && stack.getTagCompound().getBoolean("bronzePlated");
+		return getPlating(stack) != null;
+	}
+	
+	public static String getPlating(ItemStack stack)
+	{
+		if (stack.stackTagCompound != null)
+			return stack.stackTagCompound.getString("Plating");
+		return null;
+	}
+	
+	public static float getPoisonLevel(ItemStack stack)
+	{
+		if (stack.stackTagCompound != null)
+		{
+			return stack.stackTagCompound.getFloat("PoisonLevel");
+		}
+		return 4F;
+	}
+	
+	public static void setPoisonLevel(ItemStack stack, float level)
+	{
+		if (stack.stackTagCompound == null)
+		{
+			stack.stackTagCompound = new NBTTagCompound();
+		}
+		stack.stackTagCompound.setFloat("PoisonLevel", level);
+	}
+	
+	@Override
+	public boolean hitEntity(ItemStack stack, EntityLivingBase entity, EntityLivingBase attacker)
+	{
+		float level = getPoisonLevel(stack);
+		if (level > 0)
+		{
+			entity.addPotionEffect(new PotionEffect(Potion.poison.id, 20 * 12, 0));
+			level -= 0.5F;
+			setPoisonLevel(stack, level);
+		}
+		
+		if ("sword".equals(this.toolType))
+			stack.damageItem(1, attacker);
+		else
+			stack.damageItem(2, attacker);
+		return true;
 	}
 	
 	@Override
@@ -64,9 +113,16 @@ public class MCItemTool extends ItemTool
 			list.add("Durability: " + Integer.toString(dur - stack.getItemDamage()) + "/" + Integer.toString(dur));
 		}
 		
-		if (isPlated(stack))
+		String plating = getPlating(stack);
+		if (plating != null)
 		{
-			list.add(EnumChatFormatting.GOLD + "Bronze Plated");
+			list.add(EnumChatFormatting.GOLD + plating + " Plated");
+		}
+		
+		float poisonLevel = getPoisonLevel(stack);
+		if (poisonLevel > 0F)
+		{
+			list.add(I18n.getString("item.poisonSword.desc", poisonLevel));
 		}
 	}
 	
@@ -116,15 +172,17 @@ public class MCItemTool extends ItemTool
 	public void registerIcons(IIconRegister iconRegister)
 	{
 		this.itemIcon = iconRegister.registerIcon(this.getIconString());
-		String s = "overlayTool" + this.toolType;
-		this.overlayIcon = iconRegister.registerIcon(MCAssetManager.getTexture(s + "Bronze"));
-		this.overlayIcon2 = iconRegister.registerIcon(MCAssetManager.getTexture(s + "Bronze2"));
+		
+		String s = "bronze_" + this.toolType + "_overlay";
+		this.overlayIcon = iconRegister.registerIcon(MCAssetManager.getTexture(s));
+		this.overlayIcon2 = iconRegister.registerIcon(MCAssetManager.getTexture(s + "_2"));
 	}
 	
 	@Override
 	public IIcon getIcon(ItemStack stack, int renderPass)
 	{
-		if (renderPass == 1 && MCItemTool.isPlated(stack))
+		String plating = MCItemTool.getPlating(stack);
+		if (renderPass == 1 && plating != null)
 		{
 			if (this.toolMaterial.getHarvestLevel() < 5)
 			{
