@@ -15,7 +15,7 @@ public class BlockGlassDoor extends BlockDoor
 	public BlockGlassDoor(Material material)
 	{
 		super(material);
-		this.setBlockTextureName(MCAssetManager.getTexture("doorGlass"));
+		this.setBlockTextureName(MCAssetManager.getTexture("glass_door_lower"));
 	}
 	
 	@Override

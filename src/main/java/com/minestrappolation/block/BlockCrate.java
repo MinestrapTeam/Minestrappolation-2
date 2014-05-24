@@ -18,8 +18,8 @@ public class BlockCrate extends BlockBarrel
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getTexture("crateSide"));
-		this.top = iconRegister.registerIcon(MCAssetManager.getTexture("crateTop"));
+		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getMachineTexture("crate_side"));
+		this.top = iconRegister.registerIcon(MCAssetManager.getMachineTexture("crate_top"));
 	}
 	
 	@Override

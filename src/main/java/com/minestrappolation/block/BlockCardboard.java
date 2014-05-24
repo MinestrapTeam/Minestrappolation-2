@@ -63,9 +63,9 @@ public class BlockCardboard extends Block
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getTexture("cardboard"));
-		this.topIcon = iconRegister.registerIcon(MCAssetManager.getTexture("cardboardTop"));
-		this.wetSideIcon = iconRegister.registerIcon(MCAssetManager.getTexture("cardboardWetSide"));
-		this.wetTopIcon = iconRegister.registerIcon(MCAssetManager.getTexture("cardboardWetTop"));
+		this.topIcon = iconRegister.registerIcon(MCAssetManager.getTexture("cardboard_top"));
+		this.wetSideIcon = iconRegister.registerIcon(MCAssetManager.getTexture("cardboard_wet_side"));
+		this.wetTopIcon = iconRegister.registerIcon(MCAssetManager.getTexture("cardboard_wet_top"));
 	}
 	
 	@Override

@@ -36,8 +36,8 @@ public class BlockBarrel extends BlockFalling implements ITileEntityProvider
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getTexture("barrelSide"));
-		this.top = iconRegister.registerIcon(MCAssetManager.getTexture("barrelTop"));
+		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getMachineTexture("barrel_side"));
+		this.top = iconRegister.registerIcon(MCAssetManager.getMachineTexture("barrel_top"));
 	}
 	
 	@Override
