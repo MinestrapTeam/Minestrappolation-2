@@ -106,7 +106,7 @@ public class MCItemTool extends ItemTool
 	
 	protected static void addInformation(ToolMaterial bronzeMaterial, ItemStack stack, List list)
 	{
-		if (MCConfig.showDur == true && bronzeMaterial != null)
+		if (MinestrappolationCore.showDurability && bronzeMaterial != null)
 		{
 			int dur = bronzeMaterial.getMaxUses();
 			

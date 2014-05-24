@@ -2,7 +2,7 @@ package com.minestrappolation.block;
 
 import java.util.Random;
 
-import com.minestrappolation.lib.MConfig;
+import com.minestrappolation.Minestrappolation;
 import com.minestrappolation.lib.MItems;
 import com.minestrappolation_core.util.MCUtil;
 
@@ -37,7 +37,7 @@ public class BlockPlutoniumOre extends BlockRadiation
 	@Override
 	public void addPotionEffect(EntityLivingBase living)
 	{
-		if (MConfig.shouldOresEffect)
+		if (Minestrappolation.shouldOresEffect)
 		{
 			living.addPotionEffect(new PotionEffect(Potion.wither.getId(), 20, 1, false));
 		}

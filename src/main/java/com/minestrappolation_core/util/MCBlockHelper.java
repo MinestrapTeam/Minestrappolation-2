@@ -52,7 +52,7 @@ public class MCBlockHelper
 	 */
 	public static Block get(String name)
 	{
-		return GameRegistry.findBlock(MCReference.MINESTRAP_CORE_ID, name);
+		return GameRegistry.findBlock(MCReference.CORE_MODID, name);
 	}
 	
 	public static String getUniqueName(Block block)

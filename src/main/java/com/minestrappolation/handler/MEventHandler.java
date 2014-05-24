@@ -5,18 +5,77 @@ import java.util.Random;
 import com.minestrappolation.lib.MItems;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.gameevent.TickEvent.Phase;
+import cpw.mods.fml.common.gameevent.TickEvent.PlayerTickEvent;
 
 import net.minecraft.entity.boss.EntityWither;
 import net.minecraft.entity.monster.*;
 import net.minecraft.entity.passive.*;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.player.EntityInteractEvent;
 
 public class MEventHandler
 {
+	public static boolean	ghastTentacleEffect	= false;
+	
+	static int				ticks				= 0;
+	static Random			rand				= new Random();
+	public static int		gTime				= 30 + rand.nextInt(150);
+	
+	@SubscribeEvent
+	public void playerUpdate(PlayerTickEvent evt)
+	{
+		EntityPlayer player = evt.player;
+		
+		if (evt.phase == Phase.START)
+		{
+			if (ghastTentacleEffect)
+			{
+				ticks++;
+				if (ticks == gTime * 20)
+				{
+					ghastTentacleEffect = false;
+					EntityPlayerMP playermp = (EntityPlayerMP) player;
+					playermp.mcServer.getConfigurationManager().transferPlayerToDimension(playermp, 0);
+				}
+			}
+			else
+			{
+				ticks = 0;
+			}
+		}
+		
+		ItemStack helmet = player.getCurrentArmor(3);
+		ItemStack chest = player.getCurrentArmor(2);
+		ItemStack pants = player.getCurrentArmor(1);
+		ItemStack boots = player.getCurrentArmor(0);
+		
+		if (helmet != null && chest != null && pants != null && boots != null)
+		{
+			if (helmet.getItem() == MItems.meuroditeHelmet && chest.getItem() == MItems.meuroditeChest && pants.getItem() == MItems.meuroditePants && boots.getItem() == MItems.meuroditeBoots)
+			{
+				player.addPotionEffect(new PotionEffect(Potion.fireResistance.id, 1, 0, true));
+			}
+			
+			if (helmet.getItem() == MItems.ToriteHelmet && chest.getItem() == MItems.ToriteChest && pants.getItem() == MItems.ToritePants && boots.getItem() == MItems.ToriteBoots)
+			{
+				player.addPotionEffect(new PotionEffect(Potion.regeneration.id, 1, 0, true));
+			}
+			
+			if (helmet.getItem() == MItems.TitaniumHelmet && chest.getItem() == MItems.TitaniumChest && pants.getItem() == MItems.TitaniumPants && boots.getItem() == MItems.TitaniumBoots)
+			{
+				player.addPotionEffect(new PotionEffect(Potion.resistance.id, 1, 1, true));
+			}
+		}
+	}
+	
 	@SubscribeEvent
 	public void onMobDrops(LivingDropsEvent event)
 	{
@@ -341,20 +400,6 @@ public class MEventHandler
 			}
 		}
 	}
-	
-	/*
-	 * @SubscribeEvent public void renderPlayer(RenderPlayerEvent.Pre evt) {
-	 * if(evt.entityPlayer.inventory.getCurrentItem() !=
-	 * EMDItemManager.hangGlider.getContainerItem(null)) { GL11.glPushMatrix();
-	 * ModelHangGlider m = new ModelHangGlider();
-	 * Minecraft.getMinecraft().getTextureManager().bindTexture(new
-	 * ResourceLocation("extramobdrops:textures/misc/hangGlider.png")); int tick
-	 * = 0; tick++; float rotateYaw =
-	 * this.interpolateRotation(evt.entityPlayer.prevRotationYaw,
-	 * evt.entityPlayer.rotationYaw, tick); GL11.glRotatef(rotateYaw, 0, -1, 0);
-	 * GL11.glRotatef(180F, 0, 0, 1); GL11.glTranslatef(0, 0, -0.5F);
-	 * m.render(0.0625F); GL11.glPopMatrix(); } }
-	 */
 	
 	public static float interpolateRotation(float prev, float current, float tick)
 	{

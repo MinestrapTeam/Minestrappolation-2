@@ -1,6 +1,6 @@
 package com.minestrappolation.item;
 
-import com.minestrappolation.handler.MPlayerTickHandler;
+import com.minestrappolation.handler.MEventHandler;
 import com.minestrappolation_core.item.MCItemFood;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -33,8 +33,8 @@ public class ItemGhastTentacle extends MCItemFood
 			}
 		}
 		
-		player.addPotionEffect(new PotionEffect(Potion.confusion.id, MPlayerTickHandler.gTime * 20));
+		player.addPotionEffect(new PotionEffect(Potion.confusion.id, MEventHandler.gTime * 20));
 		// nether neutrality
-		MPlayerTickHandler.ghastTentacleEffect = true;
+		MEventHandler.ghastTentacleEffect = true;
 	}
 }

@@ -379,13 +379,13 @@ public class MItems
 		Uranium = new MCItem().setUnlocalizedName("uranium").setCreativeTab(Minestrappolation.tabMaterials).setTextureName(MCAssetManager.getMineralTexture("uranium"));
 		GameRegistry.registerItem(Uranium, "dustUranium");
 		
-		BlaziumHelmet = new MCItemArmor(MaterialBlazium, MaterialBPBlazium, MCommonProxy.addArmor("fire"), 0, "fire").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_FireHelmet").setTextureName(MCAssetManager.getArmorTexture("fire_helmet"));
+		BlaziumHelmet = new MCItemArmor(MaterialBlazium, MaterialBPBlazium, MCommonProxy.fire, 0, "fire").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_FireHelmet").setTextureName(MCAssetManager.getArmorTexture("fire_helmet"));
 		GameRegistry.registerItem(BlaziumHelmet, "armorHelmetBlazium");
-		BlaziumChest = new MCItemArmor(MaterialBlazium, MaterialBPBlazium, MCommonProxy.addArmor("fire"), 1, "fire").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_FireChestplate").setTextureName(MCAssetManager.getArmorTexture("fire_chestplate"));
+		BlaziumChest = new MCItemArmor(MaterialBlazium, MaterialBPBlazium, MCommonProxy.fire, 1, "fire").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_FireChestplate").setTextureName(MCAssetManager.getArmorTexture("fire_chestplate"));
 		GameRegistry.registerItem(BlaziumChest, "armorChestBlazium");
-		BlaziumPants = new MCItemArmor(MaterialBlazium, MaterialBPBlazium, MCommonProxy.addArmor("fire"), 2, "fire").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_FireLeggings").setTextureName(MCAssetManager.getArmorTexture("fire_leggings"));
+		BlaziumPants = new MCItemArmor(MaterialBlazium, MaterialBPBlazium, MCommonProxy.fire, 2, "fire").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_FireLeggings").setTextureName(MCAssetManager.getArmorTexture("fire_leggings"));
 		GameRegistry.registerItem(BlaziumPants, "armorPantsBlazium");
-		BlaziumBoots = new MCItemArmor(MaterialBlazium, MaterialBPBlazium, MCommonProxy.addArmor("fire"), 3, "fire").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_FireBoots").setTextureName(MCAssetManager.getArmorTexture("fire_boots"));
+		BlaziumBoots = new MCItemArmor(MaterialBlazium, MaterialBPBlazium, MCommonProxy.fire, 3, "fire").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_FireBoots").setTextureName(MCAssetManager.getArmorTexture("fire_boots"));
 		GameRegistry.registerItem(BlaziumBoots, "armorBootsBlazium");
 		
 		CoalIronIngot = new MCItem().setCreativeTab(Minestrappolation.tabMaterials).setUnlocalizedName("item_CoalIronIngot").setTextureName(MCAssetManager.getMineralTexture("coaliron_ingot"));
@@ -420,31 +420,31 @@ public class MItems
 		GameRegistry.registerItem(TitaniumHoe, "toolHoeTitanium");
 		TitaniumAxe = new MCItemAxe(toolMaterialTitanium, toolMaterialBPTitanium).setCreativeTab(Minestrappolation.tabTools).setUnlocalizedName("item_TitaniumAxe").setTextureName(MCAssetManager.getToolTexture("titanium_axe"));
 		GameRegistry.registerItem(TitaniumAxe, "toolAxeTitanium");
-		meuroditeHelmet = new MCItemArmor(MaterialMeurodite, MaterialBPMeurodite, MCommonProxy.addArmor("Meurodite"), 0, "meurodite").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_MeuroditeHelmet").setTextureName(MCAssetManager.getArmorTexture("meurodite_helmet"));
+		meuroditeHelmet = new MCItemArmor(MaterialMeurodite, MaterialBPMeurodite, MCommonProxy.meurodite, 0, "meurodite").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_MeuroditeHelmet").setTextureName(MCAssetManager.getArmorTexture("meurodite_helmet"));
 		GameRegistry.registerItem(meuroditeHelmet, "armorHelmetMeirodite");
-		meuroditeChest = new MCItemArmor(MaterialMeurodite, MaterialBPMeurodite, MCommonProxy.addArmor("Meurodite"), 1, "meurodite").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_MeuroditeChestplate").setTextureName(MCAssetManager.getArmorTexture("meurodite_chestplate"));
+		meuroditeChest = new MCItemArmor(MaterialMeurodite, MaterialBPMeurodite, MCommonProxy.meurodite, 1, "meurodite").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_MeuroditeChestplate").setTextureName(MCAssetManager.getArmorTexture("meurodite_chestplate"));
 		GameRegistry.registerItem(meuroditeChest, "armorChestMeurodite");
-		meuroditePants = new MCItemArmor(MaterialMeurodite, MaterialBPMeurodite, MCommonProxy.addArmor("Meurodite"), 2, "meurodite").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_MeuroditeLeggings").setTextureName(MCAssetManager.getArmorTexture("meurodite_leggings"));
+		meuroditePants = new MCItemArmor(MaterialMeurodite, MaterialBPMeurodite, MCommonProxy.meurodite, 2, "meurodite").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_MeuroditeLeggings").setTextureName(MCAssetManager.getArmorTexture("meurodite_leggings"));
 		GameRegistry.registerItem(meuroditePants, "armorPantsMeurodite");
-		meuroditeBoots = new MCItemArmor(MaterialMeurodite, MaterialBPMeurodite, MCommonProxy.addArmor("Meurodite"), 3, "meurodite").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_MeuroditeBoots").setTextureName(MCAssetManager.getArmorTexture("meurodite_boots"));
+		meuroditeBoots = new MCItemArmor(MaterialMeurodite, MaterialBPMeurodite, MCommonProxy.meurodite, 3, "meurodite").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_MeuroditeBoots").setTextureName(MCAssetManager.getArmorTexture("meurodite_boots"));
 		GameRegistry.registerItem(meuroditeBoots, "armorBootsMeurodite");
 		
-		TitaniumHelmet = new MCItemArmor(MaterialTitanium, MaterialBPTitanium, MCommonProxy.addArmor("titanium"), 0, "meurodite").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_TitaniumHelmet").setTextureName(MCAssetManager.getArmorTexture("titanium_helmet"));
+		TitaniumHelmet = new MCItemArmor(MaterialTitanium, MaterialBPTitanium, MCommonProxy.titanium, 0, "titanium").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_TitaniumHelmet").setTextureName(MCAssetManager.getArmorTexture("titanium_helmet"));
 		GameRegistry.registerItem(TitaniumHelmet, "armorHelmetTitanium");
-		TitaniumChest = new MCItemArmor(MaterialTitanium, MaterialBPTitanium, MCommonProxy.addArmor("titanium"), 1, "meurodite").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_TitaniumChestplate").setTextureName(MCAssetManager.getArmorTexture("titanium_chestplate"));
+		TitaniumChest = new MCItemArmor(MaterialTitanium, MaterialBPTitanium, MCommonProxy.titanium, 1, "titanium").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_TitaniumChestplate").setTextureName(MCAssetManager.getArmorTexture("titanium_chestplate"));
 		GameRegistry.registerItem(TitaniumChest, "armorChestTitanium");
-		TitaniumPants = new MCItemArmor(MaterialTitanium, MaterialBPTitanium, MCommonProxy.addArmor("titanium"), 2, "meurodite").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_TitaniumLeggings").setTextureName(MCAssetManager.getArmorTexture("titanium_leggings"));
+		TitaniumPants = new MCItemArmor(MaterialTitanium, MaterialBPTitanium, MCommonProxy.titanium, 2, "titanium").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_TitaniumLeggings").setTextureName(MCAssetManager.getArmorTexture("titanium_leggings"));
 		GameRegistry.registerItem(TitaniumPants, "armorPantsTitanium");
-		TitaniumBoots = new MCItemArmor(MaterialTitanium, MaterialBPTitanium, MCommonProxy.addArmor("titanium"), 3, "meurodite").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_TitaniumBoots").setTextureName(MCAssetManager.getArmorTexture("titanium_boots"));
+		TitaniumBoots = new MCItemArmor(MaterialTitanium, MaterialBPTitanium, MCommonProxy.titanium, 3, "titanium").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_TitaniumBoots").setTextureName(MCAssetManager.getArmorTexture("titanium_boots"));
 		GameRegistry.registerItem(TitaniumBoots, "armorBootsTitanium");
 		
-		ToriteHelmet = new MCItemArmor(MaterialTorite, MaterialBPTorite, MCommonProxy.addArmor("torite"), 0, "torite").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_ToriteHelmet").setTextureName(MCAssetManager.getArmorTexture("torite_helmet"));
+		ToriteHelmet = new MCItemArmor(MaterialTorite, MaterialBPTorite, MCommonProxy.torite, 0, "torite").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_ToriteHelmet").setTextureName(MCAssetManager.getArmorTexture("torite_helmet"));
 		GameRegistry.registerItem(ToriteHelmet, "armorHelmetTorite");
-		ToriteChest = new MCItemArmor(MaterialTorite, MaterialBPTorite, MCommonProxy.addArmor("torite"), 1, "torite").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_ToriteChestplate").setTextureName(MCAssetManager.getArmorTexture("torite_chestplate"));
+		ToriteChest = new MCItemArmor(MaterialTorite, MaterialBPTorite, MCommonProxy.torite, 1, "torite").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_ToriteChestplate").setTextureName(MCAssetManager.getArmorTexture("torite_chestplate"));
 		GameRegistry.registerItem(ToriteChest, "armorChestTorite");
-		ToritePants = new MCItemArmor(MaterialTorite, MaterialBPTorite, MCommonProxy.addArmor("torite"), 2, "torite").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_ToriteLeggings").setTextureName(MCAssetManager.getArmorTexture("torite_leggings"));
+		ToritePants = new MCItemArmor(MaterialTorite, MaterialBPTorite, MCommonProxy.torite, 2, "torite").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_ToriteLeggings").setTextureName(MCAssetManager.getArmorTexture("torite_leggings"));
 		GameRegistry.registerItem(ToritePants, "armorPantsTorite");
-		ToriteBoots = new MCItemArmor(MaterialTorite, MaterialBPTorite, MCommonProxy.addArmor("torite"), 3, "torite").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_ToriteBoots").setTextureName(MCAssetManager.getArmorTexture("torite_boots"));
+		ToriteBoots = new MCItemArmor(MaterialTorite, MaterialBPTorite, MCommonProxy.torite, 3, "torite").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_ToriteBoots").setTextureName(MCAssetManager.getArmorTexture("torite_boots"));
 		GameRegistry.registerItem(ToriteBoots, "armorBootsTorite");
 		
 		TinIngot = new MCItem().setUnlocalizedName("ingotTin").setTextureName(MCAssetManager.getMineralTexture("tin_ingot"));
@@ -471,13 +471,13 @@ public class MItems
 		SteelSword = new MCItemSword(toolMaterialSteel, toolMaterialBPSteel).setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_SteelSword").setTextureName(MCAssetManager.getWeaponTexture("steel_sword"));
 		GameRegistry.registerItem(SteelSword, "weaponSwordSteel");
 		
-		SteelHelmet = new MCItemArmor(MaterialSteel, MaterialBPSteel, MCommonProxy.addArmor("steel"), 0, "steel").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_SteelHelmet").setTextureName(MCAssetManager.getArmorTexture("steel_helmet"));
+		SteelHelmet = new MCItemArmor(MaterialSteel, MaterialBPSteel, MCommonProxy.steel, 0, "steel").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_SteelHelmet").setTextureName(MCAssetManager.getArmorTexture("steel_helmet"));
 		GameRegistry.registerItem(SteelHelmet, "armorHelmetSteel");
-		SteelChest = new MCItemArmor(MaterialSteel, MaterialBPSteel, MCommonProxy.addArmor("steel"), 1, "steel").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_SteelChestplate").setTextureName(MCAssetManager.getArmorTexture("steel_chestplate"));
+		SteelChest = new MCItemArmor(MaterialSteel, MaterialBPSteel, MCommonProxy.steel, 1, "steel").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_SteelChestplate").setTextureName(MCAssetManager.getArmorTexture("steel_chestplate"));
 		GameRegistry.registerItem(SteelChest, "armorChestSteel");
-		SteelPants = new MCItemArmor(MaterialSteel, MaterialBPSteel, MCommonProxy.addArmor("steel"), 2, "steel").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_SteelLeggings").setTextureName(MCAssetManager.getArmorTexture("steel_leggings"));
+		SteelPants = new MCItemArmor(MaterialSteel, MaterialBPSteel, MCommonProxy.steel, 2, "steel").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_SteelLeggings").setTextureName(MCAssetManager.getArmorTexture("steel_leggings"));
 		GameRegistry.registerItem(SteelPants, "armorPantsSteel");
-		SteelBoots = new MCItemArmor(MaterialSteel, MaterialBPSteel, MCommonProxy.addArmor("steel"), 3, "steel").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_SteelBoots").setTextureName(MCAssetManager.getArmorTexture("steel_boots"));
+		SteelBoots = new MCItemArmor(MaterialSteel, MaterialBPSteel, MCommonProxy.steel, 3, "steel").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_SteelBoots").setTextureName(MCAssetManager.getArmorTexture("steel_boots"));
 		GameRegistry.registerItem(SteelBoots, "armorBootsSteel");
 		
 		BronzeIngot = new MCItem().setCreativeTab(Minestrappolation.tabMaterials).setUnlocalizedName("item_BronzeIngot").setTextureName(MCAssetManager.getMineralTexture("copper_ingot"));
@@ -492,13 +492,13 @@ public class MItems
 		GameRegistry.registerItem(BronzeHoe, "toolHoeBronze");
 		BronzeSword = new MCItemSword(toolMaterialBronze, null).setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_BronzeSword").setTextureName(MCAssetManager.getWeaponTexture("bronze_sword"));
 		GameRegistry.registerItem(BronzeSword, "weaponSwordBronze");
-		BronzeHelmet = new MCItemArmor(MaterialBronze, null, MCommonProxy.addArmor("bronze"), 0, "bronze").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_BronzeHelmet").setTextureName(MCAssetManager.getArmorTexture("bronze_helmet"));
+		BronzeHelmet = new MCItemArmor(MaterialBronze, null, MCommonProxy.bronze, 0, "bronze").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_BronzeHelmet").setTextureName(MCAssetManager.getArmorTexture("bronze_helmet"));
 		GameRegistry.registerItem(BronzeHelmet, "armorHelmetBronze");
-		BronzeChest = new MCItemArmor(MaterialBronze, null, MCommonProxy.addArmor("bronze"), 1, "bronze").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_BronzeChestplate").setTextureName(MCAssetManager.getArmorTexture("bronze_chesplate"));
+		BronzeChest = new MCItemArmor(MaterialBronze, null, MCommonProxy.bronze, 1, "bronze").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_BronzeChestplate").setTextureName(MCAssetManager.getArmorTexture("bronze_chesplate"));
 		GameRegistry.registerItem(BronzeChest, "armorChestBronze");
-		BronzePants = new MCItemArmor(MaterialBronze, null, MCommonProxy.addArmor("bronze"), 2, "bronze").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_BronzeLeggings").setTextureName(MCAssetManager.getArmorTexture("bronze_leggings"));
+		BronzePants = new MCItemArmor(MaterialBronze, null, MCommonProxy.bronze, 2, "bronze").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_BronzeLeggings").setTextureName(MCAssetManager.getArmorTexture("bronze_leggings"));
 		GameRegistry.registerItem(BronzePants, "armorPantsBronze");
-		BronzeBoots = new MCItemArmor(MaterialBronze, null, MCommonProxy.addArmor("bronze"), 3, "bronze").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_BronzeBoots").setTextureName(MCAssetManager.getArmorTexture("bronze_boots"));
+		BronzeBoots = new MCItemArmor(MaterialBronze, null, MCommonProxy.bronze, 3, "bronze").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_BronzeBoots").setTextureName(MCAssetManager.getArmorTexture("bronze_boots"));
 		GameRegistry.registerItem(BronzeBoots, "armorBootsBronze");
 		
 		BedrockPickaxe = new MCItemPickaxe(toolMaterialBedrock, toolMaterialBPBedrock).setCreativeTab(Minestrappolation.tabTools).setUnlocalizedName("item_BedrockPickaxe").setTextureName(MCAssetManager.getToolTexture("bedrock_pickaxe"));

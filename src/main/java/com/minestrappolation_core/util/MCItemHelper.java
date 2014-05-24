@@ -29,7 +29,7 @@ public class MCItemHelper
 	 */
 	public static Item get(String name)
 	{
-		return GameRegistry.findItem(MCReference.MINESTRAP_CORE_ID, name);
+		return GameRegistry.findItem(MCReference.CORE_MODID, name);
 	}
 	
 	public static String getUniqueName(Item item)

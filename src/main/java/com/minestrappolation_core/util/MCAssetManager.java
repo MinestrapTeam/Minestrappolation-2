@@ -14,29 +14,29 @@ public class MCAssetManager
 {
 	public static ResourceLocation getMAPIResource(String name)
 	{
-		return new ResourceLocation(MCReference.MINESTRAP_CORE_ID, name);
+		return new ResourceLocation(MCReference.CORE_MODID, name);
 	}
 	
 	public static ResourceLocation getResource(String name)
 	{
-		return new ResourceLocation(MCReference.MINESTRAP_ID, name);
+		return new ResourceLocation(MCReference.MODID, name);
 	}
 	
 	public static ResourceLocation getModelResource(String name)
 	{
-		return new ResourceLocation(MCReference.MINESTRAP_ID, "textures/model/" + name + ".png");
+		return new ResourceLocation(MCReference.MODID, "textures/model/" + name + ".png");
 	}
 	
 	public static String getMCoreTexture(String name)
 	{
-		return MCReference.MINESTRAP_CORE_ID + ":" + name;
+		return MCReference.CORE_MODID + ":" + name;
 	}
 	
 	// Minestrappolation Blocks and Items Icons
 	
 	public static String getTexture(String name)
 	{
-		return MCReference.MINESTRAP_ID + ":" + name;
+		return MCReference.MODID + ":" + name;
 	}
 	
 	public static String getMobTexture(String name)
@@ -56,7 +56,7 @@ public class MCAssetManager
 	
 	public static String getStonecutterTexture(String name)
 	{
-		return MCReference.MINESTRAP_ID + ":stonecutter/" + name;
+		return MCReference.MODID + ":stonecutter/" + name;
 	}
 	
 	/**
@@ -64,7 +64,7 @@ public class MCAssetManager
 	 */
 	public static String getArmorTexture(String name)
 	{
-		return MCReference.MINESTRAP_ID + ":armor/" + name;
+		return MCReference.MODID + ":armor/" + name;
 	}
 	
 	/**
@@ -72,12 +72,12 @@ public class MCAssetManager
 	 */
 	public static String getDrinkTexture(String name)
 	{
-		return MCReference.MINESTRAP_ID + ":drinks/" + name;
+		return MCReference.MODID + ":drinks/" + name;
 	}
 	
 	public static String getFoodTexture(String name)
 	{
-		return MCReference.MINESTRAP_ID + ":food/" + name;
+		return MCReference.MODID + ":food/" + name;
 	}
 	
 	/**
@@ -85,7 +85,7 @@ public class MCAssetManager
 	 */
 	public static String getLampTexture(String name)
 	{
-		return MCReference.MINESTRAP_ID + ":lamps/" + name;
+		return MCReference.MODID + ":lamps/" + name;
 	}
 	
 	/**
@@ -93,7 +93,7 @@ public class MCAssetManager
 	 */
 	public static String getLiquidTexture(String name)
 	{
-		return MCReference.MINESTRAP_ID + ":liquids/" + name;
+		return MCReference.MODID + ":liquids/" + name;
 	}
 	
 	/**
@@ -101,17 +101,17 @@ public class MCAssetManager
 	 */
 	public static String getMachineTexture(String name)
 	{
-		return MCReference.MINESTRAP_ID + ":drinks/" + name;
+		return MCReference.MODID + ":drinks/" + name;
 	}
 	
 	public static String getMineralTexture(String name)
 	{
-		return MCReference.MINESTRAP_ID + ":minerals/" + name;
+		return MCReference.MODID + ":minerals/" + name;
 	}
 	
 	public static String getMobDropTexture(String name)
 	{
-		return MCReference.MINESTRAP_ID + ":mobs/" + name;
+		return MCReference.MODID + ":mobs/" + name;
 	}
 	
 	/**
@@ -119,7 +119,7 @@ public class MCAssetManager
 	 */
 	public static String getPlantTexture(String name)
 	{
-		return MCReference.MINESTRAP_ID + ":plants/" + name;
+		return MCReference.MODID + ":plants/" + name;
 	}
 	
 	/**
@@ -127,7 +127,7 @@ public class MCAssetManager
 	 */
 	public static String getToolTexture(String name)
 	{
-		return MCReference.MINESTRAP_ID + ":tools/" + name;
+		return MCReference.MODID + ":tools/" + name;
 	}
 	
 	/**
@@ -135,23 +135,23 @@ public class MCAssetManager
 	 */
 	public static String getWeaponTexture(String name)
 	{
-		return MCReference.MINESTRAP_ID + ":weapons/" + name;
+		return MCReference.MODID + ":weapons/" + name;
 	}
 	
 	public static String getWoodTexture(String name)
 	{
-		return MCReference.MINESTRAP_ID + ":wood/" + name;
+		return MCReference.MODID + ":wood/" + name;
 	}
 	
 	// Minestrappolation Models
 	
 	public static String getArmorModel(String name)
 	{
-		return MCReference.MINESTRAP_ID + ":textures/armor/" + name + ".png";
+		return MCReference.MODID + ":textures/armor/" + name + ".png";
 	}
 	
 	public static String getModel(String name)
 	{
-		return MCReference.MINESTRAP_ID + ":textures/model/" + name + ".png";
+		return MCReference.MODID + ":textures/model/" + name + ".png";
 	}
 }

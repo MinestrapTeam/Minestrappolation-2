@@ -14,6 +14,7 @@ import com.minestrappolation.tileentity.*;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.network.IGuiHandler;
 
 import net.minecraft.client.renderer.entity.RenderSnowball;
@@ -23,16 +24,16 @@ import net.minecraft.world.World;
 public class MClientProxy extends MCommonProxy implements IGuiHandler
 {
 	@Override
-	public void registerRenderers()
+	public void init(FMLInitializationEvent event)
 	{
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGoblet.class, new RenderGoblet());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPlate.class, new RenderPlate());
+		
 		RenderingRegistry.registerEntityRenderingHandler(EntityHangGlider.class, new RenderHangGlider());
 		RenderingRegistry.registerEntityRenderingHandler(EntityNukePrimed.class, new RenderNukePrimed());
 		RenderingRegistry.registerEntityRenderingHandler(EntityGrenade.class, new RenderSnowball(MItems.grenade));
 		RenderingRegistry.registerEntityRenderingHandler(EntityGrenadeImpact.class, new RenderSnowball(MItems.grenadeImpact));
 		RenderingRegistry.registerEntityRenderingHandler(EntityGrenadeSticky.class, new RenderSnowball(MItems.grenadeSticky));
-		
 	}
 	
 	@Override
@@ -53,7 +54,8 @@ public class MClientProxy extends MCommonProxy implements IGuiHandler
 		return null;
 	}
 	
-	public static int addArmor(String armor)
+	@Override
+	public int addArmor(String armor)
 	{
 		return RenderingRegistry.addNewArmourRendererPrefix(armor);
 	}

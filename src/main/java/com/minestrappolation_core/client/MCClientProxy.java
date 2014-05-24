@@ -8,6 +8,7 @@ import com.minestrappolation_core.tileentity.TileEntityStonecutter;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ThreadDownloadImageData;
@@ -32,7 +33,7 @@ public class MCClientProxy extends MCCommonProxy
 	}
 	
 	@Override
-	public void registerRenderers()
+	public void init(FMLInitializationEvent event)
 	{
 		stone2RenderType = RenderingRegistry.getNextAvailableRenderId();
 		RenderingRegistry.registerBlockHandler(stone2RenderType, new RenderBlockStone2());

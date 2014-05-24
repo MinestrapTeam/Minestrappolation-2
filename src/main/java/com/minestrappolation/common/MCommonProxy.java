@@ -1,5 +1,7 @@
 package com.minestrappolation.common;
 
+import clashsoft.cslib.minecraft.common.BaseProxy;
+
 import com.minestrappolation.inventory.ContainerBarrel;
 import com.minestrappolation.inventory.ContainerCrate;
 import com.minestrappolation.inventory.ContainerMelter;
@@ -10,15 +12,16 @@ import com.minestrappolation.tileentity.TileEntityMelter;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
-import cpw.mods.fml.common.network.IGuiHandler;
-
-public class MCommonProxy implements IGuiHandler
+public class MCommonProxy extends BaseProxy
 {
-	public void registerRenderers()
-	{
-	}
+	public static int	fire;
+	public static int	bronze;
+	public static int	steel;
+	public static int	titanium;
+	public static int	meurodite;
+	public static int	torite;
 	
-	public static int addArmor(String armor)
+	public int addArmor(String armor)
 	{
 		return 0;
 	}
@@ -38,12 +41,6 @@ public class MCommonProxy implements IGuiHandler
 		{
 			return new ContainerMelter(player, (TileEntityMelter) world.getTileEntity(x, y, z));
 		}
-		return null;
-	}
-	
-	@Override
-	public Object getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
-	{
 		return null;
 	}
 }

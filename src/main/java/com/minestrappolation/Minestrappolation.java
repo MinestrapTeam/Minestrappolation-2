@@ -1,13 +1,14 @@
 package com.minestrappolation;
 
 import clashsoft.brewingapi.BrewingAPI;
+import clashsoft.cslib.minecraft.BaseMod;
+import clashsoft.cslib.minecraft.util.CSConfig;
 
 import com.minestrappolation.common.MCommonProxy;
 import com.minestrappolation.creativetab.*;
 import com.minestrappolation.entity.*;
 import com.minestrappolation.handler.BlacksmithTradeHandler;
 import com.minestrappolation.handler.MEventHandler;
-import com.minestrappolation.handler.MPlayerTickHandler;
 import com.minestrappolation.handler.PriestTradeHandler;
 import com.minestrappolation.lib.*;
 import com.minestrappolation.tileentity.TileEntityMelter;
@@ -15,31 +16,29 @@ import com.minestrappolation.world.MOreGenerator;
 import com.minestrappolation_core.crafting.CustomRecipeLoader;
 import com.minestrappolation_core.lib.MCReference;
 
-import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.VillagerRegistry;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 
-@Mod(modid = MCReference.MINESTRAP_ID, name = MCReference.MINESTRAP_NAME, version = MCReference.MINESTRAP_VERSION, dependencies = MCReference.DEPENDENCY)
-public class Minestrappolation
+@Mod(modid = MCReference.MODID, name = MCReference.NAME, version = MCReference.VERSION, dependencies = MCReference.DEPENDENCY)
+public class Minestrappolation extends BaseMod
 {
-	@Instance(MCReference.MINESTRAP_ID)
+	@Instance(MCReference.MODID)
 	public static Minestrappolation		instance;
 	
-	@SidedProxy(modId = MCReference.MINESTRAP_ID, clientSide = "com.minestrappolation.client.MClientProxy", serverSide = "com.minestrappolation.common.MCommonProxy")
+	@SidedProxy(modId = MCReference.MODID, clientSide = "com.minestrappolation.client.MClientProxy", serverSide = "com.minestrappolation.common.MCommonProxy")
 	public static MCommonProxy			proxy;
 	
 	public static CreativeTabs			tabBuildingBlocks	= new MCreativeTabBuildingBlocks("minestrap_building_blocks");
@@ -58,9 +57,31 @@ public class Minestrappolation
 	
 	public static Fluid					magmaFluid;
 	
-	@Mod.EventHandler
-	public void preInit(FMLPreInitializationEvent evt)
+	public static boolean				shouldOresEffect	= true;
+	public static int					daysUntilTarnish;
+	public static int					daysUntilMossy;
+	
+	public Minestrappolation()
 	{
+		super(proxy, MCReference.MODID, MCReference.NAME, MCReference.ACRONYM, MCReference.VERSION);
+		this.eventHandler = new MEventHandler();
+		this.hasConfig = true;
+	}
+	
+	@Override
+	public void readConfig()
+	{
+		daysUntilTarnish = CSConfig.getInt("misc", "Days until copper tarnish", 3);
+		shouldOresEffect = CSConfig.getBool("misc", "should Plutonium/Uranium ores effect player", true);
+		daysUntilMossy = CSConfig.getInt("misc", "Days Until Planks Get Mossy", 3);
+	}
+	
+	@Override
+	@EventHandler
+	public void preInit(FMLPreInitializationEvent event)
+	{
+		super.preInit(event);
+		
 		Blocks.bedrock.setHardness(80F);
 		magmaFluid = new Fluid("Magma").setViscosity(6500).setDensity(3);
 		FluidRegistry.registerFluid(magmaFluid);
@@ -83,33 +104,34 @@ public class Minestrappolation
 		EntityRegistry.registerModEntity(EntityGrenadeSticky.class, "GrenadeSticky", 5, this, 40, 3, true);
 		
 		MItems.addItemsToChests();
-		
 	}
 	
-	@Mod.EventHandler
-	public void init(FMLInitializationEvent evt)
+	@Override
+	@EventHandler
+	public void init(FMLInitializationEvent event)
 	{
+		super.init(event);
+		
 		MTileEntities.registerTileEntitys();
 		GameRegistry.registerWorldGenerator(new MOreGenerator(), 0);
 		BrewingAPI.registerEffectHandler(new MPotions());
+		
 		MPotions.loadPotions();
 		MPotions.loadBrewingRecipes();
-		MinecraftForge.EVENT_BUS.register(new MEventHandler());
-		NetworkRegistry.INSTANCE.registerGuiHandler(this, proxy);
-		FMLCommonHandler.instance().bus().register(new MPlayerTickHandler());
 		
 		EntityRegistry.registerGlobalEntityID(EntityHangGlider.class, "hangGlider", EntityRegistry.findGlobalUniqueEntityId());
 		GameRegistry.registerTileEntityWithAlternatives(TileEntityMelter.class, "Melter", "tileEntityMelter");
 		
 		VillagerRegistry.instance().registerVillageTradeHandler(3, new BlacksmithTradeHandler());
 		VillagerRegistry.instance().registerVillageTradeHandler(2, new PriestTradeHandler());
-		
-		proxy.registerRenderers();
 	}
 	
-	@Mod.EventHandler
-	public void postInit(FMLPostInitializationEvent evt)
+	@Override
+	@EventHandler
+	public void postInit(FMLPostInitializationEvent event)
 	{
+		super.postInit(event);
+		
 		MBlocks.loadVanillaOverwrites();
 		MRecipes.removeRecipes();
 	}
