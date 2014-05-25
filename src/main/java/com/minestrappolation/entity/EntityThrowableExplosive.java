@@ -11,7 +11,7 @@ import net.minecraft.world.World;
 public abstract class EntityThrowableExplosive extends EntityThrowable
 {
 	private int		fuse			= 60;
-	private double	bounceFactor	= 0.5;
+	private double	bounceFactor	= 0.5D;
 	
 	public EntityThrowableExplosive(World world)
 	{
@@ -34,7 +34,7 @@ public abstract class EntityThrowableExplosive extends EntityThrowable
 		double prevVelX = this.motionX;
 		double prevVelY = this.motionY;
 		double prevVelZ = this.motionZ;
-		super.onUpdate();
+		this.moveEntity(prevVelX, prevVelY, prevVelZ);
 		
 		// Take into account bouncing (normal displacement just sets them to 0)
 		if (this.motionX != prevVelX)
@@ -63,13 +63,10 @@ public abstract class EntityThrowableExplosive extends EntityThrowable
 		this.motionZ *= 0.89;
 		
 		// Are we going to explode?
-		if (this.fuse-- <= 0)
+		if (this.fuse-- <= 0 && !this.worldObj.isRemote)
 		{
-			if (!this.worldObj.isRemote)
-			{
-				this.setDead();
-				this.explode();
-			}
+			this.setDead();
+			this.explode();
 		}
 	}
 	
