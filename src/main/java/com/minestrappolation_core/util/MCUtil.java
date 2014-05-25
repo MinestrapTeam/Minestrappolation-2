@@ -193,10 +193,8 @@ public class MCUtil
 			ItemStack stack = recipe.getRecipeOutput();
 			if (CSStacks.equals(output, stack))
 			{
-				System.out.println("CrazyFoods: Removed Recipe: " + recipe + " -> " + output);
 				iterator.remove();
 			}
 		}
 	}
-	
 }
