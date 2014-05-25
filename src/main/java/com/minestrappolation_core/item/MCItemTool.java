@@ -68,7 +68,7 @@ public class MCItemTool extends ItemTool
 		{
 			return stack.stackTagCompound.getFloat("PoisonLevel");
 		}
-		return 4F;
+		return 0F;
 	}
 	
 	public static void setPoisonLevel(ItemStack stack, float level)
