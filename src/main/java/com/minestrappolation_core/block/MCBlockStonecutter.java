@@ -3,7 +3,6 @@ package com.minestrappolation_core.block;
 import com.minestrappolation.Minestrappolation;
 import com.minestrappolation_core.MinestrappolationCore;
 import com.minestrappolation_core.tileentity.TileEntityStonecutter;
-import com.minestrappolation_core.util.MCAssetManager;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
@@ -36,6 +35,7 @@ public class MCBlockStonecutter extends BlockContainer
 		return new TileEntityStonecutter();
 	}
 	
+	@Override
 	public int getRenderType()
     {
         return -1;

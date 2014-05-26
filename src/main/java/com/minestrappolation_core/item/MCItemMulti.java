@@ -2,18 +2,11 @@ package com.minestrappolation_core.item;
 
 import java.util.List;
 
-import com.minestrappolation_core.lib.MCReference;
-import com.minestrappolation_core.util.MCAssetManager;
-import com.minestrappolation_core.util.MCUtil;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
-import net.minecraft.util.MathHelper;
 
 public class MCItemMulti extends Item
 {

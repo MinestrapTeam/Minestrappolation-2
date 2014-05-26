@@ -15,5 +15,4 @@ public class MCreativeTabStoneDecor extends CreativeTabs
 	{
 		return null;
 	}
-	
 }

@@ -1,7 +1,6 @@
 package com.minestrappolation_core.item.block;
 
 import com.minestrappolation_core.block.MCBlockStone;
-import com.minestrappolation_core.block.MCBlockStoneCustom;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
@@ -9,7 +8,7 @@ import net.minecraft.item.ItemStack;
 
 public class MCItemBlockStone extends ItemBlock
 {
-	private MCBlockStoneCustom theBlock; 
+	private MCBlockStone theBlock; 
 	
 	public MCItemBlockStone(Block block)
 	{
@@ -17,8 +16,8 @@ public class MCItemBlockStone extends ItemBlock
 		this.setMaxDamage(0);
 		this.setHasSubtypes(true);
 		
-		if (block instanceof MCBlockStoneCustom)
-			this.theBlock = (MCBlockStoneCustom) block;
+		if (block instanceof MCBlockStone)
+			this.theBlock = (MCBlockStone) block;
 	}
 	
 	@Override

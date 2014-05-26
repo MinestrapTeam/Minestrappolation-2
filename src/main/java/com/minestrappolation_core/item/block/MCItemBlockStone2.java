@@ -1,10 +1,10 @@
 package com.minestrappolation_core.item.block;
 
 import com.minestrappolation_core.block.MCBlockStone2;
-import com.minestrappolation_core.block.MCBlockStoneCustom2;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -12,14 +12,14 @@ import net.minecraft.world.World;
 
 public class MCItemBlockStone2 extends MCItemBlockMulti
 {
-	private MCBlockStoneCustom2	theBlock;
+	private MCBlockStone2	theBlock;
 	
 	public MCItemBlockStone2(Block block)
 	{
 		super(block);
 		
-		if (block instanceof MCBlockStoneCustom2)
-			this.theBlock = (MCBlockStoneCustom2) block;
+		if (block instanceof MCBlockStone2)
+			this.theBlock = (MCBlockStone2) block;
 	}
 	
 	@Override
