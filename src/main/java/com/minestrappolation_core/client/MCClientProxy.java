@@ -19,7 +19,7 @@ import net.minecraft.world.World;
 
 public class MCClientProxy extends MCCommonProxy
 {
-	public static final String	capeURL	= "https://raw.githubusercontent.com/SoBiohazardous/Minestrappolation-Recode/master/assets/minestrappolation/textures/misc/cape_dev.png";
+	public static final String	capeURL	= "https://raw.githubusercontent.com/SoBiohazardous/Minestrappolation-Recode/master/src/main/resources/assets/minestrappolation/textures/misc/cape_dev.png";
 	
 	@Override
 	public Object getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
@@ -39,8 +39,8 @@ public class MCClientProxy extends MCCommonProxy
 		RenderingRegistry.registerBlockHandler(stone2RenderType, new RenderBlockStone2());
 		
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityStonecutter.class, new RenderStonecutter());
-		
-		addDevCapes();
+
+		addDevCapes();		
 	}
 	
 	public static void addDevCapes()

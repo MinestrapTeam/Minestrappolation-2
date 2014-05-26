@@ -55,15 +55,15 @@ public class MinestrappolationCore extends BaseMod
 	@Override
 	@EventHandler
 	public void init(FMLInitializationEvent event)
-	{
+	{		
 		super.init(event);
 		
 		GameRegistry.registerTileEntity(TileEntityStonecutter.class, "StoneCutter");
-		
+
 		MCBlocks.init();
 		MCItems.init();
 		MCRecipes.init();
-		
+			
 		Blocks.bedrock.setHardness(80F);
 	}
 	

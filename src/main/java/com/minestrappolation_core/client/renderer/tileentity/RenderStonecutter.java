@@ -6,13 +6,14 @@ import com.minestrappolation_core.client.model.ModelStonecutter;
 import com.minestrappolation_core.util.MCAssetManager;
 
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
+import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderStonecutter extends TileEntitySpecialRenderer
 {
 	private final ModelStonecutter	model;
-	ResourceLocation				texture	= new ResourceLocation(MCAssetManager.getMCoreTexture("textures/blocks/model/stoneCutter.png"));
+	ResourceLocation				texture	= new ResourceLocation(MCAssetManager.getBlockModel("stoneCutter"));
 	
 	public RenderStonecutter()
 	{
@@ -27,7 +28,7 @@ public class RenderStonecutter extends TileEntitySpecialRenderer
 		this.bindTexture(this.texture);
 		GL11.glPushMatrix();
 		GL11.glRotatef(180, 0F, 0F, 1F);
-		this.model.render(0.0625F);
+		this.model.render((Entity)null, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
 		GL11.glPopMatrix();
 		GL11.glPopMatrix();
 	}

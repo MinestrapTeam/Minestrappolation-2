@@ -2,22 +2,31 @@ package com.minestrappolation_core.item;
 
 import java.util.List;
 
+import com.minestrappolation_core.lib.MCReference;
+import com.minestrappolation_core.util.MCAssetManager;
+import com.minestrappolation_core.util.MCUtil;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import net.minecraft.util.MathHelper;
 
 public class MCItemMulti extends Item
 {
-	private final String[]	iconNames;
-	private IIcon[]			icons;
+	protected final String[]	iconNames;
+	protected IIcon[]			icons;
+	protected String 			texturePrefix;
 	
-	public MCItemMulti(String[] iconNames)
+	public MCItemMulti(String texturePrefix, String[] iconNames)
 	{
 		this.setHasSubtypes(true);
 		this.setMaxDamage(0);
 		this.iconNames = iconNames;
+		this.texturePrefix = texturePrefix;
 	}
 	
 	@Override
@@ -25,7 +34,7 @@ public class MCItemMulti extends Item
 	{
 		return this.icons[metadata % this.icons.length];
 	}
-	
+    
 	@Override
 	public String getUnlocalizedName(ItemStack stack)
 	{

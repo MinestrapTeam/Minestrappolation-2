@@ -1,5 +1,6 @@
 package com.minestrappolation_core.block;
 
+import com.minestrappolation.Minestrappolation;
 import com.minestrappolation_core.MinestrappolationCore;
 import com.minestrappolation_core.tileentity.TileEntityStonecutter;
 import com.minestrappolation_core.util.MCAssetManager;
@@ -20,12 +21,13 @@ public class MCBlockStonecutter extends BlockContainer
 	public MCBlockStonecutter()
 	{
 		super(Material.rock);
+		this.setCreativeTab(Minestrappolation.tabStoneDecor);
 	}
 	
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getMCoreTexture("stonecutter"));
+		//this.blockIcon = iconRegister.registerIcon(MCAssetManager.getMCoreTexture("stonecutter"));
 	}
 	
 	@Override
@@ -34,11 +36,10 @@ public class MCBlockStonecutter extends BlockContainer
 		return new TileEntityStonecutter();
 	}
 	
-	@Override
 	public int getRenderType()
-	{
-		return -1;
-	}
+    {
+        return -1;
+    }
 	
 	@Override
 	public boolean isOpaqueCube()

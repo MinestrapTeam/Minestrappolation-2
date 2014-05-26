@@ -22,7 +22,7 @@ public class BlockPlate extends BlockContainer
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getModel("plate"));
+		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getBlockModel("plate"));
 	}
 	
 	@Override

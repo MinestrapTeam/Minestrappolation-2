@@ -16,7 +16,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class MPotions implements IPotionEffectHandler
 {
-	private static ResourceLocation	iconLoc	= MCAssetManager.getMAPIResource("gui/potion_icons.png");
+	private static ResourceLocation	iconLoc	= MCAssetManager.getCoreResource("gui/potion_icons.png");
 	
 	public static Potion			infectious;
 	

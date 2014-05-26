@@ -132,13 +132,13 @@ public class MBlocks
 	
 	public static void init()
 	{
-		meuroditeOre = new MCBlock(Material.rock).setHardness(5F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setResistance(10F).setStepSound(Block.soundTypeStone).setBlockName("oreMeurodite").setBlockTextureName(MCAssetManager.getMineralTexture("meurodite_block"));
+		meuroditeOre = new MCBlock(Material.rock).setHardness(5F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setResistance(10F).setStepSound(Block.soundTypeStone).setBlockName("oreMeurodite").setBlockTextureName(MCAssetManager.getMineralTexture("meurodite_ore"));
 		GameRegistry.registerBlock(meuroditeOre, "oreMeurodite");
 		meuroditeBlock = new MCBlock(Material.iron).setHardness(5F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setResistance(10F).setStepSound(Block.soundTypeStone).setBlockName("blockMeurodite").setBlockTextureName(MCAssetManager.getMineralTexture("meurodite_block"));
 		GameRegistry.registerBlock(meuroditeBlock, "blockMeurodite");
 		uraniumOre = new BlockUraniumOre(Material.rock).setHardness(5F).setResistance(10F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("oreUranium").setBlockTextureName(MCAssetManager.getMineralTexture("uranium_ore"));
 		GameRegistry.registerBlock(uraniumOre, "oreUranium");
-		uraniumBlock = new BlockUraniumRaw(Material.rock).setHardness(6F).setResistance(9F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("blockUranium").setBlockTextureName(MCAssetManager.getTexture("uranium_block"));
+		uraniumBlock = new BlockUraniumRaw(Material.rock).setHardness(6F).setResistance(9F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("blockUranium").setBlockTextureName(MCAssetManager.getMineralTexture("uranium_block"));
 		GameRegistry.registerBlock(uraniumBlock, "blockUraniumRaw");
 		plutoniumOre = new BlockPlutoniumOre(Material.rock).setHardness(5F).setResistance(10F).setStepSound(Block.soundTypeStone).setBlockName("orePlutonium").setBlockTextureName(MCAssetManager.getMineralTexture("plutonium_ore")).setCreativeTab(Minestrappolation.tabBuildingBlocks);
 		GameRegistry.registerBlock(plutoniumOre, "orePlutonium");
@@ -268,8 +268,7 @@ public class MBlocks
 		Goblet = new BlockGoblet(Material.rock).setHardness(.5F).setBlockName("goblet");
 		Plate = new BlockPlate(Material.rock).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockName("plate");
 		
-		GlassDoor = new BlockGlassDoor(Material.glass).setHardness(1F).setBlockName("doorGlass");
-		
+		GlassDoor = new BlockGlassDoor(Material.glass).setHardness(1F).setBlockName("doorGlass");		
 	}
 	
 	public static void load()

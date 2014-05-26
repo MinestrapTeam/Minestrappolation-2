@@ -12,7 +12,7 @@ import net.minecraft.util.ResourceLocation;
  */
 public class MCAssetManager
 {
-	public static ResourceLocation getMAPIResource(String name)
+	public static ResourceLocation getCoreResource(String name)
 	{
 		return new ResourceLocation(MCReference.CORE_MODID, name);
 	}
@@ -101,7 +101,7 @@ public class MCAssetManager
 	 */
 	public static String getMachineTexture(String name)
 	{
-		return MCReference.MODID + ":drinks/" + name;
+		return MCReference.MODID + ":machines/" + name;
 	}
 	
 	public static String getMineralTexture(String name)
@@ -150,8 +150,8 @@ public class MCAssetManager
 		return MCReference.MODID + ":textures/armor/" + name + ".png";
 	}
 	
-	public static String getModel(String name)
+	public static String getBlockModel(String name)
 	{
-		return MCReference.MODID + ":textures/model/" + name + ".png";
+		return MCReference.MODID + ":textures/blocks/model/" + name + ".png";
 	}
 }
