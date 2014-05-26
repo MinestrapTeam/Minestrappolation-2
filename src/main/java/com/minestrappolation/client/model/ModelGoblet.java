@@ -6,132 +6,118 @@ import net.minecraft.entity.Entity;
 
 public class ModelGoblet extends ModelBase
 {
-	// fields
-	ModelRenderer	Base;
-	ModelRenderer	Stem;
-	ModelRenderer	CupBase;
-	ModelRenderer	CupSubBaseA;
-	ModelRenderer	CupSubBaseB;
-	ModelRenderer	CupSubBaseC;
-	ModelRenderer	CupSubBaseD;
-	ModelRenderer	Side1;
-	ModelRenderer	Side2;
-	ModelRenderer	Side3;
-	ModelRenderer	Side4;
-	ModelRenderer	Liquid;
+	private ModelRenderer	base;
+	private ModelRenderer	stem;
+	private ModelRenderer	cupBase;
+	private ModelRenderer	cupBase1;
+	private ModelRenderer	cupBase2;
+	private ModelRenderer	cupBase3;
+	private ModelRenderer	cupBase4;
+	private ModelRenderer	side1;
+	private ModelRenderer	side2;
+	private ModelRenderer	side3;
+	private ModelRenderer	side4;
+	private ModelRenderer	liquid;
 	
 	public ModelGoblet()
 	{
 		this.textureWidth = 64;
 		this.textureHeight = 32;
 		
-		this.Base = new ModelRenderer(this, 0, 0);
-		this.Base.addBox(0F, 0F, 0F, 4, 1, 4);
-		this.Base.setRotationPoint(-2F, 23F, -2F);
-		this.Base.setTextureSize(64, 32);
-		this.Base.mirror = true;
-		this.setRotation(this.Base, 0F, 0F, 0F);
-		this.Stem = new ModelRenderer(this, 16, 0);
-		this.Stem.addBox(0F, 0F, 0F, 2, 4, 2);
-		this.Stem.setRotationPoint(-1F, 19F, -1F);
-		this.Stem.setTextureSize(64, 32);
-		this.Stem.mirror = true;
-		this.setRotation(this.Stem, 0F, 0F, 0F);
-		this.CupBase = new ModelRenderer(this, 0, 0);
-		this.CupBase.addBox(0F, 0F, 0F, 4, 1, 4);
-		this.CupBase.setRotationPoint(-2F, 18F, -2F);
-		this.CupBase.setTextureSize(64, 32);
-		this.CupBase.mirror = true;
-		this.setRotation(this.CupBase, 0F, 0F, 0F);
-		this.CupSubBaseA = new ModelRenderer(this, 0, 5);
-		this.CupSubBaseA.addBox(0F, 0F, 0F, 4, 1, 2);
-		this.CupSubBaseA.setRotationPoint(-2F, 17F, 1F);
-		this.CupSubBaseA.setTextureSize(64, 32);
-		this.CupSubBaseA.mirror = true;
-		this.setRotation(this.CupSubBaseA, 0F, 0F, 0F);
-		this.CupSubBaseB = new ModelRenderer(this, 0, 5);
-		this.CupSubBaseB.addBox(0F, 0F, 0F, 4, 1, 2);
-		this.CupSubBaseB.setRotationPoint(-2F, 17F, -3F);
-		this.CupSubBaseB.setTextureSize(64, 32);
-		this.CupSubBaseB.mirror = true;
-		this.setRotation(this.CupSubBaseB, 0F, 0F, 0F);
-		this.CupSubBaseC = new ModelRenderer(this, 0, 8);
-		this.CupSubBaseC.addBox(0F, 0F, 0F, 2, 1, 4);
-		this.CupSubBaseC.setRotationPoint(-3F, 17F, -2F);
-		this.CupSubBaseC.setTextureSize(64, 32);
-		this.CupSubBaseC.mirror = true;
-		this.setRotation(this.CupSubBaseC, 0F, 0F, 0F);
-		this.CupSubBaseD = new ModelRenderer(this, 0, 8);
-		this.CupSubBaseD.addBox(0F, 0F, 0F, 2, 1, 4);
-		this.CupSubBaseD.setRotationPoint(1F, 17F, -2F);
-		this.CupSubBaseD.setTextureSize(64, 32);
-		this.CupSubBaseD.mirror = true;
-		this.setRotation(this.CupSubBaseD, 0F, 0F, 0F);
-		this.Side1 = new ModelRenderer(this, 24, 0);
-		this.Side1.addBox(0F, 0F, 0F, 4, 4, 1);
-		this.Side1.setRotationPoint(-2F, 13F, 2F);
-		this.Side1.setTextureSize(64, 32);
-		this.Side1.mirror = true;
-		this.setRotation(this.Side1, 0F, 0F, 0F);
-		this.Side2 = new ModelRenderer(this, 34, 0);
-		this.Side2.addBox(0F, 0F, 0F, 4, 4, 1);
-		this.Side2.setRotationPoint(-2F, 13F, -3F);
-		this.Side2.setTextureSize(64, 32);
-		this.Side2.mirror = true;
-		this.setRotation(this.Side2, 0F, 0F, 0F);
-		this.Side3 = new ModelRenderer(this, 24, 5);
-		this.Side3.addBox(0F, 0F, 0F, 1, 4, 4);
-		this.Side3.setRotationPoint(-3F, 13F, -2F);
-		this.Side3.setTextureSize(64, 32);
-		this.Side3.mirror = true;
-		this.setRotation(this.Side3, 0F, 0F, 0F);
-		this.Side4 = new ModelRenderer(this, 34, 5);
-		this.Side4.addBox(0F, 0F, 0F, 1, 4, 4);
-		this.Side4.setRotationPoint(2F, 13F, -2F);
-		this.Side4.setTextureSize(64, 32);
-		this.Side4.mirror = true;
-		this.setRotation(this.Side4, 0F, 0F, 0F);
-		this.Liquid = new ModelRenderer(this, 48, 27);
-		this.Liquid.addBox(0F, 0F, 0F, 4, 0, 4);
-		this.Liquid.setRotationPoint(-2F, 14F, -2F);
-		this.Liquid.setTextureSize(64, 32);
-		this.Liquid.mirror = true;
-		this.setRotation(this.Liquid, 0F, 0F, 0F);
+		this.base = new ModelRenderer(this, 0, 0);
+		this.base.addBox(0F, 0F, 0F, 4, 1, 4);
+		this.base.setRotationPoint(-2F, 23F, -2F);
+		this.base.setTextureSize(64, 32);
+		this.base.mirror = true;
+		this.setRotation(this.base, 0F, 0F, 0F);
+		this.stem = new ModelRenderer(this, 16, 0);
+		this.stem.addBox(0F, 0F, 0F, 2, 4, 2);
+		this.stem.setRotationPoint(-1F, 19F, -1F);
+		this.stem.setTextureSize(64, 32);
+		this.stem.mirror = true;
+		this.setRotation(this.stem, 0F, 0F, 0F);
+		this.cupBase = new ModelRenderer(this, 0, 0);
+		this.cupBase.addBox(0F, 0F, 0F, 4, 1, 4);
+		this.cupBase.setRotationPoint(-2F, 18F, -2F);
+		this.cupBase.setTextureSize(64, 32);
+		this.cupBase.mirror = true;
+		this.setRotation(this.cupBase, 0F, 0F, 0F);
+		this.cupBase1 = new ModelRenderer(this, 0, 5);
+		this.cupBase1.addBox(0F, 0F, 0F, 4, 1, 2);
+		this.cupBase1.setRotationPoint(-2F, 17F, 1F);
+		this.cupBase1.setTextureSize(64, 32);
+		this.cupBase1.mirror = true;
+		this.setRotation(this.cupBase1, 0F, 0F, 0F);
+		this.cupBase2 = new ModelRenderer(this, 0, 5);
+		this.cupBase2.addBox(0F, 0F, 0F, 4, 1, 2);
+		this.cupBase2.setRotationPoint(-2F, 17F, -3F);
+		this.cupBase2.setTextureSize(64, 32);
+		this.cupBase2.mirror = true;
+		this.setRotation(this.cupBase2, 0F, 0F, 0F);
+		this.cupBase3 = new ModelRenderer(this, 0, 8);
+		this.cupBase3.addBox(0F, 0F, 0F, 2, 1, 4);
+		this.cupBase3.setRotationPoint(-3F, 17F, -2F);
+		this.cupBase3.setTextureSize(64, 32);
+		this.cupBase3.mirror = true;
+		this.setRotation(this.cupBase3, 0F, 0F, 0F);
+		this.cupBase4 = new ModelRenderer(this, 0, 8);
+		this.cupBase4.addBox(0F, 0F, 0F, 2, 1, 4);
+		this.cupBase4.setRotationPoint(1F, 17F, -2F);
+		this.cupBase4.setTextureSize(64, 32);
+		this.cupBase4.mirror = true;
+		this.setRotation(this.cupBase4, 0F, 0F, 0F);
+		this.side1 = new ModelRenderer(this, 24, 0);
+		this.side1.addBox(0F, 0F, 0F, 4, 4, 1);
+		this.side1.setRotationPoint(-2F, 13F, 2F);
+		this.side1.setTextureSize(64, 32);
+		this.side1.mirror = true;
+		this.setRotation(this.side1, 0F, 0F, 0F);
+		this.side2 = new ModelRenderer(this, 34, 0);
+		this.side2.addBox(0F, 0F, 0F, 4, 4, 1);
+		this.side2.setRotationPoint(-2F, 13F, -3F);
+		this.side2.setTextureSize(64, 32);
+		this.side2.mirror = true;
+		this.setRotation(this.side2, 0F, 0F, 0F);
+		this.side3 = new ModelRenderer(this, 24, 5);
+		this.side3.addBox(0F, 0F, 0F, 1, 4, 4);
+		this.side3.setRotationPoint(-3F, 13F, -2F);
+		this.side3.setTextureSize(64, 32);
+		this.side3.mirror = true;
+		this.setRotation(this.side3, 0F, 0F, 0F);
+		this.side4 = new ModelRenderer(this, 34, 5);
+		this.side4.addBox(0F, 0F, 0F, 1, 4, 4);
+		this.side4.setRotationPoint(2F, 13F, -2F);
+		this.side4.setTextureSize(64, 32);
+		this.side4.mirror = true;
+		this.setRotation(this.side4, 0F, 0F, 0F);
+		this.liquid = new ModelRenderer(this, 48, 27);
+		this.liquid.addBox(0F, 0F, 0F, 4, 0, 4);
+		this.liquid.setRotationPoint(-2F, 14F, -2F);
+		this.liquid.setTextureSize(64, 32);
+		this.liquid.mirror = true;
+		this.setRotation(this.liquid, 0F, 0F, 0F);
 	}
 	
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
 	{
-		super.render(entity, f, f1, f2, f3, f4, f5);
-		this.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-		this.Base.render(f5);
-		this.Stem.render(f5);
-		this.CupBase.render(f5);
-		this.CupSubBaseA.render(f5);
-		this.CupSubBaseB.render(f5);
-		this.CupSubBaseC.render(f5);
-		this.CupSubBaseD.render(f5);
-		this.Side1.render(f5);
-		this.Side2.render(f5);
-		this.Side3.render(f5);
-		this.Side4.render(f5);
-		this.Liquid.render(f5);
+		this.render(f5);
 	}
 	
-	public void renderModel(float f)
+	public void render(float f)
 	{
-		this.Base.render(f);
-		this.Stem.render(f);
-		this.CupBase.render(f);
-		this.CupSubBaseA.render(f);
-		this.CupSubBaseB.render(f);
-		this.CupSubBaseC.render(f);
-		this.CupSubBaseD.render(f);
-		this.Side1.render(f);
-		this.Side2.render(f);
-		this.Side3.render(f);
-		this.Side4.render(f);
-		this.Liquid.render(f);
+		this.base.render(f);
+		this.stem.render(f);
+		this.cupBase.render(f);
+		this.cupBase1.render(f);
+		this.cupBase2.render(f);
+		this.cupBase3.render(f);
+		this.cupBase4.render(f);
+		this.side1.render(f);
+		this.side2.render(f);
+		this.side3.render(f);
+		this.side4.render(f);
+		this.liquid.render(f);
 	}
 	
 	private void setRotation(ModelRenderer model, float x, float y, float z)
@@ -140,11 +126,4 @@ public class ModelGoblet extends ModelBase
 		model.rotateAngleY = y;
 		model.rotateAngleZ = z;
 	}
-	
-	@Override
-	public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity)
-	{
-		super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-	}
-	
 }
