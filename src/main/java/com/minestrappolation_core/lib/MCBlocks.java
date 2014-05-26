@@ -2,6 +2,7 @@ package com.minestrappolation_core.lib;
 
 import com.minestrappolation.Minestrappolation;
 import com.minestrappolation_core.block.MCBlockStonecutter;
+import com.minestrappolation_core.util.MCAssetManager;
 import com.minestrappolation_core.util.MCBlockHelper;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -93,7 +94,7 @@ public class MCBlocks
 	
 	public static void init()
 	{
-		stoneCutter = new MCBlockStonecutter().setHardness(3.5F).setStepSound(Block.soundTypeStone).setBlockName("stoneCutter");
+		stoneCutter = new MCBlockStonecutter().setBlockName("stoneCutter").setBlockTextureName(MCAssetManager.getMachineTexture("stonecutter")).setHardness(3.5F).setStepSound(Block.soundTypeStone);
 		GameRegistry.registerBlock(stoneCutter, "stoneCutter");
 		
 		CreativeTabs tab = Minestrappolation.tabStoneDecor;
