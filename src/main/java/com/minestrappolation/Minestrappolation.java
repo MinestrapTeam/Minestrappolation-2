@@ -73,7 +73,7 @@ public class Minestrappolation extends BaseMod
 	public void readConfig()
 	{
 		daysUntilTarnish = CSConfig.getInt("misc", "Days until copper tarnish", 3);
-		shouldOresEffect = CSConfig.getBool("misc", "should Plutonium/Uranium ores effect player", true);
+		shouldOresEffect = CSConfig.getBool("misc", "Should Plutonium/Uranium ores affect the player", true);
 		daysUntilMossy = CSConfig.getInt("misc", "Days Until Planks Get Mossy", 3);
 	}
 	
@@ -81,9 +81,10 @@ public class Minestrappolation extends BaseMod
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
+		super.proxy = proxy;
+		
 		super.preInit(event);
 		
-		Blocks.bedrock.setHardness(80F);
 		magmaFluid = new Fluid("Magma").setViscosity(6500).setDensity(3);
 		FluidRegistry.registerFluid(magmaFluid);
 		
@@ -114,6 +115,8 @@ public class Minestrappolation extends BaseMod
 	public void init(FMLInitializationEvent event)
 	{
 		super.init(event);
+		
+		Blocks.bedrock.setHardness(80F);
 		
 		MTileEntities.registerTileEntitys();
 		GameRegistry.registerWorldGenerator(new MOreGenerator(), 0);
