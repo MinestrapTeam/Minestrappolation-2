@@ -46,11 +46,9 @@ public abstract class EntityThrowableExplosive extends EntityThrowable
 		{
 			this.motionY = -this.bounceFactor * prevVelY;
 		}
-		else
-		{
-			this.motionY -= 0.04; // Apply gravity.
-			this.worldObj.spawnParticle("", this.posX, this.posY + 0.5D, this.posZ, 0.0D, 0.0F, 0.0D);
-		}
+		
+		this.motionY -= 0.04; // Apply gravity.
+		this.worldObj.spawnParticle("smoke", this.posX, this.posY + 0.5D, this.posZ, 0.0D, 0.0F, 0.0D);
 		
 		if (this.motionZ != prevVelZ)
 		{

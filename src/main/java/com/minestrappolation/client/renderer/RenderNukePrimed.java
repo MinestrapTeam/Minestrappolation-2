@@ -30,9 +30,10 @@ public class RenderNukePrimed extends Render
 		GL11.glTranslated(x, y, z);
 		float f2;
 		
-		if (entity.fuse - partialTickTime + 1.0F < 10.0F)
+		float f = entity.fuse - partialTickTime + 1.0F;
+		if (f < 10.0F)
 		{
-			f2 = 1.0F - (entity.fuse - partialTickTime + 1.0F) / 10.0F;
+			f2 = 1.0F - f / 10.0F;
 			
 			if (f2 < 0.0F)
 			{
@@ -50,7 +51,7 @@ public class RenderNukePrimed extends Render
 			GL11.glScalef(f3, f3, f3);
 		}
 		
-		f2 = (1.0F - (entity.fuse - partialTickTime + 1.0F) / 100.0F) * 0.8F;
+		f2 = (1.0F - f / 100.0F) * 0.8F;
 		this.bindEntityTexture(entity);
 		this.blockRenderer.renderBlockAsItem(MBlocks.nuke, 0, entity.getBrightness(partialTickTime));
 		
