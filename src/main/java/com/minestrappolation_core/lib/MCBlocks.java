@@ -191,7 +191,7 @@ public class MCBlocks
 		silverClay = MCBlockHelper.createStoneBlock(types_colored_clay, "silver_clay", 2F, tab).setChiseledSided();
 		silverClay2 = MCBlockHelper.createStoneBlock2(types_clay_2, "silver_clay", 2F, tab);
 		whiteClay = MCBlockHelper.createStoneBlock(types_colored_clay, "white_clay", 2F, tab).setChiseledSided();
-		whiteClay2 = MCBlockHelper.createStoneBlock2(types_clay_2, "white_clay", 2F, tab)
+		whiteClay2 = MCBlockHelper.createStoneBlock2(types_clay_2, "white_clay", 2F, tab);
 		yellowClay = MCBlockHelper.createStoneBlock(types_colored_clay, "yellow_clay", 2F, tab).setChiseledSided();
 		yellowClay2 = MCBlockHelper.createStoneBlock2(types_clay_2, "yellow_clay", 2F, tab);
 	}
