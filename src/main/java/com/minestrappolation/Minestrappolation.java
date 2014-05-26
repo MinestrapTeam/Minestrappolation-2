@@ -5,6 +5,7 @@ import clashsoft.cslib.minecraft.BaseMod;
 import clashsoft.cslib.minecraft.util.CSConfig;
 
 import com.minestrappolation.common.MCommonProxy;
+import com.minestrappolation.crafting.MelterRecipeLoader;
 import com.minestrappolation.creativetab.*;
 import com.minestrappolation.entity.*;
 import com.minestrappolation.handler.BlacksmithTradeHandler;
