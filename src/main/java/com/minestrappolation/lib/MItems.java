@@ -194,11 +194,8 @@ public class MItems
 	// TODO ORGANIZE ED ITEMS;
 	public static Item			ropeItem;
 	public static Item			cardboardItem;
-	public static Item			sandstoneBrick;
 	public static Item			goblet;
 	public static Item			glassDoor;
-	
-	public static Item			brickClay;
 	
 	// TODO ORGANIZE EMD ITEMS;
 	public static Item			snout;
@@ -550,14 +547,10 @@ public class MItems
 		GameRegistry.registerItem(ropeItem, "itemRope");
 		cardboardItem = new ItemReed(MBlocks.cardboard).setCreativeTab(Minestrappolation.tabMisc).setUnlocalizedName("item_Cardboard").setTextureName(MCAssetManager.getTexture("cardboard"));
 		GameRegistry.registerItem(cardboardItem, "cardboardItem");
-		sandstoneBrick = new MCItem().setUnlocalizedName("item_SandstoneBrick").setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MCAssetManager.getStonecutterTexture("sandstone_brick"));
-		GameRegistry.registerItem(sandstoneBrick, "sandstoneBrickItem");
 		goblet = new ItemReed(MBlocks.Goblet).setCreativeTab(Minestrappolation.tabMisc).setUnlocalizedName("item_GobletEmpty").setTextureName(MCAssetManager.getTexture("goblet"));
 		GameRegistry.registerItem(goblet, "gobletItem");
 		glassDoor = new EDItemDoor(MBlocks.GlassDoor).setUnlocalizedName("item_GlassDoor").setCreativeTab(Minestrappolation.tabBuildingBlocks).setTextureName(MCAssetManager.getTexture("glass_door"));
 		GameRegistry.registerItem(glassDoor, "glassDoorItem");
-		brickClay = new MCItemMulti("stonecutter", new String[] { MCAssetManager.getTexture("black_clay_brick"), MCAssetManager.getTexture("blue_clay_brick"), MCAssetManager.getTexture("brown_clay_brick"), MCAssetManager.getTexture("cyan_clay_brick"), MCAssetManager.getTexture("grey_clay_brick"), MCAssetManager.getTexture("green_clay_brick"), MCAssetManager.getTexture("lightblue_clay_brick"), MCAssetManager.getTexture("lime_clay_brick"), MCAssetManager.getTexture("magenta_clay_brick"), MCAssetManager.getTexture("orange_clay_brick"), MCAssetManager.getTexture("pink_clay_brick"), MCAssetManager.getTexture("purple_clay_brick"), MCAssetManager.getTexture("red_clay_brick"), MCAssetManager.getTexture("silver_clay_brick"), MCAssetManager.getTexture("white_clay_brick"), MCAssetManager.getTexture("yellow_clay_brick") }).setCreativeTab(Minestrappolation.tabStoneDecor).setUnlocalizedName("brickClay");
-		GameRegistry.registerItem(brickClay, "brickClay");
 		
 		// TODO ORGANIZE EMD ITEMS
 		snout = new MCItemFood(3, 0.2F).setPotionEffect(Potion.hunger.id, 10 * 20, 1, 0.25F).setTextureName(MCAssetManager.getTexture("snout")).setUnlocalizedName("snout").setCreativeTab(Minestrappolation.tabFood);

@@ -102,7 +102,7 @@ public class MCBlocks
 		String[] types_stone_2 = new String[] { "pillar", null, null, "tile_slab", "refined_slab" };
 		String[] types_granite = new String[] { "raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled" };
 		String[] types_sandstone = new String[] { null, "bricks", "pattern_bricks", "tiles", "road", null, "chiseled", null, "mossy" };
-		String[] types_sandstone2 = new String[] { "pillar", null, "brick_slab", "tile_slab", "refined_slab" };
+		String[] types_sandstone_2 = new String[] { "pillar", null, "brick_slab", "tile_slab", "refined_slab" };
 		String[] types_flint = new String[] { "raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", null, null, null, null, null, null, null, "glowstone_lamp", "sunstone_lamp" };
 		String[] types_lapis = new String[] { null, "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled" };
 		String[] types_obsidian = new String[] { null, "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled" };
@@ -110,12 +110,12 @@ public class MCBlocks
 		String[] types_bedrock = new String[] { null, "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", null, null, null, null, null, null, null, "glowstone_lamp", "sunstone_lamp" };
 		String[] types_netherrack = new String[] { null, "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled" };
 		String[] types_netherquartz = new String[] { null, "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled" };
-		String[] types_netherquartz2 = new String[] { "pillar", null, "brick_slab", "tile_slab", "refined_slab" };
-		String[] types_desertQuartz = new String[] { "raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled" };
-		String[] types_desertQuartz2 = new String[] { "pillar", null, "brick_slab", "tile_slab", "refined_slab" };
+		String[] types_netherquartz_2 = new String[] { "pillar", null, "brick_slab", "tile_slab", "refined_slab" };
+		String[] types_desertquartz = new String[] { "raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled" };
+		String[] types_desertquartz_2 = new String[] { "pillar", null, "brick_slab", "tile_slab", "refined_slab" };
 		String[] types_clay = new String[] { null, "bricks", null, "tiles", "road", "refined", "chiseled" };
-		String[] types_clay_colored = new String[] { null, "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled" };
-		String[] types_clay2 = new String[] { "pillar", "raw_slab", null, "tile_slab", "refined_slab" };
+		String[] types_colored_clay = new String[] { null, "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled" };
+		String[] types_clay_2 = new String[] { "pillar", "raw_slab", null, "tile_slab", "refined_slab" };
 		
 		stone = MCBlockHelper.createStoneBlock(types_stone, "stone", 2F, tab);
 		stone2 = MCBlockHelper.createStoneBlock2(types_stone_2, "stone", 2F, tab);
@@ -140,7 +140,7 @@ public class MCBlocks
 		graniteMeurodite2 = MCBlockHelper.createStoneBlock2("granite_meurodite", 2F, tab);
 		
 		sandstone = MCBlockHelper.createStoneBlock(types_sandstone, "sandstone", 1.5F, tab);
-		sandstone2 = MCBlockHelper.createStoneBlock2(types_sandstone2, "sandstone", 1.5F, tab);
+		sandstone2 = MCBlockHelper.createStoneBlock2(types_sandstone_2, "sandstone", 1.5F, tab);
 		flint = MCBlockHelper.createStoneBlock(types_flint, "flint", 1F, tab);
 		flint2 = MCBlockHelper.createStoneBlock2("flint", 1F, tab);
 		lapis = MCBlockHelper.createStoneBlock(types_lapis, "lapis", 1F, tab);
@@ -154,9 +154,9 @@ public class MCBlocks
 		netherrack = MCBlockHelper.createStoneBlock(types_netherrack, "netherrack", 1F, tab);
 		netherrack2 = MCBlockHelper.createStoneBlock2("netherrack", 1F, tab);
 		netherQuartz = MCBlockHelper.createStoneBlock(types_netherquartz, "netherquartz", 1F, tab);
-		netherQuartz2 = MCBlockHelper.createStoneBlock2(types_netherquartz2, "netherquartz", 1F, tab);
-		desertQuartz = MCBlockHelper.createStoneBlock(types_desertQuartz, "desertquartz", 1F, tab);
-		desertQuartz2 = MCBlockHelper.createStoneBlock2(types_desertQuartz2, "desertquartz", 1F, tab);
+		netherQuartz2 = MCBlockHelper.createStoneBlock2(types_netherquartz_2, "netherquartz", 1F, tab);
+		desertQuartz = MCBlockHelper.createStoneBlock(types_desertquartz, "desertquartz", 1F, tab);
+		desertQuartz2 = MCBlockHelper.createStoneBlock2(types_desertquartz_2, "desertquartz", 1F, tab);
 		
 		// TODO add radiant quartz when textures are finished
 		// radiantQuartz = MCBlockHelper.createStoneBlock("radiant_quartz", 1F,
@@ -165,34 +165,34 @@ public class MCBlocks
 		// tab);
 		
 		clay = MCBlockHelper.createStoneBlock(types_clay, "clay", 2F, tab);
-		clay2 = MCBlockHelper.createStoneBlock2(types_clay2, "clay", 2F, tab);
-		blackClay = MCBlockHelper.createStoneBlock(types_clay_colored, "black_clay", 2F, tab);
-		blackClay2 = MCBlockHelper.createStoneBlock2(types_clay2, "black_clay", 2F, tab);
-		blueClay = MCBlockHelper.createStoneBlock(types_clay_colored, "blue_clay", 2F, tab);
-		blueClay2 = MCBlockHelper.createStoneBlock2(types_clay2, "blue_clay", 2F, tab);
-		brownClay = MCBlockHelper.createStoneBlock(types_clay_colored, "brown_clay", 2F, tab);
-		brownClay2 = MCBlockHelper.createStoneBlock2(types_clay2, "brown_clay", 2F, tab);
-		cyanClay = MCBlockHelper.createStoneBlock(types_clay_colored, "cyan_clay", 2F, tab);
-		cyanClay2 = MCBlockHelper.createStoneBlock2(types_clay2, "cyan_clay", 2F, tab);
-		lightBlueClay = MCBlockHelper.createStoneBlock(types_clay_colored, "lightblue_clay", 2F, tab);
-		lightBlueClay2 = MCBlockHelper.createStoneBlock2(types_clay2, "lightblue_clay", 2F, tab);
-		limeClay = MCBlockHelper.createStoneBlock(types_clay_colored, "lime_clay", 2F, tab);
-		limeClay2 = MCBlockHelper.createStoneBlock2(types_clay2, "lime_clay", 2F, tab);
-		magentaClay = MCBlockHelper.createStoneBlock(types_clay_colored, "magenta_clay", 2F, tab);
-		magentaClay2 = MCBlockHelper.createStoneBlock2(types_clay2, "magenta_clay", 2F, tab);
-		orangeClay = MCBlockHelper.createStoneBlock(types_clay_colored, "orange_clay", 2F, tab);
-		orangeClay2 = MCBlockHelper.createStoneBlock2(types_clay2, "orange_clay", 2F, tab);
-		pinkClay = MCBlockHelper.createStoneBlock(types_clay_colored, "pink_clay", 2F, tab);
-		pinkClay2 = MCBlockHelper.createStoneBlock2(types_clay2, "pink_clay", 2F, tab);
-		purpleClay = MCBlockHelper.createStoneBlock(types_clay_colored, "purple_clay", 2F, tab);
-		purpleClay2 = MCBlockHelper.createStoneBlock2(types_clay2, "purple_clay", 2F, tab);
-		redClay = MCBlockHelper.createStoneBlock(types_clay_colored, "red_clay", 2F, tab);
-		redClay2 = MCBlockHelper.createStoneBlock2(types_clay2, "red_clay", 2F, tab);
-		silverClay = MCBlockHelper.createStoneBlock(types_clay_colored, "silver_clay", 2F, tab);
-		silverClay2 = MCBlockHelper.createStoneBlock2(types_clay2, "silver_clay", 2F, tab);
-		whiteClay = MCBlockHelper.createStoneBlock(types_clay_colored, "white_clay", 2F, tab);
-		whiteClay2 = MCBlockHelper.createStoneBlock2(types_clay2, "white_clay", 2F, tab);
-		yellowClay = MCBlockHelper.createStoneBlock(types_clay_colored, "yellow_clay", 2F, tab);
-		yellowClay2 = MCBlockHelper.createStoneBlock2(types_clay2, "yellow_clay", 2F, tab);
+		clay2 = MCBlockHelper.createStoneBlock2(types_clay_2, "clay", 2F, tab);
+		blackClay = MCBlockHelper.createStoneBlock(types_colored_clay, "black_clay", 2F, tab);
+		blackClay2 = MCBlockHelper.createStoneBlock2(types_clay_2, "black_clay", 2F, tab);
+		blueClay = MCBlockHelper.createStoneBlock(types_colored_clay, "blue_clay", 2F, tab);
+		blueClay2 = MCBlockHelper.createStoneBlock2(types_clay_2, "blue_clay", 2F, tab);
+		brownClay = MCBlockHelper.createStoneBlock(types_colored_clay, "brown_clay", 2F, tab);
+		brownClay2 = MCBlockHelper.createStoneBlock2(types_clay_2, "brown_clay", 2F, tab);
+		cyanClay = MCBlockHelper.createStoneBlock(types_colored_clay, "cyan_clay", 2F, tab);
+		cyanClay2 = MCBlockHelper.createStoneBlock2(types_clay_2, "cyan_clay", 2F, tab);
+		lightBlueClay = MCBlockHelper.createStoneBlock(types_colored_clay, "lightblue_clay", 2F, tab);
+		lightBlueClay2 = MCBlockHelper.createStoneBlock2(types_clay_2, "lightblue_clay", 2F, tab);
+		limeClay = MCBlockHelper.createStoneBlock(types_colored_clay, "lime_clay", 2F, tab);
+		limeClay2 = MCBlockHelper.createStoneBlock2(types_clay_2, "lime_clay", 2F, tab);
+		magentaClay = MCBlockHelper.createStoneBlock(types_colored_clay, "magenta_clay", 2F, tab);
+		magentaClay2 = MCBlockHelper.createStoneBlock2(types_clay_2, "magenta_clay", 2F, tab);
+		orangeClay = MCBlockHelper.createStoneBlock(types_colored_clay, "orange_clay", 2F, tab);
+		orangeClay2 = MCBlockHelper.createStoneBlock2(types_clay_2, "orange_clay", 2F, tab);
+		pinkClay = MCBlockHelper.createStoneBlock(types_colored_clay, "pink_clay", 2F, tab);
+		pinkClay2 = MCBlockHelper.createStoneBlock2(types_clay_2, "pink_clay", 2F, tab);
+		purpleClay = MCBlockHelper.createStoneBlock(types_colored_clay, "purple_clay", 2F, tab);
+		purpleClay2 = MCBlockHelper.createStoneBlock2(types_clay_2, "purple_clay", 2F, tab);
+		redClay = MCBlockHelper.createStoneBlock(types_colored_clay, "red_clay", 2F, tab);
+		redClay2 = MCBlockHelper.createStoneBlock2(types_clay_2, "red_clay", 2F, tab);
+		silverClay = MCBlockHelper.createStoneBlock(types_colored_clay, "silver_clay", 2F, tab);
+		silverClay2 = MCBlockHelper.createStoneBlock2(types_clay_2, "silver_clay", 2F, tab);
+		whiteClay = MCBlockHelper.createStoneBlock(types_colored_clay, "white_clay", 2F, tab);
+		whiteClay2 = MCBlockHelper.createStoneBlock2(types_clay_2, "white_clay", 2F, tab);
+		yellowClay = MCBlockHelper.createStoneBlock(types_colored_clay, "yellow_clay", 2F, tab);
+		yellowClay2 = MCBlockHelper.createStoneBlock2(types_clay_2, "yellow_clay", 2F, tab);
 	}
 }

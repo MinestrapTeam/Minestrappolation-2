@@ -1,5 +1,6 @@
 package com.minestrappolation.lib;
 
+import com.minestrappolation_core.lib.MCItems;
 import com.minestrappolation_core.util.MCUtil;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -235,7 +236,6 @@ public class MRecipes
 		GameRegistry.addRecipe(new ItemStack(MBlocks.barrel), new Object[] { "I", "C", "I", Character.valueOf('I'), Items.iron_ingot, Character.valueOf('C'), MBlocks.crate });
 		GameRegistry.addRecipe(new ItemStack(MItems.cardboardItem, 3), new Object[] { "SSS", "SSS", Character.valueOf('S'), Items.paper });
 		GameRegistry.addRecipe(new ItemStack(MBlocks.cardboardBlock, 2), new Object[] { "CCC", " C ", " CC", Character.valueOf('C'), MItems.cardboardItem });
-		GameRegistry.addSmelting(Blocks.sandstone, new ItemStack(MItems.sandstoneBrick, 4), 0.8F);
 		
 		// GameRegistry.addRecipe(new ItemStack(Blocks.stonebrick, 2, 3), new
 		// Object[] { "BBB", "BBB", "BBB", Character.valueOf('B'),
@@ -252,7 +252,7 @@ public class MRecipes
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.ender_pearl, 9), new Object[] { MBlocks.enderBlock });
 		
 		GameRegistry.addRecipe(new ItemStack(MBlocks.cobbledRoad, 2), new Object[] { "CC", "DD", Character.valueOf('C'), Blocks.cobblestone, Character.valueOf('D'), Blocks.dirt });
-		GameRegistry.addRecipe(new ItemStack(MBlocks.sandstoneRoad, 2), new Object[] { "CCC", "CCC", "DDD", Character.valueOf('C'), MItems.sandstoneBrick, Character.valueOf('D'), Blocks.sand });
+		GameRegistry.addRecipe(new ItemStack(MBlocks.sandstoneRoad, 2), new Object[] { "CCC", "CCC", "DDD", Character.valueOf('C'), MCItems.brickSandstone, Character.valueOf('D'), Blocks.sand });
 		GameRegistry.addRecipe(new ItemStack(MBlocks.sandyRoad, 2), new Object[] { "CC", "DD", Character.valueOf('C'), Blocks.cobblestone, Character.valueOf('D'), Blocks.sand });
 		GameRegistry.addRecipe(new ItemStack(MBlocks.gravelRoad, 2), new Object[] { "CC", "DD", Character.valueOf('C'), Blocks.cobblestone, Character.valueOf('D'), Blocks.gravel });
 		GameRegistry.addRecipe(new ItemStack(MBlocks.netherroad, 2), new Object[] { "CC", "DD", Character.valueOf('C'), Blocks.netherrack, Character.valueOf('D'), Blocks.soul_sand });
