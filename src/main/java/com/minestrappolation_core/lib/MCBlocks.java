@@ -143,19 +143,19 @@ public class MCBlocks
 		sandstone2 = MCBlockHelper.createStoneBlock2(types_sandstone_2, "sandstone", 1.5F, tab);
 		flint = MCBlockHelper.createStoneBlock(types_flint, "flint", 1F, tab);
 		flint2 = MCBlockHelper.createStoneBlock2("flint", 1F, tab);
-		lapis = MCBlockHelper.createStoneBlock(types_lapis, "lapis", 1F, tab);
+		lapis = MCBlockHelper.createStoneBlock(types_lapis, "lapis", 1F, tab).setChiseledSided();
 		lapis2 = MCBlockHelper.createStoneBlock2("lapis", 1F, tab);
 		obsidian = MCBlockHelper.createStoneBlock(types_obsidian, "obsidian", 1F, tab);
 		obsidian2 = MCBlockHelper.createStoneBlock2("obsidian", 1F, tab);
-		endstone = MCBlockHelper.createStoneBlock(types_endstone, "endstone", 1F, tab);
+		endstone = MCBlockHelper.createStoneBlock(types_endstone, "endstone", 1F, tab).setChiseledSided();
 		endstone2 = MCBlockHelper.createStoneBlock2("endstone", 1F, tab);
 		bedrock = MCBlockHelper.createStoneBlock(types_bedrock, "bedrock", 1F, tab);
 		bedrock2 = MCBlockHelper.createStoneBlock2("bedrock", 1F, tab);
 		netherrack = MCBlockHelper.createStoneBlock(types_netherrack, "netherrack", 1F, tab);
 		netherrack2 = MCBlockHelper.createStoneBlock2("netherrack", 1F, tab);
-		netherQuartz = MCBlockHelper.createStoneBlock(types_netherquartz, "netherquartz", 1F, tab);
+		netherQuartz = MCBlockHelper.createStoneBlock(types_netherquartz, "netherquartz", 1F, tab).setChiseledSided();
 		netherQuartz2 = MCBlockHelper.createStoneBlock2(types_netherquartz_2, "netherquartz", 1F, tab);
-		desertQuartz = MCBlockHelper.createStoneBlock(types_desertquartz, "desertquartz", 1F, tab);
+		desertQuartz = MCBlockHelper.createStoneBlock(types_desertquartz, "desertquartz", 1F, tab).setChiseledSided();
 		desertQuartz2 = MCBlockHelper.createStoneBlock2(types_desertquartz_2, "desertquartz", 1F, tab);
 		
 		// TODO add radiant quartz when textures are finished
@@ -164,35 +164,35 @@ public class MCBlocks
 		// radiantQuartz2= MCBlockHelper.createStoneBlock2("radiant_quartz", 1F,
 		// tab);
 		
-		clay = MCBlockHelper.createStoneBlock(types_clay, "clay", 2F, tab);
+		clay = MCBlockHelper.createStoneBlock(types_clay, "clay", 2F, tab).setChiseledSided();
 		clay2 = MCBlockHelper.createStoneBlock2(types_clay_2, "clay", 2F, tab);
-		blackClay = MCBlockHelper.createStoneBlock(types_colored_clay, "black_clay", 2F, tab);
+		blackClay = MCBlockHelper.createStoneBlock(types_colored_clay, "black_clay", 2F, tab).setChiseledSided();
 		blackClay2 = MCBlockHelper.createStoneBlock2(types_clay_2, "black_clay", 2F, tab);
-		blueClay = MCBlockHelper.createStoneBlock(types_colored_clay, "blue_clay", 2F, tab);
+		blueClay = MCBlockHelper.createStoneBlock(types_colored_clay, "blue_clay", 2F, tab).setChiseledSided();
 		blueClay2 = MCBlockHelper.createStoneBlock2(types_clay_2, "blue_clay", 2F, tab);
-		brownClay = MCBlockHelper.createStoneBlock(types_colored_clay, "brown_clay", 2F, tab);
+		brownClay = MCBlockHelper.createStoneBlock(types_colored_clay, "brown_clay", 2F, tab).setChiseledSided();
 		brownClay2 = MCBlockHelper.createStoneBlock2(types_clay_2, "brown_clay", 2F, tab);
-		cyanClay = MCBlockHelper.createStoneBlock(types_colored_clay, "cyan_clay", 2F, tab);
+		cyanClay = MCBlockHelper.createStoneBlock(types_colored_clay, "cyan_clay", 2F, tab).setChiseledSided();
 		cyanClay2 = MCBlockHelper.createStoneBlock2(types_clay_2, "cyan_clay", 2F, tab);
-		lightBlueClay = MCBlockHelper.createStoneBlock(types_colored_clay, "lightblue_clay", 2F, tab);
+		lightBlueClay = MCBlockHelper.createStoneBlock(types_colored_clay, "lightblue_clay", 2F, tab).setChiseledSided();
 		lightBlueClay2 = MCBlockHelper.createStoneBlock2(types_clay_2, "lightblue_clay", 2F, tab);
-		limeClay = MCBlockHelper.createStoneBlock(types_colored_clay, "lime_clay", 2F, tab);
+		limeClay = MCBlockHelper.createStoneBlock(types_colored_clay, "lime_clay", 2F, tab).setChiseledSided();
 		limeClay2 = MCBlockHelper.createStoneBlock2(types_clay_2, "lime_clay", 2F, tab);
-		magentaClay = MCBlockHelper.createStoneBlock(types_colored_clay, "magenta_clay", 2F, tab);
+		magentaClay = MCBlockHelper.createStoneBlock(types_colored_clay, "magenta_clay", 2F, tab).setChiseledSided();
 		magentaClay2 = MCBlockHelper.createStoneBlock2(types_clay_2, "magenta_clay", 2F, tab);
-		orangeClay = MCBlockHelper.createStoneBlock(types_colored_clay, "orange_clay", 2F, tab);
+		orangeClay = MCBlockHelper.createStoneBlock(types_colored_clay, "orange_clay", 2F, tab).setChiseledSided();
 		orangeClay2 = MCBlockHelper.createStoneBlock2(types_clay_2, "orange_clay", 2F, tab);
-		pinkClay = MCBlockHelper.createStoneBlock(types_colored_clay, "pink_clay", 2F, tab);
+		pinkClay = MCBlockHelper.createStoneBlock(types_colored_clay, "pink_clay", 2F, tab).setChiseledSided();
 		pinkClay2 = MCBlockHelper.createStoneBlock2(types_clay_2, "pink_clay", 2F, tab);
-		purpleClay = MCBlockHelper.createStoneBlock(types_colored_clay, "purple_clay", 2F, tab);
+		purpleClay = MCBlockHelper.createStoneBlock(types_colored_clay, "purple_clay", 2F, tab).setChiseledSided();
 		purpleClay2 = MCBlockHelper.createStoneBlock2(types_clay_2, "purple_clay", 2F, tab);
-		redClay = MCBlockHelper.createStoneBlock(types_colored_clay, "red_clay", 2F, tab);
+		redClay = MCBlockHelper.createStoneBlock(types_colored_clay, "red_clay", 2F, tab).setChiseledSided();
 		redClay2 = MCBlockHelper.createStoneBlock2(types_clay_2, "red_clay", 2F, tab);
-		silverClay = MCBlockHelper.createStoneBlock(types_colored_clay, "silver_clay", 2F, tab);
+		silverClay = MCBlockHelper.createStoneBlock(types_colored_clay, "silver_clay", 2F, tab).setChiseledSided();
 		silverClay2 = MCBlockHelper.createStoneBlock2(types_clay_2, "silver_clay", 2F, tab);
-		whiteClay = MCBlockHelper.createStoneBlock(types_colored_clay, "white_clay", 2F, tab);
-		whiteClay2 = MCBlockHelper.createStoneBlock2(types_clay_2, "white_clay", 2F, tab);
-		yellowClay = MCBlockHelper.createStoneBlock(types_colored_clay, "yellow_clay", 2F, tab);
+		whiteClay = MCBlockHelper.createStoneBlock(types_colored_clay, "white_clay", 2F, tab).setChiseledSided();
+		whiteClay2 = MCBlockHelper.createStoneBlock2(types_clay_2, "white_clay", 2F, tab)
+		yellowClay = MCBlockHelper.createStoneBlock(types_colored_clay, "yellow_clay", 2F, tab).setChiseledSided();
 		yellowClay2 = MCBlockHelper.createStoneBlock2(types_clay_2, "yellow_clay", 2F, tab);
 	}
 }

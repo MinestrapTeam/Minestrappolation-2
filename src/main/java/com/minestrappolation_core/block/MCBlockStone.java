@@ -67,9 +67,10 @@ public class MCBlockStone extends Block
 		this.types = types;
 	}
 	
-	public void setChiseledSided()
+	public MCBlockStone setChiseledSided()
 	{
 		this.chiseledSided = true;
+		return this;
 	}
 	
 	public String getUnlocalizedName(int metadata)
