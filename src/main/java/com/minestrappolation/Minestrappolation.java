@@ -11,6 +11,7 @@ import com.minestrappolation.handler.BlacksmithTradeHandler;
 import com.minestrappolation.handler.MEventHandler;
 import com.minestrappolation.handler.PriestTradeHandler;
 import com.minestrappolation.lib.*;
+import com.minestrappolation.tileentity.TileEntityLocked;
 import com.minestrappolation.tileentity.TileEntityMelter;
 import com.minestrappolation.world.MOreGenerator;
 import com.minestrappolation_core.crafting.CustomRecipeLoader;
@@ -97,6 +98,8 @@ public class Minestrappolation extends BaseMod
 		// FluidContainerRegistry.registerFluidContainer(eoFluid, new
 		// ItemStack(EOItemManager.bucketMagma), new
 		// ItemStack(Item.bucketEmpty));
+		
+		GameRegistry.registerTileEntity(TileEntityLocked.class, "Locked");
 		
 		EntityRegistry.registerModEntity(EntityGrenade.class, "Grenade", 2, this, 40, 3, true);
 		EntityRegistry.registerModEntity(EntityNukePrimed.class, "NukePrimed", 6, this, 350, 5, false);

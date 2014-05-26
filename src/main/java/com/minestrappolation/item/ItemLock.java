@@ -1,11 +1,11 @@
 package com.minestrappolation.item;
 
 import com.minestrappolation.tileentity.TileEntityLocked;
-import com.minestrappolation_core.util.MCChatMessageHandler;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.world.World;
 
 public class ItemLock extends ItemKey
@@ -18,42 +18,47 @@ public class ItemLock extends ItemKey
 	@Override
 	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
 	{
+		if (world.isRemote)
+			return true;
+		
 		if (stack.stackTagCompound == null)
 		{
 			createNBT(stack, player);
 		}
 		
 		TileEntity te = world.getTileEntity(x, y, z);
+		String name = stack.stackTagCompound.getString("player");
 		if (te instanceof TileEntityLocked)
 		{
-			String name = stack.stackTagCompound.getString("player");
 			TileEntityLocked locked = (TileEntityLocked) te;
 			
-			if (name.equals(locked.getPlayer()))
+			if (locked.isOwner(name))
 			{
 				if (locked.isLocked())
 				{
-					locked.unlock();
-					MCChatMessageHandler.sendChatToPlayer(player, "Already locked!");
-				}
-				else
-				{
-					locked.lock();
-					stack.stackSize--;
-					MCChatMessageHandler.sendChatToPlayer(player, "Lock added!");
+					player.addChatMessage(new ChatComponentTranslation("lock.already_locked"));
 				}
 				return true;
 			}
 			else
 			{
-				MCChatMessageHandler.sendChatToPlayer(player, "This is not your lock!");
+				player.addChatMessage(new ChatComponentTranslation("lock.not_owner"));
+				return false;
 			}
+		}
+		else if (te != null)
+		{
+			TileEntityLocked locked = new TileEntityLocked(name, te);
+			locked.lock();
+			world.setTileEntity(x, y, z, locked);
+			stack.stackSize--;
+			player.addChatMessage(new ChatComponentTranslation("lock.added"));
+			return true;
 		}
 		else
 		{
-			MCChatMessageHandler.sendChatToPlayer(player, "Not applicable for a lock!");
+			player.addChatMessage(new ChatComponentTranslation("lock.not_applicable"));
+			return false;
 		}
-		
-		return false;
 	}
 }
