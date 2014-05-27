@@ -1,8 +1,8 @@
 package com.minestrappolation.block;
 
+import java.util.List;
 import java.util.Random;
 
-import com.minestrappolation.lib.MBlocks;
 import com.minestrappolation.lib.MItems;
 import com.minestrappolation.tileentity.TileEntityGoblet;
 import com.minestrappolation_core.util.MCAssetManager;
@@ -12,8 +12,8 @@ import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemPotion;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
@@ -31,6 +31,8 @@ public class BlockGoblet extends BlockContainer
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
+		TileEntityGoblet goblet = (TileEntityGoblet) world.getTileEntity(x, y, z);
+		
 		if (meta == 0)
 		{
 			ItemStack stack = player.getHeldItem();
@@ -40,20 +42,28 @@ public class BlockGoblet extends BlockContainer
 			}
 			else if (stack.getItem() == Items.water_bucket)
 			{
-				player.inventory.getCurrentItem().stackSize--;
+				stack.stackSize--;
 				player.inventory.addItemStackToInventory(new ItemStack(Items.bucket));
-				world.setBlock(x, y, z, MBlocks.goblet, 1, 3);
+				world.setBlockMetadataWithNotify(x, y, z, 2, 1);
 			}
 			else if (stack.getItem() == Items.milk_bucket)
 			{
-				player.inventory.getCurrentItem().stackSize--;
+				stack.stackSize--;
 				player.inventory.addItemStackToInventory(new ItemStack(Items.bucket));
-				world.setBlock(x, y, z, MBlocks.goblet, 2, 3);
+				world.setBlockMetadataWithNotify(x, y, z, 2, 2);
+			}
+			else if (stack.getItem() instanceof ItemPotion)
+			{
+				stack.stackSize--;
+				List<PotionEffect> effects = ((ItemPotion) stack.getItem()).getEffects(stack);
+				if (!effects.isEmpty())
+					goblet.setPotionEffect(effects.get(0));
+				world.setBlockMetadataWithNotify(x, y, z, 3, 2);
 			}
 		}
 		else
 		{
-			world.setBlock(x, y, z, MBlocks.goblet, 0, 2);
+			world.setBlockMetadataWithNotify(x, y, z, 0, 2);
 			if (meta == 1)
 			{
 				player.extinguish();
@@ -61,6 +71,14 @@ public class BlockGoblet extends BlockContainer
 			else if (meta == 2)
 			{
 				player.curePotionEffects(new ItemStack(Items.milk_bucket));
+			}
+			else if (meta == 3)
+			{
+				PotionEffect effect = goblet.getPotionEffect();
+				if (effect != null)
+				{
+					player.addPotionEffect(new PotionEffect(effect));
+				}
 			}
 		}
 		return true;
