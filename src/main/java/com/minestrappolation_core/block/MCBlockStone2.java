@@ -37,7 +37,7 @@ import net.minecraft.world.World;
  * <li>13: Refined Slab Upper
  * <li>14: Refined Slab Double
  * </ul>
- * Everything else is added by {@link MBlockStone}
+ * Everything else is added by {@link MCBlockStone}
  * 
  * @author Clashsoft
  */
@@ -63,14 +63,13 @@ public class MCBlockStone2 extends Block
 	@Override
 	public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z)
 	{
-		int i = world.getBlockMetadata(x, y, z);
-		this.setBlockBounds(i);
+		this.setBlockBounds(world.getBlockMetadata(x, y, z));
 	}
 	
 	@Override
 	public void addCollisionBoxesToList(World world, int x, int y, int z, AxisAlignedBB aabb, List list, Entity entity)
 	{
-		setBlockBoundsBasedOnState(world, x, y, z);
+		this.setBlockBoundsBasedOnState(world, x, y, z);
 		super.addCollisionBoxesToList(world, x, y, z, aabb, list, entity);
 	}
 	
@@ -99,24 +98,18 @@ public class MCBlockStone2 extends Block
 		if (metadata < 3)
 		{
 			if (side == 0 || side == 1)
-			{
 				return 0;
-			}
 			else if (side == 2 || side == 3)
-			{
 				return 1;
-			}
 			else if (side == 4 || side == 5)
-			{
 				return 2;
-			}
 		}
 		return metadata;
 	}
 	
 	public int limitToValidMetadata(int metadata)
 	{
-		return (metadata / 3) * 3;
+		return metadata - (metadata % 3);
 	}
 	
 	@Override
@@ -134,9 +127,9 @@ public class MCBlockStone2 extends Block
 	public String getUnlocalizedName(int metadata)
 	{
 		metadata /= 3;
-		if (metadata >= types.length)
+		if (metadata >= this.types.length)
 			metadata = 0;
-		return "tile." + this.name + "." + types[metadata];
+		return "tile." + this.name + "." + this.types[metadata];
 	}
 	
 	@Override
@@ -226,16 +219,9 @@ public class MCBlockStone2 extends Block
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list)
 	{
-		/*
-		list.add(new ItemStack(item, 1, 0));
-		list.add(new ItemStack(item, 1, 3));
-		list.add(new ItemStack(item, 1, 6));
-		list.add(new ItemStack(item, 1, 9));
-		list.add(new ItemStack(item, 1, 12));
-		*/
-		for (int i = 0; i < types.length; i++)
+		for (int i = 0; i < this.types.length; i++)
 		{
-			if (types[i] != null)
+			if (this.types[i] != null)
 				list.add(new ItemStack(item, 1, i * 3));
 		}
 	}

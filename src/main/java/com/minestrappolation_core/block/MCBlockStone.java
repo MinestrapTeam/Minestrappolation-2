@@ -31,7 +31,7 @@ import net.minecraft.world.World;
  * <li>14: Glowstone Lamp
  * <li>15: Sunstone Lamp
  * </ul>
- * Everything else is added by {@link MBlockStone2}
+ * Everything else is added by {@link MCBlockStone2}
  * 
  * @author Clashsoft
  */
@@ -57,9 +57,7 @@ public class MCBlockStone extends Block
 	public IIcon	sunstoneLampIcon;
 	
 	public boolean	chiseledSided;
-	
-	//specific method for chiseled clay
-	public boolean	clayChiseled = false;
+	public boolean	clayChiseled;
 	
 	public MCBlockStone(String[] types, String name, float baseHardness)
 	{
@@ -70,6 +68,12 @@ public class MCBlockStone extends Block
 		this.types = types;
 	}
 	
+	/**
+	 * Sets the side texture of the chiseled block to a specific one
+	 * (type_chiseled_side)
+	 * 
+	 * @return this instance
+	 */
 	public MCBlockStone setChiseledSided()
 	{
 		this.chiseledSided = true;
@@ -77,12 +81,15 @@ public class MCBlockStone extends Block
 	}
 	
 	/**
-	 * Sets refined texture for top of chiseled blocks. Used for chiseled clay blocks.
-	 * @return
+	 * Sets refined texture for top of chiseled blocks. Used for chiseled clay
+	 * blocks.
+	 * 
+	 * @return this instance
 	 */
 	public MCBlockStone setClayChiseled()
 	{
 		this.clayChiseled = true;
+		this.chiseledSided = true;
 		return this;
 	}
 	
@@ -99,19 +106,28 @@ public class MCBlockStone extends Block
 		return this.getHardness(world.getBlockMetadata(x, y, z));
 	}
 	
+	/**
+	 * Returns the hardness for the given {@code metadata}.
+	 * 
+	 * @param metadata
+	 *            the metadata value
+	 * @return the hardness
+	 */
 	public float getHardness(int metadata)
 	{
 		float f = this.baseHardness;
 		if (metadata == 0)
 			return f;
 		else if (metadata == 3)
-			return f + 0.05F;
-		else if (metadata == 4)
-			return f;
-		else if (metadata == 5)
 			return f + 0.1F;
+		else if (metadata == 5)
+			return f + 0.2F;
 		else if (metadata == 6)
-			return f + 0.15F;
+			return f + 0.3F;
+		else if (metadata == 14)
+			return f + 0.5F;
+		else if (metadata == 15)
+			return f + 0.6F;
 		return f;
 	}
 	
@@ -120,13 +136,9 @@ public class MCBlockStone extends Block
 	{
 		int metadata = world.getBlockMetadata(x, y, z);
 		if (metadata == 14)
-		{
 			return Blocks.glowstone.getLightValue();
-		}
 		else if (metadata == 15)
-		{
 			return 15;
-		}
 		return super.getLightValue(world, x, y, z);
 	}
 	
@@ -177,10 +189,10 @@ public class MCBlockStone extends Block
 		{
 			if (this.chiseledSided && side > 1)
 				return this.chiseledSideIcon;
-			else if(!clayChiseled)
-				return this.chiseledIcon;
-			else
+			else if (this.clayChiseled)
 				return this.refinedIcon;
+			else
+				return this.chiseledIcon;
 		}
 		else if (metadata == 7)
 			return this.crackedIcon;
@@ -200,7 +212,9 @@ public class MCBlockStone extends Block
 		for (int i = 0; i < this.types.length; i++)
 		{
 			if (this.types[i] != null)
+			{
 				list.add(new ItemStack(item, 1, i));
+			}
 		}
 	}
 }
