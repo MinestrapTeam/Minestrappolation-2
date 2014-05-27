@@ -7,18 +7,12 @@ public class MCBlock extends Block
 {
 	/**
 	 * @deprecated as of 1.7.2 update. No longer needed as of now, this does
-	 *             nothing different then vanilla.
-	 * @param par2Material
+	 *             nothing different than vanilla.
+	 * @param material
+	 *            the material
 	 */
-	@Deprecated
 	public MCBlock(Material material)
 	{
 		super(material);
 	}
-	
-	/*
-	 * @Override public void registerBlockIcons(IIconRegister r) { blockIcon =
-	 * r.registerIcon("minestrappolation:" +
-	 * this.getUnlocalizedName().substring(5)); }
-	 */
 }

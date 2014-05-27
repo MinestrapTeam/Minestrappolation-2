@@ -42,18 +42,18 @@ public class BlockGoblet extends BlockContainer
 			{
 				player.inventory.getCurrentItem().stackSize--;
 				player.inventory.addItemStackToInventory(new ItemStack(Items.bucket));
-				world.setBlock(x, y, z, MBlocks.Goblet, 1, 3);
+				world.setBlock(x, y, z, MBlocks.goblet, 1, 3);
 			}
 			else if (stack.getItem() == Items.milk_bucket)
 			{
 				player.inventory.getCurrentItem().stackSize--;
 				player.inventory.addItemStackToInventory(new ItemStack(Items.bucket));
-				world.setBlock(x, y, z, MBlocks.Goblet, 2, 3);
+				world.setBlock(x, y, z, MBlocks.goblet, 2, 3);
 			}
 		}
 		else
 		{
-			world.setBlock(x, y, z, MBlocks.Goblet, 0, 2);
+			world.setBlock(x, y, z, MBlocks.goblet, 0, 2);
 			if (meta == 1)
 			{
 				player.extinguish();
@@ -61,14 +61,6 @@ public class BlockGoblet extends BlockContainer
 			else if (meta == 2)
 			{
 				player.curePotionEffects(new ItemStack(Items.milk_bucket));
-			}
-			else if (meta == 3)
-			{
-				player.addPotionEffect(new PotionEffect(Potion.invisibility.id, 3490, 0, true));
-			}
-			else if (meta == 4)
-			{
-				player.addPotionEffect(new PotionEffect(Potion.regeneration.id, 3490, 0, true));
 			}
 		}
 		return true;

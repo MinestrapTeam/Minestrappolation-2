@@ -145,22 +145,23 @@ public class MCBlockStone extends Block
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon(this.getTextureName());
-		this.brickIcon = iconRegister.registerIcon(this.getTextureName() + "_bricks");
-		this.patternBrickIcon = iconRegister.registerIcon(this.getTextureName() + "_pattern_bricks");
-		this.tilesIcon = iconRegister.registerIcon(this.getTextureName() + "_tiles");
-		this.roadSideIcon = iconRegister.registerIcon(this.getTextureName() + "_road_side");
-		this.roadBottomIcon = iconRegister.registerIcon(this.getTextureName() + "_road_bottom");
-		this.refinedIcon = iconRegister.registerIcon(this.getTextureName() + "_refined");
-		this.crackedIcon = iconRegister.registerIcon(this.getTextureName() + "_cracked");
-		this.mossyIcon = iconRegister.registerIcon(this.getTextureName() + "_mossy");
+		String textureName = this.getTextureName();
+		this.blockIcon = iconRegister.registerIcon(textureName);
+		this.brickIcon = iconRegister.registerIcon(textureName + "_bricks");
+		this.patternBrickIcon = iconRegister.registerIcon(textureName + "_pattern_bricks");
+		this.tilesIcon = iconRegister.registerIcon(textureName + "_tiles");
+		this.roadSideIcon = iconRegister.registerIcon(textureName + "_road_side");
+		this.roadBottomIcon = iconRegister.registerIcon(textureName + "_road_bottom");
+		this.refinedIcon = iconRegister.registerIcon(textureName + "_refined");
+		this.crackedIcon = iconRegister.registerIcon(textureName + "_cracked");
+		this.mossyIcon = iconRegister.registerIcon(textureName + "_mossy");
 		
-		this.chiseledIcon = iconRegister.registerIcon(this.getTextureName() + "_chiseled");
+		this.chiseledIcon = iconRegister.registerIcon(textureName + "_chiseled");
 		if (this.chiseledSided)
-			this.chiseledSideIcon = iconRegister.registerIcon(this.getTextureName() + "_chiseled_side");
+			this.chiseledSideIcon = iconRegister.registerIcon(textureName + "_chiseled_side");
 		
-		this.glowstoneLampIcon = iconRegister.registerIcon(this.getTextureName() + "_lamp_glowstone");
-		this.sunstoneLampIcon = iconRegister.registerIcon(this.getTextureName() + "_lamp_sunstone");
+		this.glowstoneLampIcon = iconRegister.registerIcon(textureName + "_lamp_glowstone");
+		this.sunstoneLampIcon = iconRegister.registerIcon(textureName + "_lamp_sunstone");
 	}
 	
 	@Override

@@ -56,13 +56,13 @@ public class MBlocks
 	
 	public static Block				nuke;
 	
-	public static Block				Godstone;
+	public static Block				godstone;
 	
 	public static Block				melterIdle;
 	public static Block				melterBurning;
 	
-	public static Block				RadiantQuartzStairs;
-	public static Block				PinkQuartzStairs;
+	public static Block				radiantQuartzStairs;
+	public static Block				pinkQuartzStairs;
 	
 	public static Block				graniteBrickStairs;
 	public static Block				tinPlatedCobbleStairs;
@@ -84,8 +84,8 @@ public class MBlocks
 	// TODO: ORGANIZE ED BLOCKS
 	public static final Material	materialOoze	= new MaterialOoze(MapColor.foliageColor);
 	
-	public static Block				Goblet;
-	public static Block				Plate;
+	public static Block				goblet;
+	public static Block				plate;
 	public static Block				edgeStoneBrick;
 	public static Block				snowBrick;
 	public static Block				glassRefined;
@@ -128,7 +128,7 @@ public class MBlocks
 	
 	public static Block				woodPlanksMossy;
 	
-	public static Block				GlassDoor;
+	public static Block				glassDoor;
 	
 	public static void init()
 	{
@@ -189,8 +189,8 @@ public class MBlocks
 		GameRegistry.registerBlock(invincium, "invincium");
 		nuke = new BlockNuke().setHardness(0.0F).setStepSound(Block.soundTypeGrass).setBlockName("nuke");
 		GameRegistry.registerBlock(nuke, "nuke");
-		Godstone = new BlockGodstone(Material.rock).setHardness(6F).setResistance(9F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setLightLevel(1F).setBlockName("Godstone").setBlockTextureName(MCAssetManager.getMineralTexture("godstone"));
-		GameRegistry.registerBlock(Godstone, "godstone");
+		godstone = new BlockGodstone(Material.rock).setHardness(6F).setResistance(9F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setLightLevel(1F).setBlockName("Godstone").setBlockTextureName(MCAssetManager.getMineralTexture("godstone"));
+		GameRegistry.registerBlock(godstone, "godstone");
 		melterIdle = new BlockMelter(false).setHardness(6F).setResistance(8.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("melter");
 		GameRegistry.registerBlock(melterIdle, "melterIdle");
 		melterBurning = new BlockMelter(true).setHardness(6F).setResistance(8.0F).setStepSound(Block.soundTypeStone).setBlockName("melter").setLightLevel(1F);
@@ -265,10 +265,10 @@ public class MBlocks
 		
 		woodPlanksMossy = new BlockMossyWood().setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setBlockName("woodPlanksMossy").setCreativeTab(Minestrappolation.tabBuildingBlocks);
 		
-		Goblet = new BlockGoblet(Material.rock).setHardness(.5F).setBlockName("goblet");
-		Plate = new BlockPlate(Material.rock).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockName("plate");
+		goblet = new BlockGoblet(Material.rock).setHardness(.5F).setBlockName("goblet");
+		plate = new BlockPlate(Material.rock).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockName("plate");
 		
-		GlassDoor = new BlockGlassDoor(Material.glass).setHardness(1F).setBlockName("doorGlass");		
+		glassDoor = new BlockGlassDoor(Material.glass).setHardness(1F).setBlockName("doorGlass");		
 	}
 	
 	public static void load()
@@ -284,7 +284,7 @@ public class MBlocks
 		
 		GameRegistry.registerBlock(snowBrick, "snowBrick");
 		
-		GameRegistry.registerBlock(GlassDoor, "GlassDoor");
+		GameRegistry.registerBlock(glassDoor, "GlassDoor");
 		GameRegistry.registerBlock(glassRefined, "glassRefined");
 		GameRegistry.registerBlock(glassRefinedPane, "glassRefinedPane");
 		
@@ -323,8 +323,8 @@ public class MBlocks
 		GameRegistry.registerBlock(woodBoardsSingleSlab, ItemBlockWoodBoardSlab.class, "woodBoardsSlabSingle", null, woodBoardsSingleSlab, woodBoardsDoubleSlab);
 		GameRegistry.registerBlock(woodBoardsDoubleSlab, ItemBlockWoodBoardSlab.class, "woodBoardsSlabDouble", null, woodBoardsSingleSlab, woodBoardsDoubleSlab);
 		
-		GameRegistry.registerBlock(Goblet, MCItemBlockMulti.class, "Goblet");
-		GameRegistry.registerBlock(Plate, "Plate");
+		GameRegistry.registerBlock(goblet, MCItemBlockMulti.class, "Goblet");
+		GameRegistry.registerBlock(plate, "Plate");
 	}
 	
 	public static void loadVanillaOverwrites()

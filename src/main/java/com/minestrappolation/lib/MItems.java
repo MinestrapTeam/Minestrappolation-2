@@ -547,9 +547,9 @@ public class MItems
 		GameRegistry.registerItem(ropeItem, "itemRope");
 		cardboardItem = new ItemReed(MBlocks.cardboard).setCreativeTab(Minestrappolation.tabMisc).setUnlocalizedName("item_Cardboard").setTextureName(MCAssetManager.getTexture("cardboard"));
 		GameRegistry.registerItem(cardboardItem, "cardboardItem");
-		goblet = new ItemReed(MBlocks.Goblet).setCreativeTab(Minestrappolation.tabMisc).setUnlocalizedName("item_GobletEmpty").setTextureName(MCAssetManager.getTexture("goblet"));
+		goblet = new ItemReed(MBlocks.goblet).setCreativeTab(Minestrappolation.tabMisc).setUnlocalizedName("item_GobletEmpty").setTextureName(MCAssetManager.getTexture("goblet"));
 		GameRegistry.registerItem(goblet, "gobletItem");
-		glassDoor = new EDItemDoor(MBlocks.GlassDoor).setUnlocalizedName("item_GlassDoor").setCreativeTab(Minestrappolation.tabBuildingBlocks).setTextureName(MCAssetManager.getTexture("glass_door"));
+		glassDoor = new EDItemDoor(MBlocks.glassDoor).setUnlocalizedName("item_GlassDoor").setCreativeTab(Minestrappolation.tabBuildingBlocks).setTextureName(MCAssetManager.getTexture("glass_door"));
 		GameRegistry.registerItem(glassDoor, "glassDoorItem");
 		
 		// TODO ORGANIZE EMD ITEMS
@@ -847,7 +847,7 @@ public class MItems
 		MBlocks.bronzeBlock.setHarvestLevel("pickaxe", 1);
 		MBlocks.uraniumBlock.setHarvestLevel("pickaxe", 0);
 		MBlocks.plutoniumBlock.setHarvestLevel("pickaxe", 0);
-		MBlocks.Godstone.setHarvestLevel("pickaxe", 2);
+		MBlocks.godstone.setHarvestLevel("pickaxe", 2);
 		MBlocks.soulBlock.setHarvestLevel("pickaxe", 4);
 		Blocks.bedrock.setHarvestLevel("pickaxe", 4);
 		

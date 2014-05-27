@@ -43,13 +43,13 @@ import net.minecraft.world.World;
  */
 public class MCBlockStone2 extends Block
 {
-	public String[] types;
+	public String[]	types;
 	
-	public String					name;
-	public float					baseHardness;
+	public String	name;
+	public float	baseHardness;
 	
-	public IIcon[]					topIcons;
-	public IIcon[]					sideIcons;
+	public IIcon[]	topIcons;
+	public IIcon[]	sideIcons;
 	
 	public MCBlockStone2(String[] types, String name, float baseHardness)
 	{
@@ -154,14 +154,15 @@ public class MCBlockStone2 extends Block
 		this.topIcons = new IIcon[5];
 		this.sideIcons = new IIcon[5];
 		
-		this.topIcons[0] = iconRegister.registerIcon(this.getTextureName() + "_pillar_top");
-		this.sideIcons[0] = iconRegister.registerIcon(this.getTextureName() + "_pillar_side");
-		this.topIcons[1] = iconRegister.registerIcon(this.getTextureName() + "_slab_top");
-		this.sideIcons[1] = iconRegister.registerIcon(this.getTextureName() + "_slab_side");
-		this.topIcons[2] = this.sideIcons[2] = iconRegister.registerIcon(this.getTextureName() + "_bricks");
-		this.topIcons[3] = this.sideIcons[3] = iconRegister.registerIcon(this.getTextureName() + "_tiles");
-		this.topIcons[4] = iconRegister.registerIcon(this.getTextureName() + "_refined");
-		this.sideIcons[4] = iconRegister.registerIcon(this.getTextureName() + "_refined_slab_side");
+		String textureName = this.getTextureName();
+		this.topIcons[0] = iconRegister.registerIcon(textureName + "_pillar_top");
+		this.sideIcons[0] = iconRegister.registerIcon(textureName + "_pillar_side");
+		this.topIcons[1] = iconRegister.registerIcon(textureName + "_slab_top");
+		this.sideIcons[1] = iconRegister.registerIcon(textureName + "_slab_side");
+		this.topIcons[2] = this.sideIcons[2] = iconRegister.registerIcon(textureName + "_bricks");
+		this.topIcons[3] = this.sideIcons[3] = iconRegister.registerIcon(textureName + "_tiles");
+		this.topIcons[4] = iconRegister.registerIcon(textureName + "_refined");
+		this.sideIcons[4] = iconRegister.registerIcon(textureName + "_refined_slab_side");
 	}
 	
 	@Override
