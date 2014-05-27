@@ -58,6 +58,9 @@ public class MCBlockStone extends Block
 	
 	public boolean	chiseledSided;
 	
+	//specific method for chiseled clay
+	public boolean	clayChiseled = false;
+	
 	public MCBlockStone(String[] types, String name, float baseHardness)
 	{
 		super(Material.rock);
@@ -70,6 +73,16 @@ public class MCBlockStone extends Block
 	public MCBlockStone setChiseledSided()
 	{
 		this.chiseledSided = true;
+		return this;
+	}
+	
+	/**
+	 * Sets refined texture for top of chiseled blocks. Used for chiseled clay blocks.
+	 * @return
+	 */
+	public MCBlockStone setClayChiseled()
+	{
+		this.clayChiseled = true;
 		return this;
 	}
 	
@@ -164,8 +177,10 @@ public class MCBlockStone extends Block
 		{
 			if (this.chiseledSided && side > 1)
 				return this.chiseledSideIcon;
-			else
+			else if(!clayChiseled)
 				return this.chiseledIcon;
+			else
+				return this.refinedIcon;
 		}
 		else if (metadata == 7)
 			return this.crackedIcon;
