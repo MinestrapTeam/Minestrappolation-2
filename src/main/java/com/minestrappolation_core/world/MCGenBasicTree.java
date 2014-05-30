@@ -1,4 +1,4 @@
-package com.minestrappolation_core.biome;
+package com.minestrappolation_core.world;
 
 import java.util.Random;
 

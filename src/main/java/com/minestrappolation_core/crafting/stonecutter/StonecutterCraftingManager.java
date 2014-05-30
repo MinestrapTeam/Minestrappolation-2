@@ -1,4 +1,4 @@
-package com.minestrappolation_core.recipes;
+package com.minestrappolation_core.crafting.stonecutter;
 
 import java.util.*;
 

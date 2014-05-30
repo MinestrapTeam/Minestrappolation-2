@@ -1,6 +1,6 @@
 package com.minestrappolation_core.inventory;
 
-import com.minestrappolation_core.recipes.StonecutterCraftingManager;
+import com.minestrappolation_core.crafting.stonecutter.StonecutterCraftingManager;
 import com.minestrappolation_core.tileentity.TileEntityStonecutter;
 
 import net.minecraft.entity.player.EntityPlayer;

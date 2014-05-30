@@ -1,4 +1,4 @@
-package com.minestrappolation_core.recipes;
+package com.minestrappolation_core.crafting.stonecutter;
 
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;

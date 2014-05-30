@@ -1,7 +1,6 @@
 package com.minestrappolation.biome;
 
-import com.minestrappolation_core.biome.MCCustomBiomeDecorator;
-
+import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class BiomeGenRedwood extends BiomeGenBase
@@ -10,6 +9,6 @@ public class BiomeGenRedwood extends BiomeGenBase
 	{
 		super(id);
 		
-		this.theBiomeDecorator = new MCCustomBiomeDecorator();
+		this.theBiomeDecorator = new BiomeDecorator();
 	}
 }
