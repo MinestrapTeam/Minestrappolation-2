@@ -1,0 +1,158 @@
+1.5.1
+
+EO-1.5.1
+
++ Added all block and item names.
+* Bugfixes.
+
+ED-1.4.2
+
+1.5.0
+
+EO-1.5.0
+! Updated to 1.7.2 (Finally).
++ Added Melter Redstone functionality.
+* Block and item names can now be changed via a name config, allowing for translations to other languages.
+* Balanced Melter (May be buggy).
+* Plated Tools, Weapons, and Armor now use NBTs rather than separate IDs.
+* Some texture updates.
+* Bugs bugs bugs bugs...
+
+ED-1.4.2
+
+1.4.5
+
+EO-1.4.5
++Added (almost) everything to OreDictionary
+
+ED-1.4.2
+
+1.4.2
+
+EO-1.4.0
+ED-1.4.2
+* Updated names
+
+1.4.1
+
+EO-1.4.0
+ED-1.4.1
++ Added all block and item names.
+* Fixed creative tab crash.
+* Bugfixes.
+
+1.4.0
+
+EO-1.4.0
+! Complete re-code of everything.
++ Added Extrapolated Ores Config.
++ Added optional durability tooltips to Extrapolated Ores tools, weapons, and armor (can be toggled on and off in the Config).
++ Melter is now functional!
++ Added Melter recipes.
++ Added Magma (WIP).
++ Added Magma Buckets.
+* Uranium and Plutonium poison effects can be turned off via the Config file.
+* Can add custom recipes to the Melter or Furnace via a .txt file (for use with other mods).
+* Desert Quartz generates in “spires” now.
+* Tarnished Copper can be polished back into a Copper Block by using Grease.
+* Time needed for Copper Blocks to tarnish can be changed/turned off via the Config.
++ Added Soul Blocks and all their functionality.
+* Soul Bottles are now craftable.
+* Soul Gems can be consumed to gain some EXP.
+* Granite generates in much larger veins.
+* Blazium Ore generates in larger veins.
+* Soul Ore generates in larger veins.
+* Nuclear Grenades now poison any nearby mobs when they explode.
+* Texture improvements.
+* Bug genocide.
+
+ED-1.4.0
+-Updated to 1.7.2.
+-Block and item names can now be changed via a name config, allowing for translations to other languages.
+-Some texture updates.
+-Bugs bugs bugs bugs...
+
+1.3.0
+
+EO-1.3.0
++ Added Uranium Ore smelting recipe.
++ Added Plutonium Ore smelting recipe.
+* Fixed Blaze Powder smelting bug.
+* Fixed Swords not taking durability damage when breaking blocks.
+* Fixed Plated block recipes.
+* Nerfed Uranium and Plutonium Ore effect ranges.
+* Reduced the duration of Uranium Ore’s poison.
+* Changed Nuke recipe to use Raw Uranium Blocks and Raw Plutonium Blocks instead of Uranium and Plutonium.
+* Fixed enchanting bug, All tools except for hoes are enchantable
+
+ED-1.3.0
++ Added Sandy Road.
++ Added Sandstone Road.
++ Added Gravel Road.
++ Added Mossy Wood Planks (cannot be crafted yet).
++ Added Goblets (can currently only hold Water and Milk).
+* Edgestone Bricks’ logic is functional!
+* Changed Vanilla’s Stone Bricks recipe (the old recipe now crafts 16 Stone Brick items, and the Stone Bricks block is now crafted with 4 Stone Brick items in a 2x2 square).
+* Nearly everything is handled with Metadata now, reducing the ID count quite a bit.
+* Crates and Barrels interact with Hoppers.
+* Bug genocide.
+
+1.2.0
+
+EO-1.2.0
+* Fixed swords not doing damage
+* Fixed Radiant quartz ore dropping itself
+
+ED-1.2.0
+! Complete re-code of everything.
++ Added Infertile Dirt.
++ Added Refined Road.
++ Added Bedrock Bricks.
+* Fixed GUI’s for Crates and Barrels.
+* Bug fixes.
+
+1.1.0
+
+EO-1.1.0
++ Added Granite Brick Stairs and Slabs
++ Added Tin, Steel, and Bronze plated Cobble stairs and slabs
++ Added Tin, Steel, and Bronze plated Stone Brick stairs and slabs
++ Added Tin, Steel, and Bronze plated Granite Brick stairs and slabs
++ Added insulated plutonium and uranium and they work as should
+* Re-did ID's with config file
+* Raw Plutonium and Uranium now explodes if there is not water touching it on four sides (cross formation)
+- Removed plated items from creative tab, seemed to be clogging it up a bit
+
+ED-1.1.0
++ Added Stained Bricks.
++ Added Stained Brick recipes.
++ Added Cobbled Road blocks.
++ Added Cobbled Road Block recipe.
+* Wooden Boards can replace Wooden Planks in most recipes.
+* Meat Blocks can be crafted with any combination of raw meats.
+* Cobbled Road blocks cause the player and mobs to move faster while walking on them.
+
+1.0.0
+
+EO-1.0.0
++ Added Radiant Quartz Slab/Stairs
++ Added Pink Quartz Slabs/Stairs
++ Added Sandstone tools
+* Pillars can be placed sideways like Logs.
+* Titanium, Torite, and Zirconium armor now gives buffs to the wearer.
+
+ED-1.0.0
++ Added Patterned Netherbricks
+* Re-did Id’s with config file
+* Changed Beveled and Paneled wood to use metadata
+
+0.3.1
+
+EO-0.3.1
++ Added Nukes and Grenades and recipes.
+* Copper now changes to Tarnished Copper after 3 days.
+* Internal changes (Potion API).
+* Invincium generates again.
+* Sunstone Shard texture fixed.
+* Fixed crash caused by Plating.
+* Changed Plated Block recipes.

@@ -4,6 +4,7 @@
 !.gitignore
 !/dependencies/
 !version.txt
+!Changelog.txt
 !build.gradle
 !/libs/
 
