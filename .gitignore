@@ -1,11 +1,7 @@
-/*
-/*/
-!/src/
-!.gitignore
-!/dependencies/
-!version.txt
-!Changelog.txt
-!build.gradle
-!/libs/
+.DS_STORE
+.classpath
+.project
+.gradle/
 
-.DS_Store
+bin/
+build/
