@@ -2,13 +2,14 @@ package com.minestrappolation_core.util;
 
 import com.minestrappolation_core.block.MCBlockStone;
 import com.minestrappolation_core.block.MCBlockStone2;
+import com.minestrappolation_core.block.MCBlockWood;
 import com.minestrappolation_core.item.block.MCItemBlockStone;
 import com.minestrappolation_core.item.block.MCItemBlockStone2;
+import com.minestrappolation_core.item.block.MCItemBlockWood;
 import com.minestrappolation_core.lib.MCReference;
 
 import cpw.mods.fml.common.registry.GameData;
 import cpw.mods.fml.common.registry.GameRegistry;
-
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 
@@ -16,6 +17,23 @@ public class MCBlockHelper
 {
 	public static final String[]	types	= new String[] { "raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", "cracked", "mossy", null, null, null, null, null, "glowstone_lamp", "sunstone_lamp" };
 	public static final String[]	types2	= new String[] { "pillar", "raw_slab", "brick_slab", "tile_slab", "refined_slab" };
+	
+	//Null is mossy planks in the block file.
+	public static final String[]	woodTypes = new String[]{"bevel", "boards", "panel", null};
+	
+	public static MCBlockWood createWoodBlock(String name, CreativeTabs tab)
+	{
+		return createWoodBlock(woodTypes, name, tab);
+	}
+	
+	public static MCBlockWood createWoodBlock(String[] types, String name, CreativeTabs tab)
+	{
+		String name1 = "w_" + name;
+		MCBlockWood block = new MCBlockWood(types, name);
+		block.setBlockName(name1).setBlockTextureName(name).setCreativeTab(tab);
+		GameRegistry.registerBlock(block, MCItemBlockWood.class, name1);
+		return block;
+	}
 	
 	public static MCBlockStone createStoneBlock(String name, float hardness, CreativeTabs tab)
 	{

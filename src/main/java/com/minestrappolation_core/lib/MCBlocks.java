@@ -6,7 +6,6 @@ import com.minestrappolation_core.util.MCAssetManager;
 import com.minestrappolation_core.util.MCBlockHelper;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 
@@ -92,12 +91,18 @@ public class MCBlocks
 	public static Block	yellowClay;
 	public static Block	yellowClay2;
 	
+	public static Block woodOak;
+	public static Block woodBirch;
+	public static Block woodSpruce;
+	public static Block woodJungle;
+	
 	public static void init()
 	{
 		stoneCutter = new MCBlockStonecutter().setBlockName("stoneCutter").setBlockTextureName(MCAssetManager.getMachineTexture("stonecutter")).setHardness(3.5F).setStepSound(Block.soundTypeStone);
 		GameRegistry.registerBlock(stoneCutter, "stoneCutter");
 		
 		CreativeTabs tab = Minestrappolation.tabStoneDecor;
+		CreativeTabs tab_building = Minestrappolation.tabBuildingBlocks;
 		
 		String[] types_stone = new String[] { null, null, "pattern_bricks", "tiles", "road", "refined", null, null, "mossy", null, null, null, null, null, "glowstone_lamp", "sunstone_lamp" };
 		String[] types_stone_2 = new String[] { "pillar", null, null, "tile_slab", "refined_slab" };
@@ -195,5 +200,12 @@ public class MCBlocks
 		whiteClay2 = MCBlockHelper.createStoneBlock2(types_clay_2, "white_clay", 2F, tab);
 		yellowClay = MCBlockHelper.createStoneBlock(types_colored_clay, "yellow_clay", 2F, tab).setClayChiseled();
 		yellowClay2 = MCBlockHelper.createStoneBlock2(types_clay_2, "yellow_clay", 2F, tab);
+		
+		String[] wood_mossy_types = new String[]{"bevel", "boards", "panel", "mossy"};
+
+		woodOak = MCBlockHelper.createWoodBlock(wood_mossy_types, "oak", tab_building);
+		woodBirch = MCBlockHelper.createWoodBlock(wood_mossy_types, "birch", tab_building);
+		woodSpruce = MCBlockHelper.createWoodBlock(wood_mossy_types, "spruce", tab_building);
+		woodJungle = MCBlockHelper.createWoodBlock(wood_mossy_types, "jungle", tab_building);
 	}
 }
