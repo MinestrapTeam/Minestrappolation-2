@@ -13,7 +13,7 @@ public class StonecutterShapelessRecipes implements IStonecutterRecipe
 {
 	public final List		recipeItems;
 	public final ItemStack	recipeOutput;
-	private final ItemStack	extraSlot;
+	public final ItemStack	extraSlot;
 	
 	public StonecutterShapelessRecipes(ItemStack output, List items, ItemStack extraSlot)
 	{

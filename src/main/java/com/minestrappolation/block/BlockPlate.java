@@ -34,10 +34,7 @@ public class BlockPlate extends BlockContainer
 			if (stack != null)
 			{
 				TileEntityPlate te = (TileEntityPlate) world.getTileEntity(x, y, z);
-				if (stack != null)
-				{
-					te.setItem(stack);
-				}
+				te.setItem(stack);
 				
 				if (!player.capabilities.isCreativeMode)
 				{

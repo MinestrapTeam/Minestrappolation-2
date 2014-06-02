@@ -1,17 +1,38 @@
 package com.minestrappolation;
 
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidRegistry;
 import clashsoft.brewingapi.BrewingAPI;
-import clashsoft.cslib.minecraft.BaseMod;
-import clashsoft.cslib.minecraft.util.CSConfig;
+import clashsoft.cslib.config.CSConfig;
+import clashsoft.cslib.minecraft.init.BaseMod;
 
 import com.minestrappolation.common.MCommonProxy;
 import com.minestrappolation.crafting.MelterRecipeLoader;
-import com.minestrappolation.creativetab.*;
-import com.minestrappolation.entity.*;
+import com.minestrappolation.creativetab.MCreativeTabBrewing;
+import com.minestrappolation.creativetab.MCreativeTabBuildingBlocks;
+import com.minestrappolation.creativetab.MCreativeTabCombat;
+import com.minestrappolation.creativetab.MCreativeTabDecoration;
+import com.minestrappolation.creativetab.MCreativeTabFood;
+import com.minestrappolation.creativetab.MCreativeTabMaterials;
+import com.minestrappolation.creativetab.MCreativeTabMisc;
+import com.minestrappolation.creativetab.MCreativeTabStoneDecor;
+import com.minestrappolation.creativetab.MCreativeTabTech;
+import com.minestrappolation.creativetab.MCreativeTabTools;
+import com.minestrappolation.entity.EntityGrenade;
+import com.minestrappolation.entity.EntityGrenadeImpact;
+import com.minestrappolation.entity.EntityGrenadeSticky;
+import com.minestrappolation.entity.EntityHangGlider;
+import com.minestrappolation.entity.EntityNukePrimed;
 import com.minestrappolation.handler.BlacksmithTradeHandler;
 import com.minestrappolation.handler.MEventHandler;
 import com.minestrappolation.handler.PriestTradeHandler;
-import com.minestrappolation.lib.*;
+import com.minestrappolation.lib.MBlocks;
+import com.minestrappolation.lib.MItems;
+import com.minestrappolation.lib.MPotions;
+import com.minestrappolation.lib.MRecipes;
+import com.minestrappolation.lib.MTileEntities;
 import com.minestrappolation.tileentity.TileEntityLocked;
 import com.minestrappolation.tileentity.TileEntityMelter;
 import com.minestrappolation.world.MOreGenerator;
@@ -28,11 +49,6 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.VillagerRegistry;
-
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Blocks;
-import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fluids.FluidRegistry;
 
 @Mod(modid = MCReference.MODID, name = MCReference.NAME, version = MCReference.VERSION, dependencies = MCReference.DEPENDENCY)
 public class Minestrappolation extends BaseMod

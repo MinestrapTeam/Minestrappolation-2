@@ -1,8 +1,9 @@
 package com.minestrappolation_core;
 
+import net.minecraft.init.Blocks;
 import clashsoft.brewingapi.BrewingAPI;
-import clashsoft.cslib.minecraft.BaseMod;
-import clashsoft.cslib.minecraft.util.CSConfig;
+import clashsoft.cslib.config.CSConfig;
+import clashsoft.cslib.minecraft.init.BaseMod;
 
 import com.minestrappolation_core.common.MCCommonProxy;
 import com.minestrappolation_core.lib.MCBlocks;
@@ -19,8 +20,6 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
-
-import net.minecraft.init.Blocks;
 
 @Mod(modid = MCReference.CORE_MODID, name = MCReference.CORE_NAME, version = MCReference.CORE_VERSION, dependencies = "required-after:" + BrewingAPI.MODID)
 public class MinestrappolationCore extends BaseMod

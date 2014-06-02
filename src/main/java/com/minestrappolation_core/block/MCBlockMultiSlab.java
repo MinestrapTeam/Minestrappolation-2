@@ -104,7 +104,7 @@ public class MCBlockMultiSlab extends BlockSlab
 	
 	public Item getItem(int metadata)
 	{
-		return Item.getItemFromBlock(this);
+		return this.field_150004_a ? this.otherSlab : Item.getItemFromBlock(this);
 	}
 	
 	@Override
