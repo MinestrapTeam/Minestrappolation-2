@@ -39,7 +39,7 @@ public class Minestrappolation extends BaseMod
 	@Instance(MCReference.MODID)
 	public static Minestrappolation		instance;
 	
-	@SidedProxy(modId = MCReference.MODID, clientSide = "com.minestrappolation.client.MClientProxy", serverSide = "com.minestrappolation.common.MCommonProxy")
+	@SidedProxy(modId = MCReference.MODID, clientSide = "minestrapteam.minestrappolation.client.MClientProxy", serverSide = "minestrapteam.minestrappolation.common.MCommonProxy")
 	public static MCommonProxy			proxy;
 	
 	public static CreativeTabs			tabBuildingBlocks	= new MCreativeTabBuildingBlocks("minestrap_building_blocks");

@@ -27,7 +27,7 @@ public class MinestrappolationCore extends BaseMod
 	@Instance(MCReference.CORE_MODID)
 	public static MinestrappolationCore	instance;
 	
-	@SidedProxy(modId = MCReference.CORE_MODID, clientSide = "com.minestrappolation_core.client.MCClientProxy", serverSide = "com.minestrappolation_core.common.MCCommonProxy")
+	@SidedProxy(modId = MCReference.CORE_MODID, clientSide = "minestrapteam.minestrap_core.client.MCClientProxy", serverSide = "minestrapteam.minestrap_core.common.MCCommonProxy")
 	public static MCCommonProxy			proxy;
 	
 	public static boolean showDurability;
