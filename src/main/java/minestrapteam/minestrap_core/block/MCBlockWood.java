@@ -14,7 +14,12 @@ import net.minecraft.util.IIcon;
 
 /**
  * Creates wood from wood textures folder.
- * 
+ * <ul>
+ * <li>0: Beveled Wood
+ * <li>1: Boards
+ * <li>2: Panels
+ * <li>3: Mossy Planks
+ * </ul>
  * @author SoBiohazardous
  */
 public class MCBlockWood extends Block

@@ -5,11 +5,12 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import minestrapteam.minestrap_core.block.MCBlockStone;
 import minestrapteam.minestrap_core.block.MCBlockStone2;
 import minestrapteam.minestrap_core.block.MCBlockWood;
+import minestrapteam.minestrap_core.block.MCBlockWood2;
+import minestrapteam.minestrap_core.item.block.MCItemBlockWood2;
 import minestrapteam.minestrap_core.item.block.MCItemBlockStone;
 import minestrapteam.minestrap_core.item.block.MCItemBlockStone2;
 import minestrapteam.minestrap_core.item.block.MCItemBlockWood;
 import minestrapteam.minestrap_core.lib.MCReference;
-
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 
@@ -18,8 +19,22 @@ public class MCBlockHelper
 	public static final String[]	types	= new String[] { "raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", "cracked", "mossy", null, null, null, null, null, "glowstone_lamp", "sunstone_lamp" };
 	public static final String[]	types2	= new String[] { "pillar", "raw_slab", "brick_slab", "tile_slab", "refined_slab" };
 	
-	//Null is mossy planks in the block file.
-	public static final String[]	woodTypes = new String[]{"bevel", "boards", "panel", null};
+	public static final String[]	woodTypes = new String[]{"bevel", "boards", "panel", "mossy_planks"};
+	public static final String[]	woodTypes2 = new String[]{"bevel_slab", "boards_slab", "panel_slab", "mossy_planks_slab"};
+	
+	public static MCBlockWood2 createWoodBlock2(String name, CreativeTabs tab)
+	{
+		return createWoodBlock2(woodTypes2, name, tab);
+	}
+	
+	public static MCBlockWood2 createWoodBlock2(String[] types, String name, CreativeTabs tab)
+	{
+		String name1 = "ws_" + name;
+		MCBlockWood2 block = new MCBlockWood2(woodTypes2, name);
+		block.setBlockName(name1).setBlockTextureName(MCAssetManager.getWoodTexture(name)).setCreativeTab(tab);
+		GameRegistry.registerBlock(block, MCItemBlockWood2.class, name1);
+		return block;
+	}
 	
 	public static MCBlockWood createWoodBlock(String name, CreativeTabs tab)
 	{
@@ -30,7 +45,7 @@ public class MCBlockHelper
 	{
 		String name1 = "w_" + name;
 		MCBlockWood block = new MCBlockWood(types, name);
-		block.setBlockName(name1).setBlockTextureName(name).setCreativeTab(tab);
+		block.setBlockName(name1).setBlockTextureName(MCAssetManager.getWoodTexture(name)).setCreativeTab(tab);
 		GameRegistry.registerBlock(block, MCItemBlockWood.class, name1);
 		return block;
 	}

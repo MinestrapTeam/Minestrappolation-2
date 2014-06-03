@@ -96,13 +96,18 @@ public class MCBlocks
 	public static Block woodSpruce;
 	public static Block woodJungle;
 	
+	public static Block woodOak2;
+	public static Block woodBirch2;
+	public static Block woodSpruce2;
+	public static Block woodJungle2;
+	
 	public static void init()
 	{
 		stoneCutter = new MCBlockStonecutter().setBlockName("stoneCutter").setBlockTextureName(MCAssetManager.getMachineTexture("stonecutter")).setHardness(3.5F).setStepSound(Block.soundTypeStone);
 		GameRegistry.registerBlock(stoneCutter, "stoneCutter");
 		
 		CreativeTabs tab = Minestrappolation.tabStoneDecor;
-		CreativeTabs tab_building = Minestrappolation.tabBuildingBlocks;
+		CreativeTabs tab_decor = Minestrappolation.tabDecorationBlocks;
 		
 		String[] types_stone = new String[] { null, null, "pattern_bricks", "tiles", "road", "refined", null, null, "mossy", null, null, null, null, null, "glowstone_lamp", "sunstone_lamp" };
 		String[] types_stone_2 = new String[] { "pillar", null, null, "tile_slab", "refined_slab" };
@@ -201,11 +206,14 @@ public class MCBlocks
 		yellowClay = MCBlockHelper.createStoneBlock(types_colored_clay, "yellow_clay", 2F, tab).setClayChiseled();
 		yellowClay2 = MCBlockHelper.createStoneBlock2(types_clay_2, "yellow_clay", 2F, tab);
 		
-		String[] wood_mossy_types = new String[]{"bevel", "boards", "panel", "mossy"};
-
-		woodOak = MCBlockHelper.createWoodBlock(wood_mossy_types, "oak", tab_building);
-		woodBirch = MCBlockHelper.createWoodBlock(wood_mossy_types, "birch", tab_building);
-		woodSpruce = MCBlockHelper.createWoodBlock(wood_mossy_types, "spruce", tab_building);
-		woodJungle = MCBlockHelper.createWoodBlock(wood_mossy_types, "jungle", tab_building);
+		woodOak = MCBlockHelper.createWoodBlock("oak", tab_decor);
+		woodBirch = MCBlockHelper.createWoodBlock("birch", tab_decor);
+		woodSpruce = MCBlockHelper.createWoodBlock("spruce", tab_decor);
+		woodJungle = MCBlockHelper.createWoodBlock("jungle", tab_decor);
+		
+		woodOak2 = MCBlockHelper.createWoodBlock2("oak", tab_decor);
+		woodBirch2 = MCBlockHelper.createWoodBlock2("birch", tab_decor);
+		woodSpruce2 = MCBlockHelper.createWoodBlock2("spruce", tab_decor);
+		woodJungle2 = MCBlockHelper.createWoodBlock2("jungle", tab_decor);
 	}
 }

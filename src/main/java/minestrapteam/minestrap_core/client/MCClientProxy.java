@@ -5,10 +5,10 @@ import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import minestrapteam.minestrap_core.client.gui.GuiStonecutter;
 import minestrapteam.minestrap_core.client.renderer.block.RenderBlockStone2;
+import minestrapteam.minestrap_core.client.renderer.block.RenderBlockWood2;
 import minestrapteam.minestrap_core.client.renderer.tileentity.RenderStonecutter;
 import minestrapteam.minestrap_core.common.MCCommonProxy;
 import minestrapteam.minestrap_core.tileentity.TileEntityStonecutter;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ThreadDownloadImageData;
 import net.minecraft.entity.player.EntityPlayer;
@@ -35,8 +35,11 @@ public class MCClientProxy extends MCCommonProxy
 	public void init(FMLInitializationEvent event)
 	{
 		stone2RenderType = RenderingRegistry.getNextAvailableRenderId();
-		RenderingRegistry.registerBlockHandler(stone2RenderType, new RenderBlockStone2());
+		wood2RenderType = RenderingRegistry.getNextAvailableRenderId();
 		
+		RenderingRegistry.registerBlockHandler(stone2RenderType, new RenderBlockStone2());
+		RenderingRegistry.registerBlockHandler(wood2RenderType, new RenderBlockWood2());
+
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityStonecutter.class, new RenderStonecutter());
 
 		addDevCapes();		
