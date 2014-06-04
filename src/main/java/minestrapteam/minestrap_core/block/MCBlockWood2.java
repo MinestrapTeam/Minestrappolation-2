@@ -3,7 +3,6 @@ package minestrapteam.minestrap_core.block;
 import java.util.List;
 
 import minestrapteam.minestrap_core.common.MCCommonProxy;
-import minestrapteam.minestrappolation.Minestrappolation;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -33,7 +32,6 @@ public class MCBlockWood2 extends Block
 	public MCBlockWood2(String[] types, String name)
 	{
 		super(Material.rock);
-		this.setCreativeTab(Minestrappolation.tabDecorationBlocks);
 		this.name = name;
 		this.types = types;
 	}
@@ -140,7 +138,7 @@ public class MCBlockWood2 extends Block
 	@Override
 	public int getRenderType()
 	{
-		return MCCommonProxy.stone2RenderType;
+		return MCCommonProxy.wood2RenderType;
 	}
 	
 	@Override

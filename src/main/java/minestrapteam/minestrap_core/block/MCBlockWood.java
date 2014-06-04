@@ -2,8 +2,6 @@ package minestrapteam.minestrap_core.block;
 
 import java.util.List;
 
-import minestrapteam.minestrappolation.Minestrappolation;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -20,7 +18,7 @@ import net.minecraft.util.IIcon;
  * <li>2: Panels
  * <li>3: Mossy Planks
  * </ul>
- * @author SoBiohazardous
+ * @author SoBiohazardous, Clashsoft
  */
 public class MCBlockWood extends Block
 {
@@ -36,21 +34,19 @@ public class MCBlockWood extends Block
 	public MCBlockWood(String[] types, String name)
 	{
 		super(Material.wood);
-		this.setCreativeTab(Minestrappolation.tabBuildingBlocks);	
 		
 		this.name = name;
 		this.types = types;
 		
 		this.setHardness(2.0F);
 		this.setResistance(5.0F);
-		this.disableStats();
 	}
 	
 	public String getUnlocalizedName(int metadata)
 	{
 		if (metadata >= types.length)
 			metadata = 0;
-		return "tile." + this.name + "." + types[metadata];
+		return "tile." + this.name + "." + this.types[metadata];
 	}
 	
 	@Override

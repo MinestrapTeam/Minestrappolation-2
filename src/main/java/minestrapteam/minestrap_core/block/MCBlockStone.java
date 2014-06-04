@@ -2,8 +2,6 @@ package minestrapteam.minestrap_core.block;
 
 import java.util.List;
 
-import minestrapteam.minestrappolation.Minestrappolation;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -16,7 +14,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 /**
- * The first stonecutter block type.<br>
+ * The first Stone Cutter block type.<br>
  * This makes up the following blocks:
  * <ul>
  * <li>0: (Raw Block)
@@ -62,7 +60,6 @@ public class MCBlockStone extends Block
 	public MCBlockStone(String[] types, String name, float baseHardness)
 	{
 		super(Material.rock);
-		this.setCreativeTab(Minestrappolation.tabStoneDecor);
 		this.name = name;
 		this.baseHardness = baseHardness;
 		this.types = types;

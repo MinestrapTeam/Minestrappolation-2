@@ -2,8 +2,8 @@ package minestrapteam.minestrap_core.item.block;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import minestrapteam.minestrap_core.block.MCBlockStone2;
 import minestrapteam.minestrap_core.block.MCBlockWood2;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
