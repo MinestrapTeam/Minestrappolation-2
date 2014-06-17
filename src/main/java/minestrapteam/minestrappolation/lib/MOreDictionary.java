@@ -1,7 +1,7 @@
 package minestrapteam.minestrappolation.lib;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-
+import minestrapteam.minestrap_core.lib.MCBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -43,14 +43,8 @@ public class MOreDictionary
 		add("oreSoul", MBlocks.soulOre);
 		add("gemSoul", MItems.soulGem);
 		
-		OreDictionary.registerOre("plankWood", new ItemStack(MBlocks.woodBoards, 1, 0));
-		OreDictionary.registerOre("plankWood", new ItemStack(MBlocks.woodBoards, 1, 1));
-		OreDictionary.registerOre("plankWood", new ItemStack(MBlocks.woodBoards, 1, 2));
-		OreDictionary.registerOre("plankWood", new ItemStack(MBlocks.woodBoards, 1, 3));
-		OreDictionary.registerOre("plankWood", new ItemStack(MBlocks.woodPlanksMossy, 1, 0));
-		OreDictionary.registerOre("plankWood", new ItemStack(MBlocks.woodPlanksMossy, 1, 1));
-		OreDictionary.registerOre("plankWood", new ItemStack(MBlocks.woodPlanksMossy, 1, 2));
-		OreDictionary.registerOre("plankWood", new ItemStack(MBlocks.woodPlanksMossy, 1, 3));
+		//TODO add all wood ore dicts.
+		
 		// raw
 		OreDictionary.registerOre("meatRaw", new ItemStack(Items.beef));
 		OreDictionary.registerOre("meatRaw", new ItemStack(Items.porkchop));

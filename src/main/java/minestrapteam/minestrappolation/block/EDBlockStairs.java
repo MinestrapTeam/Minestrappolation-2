@@ -1,7 +1,7 @@
 package minestrapteam.minestrappolation.block;
 
+import minestrapteam.minestrap_core.lib.MCBlocks;
 import minestrapteam.minestrappolation.lib.MBlocks;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.world.IBlockAccess;
@@ -18,7 +18,7 @@ public class EDBlockStairs extends BlockStairs
 	@Override
 	public int getFlammability(IBlockAccess world, int x, int y, int z, ForgeDirection face)
 	{
-		if (world.getBlock(x, y, z) == MBlocks.woodBoardsStairsOak || world.getBlock(x, y, z) == MBlocks.woodBoardsStairsBirch || world.getBlock(x, y, z) == MBlocks.woodBoardsStairsSpruce || world.getBlock(x, y, z) == MBlocks.woodBoardsStairsJungle)
+		if (world.getBlock(x, y, z) == MCBlocks.woodOak || world.getBlock(x, y, z) == MCBlocks.woodBirch || world.getBlock(x, y, z) == MCBlocks.woodJungle || world.getBlock(x, y, z) == MCBlocks.woodSpruce)
 		{
 			return 75;
 		}

@@ -3,8 +3,8 @@ package minestrapteam.minestrappolation.world;
 import java.util.Random;
 
 import cpw.mods.fml.common.IWorldGenerator;
+import minestrapteam.minestrap_core.lib.MCBlocks;
 import minestrapteam.minestrappolation.lib.MBlocks;
-
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -75,7 +75,7 @@ public class MOreGenerator implements IWorldGenerator
 			y1 = rand.nextInt(64);
 			z1 = chunkZ + rand.nextInt(16);
 			
-			new WorldGenMinable(MBlocks.woodPlanksMossy, 3, Blocks.planks).generate(world, rand, x1, y1, z1);
+			new WorldGenMinable(MCBlocks.woodJungle, 3, Blocks.planks).generate(world, rand, x1, y1, z1);
 		}
 		
 		// Meurodite Ore

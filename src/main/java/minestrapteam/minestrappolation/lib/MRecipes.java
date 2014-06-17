@@ -205,6 +205,8 @@ public class MRecipes
 		GameRegistry.addRecipe(new ItemStack(MBlocks.oozeSlime, 1), new Object[] { "SSS", "SSS", "SSS", Character.valueOf('S'), Items.slime_ball });
 		GameRegistry.addRecipe(new ItemStack(Items.slime_ball, 9), new Object[] { "S", Character.valueOf('S'), MBlocks.oozeSlime });
 		
+		//TODO add wood recipes
+		/*
 		GameRegistry.addRecipe(new ItemStack(MBlocks.woodPanel, 9, 0), new Object[] { "SSS", "SSS", "SSS", Character.valueOf('S'), new ItemStack(Blocks.planks, 1, 0) });
 		GameRegistry.addRecipe(new ItemStack(MBlocks.woodPanel, 9, 0), new Object[] { "SSS", "SSS", "SSS", Character.valueOf('S'), new ItemStack(MBlocks.woodBoards, 1, 0) });
 		
@@ -226,6 +228,8 @@ public class MRecipes
 		GameRegistry.addRecipe(new ItemStack(MBlocks.woodBoards, 16, 1), new Object[] { "SS", "SS", Character.valueOf('S'), new ItemStack(Blocks.log, 1, 2) });
 		GameRegistry.addRecipe(new ItemStack(MBlocks.woodBoards, 16, 2), new Object[] { "SS", "SS", Character.valueOf('S'), new ItemStack(Blocks.log, 1, 1) });
 		GameRegistry.addRecipe(new ItemStack(MBlocks.woodBoards, 16, 3), new Object[] { "SS", "SS", Character.valueOf('S'), new ItemStack(Blocks.log, 1, 3) });
+		*/
+		
 		GameRegistry.addRecipe(new ItemStack(MBlocks.sugarBlock), new Object[] { "SSS", "SSS", "SSS", Character.valueOf('S'), Items.sugar });
 		GameRegistry.addRecipe(new ItemStack(Items.sugar, 9), new Object[] { "S", Character.valueOf('S'), MBlocks.sugarBlock });
 		GameRegistry.addRecipe(new ItemStack(MBlocks.magmaOoze), new Object[] { "SSS", "SSS", "SSS", Character.valueOf('S'), Items.magma_cream });
@@ -240,6 +244,7 @@ public class MRecipes
 		// Object[] { "BBB", "BBB", "BBB", Character.valueOf('B'),
 		// MCItems.brickStone });
 		
+		/*
 		GameRegistry.addRecipe(new ItemStack(MBlocks.woodBoardsSingleSlab, 6, 0), new Object[] { "FFF", Character.valueOf('F'), new ItemStack(MBlocks.woodBoards, 1, 0) });
 		GameRegistry.addRecipe(new ItemStack(MBlocks.woodBoardsSingleSlab, 6, 1), new Object[] { "FFF", Character.valueOf('F'), new ItemStack(MBlocks.woodBoards, 1, 1) });
 		GameRegistry.addRecipe(new ItemStack(MBlocks.woodBoardsSingleSlab, 6, 2), new Object[] { "FFF", Character.valueOf('F'), new ItemStack(MBlocks.woodBoards, 1, 2) });
@@ -249,6 +254,7 @@ public class MRecipes
 		GameRegistry.addRecipe(new ItemStack(MBlocks.woodBoardsStairsSpruce, 4), new Object[] { "  F", " FF", "FFF", Character.valueOf('F'), new ItemStack(MBlocks.woodBoards, 1, 2) });
 		GameRegistry.addRecipe(new ItemStack(MBlocks.woodBoardsStairsJungle, 4), new Object[] { "  F", " FF", "FFF", Character.valueOf('F'), new ItemStack(MBlocks.woodBoards, 1, 3) });
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.ender_pearl, 9), new Object[] { MBlocks.enderBlock });
+		*/
 		
 		GameRegistry.addRecipe(new ItemStack(MBlocks.cobbledRoad, 2), new Object[] { "CC", "DD", Character.valueOf('C'), Blocks.cobblestone, Character.valueOf('D'), Blocks.dirt });
 		GameRegistry.addRecipe(new ItemStack(MBlocks.sandstoneRoad, 2), new Object[] { "CCC", "CCC", "DDD", Character.valueOf('C'), MCItems.brickSandstone, Character.valueOf('D'), Blocks.sand });
