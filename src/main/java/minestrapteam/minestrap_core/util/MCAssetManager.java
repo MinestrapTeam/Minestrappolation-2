@@ -149,6 +149,10 @@ public class MCAssetManager
 	}
 	
 	// Minestrappolation Models
+	public static String getModel(String name)
+	{
+		return MCReference.MODID + ":textures/model/" + name + ".png";
+	}
 	
 	public static String getArmorModel(String name)
 	{

@@ -24,12 +24,6 @@ public class MCBlockStonecutter extends BlockContainer
 	}
 	
 	@Override
-	public void registerBlockIcons(IIconRegister iconRegister)
-	{
-		//this.blockIcon = iconRegister.registerIcon(MCAssetManager.getMCoreTexture("stonecutter"));
-	}
-	
-	@Override
 	public TileEntity createNewTileEntity(World world, int metadata)
 	{
 		return new TileEntityStonecutter();

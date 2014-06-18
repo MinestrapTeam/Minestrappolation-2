@@ -14,6 +14,7 @@ public class BlockPlateMetal extends BlockRailBase
 	{
 		super(true);
 		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);
+		this.setCreativeTab(null);
 	}
 	
 	@Override

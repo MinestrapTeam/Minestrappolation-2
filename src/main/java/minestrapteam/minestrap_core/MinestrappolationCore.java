@@ -51,8 +51,6 @@ public class MinestrappolationCore extends BaseMod
 		super.proxy = proxy;
 		
 		super.preInit(event);
-		
-		GameRegistry.registerTileEntity(TileEntityStonecutter.class, "StoneCutter");
 
 		MCBlocks.init();
 		MCItems.init();
@@ -66,6 +64,7 @@ public class MinestrappolationCore extends BaseMod
 		super.init(event);
 			
 		Blocks.bedrock.setHardness(80F);
+		GameRegistry.registerTileEntity(TileEntityStonecutter.class, "StoneCutter");
 	}
 	
 	@Override
