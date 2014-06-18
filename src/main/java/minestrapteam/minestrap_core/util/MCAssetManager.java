@@ -24,12 +24,17 @@ public class MCAssetManager
 	
 	public static ResourceLocation getModelResource(String name)
 	{
-		return new ResourceLocation(MCReference.MODID, "textures/model/" + name + ".png");
+		return new ResourceLocation(MCReference.MODID + ":textures/model/" + name + ".png");
 	}
 	
 	public static String getMCoreTexture(String name)
 	{
 		return MCReference.CORE_MODID + ":" + name;
+	}
+	
+	public static String getGuiTexture(String name)
+	{
+		return MCReference.MODID + ":textures/gui/" + name + ".png";
 	}
 	
 	// Minestrappolation Blocks and Items Icons

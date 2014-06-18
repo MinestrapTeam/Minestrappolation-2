@@ -186,11 +186,7 @@ public class MRecipes
 		
 		// TODO ED RECIPES
 		GameRegistry.addRecipe(new ItemStack(MItems.goblet, 1), new Object[] { "D D", " D ", Character.valueOf('D'), Items.gold_ingot });
-		
-		GameRegistry.addRecipe(new ItemStack(MBlocks.infertileDirt, 8), new Object[] { "DDD", "DBD", "DDD", Character.valueOf('D'), Blocks.dirt, Character.valueOf('B'), Items.bucket.setContainerItem(Items.water_bucket) });
-		
-		GameRegistry.addRecipe(new ItemStack(Blocks.dirt, 8), new Object[] { "DDD", "DBD", "DDD", Character.valueOf('D'), MBlocks.infertileDirt, Character.valueOf('B'), Items.water_bucket.setContainerItem(Items.bucket) });
-		
+						
 		// GameRegistry.addRecipe(new ItemStack(MBlocks.edgeStoneBrick), new
 		// Object[] { "SQ", "SQ", 'S', MCItems.brickStone, 'Q', Items.quartz });
 		
@@ -255,12 +251,6 @@ public class MRecipes
 		GameRegistry.addRecipe(new ItemStack(MBlocks.woodBoardsStairsJungle, 4), new Object[] { "  F", " FF", "FFF", Character.valueOf('F'), new ItemStack(MBlocks.woodBoards, 1, 3) });
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.ender_pearl, 9), new Object[] { MBlocks.enderBlock });
 		*/
-		
-		GameRegistry.addRecipe(new ItemStack(MBlocks.cobbledRoad, 2), new Object[] { "CC", "DD", Character.valueOf('C'), Blocks.cobblestone, Character.valueOf('D'), Blocks.dirt });
-		GameRegistry.addRecipe(new ItemStack(MBlocks.sandstoneRoad, 2), new Object[] { "CCC", "CCC", "DDD", Character.valueOf('C'), MCItems.brickSandstone, Character.valueOf('D'), Blocks.sand });
-		GameRegistry.addRecipe(new ItemStack(MBlocks.sandyRoad, 2), new Object[] { "CC", "DD", Character.valueOf('C'), Blocks.cobblestone, Character.valueOf('D'), Blocks.sand });
-		GameRegistry.addRecipe(new ItemStack(MBlocks.gravelRoad, 2), new Object[] { "CC", "DD", Character.valueOf('C'), Blocks.cobblestone, Character.valueOf('D'), Blocks.gravel });
-		GameRegistry.addRecipe(new ItemStack(MBlocks.netherroad, 2), new Object[] { "CC", "DD", Character.valueOf('C'), Blocks.netherrack, Character.valueOf('D'), Blocks.soul_sand });
 		
 		// TODO EMD RECIPES
 		GameRegistry.addSmelting(MItems.fat, new ItemStack(MItems.grease, 1), 0.7F);

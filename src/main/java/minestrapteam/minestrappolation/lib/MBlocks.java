@@ -6,8 +6,6 @@ import minestrapteam.minestrap_core.item.block.MCItemBlockMulti;
 import minestrapteam.minestrap_core.util.MCAssetManager;
 import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.block.*;
-import minestrapteam.minestrappolation.block.slab.BlockWoodBoardSlab;
-import minestrapteam.minestrappolation.item.block.ItemBlockWoodBoardSlab;
 import minestrapteam.minestrappolation.material.MaterialOoze;
 import minestrapteam.minestrappolation.tileentity.TileEntityPlate;
 
@@ -90,8 +88,6 @@ public class MBlocks
 	public static Block				glassRefined;
 	public static Block				glassRefinedPane;
 	
-	public static Block				woodPanel;
-	public static Block				woodBeveled;
 	public static Block				gunpowderBlock;
 	public static Block				sugarBlock;
 	public static Block				meatBlock;
@@ -105,28 +101,10 @@ public class MBlocks
 	public static Block				cardboard;
 	public static Block				cardboardBlock;
 	
-	public static Block				woodBoards;
 	public static Block				magmaOoze;
 	
-	public static Block				woodBoardsStairsOak;
-	public static Block				woodBoardsStairsBirch;
-	public static Block				woodBoardsStairsSpruce;
-	public static Block				woodBoardsStairsJungle;
-	public static BlockSlab			woodBoardsSingleSlab;
-	public static BlockSlab			woodBoardsDoubleSlab;
-	
 	// public static Block checkerTileStairs;
-	
-	public static Block				infertileDirt;
-	
-	public static Block				sandyRoad;
-	public static Block				sandstoneRoad;
-	public static Block				gravelRoad;
-	public static Block				cobbledRoad;
-	public static Block				netherroad;
-	
-	public static Block				woodPlanksMossy;
-	
+		
 	public static Block				glassDoor;
 	
 	public static void init()
@@ -235,28 +213,10 @@ public class MBlocks
 		
 		cardboard = new EDBlockPane(Material.cloth, MCAssetManager.getTexture("cardboard"), MCAssetManager.getTexture("cardboard_pane_edge"), true).setHardness(0.3F).setBlockName("cardboard");
 		cardboardBlock = new BlockCardboard(Material.cloth).setHardness(0.4F).setBlockName("CardboardBlock").setCreativeTab(Minestrappolation.tabBuildingBlocks);
-		
-		woodBoardsStairsOak = new EDBlockStairs(woodBoards, 0).setBlockName("woodBoardsStairsOak").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setCreativeTab(Minestrappolation.tabBuildingBlocks);
-		woodBoardsStairsBirch = new EDBlockStairs(woodBoards, 1).setBlockName("woodBoardsStairsBirch").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setCreativeTab(Minestrappolation.tabBuildingBlocks);
-		woodBoardsStairsSpruce = new EDBlockStairs(woodBoards, 2).setBlockName("woodBoardsStairsSpruce").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setCreativeTab(Minestrappolation.tabBuildingBlocks);
-		woodBoardsStairsJungle = new EDBlockStairs(woodBoards, 3).setBlockName("woodBoardsStairsJungle").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setCreativeTab(Minestrappolation.tabBuildingBlocks);
-		
-		woodBoardsSingleSlab = (BlockSlab) new BlockWoodBoardSlab(false).setBlockName("woodBoardsSingleSlab").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setLightOpacity(255);
-		woodBoardsDoubleSlab = (BlockSlab) new BlockWoodBoardSlab(true).setBlockName("woodBoardsSingleSlab").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setLightOpacity(255);
-		
+				
 		// checkerTileStairs = new EDBlockStairs(Tiles,
 		// 3).setBlockName("checkerTileStairs").setHardness(3F).setResistance(10.0F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks);
-		
-		cobbledRoad = new EDBlockRoad().setHardness(1).setResistance(5F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("cobbledRoad");
-		infertileDirt = new MCBlock(Material.grass).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockName("InfertileSoil").setHardness(.4F).setStepSound(Block.soundTypeGrass).setBlockTextureName(MCAssetManager.getTexture("grasslessDirt"));
-		
-		sandyRoad = new EDBlockRoad().setHardness(0.8F).setResistance(4F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("sandyRoad");
-		sandstoneRoad = new EDBlockRoad().setHardness(1).setResistance(4.5F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("sandstoneRoad");
-		gravelRoad = new EDBlockRoad().setHardness(1.5F).setResistance(5F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("gravelRoad");
-		netherroad = new EDBlockRoad().setHardness(2.2F).setResistance(4F).setBlockName("netherroad").setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks);
-		
-		woodPlanksMossy = new BlockMossyWood().setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setBlockName("woodPlanksMossy").setCreativeTab(Minestrappolation.tabBuildingBlocks);
-		
+								
 		goblet = new BlockGoblet(Material.rock).setHardness(.5F).setBlockName("goblet");
 		plate = new BlockPlate(Material.rock).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockName("plate");
 		
@@ -269,9 +229,7 @@ public class MBlocks
 		GameRegistry.registerTileEntity(TileEntityPlate.class, "Plate");
 		
 		// GameRegistry.registerBlock(checkerTileStairs, "checkerTileStairs");
-		
-		GameRegistry.registerBlock(cobbledRoad, "cobbledRoad");
-		
+				
 		GameRegistry.registerBlock(edgeStoneBrick, "edgeStoneBrick");
 		
 		GameRegistry.registerBlock(snowBrick, "snowBrick");
@@ -290,30 +248,11 @@ public class MBlocks
 		
 		GameRegistry.registerBlock(oozeSlime, "oozeSlime");
 		GameRegistry.registerBlock(magmaOoze, "magmaOoze");
-		
-		GameRegistry.registerBlock(woodBoards, MCItemBlockMulti.class, "woodBoards");
-		
+				
 		GameRegistry.registerBlock(crate, "crate");
 		GameRegistry.registerBlock(barrel, "barrel");
 		GameRegistry.registerBlock(cardboard, "cardboard");
 		GameRegistry.registerBlock(cardboardBlock, "cardboardBlock");
-		
-		GameRegistry.registerBlock(infertileDirt, "infertileDirt");
-		
-		GameRegistry.registerBlock(sandyRoad, "sandyRoad");
-		GameRegistry.registerBlock(sandstoneRoad, "sandstoneRoad");
-		GameRegistry.registerBlock(gravelRoad, "gravelRoad");
-		GameRegistry.registerBlock(netherroad, "netherroad");
-		
-		GameRegistry.registerBlock(woodPanel, MCItemBlockMulti.class, "woodPanel");
-		GameRegistry.registerBlock(woodBeveled, MCItemBlockMulti.class, "woodBeveled");
-		GameRegistry.registerBlock(woodPlanksMossy, MCItemBlockMulti.class, "woodPlanksMossy");
-		GameRegistry.registerBlock(woodBoardsStairsOak, "woodBoardStairsOak");
-		GameRegistry.registerBlock(woodBoardsStairsBirch, "woodBoardStairsBirch");
-		GameRegistry.registerBlock(woodBoardsStairsSpruce, "woodBoardStairsSpruce");
-		GameRegistry.registerBlock(woodBoardsStairsJungle, "woodBoardStairsJungle");
-		GameRegistry.registerBlock(woodBoardsSingleSlab, ItemBlockWoodBoardSlab.class, "woodBoardsSlabSingle", null, woodBoardsSingleSlab, woodBoardsDoubleSlab);
-		GameRegistry.registerBlock(woodBoardsDoubleSlab, ItemBlockWoodBoardSlab.class, "woodBoardsSlabDouble", null, woodBoardsSingleSlab, woodBoardsDoubleSlab);
 		
 		GameRegistry.registerBlock(goblet, MCItemBlockMulti.class, "Goblet");
 		GameRegistry.registerBlock(plate, "Plate");

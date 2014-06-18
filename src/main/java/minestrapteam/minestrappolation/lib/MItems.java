@@ -858,11 +858,5 @@ public class MItems
 		// MBlocks.checkerTileStairs.setHarvestLevel("pickaxe", 1);
 		MBlocks.oozeSlime.setHarvestLevel("shovel", 0);
 		MBlocks.magmaOoze.setHarvestLevel("shovel", 0);
-		MBlocks.cobbledRoad.setHarvestLevel("pickaxe", 0);
-		MBlocks.sandyRoad.setHarvestLevel("pickaxe", 0);
-		MBlocks.sandstoneRoad.setHarvestLevel("pickaxe", 0);
-		MBlocks.gravelRoad.setHarvestLevel("shovel", 0);
-		MBlocks.netherroad.setHarvestLevel("pickaxe", 0);
-		MBlocks.infertileDirt.setHarvestLevel("shovel", 0);
 	}
 }
