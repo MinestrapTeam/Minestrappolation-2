@@ -28,15 +28,15 @@ archivesBaseName = "Minestrappolation"
 
 minecraft
 {
-    version = "1.7.2-10.12.1.1103"
+    version = "1.7.2-10.12.2.1126"
     if(file('../run').exists())
-	  {
-		    assetDir = "../run/assets/"
-	  }
-	  else
-	  {
-		    assetDir = "eclipse/assets"
-	  }
+	{
+	   assetDir = "../run/assets/"
+	}
+	else
+	{
+	   assetDir = "eclipse/assets"
+	}
 }
 
 processResources
