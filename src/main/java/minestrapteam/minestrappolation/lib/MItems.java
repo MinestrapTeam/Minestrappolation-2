@@ -476,7 +476,7 @@ public class MItems
 		SteelBoots = new MCItemArmor(MaterialSteel, MaterialBPSteel, MCommonProxy.steel, 3, "steel").setCreativeTab(Minestrappolation.tabCombat).setUnlocalizedName("item_SteelBoots").setTextureName(MCAssetManager.getArmorTexture("steel_boots"));
 		GameRegistry.registerItem(SteelBoots, "armorBootsSteel");
 		
-		BronzeIngot = new MCItem().setCreativeTab(Minestrappolation.tabMaterials).setUnlocalizedName("item_BronzeIngot").setTextureName(MCAssetManager.getMineralTexture("copper_ingot"));
+		BronzeIngot = new MCItem().setCreativeTab(Minestrappolation.tabMaterials).setUnlocalizedName("item_BronzeIngot").setTextureName(MCAssetManager.getMineralTexture("bronze_ingot"));
 		GameRegistry.registerItem(BronzeIngot, "ingotBronze");
 		BronzePickaxe = new MCItemPickaxe(toolMaterialBronze, null).setCreativeTab(Minestrappolation.tabTools).setUnlocalizedName("item_BronzePickaxe").setTextureName(MCAssetManager.getToolTexture("bronze_pickaxe"));
 		GameRegistry.registerItem(BronzePickaxe, "toolPickBronze");
