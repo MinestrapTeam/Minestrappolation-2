@@ -19,4 +19,10 @@ public class BlockGlowGlass extends BlockGlass
 	{
 		this.blockIcon = iconRegister.registerIcon(this.textureName);
 	}
+	
+	@Override
+	public int getRenderBlockPass()
+	{
+		return 1;
+	}
 }
