@@ -6,6 +6,12 @@ import minestrapteam.minestrap_core.lib.MCReference;
 
 import net.minecraft.item.Item;
 
+/**
+ * A utility class for items.
+ * 
+ * @author SoBiohazardous
+ * @author Clashsoft
+ */
 public class MCItemHelper
 {
 	/**

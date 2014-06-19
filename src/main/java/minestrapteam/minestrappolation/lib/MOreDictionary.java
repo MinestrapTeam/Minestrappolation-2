@@ -1,7 +1,7 @@
 package minestrapteam.minestrappolation.lib;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import minestrapteam.minestrap_core.lib.MCBlocks;
+
 import net.minecraft.block.Block;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -68,5 +68,4 @@ public class MOreDictionary
 	{
 		OreDictionary.registerOre(name, new ItemStack(block));
 	}
-	
 }

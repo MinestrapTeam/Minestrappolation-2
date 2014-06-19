@@ -10,7 +10,6 @@ import minestrapteam.minestrappolation.material.MaterialOoze;
 import minestrapteam.minestrappolation.tileentity.TileEntityPlate;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockSlab;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 

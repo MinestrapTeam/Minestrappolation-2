@@ -1,7 +1,6 @@
 package minestrapteam.minestrappolation.lib;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import minestrapteam.minestrap_core.lib.MCItems;
 import minestrapteam.minestrap_core.util.MCUtil;
 
 import net.minecraft.init.Blocks;
@@ -201,31 +200,6 @@ public class MRecipes
 		GameRegistry.addRecipe(new ItemStack(MBlocks.oozeSlime, 1), new Object[] { "SSS", "SSS", "SSS", Character.valueOf('S'), Items.slime_ball });
 		GameRegistry.addRecipe(new ItemStack(Items.slime_ball, 9), new Object[] { "S", Character.valueOf('S'), MBlocks.oozeSlime });
 		
-		//TODO add wood recipes
-		/*
-		GameRegistry.addRecipe(new ItemStack(MBlocks.woodPanel, 9, 0), new Object[] { "SSS", "SSS", "SSS", Character.valueOf('S'), new ItemStack(Blocks.planks, 1, 0) });
-		GameRegistry.addRecipe(new ItemStack(MBlocks.woodPanel, 9, 0), new Object[] { "SSS", "SSS", "SSS", Character.valueOf('S'), new ItemStack(MBlocks.woodBoards, 1, 0) });
-		
-		GameRegistry.addRecipe(new ItemStack(MBlocks.woodPanel, 9, 1), new Object[] { "SSS", "SSS", "SSS", Character.valueOf('S'), new ItemStack(Blocks.planks, 1, 2) });
-		GameRegistry.addRecipe(new ItemStack(MBlocks.woodPanel, 9, 1), new Object[] { "SSS", "SSS", "SSS", Character.valueOf('S'), new ItemStack(MBlocks.woodBoards, 1, 1) });
-		
-		GameRegistry.addRecipe(new ItemStack(MBlocks.woodPanel, 9, 2), new Object[] { "SSS", "SSS", "SSS", Character.valueOf('S'), new ItemStack(Blocks.planks, 1, 1) });
-		GameRegistry.addRecipe(new ItemStack(MBlocks.woodPanel, 9, 2), new Object[] { "SSS", "SSS", "SSS", Character.valueOf('S'), new ItemStack(MBlocks.woodBoards, 1, 2) });
-		
-		GameRegistry.addRecipe(new ItemStack(MBlocks.woodPanel, 9, 3), new Object[] { "SSS", "SSS", "SSS", Character.valueOf('S'), new ItemStack(Blocks.planks, 1, 3) });
-		GameRegistry.addRecipe(new ItemStack(MBlocks.woodPanel, 9, 3), new Object[] { "SSS", "SSS", "SSS", Character.valueOf('S'), new ItemStack(MBlocks.woodBoards, 1, 3) });
-		
-		GameRegistry.addRecipe(new ItemStack(MBlocks.woodBeveled, 4, 0), new Object[] { "SS", "SS", Character.valueOf('S'), new ItemStack(MBlocks.woodPanel, 1, 0) });
-		GameRegistry.addRecipe(new ItemStack(MBlocks.woodBeveled, 4, 1), new Object[] { "SS", "SS", Character.valueOf('S'), new ItemStack(MBlocks.woodPanel, 1, 1) });
-		GameRegistry.addRecipe(new ItemStack(MBlocks.woodBeveled, 4, 2), new Object[] { "SS", "SS", Character.valueOf('S'), new ItemStack(MBlocks.woodPanel, 1, 2) });
-		GameRegistry.addRecipe(new ItemStack(MBlocks.woodBeveled, 4, 3), new Object[] { "SS", "SS", Character.valueOf('S'), new ItemStack(MBlocks.woodPanel, 1, 3) });
-		
-		GameRegistry.addRecipe(new ItemStack(MBlocks.woodBoards, 16, 0), new Object[] { "SS", "SS", Character.valueOf('S'), new ItemStack(Blocks.log, 1, 0) });
-		GameRegistry.addRecipe(new ItemStack(MBlocks.woodBoards, 16, 1), new Object[] { "SS", "SS", Character.valueOf('S'), new ItemStack(Blocks.log, 1, 2) });
-		GameRegistry.addRecipe(new ItemStack(MBlocks.woodBoards, 16, 2), new Object[] { "SS", "SS", Character.valueOf('S'), new ItemStack(Blocks.log, 1, 1) });
-		GameRegistry.addRecipe(new ItemStack(MBlocks.woodBoards, 16, 3), new Object[] { "SS", "SS", Character.valueOf('S'), new ItemStack(Blocks.log, 1, 3) });
-		*/
-		
 		GameRegistry.addRecipe(new ItemStack(MBlocks.sugarBlock), new Object[] { "SSS", "SSS", "SSS", Character.valueOf('S'), Items.sugar });
 		GameRegistry.addRecipe(new ItemStack(Items.sugar, 9), new Object[] { "S", Character.valueOf('S'), MBlocks.sugarBlock });
 		GameRegistry.addRecipe(new ItemStack(MBlocks.magmaOoze), new Object[] { "SSS", "SSS", "SSS", Character.valueOf('S'), Items.magma_cream });
@@ -239,18 +213,6 @@ public class MRecipes
 		// GameRegistry.addRecipe(new ItemStack(Blocks.stonebrick, 2, 3), new
 		// Object[] { "BBB", "BBB", "BBB", Character.valueOf('B'),
 		// MCItems.brickStone });
-		
-		/*
-		GameRegistry.addRecipe(new ItemStack(MBlocks.woodBoardsSingleSlab, 6, 0), new Object[] { "FFF", Character.valueOf('F'), new ItemStack(MBlocks.woodBoards, 1, 0) });
-		GameRegistry.addRecipe(new ItemStack(MBlocks.woodBoardsSingleSlab, 6, 1), new Object[] { "FFF", Character.valueOf('F'), new ItemStack(MBlocks.woodBoards, 1, 1) });
-		GameRegistry.addRecipe(new ItemStack(MBlocks.woodBoardsSingleSlab, 6, 2), new Object[] { "FFF", Character.valueOf('F'), new ItemStack(MBlocks.woodBoards, 1, 2) });
-		GameRegistry.addRecipe(new ItemStack(MBlocks.woodBoardsSingleSlab, 6, 3), new Object[] { "FFF", Character.valueOf('F'), new ItemStack(MBlocks.woodBoards, 1, 3) });
-		GameRegistry.addRecipe(new ItemStack(MBlocks.woodBoardsStairsOak, 4), new Object[] { "  F", " FF", "FFF", Character.valueOf('F'), new ItemStack(MBlocks.woodBoards, 1, 0) });
-		GameRegistry.addRecipe(new ItemStack(MBlocks.woodBoardsStairsBirch, 4), new Object[] { "  F", " FF", "FFF", Character.valueOf('F'), new ItemStack(MBlocks.woodBoards, 1, 1) });
-		GameRegistry.addRecipe(new ItemStack(MBlocks.woodBoardsStairsSpruce, 4), new Object[] { "  F", " FF", "FFF", Character.valueOf('F'), new ItemStack(MBlocks.woodBoards, 1, 2) });
-		GameRegistry.addRecipe(new ItemStack(MBlocks.woodBoardsStairsJungle, 4), new Object[] { "  F", " FF", "FFF", Character.valueOf('F'), new ItemStack(MBlocks.woodBoards, 1, 3) });
-		GameRegistry.addShapelessRecipe(new ItemStack(Items.ender_pearl, 9), new Object[] { MBlocks.enderBlock });
-		*/
 		
 		// TODO EMD RECIPES
 		GameRegistry.addSmelting(MItems.fat, new ItemStack(MItems.grease, 1), 0.7F);

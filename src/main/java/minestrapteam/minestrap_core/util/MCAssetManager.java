@@ -24,7 +24,7 @@ public class MCAssetManager
 	
 	public static ResourceLocation getModelResource(String name)
 	{
-		return new ResourceLocation(MCReference.MODID + ":textures/model/" + name + ".png");
+		return new ResourceLocation(MCReference.MODID, "textures/model/" + name + ".png");
 	}
 	
 	public static String getMCoreTexture(String name)

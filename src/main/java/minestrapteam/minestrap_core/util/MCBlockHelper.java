@@ -14,6 +14,12 @@ import minestrapteam.minestrap_core.lib.MCReference;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 
+/**
+ * A utility class for adding various types of blocks.
+ * 
+ * @author SoBiohazardous
+ * @author Clashsoft
+ */
 public class MCBlockHelper
 {
 	public static final String[]	types		= new String[] { "raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", "cracked", "mossy", null, null, null, null, null, "glowstone_lamp", "sunstone_lamp" };
