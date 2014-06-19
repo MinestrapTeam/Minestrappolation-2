@@ -1,4 +1,4 @@
-package minestrapteam.minestrappolation.block;
+package minestrapteam.minestrap_core.block;
 
 import java.util.Random;
 
@@ -10,9 +10,9 @@ import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
 
-public class EDBlockPane extends BlockPane
+public class MCBlockPane extends BlockPane
 {
-	public EDBlockPane(Material material, String iconName, String sideIconName, boolean drops)
+	public MCBlockPane(Material material, String iconName, String sideIconName, boolean drops)
 	{
 		super(iconName, sideIconName, material, drops);
 	}

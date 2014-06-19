@@ -157,7 +157,7 @@ public class TileEntityMelter extends TileEntityInventory implements ISidedInven
 			{
 				var2 = true;
 				this.validate();
-				BlockMelter.updateFurnaceBlockState(this.burnTime > 0, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
+				BlockMelter.updateBlockState(this.burnTime > 0, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
 			}
 		}
 		if (var2)

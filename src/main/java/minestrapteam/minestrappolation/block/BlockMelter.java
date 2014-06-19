@@ -1,8 +1,5 @@
 package minestrapteam.minestrappolation.block;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
 import java.util.List;
 import java.util.Random;
 
@@ -15,7 +12,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -31,25 +27,13 @@ import net.minecraft.world.World;
 
 public class BlockMelter extends BlockContainer
 {
-	/**
-	 * Is the random generator used by furnace to drop the inventory contents in
-	 * random directions.
-	 */
-	private final Random	furnaceRand				= new Random();
-	
-	/** True if this is an active furnace, false if idle */
 	private final boolean	isActive;
 	
-	/**
-	 * This flag is used to prevent the furnace inventory to be dropped upon
-	 * block removal, is used internally when the furnace block changes from
-	 * idle to active and vice-versa.
-	 */
-	private static boolean	keepFurnaceInventory	= false;
-	@SideOnly(Side.CLIENT)
-	private IIcon			field_94458_cO;
-	@SideOnly(Side.CLIENT)
-	private IIcon			field_94459_cP;
+	private static boolean	keepInventory	= false;
+	
+	private IIcon			topIcon;
+	private IIcon			frontIcon;
+	private IIcon			bottomIcon;
 	
 	public BlockMelter(boolean par2)
 	{
@@ -62,36 +46,27 @@ public class BlockMelter extends BlockContainer
 		}
 	}
 	
-	/**
-	 * Returns the ID of the items to drop on destruction.
-	 */
 	@Override
-	public Item getItemDropped(int par1, Random par2Random, int par3)
+	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
 		return Item.getItemFromBlock(MBlocks.melterIdle);
 	}
 	
-	/**
-	 * Called whenever the block is added into the world. Args: world, x, y, z
-	 */
 	@Override
-	public void onBlockAdded(World par1World, int par2, int par3, int par4)
+	public void onBlockAdded(World world, int x, int y, int z)
 	{
-		super.onBlockAdded(par1World, par2, par3, par4);
-		this.setDefaultDirection(par1World, par2, par3, par4);
+		super.onBlockAdded(world, x, y, z);
+		this.setDefaultDirection(world, x, y, z);
 	}
 	
-	/**
-	 * set a blocks direction
-	 */
-	private void setDefaultDirection(World p_149930_1_, int p_149930_2_, int p_149930_3_, int p_149930_4_)
+	private void setDefaultDirection(World world, int x, int y, int z)
 	{
-		if (!p_149930_1_.isRemote)
+		if (!world.isRemote)
 		{
-			Block var5 = p_149930_1_.getBlock(p_149930_2_, p_149930_3_, p_149930_4_ - 1);
-			Block var6 = p_149930_1_.getBlock(p_149930_2_, p_149930_3_, p_149930_4_ + 1);
-			Block var7 = p_149930_1_.getBlock(p_149930_2_ - 1, p_149930_3_, p_149930_4_);
-			Block var8 = p_149930_1_.getBlock(p_149930_2_ + 1, p_149930_3_, p_149930_4_);
+			Block var5 = world.getBlock(x, y, z - 1);
+			Block var6 = world.getBlock(x, y, z + 1);
+			Block var7 = world.getBlock(x - 1, y, z);
+			Block var8 = world.getBlock(x + 1, y, z);
 			byte var9 = 3;
 			
 			if (var5.func_149730_j() && !var6.func_149730_j())
@@ -114,211 +89,151 @@ public class BlockMelter extends BlockContainer
 				var9 = 4;
 			}
 			
-			p_149930_1_.setBlockMetadataWithNotify(p_149930_2_, p_149930_3_, p_149930_4_, var9, 2);
+			world.setBlockMetadataWithNotify(x, y, z, var9, 2);
 		}
 	}
 	
 	@Override
-	public void onBlockPlacedBy(World p_149689_1_, int p_149689_2_, int p_149689_3_, int p_149689_4_, EntityLivingBase p_149689_5_, ItemStack p_149689_6_)
+	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase living, ItemStack stack)
 	{
-		int var7 = MathHelper.floor_double(p_149689_5_.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
+		int var7 = MathHelper.floor_double(living.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 		
 		if (var7 == 0)
 		{
-			p_149689_1_.setBlockMetadataWithNotify(p_149689_2_, p_149689_3_, p_149689_4_, 2, 2);
+			world.setBlockMetadataWithNotify(x, y, z, 2, 2);
 		}
 		
 		if (var7 == 1)
 		{
-			p_149689_1_.setBlockMetadataWithNotify(p_149689_2_, p_149689_3_, p_149689_4_, 5, 2);
+			world.setBlockMetadataWithNotify(x, y, z, 5, 2);
 		}
 		
 		if (var7 == 2)
 		{
-			p_149689_1_.setBlockMetadataWithNotify(p_149689_2_, p_149689_3_, p_149689_4_, 3, 2);
+			world.setBlockMetadataWithNotify(x, y, z, 3, 2);
 		}
 		
 		if (var7 == 3)
 		{
-			p_149689_1_.setBlockMetadataWithNotify(p_149689_2_, p_149689_3_, p_149689_4_, 4, 2);
+			world.setBlockMetadataWithNotify(x, y, z, 4, 2);
 		}
 		
-		if (p_149689_6_.hasDisplayName())
+		if (stack.hasDisplayName())
 		{
-			((TileEntityFurnace) p_149689_1_.getTileEntity(p_149689_2_, p_149689_3_, p_149689_4_)).func_145951_a(p_149689_6_.getDisplayName());
+			((TileEntityFurnace) world.getTileEntity(x, y, z)).func_145951_a(stack.getDisplayName());
 		}
 	}
 	
 	@Override
-	@SideOnly(Side.CLIENT)
-	/**
-	 * From the specified side and block metadata retrieves the blocks texture. Args: side, metadata
-	 */
-	public IIcon getIcon(int par1, int par2)
+	public IIcon getIcon(int side, int metadata)
 	{
-		return par1 == 1 ? this.field_94458_cO : par1 == 0 ? this.field_94458_cO : par1 != par2 ? this.blockIcon : this.field_94459_cP;
+		if (side == 0)
+			return this.bottomIcon;
+		else if (side == 1)
+			return this.topIcon;
+		else if (side != metadata)
+			return this.blockIcon;
+		return this.frontIcon;
 	}
 	
 	@Override
-	@SideOnly(Side.CLIENT)
-	/**
-	 * When this method is called, your block should register all the icons it needs with the given IconRegister. This
-	 * is the only chance you get to register icons.
-	 */
-	public void registerBlockIcons(IIconRegister par1IconRegister)
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = par1IconRegister.registerIcon(MCAssetManager.getMachineTexture("melter_side"));
-		this.field_94459_cP = par1IconRegister.registerIcon(this.isActive ? MCAssetManager.getMachineTexture("melter_front_on") : MCAssetManager.getMachineTexture("melter_front_off"));
-		this.field_94458_cO = par1IconRegister.registerIcon(MCAssetManager.getMachineTexture("melter_top"));
+		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getMachineTexture("melter_side"));
+		this.frontIcon = iconRegister.registerIcon(this.isActive ? MCAssetManager.getMachineTexture("melter_front_on") : MCAssetManager.getMachineTexture("melter_front_off"));
+		this.topIcon = iconRegister.registerIcon(MCAssetManager.getMachineTexture("melter_top"));
+		this.bottomIcon = iconRegister.registerIcon(MCAssetManager.getMachineTexture("melter_bottom"));
 	}
 	
-	/**
-	 * Called upon block activation (right click on the block.)
-	 */
 	@Override
-	public boolean onBlockActivated(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9)
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ)
 	{
-		if (par1World.isRemote)
+		if (!world.isRemote)
 		{
-			return true;
-		}
-		else
-		{
-			TileEntityMelter tileentityfurnace = (TileEntityMelter) par1World.getTileEntity(par2, par3, par4);
+			TileEntityMelter tileentityfurnace = (TileEntityMelter) world.getTileEntity(x, y, z);
 			
 			if (tileentityfurnace != null)
 			{
-				par5EntityPlayer.openGui(Minestrappolation.instance, 2, par1World, par2, par3, par4);
+				player.openGui(Minestrappolation.instance, 2, world, x, y, z);
 			}
 			
 			return true;
 		}
+		return false;
 	}
 	
-	/**
-	 * Update which block ID the furnace is using depending on whether or not it
-	 * is burning
-	 */
-	public static void updateFurnaceBlockState(boolean par0, World par1World, int par2, int par3, int par4)
+	public static void updateBlockState(boolean active, World world, int x, int y, int z)
 	{
-		int l = par1World.getBlockMetadata(par2, par3, par4);
-		TileEntity tileentity = par1World.getTileEntity(par2, par3, par4);
-		keepFurnaceInventory = true;
+		int l = world.getBlockMetadata(x, y, z);
+		TileEntity tileentity = world.getTileEntity(x, y, z);
+		keepInventory = true;
 		
-		if (par0)
+		if (active)
 		{
-			System.out.println("is active");
-			par1World.setBlock(par2, par3, par4, MBlocks.melterBurning);
+			world.setBlock(x, y, z, MBlocks.melterBurning);
 		}
 		else
 		{
-			System.out.println("inactive");
-			par1World.setBlock(par2, par3, par4, MBlocks.melterIdle);
+			world.setBlock(x, y, z, MBlocks.melterIdle);
 		}
 		
-		keepFurnaceInventory = false;
-		par1World.setBlockMetadataWithNotify(par2, par3, par4, l, 2);
+		keepInventory = false;
+		world.setBlockMetadataWithNotify(x, y, z, l, 2);
 		
 		if (tileentity != null)
 		{
 			tileentity.validate();
-			par1World.setTileEntity(par2, par3, par4, tileentity);
+			world.setTileEntity(x, y, z, tileentity);
 		}
 	}
 	
 	@Override
-	@SideOnly(Side.CLIENT)
-	/**
-	 * A randomly called display update to be able to add particles or other items for display
-	 */
-	public void randomDisplayTick(World par1World, int par2, int par3, int par4, Random par5Random)
+	public void randomDisplayTick(World world, int x, int y, int z, Random random)
 	{
 		if (this.isActive)
 		{
-			int l = par1World.getBlockMetadata(par2, par3, par4);
-			float f = par2 + 0.5F;
-			float f1 = par3 + 0.0F + par5Random.nextFloat() * 6.0F / 16.0F;
-			float f2 = par4 + 0.5F;
+			int l = world.getBlockMetadata(x, y, z);
+			float f = x + 0.5F;
+			float f1 = y + random.nextFloat() * 0.375F;
+			float f2 = z + 0.5F;
 			float f3 = 0.52F;
-			float f4 = par5Random.nextFloat() * 0.6F - 0.3F;
+			float f4 = random.nextFloat() * 0.6F - 0.3F;
 			
 			if (l == 4)
 			{
-				par1World.spawnParticle("smoke", f - f3, f1, f2 + f4, 0.0D, 0.0D, 0.0D);
-				par1World.spawnParticle("flame", f - f3, f1, f2 + f4, 0.0D, 0.0D, 0.0D);
+				world.spawnParticle("smoke", f - f3, f1, f2 + f4, 0.0D, 0.0D, 0.0D);
+				world.spawnParticle("flame", f - f3, f1, f2 + f4, 0.0D, 0.0D, 0.0D);
 			}
 			else if (l == 5)
 			{
-				par1World.spawnParticle("smoke", f + f3, f1, f2 + f4, 0.0D, 0.0D, 0.0D);
-				par1World.spawnParticle("flame", f + f3, f1, f2 + f4, 0.0D, 0.0D, 0.0D);
+				world.spawnParticle("smoke", f + f3, f1, f2 + f4, 0.0D, 0.0D, 0.0D);
+				world.spawnParticle("flame", f + f3, f1, f2 + f4, 0.0D, 0.0D, 0.0D);
 			}
 			else if (l == 2)
 			{
-				par1World.spawnParticle("smoke", f + f4, f1, f2 - f3, 0.0D, 0.0D, 0.0D);
-				par1World.spawnParticle("flame", f + f4, f1, f2 - f3, 0.0D, 0.0D, 0.0D);
+				world.spawnParticle("smoke", f + f4, f1, f2 - f3, 0.0D, 0.0D, 0.0D);
+				world.spawnParticle("flame", f + f4, f1, f2 - f3, 0.0D, 0.0D, 0.0D);
 			}
 			else if (l == 3)
 			{
-				par1World.spawnParticle("smoke", f + f4, f1, f2 + f3, 0.0D, 0.0D, 0.0D);
-				par1World.spawnParticle("flame", f + f4, f1, f2 + f3, 0.0D, 0.0D, 0.0D);
+				world.spawnParticle("smoke", f + f4, f1, f2 + f3, 0.0D, 0.0D, 0.0D);
+				world.spawnParticle("flame", f + f4, f1, f2 + f3, 0.0D, 0.0D, 0.0D);
 			}
 		}
 	}
 	
-	/**
-	 * Returns a new instance of a block's tile entity class. Called on placing
-	 * the block.
-	 */
 	@Override
-	public TileEntity createNewTileEntity(World par1World, int arg)
+	public TileEntity createNewTileEntity(World world, int metadata)
 	{
 		return new TileEntityMelter();
 	}
 	
-	/**
-	 * Called when the block is placed in the world.
-	 */
-	public void onBlockPlacedBy(World par1World, int par2, int par3, int par4, EntityLiving par5EntityLiving, ItemStack par6ItemStack)
-	{
-		int l = MathHelper.floor_double(par5EntityLiving.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
-		
-		if (l == 0)
-		{
-			par1World.setBlockMetadataWithNotify(par2, par3, par4, 2, 2);
-		}
-		
-		if (l == 1)
-		{
-			par1World.setBlockMetadataWithNotify(par2, par3, par4, 5, 2);
-		}
-		
-		if (l == 2)
-		{
-			par1World.setBlockMetadataWithNotify(par2, par3, par4, 3, 2);
-		}
-		
-		if (l == 3)
-		{
-			par1World.setBlockMetadataWithNotify(par2, par3, par4, 4, 2);
-		}
-		
-		if (par6ItemStack.hasDisplayName())
-		{
-			// ((TileEntityMelter)par1World.getBlockTileEntity(par2, par3,
-			// par4)).isUseableByPlayer(par6ItemStack.getDisplayName());
-		}
-	}
-	
-	/**
-	 * ejects contained items into the world, and notifies neighbours of an
-	 * update, as appropriate
-	 */
 	@Override
-	public void breakBlock(World par1World, int par2, int par3, int par4, Block par5, int par6)
+	public void breakBlock(World world, int x, int y, int z, Block block, int metadata)
 	{
-		if (!keepFurnaceInventory)
+		if (!keepInventory)
 		{
-			TileEntityMelter tileentityfurnace = (TileEntityMelter) par1World.getTileEntity(par2, par3, par4);
+			TileEntityMelter tileentityfurnace = (TileEntityMelter) world.getTileEntity(x, y, z);
 			
 			if (tileentityfurnace != null)
 			{
@@ -328,13 +243,13 @@ public class BlockMelter extends BlockContainer
 					
 					if (itemstack != null)
 					{
-						float f = this.furnaceRand.nextFloat() * 0.8F + 0.1F;
-						float f1 = this.furnaceRand.nextFloat() * 0.8F + 0.1F;
-						float f2 = this.furnaceRand.nextFloat() * 0.8F + 0.1F;
+						float f = world.rand.nextFloat() * 0.8F + 0.1F;
+						float f1 = world.rand.nextFloat() * 0.8F + 0.1F;
+						float f2 = world.rand.nextFloat() * 0.8F + 0.1F;
 						
 						while (itemstack.stackSize > 0)
 						{
-							int k1 = this.furnaceRand.nextInt(21) + 10;
+							int k1 = world.rand.nextInt(21) + 10;
 							
 							if (k1 > itemstack.stackSize)
 							{
@@ -342,7 +257,7 @@ public class BlockMelter extends BlockContainer
 							}
 							
 							itemstack.stackSize -= k1;
-							EntityItem entityitem = new EntityItem(par1World, par2 + f, par3 + f1, par4 + f2, new ItemStack(itemstack.getItem(), k1, itemstack.getItemDamage()));
+							EntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(itemstack.getItem(), k1, itemstack.getItemDamage()));
 							
 							if (itemstack.hasTagCompound())
 							{
@@ -350,19 +265,19 @@ public class BlockMelter extends BlockContainer
 							}
 							
 							float f3 = 0.05F;
-							entityitem.motionX = (float) this.furnaceRand.nextGaussian() * f3;
-							entityitem.motionY = (float) this.furnaceRand.nextGaussian() * f3 + 0.2F;
-							entityitem.motionZ = (float) this.furnaceRand.nextGaussian() * f3;
-							par1World.spawnEntityInWorld(entityitem);
+							entityitem.motionX = (float) world.rand.nextGaussian() * f3;
+							entityitem.motionY = (float) world.rand.nextGaussian() * f3 + 0.2F;
+							entityitem.motionZ = (float) world.rand.nextGaussian() * f3;
+							world.spawnEntityInWorld(entityitem);
 						}
 					}
 				}
 				
-				par1World.func_147453_f(par2, par3, par4, par5);
+				world.func_147453_f(x, y, z, block);
 			}
 		}
 		
-		super.breakBlock(par1World, par2, par3, par4, par5, par6);
+		super.breakBlock(world, x, y, z, block, metadata);
 	}
 	
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)

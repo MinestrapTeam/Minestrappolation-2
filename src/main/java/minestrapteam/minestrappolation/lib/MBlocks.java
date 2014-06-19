@@ -3,6 +3,7 @@ package minestrapteam.minestrappolation.lib;
 import clashsoft.cslib.minecraft.block.CSBlocks;
 import cpw.mods.fml.common.registry.GameRegistry;
 import minestrapteam.minestrap_core.block.MCBlock;
+import minestrapteam.minestrap_core.block.MCBlockPane;
 import minestrapteam.minestrap_core.util.MCAssetManager;
 import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.block.*;
@@ -131,7 +132,7 @@ public class MBlocks
 		snowBrick = new BlockSnowBrick().setHardness(0.3F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeSnow).setBlockTextureName(MCAssetManager.getTexture("snow_tiles"));
 		
 		glassRefined = new BlockGlassRefined(Material.glass, false).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(Minestrappolation.tabBuildingBlocks);
-		glassRefinedPane = new EDBlockPane(Material.glass, MCAssetManager.getTexture("refined_glass"), MCAssetManager.getTexture("refined_glass_pane_edge"), false).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(Minestrappolation.tabBuildingBlocks);
+		glassRefinedPane = new MCBlockPane(Material.glass, MCAssetManager.getTexture("refined_glass"), MCAssetManager.getTexture("refined_glass_pane_edge"), false).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(Minestrappolation.tabBuildingBlocks);
 		
 		gunpowderBlock = new BlockGunpowderBlock(Material.ground).setHardness(0.6F).setStepSound(Block.soundTypeGravel).setBlockTextureName(MCAssetManager.getMineralTexture("gunpowder_block"));
 		sugarBlock = new BlockSugarBlock().setHardness(0.6F).setCreativeTab(Minestrappolation.tabDecorationBlocks).setStepSound(Block.soundTypeGravel).setBlockTextureName(MCAssetManager.getFoodTexture("sugar_block"));
@@ -147,7 +148,7 @@ public class MBlocks
 		crate = new BlockCrate().setHardness(2.5F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeWood);
 		barrel = new BlockBarrel().setHardness(3F).setResistance(6.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeWood);
 		
-		cardboard = new EDBlockPane(Material.cloth, MCAssetManager.getTexture("cardboard"), MCAssetManager.getTexture("cardboard_pane_edge"), true).setHardness(0.3F);
+		cardboard = new MCBlockPane(Material.cloth, MCAssetManager.getTexture("cardboard"), MCAssetManager.getTexture("cardboard_pane_edge"), true).setHardness(0.3F);
 		cardboardBlock = new BlockCardboard(Material.cloth).setHardness(0.4F).setCreativeTab(Minestrappolation.tabBuildingBlocks);
 		
 		glassDoor = new BlockGlassDoor(Material.glass).setHardness(1F);
