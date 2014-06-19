@@ -13,6 +13,7 @@ public class BlockSunstone extends Block
 	public BlockSunstone(Material material)
 	{
 		super(material);
+		this.setLightLevel(1F);
 	}
 	
 	@Override

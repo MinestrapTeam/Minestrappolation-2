@@ -3,7 +3,6 @@ package minestrapteam.minestrappolation.block;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import minestrapteam.minestrap_core.util.MCAssetManager;
-import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.entity.EntityNukePrimed;
 
 import net.minecraft.block.Block;
@@ -26,7 +25,6 @@ public class BlockNuke extends Block
 	public BlockNuke()
 	{
 		super(Material.tnt);
-		this.setCreativeTab(Minestrappolation.tabBuildingBlocks);
 	}
 	
 	@Override

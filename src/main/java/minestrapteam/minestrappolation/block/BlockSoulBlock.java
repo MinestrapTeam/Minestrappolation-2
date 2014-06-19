@@ -4,7 +4,6 @@ import java.util.Random;
 
 import minestrapteam.minestrap_core.block.MCBlock;
 import minestrapteam.minestrap_core.util.MCUtil;
-import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.lib.MItems;
 
 import net.minecraft.block.material.Material;
@@ -19,7 +18,7 @@ public class BlockSoulBlock extends MCBlock
 	public BlockSoulBlock()
 	{
 		super(Material.iron);
-		this.setCreativeTab(Minestrappolation.tabBuildingBlocks);
+		this.setLightLevel(1F);
 	}
 	
 	@Override

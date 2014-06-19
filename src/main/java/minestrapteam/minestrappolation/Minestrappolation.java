@@ -138,7 +138,6 @@ public class Minestrappolation extends BaseMod
 	{
 		super.postInit(event);
 		
-		MBlocks.loadVanillaOverwrites();
 		MRecipes.removeRecipes();
 	}
 }

@@ -16,7 +16,6 @@ public class BlockRope extends BlockRopeCoil
 	public BlockRope()
 	{
 		super();
-		this.setCreativeTab(null);
 		this.setBlockBounds(0.375F, 0.0F, 0.375F, 0.625F, 1.0F, 0.625F);
 	}
 	

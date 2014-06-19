@@ -856,7 +856,7 @@ public class MItems
 		MBlocks.ropeCoil.setHarvestLevel("shears", 0);
 		MBlocks.rope.setHarvestLevel("shears", 0);
 		// MBlocks.checkerTileStairs.setHarvestLevel("pickaxe", 1);
-		MBlocks.oozeSlime.setHarvestLevel("shovel", 0);
+		MBlocks.slimeOoze.setHarvestLevel("shovel", 0);
 		MBlocks.magmaOoze.setHarvestLevel("shovel", 0);
 	}
 }

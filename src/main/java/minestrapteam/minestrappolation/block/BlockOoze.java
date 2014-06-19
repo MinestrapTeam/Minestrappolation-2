@@ -1,6 +1,5 @@
 package minestrapteam.minestrappolation.block;
 
-import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.lib.MBlocks;
 
 import net.minecraft.block.Block;
@@ -14,7 +13,6 @@ public class BlockOoze extends Block
 	public BlockOoze(Material material)
 	{
 		super(material);
-		this.setCreativeTab(Minestrappolation.tabBuildingBlocks);
 	}
 	
 	@Override

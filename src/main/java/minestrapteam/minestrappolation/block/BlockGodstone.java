@@ -8,7 +8,6 @@ import org.lwjgl.opengl.GL11;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
@@ -18,7 +17,7 @@ public class BlockGodstone extends Block
 	public BlockGodstone(Material material)
 	{
 		super(material);
-		this.setCreativeTab(CreativeTabs.tabBlock);
+		this.setLightLevel(1F);
 	}
 	
 	@Override

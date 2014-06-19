@@ -197,8 +197,8 @@ public class MRecipes
 		GameRegistry.addRecipe(new ItemStack(MItems.ropeItem, 1), new Object[] { "S", "S", "S", Character.valueOf('S'), Items.string });
 		GameRegistry.addRecipe(new ItemStack(MItems.ropeItem, 9), new Object[] { "S", Character.valueOf('S'), MBlocks.ropeCoil });
 		GameRegistry.addRecipe(new ItemStack(MBlocks.ropeCoil, 1), new Object[] { "SSS", "SSS", "SSS", Character.valueOf('S'), MItems.ropeItem });
-		GameRegistry.addRecipe(new ItemStack(MBlocks.oozeSlime, 1), new Object[] { "SSS", "SSS", "SSS", Character.valueOf('S'), Items.slime_ball });
-		GameRegistry.addRecipe(new ItemStack(Items.slime_ball, 9), new Object[] { "S", Character.valueOf('S'), MBlocks.oozeSlime });
+		GameRegistry.addRecipe(new ItemStack(MBlocks.slimeOoze, 1), new Object[] { "SSS", "SSS", "SSS", Character.valueOf('S'), Items.slime_ball });
+		GameRegistry.addRecipe(new ItemStack(Items.slime_ball, 9), new Object[] { "S", Character.valueOf('S'), MBlocks.slimeOoze });
 		
 		GameRegistry.addRecipe(new ItemStack(MBlocks.sugarBlock), new Object[] { "SSS", "SSS", "SSS", Character.valueOf('S'), Items.sugar });
 		GameRegistry.addRecipe(new ItemStack(Items.sugar, 9), new Object[] { "S", Character.valueOf('S'), MBlocks.sugarBlock });

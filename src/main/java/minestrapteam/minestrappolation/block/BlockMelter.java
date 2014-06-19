@@ -55,6 +55,11 @@ public class BlockMelter extends BlockContainer
 	{
 		super(Material.rock);
 		this.isActive = par2;
+		
+		if (par2)
+		{
+			this.setLightLevel(1F);
+		}
 	}
 	
 	/**
