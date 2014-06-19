@@ -14,7 +14,7 @@ public class MCItemAxe extends MCItemTool
 	
 	public MCItemAxe(ToolMaterial material, ToolMaterial plateMaterial, boolean ignites)
 	{
-		super(ItemDataAxe.baseDamage, material, plateMaterial, ItemDataAxe.blocksEffectiveAgainst, "overlayToolAxeBronze", ignites);
+		super(ItemDataAxe.baseDamage, material, plateMaterial, ItemDataAxe.blocksEffectiveAgainst, "axe", ignites);
 	}
 	
 	@Override

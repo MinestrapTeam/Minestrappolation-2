@@ -17,7 +17,7 @@ public class MCItemPickaxe extends MCItemTool
 	
 	public MCItemPickaxe(ToolMaterial material, ToolMaterial plateMaterial, boolean ignites)
 	{
-		super(ItemDataPickaxe.baseDamage, material, plateMaterial, ItemDataPickaxe.blocksEffectiveAgainst, "overlayToolPickBronze", ignites);
+		super(ItemDataPickaxe.baseDamage, material, plateMaterial, ItemDataPickaxe.blocksEffectiveAgainst, "pickaxe", ignites);
 	}
 	
 	@Override

@@ -15,7 +15,7 @@ public class MCItemShovel extends MCItemTool
 	
 	public MCItemShovel(ToolMaterial material, ToolMaterial plateMaterial, boolean ignites)
 	{
-		super(ItemDataSpade.baseDamage, material, plateMaterial, ItemDataSpade.blocksEffectiveAgainst, "overlayToolShovelBronze", ignites);
+		super(ItemDataSpade.baseDamage, material, plateMaterial, ItemDataSpade.blocksEffectiveAgainst, "shovel", ignites);
 	}
 	
 	@Override

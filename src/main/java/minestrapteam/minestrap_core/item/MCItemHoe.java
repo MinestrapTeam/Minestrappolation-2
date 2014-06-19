@@ -16,7 +16,7 @@ public class MCItemHoe extends MCItemTool
 {
 	public MCItemHoe(ToolMaterial material, ToolMaterial plateMaterial)
 	{
-		super(0F, material, plateMaterial, Collections.EMPTY_SET, "overlayToolHoeBronze", false);
+		super(0F, material, plateMaterial, Collections.EMPTY_SET, "hoe", false);
 	}
 	
 	@Override
