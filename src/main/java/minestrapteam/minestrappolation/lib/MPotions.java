@@ -1,11 +1,12 @@
 package minestrapteam.minestrappolation.lib;
 
 import clashsoft.brewingapi.potion.IPotionEffectHandler;
-import clashsoft.brewingapi.potion.PotionList;
+import clashsoft.brewingapi.potion.recipe.PotionRecipes;
 import clashsoft.brewingapi.potion.type.PotionType;
 import minestrapteam.minestrap_core.potion.MCPotion;
 import minestrapteam.minestrap_core.util.MCAssetManager;
 
+import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -19,9 +20,6 @@ public class MPotions implements IPotionEffectHandler
 	
 	public static Potion			infectious;
 	
-	public static PotionType		waterBreathing;
-	public static PotionType		resistance;
-	
 	public static void loadPotions()
 	{
 		infectious = new MCPotion("potion.infectious", 0x000000, true).setIcon(iconLoc, 0, 6);
@@ -33,10 +31,8 @@ public class MPotions implements IPotionEffectHandler
 	 */
 	public static void loadBrewingRecipes()
 	{
-		waterBreathing = new PotionType(new PotionEffect(Potion.waterBreathing.id, 120 * 20, 0), 2, 1, new ItemStack(MItems.airSack), PotionList.awkward);
-		waterBreathing.register();
-		resistance = new PotionType(new PotionEffect(Potion.resistance.id, 180 * 20), 2, 2, new ItemStack(MItems.marrow), PotionList.awkward);
-		resistance.register();
+		PotionRecipes.addRecipe(new ItemStack(MItems.airSack), new PotionEffect(Potion.waterBreathing.id, 120 * 20, 0));
+		PotionRecipes.addRecipe(new ItemStack(MItems.marrow), new PotionEffect(Potion.resistance.id, 180 * 20));
 	}
 	
 	@Override
@@ -44,15 +40,15 @@ public class MPotions implements IPotionEffectHandler
 	{
 		if (effect.getPotionID() == MPotions.infectious.id)
 		{
-			// check if grass is below, then place mycellium below
-			if (entity.worldObj.getBlock((int) entity.posX - 1, (int) entity.posY - 1, (int) entity.posZ - 1) == Blocks.grass)
+			Block block = entity.worldObj.getBlock((int) entity.posX - 1, (int) entity.posY - 1, (int) entity.posZ - 1);
+			if (block == Blocks.grass)
 			{
-				entity.worldObj.setBlock((int) entity.posX - 1, (int) entity.posY - 2, (int) entity.posZ - 1, Blocks.mycelium);
+				// check if grass is below, then place mycellium below
+				entity.worldObj.setBlock((int) entity.posX - 1, (int) entity.posY - 1, (int) entity.posZ - 1, Blocks.mycelium);
 			}
-			
-			// check if mycellium is below, then add potion of regen.
-			if (entity.worldObj.getBlock((int) entity.posX - 1, (int) entity.posY - 1, (int) entity.posZ - 1) == Blocks.mycelium)
+			else if (block == Blocks.mycelium)
 			{
+				// check if mycellium is below, then add potion of regen.
 				entity.addPotionEffect(new PotionEffect(Potion.regeneration.id, 2 * 20, 1));
 			}
 			// TODO poison all mobs touched
