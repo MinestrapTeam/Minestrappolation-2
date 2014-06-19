@@ -3,6 +3,8 @@ package minestrapteam.minestrap_core.item;
 import java.util.List;
 import java.util.Set;
 
+import com.google.common.collect.ImmutableSet;
+
 import clashsoft.cslib.minecraft.lang.I18n;
 import minestrapteam.minestrap_core.MinestrappolationCore;
 import minestrapteam.minestrap_core.util.MCAssetManager;
@@ -126,6 +128,24 @@ public class MCItemTool extends ItemTool
 	}
 	
 	@Override
+	public int getHarvestLevel(ItemStack stack, String toolClass)
+	{
+		int level = super.getHarvestLevel(stack, toolClass);
+		if (level == -1 && toolClass != null && toolClass.equals(this.toolType))
+		{
+			return this.toolMaterial.getHarvestLevel();
+		}
+		
+		return level;
+	}
+	
+	@Override
+	public Set<String> getToolClasses(ItemStack stack)
+	{
+		return this.toolType != null ? ImmutableSet.of(this.toolType) : super.getToolClasses(stack);
+	}
+	
+	@Override
 	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
 	{
 		if (!world.isRemote && this.ignites)
@@ -180,7 +200,7 @@ public class MCItemTool extends ItemTool
 	@Override
 	public IIcon getIcon(ItemStack stack, int renderPass)
 	{
-		String plating = MCItemTool.getPlating(stack);
+		String plating = getPlating(stack);
 		if (renderPass == 1 && plating != null)
 		{
 			if (this.toolMaterial.getHarvestLevel() < 5)
