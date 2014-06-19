@@ -1,7 +1,6 @@
 package minestrapteam.minestrappolation.block;
 
 import minestrapteam.minestrap_core.util.MCAssetManager;
-import minestrapteam.minestrappolation.Minestrappolation;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -16,7 +15,6 @@ public class BlockSteel extends Block
 	public BlockSteel()
 	{
 		super(Material.iron);
-		this.setCreativeTab(Minestrappolation.tabBuildingBlocks);
 	}
 	
 	@Override
