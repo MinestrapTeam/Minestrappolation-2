@@ -62,6 +62,7 @@ public class MBlocks
 	
 	public static Block				goblet;
 	public static Block				plate;
+	public static Block checkerTiles;
 	public static Block				edgeStoneBrick;
 	public static Block				snowBrick;
 	public static Block				glassRefined;
@@ -128,6 +129,7 @@ public class MBlocks
 		goblet = new BlockGoblet(Material.rock).setHardness(0.5F);
 		plate = new BlockPlate(Material.rock).setCreativeTab(Minestrappolation.tabBuildingBlocks);
 		
+		checkerTiles = new BlockTiles().setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone);
 		edgeStoneBrick = new BlockEdgeStoneBrick().setHardness(1.5F).setResistance(10F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone);
 		snowBrick = new BlockSnowBrick().setHardness(0.3F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeSnow).setBlockTextureName(MCAssetManager.getTexture("snow_tiles"));
 		
@@ -202,6 +204,8 @@ public class MBlocks
 		
 		CSBlocks.addBlock(goblet, "goblet");
 		CSBlocks.addBlock(plate, "plate");
+		
+		CSBlocks.addBlock(checkerTiles, "checker_tiles");
 		CSBlocks.addBlock(edgeStoneBrick, "edge_stone_brick");
 		CSBlocks.addBlock(snowBrick, "snow_brick");
 		CSBlocks.addBlock(glassRefined, "refined_glass");

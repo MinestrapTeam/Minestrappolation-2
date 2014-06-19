@@ -16,13 +16,10 @@ import net.minecraft.world.World;
 
 public class BlockTiles extends Block
 {
-	private IIcon	obsidianTiles;
-	private IIcon	flintTiles;
-	private IIcon	netherQuartz;
-	private IIcon	checkerBoard;
-	private IIcon	clayPattern;
-	private IIcon	flintRaw;
-	private IIcon	netherrackPattern;
+	private IIcon	flintEndstoneIcon;
+	private IIcon	flintQuartzIcon;
+	private IIcon	obsidianEndstoneIcon;
+	private IIcon	obsidianQuartzIcon;
 	
 	public BlockTiles()
 	{
@@ -33,25 +30,8 @@ public class BlockTiles extends Block
 	public float getBlockHardness(World world, int x, int y, int z)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
-		
-		if (meta == 0)
-		{
-			return 60F;
-		}
-		else if (meta == 2)
-		{
-			return 0.8F;
-		}
-		else if (meta == 1 || meta == 3 || meta == 5)
-		{
-			return 3F;
-		}
-		else if (meta == 4 || meta == 6)
-		{
-			return 2F;
-		}
-		return 5F;
-		
+		// TODO
+		return 1F;
 	}
 	
 	@Override
@@ -76,13 +56,10 @@ public class BlockTiles extends Block
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.obsidianTiles = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("Obsidian_Tiles_0_0"));
-		this.flintTiles = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("Flint_Tiles_0_0"));
-		this.netherQuartz = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("NetherQuartz_Tiles_0_0"));
-		this.checkerBoard = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("Checker_Tiles_0_0"));
-		this.clayPattern = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("Clay_PatternBricks_0_0"));
-		this.flintRaw = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("Flint_Raw_0_0"));
-		this.netherrackPattern = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("Netherrack_PatternBricks_0_0"));
+		this.flintEndstoneIcon = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("checker_tiles_flint_endstone"));
+		this.flintQuartzIcon = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("checker_tiles_flint_quartz"));
+		this.obsidianEndstoneIcon = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("checker_tiles_obsidian_endstone"));
+		this.obsidianQuartzIcon = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("checker_tiles_obsidian_quartz"));
 	}
 	
 	@Override
@@ -94,30 +71,21 @@ public class BlockTiles extends Block
 	@Override
 	public IIcon getIcon(int side, int metadata)
 	{
-		switch (metadata)
-		{
-		case 0:
-			return this.obsidianTiles;
-		case 1:
-			return this.flintTiles;
-		case 2:
-			return this.netherQuartz;
-		case 3:
-			return this.checkerBoard;
-		case 4:
-			return this.clayPattern;
-		case 5:
-			return this.flintRaw;
-		case 6:
-			return this.netherrackPattern;
-		}
-		return this.obsidianTiles;
+		if (metadata == 0)
+			return this.flintEndstoneIcon;
+		else if (metadata == 1)
+			return this.flintQuartzIcon;
+		else if (metadata == 2)
+			return this.obsidianEndstoneIcon;
+		else if (metadata == 3)
+			return this.obsidianQuartzIcon;
+		return super.getIcon(side, metadata);
 	}
 	
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list)
 	{
-		for (int i = 0; i < 7; i++)
+		for (int i = 0; i < 4; i++)
 		{
 			list.add(new ItemStack(item, 1, i));
 		}
