@@ -9,7 +9,9 @@ import net.minecraft.block.BlockFalling;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.item.EntityFallingBlock;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
@@ -21,6 +23,15 @@ public class BlockBarrel extends BlockFalling implements ITileEntityProvider
 	public BlockBarrel()
 	{
 		super(Material.wood);
+	}
+	
+	@Override
+	protected void func_149829_a(EntityFallingBlock entity)
+	{
+		TileEntity te = entity.worldObj.getTileEntity((int) entity.posX, (int) entity.posY, (int) entity.posZ);
+		NBTTagCompound nbt = new NBTTagCompound();
+		te.writeToNBT(nbt);
+		entity.field_145810_d = nbt;
 	}
 	
 	@Override
