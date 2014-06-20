@@ -54,7 +54,8 @@ public class MCItemTool extends ItemTool
 	{
 		if (stack.stackTagCompound != null)
 		{
-			return stack.stackTagCompound.getString("Plating");
+			String s = stack.stackTagCompound.getString("Plating");
+			return s == "" ? null : s;
 		}
 		return null;
 	}
