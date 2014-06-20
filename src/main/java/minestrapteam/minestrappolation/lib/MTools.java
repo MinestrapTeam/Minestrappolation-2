@@ -2,14 +2,18 @@ package minestrapteam.minestrappolation.lib;
 
 import clashsoft.cslib.minecraft.item.CSItems;
 import minestrapteam.minestrap_core.item.*;
+import minestrapteam.minestrap_core.lib.MCBlocks;
 import minestrapteam.minestrap_core.util.MCAssetManager;
 import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.common.MCommonProxy;
 
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraftforge.common.util.EnumHelper;
+
+import static minestrapteam.minestrappolation.lib.MItems.*;
 
 public class MTools
 {
@@ -297,5 +301,23 @@ public class MTools
 		CSItems.addItem(granitePickaxe, "granite_pickaxe");
 		CSItems.addItem(graniteAxe, "granite_axe");
 		CSItems.addItem(graniteHoe, "granite_hoe");
+		
+		armorMeurodite.customCraftingMaterial = meuroditeGem;
+		armorTitanium.customCraftingMaterial = titaniumIngot;
+		armorTorite.customCraftingMaterial = toriteIngot;
+		armorBlazium.customCraftingMaterial = blaziumIngot;
+		armorTin.customCraftingMaterial = tinIngot;
+		armorBronze.customCraftingMaterial = bronzeIngot;
+		armorSteel.customCraftingMaterial = steelIngot;
+		toolMeurodite.customCraftingMaterial = meuroditeGem;
+		toolTitanium.customCraftingMaterial = titaniumIngot;
+		toolTorite.customCraftingMaterial = toriteIngot;
+		toolBlazium.customCraftingMaterial = blaziumIngot;
+		toolCopper.customCraftingMaterial = copperIngot;
+		toolBronze.customCraftingMaterial = bronzeIngot;
+		toolSteel.customCraftingMaterial = steelIngot;
+		toolSandstone.customCraftingMaterial = Item.getItemFromBlock(Blocks.sandstone);
+		toolBedrock.customCraftingMaterial = Item.getItemFromBlock(Blocks.bedrock);
+		toolGranite.customCraftingMaterial = Item.getItemFromBlock(MCBlocks.granite);
 	}
 }
