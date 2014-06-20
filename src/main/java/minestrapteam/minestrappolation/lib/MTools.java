@@ -21,10 +21,10 @@ public class MTools
 	static ArmorMaterial		armorBronze		= EnumHelper.addArmorMaterial("Bronze", 30, new int[] { 3, 7, 5, 2 }, 8);
 	static ArmorMaterial		armorSteel		= EnumHelper.addArmorMaterial("Steel", 17, new int[] { 3, 8, 6, 3 }, 15);
 	
-	public static ToolMaterial	toolMeurodite	= EnumHelper.addToolMaterial("Meurodite", 2, 805, 7.0F, 2, 15);
-	public static ToolMaterial	toolTitanium	= EnumHelper.addToolMaterial("Titanium", 4, 2999, 10.0F, 5, 10);
-	public static ToolMaterial	toolTorite		= EnumHelper.addToolMaterial("Torite", 2, 699, 6.0F, 3, 20);
-	public static ToolMaterial	toolBlazium		= EnumHelper.addToolMaterial("Blazium", 2, 799, 8.0F, 3, 18);
+	public static ToolMaterial	toolMeurodite	= EnumHelper.addToolMaterial("Meurodite", 3, 805, 7.0F, 2, 15);
+	public static ToolMaterial	toolTitanium	= EnumHelper.addToolMaterial("Titanium", 5, 2999, 10.0F, 5, 10);
+	public static ToolMaterial	toolTorite		= EnumHelper.addToolMaterial("Torite", 3, 699, 6.0F, 3, 20);
+	public static ToolMaterial	toolBlazium		= EnumHelper.addToolMaterial("Blazium", 3, 799, 8.0F, 3, 18);
 	public static ToolMaterial	toolCopper		= EnumHelper.addToolMaterial("Copper", 1, 139, 5.0F, 2, 10);
 	public static ToolMaterial	toolSandstone	= EnumHelper.addToolMaterial("Sandstone", 1, 111, 4.5F, 2, 6);
 	public static ToolMaterial	toolBronze		= EnumHelper.addToolMaterial("Bronze", 2, 1501, 6.5F, 2, 8);
