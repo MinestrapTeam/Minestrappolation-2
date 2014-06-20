@@ -12,6 +12,7 @@ import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.item.*;
 
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemReed;
 import net.minecraft.item.ItemStack;
@@ -315,6 +316,9 @@ public class MItems
 	public static void setHarvestLevels()
 	{
 		Blocks.bedrock.setHarvestLevel("pickaxe", 5);
+		Blocks.diamond_ore.setHarvestLevel("pickaxe", 3);
+		Blocks.diamond_block.setHarvestLevel("pickaxe", 3);
+		Blocks.obsidian.setHarvestLevel("pickaxe", 4);
 		
 		Items.diamond_shovel.setHarvestLevel("shovel", 4);
 		Items.diamond_pickaxe.setHarvestLevel("pickaxe", 4);
