@@ -11,11 +11,11 @@ public class MFuelHandler implements IFuelHandler
 	public int getBurnTime(ItemStack fuel)
 	{
 		Item item = fuel.getItem();
-		if (item == MItems.Plutonium)
+		if (item == MItems.plutonium)
 		{
 			return 35000;
 		}
-		else if (item == MItems.Uranium)
+		else if (item == MItems.uranium)
 		{
 			return 30000;
 		}

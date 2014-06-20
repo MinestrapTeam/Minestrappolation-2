@@ -6,6 +6,7 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent.Phase;
 import cpw.mods.fml.common.gameevent.TickEvent.PlayerTickEvent;
 import minestrapteam.minestrappolation.lib.MItems;
+import minestrapteam.minestrappolation.lib.MTools;
 
 import net.minecraft.entity.boss.EntityWither;
 import net.minecraft.entity.monster.*;
@@ -58,17 +59,15 @@ public class MEventHandler
 		
 		if (helmet != null && chest != null && pants != null && boots != null)
 		{
-			if (helmet.getItem() == MItems.meuroditeHelmet && chest.getItem() == MItems.meuroditeChest && pants.getItem() == MItems.meuroditePants && boots.getItem() == MItems.meuroditeBoots)
+			if (helmet.getItem() == MTools.meuroditeHelmet && chest.getItem() == MTools.meuroditeChestplate && pants.getItem() == MTools.meuroditeLeggings && boots.getItem() == MTools.meuroditeBoots)
 			{
 				player.addPotionEffect(new PotionEffect(Potion.fireResistance.id, 1, 0, true));
 			}
-			
-			if (helmet.getItem() == MItems.ToriteHelmet && chest.getItem() == MItems.ToriteChest && pants.getItem() == MItems.ToritePants && boots.getItem() == MItems.ToriteBoots)
+			else if (helmet.getItem() == MTools.toriteHelmet && chest.getItem() == MTools.toriteChestplate && pants.getItem() == MTools.toriteLeggings && boots.getItem() == MTools.toriteBoots)
 			{
 				player.addPotionEffect(new PotionEffect(Potion.regeneration.id, 1, 0, true));
 			}
-			
-			if (helmet.getItem() == MItems.TitaniumHelmet && chest.getItem() == MItems.TitaniumChest && pants.getItem() == MItems.TitaniumPants && boots.getItem() == MItems.TitaniumBoots)
+			else if (helmet.getItem() == MTools.titaniumHelmet && chest.getItem() == MTools.titaniumChestplate && pants.getItem() == MTools.titaniumLeggings && boots.getItem() == MTools.titaniumBoots)
 			{
 				player.addPotionEffect(new PotionEffect(Potion.resistance.id, 1, 1, true));
 			}
@@ -183,7 +182,7 @@ public class MEventHandler
 				}
 				if (rand4 < 0.5)
 				{
-					event.entityLiving.dropItem(MItems.rawHorseHaunch, 3);
+					event.entityLiving.dropItem(MItems.horseHaunchRaw, 3);
 				}
 				if (rand5 < 0.3)
 				{

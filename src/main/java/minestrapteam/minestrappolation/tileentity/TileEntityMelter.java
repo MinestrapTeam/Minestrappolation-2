@@ -247,11 +247,11 @@ public class TileEntityMelter extends TileEntityInventory implements ISidedInven
 		if (i == 0)
 		{
 			Item item = stack.getItem();
-			if (item == MItems.Uranium)
+			if (item == MItems.uranium)
 			{
 				i = 150000;
 			}
-			else if (item == MItems.Plutonium)
+			else if (item == MItems.plutonium)
 			{
 				i = 200000;
 			}

@@ -21,22 +21,10 @@ public class ItemAmuletPullum extends ItemAmulet
 		}
 		
 		EntityPlayer player = (EntityPlayer) entity;
-		double rand = Math.random();
-		if (player.inventory.hasItem(this))
+		if (player.getRNG().nextFloat() < 0.33F && player.isAirBorne && player.motionY > 1.2)
 		{
-			if (rand < 0.33)
-			{
-				// FIXME temp fix. Needs to damage item when player doesn't take
-				// fall damage
-				if (player.isAirBorne)
-				{
-					if (player.motionY > 1.2)
-					{
-						player.fallDistance = 0;
-						stack.damageItem(1, player);
-					}
-				}
-			}
+			player.fallDistance = 0;
+			stack.damageItem(1, player);
 		}
 	}
 }

@@ -1,6 +1,7 @@
 package minestrapteam.minestrappolation.creativetab;
 
-import minestrapteam.minestrappolation.lib.MItems;
+import minestrapteam.minestrappolation.lib.MTools;
+
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
@@ -14,7 +15,6 @@ public class MCreativeTabCombat extends CreativeTabs
 	@Override
 	public Item getTabIconItem()
 	{
-		return MItems.BlaziumSword;
+		return MTools.blaziumSword;
 	}
-	
 }

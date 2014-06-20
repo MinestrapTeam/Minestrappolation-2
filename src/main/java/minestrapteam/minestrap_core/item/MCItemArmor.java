@@ -4,62 +4,28 @@ import minestrapteam.minestrap_core.util.MCAssetManager;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
-import net.minecraft.world.World;
 
 public class MCItemArmor extends ItemArmor
 {
 	private String			armorPrefix;
 	
-	public ArmorMaterial	material;
-	
 	private IIcon			overlayIcon;
 	
-	private ArmorMaterial	normalMaterial;
-	private ArmorMaterial	bronzePlateMat;
-	
-	public MCItemArmor(ArmorMaterial material, ArmorMaterial bronzeMaterial, int renderIndex, int type, String armorPrefix)
+	public MCItemArmor(ArmorMaterial material, int renderIndex, int type, String armorPrefix)
 	{
 		super(material, renderIndex, type);
 		this.setCreativeTab(null);
 		this.armorPrefix = armorPrefix;
-		this.normalMaterial = material;
-		this.bronzePlateMat = bronzeMaterial;
 	}
 	
 	@Override
-	public void onCreated(ItemStack stack, World world, EntityPlayer player)
+	public int getMaxDamage(ItemStack stack)
 	{
-		if (MCItemTool.isPlated(stack))
-		{
-			this.material = this.bronzePlateMat;
-		}
-		else
-		{
-			this.material = this.normalMaterial;
-		}
-	}
-	
-	@Override
-	public void onUpdate(ItemStack stack, World world, Entity entity, int i, boolean flag)
-	{
-		if (MCItemTool.isPlated(stack))
-		{
-			this.material = this.bronzePlateMat;
-		}
-		else
-		{
-			this.material = this.normalMaterial;
-		}
-	}
-	
-	@Override
-	public ArmorMaterial getArmorMaterial()
-	{
-		return this.material;
+		int i = super.getMaxDamage();
+		return MCItemTool.isPlated(stack) ? i * 2 : i;
 	}
 	
 	@Override

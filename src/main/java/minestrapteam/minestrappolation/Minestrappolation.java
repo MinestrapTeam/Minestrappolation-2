@@ -91,8 +91,8 @@ public class Minestrappolation extends BaseMod
 		smelter.load();
 		
 		MBlocks.init();
-		MBlocks.load();
 		MItems.init();
+		MBlocks.load();
 		MItems.load();
 		MRecipes.load();
 		
@@ -106,8 +106,6 @@ public class Minestrappolation extends BaseMod
 		EntityRegistry.registerModEntity(EntityNukePrimed.class, "NukePrimed", 6, this, 350, 5, false);
 		EntityRegistry.registerModEntity(EntityGrenadeImpact.class, "GrenadeImpact", 4, this, 40, 3, true);
 		EntityRegistry.registerModEntity(EntityGrenadeSticky.class, "GrenadeSticky", 5, this, 40, 3, true);
-		
-		MItems.addItemsToChests();
 	}
 	
 	@Override

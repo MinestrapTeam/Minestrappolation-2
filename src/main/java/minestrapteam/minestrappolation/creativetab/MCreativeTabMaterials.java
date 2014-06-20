@@ -14,7 +14,7 @@ public class MCreativeTabMaterials extends CreativeTabs
 	@Override
 	public Item getTabIconItem()
 	{
-		return MItems.BlaziumIngot;
+		return MItems.blaziumIngot;
 	}
 	
 }

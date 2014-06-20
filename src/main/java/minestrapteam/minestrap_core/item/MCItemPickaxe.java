@@ -10,14 +10,14 @@ public class MCItemPickaxe extends MCItemTool
 {
 	private boolean	breakBedrock	= false;
 	
-	public MCItemPickaxe(ToolMaterial material, ToolMaterial plateMaterial)
+	public MCItemPickaxe(ToolMaterial material)
 	{
-		this(material, plateMaterial, false);
+		this(material, false);
 	}
 	
-	public MCItemPickaxe(ToolMaterial material, ToolMaterial plateMaterial, boolean ignites)
+	public MCItemPickaxe(ToolMaterial material, boolean ignites)
 	{
-		super(ItemDataPickaxe.baseDamage, material, plateMaterial, ItemDataPickaxe.blocksEffectiveAgainst, "pickaxe", ignites);
+		super(ItemDataPickaxe.baseDamage, material, ItemDataPickaxe.blocksEffectiveAgainst, "pickaxe", ignites);
 	}
 	
 	@Override

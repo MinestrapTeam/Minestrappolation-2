@@ -14,9 +14,9 @@ import net.minecraftforge.event.entity.player.UseHoeEvent;
 
 public class MCItemHoe extends MCItemTool
 {
-	public MCItemHoe(ToolMaterial material, ToolMaterial plateMaterial)
+	public MCItemHoe(ToolMaterial material)
 	{
-		super(0F, material, plateMaterial, Collections.EMPTY_SET, "hoe", false);
+		super(0F, material, Collections.EMPTY_SET, "hoe", false);
 	}
 	
 	@Override

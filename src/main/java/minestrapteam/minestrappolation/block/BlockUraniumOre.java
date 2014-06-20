@@ -24,7 +24,7 @@ public class BlockUraniumOre extends BlockRadiation
 	@Override
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
-		return MItems.Uranium;
+		return MItems.uranium;
 	}
 	
 	@Override

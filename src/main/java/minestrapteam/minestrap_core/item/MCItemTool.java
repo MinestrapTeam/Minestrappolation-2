@@ -3,15 +3,14 @@ package minestrapteam.minestrap_core.item;
 import java.util.List;
 import java.util.Set;
 
+import clashsoft.cslib.minecraft.lang.I18n;
+
 import com.google.common.collect.ImmutableSet;
 
-import clashsoft.cslib.minecraft.lang.I18n;
-import minestrapteam.minestrap_core.MinestrappolationCore;
 import minestrapteam.minestrap_core.util.MCAssetManager;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -33,22 +32,17 @@ public class MCItemTool extends ItemTool
 	private IIcon			overlayIcon;
 	private IIcon			overlayIcon2;
 	
-	private ToolMaterial	material;
-	private ToolMaterial	plateMaterial;
-	
-	public MCItemTool(float baseDamage, ToolMaterial material, ToolMaterial plateMaterial, Set<Block> blocks, String type, boolean ignites)
+	public MCItemTool(float baseDamage, ToolMaterial material, Set<Block> blocks, String type, boolean ignites)
 	{
 		super(baseDamage, material, blocks);
 		this.setCreativeTab(null);
-		this.plateMaterial = plateMaterial;
-		this.material = material;
 		this.toolType = type;
 		this.ignites = ignites;
 	}
 	
-	public MCItemTool(float baseDamage, ToolMaterial material, ToolMaterial plateMaterial, Set<Block> blocks, String type)
+	public MCItemTool(float baseDamage, ToolMaterial material, Set<Block> blocks, String type)
 	{
-		this(baseDamage, material, plateMaterial, blocks, type, false);
+		this(baseDamage, material, blocks, type, false);
 	}
 	
 	public static boolean isPlated(ItemStack stack)
@@ -70,6 +64,15 @@ public class MCItemTool extends ItemTool
 			return stack.stackTagCompound.getFloat("PoisonLevel");
 		}
 		return 0F;
+	}
+	
+	public static void setPlating(ItemStack stack, String plating)
+	{
+		if (stack.stackTagCompound == null)
+		{
+			stack.stackTagCompound = new NBTTagCompound();
+		}
+		stack.stackTagCompound.setString("Plating", plating);
 	}
 	
 	public static void setPoisonLevel(ItemStack stack, float level)
@@ -102,19 +105,13 @@ public class MCItemTool extends ItemTool
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean flag)
 	{
-		addInformation(this.plateMaterial, stack, list);
+		addInformation(stack, list);
 	}
 	
-	protected static void addInformation(ToolMaterial bronzeMaterial, ItemStack stack, List list)
+	protected static void addInformation(ItemStack stack, List list)
 	{
-		if (MinestrappolationCore.showDurability && bronzeMaterial != null)
-		{
-			int dur = bronzeMaterial.getMaxUses();
-			
-			list.add("Durability: " + Integer.toString(dur - stack.getItemDamage()) + "/" + Integer.toString(dur));
-		}
-		
 		String plating = getPlating(stack);
+		
 		if (plating != null)
 		{
 			list.add(EnumChatFormatting.GOLD + plating + " Plated");
@@ -155,30 +152,6 @@ public class MCItemTool extends ItemTool
 			return true;
 		}
 		return false;
-	}
-	
-	@Override
-	public void onCreated(ItemStack stack, World world, EntityPlayer player)
-	{
-		this.updateNBTs(stack);
-	}
-	
-	@Override
-	public void onUpdate(ItemStack stack, World world, Entity entity, int i, boolean flag)
-	{
-		this.updateNBTs(stack);
-	}
-	
-	protected void updateNBTs(ItemStack stack)
-	{
-		if (stack.stackTagCompound != null && stack.stackTagCompound.getBoolean("bronzePlated"))
-		{
-			this.toolMaterial = this.plateMaterial;
-		}
-		else
-		{
-			this.toolMaterial = this.material;
-		}
 	}
 	
 	@Override

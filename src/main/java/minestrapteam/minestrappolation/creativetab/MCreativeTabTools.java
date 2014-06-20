@@ -1,6 +1,7 @@
 package minestrapteam.minestrappolation.creativetab;
 
-import minestrapteam.minestrappolation.lib.MItems;
+import minestrapteam.minestrappolation.lib.MTools;
+
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
@@ -14,6 +15,6 @@ public class MCreativeTabTools extends CreativeTabs
 	@Override
 	public Item getTabIconItem()
 	{
-		return MItems.BlaziumPickaxe;
+		return MTools.blaziumPickaxe;
 	}
 }

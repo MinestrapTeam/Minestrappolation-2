@@ -14,14 +14,14 @@ import net.minecraft.world.World;
 
 public class MCItemSword extends MCItemTool
 {
-	public MCItemSword(ToolMaterial material, ToolMaterial plateMaterial, boolean ignites)
+	public MCItemSword(ToolMaterial material, boolean ignites)
 	{
-		super(ItemDataSword.baseDamage, material, plateMaterial, Collections.EMPTY_SET, "sword", ignites);
+		super(ItemDataSword.baseDamage, material, Collections.EMPTY_SET, "sword", ignites);
 	}
 	
-	public MCItemSword(ToolMaterial material, ToolMaterial plateMaterial)
+	public MCItemSword(ToolMaterial material)
 	{
-		this(material, plateMaterial, false);
+		this(material, false);
 	}
 	
 	@Override

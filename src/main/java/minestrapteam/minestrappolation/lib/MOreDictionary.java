@@ -13,39 +13,36 @@ public class MOreDictionary
 {
 	public static void init()
 	{
-		add("ingotCopper", MItems.CopperIngot);
+		add("ingotCopper", MItems.copperIngot);
 		add("oreCopper", MBlocks.copperOre);
-		add("ingotTin", MItems.TinIngot);
+		add("ingotTin", MItems.tinIngot);
 		add("oreTin", MBlocks.tinOre);
 		add("plateTin", MBlocks.tinPlate);
-		add("ingotBronze", MItems.BronzeIngot);
+		add("ingotBronze", MItems.bronzeIngot);
 		add("plateBronze", MBlocks.bronzePlate);
-		add("ingotCoalIron", MItems.CoalIronIngot);
-		add("ingotSteel", MItems.SteelIngot);
+		add("ingotCoalIron", MItems.coalIronIngot);
+		add("ingotSteel", MItems.steelIngot);
 		add("plateSteel", MBlocks.steelPlate);
 		add("oreMeurodite", MBlocks.meuroditeOre);
 		add("plateMeurodite", MBlocks.meuroditePlate);
 		add("oreTorite", MBlocks.toriteOre);
-		add("ingotTorite", MItems.ToriteIngot);
+		add("ingotTorite", MItems.toriteIngot);
 		add("oreTitanium", MBlocks.titaniumOre);
-		add("ingotTitanium", MItems.TitaniumIngot);
+		add("ingotTitanium", MItems.titaniumIngot);
 		add("oreSunstone", MBlocks.sunstoneOre);
-		add("dustSunstone", MItems.SunstoneDust);
+		add("dustSunstone", MItems.sunstoneDust);
 		add("oreUranium", MBlocks.uraniumOre);
-		add("ingotUranium", MItems.Uranium);
+		add("ingotUranium", MItems.uranium);
 		add("orePlutonium", MBlocks.plutoniumOre);
-		add("ingotPlutonium", MItems.Plutonium);
+		add("ingotPlutonium", MItems.plutonium);
 		add("oreQuartzRadiant", MBlocks.radiantQuartzOre);
 		add("gemRadiantQuartz", MItems.radiantQuartz);
 		add("oreBlazium", MBlocks.blaziumOre);
-		add("gemBlazium", MItems.BlazeShard);
-		add("ingotBlazium", MItems.BlaziumIngot);
+		add("gemBlazium", MItems.blazeShard);
+		add("ingotBlazium", MItems.blaziumIngot);
 		add("oreSoul", MBlocks.soulOre);
 		add("gemSoul", MItems.soulGem);
 		
-		//TODO add all wood ore dicts.
-		
-		// raw
 		OreDictionary.registerOre("meatRaw", new ItemStack(Items.beef));
 		OreDictionary.registerOre("meatRaw", new ItemStack(Items.porkchop));
 		OreDictionary.registerOre("meatRaw", new ItemStack(Items.fish));

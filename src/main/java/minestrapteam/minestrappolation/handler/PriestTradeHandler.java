@@ -19,11 +19,11 @@ public class PriestTradeHandler implements IVillageTradeHandler
 //		recipes.add(new MerchantRecipe(new ItemStack(MBlocks.sandstoneBricks, 1, 3), new ItemStack(Items.emerald, 5)));
 //		recipes.add(new MerchantRecipe(new ItemStack(MBlocks.sandstoneBricks, 1, 4), new ItemStack(Items.emerald, 5)));
 		
-		recipes.add(new MerchantRecipe(new ItemStack(MItems.SunstoneDust, 11), new ItemStack(Items.emerald, 1)));
+		recipes.add(new MerchantRecipe(new ItemStack(MItems.sunstoneDust, 11), new ItemStack(Items.emerald, 1)));
 		recipes.add(new MerchantRecipe(new ItemStack(MItems.soulGem, 3), new ItemStack(Items.emerald, 1)));
-		recipes.add(new MerchantRecipe(new ItemStack(MItems.BlaziumIngot, 5), new ItemStack(Items.emerald, 1)));
-		recipes.add(new MerchantRecipe(new ItemStack(MItems.ToriteIngot, 6), new ItemStack(Items.emerald, 1)));
-		recipes.add(new MerchantRecipe(new ItemStack(MItems.PinkQuartz, 18), new ItemStack(Items.emerald, 1)));
+		recipes.add(new MerchantRecipe(new ItemStack(MItems.blaziumIngot, 5), new ItemStack(Items.emerald, 1)));
+		recipes.add(new MerchantRecipe(new ItemStack(MItems.toriteIngot, 6), new ItemStack(Items.emerald, 1)));
+		recipes.add(new MerchantRecipe(new ItemStack(MItems.desertQuartz, 18), new ItemStack(Items.emerald, 1)));
 		recipes.add(new MerchantRecipe(new ItemStack(MItems.radiantQuartz, 2), new ItemStack(Items.emerald, 1)));
 		recipes.add(new MerchantRecipe(new ItemStack(Items.emerald, 5), new ItemStack(MItems.soulBottle, 1)));
 	}

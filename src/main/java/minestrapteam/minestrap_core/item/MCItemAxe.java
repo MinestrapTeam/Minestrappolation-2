@@ -7,14 +7,14 @@ import net.minecraft.item.ItemStack;
 
 public class MCItemAxe extends MCItemTool
 {
-	public MCItemAxe(ToolMaterial material, ToolMaterial plateMaterial)
+	public MCItemAxe(ToolMaterial material)
 	{
-		this(material, plateMaterial, false);
+		this(material, false);
 	}
 	
-	public MCItemAxe(ToolMaterial material, ToolMaterial plateMaterial, boolean ignites)
+	public MCItemAxe(ToolMaterial material, boolean ignites)
 	{
-		super(ItemDataAxe.baseDamage, material, plateMaterial, ItemDataAxe.blocksEffectiveAgainst, "axe", ignites);
+		super(ItemDataAxe.baseDamage, material, ItemDataAxe.blocksEffectiveAgainst, "axe", ignites);
 	}
 	
 	@Override
