@@ -314,6 +314,8 @@ public class MItems
 	
 	public static void setHarvestLevels()
 	{
+		Blocks.bedrock.setHarvestLevel("pickaxe", 5);
+		
 		MBlocks.copperOre.setHarvestLevel("pickaxe", 0);
 		MBlocks.copperBlock.setHarvestLevel("pickaxe", 0);
 		MBlocks.tinOre.setHarvestLevel("pickaxe", 1);
@@ -322,8 +324,8 @@ public class MItems
 		MBlocks.meuroditeBlock.setHarvestLevel("pickaxe", 2);
 		MBlocks.toriteOre.setHarvestLevel("pickaxe", 2);
 		MBlocks.toriteBlock.setHarvestLevel("pickaxe", 2);
-		MBlocks.titaniumOre.setHarvestLevel("pickaxe", 3);
-		MBlocks.titaniumBlock.setHarvestLevel("pickaxe", 3);
+		MBlocks.titaniumOre.setHarvestLevel("pickaxe", 4);
+		MBlocks.titaniumBlock.setHarvestLevel("pickaxe", 4);
 		MBlocks.uraniumOre.setHarvestLevel("pickaxe", 2);
 		MBlocks.plutoniumOre.setHarvestLevel("pickaxe", 2);
 		MBlocks.sunstoneOre.setHarvestLevel("pickaxe", 2);

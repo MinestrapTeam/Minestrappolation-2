@@ -78,8 +78,6 @@ public class Minestrappolation extends BaseMod
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
-		super.proxy = proxy;
-		
 		super.preInit(event);
 		
 		magmaFluid = new Fluid("Magma").setViscosity(6500).setDensity(3);
