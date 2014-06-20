@@ -150,14 +150,13 @@ public class BlockMelter extends BlockContainer
 	{
 		if (!world.isRemote)
 		{
-			TileEntityMelter tileentityfurnace = (TileEntityMelter) world.getTileEntity(x, y, z);
+			TileEntity te = world.getTileEntity(x, y, z);
 			
-			if (tileentityfurnace != null)
+			if (te instanceof TileEntityMelter)
 			{
 				player.openGui(Minestrappolation.instance, 2, world, x, y, z);
-			}
-			
-			return true;
+				return true;
+			}			
 		}
 		return false;
 	}

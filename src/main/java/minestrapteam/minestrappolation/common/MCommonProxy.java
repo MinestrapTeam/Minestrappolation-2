@@ -37,7 +37,7 @@ public class MCommonProxy extends BaseProxy
 		{
 			return new ContainerBarrel(player, (TileEntityBarrel) world.getTileEntity(x, y, z));
 		}
-		if (id == 3)
+		else if (id == 2)
 		{
 			return new ContainerMelter(player, (TileEntityMelter) world.getTileEntity(x, y, z));
 		}

@@ -1,5 +1,17 @@
 package minestrapteam.minestrappolation;
 
+import clashsoft.brewingapi.BrewingAPI;
+import clashsoft.cslib.config.CSConfig;
+import clashsoft.cslib.minecraft.init.BaseMod;
+import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.registry.EntityRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.common.registry.VillagerRegistry;
 import minestrapteam.minestrap_core.crafting.CustomRecipeLoader;
 import minestrapteam.minestrap_core.lib.MCReference;
 import minestrapteam.minestrappolation.common.MCommonProxy;
@@ -19,28 +31,13 @@ import net.minecraft.init.Blocks;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 
-import clashsoft.brewingapi.BrewingAPI;
-import clashsoft.cslib.config.CSConfig;
-import clashsoft.cslib.minecraft.init.BaseMod;
-import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.EventHandler;
-import cpw.mods.fml.common.Mod.Instance;
-import cpw.mods.fml.common.SidedProxy;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLPostInitializationEvent;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.registry.EntityRegistry;
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.VillagerRegistry;
-
 @Mod(modid = MCReference.MODID, name = MCReference.NAME, version = MCReference.VERSION, dependencies = MCReference.DEPENDENCY)
 public class Minestrappolation extends BaseMod
 {
 	@Instance(MCReference.MODID)
 	public static Minestrappolation		instance;
 	
-	@SidedProxy(modId = MCReference.MODID, clientSide = "minestrapteam.minestrappolation.client.MClientProxy", serverSide = "minestrapteam.minestrappolation.common.MCommonProxy")
-	public static MCommonProxy			proxy;
+	public static MCommonProxy			proxy				= createProxy("minestrapteam.minestrappolation.client.MClientProxy", "minestrapteam.minestrappolation.common.MCommonProxy");
 	
 	public static CreativeTabs			tabBuildingBlocks	= new MCreativeTabBuildingBlocks("minestrap_building_blocks");
 	public static CreativeTabs			tabStoneDecor		= new MCreativeTabStoneDecor("minestrap_stone_decor");
@@ -92,8 +89,10 @@ public class Minestrappolation extends BaseMod
 		
 		MBlocks.init();
 		MItems.init();
+		MTools.init();
 		MBlocks.load();
 		MItems.load();
+		MTools.load();
 		MRecipes.load();
 		
 		// FluidContainerRegistry.registerFluidContainer(eoFluid, new

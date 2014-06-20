@@ -46,7 +46,7 @@ public class MClientProxy extends MCommonProxy implements IGuiHandler
 		{
 			return new GuiBarrel(player, (TileEntityBarrel) world.getTileEntity(x, y, z));
 		}
-		if (id == 2)
+		else if (id == 2)
 		{
 			return new GuiMelter(player, (TileEntityMelter) world.getTileEntity(x, y, z));
 		}
