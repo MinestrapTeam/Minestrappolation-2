@@ -57,7 +57,9 @@ public class BlockGoblet extends BlockContainer
 				stack.stackSize--;
 				List<PotionEffect> effects = ((ItemPotion) stack.getItem()).getEffects(stack);
 				if (!effects.isEmpty())
+				{
 					goblet.setPotionEffect(effects.get(0));
+				}
 				world.setBlockMetadataWithNotify(x, y, z, 3, 2);
 			}
 		}

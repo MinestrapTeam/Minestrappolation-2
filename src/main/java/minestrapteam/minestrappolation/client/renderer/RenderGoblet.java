@@ -23,7 +23,7 @@ public class RenderGoblet extends TileEntitySpecialRenderer
 	public void renderTileEntityAt(TileEntity t, double x, double y, double z, float f)
 	{
 		GL11.glPushMatrix();
-
+		
 		ResourceLocation texture = null;
 		int meta = t.getBlockMetadata();
 		int color = ((TileEntityGoblet) t).getColor();

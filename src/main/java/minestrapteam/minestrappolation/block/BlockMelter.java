@@ -128,11 +128,17 @@ public class BlockMelter extends BlockContainer
 	public IIcon getIcon(int side, int metadata)
 	{
 		if (side == 0)
+		{
 			return this.bottomIcon;
+		}
 		else if (side == 1)
+		{
 			return this.topIcon;
+		}
 		else if (side != metadata)
+		{
 			return this.blockIcon;
+		}
 		return this.frontIcon;
 	}
 	
@@ -156,7 +162,7 @@ public class BlockMelter extends BlockContainer
 			{
 				player.openGui(Minestrappolation.instance, 2, world, x, y, z);
 				return true;
-			}			
+			}
 		}
 		return false;
 	}

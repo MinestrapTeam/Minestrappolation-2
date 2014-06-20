@@ -10,9 +10,9 @@ import net.minecraft.util.IIcon;
 
 public class MCItemArmor extends ItemArmor
 {
-	private String			armorPrefix;
+	private String	armorPrefix;
 	
-	private IIcon			overlayIcon;
+	private IIcon	overlayIcon;
 	
 	public MCItemArmor(ArmorMaterial material, int renderIndex, int type, String armorPrefix)
 	{

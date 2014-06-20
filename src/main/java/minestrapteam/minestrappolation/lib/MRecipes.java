@@ -185,7 +185,7 @@ public class MRecipes
 		
 		// TODO ED RECIPES
 		GameRegistry.addRecipe(new ItemStack(MItems.goblet, 1), new Object[] { "D D", " D ", Character.valueOf('D'), Items.gold_ingot });
-						
+		
 		// GameRegistry.addRecipe(new ItemStack(edgeStoneBrick), new
 		// Object[] { "SQ", "SQ", 'S', MCItems.brickStone, 'Q', Items.quartz });
 		

@@ -72,13 +72,21 @@ public class BlockTiles extends Block
 	public IIcon getIcon(int side, int metadata)
 	{
 		if (metadata == 0)
+		{
 			return this.flintEndstoneIcon;
+		}
 		else if (metadata == 1)
+		{
 			return this.flintQuartzIcon;
+		}
 		else if (metadata == 2)
+		{
 			return this.obsidianEndstoneIcon;
+		}
 		else if (metadata == 3)
+		{
 			return this.obsidianQuartzIcon;
+		}
 		return super.getIcon(side, metadata);
 	}
 	

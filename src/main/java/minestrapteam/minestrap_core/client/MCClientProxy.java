@@ -39,10 +39,10 @@ public class MCClientProxy extends MCCommonProxy
 		
 		RenderingRegistry.registerBlockHandler(stone2RenderType, new RenderBlockStone2());
 		RenderingRegistry.registerBlockHandler(wood2RenderType, new RenderBlockWood2());
-
+		
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityStonecutter.class, new RenderStonecutter());
-
-		addDevCapes();		
+		
+		addDevCapes();
 	}
 	
 	public static void addDevCapes()

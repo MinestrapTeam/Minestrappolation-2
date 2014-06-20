@@ -10,8 +10,8 @@ import net.minecraft.world.World;
 
 public class MCCommonProxy extends BaseProxy
 {
-	public static int stone2RenderType;
-	public static int wood2RenderType;
+	public static int	stone2RenderType;
+	public static int	wood2RenderType;
 	
 	@Override
 	public Object getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)

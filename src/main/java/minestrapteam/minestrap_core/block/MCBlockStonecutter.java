@@ -30,9 +30,9 @@ public class MCBlockStonecutter extends BlockContainer
 	
 	@Override
 	public int getRenderType()
-    {
-        return -1;
-    }
+	{
+		return -1;
+	}
 	
 	@Override
 	public boolean isOpaqueCube()

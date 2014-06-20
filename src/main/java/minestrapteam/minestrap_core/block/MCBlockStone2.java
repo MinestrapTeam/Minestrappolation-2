@@ -84,11 +84,17 @@ public class MCBlockStone2 extends Block
 			int model = metadata % 3;
 			
 			if (model == 0)
+			{
 				this.setBlockBounds(0F, 0F, 0F, 1F, 0.5F, 1F);
+			}
 			else if (model == 1)
+			{
 				this.setBlockBounds(0F, 0.5F, 0F, 1F, 1F, 1F);
+			}
 			else
+			{
 				this.setBlockBounds(0F, 0F, 0F, 1F, 1F, 1F);
+			}
 		}
 	}
 	
@@ -98,18 +104,24 @@ public class MCBlockStone2 extends Block
 		if (metadata < 3)
 		{
 			if (side == 0 || side == 1)
+			{
 				return 0;
+			}
 			else if (side == 2 || side == 3)
+			{
 				return 1;
+			}
 			else if (side == 4 || side == 5)
+			{
 				return 2;
+			}
 		}
 		return metadata;
 	}
 	
 	public int limitToValidMetadata(int metadata)
 	{
-		return metadata - (metadata % 3);
+		return metadata - metadata % 3;
 	}
 	
 	@Override
@@ -128,7 +140,9 @@ public class MCBlockStone2 extends Block
 	{
 		metadata /= 3;
 		if (metadata >= this.types.length)
+		{
 			metadata = 0;
+		}
 		return "tile." + this.name + "." + this.types[metadata];
 	}
 	
@@ -142,9 +156,13 @@ public class MCBlockStone2 extends Block
 	{
 		float f = this.baseHardness;
 		if (metadata < 3)
+		{
 			return f + 0.5F;
+		}
 		else if (metadata % 3 == 2)
+		{
 			return f + 1F;
+		}
 		return f;
 	}
 	
@@ -171,30 +189,46 @@ public class MCBlockStone2 extends Block
 		if (metadata == 0)
 		{
 			if (side == 0 || side == 1)
+			{
 				return this.topIcons[0];
+			}
 			else
+			{
 				return this.sideIcons[0];
+			}
 		}
 		else if (metadata == 1)
 		{
 			if (side == 2 || side == 3)
+			{
 				return this.topIcons[0];
+			}
 			else
+			{
 				return this.sideIcons[0];
+			}
 		}
 		else if (metadata == 2)
 		{
 			if (side == 4 || side == 5)
+			{
 				return this.topIcons[0];
+			}
 			else
+			{
 				return this.sideIcons[0];
+			}
 		}
 		else if (metadata < 15)
 		{
 			if (side == 0 || side == 1)
+			{
 				return this.topIcons[metadata / 3];
+			}
 			else
+			{
 				return this.sideIcons[metadata / 3];
+			}
 		}
 		return this.blockIcon;
 	}
@@ -223,7 +257,9 @@ public class MCBlockStone2 extends Block
 		for (int i = 0; i < this.types.length; i++)
 		{
 			if (this.types[i] != null)
+			{
 				list.add(new ItemStack(item, 1, i * 3));
+			}
 		}
 	}
 }

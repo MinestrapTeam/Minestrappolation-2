@@ -91,15 +91,15 @@ public class MCBlocks
 	public static Block	yellowClay;
 	public static Block	yellowClay2;
 	
-	public static Block woodOak;
-	public static Block woodBirch;
-	public static Block woodSpruce;
-	public static Block woodJungle;
+	public static Block	woodOak;
+	public static Block	woodBirch;
+	public static Block	woodSpruce;
+	public static Block	woodJungle;
 	
-	public static Block woodOak2;
-	public static Block woodBirch2;
-	public static Block woodSpruce2;
-	public static Block woodJungle2;
+	public static Block	woodOak2;
+	public static Block	woodBirch2;
+	public static Block	woodSpruce2;
+	public static Block	woodJungle2;
 	
 	public static void init()
 	{

@@ -12,7 +12,7 @@ public class MCItemMulti extends Item
 {
 	protected final String[]	iconNames;
 	protected IIcon[]			icons;
-	protected String 			texturePrefix;
+	protected String			texturePrefix;
 	
 	public MCItemMulti(String texturePrefix, String[] iconNames)
 	{
@@ -27,7 +27,7 @@ public class MCItemMulti extends Item
 	{
 		return this.icons[metadata % this.icons.length];
 	}
-    
+	
 	@Override
 	public String getUnlocalizedName(ItemStack stack)
 	{

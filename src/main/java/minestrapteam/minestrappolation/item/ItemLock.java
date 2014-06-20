@@ -19,7 +19,9 @@ public class ItemLock extends ItemKey
 	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
 	{
 		if (world.isRemote)
+		{
 			return true;
+		}
 		
 		if (stack.stackTagCompound == null)
 		{

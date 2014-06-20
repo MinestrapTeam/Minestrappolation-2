@@ -92,9 +92,11 @@ public class MCBlockStone extends Block
 	
 	public String getUnlocalizedName(int metadata)
 	{
-		if (metadata >= types.length)
+		if (metadata >= this.types.length)
+		{
 			metadata = 0;
-		return "tile." + this.name + "." + types[metadata];
+		}
+		return "tile." + this.name + "." + this.types[metadata];
 	}
 	
 	@Override
@@ -114,17 +116,29 @@ public class MCBlockStone extends Block
 	{
 		float f = this.baseHardness;
 		if (metadata == 0)
+		{
 			return f;
+		}
 		else if (metadata == 3)
+		{
 			return f + 0.1F;
+		}
 		else if (metadata == 5)
+		{
 			return f + 0.2F;
+		}
 		else if (metadata == 6)
+		{
 			return f + 0.3F;
+		}
 		else if (metadata == 14)
+		{
 			return f + 0.5F;
+		}
 		else if (metadata == 15)
+		{
 			return f + 0.6F;
+		}
 		return f;
 	}
 	
@@ -133,9 +147,13 @@ public class MCBlockStone extends Block
 	{
 		int metadata = world.getBlockMetadata(x, y, z);
 		if (metadata == 14)
+		{
 			return Blocks.glowstone.getLightValue();
+		}
 		else if (metadata == 15)
+		{
 			return 15;
+		}
 		return super.getLightValue(world, x, y, z);
 	}
 	
@@ -155,7 +173,9 @@ public class MCBlockStone extends Block
 		
 		this.chiseledIcon = iconRegister.registerIcon(textureName + "_chiseled");
 		if (this.chiseledSided)
+		{
 			this.chiseledSideIcon = iconRegister.registerIcon(textureName + "_chiseled_side");
+		}
 		
 		this.glowstoneLampIcon = iconRegister.registerIcon(textureName + "_lamp_glowstone");
 		this.sunstoneLampIcon = iconRegister.registerIcon(textureName + "_lamp_sunstone");
@@ -165,41 +185,71 @@ public class MCBlockStone extends Block
 	public IIcon getIcon(int side, int metadata)
 	{
 		if (metadata == 0)
+		{
 			return this.blockIcon;
+		}
 		else if (metadata == 1)
+		{
 			return this.brickIcon;
+		}
 		else if (metadata == 2)
+		{
 			return this.patternBrickIcon;
+		}
 		else if (metadata == 3)
+		{
 			return this.tilesIcon;
+		}
 		else if (metadata == 4)
 		{
 			if (side == 0)
+			{
 				return this.roadBottomIcon;
+			}
 			else if (side == 1)
+			{
 				return this.patternBrickIcon;
+			}
 			else
+			{
 				return this.roadSideIcon;
+			}
 		}
 		else if (metadata == 5)
+		{
 			return this.refinedIcon;
+		}
 		else if (metadata == 6)
 		{
 			if (this.chiseledSided && side > 1)
+			{
 				return this.chiseledSideIcon;
+			}
 			else if (this.clayChiseled)
+			{
 				return this.refinedIcon;
+			}
 			else
+			{
 				return this.chiseledIcon;
+			}
 		}
 		else if (metadata == 7)
+		{
 			return this.crackedIcon;
+		}
 		else if (metadata == 8)
+		{
 			return this.mossyIcon;
+		}
 		else if (metadata == 14)
+		{
 			return this.glowstoneLampIcon;
+		}
 		else if (metadata == 15)
+		{
 			return this.sunstoneLampIcon;
+		}
 		
 		return this.blockIcon;
 	}

@@ -25,12 +25,12 @@ import net.minecraft.world.World;
 
 public class MCItemTool extends ItemTool
 {
-	protected boolean		ignites;
+	protected boolean	ignites;
 	
-	private String			toolType;
+	private String		toolType;
 	
-	private IIcon			overlayIcon;
-	private IIcon			overlayIcon2;
+	private IIcon		overlayIcon;
+	private IIcon		overlayIcon2;
 	
 	public MCItemTool(float baseDamage, ToolMaterial material, Set<Block> blocks, String type, boolean ignites)
 	{
@@ -53,7 +53,9 @@ public class MCItemTool extends ItemTool
 	public static String getPlating(ItemStack stack)
 	{
 		if (stack.stackTagCompound != null)
+		{
 			return stack.stackTagCompound.getString("Plating");
+		}
 		return null;
 	}
 	
@@ -96,9 +98,13 @@ public class MCItemTool extends ItemTool
 		}
 		
 		if ("sword".equals(this.toolType))
+		{
 			stack.damageItem(1, attacker);
+		}
 		else
+		{
 			stack.damageItem(2, attacker);
+		}
 		return true;
 	}
 	

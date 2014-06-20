@@ -36,11 +36,17 @@ public class BlockCopper extends Block
 		if (metadata == 1)
 		{
 			if (side == 0)
+			{
 				return this.blockIcon;
+			}
 			else if (side == 1)
+			{
 				return this.tarnishedTopIcon;
+			}
 			else
+			{
 				return this.tarnishedSideIcon;
+			}
 		}
 		
 		return this.blockIcon;

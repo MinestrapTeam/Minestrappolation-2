@@ -30,7 +30,7 @@ public class MinestrappolationCore extends BaseMod
 	@SidedProxy(modId = MCReference.CORE_MODID, clientSide = "minestrapteam.minestrap_core.client.MCClientProxy", serverSide = "minestrapteam.minestrap_core.common.MCCommonProxy")
 	public static MCCommonProxy			proxy;
 	
-	public static boolean showDurability;
+	public static boolean				showDurability;
 	
 	public MinestrappolationCore()
 	{
@@ -51,7 +51,7 @@ public class MinestrappolationCore extends BaseMod
 		super.proxy = proxy;
 		
 		super.preInit(event);
-
+		
 		MCBlocks.init();
 		MCItems.init();
 		MCRecipes.init();
@@ -60,9 +60,9 @@ public class MinestrappolationCore extends BaseMod
 	@Override
 	@EventHandler
 	public void init(FMLInitializationEvent event)
-	{		
+	{
 		super.init(event);
-			
+		
 		Blocks.bedrock.setHardness(80F);
 		GameRegistry.registerTileEntity(TileEntityStonecutter.class, "StoneCutter");
 	}

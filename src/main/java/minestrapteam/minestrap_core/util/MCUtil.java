@@ -19,7 +19,7 @@ import net.minecraft.world.World;
  * @author SoBiohazardous
  */
 public class MCUtil
-{	
+{
 	public static boolean isMaterial(World world, int x, int y, int z, Material material)
 	{
 		return world.getBlock(x, y, z).getMaterial() == material;

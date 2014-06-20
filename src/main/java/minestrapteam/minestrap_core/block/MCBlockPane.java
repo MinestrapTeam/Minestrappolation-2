@@ -21,7 +21,9 @@ public class MCBlockPane extends BlockPane
 	public Item getItem(World world, int x, int y, int z)
 	{
 		if (this == MBlocks.cardboard)
+		{
 			return MItems.cardboardItem;
+		}
 		return super.getItem(world, x, y, z);
 	}
 	
@@ -29,7 +31,9 @@ public class MCBlockPane extends BlockPane
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
 		if (this == MBlocks.cardboard)
+		{
 			return MItems.cardboardItem;
+		}
 		return super.getItemDropped(metadata, random, fortune);
 	}
 }

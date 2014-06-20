@@ -16,8 +16,10 @@ public class PriestTradeHandler implements IVillageTradeHandler
 	@Override
 	public void manipulateTradesForVillager(EntityVillager villager, MerchantRecipeList recipes, Random random)
 	{
-//		recipes.add(new MerchantRecipe(new ItemStack(MBlocks.sandstoneBricks, 1, 3), new ItemStack(Items.emerald, 5)));
-//		recipes.add(new MerchantRecipe(new ItemStack(MBlocks.sandstoneBricks, 1, 4), new ItemStack(Items.emerald, 5)));
+		// recipes.add(new MerchantRecipe(new ItemStack(MBlocks.sandstoneBricks,
+		// 1, 3), new ItemStack(Items.emerald, 5)));
+		// recipes.add(new MerchantRecipe(new ItemStack(MBlocks.sandstoneBricks,
+		// 1, 4), new ItemStack(Items.emerald, 5)));
 		
 		recipes.add(new MerchantRecipe(new ItemStack(MItems.sunstoneDust, 11), new ItemStack(Items.emerald, 1)));
 		recipes.add(new MerchantRecipe(new ItemStack(MItems.soulGem, 3), new ItemStack(Items.emerald, 1)));

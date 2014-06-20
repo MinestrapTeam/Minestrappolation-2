@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 
 public class MCItemBlockStone extends ItemBlock
 {
-	private MCBlockStone theBlock; 
+	private MCBlockStone	theBlock;
 	
 	public MCItemBlockStone(Block block)
 	{
@@ -17,14 +17,18 @@ public class MCItemBlockStone extends ItemBlock
 		this.setHasSubtypes(true);
 		
 		if (block instanceof MCBlockStone)
+		{
 			this.theBlock = (MCBlockStone) block;
+		}
 	}
 	
 	@Override
 	public String getUnlocalizedName(ItemStack stack)
 	{
 		if (this.theBlock != null)
+		{
 			return this.theBlock.getUnlocalizedName(stack.getItemDamage());
+		}
 		return this.getUnlocalizedName() + "." + stack.getItemDamage();
 	}
 	

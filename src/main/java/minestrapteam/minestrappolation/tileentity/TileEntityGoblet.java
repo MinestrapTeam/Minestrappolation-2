@@ -22,7 +22,9 @@ public class TileEntityGoblet extends TileEntity
 	public int getColor()
 	{
 		if (this.potionEffect != null)
+		{
 			return Potion.potionTypes[this.potionEffect.getPotionID()].getLiquidColor();
+		}
 		return 0xFFFFFF;
 	}
 	

@@ -46,14 +46,20 @@ public class BlockCardboard extends Block
 		if (metadata == 0)
 		{
 			if (side == 0)
+			{
 				return this.topIcon;
+			}
 		}
 		else if (metadata == 1)
 		{
 			if (side == 1)
+			{
 				return this.wetTopIcon;
+			}
 			else if (side != 0)
+			{
 				return this.wetSideIcon;
+			}
 		}
 		
 		return this.blockIcon;

@@ -18,6 +18,7 @@ import net.minecraft.util.IIcon;
  * <li>2: Panels
  * <li>3: Mossy Planks
  * </ul>
+ * 
  * @author SoBiohazardous, Clashsoft
  */
 public class MCBlockWood extends Block
@@ -26,10 +27,10 @@ public class MCBlockWood extends Block
 	
 	public String	name;
 	
-	public IIcon bevel;
-	public IIcon boards;
-	public IIcon panel;
-	public IIcon mossyPlanks;
+	public IIcon	bevel;
+	public IIcon	boards;
+	public IIcon	panel;
+	public IIcon	mossyPlanks;
 	
 	public MCBlockWood(String[] types, String name)
 	{
@@ -44,8 +45,10 @@ public class MCBlockWood extends Block
 	
 	public String getUnlocalizedName(int metadata)
 	{
-		if (metadata >= types.length)
+		if (metadata >= this.types.length)
+		{
 			metadata = 0;
+		}
 		return "tile." + this.name + "." + this.types[metadata];
 	}
 	
@@ -54,7 +57,7 @@ public class MCBlockWood extends Block
 	{
 		String textureName = this.getTextureName();
 		
-		this.blockIcon = iconRegister.registerIcon(textureName);       
+		this.blockIcon = iconRegister.registerIcon(textureName);
 		this.bevel = iconRegister.registerIcon(textureName + "_bevel");
 		this.boards = iconRegister.registerIcon(textureName + "_boards");
 		this.panel = iconRegister.registerIcon(textureName + "_panel");
@@ -64,18 +67,26 @@ public class MCBlockWood extends Block
 	@Override
 	public IIcon getIcon(int side, int metadata)
 	{
-		if(metadata == 0)
-			return bevel;
-		else if(metadata == 1)
-			return boards;
-		else if(metadata == 2)
-			return panel;
-		else if(metadata == 3)
-			return mossyPlanks;
+		if (metadata == 0)
+		{
+			return this.bevel;
+		}
+		else if (metadata == 1)
+		{
+			return this.boards;
+		}
+		else if (metadata == 2)
+		{
+			return this.panel;
+		}
+		else if (metadata == 3)
+		{
+			return this.mossyPlanks;
+		}
 		
 		return this.blockIcon;
 	}
-
+	
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list)
 	{
