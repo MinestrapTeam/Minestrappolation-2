@@ -22,32 +22,26 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
  */
 public class MOreGenerator implements IWorldGenerator
 {
-	public static final boolean	enable	= false;
-	
 	public MOreGenerator()
 	{
-		
 	}
 	
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider)
 	{
-		if (enable)
+		chunkX <<= 4;
+		chunkZ <<= 4;
+		if (chunkGenerator instanceof ChunkProviderGenerate)
 		{
-			chunkX <<= 4;
-			chunkZ <<= 4;
-			if (chunkGenerator instanceof ChunkProviderGenerate)
-			{
-				this.generateSurface(world, random, chunkX, chunkZ);
-			}
-			else if (chunkGenerator instanceof ChunkProviderHell)
-			{
-				this.generateNether(world, random, chunkX, chunkZ);
-			}
-			else if (chunkGenerator instanceof ChunkProviderEnd)
-			{
-				this.generateEnd(world, random, chunkX, chunkZ);
-			}
+			this.generateSurface(world, random, chunkX, chunkZ);
+		}
+		else if (chunkGenerator instanceof ChunkProviderHell)
+		{
+			this.generateNether(world, random, chunkX, chunkZ);
+		}
+		else if (chunkGenerator instanceof ChunkProviderEnd)
+		{
+			this.generateEnd(world, random, chunkX, chunkZ);
 		}
 	}
 	

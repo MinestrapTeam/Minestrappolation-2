@@ -315,6 +315,7 @@ public class MItems
 	
 	public static void setHarvestLevels()
 	{
+		Blocks.bedrock.setHardness(80F);
 		Blocks.bedrock.setHarvestLevel("pickaxe", 5);
 		Blocks.diamond_ore.setHarvestLevel("pickaxe", 3);
 		Blocks.diamond_block.setHarvestLevel("pickaxe", 3);

@@ -27,7 +27,6 @@ import minestrapteam.minestrappolation.tileentity.TileEntityMelter;
 import minestrapteam.minestrappolation.world.MOreGenerator;
 
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Blocks;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 
@@ -110,8 +109,6 @@ public class Minestrappolation extends BaseMod
 	public void init(FMLInitializationEvent event)
 	{
 		super.init(event);
-		
-		Blocks.bedrock.setHardness(80F);
 		
 		MTileEntities.registerTileEntitys();
 		GameRegistry.registerWorldGenerator(new MOreGenerator(), 0);
