@@ -316,6 +316,10 @@ public class MItems
 	{
 		Blocks.bedrock.setHarvestLevel("pickaxe", 5);
 		
+		Items.diamond_shovel.setHarvestLevel("shovel", 4);
+		Items.diamond_pickaxe.setHarvestLevel("pickaxe", 4);
+		Items.diamond_axe.setHarvestLevel("axe", 4);
+		
 		MBlocks.copperOre.setHarvestLevel("pickaxe", 0);
 		MBlocks.copperBlock.setHarvestLevel("pickaxe", 0);
 		MBlocks.tinOre.setHarvestLevel("pickaxe", 1);
