@@ -166,6 +166,10 @@ public class MTools
 		copperPickaxe = new MCItemPickaxe(toolCopper).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("copper_pickaxe"));
 		copperAxe = new MCItemAxe(toolCopper).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("copper_axe"));
 		copperHoe = new MCItemHoe(toolCopper).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("copper_hoe"));
+		tinHelmet = new MCItemArmor(armorTin, MCommonProxy.tin, 0, "tin").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getArmorTexture("tin_helmet"));
+		tinChestplate = new MCItemArmor(armorTin, MCommonProxy.tin, 1, "tin").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getArmorTexture("tin_chesplate"));
+		tinLeggings = new MCItemArmor(armorTin, MCommonProxy.tin, 2, "tin").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getArmorTexture("tin_leggings"));
+		tinBoots = new MCItemArmor(armorTin, MCommonProxy.tin, 3, "tin").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getArmorTexture("tin_boots"));
 		
 		bronzeSword = new MCItemSword(toolBronze).setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getWeaponTexture("bronze_sword"));
 		bronzeShovel = new MCItemShovel(toolBronze).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("bronze_shovel"));

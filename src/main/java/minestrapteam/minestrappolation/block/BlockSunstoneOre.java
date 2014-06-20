@@ -14,6 +14,7 @@ public class BlockSunstoneOre extends Block
 	public BlockSunstoneOre()
 	{
 		super(Material.rock);
+		this.setLightLevel(1F);
 	}
 	
 	@Override

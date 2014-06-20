@@ -60,9 +60,7 @@ public class MBlocks
 	public static Block				melterIdle;
 	public static Block				melterBurning;
 	
-	public static Block				goblet;
-	public static Block				plate;
-	public static Block checkerTiles;
+	public static Block				checkerTiles;
 	public static Block				edgeStoneBrick;
 	public static Block				snowBrick;
 	public static Block				glassRefined;
@@ -75,6 +73,8 @@ public class MBlocks
 	public static Block				slimeOoze;
 	public static Block				magmaOoze;
 	
+	public static Block				goblet;
+	public static Block				plate;
 	public static Block				rope;
 	public static Block				ropeCoil;
 	public static Block				crate;
@@ -86,16 +86,17 @@ public class MBlocks
 	
 	public static void init()
 	{
-		copperOre = new MCBlock(Material.rock).setHardness(3F).setResistance(5F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockTextureName(MCAssetManager.getMineralTexture("copper_ore"));
-		tinOre = new MCBlock(Material.rock).setHardness(3F).setResistance(5F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockTextureName(MCAssetManager.getMineralTexture("tin_ore"));
-		titaniumOre = new MCBlock(Material.rock).setHardness(10F).setResistance(15F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockTextureName(MCAssetManager.getMineralTexture("titanium_ore"));
-		uraniumOre = new BlockUraniumOre(Material.rock).setHardness(5F).setResistance(10F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockTextureName(MCAssetManager.getMineralTexture("uranium_ore"));
-		plutoniumOre = new BlockPlutoniumOre(Material.rock).setHardness(5F).setResistance(10F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockTextureName(MCAssetManager.getMineralTexture("plutonium_ore"));
-		meuroditeOre = new MCBlock(Material.rock).setHardness(5F).setResistance(10F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockTextureName(MCAssetManager.getMineralTexture("meurodite_ore"));
-		sunstoneOre = new BlockSunstoneOre().setHardness(7F).setResistance(11F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MCAssetManager.getMineralTexture("sunstone_ore")).setLightLevel(1F);
+		copperOre = new MCBlock(Material.rock).setHardness(3F).setResistance(5F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MCAssetManager.getMineralTexture("copper_ore"));
+		tinOre = new MCBlock(Material.rock).setHardness(3F).setResistance(5F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MCAssetManager.getMineralTexture("tin_ore"));
+		titaniumOre = new MCBlock(Material.rock).setHardness(10F).setResistance(15F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MCAssetManager.getMineralTexture("titanium_ore"));
+		uraniumOre = new BlockUraniumOre(Material.rock).setHardness(5F).setResistance(10F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MCAssetManager.getMineralTexture("uranium_ore"));
+		plutoniumOre = new BlockPlutoniumOre(Material.rock).setHardness(5F).setResistance(10F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MCAssetManager.getMineralTexture("plutonium_ore"));
+		meuroditeOre = new MCBlock(Material.rock).setHardness(5F).setResistance(10F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MCAssetManager.getMineralTexture("meurodite_ore"));
+		sunstoneOre = new BlockSunstoneOre().setHardness(7F).setResistance(11F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MCAssetManager.getMineralTexture("sunstone_ore"));
 		toriteOre = new MCBlock(Material.rock).setHardness(7F).setResistance(11F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MCAssetManager.getMineralTexture("torite_ore"));
-		blaziumOre = new BlockBlaziumOre().setHardness(7F).setResistance(11F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MCAssetManager.getMineralTexture("blazium_ore")).setLightLevel(0.5F);
-		soulOre = new BlockSoulOre().setHardness(2F).setResistance(3F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockTextureName(MCAssetManager.getMineralTexture("soul_gem_ore"));
+		blaziumOre = new BlockBlaziumOre().setHardness(7F).setResistance(11F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MCAssetManager.getMineralTexture("blazium_ore"));
+		soulOre = new BlockSoulOre().setHardness(2F).setResistance(3F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MCAssetManager.getMineralTexture("soul_gem_ore"));
+		radiantQuartzOre = new MCBlock(Material.rock).setHardness(3F).setResistance(5F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MCAssetManager.getMineralTexture("radiant_quartz_ore"));
 		
 		copperBlock = new BlockCopper(Material.iron).setHardness(5F).setResistance(10F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("blockCopper");
 		tinBlock = new MCBlock(Material.iron).setHardness(3F).setResistance(2F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockTextureName(MCAssetManager.getMineralTexture("tin_block"));
@@ -124,11 +125,6 @@ public class MBlocks
 		melterIdle = new BlockMelter(false).setHardness(6F).setResistance(8.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone);
 		melterBurning = new BlockMelter(true).setHardness(6F).setResistance(8.0F).setStepSound(Block.soundTypeStone);
 		
-		// TODO: ORGANIZE ED BLOCKS
-		
-		goblet = new BlockGoblet(Material.rock).setHardness(0.5F);
-		plate = new BlockPlate(Material.rock).setCreativeTab(Minestrappolation.tabBuildingBlocks);
-		
 		checkerTiles = new BlockTiles().setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone);
 		edgeStoneBrick = new BlockEdgeStoneBrick().setHardness(1.5F).setResistance(10F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone);
 		snowBrick = new BlockSnowBrick().setHardness(0.3F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeSnow).setBlockTextureName(MCAssetManager.getTexture("snow_tiles"));
@@ -144,12 +140,12 @@ public class MBlocks
 		slimeOoze = new BlockOoze(materialOoze).setHardness(1F).setResistance(2000F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeCloth).setBlockTextureName(MCAssetManager.getTexture("ooze_slime"));
 		magmaOoze = new BlockOoze(materialOoze).setHardness(1F).setResistance(2000F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeCloth).setBlockTextureName(MCAssetManager.getTexture("ooze_magma"));
 		
+		goblet = new BlockGoblet(Material.rock).setHardness(0.5F);
+		plate = new BlockPlate(Material.rock).setCreativeTab(Minestrappolation.tabBuildingBlocks);
 		rope = new BlockRope().setHardness(0.9F).setCreativeTab(null).setStepSound(Block.soundTypeCloth);
 		ropeCoil = new BlockRopeCoil().setHardness(0.9F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeCloth);
-		
 		crate = new BlockCrate().setHardness(2.5F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeWood);
 		barrel = new BlockBarrel().setHardness(3F).setResistance(6.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeWood);
-		
 		cardboard = new MCBlockPane(Material.cloth, MCAssetManager.getTexture("cardboard"), MCAssetManager.getTexture("cardboard_pane_edge"), true).setHardness(0.3F);
 		cardboardBlock = new BlockCardboard(Material.cloth).setHardness(0.4F).setCreativeTab(Minestrappolation.tabBuildingBlocks);
 		
@@ -187,10 +183,10 @@ public class MBlocks
 		CSBlocks.addBlock(steelBlock, "steel_block");
 		CSBlocks.addBlock(soulBlock, "soul_block");
 		
-		CSBlocks.addBlock(tinPlate, "tin_plate");
-		CSBlocks.addBlock(bronzePlate, "bronze_plate");
-		CSBlocks.addBlock(steelPlate, "steel_plate");
-		CSBlocks.addBlock(meuroditePlate, "meurodite_plate");
+		CSBlocks.addBlock(tinPlate, "tin_plate_block");
+		CSBlocks.addBlock(bronzePlate, "bronze_plate_block");
+		CSBlocks.addBlock(steelPlate, "steel_plate_block");
+		CSBlocks.addBlock(meuroditePlate, "meurodite_plate_block");
 		
 		CSBlocks.addBlock(invincium, "invincium");
 		CSBlocks.addBlock(godstone, "godstone");
@@ -201,9 +197,6 @@ public class MBlocks
 		
 		CSBlocks.addBlock(melterIdle, "melter");
 		CSBlocks.addBlock(melterBurning, "melter_burning");
-		
-		CSBlocks.addBlock(goblet, "goblet");
-		CSBlocks.addBlock(plate, "plate");
 		
 		CSBlocks.addBlock(checkerTiles, "checker_tiles");
 		CSBlocks.addBlock(edgeStoneBrick, "edge_stone_brick");
@@ -219,13 +212,15 @@ public class MBlocks
 		CSBlocks.addBlock(slimeOoze, "slime_ooze");
 		CSBlocks.addBlock(magmaOoze, "magma_ooze");
 		
+		CSBlocks.addBlock(goblet, "goblet_block");
+		CSBlocks.addBlock(plate, "plate_block");
 		CSBlocks.addBlock(rope, "rope_block");
 		CSBlocks.addBlock(ropeCoil, "rope_coil");
 		CSBlocks.addBlock(crate, "crate");
 		CSBlocks.addBlock(barrel, "barrel");
-		CSBlocks.addBlock(cardboard, "cardboard");
+		CSBlocks.addBlock(cardboard, "cardboard_pane");
 		CSBlocks.addBlock(cardboardBlock, "cardboard_block");
 		
-		CSBlocks.addBlock(glassDoor, "glass_door");
+		CSBlocks.addBlock(glassDoor, "glass_door_block");
 	}
 }

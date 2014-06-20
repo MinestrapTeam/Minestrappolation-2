@@ -16,5 +16,4 @@ public class MCreativeTabBrewing extends CreativeTabs
 	{
 		return MItems.airSack;
 	}
-	
 }

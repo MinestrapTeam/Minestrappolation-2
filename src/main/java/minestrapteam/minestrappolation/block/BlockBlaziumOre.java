@@ -2,8 +2,6 @@ package minestrapteam.minestrappolation.block;
 
 import java.util.Random;
 
-import minestrapteam.minestrappolation.Minestrappolation;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Items;
@@ -16,7 +14,7 @@ public class BlockBlaziumOre extends Block
 	public BlockBlaziumOre()
 	{
 		super(Material.rock);
-		this.setCreativeTab(Minestrappolation.tabMaterials);
+		this.setLightLevel(0.5F);
 	}
 	
 	@Override
