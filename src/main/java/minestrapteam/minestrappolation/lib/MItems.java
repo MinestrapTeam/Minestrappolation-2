@@ -104,7 +104,7 @@ public class MItems
 	public static Item	ghastTentacle;
 	public static Item	horseHoof;
 	public static Item	horseHaunchRaw;
-	public static Item	hoarseHaunchCooked;
+	public static Item	horseHaunchCooked;
 	public static Item	horseHair;
 	public static Item	genes;
 	public static Item	charms;
@@ -199,7 +199,7 @@ public class MItems
 		ghastTentacle = new ItemGhastTentacle().setTextureName(MCAssetManager.getTexture("tentacleGhast")).setCreativeTab(Minestrappolation.tabFood);
 		horseHoof = new MCItem().setCreativeTab(Minestrappolation.tabFood).setTextureName(MCAssetManager.getTexture("footHorse"));
 		horseHaunchRaw = new MCItemFood(4, 0.4F).setCreativeTab(Minestrappolation.tabFood).setTextureName(MCAssetManager.getTexture("horseHaunchRaw"));
-		hoarseHaunchCooked = new MCItemFood(10, 0.8F).setCreativeTab(Minestrappolation.tabFood).setTextureName(MCAssetManager.getTexture("horseHaunchCooked"));
+		horseHaunchCooked = new MCItemFood(10, 0.8F).setCreativeTab(Minestrappolation.tabFood).setTextureName(MCAssetManager.getTexture("horseHaunchCooked"));
 		horseHair = new MCItem().setCreativeTab(Minestrappolation.tabFood).setTextureName(MCAssetManager.getTexture("horseHair"));
 		genes = new ItemGene();
 		charms = new ItemCharm().setCreativeTab(Minestrappolation.tabFood);
@@ -292,7 +292,7 @@ public class MItems
 		CSItems.addItem(ghastTentacle, "ghast_tentacle");
 		CSItems.addItem(horseHoof, "horse_hoof");
 		CSItems.addItem(horseHaunchRaw, "horse_haunch_raw");
-		CSItems.addItem(hoarseHaunchCooked, "horse_haunch_cooked");
+		CSItems.addItem(horseHaunchCooked, "horse_haunch_cooked");
 		CSItems.addItem(horseHair, "horse_hair");
 		CSItems.addItem(genes, "genes");
 		CSItems.addItem(charms, "charms");

@@ -53,7 +53,7 @@ public class ItemGene extends Item
 		
 		for (int i = 0; i < geneNames.length; ++i)
 		{
-			this.geneIcons[i] = iconRegister.registerIcon(MCAssetManager.getTexture("gene" + geneNames[i]));
+			this.geneIcons[i] = iconRegister.registerIcon(MCAssetManager.getMobTexture("gene_" + geneNames[i]));
 		}
 	}
 }

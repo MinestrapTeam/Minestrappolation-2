@@ -235,7 +235,7 @@ public class MRecipes
 		GameRegistry.addRecipe(new ItemStack(charms, 1, 2), new Object[] { " G ", "GPG", " G ", 'G', Items.gold_ingot, 'P', footChicken });
 		GameRegistry.addRecipe(new ItemStack(charms, 1, 3), new Object[] { " G ", "GPG", " G ", 'G', Items.gold_ingot, 'P', sheepHoof });
 		GameRegistry.addRecipe(new ItemStack(charms, 1, 4), new Object[] { " G ", "GPG", " G ", 'G', Items.gold_ingot, 'P', horseHoof });
-		GameRegistry.addSmelting(horseHaunchRaw, new ItemStack(hoarseHaunchCooked), 0.8F);
+		GameRegistry.addSmelting(horseHaunchRaw, new ItemStack(horseHaunchCooked), 0.8F);
 		GameRegistry.addRecipe(new ItemStack(wingSegment, 1, 0), new Object[] { "FSF", "SLS", "FSF", 'F', Items.feather, 'S', wingSinew, 'L', Items.leather });
 		GameRegistry.addRecipe(new ItemStack(hangGlider, 1, 0), new Object[] { "PPP", "W W", "W W", 'P', Blocks.planks, 'W', wingSegment });
 	}

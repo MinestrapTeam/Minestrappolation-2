@@ -38,18 +38,7 @@ public class BlockTiles extends Block
 	public float getExplosionResistance(Entity entity, World world, int x, int y, int z, double explosionX, double explosionY, double explosionZ)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
-		if (meta == 0)
-		{
-			return 2000F;
-		}
-		else if (meta == 2)
-		{
-			return 1F;
-		}
-		else if (meta == 1 || meta == 3 || meta == 4 || meta == 5 || meta == 6)
-		{
-			return 10F;
-		}
+		// TODO
 		return 1F;
 	}
 	
@@ -57,9 +46,9 @@ public class BlockTiles extends Block
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		this.flintEndstoneIcon = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("checker_tiles_flint_endstone"));
-		this.flintQuartzIcon = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("checker_tiles_flint_quartz"));
+		this.flintQuartzIcon = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("checker_tiles_flint_netherquartz"));
 		this.obsidianEndstoneIcon = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("checker_tiles_obsidian_endstone"));
-		this.obsidianQuartzIcon = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("checker_tiles_obsidian_quartz"));
+		this.obsidianQuartzIcon = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("checker_tiles_obsidian_netherquartz"));
 	}
 	
 	@Override
