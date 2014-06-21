@@ -129,8 +129,8 @@ public class MBlocks
 		edgeStoneBrick = new BlockEdgeStoneBrick().setHardness(1.5F).setResistance(10F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone);
 		snowBrick = new BlockSnowBrick().setHardness(0.3F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeSnow).setBlockTextureName(MCAssetManager.getTexture("snow_tiles"));
 		
-		glassRefined = new BlockGlassRefined(Material.glass, false).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(Minestrappolation.tabBuildingBlocks);
-		glassRefinedPane = new MCBlockPane(Material.glass, MCAssetManager.getTexture("refined_glass"), MCAssetManager.getTexture("refined_glass_pane_edge"), false).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(Minestrappolation.tabBuildingBlocks);
+		glassRefined = new BlockGlassRefined(Material.glass, false).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MCAssetManager.getTexture("glass_refined"));
+		glassRefinedPane = new MCBlockPane(Material.glass, MCAssetManager.getTexture("refined_glass"), MCAssetManager.getTexture("glass_refined_pane"), false).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(Minestrappolation.tabBuildingBlocks);
 		
 		gunpowderBlock = new BlockGunpowderBlock(Material.ground).setHardness(0.6F).setStepSound(Block.soundTypeGravel).setBlockTextureName(MCAssetManager.getMineralTexture("gunpowder_block"));
 		sugarBlock = new BlockSugarBlock().setHardness(0.6F).setCreativeTab(Minestrappolation.tabDecorationBlocks).setStepSound(Block.soundTypeGravel).setBlockTextureName(MCAssetManager.getFoodTexture("sugar_block"));
