@@ -25,8 +25,8 @@ import minestrapteam.minestrappolation.lib.*;
 import minestrapteam.minestrappolation.tileentity.TileEntityLocked;
 import minestrapteam.minestrappolation.tileentity.TileEntityMelter;
 import minestrapteam.minestrappolation.world.MOreGenerator;
+
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Items;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 
@@ -46,8 +46,7 @@ public class Minestrappolation extends BaseMod
 	public static CreativeTabs			tabMaterials		= new MCreativeTabMaterials("minestrap_materials");
 	public static CreativeTabs			tabCombat			= new MCreativeTabCombat("minestrap_combat");
 	public static CreativeTabs			tabTools			= new MCreativeTabTools("minestrap_tools");
-	//TODO Not sure if this should be used yet.
-	//public static CreativeTabs			tabBrewing			= new MCreativeTabBrewing("minestrap_brewing");
+	public static CreativeTabs			tabBrewing			= new MCreativeTabBrewing("minestrap_brewing");
 	public static CreativeTabs			tabMisc				= new MCreativeTabMisc("minestrap_misc");
 	
 	public static CustomRecipeLoader	smelter				= new CustomRecipeLoader("furnace");
