@@ -14,7 +14,7 @@ import net.minecraft.util.IIcon;
 
 public class ItemCharm extends Item
 {
-	public static final String[]	geneNames	= new String[] { "Pig", "Cow", "Chicken", "Sheep", "Horse" };
+	public static final String[]	geneNames	= new String[] { "pig", "cow", "chicken", "sheep", "horse" };
 	
 	@SideOnly(Side.CLIENT)
 	private IIcon[]					geneIcons;
@@ -52,7 +52,7 @@ public class ItemCharm extends Item
 		
 		for (int i = 0; i < geneNames.length; ++i)
 		{
-			this.geneIcons[i] = iconRegister.registerIcon(MCAssetManager.getTexture("charm" + geneNames[i]));
+			this.geneIcons[i] = iconRegister.registerIcon(MCAssetManager.getMobTexture(geneNames[i] + "_charm"));
 		}
 	}
 }

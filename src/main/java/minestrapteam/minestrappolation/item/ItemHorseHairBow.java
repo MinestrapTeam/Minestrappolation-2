@@ -24,13 +24,13 @@ public class ItemHorseHairBow extends ItemBow
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister iconRegister)
 	{
-		String texture = MCAssetManager.getTexture("horseHairBow");
+		String texture = MCAssetManager.getWeaponTexture("horse_hair_bow");
 		this.itemIcon = iconRegister.registerIcon(texture);
 		this.iconArray = new IIcon[3];
 		
 		for (int i = 0; i < this.iconArray.length; ++i)
 		{
-			this.iconArray[i] = iconRegister.registerIcon(texture + i);
+			this.iconArray[i] = iconRegister.registerIcon(texture + "_" + i);
 		}
 	}
 	
