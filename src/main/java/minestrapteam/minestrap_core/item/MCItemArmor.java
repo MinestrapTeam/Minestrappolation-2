@@ -42,22 +42,24 @@ public class MCItemArmor extends ItemArmor implements IPlatable
 	{
 		this.itemIcon = iconRegister.registerIcon(this.getIconString());
 		
+		String s;
 		if (this.renderIndex == 0)
 		{
-			this.overlayIcon = iconRegister.registerIcon(MCAssetManager.getTexture("overlayArmorHelmBronze"));
+			s = "bronze_helmet_overlay";
 		}
 		else if (this.renderIndex == 1)
 		{
-			this.overlayIcon = iconRegister.registerIcon(MCAssetManager.getTexture("overlayArmorChestBronze"));
+			s = "bronze_chestplate_overlay";
 		}
 		else if (this.renderIndex == 2)
 		{
-			this.overlayIcon = iconRegister.registerIcon(MCAssetManager.getTexture("overlayArmorLegsBronze"));
+			s = "bronze_leggings_overlay";
 		}
 		else
 		{
-			this.overlayIcon = iconRegister.registerIcon(MCAssetManager.getTexture("overlayArmorBootsBronze"));
+			s = "bronze_boots_overlay";
 		}
+		this.overlayIcon = iconRegister.registerIcon(MCAssetManager.getArmorTexture(s));
 	}
 	
 	@Override

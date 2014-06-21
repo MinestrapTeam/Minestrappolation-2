@@ -29,7 +29,6 @@ public class MCItemTool extends ItemTool implements IPlatable
 	private String		toolType;
 	
 	private IIcon		overlayIcon;
-	private IIcon		overlayIcon2;
 	
 	public MCItemTool(float baseDamage, ToolMaterial material, Set<Block> blocks, String type, boolean ignites)
 	{
@@ -171,9 +170,18 @@ public class MCItemTool extends ItemTool implements IPlatable
 	{
 		this.itemIcon = iconRegister.registerIcon(this.getIconString());
 		
-		String s = "bronze_" + this.toolType + "_overlay";
-		this.overlayIcon = iconRegister.registerIcon(MCAssetManager.getTexture(s));
-		this.overlayIcon2 = iconRegister.registerIcon(MCAssetManager.getTexture(s + "_2"));
+		StringBuilder builder = new StringBuilder(20);
+		
+		if ("sword".equals(this.toolType))
+			builder.append("weapons/");
+		else
+			builder.append("tools/");
+		
+		builder.append("bronze_").append(this.toolType).append("_overlay");
+		if (this.toolMaterial.getHarvestLevel() < 5)
+			builder.append("_2");
+		
+		this.overlayIcon = iconRegister.registerIcon(MCAssetManager.getTexture(builder.toString()));
 	}
 	
 	@Override
@@ -182,14 +190,7 @@ public class MCItemTool extends ItemTool implements IPlatable
 		String plating = getPlating(stack);
 		if (renderPass == 1 && plating != null)
 		{
-			if (this.toolMaterial.getHarvestLevel() < 5)
-			{
-				return this.overlayIcon;
-			}
-			else
-			{
-				return this.overlayIcon2;
-			}
+			return this.overlayIcon;
 		}
 		return this.itemIcon;
 	}
