@@ -28,18 +28,24 @@ public class BlockPlate extends BlockContainer
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ)
 	{
-		if (!world.isRemote)
+		ItemStack stack = player.inventory.getCurrentItem();
+		TileEntityPlate te = (TileEntityPlate) world.getTileEntity(x, y, z);
+		if (stack != null)
 		{
-			ItemStack stack = player.inventory.getCurrentItem();
-			if (stack != null)
+			te.setItem(stack);
+			
+			if (!player.capabilities.isCreativeMode)
 			{
-				TileEntityPlate te = (TileEntityPlate) world.getTileEntity(x, y, z);
-				te.setItem(stack);
-				
-				if (!player.capabilities.isCreativeMode)
-				{
-					stack.stackSize--;
-				}
+				stack.stackSize--;
+			}
+		}
+		else
+		{
+			te.setItem(null);
+			if (!world.isRemote)
+			{
+				stack = te.getItem();
+				player.inventory.addItemStackToInventory(stack);
 			}
 		}
 		return true;

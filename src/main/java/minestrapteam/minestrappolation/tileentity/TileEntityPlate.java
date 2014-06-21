@@ -10,19 +10,21 @@ public class TileEntityPlate extends TileEntity
 	public ItemStack	stack;
 	private EntityItem	theItem;
 	
-	public void spawnItem(ItemStack stack)
+	public EntityItem spawnItem()
 	{
-		if (!this.worldObj.isRemote)
+		if (this.worldObj.isRemote && this.stack != null && this.theItem == null)
 		{
-			if (stack != null && this.theItem == null)
-			{
-				this.theItem = new EntityItem(this.worldObj, this.xCoord + 0.5F, this.yCoord, this.zCoord + 0.5F, stack);
-				this.theItem.setVelocity(0D, 0D, 0D);
-				this.theItem.delayBeforeCanPickup = 1000000000;
-				this.theItem.lifespan = -1;
-				this.worldObj.spawnEntityInWorld(this.theItem);
-			}
+			this.theItem = new EntityItem(this.worldObj, this.xCoord + 0.5F, this.yCoord + 0.15F, this.zCoord + 0.5F, this.stack);
+			this.theItem.hoverStart = 0F;
 		}
+		return this.theItem;
+	}
+	
+	public EntityItem getItemEntity()
+	{
+		if (this.theItem == null)
+			this.spawnItem();
+		return this.theItem;
 	}
 	
 	public void setItem(ItemStack stack)
@@ -36,10 +38,9 @@ public class TileEntityPlate extends TileEntity
 		}
 	}
 	
-	@Override
-	public void updateEntity()
+	public ItemStack getItem()
 	{
-		this.spawnItem(this.stack);
+		return this.stack;
 	}
 	
 	@Override
