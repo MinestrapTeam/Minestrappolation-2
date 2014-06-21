@@ -424,6 +424,11 @@ item.poisonSword.desc=Poisoned: +%.1f
 
 # Extra Ores
 
+item.plating.bronze.desc=§6Bronze-Plated
+item.plating.tin.desc=§8Tin-Plated
+item.plating.steel.desc=§3Steel-Plated
+item.plating.meurodite.desc=§1Meurodite-Plated
+
 tile.oreMeurodite.name=Meurodite Ore
 tile.blockMeurodite.name=Block of Meurodite
 tile.oreUranium.name=Uranium Ore

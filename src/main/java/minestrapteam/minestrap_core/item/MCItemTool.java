@@ -19,11 +19,10 @@ import net.minecraft.item.ItemTool;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-public class MCItemTool extends ItemTool
+public class MCItemTool extends ItemTool implements IPlatable
 {
 	protected boolean	ignites;
 	
@@ -55,7 +54,7 @@ public class MCItemTool extends ItemTool
 		if (stack.stackTagCompound != null)
 		{
 			String s = stack.stackTagCompound.getString("Plating");
-			return s == "" ? null : s;
+			return s == null || s.isEmpty() ? null : s;
 		}
 		return null;
 	}
@@ -121,13 +120,13 @@ public class MCItemTool extends ItemTool
 		
 		if (plating != null)
 		{
-			list.add(EnumChatFormatting.GOLD + plating + " Plated");
+			list.add(I18n.getString("item.plating." + plating + ".desc"));
 		}
 		
 		float poisonLevel = getPoisonLevel(stack);
 		if (poisonLevel > 0F)
 		{
-			list.add(I18n.getString("item.poisonSword.desc", poisonLevel));
+			list.add(I18n.getString("item.poison_sword.desc", poisonLevel));
 		}
 	}
 	

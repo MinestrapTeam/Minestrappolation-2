@@ -8,9 +8,9 @@ import minestrapteam.minestrappolation.lib.MItems;
 import net.minecraft.block.BlockRailBase;
 import net.minecraft.item.Item;
 
-public class BlockPlateMetal extends BlockRailBase
+public class BlockPlating extends BlockRailBase
 {
-	public BlockPlateMetal()
+	public BlockPlating()
 	{
 		super(true);
 		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);

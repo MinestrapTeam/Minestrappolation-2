@@ -113,10 +113,10 @@ public class MBlocks
 		steelBlock = new BlockSteel().setHardness(6F).setResistance(10F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MCAssetManager.getMineralTexture("steel_block_top"));
 		soulBlock = new BlockSoulBlock().setHardness(65F).setResistance(30F).setStepSound(Block.soundTypeGravel).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MCAssetManager.getMineralTexture("soul_gem_block"));
 		
-		tinPlate = new BlockPlateMetal().setHardness(0.7F).setStepSound(Block.soundTypeStone).setBlockTextureName(MCAssetManager.getMineralTexture("tin_block"));
-		bronzePlate = new BlockPlateMetal().setHardness(0.7F).setStepSound(Block.soundTypeStone).setBlockTextureName(MCAssetManager.getMineralTexture("bronze_block"));
-		steelPlate = new BlockPlateMetal().setHardness(0.7F).setStepSound(Block.soundTypeStone).setBlockTextureName(MCAssetManager.getMineralTexture("steel_block_top"));
-		meuroditePlate = new BlockPlateMetal().setHardness(0.7F).setStepSound(Block.soundTypeStone).setBlockTextureName(MCAssetManager.getMineralTexture("meurodite_block"));
+		tinPlate = new BlockPlating().setHardness(0.7F).setStepSound(Block.soundTypeStone).setBlockTextureName(MCAssetManager.getMineralTexture("tin_block"));
+		bronzePlate = new BlockPlating().setHardness(0.7F).setStepSound(Block.soundTypeStone).setBlockTextureName(MCAssetManager.getMineralTexture("bronze_block"));
+		steelPlate = new BlockPlating().setHardness(0.7F).setStepSound(Block.soundTypeStone).setBlockTextureName(MCAssetManager.getMineralTexture("steel_block_top"));
+		meuroditePlate = new BlockPlating().setHardness(0.7F).setStepSound(Block.soundTypeStone).setBlockTextureName(MCAssetManager.getMineralTexture("meurodite_block"));
 		
 		invincium = new BlockInvincium(Material.rock).setBlockUnbreakable().setResistance(12000000.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockTextureName(MCAssetManager.getMineralTexture("invincium"));
 		godstone = new BlockGodstone(Material.rock).setHardness(6F).setResistance(9F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockTextureName(MCAssetManager.getMineralTexture("godstone"));
