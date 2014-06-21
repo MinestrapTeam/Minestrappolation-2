@@ -38,7 +38,6 @@ public class BlockBlaziumOre extends Block
 	@Override
 	public void onBlockDestroyedByPlayer(World world, int x, int y, int z, int metadata)
 	{
-		// the 1 means it drops 1 xp, change it to 20, 100, as much as you want.
 		this.dropXpOnBlockBreak(world, x, y, z, 1);
 	}
 }

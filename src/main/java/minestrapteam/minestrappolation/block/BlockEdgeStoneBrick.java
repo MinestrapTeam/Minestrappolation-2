@@ -1,7 +1,6 @@
 package minestrapteam.minestrappolation.block;
 
 import minestrapteam.minestrap_core.util.MCAssetManager;
-import minestrapteam.minestrappolation.Minestrappolation;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -19,7 +18,6 @@ public class BlockEdgeStoneBrick extends Block
 	public BlockEdgeStoneBrick()
 	{
 		super(Material.rock);
-		this.setCreativeTab(Minestrappolation.tabDecorationBlocks);
 	}
 	
 	@Override
