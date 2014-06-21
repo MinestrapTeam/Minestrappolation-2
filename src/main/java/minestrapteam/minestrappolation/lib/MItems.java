@@ -124,7 +124,7 @@ public class MItems
 	public static void init()
 	{
 		soulGem = new ItemSoulGem().setCreativeTab(Minestrappolation.tabMaterials).setTextureName(MCAssetManager.getMineralTexture("soul_gem"));
-		meuroditeGem = new MCItem().setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getMineralTexture("meurodite_gem"));
+		meuroditeGem = new MCItem().setCreativeTab(Minestrappolation.tabMaterials).setTextureName(MCAssetManager.getMineralTexture("meurodite_gem"));
 		uranium = new MCItem().setCreativeTab(Minestrappolation.tabMaterials).setTextureName(MCAssetManager.getMineralTexture("uranium"));
 		plutonium = new MCItem().setCreativeTab(Minestrappolation.tabMaterials).setTextureName(MCAssetManager.getMineralTexture("plutonium"));
 		radiantQuartz = new MItemFoiled().setCreativeTab(Minestrappolation.tabMaterials).setTextureName(MCAssetManager.getMineralTexture("radiant_quartz"));
@@ -143,7 +143,7 @@ public class MItems
 		
 		steelKey = new ItemKey().setCreativeTab(Minestrappolation.tabMisc).setTextureName(MCAssetManager.getTexture("steel_key"));
 		steelLock = new ItemLock().setCreativeTab(Minestrappolation.tabMisc).setTextureName(MCAssetManager.getTexture("steel_lock"));
-		soulBottle = new ItemSoulBottle().setCreativeTab(Minestrappolation.tabMaterials).setTextureName(MCAssetManager.getTexture("soul_bottle"));
+		soulBottle = new ItemSoulBottle().setCreativeTab(Minestrappolation.tabMisc).setTextureName(MCAssetManager.getTexture("soul_bottle"));
 		grenade = new ItemGrenade().setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getTexture("grenade"));
 		grenadeImpact = new ItemGrenadeImpact().setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getTexture("grenade"));
 		grenadeSticky = new ItemGrenadeSticky().setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getTexture("grenade"));
@@ -209,7 +209,7 @@ public class MItems
 		amuletOves = new ItemAmuletOves().setCreativeTab(Minestrappolation.tabFood).setTextureName(MCAssetManager.getTexture("amuletSheep"));
 		wingSinew = new MCItem().setCreativeTab(Minestrappolation.tabFood).setTextureName(MCAssetManager.getTexture("wingSinew"));
 		wingSegment = new MCItem().setCreativeTab(Minestrappolation.tabFood).setTextureName(MCAssetManager.getTexture("hangGliderSegment"));
-		hangGlider = new ItemHangGlider().setCreativeTab(Minestrappolation.tabFood).setTextureName(MCAssetManager.getTexture("hangGlider"));
+		hangGlider = new ItemHangGlider().setCreativeTab(Minestrappolation.tabMisc).setTextureName(MCAssetManager.getTexture("hangGlider"));
 		enderAura = new MCItem().setCreativeTab(Minestrappolation.tabFood).setTextureName(MCAssetManager.getTexture("enderAura"));
 		ghastlySoul = new MCItem().setCreativeTab(Minestrappolation.tabFood).setTextureName(MCAssetManager.getTexture("ghastlySoul"));
 		witheredBone = new MCItem().setCreativeTab(Minestrappolation.tabFood).setTextureName(MCAssetManager.getTexture("witherBone"));
