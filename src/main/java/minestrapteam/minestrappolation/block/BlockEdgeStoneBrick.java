@@ -41,6 +41,16 @@ public class BlockEdgeStoneBrick extends Block
 	}
 	
 	@Override
+	public IIcon getIcon(int side, int metadata)
+	{
+		if (metadata == 0)
+			return this.icons1[0];
+		else if (metadata == 1)
+			return this.icons2[0];
+		return this.blockIcon;
+	}
+	
+	@Override
 	public IIcon getIcon(IBlockAccess world, int x, int y, int z, int side)
 	{
 		int metadata = world.getBlockMetadata(x, y, z);
