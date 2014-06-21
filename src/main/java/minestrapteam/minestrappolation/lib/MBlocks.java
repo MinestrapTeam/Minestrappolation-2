@@ -121,8 +121,8 @@ public class MBlocks
 		invincium = new BlockInvincium(Material.rock).setBlockUnbreakable().setResistance(12000000.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockTextureName(MCAssetManager.getMineralTexture("invincium"));
 		godstone = new BlockGodstone(Material.rock).setHardness(6F).setResistance(9F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockTextureName(MCAssetManager.getMineralTexture("godstone"));
 		glowGlass = new BlockGlowGlass(Material.glass, true).setHardness(0.8F).setCreativeTab(Minestrappolation.tabDecorationBlocks).setStepSound(Block.soundTypeGlass).setBlockTextureName(MCAssetManager.getTexture("glow_glass"));
-		nuke = new BlockNuke().setHardness(0.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeGrass);
-		melterIdle = new BlockMelter(false).setHardness(6F).setResistance(8.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone);
+		nuke = new BlockNuke().setHardness(0.0F).setCreativeTab(Minestrappolation.tabTech).setStepSound(Block.soundTypeGrass);
+		melterIdle = new BlockMelter(false).setHardness(6F).setResistance(8.0F).setCreativeTab(Minestrappolation.tabTech).setStepSound(Block.soundTypeStone);
 		melterBurning = new BlockMelter(true).setHardness(6F).setResistance(8.0F).setStepSound(Block.soundTypeStone);
 		
 		checkerTiles = new BlockTiles().setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone);

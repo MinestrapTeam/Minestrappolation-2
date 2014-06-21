@@ -1,7 +1,8 @@
 package minestrapteam.minestrappolation.creativetab;
 
+import minestrapteam.minestrappolation.lib.MBlocks;
+
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 
 public class MCreativeTabTech extends CreativeTabs
@@ -14,6 +15,6 @@ public class MCreativeTabTech extends CreativeTabs
 	@Override
 	public Item getTabIconItem()
 	{
-		return Item.getItemFromBlock(Blocks.piston);
+		return Item.getItemFromBlock(MBlocks.melterBurning);
 	}
 }

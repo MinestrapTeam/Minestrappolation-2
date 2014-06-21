@@ -143,10 +143,10 @@ public class MItems
 		
 		steelKey = new ItemKey().setCreativeTab(Minestrappolation.tabMisc).setTextureName(MCAssetManager.getTexture("steel_key"));
 		steelLock = new ItemLock().setCreativeTab(Minestrappolation.tabMisc).setTextureName(MCAssetManager.getTexture("steel_lock"));
-		soulBottle = new ItemSoulBottle().setCreativeTab(Minestrappolation.tabMisc).setTextureName(MCAssetManager.getTexture("soul_bottle"));
-		grenade = new ItemGrenade().setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getTexture("grenade"));
-		grenadeNuke = new ItemGrenadeNuke().setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getTexture("grenade_nuke"));
-		grenadeSticky = new ItemGrenadeSticky().setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getTexture("grenade_sticky"));
+		soulBottle = new ItemSoulBottle().setCreativeTab(Minestrappolation.tabBrewing).setTextureName(MCAssetManager.getTexture("soul_bottle"));
+		grenade = new ItemGrenade().setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getTexture("grenade"));
+		grenadeNuke = new ItemGrenadeNuke().setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getTexture("grenade_nuke"));
+		grenadeSticky = new ItemGrenadeSticky().setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getTexture("grenade_sticky"));
 		
 		// bucketMagma
 		
