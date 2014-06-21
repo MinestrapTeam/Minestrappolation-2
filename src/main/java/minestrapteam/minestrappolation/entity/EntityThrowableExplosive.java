@@ -31,34 +31,31 @@ public abstract class EntityThrowableExplosive extends EntityThrowable
 	@Override
 	public void onUpdate()
 	{
+		this.worldObj.spawnParticle("smoke", this.posX, this.posY + 0.5D, this.posZ, 0.0D, 0.0F, 0.0D);
+		
 		double prevVelX = this.motionX;
 		double prevVelY = this.motionY;
 		double prevVelZ = this.motionZ;
 		this.moveEntity(prevVelX, prevVelY, prevVelZ);
 		
-		// Take into account bouncing (normal displacement just sets them to 0)
 		if (this.motionX != prevVelX)
 		{
 			this.motionX = -this.bounceFactor * prevVelX;
 		}
-		
 		if (this.motionY != prevVelY)
 		{
 			this.motionY = -this.bounceFactor * prevVelY;
 		}
-		
-		this.motionY -= 0.04; // Apply gravity.
-		this.worldObj.spawnParticle("smoke", this.posX, this.posY + 0.5D, this.posZ, 0.0D, 0.0F, 0.0D);
-		
 		if (this.motionZ != prevVelZ)
 		{
 			this.motionZ = -this.bounceFactor * prevVelZ;
 		}
+		this.motionY -= 0.04; // Apply gravity.
 		
 		// Air friction
-		this.motionX *= 0.89;
-		this.motionY *= 0.89;
-		this.motionZ *= 0.89;
+		this.motionX *= 0.9;
+		this.motionY *= 0.9;
+		this.motionZ *= 0.9;
 		
 		// Are we going to explode?
 		if (this.fuse-- <= 0 && !this.worldObj.isRemote)

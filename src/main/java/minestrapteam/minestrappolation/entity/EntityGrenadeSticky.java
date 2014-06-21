@@ -2,10 +2,13 @@ package minestrapteam.minestrappolation.entity;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
 public class EntityGrenadeSticky extends EntityThrowableExplosive
 {
+	private boolean impacted;
+	
 	public EntityGrenadeSticky(World world)
 	{
 		super(world);
@@ -19,6 +22,25 @@ public class EntityGrenadeSticky extends EntityThrowableExplosive
 	public EntityGrenadeSticky(World world, double x, double y, double z)
 	{
 		super(world, x, y, z);
+	}
+	
+	@Override
+	public void onUpdate()
+	{
+		super.onUpdate();
+		
+		if (this.impacted && this.inGround)
+		{
+			this.motionX = 0;
+			this.motionY = 0;
+			this.motionZ = 0;
+		}
+	}
+	
+	@Override
+	protected void onImpact(MovingObjectPosition movingobjectposition)
+	{
+		this.impacted = true;
 	}
 	
 	@Override

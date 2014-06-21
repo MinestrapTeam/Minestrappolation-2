@@ -46,7 +46,7 @@ public class MItems
 	public static Item	steelLock;
 	public static Item	soulBottle;
 	public static Item	grenade;
-	public static Item	grenadeImpact;
+	public static Item	grenadeNuke;
 	public static Item	grenadeSticky;
 	
 	public static Item	plateTinItem;
@@ -145,8 +145,8 @@ public class MItems
 		steelLock = new ItemLock().setCreativeTab(Minestrappolation.tabMisc).setTextureName(MCAssetManager.getTexture("steel_lock"));
 		soulBottle = new ItemSoulBottle().setCreativeTab(Minestrappolation.tabMisc).setTextureName(MCAssetManager.getTexture("soul_bottle"));
 		grenade = new ItemGrenade().setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getTexture("grenade"));
-		grenadeImpact = new ItemGrenadeImpact().setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getTexture("grenade"));
-		grenadeSticky = new ItemGrenadeSticky().setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getTexture("grenade"));
+		grenadeNuke = new ItemGrenadeNuke().setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getTexture("grenade_nuke"));
+		grenadeSticky = new ItemGrenadeSticky().setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getTexture("grenade_sticky"));
 		
 		// bucketMagma
 		
@@ -241,7 +241,7 @@ public class MItems
 		CSItems.addItem(steelLock, "steel_lock");
 		CSItems.addItem(soulBottle, "soul_bottle");
 		CSItems.addItem(grenade, "grenade");
-		CSItems.addItem(grenadeImpact, "impact_grenade");
+		CSItems.addItem(grenadeNuke, "nuke_grenade");
 		CSItems.addItem(grenadeSticky, "sticky_grenade");
 		CSItems.addItem(plateTinItem, "tin_plate");
 		CSItems.addItem(plateBronzeItem, "bronze_plate");

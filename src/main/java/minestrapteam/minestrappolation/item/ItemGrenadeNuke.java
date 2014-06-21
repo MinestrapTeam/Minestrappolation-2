@@ -10,9 +10,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 
-public class ItemGrenadeImpact extends Item
+public class ItemGrenadeNuke extends Item
 {
-	public ItemGrenadeImpact()
+	public ItemGrenadeNuke()
 	{
 		super();
 		this.setMaxStackSize(16);

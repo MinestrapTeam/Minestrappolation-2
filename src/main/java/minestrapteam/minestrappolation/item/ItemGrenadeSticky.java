@@ -2,7 +2,7 @@ package minestrapteam.minestrappolation.item;
 
 import java.util.List;
 
-import minestrapteam.minestrappolation.entity.EntityGrenade;
+import minestrapteam.minestrappolation.entity.EntityGrenadeSticky;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -29,7 +29,7 @@ public class ItemGrenadeSticky extends Item
 			}
 			
 			world.playSoundAtEntity(player, "random.bow", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
-			world.spawnEntityInWorld(new EntityGrenade(world, player));
+			world.spawnEntityInWorld(new EntityGrenadeSticky(world, player));
 		}
 		
 		return stack;
