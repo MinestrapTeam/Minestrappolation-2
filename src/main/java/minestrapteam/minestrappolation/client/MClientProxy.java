@@ -7,10 +7,11 @@ import cpw.mods.fml.common.network.IGuiHandler;
 import minestrapteam.minestrappolation.client.gui.GuiBarrel;
 import minestrapteam.minestrappolation.client.gui.GuiCrate;
 import minestrapteam.minestrappolation.client.gui.GuiMelter;
-import minestrapteam.minestrappolation.client.renderer.RenderGoblet;
 import minestrapteam.minestrappolation.client.renderer.RenderHangGlider;
 import minestrapteam.minestrappolation.client.renderer.RenderNukePrimed;
-import minestrapteam.minestrappolation.client.renderer.RenderPlate;
+import minestrapteam.minestrappolation.client.renderer.block.RenderBlockPlating;
+import minestrapteam.minestrappolation.client.renderer.block.RenderGoblet;
+import minestrapteam.minestrappolation.client.renderer.block.RenderPlate;
 import minestrapteam.minestrappolation.common.MCommonProxy;
 import minestrapteam.minestrappolation.entity.*;
 import minestrapteam.minestrappolation.lib.MItems;
@@ -22,11 +23,16 @@ import net.minecraft.world.World;
 
 public class MClientProxy extends MCommonProxy implements IGuiHandler
 {
+	public static int platingRenderID;
+	
 	@Override
 	public void init(FMLInitializationEvent event)
 	{
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGoblet.class, new RenderGoblet());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPlate.class, new RenderPlate());
+		
+		platingRenderID = RenderingRegistry.getNextAvailableRenderId();
+		RenderingRegistry.registerBlockHandler(platingRenderID, new RenderBlockPlating());
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityHangGlider.class, new RenderHangGlider());
 		RenderingRegistry.registerEntityRenderingHandler(EntityNukePrimed.class, new RenderNukePrimed());

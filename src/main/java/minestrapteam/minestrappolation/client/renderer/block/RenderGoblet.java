@@ -1,4 +1,4 @@
-package minestrapteam.minestrappolation.client.renderer;
+package minestrapteam.minestrappolation.client.renderer.block;
 
 import org.lwjgl.opengl.GL11;
 
