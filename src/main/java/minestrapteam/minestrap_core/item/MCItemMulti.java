@@ -50,7 +50,8 @@ public class MCItemMulti extends Item
 		
 		for (int i = 0; i < this.iconNames.length; ++i)
 		{
-			this.icons[i] = iconRegister.registerIcon(this.iconNames[i]);
+			String s = this.texturePrefix == null ? this.iconNames[i] : this.texturePrefix + ":" + this.iconNames[i];
+			this.icons[i] = iconRegister.registerIcon(s);
 		}
 	}
 }

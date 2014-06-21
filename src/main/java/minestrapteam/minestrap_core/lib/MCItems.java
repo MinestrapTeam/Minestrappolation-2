@@ -1,6 +1,6 @@
 package minestrapteam.minestrap_core.lib;
 
-import cpw.mods.fml.common.registry.GameRegistry;
+import clashsoft.cslib.minecraft.item.CSItems;
 import minestrapteam.minestrap_core.item.MCItem;
 import minestrapteam.minestrap_core.item.MCItemMulti;
 import minestrapteam.minestrap_core.util.MCAssetManager;
@@ -18,9 +18,9 @@ public class MCItems
 	
 	public static void init()
 	{
-		brickStone = new Item().setUnlocalizedName("stone_brick").setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MCAssetManager.getStonecutterTexture("stone_brick"));
-		brickSandstone = new MCItem().setUnlocalizedName("sandstone_brick").setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MCAssetManager.getStonecutterTexture("sandstone_brick"));
-		brickColoredClay = new MCItemMulti("stonecutter", new String[] {
+		brickStone = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MCAssetManager.getStonecutterTexture("stone_brick"));
+		brickSandstone = new MCItem().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MCAssetManager.getStonecutterTexture("sandstone_brick"));
+		brickColoredClay = new MCItemMulti(null, new String[] {
 				MCAssetManager.getStonecutterTexture("black_clay_brick"),
 				MCAssetManager.getStonecutterTexture("blue_clay_brick"),
 				MCAssetManager.getStonecutterTexture("brown_clay_brick"),
@@ -38,8 +38,8 @@ public class MCItems
 				MCAssetManager.getStonecutterTexture("white_clay_brick"),
 				MCAssetManager.getStonecutterTexture("yellow_clay_brick") }).setUnlocalizedName("clay_brick").setCreativeTab(Minestrappolation.tabStoneDecor);
 		
-		GameRegistry.registerItem(brickStone, "stone_brick");
-		GameRegistry.registerItem(brickSandstone, "sandstone_brick");
-		GameRegistry.registerItem(brickColoredClay, "clay_brick");
+		CSItems.addItem(brickStone, "stone_brick");
+		CSItems.addItem(brickSandstone, "sandstone_brick");
+		CSItems.addItem(brickColoredClay, "clay_brick");
 	}
 }
