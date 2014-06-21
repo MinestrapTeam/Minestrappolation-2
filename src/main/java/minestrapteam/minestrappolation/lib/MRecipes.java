@@ -4,6 +4,7 @@ import static minestrapteam.minestrappolation.lib.MBlocks.*;
 import static minestrapteam.minestrappolation.lib.MItems.*;
 import static minestrapteam.minestrappolation.lib.MTools.*;
 import cpw.mods.fml.common.registry.GameRegistry;
+import minestrapteam.minestrap_core.crafting.RecipesPlatings;
 import minestrapteam.minestrap_core.util.MCUtil;
 
 import net.minecraft.init.Blocks;
@@ -14,6 +15,8 @@ public class MRecipes
 {
 	public static void load()
 	{
+		GameRegistry.addRecipe(new RecipesPlatings());
+		
 		GameRegistry.addSmelting(MBlocks.blaziumOre, new ItemStack(Items.blaze_powder, 3), 1.0F);
 		
 		GameRegistry.addSmelting(MBlocks.meuroditeOre, new ItemStack(MItems.meuroditeGem, 1), 1.0F);
