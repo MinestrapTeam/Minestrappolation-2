@@ -5,6 +5,7 @@ import static minestrapteam.minestrappolation.lib.MItems.*;
 import static minestrapteam.minestrappolation.lib.MTools.*;
 import cpw.mods.fml.common.registry.GameRegistry;
 import minestrapteam.minestrap_core.crafting.RecipesPlatings;
+import minestrapteam.minestrap_core.lib.MCItems;
 import minestrapteam.minestrap_core.util.MCUtil;
 
 import net.minecraft.init.Blocks;
@@ -189,8 +190,8 @@ public class MRecipes
 		// TODO ED RECIPES
 		GameRegistry.addRecipe(new ItemStack(MItems.goblet, 1), new Object[] { "D D", " D ", Character.valueOf('D'), Items.gold_ingot });
 		
-		// GameRegistry.addRecipe(new ItemStack(edgeStoneBrick), new
-		// Object[] { "SQ", "SQ", 'S', MCItems.brickStone, 'Q', Items.quartz });
+		GameRegistry.addRecipe(new ItemStack(edgeStoneBrick, 1, 0), new Object[] { "SQ", "SQ", 'S', MCItems.brickStone, 'Q', Items.quartz });
+		GameRegistry.addRecipe(new ItemStack(edgeStoneBrick, 1, 1), new Object[] { "SQ", "SQ", 'S', MCItems.brickStone, 'Q', Items.flint });
 		
 		GameRegistry.addRecipe(new ItemStack(snowBrick, 4), new Object[] { "SS", "SS", Character.valueOf('S'), Blocks.snow });
 		GameRegistry.addSmelting(Blocks.glass, new ItemStack(glassRefined), 20);

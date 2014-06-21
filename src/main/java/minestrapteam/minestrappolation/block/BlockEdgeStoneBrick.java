@@ -1,19 +1,23 @@
 package minestrapteam.minestrappolation.block;
 
+import java.util.List;
+
 import minestrapteam.minestrap_core.util.MCAssetManager;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 
 public class BlockEdgeStoneBrick extends Block
 {
-	private IIcon	left;
-	private IIcon	right;
-	private IIcon	half;
+	private IIcon[] icons1;
+	private IIcon[] icons2;
 	
 	public BlockEdgeStoneBrick()
 	{
@@ -23,15 +27,23 @@ public class BlockEdgeStoneBrick extends Block
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("edgestone"));
-		this.left = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("edgestone_left"));
-		this.right = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("edgestone_right"));
-		this.half = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("edgestone_half"));
+		this.icons1 = new IIcon[4];
+		this.icons2 = new IIcon[4];
+		
+		this.icons1[0] = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("edgestone"));
+		this.icons1[1] = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("edgestone_left"));
+		this.icons1[2] = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("edgestone_right"));
+		this.icons1[3] = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("edgestone_half"));
+		this.icons2[0] = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("dark_edgestone"));
+		this.icons2[1] = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("dark_edgestone_left"));
+		this.icons2[2] = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("dark_edgestone_right"));
+		this.icons2[3] = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("dark_edgestone_half"));
 	}
 	
 	@Override
 	public IIcon getIcon(IBlockAccess world, int x, int y, int z, int side)
 	{
+		int metadata = world.getBlockMetadata(x, y, z);
 		boolean x1 = this.isBrick(world, x + 1, y, z);
 		boolean z1 = this.isBrick(world, x, y, z + 1);
 		boolean x2 = this.isBrick(world, x - 1, y, z);
@@ -82,17 +94,10 @@ public class BlockEdgeStoneBrick extends Block
 			}
 		}
 		
-		switch (b)
-		{
-		case 0:
-			return this.blockIcon;
-		case 1:
-			return this.left;
-		case 2:
-			return this.right;
-		case 3:
-			return this.half;
-		}
+		if (metadata == 0)
+			return this.icons1[b];
+		else if (metadata == 1)
+			return this.icons2[b];
 		return this.blockIcon;
 	}
 	
@@ -100,5 +105,12 @@ public class BlockEdgeStoneBrick extends Block
 	{
 		Block block = world.getBlock(x, y, z);
 		return block == this || block == Blocks.stonebrick;
+	}
+	
+	@Override
+	public void getSubBlocks(Item item, CreativeTabs tab, List list)
+	{
+		list.add(new ItemStack(item, 1, 0));
+		list.add(new ItemStack(item, 1, 1));
 	}
 }
