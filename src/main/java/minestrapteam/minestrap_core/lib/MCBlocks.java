@@ -55,10 +55,8 @@ public class MCBlocks
 	public static Block	netherQuartz2;
 	public static Block	desertQuartz;
 	public static Block	desertQuartz2;
-	
-	// TODO add radiant quartz when textures are finished
-	// public static Block radiantQuartz;
-	// public static Block radiantQuartz2;
+	public static Block	radiantQuartz;
+	public static Block	radiantQuartz2;
 	
 	public static Block	clay;
 	public static Block	clay2;
@@ -152,6 +150,8 @@ public class MCBlocks
 		
 		sandstone = MCBlockHelper.createStoneBlock(types_sandstone, "sandstone", 1.5F, tab);
 		sandstone2 = MCBlockHelper.createStoneBlock2(types_sandstone_2, "sandstone", 1.5F, tab);
+		redSandstone = MCBlockHelper.createStoneBlock("red_sandstone", 1.5F, tab);
+		redSandstone2 = MCBlockHelper.createStoneBlock2("red_sandstone", 1.5F, tab);
 		flint = MCBlockHelper.createStoneBlock(types_flint, "flint", 1F, tab);
 		flint2 = MCBlockHelper.createStoneBlock2("flint", 1F, tab);
 		lapis = MCBlockHelper.createStoneBlock(types_lapis, "lapis", 1F, tab).setChiseledSided();
@@ -168,12 +168,8 @@ public class MCBlocks
 		netherQuartz2 = MCBlockHelper.createStoneBlock2(types_netherquartz_2, "netherquartz", 1F, tab);
 		desertQuartz = MCBlockHelper.createStoneBlock(types_desertquartz, "desertquartz", 1F, tab).setChiseledSided();
 		desertQuartz2 = MCBlockHelper.createStoneBlock2(types_desertquartz_2, "desertquartz", 1F, tab);
-		
-		// TODO add radiant quartz when textures are finished
-		// radiantQuartz = MCBlockHelper.createStoneBlock("radiant_quartz", 1F,
-		// tab);
-		// radiantQuartz2= MCBlockHelper.createStoneBlock2("radiant_quartz", 1F,
-		// tab);
+		radiantQuartz = MCBlockHelper.createStoneBlock("radiant_quartz", 1F, tab);
+		radiantQuartz2 = MCBlockHelper.createStoneBlock2("radiant_quartz", 1F, tab);
 		
 		clay = MCBlockHelper.createStoneBlock(types_clay, "clay", 2F, tab).setClayChiseled();
 		clay2 = MCBlockHelper.createStoneBlock2(types_clay_2, "clay", 2F, tab);
