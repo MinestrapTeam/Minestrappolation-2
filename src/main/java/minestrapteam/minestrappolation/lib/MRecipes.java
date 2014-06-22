@@ -244,5 +244,42 @@ public class MRecipes
 	public static void removeRecipes()
 	{
 		MCUtil.removeRecipe(new ItemStack(Blocks.stonebrick, 4, 0));
+		MCUtil.removeRecipe(new ItemStack(Blocks.sandstone, 4, 2));
+		MCUtil.removeRecipe(new ItemStack(Blocks.sandstone, 1, 1));
+		MCUtil.removeRecipe(new ItemStack(Blocks.stone_slab, 6, 0));
+		MCUtil.removeRecipe(new ItemStack(Blocks.stone_slab, 6, 1));
+		MCUtil.removeRecipe(new ItemStack(Blocks.stone_slab, 6, 2));
+		MCUtil.removeRecipe(new ItemStack(Blocks.stone_slab, 6, 3));
+		MCUtil.removeRecipe(new ItemStack(Blocks.stone_slab, 6, 4));
+		MCUtil.removeRecipe(new ItemStack(Blocks.stone_slab, 6, 5));
+		MCUtil.removeRecipe(new ItemStack(Blocks.stone_slab, 6, 6));
+		MCUtil.removeRecipe(new ItemStack(Blocks.stone_slab, 7, 6));
+		MCUtil.removeRecipe(new ItemStack(Blocks.brick_block, 1, 0));
+		MCUtil.removeRecipe(new ItemStack(Blocks.stone_stairs, 4, 0));
+		MCUtil.removeRecipe(new ItemStack(Blocks.brick_stairs, 4, 0));
+		MCUtil.removeRecipe(new ItemStack(Blocks.stone_brick_stairs, 4, 0));
+		MCUtil.removeRecipe(new ItemStack(Blocks.nether_brick_stairs, 4, 0));
+		MCUtil.removeRecipe(new ItemStack(Blocks.sandstone_stairs, 4, 0));
+		MCUtil.removeRecipe(new ItemStack(Blocks.cobblestone_wall, 6, 0));
+		MCUtil.removeRecipe(new ItemStack(Blocks.cobblestone_wall, 6, 1));
+		MCUtil.removeRecipe(new ItemStack(Blocks.quartz_block, 1, 1));
+		MCUtil.removeRecipe(new ItemStack(Blocks.quartz_block, 2, 2));
+		MCUtil.removeRecipe(new ItemStack(Blocks.quartz_stairs, 4, 0));
+		MCUtil.removeRecipe(new ItemStack(Blocks.stained_hardened_clay, 8, 0));
+		MCUtil.removeRecipe(new ItemStack(Blocks.stained_hardened_clay, 8, 1));
+		MCUtil.removeRecipe(new ItemStack(Blocks.stained_hardened_clay, 8, 2));
+		MCUtil.removeRecipe(new ItemStack(Blocks.stained_hardened_clay, 8, 3));
+		MCUtil.removeRecipe(new ItemStack(Blocks.stained_hardened_clay, 8, 4));
+		MCUtil.removeRecipe(new ItemStack(Blocks.stained_hardened_clay, 8, 5));
+		MCUtil.removeRecipe(new ItemStack(Blocks.stained_hardened_clay, 8, 6));
+		MCUtil.removeRecipe(new ItemStack(Blocks.stained_hardened_clay, 8, 7));
+		MCUtil.removeRecipe(new ItemStack(Blocks.stained_hardened_clay, 8, 8));
+		MCUtil.removeRecipe(new ItemStack(Blocks.stained_hardened_clay, 8, 9));
+		MCUtil.removeRecipe(new ItemStack(Blocks.stained_hardened_clay, 8, 10));
+		MCUtil.removeRecipe(new ItemStack(Blocks.stained_hardened_clay, 8, 11));
+		MCUtil.removeRecipe(new ItemStack(Blocks.stained_hardened_clay, 8, 12));
+		MCUtil.removeRecipe(new ItemStack(Blocks.stained_hardened_clay, 8, 13));
+		MCUtil.removeRecipe(new ItemStack(Blocks.stained_hardened_clay, 8, 14));
+		MCUtil.removeRecipe(new ItemStack(Blocks.stained_hardened_clay, 8, 15));
 	}
 }
