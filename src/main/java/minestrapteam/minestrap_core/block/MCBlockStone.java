@@ -100,6 +100,12 @@ public class MCBlockStone extends Block
 	}
 	
 	@Override
+	public int damageDropped(int metadata)
+	{
+		return metadata;
+	}
+	
+	@Override
 	public float getBlockHardness(World world, int x, int y, int z)
 	{
 		return this.getHardness(world.getBlockMetadata(x, y, z));
