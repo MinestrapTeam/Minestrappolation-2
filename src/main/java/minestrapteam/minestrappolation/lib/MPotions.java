@@ -2,7 +2,6 @@ package minestrapteam.minestrappolation.lib;
 
 import clashsoft.brewingapi.potion.IPotionEffectHandler;
 import clashsoft.brewingapi.potion.recipe.PotionRecipes;
-import clashsoft.brewingapi.potion.type.PotionType;
 import minestrapteam.minestrap_core.potion.MCPotion;
 import minestrapteam.minestrap_core.util.MCAssetManager;
 
@@ -25,10 +24,6 @@ public class MPotions implements IPotionEffectHandler
 		infectious = new MCPotion("potion.infectious", 0x000000, true).setIcon(iconLoc, 0, 6);
 	}
 	
-	/**
-	 * Where all {@link PotionType} objects are instianted for brewing recipes
-	 * (view {@link PotionType} for help).
-	 */
 	public static void loadBrewingRecipes()
 	{
 		PotionRecipes.addRecipe(new ItemStack(MItems.airSack), new PotionEffect(Potion.waterBreathing.id, 120 * 20, 0));
