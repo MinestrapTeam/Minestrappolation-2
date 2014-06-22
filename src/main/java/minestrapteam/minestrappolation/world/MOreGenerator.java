@@ -179,13 +179,13 @@ public class MOreGenerator implements IWorldGenerator
 			new WorldGenMinable(MBlocks.radiantQuartzOre, 3).generate(world, rand, x1, y1, z1);
 		}
 		
-//		for (int i = 0; i < 16; i++)
-//		{
-//			for (int j = 0; j < 16; j++)
-//			{
-//				world.setBlock(chunkX + i, 0, chunkZ + j, MBlocks.invincium);
-//			}
-//		}
+		for (x1 = 0; x1 < 16; x1++)
+		{
+			for (z1 = 0; z1 < 16; z1++)
+			{
+				world.setBlock(chunkX + x1, 0, chunkZ + z1, MBlocks.invincium, 0, 0);
+			}
+		}
 	}
 	
 	public void generateNether(World world, Random rand, int chunkX, int chunkZ)
@@ -213,7 +213,7 @@ public class MOreGenerator implements IWorldGenerator
 		{
 			for (int j = 0; j < 16; j++)
 			{
-				world.setBlock(chunkX + i, 0, chunkZ + j, MBlocks.invincium);
+				world.setBlock(chunkX + i, 0, chunkZ + j, MBlocks.invincium, 0, 0);
 			}
 		}
 	}
