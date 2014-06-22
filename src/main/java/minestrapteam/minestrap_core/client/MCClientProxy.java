@@ -9,10 +9,10 @@ import minestrapteam.minestrap_core.client.renderer.block.RenderBlockWood2;
 import minestrapteam.minestrap_core.client.renderer.tileentity.RenderStonecutter;
 import minestrapteam.minestrap_core.common.MCCommonProxy;
 import minestrapteam.minestrap_core.tileentity.TileEntityStonecutter;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ThreadDownloadImageData;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
@@ -23,10 +23,9 @@ public class MCClientProxy extends MCCommonProxy
 	@Override
 	public Object getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
 	{
-		TileEntity te = world.getTileEntity(x, y, z);
-		if (te instanceof TileEntityStonecutter)
+		if (id == 0)
 		{
-			return new GuiStonecutter(player.inventory, (TileEntityStonecutter) te, world, x, y, z);
+			return new GuiStonecutter(player.inventory, (TileEntityStonecutter) world.getTileEntity(x, y, z), world, x, y, z);
 		}
 		return null;
 	}

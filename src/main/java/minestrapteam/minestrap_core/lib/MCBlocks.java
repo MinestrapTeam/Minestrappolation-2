@@ -1,6 +1,6 @@
 package minestrapteam.minestrap_core.lib;
 
-import cpw.mods.fml.common.registry.GameRegistry;
+import clashsoft.cslib.minecraft.block.CSBlocks;
 import minestrapteam.minestrap_core.block.MCBlockStonecutter;
 import minestrapteam.minestrap_core.util.MCAssetManager;
 import minestrapteam.minestrap_core.util.MCBlockHelper;
@@ -101,8 +101,8 @@ public class MCBlocks
 	
 	public static void init()
 	{
-		stoneCutter = new MCBlockStonecutter().setBlockName("stoneCutter").setBlockTextureName(MCAssetManager.getMachineTexture("stonecutter")).setHardness(3.5F).setStepSound(Block.soundTypeStone);
-		GameRegistry.registerBlock(stoneCutter, "stoneCutter");
+		stoneCutter = new MCBlockStonecutter().setCreativeTab(Minestrappolation.tabTech).setBlockTextureName(MCAssetManager.getMachineTexture("stonecutter")).setHardness(3.5F).setStepSound(Block.soundTypeStone);
+		CSBlocks.addBlock(stoneCutter, "stonecutter");
 		
 		CreativeTabs tab = Minestrappolation.tabStoneDecor;
 		CreativeTabs tab_decor = Minestrappolation.tabDecorationBlocks;

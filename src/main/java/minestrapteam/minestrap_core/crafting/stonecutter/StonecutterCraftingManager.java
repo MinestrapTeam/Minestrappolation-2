@@ -16,7 +16,7 @@ public class StonecutterCraftingManager
 	public static final StonecutterCraftingManager	instance	= new StonecutterCraftingManager();
 	
 	/** A list of all the recipes added */
-	private List									recipes		= new ArrayList();
+	private List<IStonecutterRecipe>				recipes		= new ArrayList();
 	
 	private StonecutterCraftingManager()
 	{
@@ -169,9 +169,8 @@ public class StonecutterCraftingManager
 	
 	public ItemStack findMatchingRecipe(InventoryCrafting inventory, ItemStack extra, World world)
 	{
-		for (int i = 0; i < this.recipes.size(); ++i)
+		for (IStonecutterRecipe recipe : this.recipes)
 		{
-			IStonecutterRecipe recipe = (IStonecutterRecipe) this.recipes.get(i);
 			if (recipe.matches(inventory, extra, world))
 			{
 				return recipe.getCraftingResult(inventory, extra);

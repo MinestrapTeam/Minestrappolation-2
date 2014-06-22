@@ -2,7 +2,6 @@ package minestrapteam.minestrap_core.block;
 
 import minestrapteam.minestrap_core.MinestrappolationCore;
 import minestrapteam.minestrap_core.tileentity.TileEntityStonecutter;
-import minestrapteam.minestrappolation.Minestrappolation;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
@@ -19,7 +18,6 @@ public class MCBlockStonecutter extends BlockContainer
 	public MCBlockStonecutter()
 	{
 		super(Material.rock);
-		this.setCreativeTab(Minestrappolation.tabTech);
 	}
 	
 	@Override
