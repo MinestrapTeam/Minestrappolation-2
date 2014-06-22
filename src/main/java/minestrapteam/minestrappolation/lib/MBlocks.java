@@ -13,79 +13,85 @@ import minestrapteam.minestrappolation.tileentity.TileEntityPlate;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
 
 public class MBlocks
 {
-	public static final Material	materialOoze	= new MaterialOoze(MapColor.foliageColor);
+	public static Material	materialOoze	= new MaterialOoze(MapColor.foliageColor);
 	
-	public static Block				copperOre;
-	public static Block				tinOre;
-	public static Block				titaniumOre;
-	public static Block				uraniumOre;
-	public static Block				plutoniumOre;
-	public static Block				meuroditeOre;
-	public static Block				sunstoneOre;
-	public static Block				toriteOre;
-	public static Block				blaziumOre;
-	public static Block				soulOre;
-	public static Block				radiantQuartzOre;
+	public static Block		bedrock2;
 	
-	public static Block				copperBlock;
-	public static Block				tinBlock;
-	public static Block				bronzeBlock;
-	public static Block				titaniumBlock;
-	public static Block				uraniumBlock;
-	public static Block				uraniumInsulated;
-	public static Block				plutoniumBlock;
-	public static Block				plutoniumInsulated;
-	public static Block				meuroditeBlock;
-	public static Block				sunstoneBlock;
-	public static Block				toriteBlock;
-	public static Block				blaziumBlock;
-	public static Block				steelBlock;
-	public static Block				soulBlock;
+	public static Block		copperOre;
+	public static Block		tinOre;
+	public static Block		titaniumOre;
+	public static Block		uraniumOre;
+	public static Block		plutoniumOre;
+	public static Block		meuroditeOre;
+	public static Block		sunstoneOre;
+	public static Block		toriteOre;
+	public static Block		blaziumOre;
+	public static Block		soulOre;
+	public static Block		radiantQuartzOre;
 	
-	public static Block				tinPlate;
-	public static Block				bronzePlate;
-	public static Block				steelPlate;
-	public static Block				meuroditePlate;
+	public static Block		copperBlock;
+	public static Block		tinBlock;
+	public static Block		bronzeBlock;
+	public static Block		titaniumBlock;
+	public static Block		uraniumBlock;
+	public static Block		uraniumInsulated;
+	public static Block		plutoniumBlock;
+	public static Block		plutoniumInsulated;
+	public static Block		meuroditeBlock;
+	public static Block		sunstoneBlock;
+	public static Block		toriteBlock;
+	public static Block		blaziumBlock;
+	public static Block		steelBlock;
+	public static Block		soulBlock;
 	
-	public static Block				invincium;
-	public static Block				godstone;
+	public static Block		tinPlate;
+	public static Block		bronzePlate;
+	public static Block		steelPlate;
+	public static Block		meuroditePlate;
 	
-	public static Block				glowGlass;
+	public static Block		invincium;
+	public static Block		godstone;
 	
-	public static Block				nuke;
+	public static Block		glowGlass;
 	
-	public static Block				melterIdle;
-	public static Block				melterBurning;
+	public static Block		nuke;
 	
-	public static Block				checkerTiles;
-	public static Block				edgeStoneBrick;
-	public static Block				snowBrick;
-	public static Block				glassRefined;
-	public static Block				glassRefinedPane;
+	public static Block		melterIdle;
+	public static Block		melterBurning;
 	
-	public static Block				gunpowderBlock;
-	public static Block				sugarBlock;
-	public static Block				meatBlock;
-	public static Block				enderBlock;
-	public static Block				slimeOoze;
-	public static Block				magmaOoze;
+	public static Block		checkerTiles;
+	public static Block		edgeStoneBrick;
+	public static Block		snowBrick;
+	public static Block		glassRefined;
+	public static Block		glassRefinedPane;
 	
-	public static Block				goblet;
-	public static Block				plate;
-	public static Block				rope;
-	public static Block				ropeCoil;
-	public static Block				crate;
-	public static Block				barrel;
-	public static Block				cardboard;
-	public static Block				cardboardBlock;
+	public static Block		gunpowderBlock;
+	public static Block		sugarBlock;
+	public static Block		meatBlock;
+	public static Block		enderBlock;
+	public static Block		slimeOoze;
+	public static Block		magmaOoze;
 	
-	public static Block				glassDoor;
+	public static Block		goblet;
+	public static Block		plate;
+	public static Block		rope;
+	public static Block		ropeCoil;
+	public static Block		crate;
+	public static Block		barrel;
+	public static Block		cardboard;
+	public static Block		cardboardBlock;
+	
+	public static Block		glassDoor;
 	
 	public static void init()
 	{
+		bedrock2 = new BlockBedrock2().setHardness(40F).setResistance(6000000.0F).setStepSound(Block.soundTypeStone).setCreativeTab(CreativeTabs.tabBlock).setBlockName("bedrock").setBlockTextureName("bedrock");
+		
 		copperOre = new MCBlock(Material.rock).setHardness(3F).setResistance(5F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MCAssetManager.getMineralTexture("copper_ore"));
 		tinOre = new MCBlock(Material.rock).setHardness(3F).setResistance(5F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MCAssetManager.getMineralTexture("tin_ore"));
 		titaniumOre = new MCBlock(Material.rock).setHardness(10F).setResistance(15F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MCAssetManager.getMineralTexture("titanium_ore"));
@@ -155,6 +161,8 @@ public class MBlocks
 	public static void load()
 	{
 		GameRegistry.registerTileEntity(TileEntityPlate.class, "Plate");
+		
+		CSBlocks.replaceBlock(Blocks.bedrock, bedrock2);
 		
 		CSBlocks.addBlock(copperOre, "copper_ore");
 		CSBlocks.addBlock(tinOre, "tin_ore");

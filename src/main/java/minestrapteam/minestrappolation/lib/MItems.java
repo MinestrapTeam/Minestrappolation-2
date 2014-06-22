@@ -315,8 +315,6 @@ public class MItems
 	
 	public static void setHarvestLevels()
 	{
-		Blocks.bedrock.setHardness(80F);
-		Blocks.bedrock.setHarvestLevel("pickaxe", 5);
 		Blocks.diamond_ore.setHarvestLevel("pickaxe", 3);
 		Blocks.diamond_block.setHarvestLevel("pickaxe", 3);
 		Blocks.obsidian.setHarvestLevel("pickaxe", 4);
@@ -325,6 +323,7 @@ public class MItems
 		Items.diamond_pickaxe.setHarvestLevel("pickaxe", 4);
 		Items.diamond_axe.setHarvestLevel("axe", 4);
 		
+		MBlocks.bedrock2.setHarvestLevel("pickaxe", 5);
 		MBlocks.copperOre.setHarvestLevel("pickaxe", 0);
 		MBlocks.copperBlock.setHarvestLevel("pickaxe", 0);
 		MBlocks.tinOre.setHarvestLevel("pickaxe", 1);

@@ -57,6 +57,7 @@ public class Minestrappolation extends BaseMod
 	public static boolean				shouldOresEffect	= true;
 	public static int					daysUntilTarnish;
 	public static int					daysUntilMossy;
+	public static int					bedrockDamage		= 2000;
 	
 	public Minestrappolation()
 	{
@@ -71,6 +72,7 @@ public class Minestrappolation extends BaseMod
 		daysUntilTarnish = CSConfig.getInt("misc", "Days until copper tarnish", 3);
 		shouldOresEffect = CSConfig.getBool("misc", "Should Plutonium/Uranium ores affect the player", true);
 		daysUntilMossy = CSConfig.getInt("misc", "Days Until Planks Get Mossy", 3);
+		bedrockDamage = CSConfig.getInt("blocks", "Bedrock Damage", 2000);
 	}
 	
 	@Override
@@ -117,8 +119,8 @@ public class Minestrappolation extends BaseMod
 		MPotions.loadPotions();
 		MPotions.loadBrewingRecipes();
 		
-		EntityRegistry.registerGlobalEntityID(EntityHangGlider.class, "hangGlider", EntityRegistry.findGlobalUniqueEntityId());
-		GameRegistry.registerTileEntityWithAlternatives(TileEntityMelter.class, "Melter", "tileEntityMelter");
+		EntityRegistry.registerGlobalEntityID(EntityHangGlider.class, "HangGlider", EntityRegistry.findGlobalUniqueEntityId());
+		GameRegistry.registerTileEntityWithAlternatives(TileEntityMelter.class, "Melter");
 		
 		VillagerRegistry.instance().registerVillageTradeHandler(3, new BlacksmithTradeHandler());
 		VillagerRegistry.instance().registerVillageTradeHandler(2, new PriestTradeHandler());
