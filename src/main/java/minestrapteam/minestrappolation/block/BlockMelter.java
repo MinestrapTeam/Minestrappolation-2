@@ -161,10 +161,9 @@ public class BlockMelter extends BlockContainer
 			if (te instanceof TileEntityMelter)
 			{
 				player.openGui(Minestrappolation.instance, 2, world, x, y, z);
-				return true;
 			}
 		}
-		return false;
+		return true;
 	}
 	
 	public static void updateBlockState(boolean active, World world, int x, int y, int z)

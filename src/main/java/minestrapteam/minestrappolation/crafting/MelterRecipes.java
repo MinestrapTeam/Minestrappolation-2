@@ -39,18 +39,5 @@ public class MelterRecipes extends ExperienceRecipeManager
 		// this.addRecipe(MBlocks.Granite, new ItemStack(Items.lava_bucket, 1,
 		// 0), 0.7F);
 		this.addRecipe(Blocks.glowstone, new ItemStack(MBlocks.glowGlass), 0.7F);
-		
-		// addSmelting(EDBlockManager.obsidianTile, new
-		// ItemStack(EOItemManager.bucketMagma,1,0), 0.7F);
-		// addSmelting(EDBlockManager.bedrockBrick, new
-		// ItemStack(EOItemManager.bucketMagma,1,0), 0.7F);
-		// addSmelting(new ItemStack(EDBlockManager.snowBrick), new
-		// ItemStack(Items.water_bucket, 1, 0), 0.7F);
-		// addSmelting(new ItemStack(EDBlockManager.stones), 0, new
-		// ItemStack(Items.lava_bucket, 1, 0), 0.7F);
-		// addSmelting(new ItemStack(EDBlockManager.stonePillar), new
-		// ItemStack(Items.lava_bucket, 1, 0), 0.7F);
-		// addSmelting(new ItemStack(EDBlockManager.stones), 1, new
-		// ItemStack(Items.lava_bucket, 1, 0), 0.7F);
 	}
 }
