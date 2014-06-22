@@ -22,8 +22,8 @@ import net.minecraft.creativetab.CreativeTabs;
  */
 public class MCBlockHelper
 {
-	public static final String[]	types		= new String[] { "raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", "cracked", "mossy", null, null, null, null, null, "glowstone_lamp", "sunstone_lamp" };
-	public static final String[]	types2		= new String[] { "pillar", "raw_slab", "brick_slab", "tile_slab", "refined_slab" };
+	public static final String[]	stoneTypes	= new String[] { "raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", "cracked", "mossy", null, null, null, null, null, "glowstone_lamp", "sunstone_lamp" };
+	public static final String[]	stoneTypes2	= new String[] { "pillar", "raw_slab", "brick_slab", "tile_slab", "refined_slab" };
 	
 	public static final String[]	woodTypes	= new String[] { "bevel", "boards", "panel", "mossy_planks" };
 	public static final String[]	woodTypes2	= new String[] { "bevel_slab", "boards_slab", "panel_slab", "mossy_planks_slab" };
@@ -35,7 +35,7 @@ public class MCBlockHelper
 	
 	public static MCBlockWood createWoodBlock(String[] types, String name, CreativeTabs tab)
 	{
-		String name1 = "w_" + name;
+		String name1 = "wood_" + name;
 		MCBlockWood block = new MCBlockWood(types, name);
 		block.setBlockName(name1).setBlockTextureName(MCAssetManager.getWoodTexture(name)).setCreativeTab(tab);
 		GameRegistry.registerBlock(block, MCItemBlockWood.class, name1);
@@ -49,7 +49,7 @@ public class MCBlockHelper
 	
 	public static MCBlockWood2 createWoodBlock2(String[] types, String name, CreativeTabs tab)
 	{
-		String name1 = "w2_" + name;
+		String name1 = "wood_slab_" + name;
 		MCBlockWood2 block = new MCBlockWood2(woodTypes2, name);
 		block.setBlockName(name1).setBlockTextureName(MCAssetManager.getWoodTexture(name)).setCreativeTab(tab);
 		GameRegistry.registerBlock(block, MCItemBlockWood2.class, name1);
@@ -58,29 +58,30 @@ public class MCBlockHelper
 	
 	public static MCBlockStone createStoneBlock(String name, float hardness, CreativeTabs tab)
 	{
-		return createStoneBlock(types, name, hardness, tab);
+		return createStoneBlock(stoneTypes, name, hardness, tab);
 	}
 	
 	public static MCBlockStone createStoneBlock(String[] types, String name, float hardness, CreativeTabs tab)
 	{
-		String name1 = "sc_" + name;
+		String name1 = "stone_" + name;
 		MCBlockStone block = new MCBlockStone(types, name, hardness);
 		block.setBlockName(name1).setBlockTextureName(MCAssetManager.getStonecutterTexture(name)).setCreativeTab(tab);
+		block.setHarvestLevel("pickaxe", (int) hardness - 1);
 		GameRegistry.registerBlock(block, MCItemBlockStone.class, name1);
 		return block;
 	}
 	
 	public static MCBlockStone2 createStoneBlock2(String name, float hardness, CreativeTabs tab)
 	{
-		return createStoneBlock2(types2, name, hardness, tab);
+		return createStoneBlock2(stoneTypes2, name, hardness, tab);
 	}
 	
 	public static MCBlockStone2 createStoneBlock2(String[] types, String name, float hardness, CreativeTabs tab)
 	{
-		
-		String name1 = "sc2_" + name;
+		String name1 = "stone_slab_" + name;
 		MCBlockStone2 block = new MCBlockStone2(types, name, hardness);
 		block.setBlockName(name1).setBlockTextureName(MCAssetManager.getStonecutterTexture(name)).setCreativeTab(tab);
+		block.setHarvestLevel("pickaxe", (int) hardness - 1);
 		GameRegistry.registerBlock(block, MCItemBlockStone2.class, name1);
 		return block;
 	}
