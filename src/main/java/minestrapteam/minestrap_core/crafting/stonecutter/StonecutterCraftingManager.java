@@ -20,9 +20,6 @@ public class StonecutterCraftingManager
 	
 	private StonecutterCraftingManager()
 	{
-		// add recipes
-		this.addRecipe(new ItemStack(Items.stick, 1), new ItemStack(Items.stick, 1), new Object[] { " S ", " S ", " S ", 'S', Items.stick });
-		
 		Object[] objects = new Object[] { "CCC", "CCC", "CCC", 'C', Blocks.hardened_clay };
 		this.addRecipe(new ItemStack(Blocks.stained_hardened_clay, 9, 0), new ItemStack(Items.dye, 1, 15), objects);
 		this.addRecipe(new ItemStack(Blocks.stained_hardened_clay, 9, 1), new ItemStack(Items.dye, 1, 14), objects);
