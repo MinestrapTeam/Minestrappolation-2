@@ -345,14 +345,12 @@ public class MItems
 		MBlocks.plutoniumBlock.setHarvestLevel("pickaxe", 0);
 		MBlocks.godstone.setHarvestLevel("pickaxe", 2);
 		MBlocks.soulBlock.setHarvestLevel("pickaxe", 4);
-		Blocks.bedrock.setHarvestLevel("pickaxe", 4);
 		
 		MBlocks.snowBrick.setHarvestLevel("shovel", 0);
 		MBlocks.gunpowderBlock.setHarvestLevel("shovel", 0);
 		MBlocks.sugarBlock.setHarvestLevel("shovel", 0);
 		MBlocks.ropeCoil.setHarvestLevel("shears", 0);
 		MBlocks.rope.setHarvestLevel("shears", 0);
-		// MBlocks.checkerTileStairs.setHarvestLevel("pickaxe", 1);
 		MBlocks.slimeOoze.setHarvestLevel("shovel", 0);
 		MBlocks.magmaOoze.setHarvestLevel("shovel", 0);
 	}

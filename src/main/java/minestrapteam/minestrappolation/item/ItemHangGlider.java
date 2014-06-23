@@ -17,14 +17,16 @@ public class ItemHangGlider extends MCItem
 	}
 	
 	@Override
-	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
+	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
 	{
+		if (!player.capabilities.isCreativeMode)
+		{
+			stack.stackSize -= 1;
+		}
 		if (!world.isRemote)
 		{
-			EntityHangGlider entity = new EntityHangGlider(world, x, y, z, player, stack);
-			world.spawnEntityInWorld(entity);
-			return true;
+			world.spawnEntityInWorld(new EntityHangGlider(world, player));
 		}
-		return false;
+		return stack;
 	}
 }

@@ -2,6 +2,7 @@ package minestrapteam.minestrappolation;
 
 import clashsoft.brewingapi.BrewingAPI;
 import clashsoft.cslib.config.CSConfig;
+import clashsoft.cslib.minecraft.entity.CSEntities;
 import clashsoft.cslib.minecraft.init.BaseMod;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -119,8 +120,8 @@ public class Minestrappolation extends BaseMod
 		MPotions.loadPotions();
 		MPotions.loadBrewingRecipes();
 		
-		EntityRegistry.registerGlobalEntityID(EntityHangGlider.class, "HangGlider", EntityRegistry.findGlobalUniqueEntityId());
-		GameRegistry.registerTileEntityWithAlternatives(TileEntityMelter.class, "Melter");
+		CSEntities.register("HangGlider", 700, EntityHangGlider.class);
+		GameRegistry.registerTileEntity(TileEntityMelter.class, "Melter");
 		
 		VillagerRegistry.instance().registerVillageTradeHandler(3, new BlacksmithTradeHandler());
 		VillagerRegistry.instance().registerVillageTradeHandler(2, new PriestTradeHandler());

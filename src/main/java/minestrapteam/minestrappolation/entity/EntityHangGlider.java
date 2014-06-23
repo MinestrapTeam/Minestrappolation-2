@@ -2,35 +2,34 @@ package minestrapteam.minestrappolation.entity;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
 public class EntityHangGlider extends Entity
 {
-	public String		owner;
+	public String	owner;
 	
-	boolean				initCheck	= true;
-	boolean				checking	= false;
-	public ItemStack	theItem;
+	private boolean	initCheck	= true;
+	private boolean	checking	= false;
 	
 	public EntityHangGlider(World world)
 	{
 		super(world);
 	}
 	
-	public EntityHangGlider(World world, double x, double y, double z, EntityPlayer owner, ItemStack item)
+	public EntityHangGlider(World world, EntityPlayer owner)
 	{
 		super(world);
-		this.setPosition(x, y, z);
+		this.setPosition(owner.posX, owner.posY, owner.posZ);
 		this.owner = owner.getDisplayName();
-		this.theItem = item;
 		owner.mountEntity(this);
 	}
 	
 	@Override
 	public void onUpdate()
 	{
+		System.out.println("Hangglider @ " + this.posX + ";" + this.posY + ";" + this.posZ);
+		
 		Entity player = this.riddenByEntity;
 		if (player != null)
 		{
@@ -88,11 +87,6 @@ public class EntityHangGlider extends Entity
 			 * Math.abs(player.motionY) > 0.13) { par1ItemStack.damageItem(1,
 			 * Minecraft.getMinecraft().thePlayer); }
 			 */
-			// System.out.println("Checking" + checking);
-			// System.out.println("InitChecking" + initCheck);
-			// System.out.println("SpeedZ" + player.motionZ);
-			// System.out.println("SpeedX" + player.motionX);
-			// }
 		}
 	}
 	
