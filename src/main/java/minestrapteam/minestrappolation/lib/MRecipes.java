@@ -5,6 +5,7 @@ import static minestrapteam.minestrappolation.lib.MItems.*;
 import static minestrapteam.minestrappolation.lib.MTools.*;
 import cpw.mods.fml.common.registry.GameRegistry;
 import minestrapteam.minestrap_core.crafting.RecipesPlatings;
+import minestrapteam.minestrap_core.lib.MCBlocks;
 import minestrapteam.minestrap_core.lib.MCItems;
 import minestrapteam.minestrap_core.util.MCUtil;
 
@@ -123,12 +124,6 @@ public class MRecipes
 		GameRegistry.addRecipe(new ItemStack(steelBlock, 1), new Object[] { "ZZZ", "ZZZ", "ZZZ", Character.valueOf('Z'), steelIngot });
 		GameRegistry.addShapelessRecipe(new ItemStack(steelIngot, 9), new Object[] { steelBlock, });
 		
-		GameRegistry.addRecipe(new ItemStack(sandstonePickaxe, 1), new Object[] { "ZZZ", " S ", " S ", Character.valueOf('Z'), Blocks.sandstone, Character.valueOf('S'), Items.stick });
-		GameRegistry.addRecipe(new ItemStack(sandstoneShovel, 1), new Object[] { " Z ", " S ", " S ", Character.valueOf('Z'), Blocks.sandstone, Character.valueOf('S'), Items.stick });
-		GameRegistry.addRecipe(new ItemStack(sandstoneAxe, 1), new Object[] { "ZZ ", "ZS ", " S ", Character.valueOf('Z'), Blocks.sandstone, Character.valueOf('S'), Items.stick });
-		GameRegistry.addRecipe(new ItemStack(sandstoneHoe, 1), new Object[] { "ZZ ", " S ", " S ", Character.valueOf('Z'), Blocks.sandstone, Character.valueOf('S'), Items.stick });
-		GameRegistry.addRecipe(new ItemStack(sandstoneSword, 1), new Object[] { " Z ", " Z ", " S ", Character.valueOf('Z'), Blocks.sandstone, Character.valueOf('S'), Items.stick });
-		
 		GameRegistry.addShapelessRecipe(new ItemStack(bronzeIngot, 1), new Object[] { Items.iron_ingot, copperIngot, copperIngot, tinIngot, tinIngot });
 		GameRegistry.addRecipe(new ItemStack(bronzePickaxe, 1), new Object[] { "ZZZ", " S ", " S ", Character.valueOf('Z'), bronzeIngot, Character.valueOf('S'), Items.stick });
 		GameRegistry.addRecipe(new ItemStack(bronzeShovel, 1), new Object[] { " Z ", " S ", " S ", Character.valueOf('Z'), bronzeIngot, Character.valueOf('S'), Items.stick });
@@ -213,6 +208,7 @@ public class MRecipes
 		GameRegistry.addRecipe(new ItemStack(barrel), new Object[] { "I", "C", "I", Character.valueOf('I'), Items.iron_ingot, Character.valueOf('C'), crate });
 		GameRegistry.addRecipe(new ItemStack(cardboardItem, 3), new Object[] { "SSS", "SSS", Character.valueOf('S'), Items.paper });
 		GameRegistry.addRecipe(new ItemStack(cardboardBlock, 2), new Object[] { "CCC", " C ", " CC", Character.valueOf('C'), cardboardItem });
+		GameRegistry.addRecipe(new ItemStack(MCBlocks.redSandstone, 1, 0), new Object[] { "SS", "SS", Character.valueOf('S'), (new ItemStack(Blocks.sand, 1, 1))});
 		
 		// GameRegistry.addRecipe(new ItemStack(Blocks.stonebrick, 2, 3), new
 		// Object[] { "BBB", "BBB", "BBB", Character.valueOf('B'),

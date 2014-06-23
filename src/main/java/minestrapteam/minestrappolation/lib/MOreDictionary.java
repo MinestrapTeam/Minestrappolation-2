@@ -1,8 +1,15 @@
 package minestrapteam.minestrappolation.lib;
 
+import static minestrapteam.minestrappolation.lib.MTools.sandstoneAxe;
+import static minestrapteam.minestrappolation.lib.MTools.sandstoneHoe;
+import static minestrapteam.minestrappolation.lib.MTools.sandstonePickaxe;
+import static minestrapteam.minestrappolation.lib.MTools.sandstoneShovel;
+import static minestrapteam.minestrappolation.lib.MTools.sandstoneSword;
 import cpw.mods.fml.common.registry.GameRegistry;
 
+import minestrapteam.minestrap_core.lib.MCBlocks;
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -43,6 +50,12 @@ public class MOreDictionary
 		add("oreSoul", MBlocks.soulOre);
 		add("gemSoul", MItems.soulGem);
 		
+		OreDictionary.registerOre("sandstone", new ItemStack(Blocks.sandstone));
+		OreDictionary.registerOre("sandstone", new ItemStack(MCBlocks.sandstone));
+		OreDictionary.registerOre("sandstone", new ItemStack(MCBlocks.sandstone2));
+		OreDictionary.registerOre("sandstone", new ItemStack(MCBlocks.redSandstone));
+		OreDictionary.registerOre("sandstone", new ItemStack(MCBlocks.redSandstone2));
+		
 		OreDictionary.registerOre("meatRaw", new ItemStack(Items.beef));
 		OreDictionary.registerOre("meatRaw", new ItemStack(Items.porkchop));
 		OreDictionary.registerOre("meatRaw", new ItemStack(Items.fish));
@@ -54,6 +67,12 @@ public class MOreDictionary
 	{
 		GameRegistry.addRecipe(new ShapedOreRecipe(MBlocks.meatBlock, new Object[] { "MMM", "MMM", "MMM", 'M', "meatRaw" }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(MBlocks.crate, new Object[] { "WWW", "SSS", "WWW", 'S', Items.stick, 'W', "plankWood" }));
+	
+		GameRegistry.addRecipe(new ItemStack(sandstonePickaxe, 1), new Object[] { "ZZZ", " S ", " S ", Character.valueOf('Z'), "sandstone", Character.valueOf('S'), Items.stick });
+		GameRegistry.addRecipe(new ItemStack(sandstoneShovel, 1), new Object[] { " Z ", " S ", " S ", Character.valueOf('Z'), "sandstone", Character.valueOf('S'), Items.stick });
+		GameRegistry.addRecipe(new ItemStack(sandstoneAxe, 1), new Object[] { "ZZ ", "ZS ", " S ", Character.valueOf('Z'), "sandstone", Character.valueOf('S'), Items.stick });
+		GameRegistry.addRecipe(new ItemStack(sandstoneHoe, 1), new Object[] { "ZZ ", " S ", " S ", Character.valueOf('Z'), "sandstone", Character.valueOf('S'), Items.stick });
+		GameRegistry.addRecipe(new ItemStack(sandstoneSword, 1), new Object[] { " Z ", " Z ", " S ", Character.valueOf('Z'), "sandstone", Character.valueOf('S'), Items.stick });
 	}
 	
 	private static void add(String name, Item item)

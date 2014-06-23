@@ -90,7 +90,7 @@ public class MBlocks
 	
 	public static void init()
 	{
-		bedrock2 = new BlockBedrock2().setHardness(40F).setResistance(6000000.0F).setStepSound(Block.soundTypeStone).setCreativeTab(CreativeTabs.tabBlock).setBlockName("bedrock").setBlockTextureName("bedrock");
+		bedrock2 = new BlockBedrock2().setHardness(80F).setResistance(6000000.0F).setStepSound(Block.soundTypeStone).setCreativeTab(CreativeTabs.tabBlock).setBlockName("bedrock").setBlockTextureName("bedrock");
 		
 		copperOre = new MCBlock(Material.rock).setHardness(3F).setResistance(5F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MCAssetManager.getMineralTexture("copper_ore"));
 		tinOre = new MCBlock(Material.rock).setHardness(3F).setResistance(5F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MCAssetManager.getMineralTexture("tin_ore"));
