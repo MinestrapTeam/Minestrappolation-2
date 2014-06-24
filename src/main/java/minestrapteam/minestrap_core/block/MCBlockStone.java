@@ -125,25 +125,49 @@ public class MCBlockStone extends Block
 		{
 			return f;
 		}
-		else if (metadata == 3)
+		else if (metadata == 1 && name == "netherrack")
 		{
-			return f + 0.1F;
+			return f + 1.6F;
 		}
-		else if (metadata == 5)
+		else if (metadata == 2 && name == "netherrack")
 		{
-			return f + 0.2F;
+			return f + 1.6F;
 		}
-		else if (metadata == 6)
+		else if (metadata == 1 && (name == "clay" || name == "black_clay" || name == "blue_clay" || name == "brown_clay" || name == "cyan_clay" || name == "lightblue_clay" || name == "lime_clay" || name == "magenta_clay" || name == "orange_clay" || name == "pink_clay" || name == "purple_clay" || name == "red_clay" || name == "silver_clay" || name == "white_clay" || name == "yellow_clay"))
 		{
-			return f + 0.3F;
+			return f + 0.75F;
+		}
+		else if (metadata == 2 && (name == "clay" || name == "black_clay" || name == "blue_clay" || name == "brown_clay" || name == "cyan_clay" || name == "lightblue_clay" || name == "lime_clay" || name == "magenta_clay" || name == "orange_clay" || name == "pink_clay" || name == "purple_clay" || name == "red_clay" || name == "silver_clay" || name == "white_clay" || name == "yellow_clay"))
+		{
+			return f + 0.75F;
+		}
+		else if (metadata == 4 && name == "netherrack")
+		{
+			return (f + 1.6F) * (2F / 3F);
+		}
+		else if (metadata == 4 && (name == "clay" || name == "black_clay" || name == "blue_clay" || name == "brown_clay" || name == "cyan_clay" || name == "lightblue_clay" || name == "lime_clay" || name == "magenta_clay" || name == "orange_clay" || name == "pink_clay" || name == "purple_clay" || name == "red_clay" || name == "silver_clay" || name == "white_clay" || name == "yellow_clay"))
+		{
+			return (f + 0.75F) * (2F / 3F);
+		}
+		else if (metadata == 4 && name != "netherrack" && name != "clay" && name != "black_clay" && name != "blue_clay" && name != "brown_clay" && name != "cyan_clay" && name != "lightblue_clay" && name != "lime_clay" && name != "magenta_clay" && name != "orange_clay" && name != "pink_clay" && name != "purple_clay" && name != "red_clay" && name != "silver_clay" && name != "white_clay" && name != "yellow_clay")
+		{
+			return f * (2F / 3F);
+		}
+		else if (metadata == 7 && (name == "stone" || name == "stone_tin" || name == "stone_bronze" || name == "stone_steel" || name == "stone_meurodite"))
+		{
+			return f + (f / 3F);
+		}
+		else if (metadata == 8 && (name == "stone" || name == "stone_tin" || name == "stone_bronze" || name == "stone_steel" || name == "stone_meurodite"))
+		{
+			return f + (f / 3F);
 		}
 		else if (metadata == 14)
 		{
-			return f + 0.5F;
+			return f - (f * 0.2F);
 		}
 		else if (metadata == 15)
 		{
-			return f + 0.6F;
+			return f - (f * 0.2F);
 		}
 		return f;
 	}
@@ -152,7 +176,11 @@ public class MCBlockStone extends Block
 	public int getLightValue(IBlockAccess world, int x, int y, int z)
 	{
 		int metadata = world.getBlockMetadata(x, y, z);
-		if (metadata == 14)
+		if (name == "radiant_quartz" && metadata != 14 && metadata != 15)
+		{
+			return 7;
+		}
+		else if (metadata == 14)
 		{
 			return Blocks.glowstone.getLightValue();
 		}

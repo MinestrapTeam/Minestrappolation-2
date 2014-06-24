@@ -112,6 +112,8 @@ public class MCBlocks
 		String[] types_granite = new String[] { "raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled" };
 		String[] types_sandstone = new String[] { null, "bricks", "pattern_bricks", "tiles", "road", null, "chiseled", null, "mossy" };
 		String[] types_sandstone_2 = new String[] { "pillar", null, "brick_slab", "tile_slab", "refined_slab" };
+		String[] types_redsandstone = new String[] {"raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", null, "mossy", null, null};
+		String[] types_redsandstone2 = new String[] {"pillar", "raw_slab", "brick_slab", "tile_slab", "refined_slab"};
 		String[] types_flint = new String[] { "raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", null, null, null, null, null, null, null, "glowstone_lamp", "sunstone_lamp" };
 		String[] types_lapis = new String[] { null, "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled" };
 		String[] types_obsidian = new String[] { null, "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled" };
@@ -122,6 +124,8 @@ public class MCBlocks
 		String[] types_netherquartz_2 = new String[] { "pillar", null, "brick_slab", "tile_slab", "refined_slab" };
 		String[] types_desertquartz = new String[] { "raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled" };
 		String[] types_desertquartz_2 = new String[] { "pillar", null, "brick_slab", "tile_slab", "refined_slab" };
+		String[] types_radiantquartz = new String[] {"raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", null, null, null, null};
+		String[] types_radiantquartz2 = new String[] {"pillar", "raw_slab", "brick_slab", "tile_slab", "refined_slab"};
 		String[] types_clay = new String[] { null, null, "pattern_bricks", "tiles", "road", "refined", "chiseled" };
 		String[] types_colored_clay = new String[] { null, "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled" };
 		String[] types_clay_2 = new String[] { "pillar", "raw_slab", null, "tile_slab", "refined_slab" };
