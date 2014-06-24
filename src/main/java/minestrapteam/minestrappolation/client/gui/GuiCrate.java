@@ -27,8 +27,7 @@ public class GuiCrate extends GuiContainer
 	@Override
 	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
 	{
-		String s = this.crate.hasCustomInventoryName() ? this.crate.getInventoryName() : StatCollector.translateToLocal("tile.crate.name");
-		this.fontRendererObj.drawString(s, 7, 7, 4210752);
+		this.fontRendererObj.drawString(StatCollector.translateToLocal(this.crate.getInventoryName()), 7, 7, 4210752);
 		this.fontRendererObj.drawString(StatCollector.translateToLocal("container.inventory"), 7, this.ySize - 92, 4210752);
 	}
 	

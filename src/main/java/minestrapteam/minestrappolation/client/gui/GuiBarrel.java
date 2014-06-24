@@ -27,8 +27,7 @@ public class GuiBarrel extends GuiContainer
 	@Override
 	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
 	{
-		String s = this.barrel.hasCustomInventoryName() ? this.barrel.getInventoryName() : StatCollector.translateToLocal("tile.barrel.name");
-		this.fontRendererObj.drawString(s, 7, 7, 4210752);
+		this.fontRendererObj.drawString(StatCollector.translateToLocal(this.barrel.getInventoryName()), 7, 7, 4210752);
 		this.fontRendererObj.drawString(StatCollector.translateToLocal("container.inventory"), 7, this.ySize - 92, 4210752);
 	}
 	

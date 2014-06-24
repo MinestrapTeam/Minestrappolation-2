@@ -19,15 +19,18 @@ public class GuiStonecutter extends GuiContainer
 {
 	public static ResourceLocation	texture	= MCAssetManager.getResource("stonecutter");
 	
+	private TileEntityStonecutter	stonecutter;
+	
 	public GuiStonecutter(InventoryPlayer inventory, TileEntityStonecutter te, World world, int x, int y, int z)
 	{
 		super(new ContainerStonecutter(inventory, te));
+		this.stonecutter = te;
 	}
 	
 	@Override
 	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
 	{
-		this.fontRendererObj.drawString(StatCollector.translateToLocal("tile.stoneCutter.name"), 42, 6, 4210752);
+		this.fontRendererObj.drawString(StatCollector.translateToLocal(this.stonecutter.getInventoryName()), 42, 6, 4210752);
 		this.fontRendererObj.drawString(StatCollector.translateToLocal("container.inventory"), 8, this.ySize - 94, 4210752);
 	}
 	
