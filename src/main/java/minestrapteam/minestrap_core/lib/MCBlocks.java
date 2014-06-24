@@ -171,8 +171,8 @@ public class MCBlocks
 		netherQuartz2 = MCBlockHelper.createStoneBlock2(types_netherquartz_2, "netherquartz", 0.8F, 2, tab);
 		desertQuartz = MCBlockHelper.createStoneBlock(types_desertquartz, "desertquartz", 1.7F, 2, tab).setChiseledSided();
 		desertQuartz2 = MCBlockHelper.createStoneBlock2(types_desertquartz_2, "desertquartz", 1.7F, 2, tab);
-		radiantQuartz = MCBlockHelper.createStoneBlock(types_desertquartz, "radiant_quartz", 2F, 2, tab).setChiseledSided();
-		radiantQuartz2 = MCBlockHelper.createStoneBlock2(types_desertquartz_2, "radiant_quartz", 2F, 2, tab);
+		radiantQuartz = MCBlockHelper.createStoneBlock(types_desertquartz, "radiant_quartz", 2F, 2, tab).setChiseledSided().setLightLevel(0.5F);
+		radiantQuartz2 = MCBlockHelper.createStoneBlock2(types_desertquartz_2, "radiant_quartz", 2F, 2, tab).setLightLevel(0.5F);
 		
 		clay = MCBlockHelper.createStoneBlock(types_clay, "clay", 1.25F, 0, tab).setClayChiseled();
 		clay2 = MCBlockHelper.createStoneBlock2(types_clay_2, "clay", 1.25F, 0, tab);

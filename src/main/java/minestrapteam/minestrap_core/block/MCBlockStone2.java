@@ -158,15 +158,6 @@ public class MCBlockStone2 extends Block
 		return f;
 	}
 	
-	public int getLightValue(IBlockAccess world, int x, int y, int z)
-	{
-		if (name == "radiant_quartz")
-		{
-			return 7;
-		}
-		return super.getLightValue(world, x, y, z);
-	}
-	
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
