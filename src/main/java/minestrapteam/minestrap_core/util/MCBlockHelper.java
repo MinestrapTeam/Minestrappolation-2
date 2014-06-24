@@ -56,32 +56,32 @@ public class MCBlockHelper
 		return block;
 	}
 	
-	public static MCBlockStone createStoneBlock(String name, float hardness, CreativeTabs tab)
+	public static MCBlockStone createStoneBlock(String name, float hardness, int harvestLevel, CreativeTabs tab)
 	{
-		return createStoneBlock(stoneTypes, name, hardness, tab);
+		return createStoneBlock(stoneTypes, name, hardness, harvestLevel, tab);
 	}
 	
-	public static MCBlockStone createStoneBlock(String[] types, String name, float hardness, CreativeTabs tab)
+	public static MCBlockStone createStoneBlock(String[] types, String name, float hardness, int harvestLevel, CreativeTabs tab)
 	{
 		String name1 = "stone_" + name;
 		MCBlockStone block = new MCBlockStone(types, name, hardness);
 		block.setBlockName(name1).setBlockTextureName(MCAssetManager.getStonecutterTexture(name)).setCreativeTab(tab);
-		block.setHarvestLevel("pickaxe", (int) hardness - 1);
+		block.setHarvestLevel("pickaxe", harvestLevel);
 		GameRegistry.registerBlock(block, MCItemBlockStone.class, name1);
 		return block;
 	}
 	
-	public static MCBlockStone2 createStoneBlock2(String name, float hardness, CreativeTabs tab)
+	public static MCBlockStone2 createStoneBlock2(String name, float hardness, int harvestLevel, CreativeTabs tab)
 	{
-		return createStoneBlock2(stoneTypes2, name, hardness, tab);
+		return createStoneBlock2(stoneTypes2, name, hardness, harvestLevel, tab);
 	}
 	
-	public static MCBlockStone2 createStoneBlock2(String[] types, String name, float hardness, CreativeTabs tab)
+	public static MCBlockStone2 createStoneBlock2(String[] types, String name, float hardness, int harvestLevel, CreativeTabs tab)
 	{
 		String name1 = "stone_slab_" + name;
 		MCBlockStone2 block = new MCBlockStone2(types, name, hardness);
 		block.setBlockName(name1).setBlockTextureName(MCAssetManager.getStonecutterTexture(name)).setCreativeTab(tab);
-		block.setHarvestLevel("pickaxe", (int) hardness - 1);
+		block.setHarvestLevel("pickaxe", harvestLevel);
 		GameRegistry.registerBlock(block, MCItemBlockStone2.class, name1);
 		return block;
 	}
