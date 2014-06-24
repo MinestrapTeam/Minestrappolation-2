@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -86,17 +87,19 @@ public class MCBlockStone extends Block
 	public MCBlockStone setClayChiseled()
 	{
 		this.clayChiseled = true;
-		this.chiseledSided = true;
 		return this;
+	}
+	
+	private String getType(int metadata)
+	{
+		if (metadata < 0 || metadata >= this.types.length)
+			return null;
+		return this.types[metadata];
 	}
 	
 	public String getUnlocalizedName(int metadata)
 	{
-		if (metadata >= this.types.length)
-		{
-			metadata = 0;
-		}
-		return "tile." + this.name + "." + this.types[metadata];
+		return "tile." + this.name + "." + this.getType(metadata);
 	}
 	
 	@Override
@@ -109,6 +112,12 @@ public class MCBlockStone extends Block
 	public float getBlockHardness(World world, int x, int y, int z)
 	{
 		return this.getHardness(world.getBlockMetadata(x, y, z));
+	}
+	
+	@Override
+	public float getExplosionResistance(Entity entity, World world, int x, int y, int z, double explosionX, double explosionY, double explosionZ)
+	{
+		return this.getBlockHardness(world, x, y, z) * 2F;
 	}
 	
 	/**
@@ -195,24 +204,67 @@ public class MCBlockStone extends Block
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		String textureName = this.getTextureName();
-		this.blockIcon = iconRegister.registerIcon(textureName);
-		this.brickIcon = iconRegister.registerIcon(textureName + "_bricks");
-		this.patternBrickIcon = iconRegister.registerIcon(textureName + "_pattern_bricks");
-		this.tilesIcon = iconRegister.registerIcon(textureName + "_tiles");
-		this.roadSideIcon = iconRegister.registerIcon(textureName + "_road_side");
-		this.roadBottomIcon = iconRegister.registerIcon(textureName + "_road_bottom");
-		this.refinedIcon = iconRegister.registerIcon(textureName + "_refined");
-		this.crackedIcon = iconRegister.registerIcon(textureName + "_cracked");
-		this.mossyIcon = iconRegister.registerIcon(textureName + "_mossy");
-		
-		this.chiseledIcon = iconRegister.registerIcon(textureName + "_chiseled");
-		if (this.chiseledSided)
+		if (this.getType(0) != null)
 		{
-			this.chiseledSideIcon = iconRegister.registerIcon(textureName + "_chiseled_side");
+			this.blockIcon = iconRegister.registerIcon(textureName);
 		}
-		
-		this.glowstoneLampIcon = iconRegister.registerIcon(textureName + "_lamp_glowstone");
-		this.sunstoneLampIcon = iconRegister.registerIcon(textureName + "_lamp_sunstone");
+		if (this.getType(1) != null)
+		{
+			this.brickIcon = iconRegister.registerIcon(textureName + "_bricks");
+		}
+		if (this.getType(2) != null)
+		{
+			this.patternBrickIcon = iconRegister.registerIcon(textureName + "_pattern_bricks");
+		}
+		if (this.getType(3) != null)
+		{
+			this.tilesIcon = iconRegister.registerIcon(textureName + "_tiles");
+		}
+		if (this.getType(4) != null)
+		{
+			this.roadSideIcon = iconRegister.registerIcon(textureName + "_road_side");
+			this.roadBottomIcon = iconRegister.registerIcon(textureName + "_road_bottom");
+		}
+		if (this.getType(5) != null)
+		{
+			this.refinedIcon = iconRegister.registerIcon(textureName + "_refined");
+		}
+		if (this.getType(6) != null)
+		{
+			if (this.clayChiseled)
+			{
+				this.chiseledIcon = this.refinedIcon;
+				this.chiseledSideIcon = iconRegister.registerIcon(textureName + "_chiseled_side");
+			}
+			else
+			{
+				this.chiseledIcon = iconRegister.registerIcon(textureName + "_chiseled");
+				if (this.chiseledSided)
+				{
+					this.chiseledSideIcon = iconRegister.registerIcon(textureName + "_chiseled_side");
+				}
+				else
+				{
+					this.chiseledSideIcon = this.chiseledIcon;
+				}
+			}
+		}
+		if (this.getType(7) != null)
+		{
+			this.crackedIcon = iconRegister.registerIcon(textureName + "_cracked");
+		}
+		if (this.getType(8) != null)
+		{
+			this.mossyIcon = iconRegister.registerIcon(textureName + "_mossy");
+		}
+		if (this.getType(14) != null)
+		{
+			this.glowstoneLampIcon = iconRegister.registerIcon(textureName + "_lamp_glowstone");
+		}
+		if (this.getType(15) != null)
+		{
+			this.sunstoneLampIcon = iconRegister.registerIcon(textureName + "_lamp_sunstone");
+		}
 	}
 	
 	@Override
@@ -255,13 +307,9 @@ public class MCBlockStone extends Block
 		}
 		else if (metadata == 6)
 		{
-			if (this.chiseledSided && side > 1)
+			if (side > 1)
 			{
 				return this.chiseledSideIcon;
-			}
-			else if (this.clayChiseled)
-			{
-				return this.refinedIcon;
 			}
 			else
 			{
