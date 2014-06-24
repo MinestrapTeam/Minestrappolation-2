@@ -1,3 +1,3 @@
-version=3.0
-motd=New Minestrappolation Team member: Clashsoft! Currently merging Minestrappolation into one mod!
+version=2.1.3
+motd=Minestrappolation 3 coming out soon!
 motdcolor=green
