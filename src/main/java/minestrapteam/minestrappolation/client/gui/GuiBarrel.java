@@ -13,7 +13,7 @@ import net.minecraft.util.StatCollector;
 
 public class GuiBarrel extends GuiContainer
 {
-	public static ResourceLocation	texture	= new ResourceLocation(MCAssetManager.getTexture("/textures/gui/barrel.png"));
+	public static ResourceLocation	texture	= MCAssetManager.getResource("/textures/gui/container/barrel.png");
 	
 	private TileEntityBarrel		barrel;
 	

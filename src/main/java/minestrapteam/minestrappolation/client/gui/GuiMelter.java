@@ -13,7 +13,9 @@ import net.minecraft.util.StatCollector;
 
 public class GuiMelter extends GuiContainer
 {
-	private TileEntityMelter	tileEntity;
+	public static ResourceLocation	texture	= MCAssetManager.getResource("textures/gui/container/melter.png");
+	
+	private TileEntityMelter		tileEntity;
 	
 	public GuiMelter(EntityPlayer player, TileEntityMelter melter)
 	{
@@ -32,8 +34,7 @@ public class GuiMelter extends GuiContainer
 	protected void drawGuiContainerBackgroundLayer(float partialTickTime, int mouseX, int mouseY)
 	{
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-		ResourceLocation gui = new ResourceLocation(MCAssetManager.getTexture("textures/gui/melter.png"));
-		this.mc.renderEngine.bindTexture(gui);
+		this.mc.renderEngine.bindTexture(texture);
 		int j = (this.width - this.xSize) / 2;
 		int k = (this.height - this.ySize) / 2;
 		this.drawTexturedModalRect(j, k, 0, 0, this.xSize, this.ySize);
