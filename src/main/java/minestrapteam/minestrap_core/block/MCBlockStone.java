@@ -56,7 +56,9 @@ public class MCBlockStone extends Block
 	public IIcon	sunstoneLampIcon;
 	
 	public boolean	chiseledSided;
-	public boolean	clayChiseled;
+	public boolean	clay;
+	public boolean	stone;
+	public boolean	netherrack;
 	
 	public MCBlockStone(String[] types, String name, float baseHardness)
 	{
@@ -84,9 +86,27 @@ public class MCBlockStone extends Block
 	 * 
 	 * @return this instance
 	 */
-	public MCBlockStone setClayChiseled()
+	public MCBlockStone setIsClay()
 	{
-		this.clayChiseled = true;
+		this.clay = true;
+		return this;
+	}
+	
+	/**
+	 * @return this instance
+	 */
+	public MCBlockStone setIsStone()
+	{
+		this.stone = true;
+		return this;
+	}
+	
+	/**
+	 * @return this instance
+	 */
+	public MCBlockStone setIsNetherrack()
+	{
+		this.netherrack = true;
 		return this;
 	}
 	
@@ -136,35 +156,35 @@ public class MCBlockStone extends Block
 		}
 		else if (metadata == 1)
 		{
-			if (this.name.equals("netherrack"))
+			if (this.netherrack)
 				return f + 1.6F;
-			else if (this.clayChiseled)
+			else if (this.clay)
 				return f + 0.75F;
 		}
 		else if (metadata == 2)
 		{
-			if (this.name.equals("netherrack"))
+			if (this.netherrack)
 				return f + 1.6F;
-			else if (this.clayChiseled)
+			else if (this.clay)
 				return f + 0.75F;
 		}
 		else if (metadata == 4)
 		{
-			if (this.name.equals("netherrack"))
+			if (this.netherrack)
 				return (f + 1.6F) * (2F / 3F);
-			else if (this.clayChiseled)
+			else if (this.clay)
 				return (f + 0.75F) * (2F / 3F);
 			else
 				return f * (2F / 3F);
 		}
 		else if (metadata == 7)
 		{
-			if (this.name.startsWith("stone"))
+			if (this.stone)
 				return f * (4F / 3F);
 		}
 		else if (metadata == 8)
 		{
-			if (this.name.startsWith("stone"))
+			if (this.stone)
 				return f * (4F / 3F);
 		}
 		else if (metadata == 14)
@@ -224,7 +244,7 @@ public class MCBlockStone extends Block
 		}
 		if (this.getType(6) != null)
 		{
-			if (this.clayChiseled)
+			if (this.clay)
 			{
 				this.chiseledIcon = this.refinedIcon;
 				this.chiseledSideIcon = iconRegister.registerIcon(textureName + "_chiseled_side");
