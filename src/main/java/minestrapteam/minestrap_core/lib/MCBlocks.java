@@ -121,9 +121,9 @@ public class MCBlocks
 		String[] types_netherrack = new String[] { null, "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled" };
 		String[] types_netherquartz = new String[] { null, "bricks", "pattern_bricks", "tiles", "road", "refined", };
 		String[] types_netherquartz_2 = new String[] { "pillar", null, "brick_slab", "tile_slab", "refined_slab" };
-		String[] types_desertquartz = new String[] { "raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled" };
+		String[] types_desertquartz = new String[] { "raw", "bricks", "pattern_bricks", "tiles", "refined_tiles", "rough_tiles", "road", "refined", "chiseled" };
 		String[] types_desertquartz_2 = new String[] { "pillar", null, "brick_slab", "tile_slab", "refined_slab" };
-		String[] types_radiantquartz = new String[] {"raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", null, null, null, null};
+		String[] types_radiantquartz = new String[] {"raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled"};
 		String[] types_radiantquartz_2 = new String[] {"pillar", "raw_slab", "brick_slab", "tile_slab", "refined_slab"};
 		String[] types_clay = new String[] { null, null, "pattern_bricks", "tiles", "road", "refined", "chiseled" };
 		String[] types_colored_clay = new String[] { null, "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled" };
