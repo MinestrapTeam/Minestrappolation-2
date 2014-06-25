@@ -23,7 +23,10 @@ public class BlockBedrock2 extends Block
 		ItemStack heldItem = player.getHeldItem();
 		if (heldItem != null && heldItem.isItemStackDamageable())
 		{
-			heldItem.damageItem(Minestrappolation.bedrockDamage - 1, player);
+			int i = Minestrappolation.bedrockDamage - 1;
+			if (i > heldItem.getItemDamage())
+				i = heldItem.getItemDamage();
+			heldItem.damageItem(i, player);
 		}
 	}
 }
