@@ -56,30 +56,30 @@ public class MCBlockHelper
 		return block;
 	}
 	
-	public static MCBlockStone createStoneBlock(String name, float hardness, int harvestLevel, CreativeTabs tab)
+	public static MCBlockStone createStoneBlock(String name, float hardness, float resistance, int harvestLevel, CreativeTabs tab)
 	{
-		return createStoneBlock(stoneTypes, name, hardness, harvestLevel, tab);
+		return createStoneBlock(stoneTypes, name, hardness, resistance, harvestLevel, tab);
 	}
 	
-	public static MCBlockStone createStoneBlock(String[] types, String name, float hardness, int harvestLevel, CreativeTabs tab)
+	public static MCBlockStone createStoneBlock(String[] types, String name, float hardness, float resistance, int harvestLevel, CreativeTabs tab)
 	{
 		String name1 = "stone_" + name;
-		MCBlockStone block = new MCBlockStone(types, name, hardness);
+		MCBlockStone block = new MCBlockStone(types, name, hardness, resistance, harvestLevel);
 		block.setBlockName(name1).setBlockTextureName(MCAssetManager.getStonecutterTexture(name)).setCreativeTab(tab);
 		block.setHarvestLevel("pickaxe", harvestLevel);
 		GameRegistry.registerBlock(block, MCItemBlockStone.class, name1);
 		return block;
 	}
 	
-	public static MCBlockStone2 createStoneBlock2(String name, float hardness, int harvestLevel, CreativeTabs tab)
+	public static MCBlockStone2 createStoneBlock2(String name, float hardness, float resistance, int harvestLevel, CreativeTabs tab)
 	{
-		return createStoneBlock2(stoneTypes2, name, hardness, harvestLevel, tab);
+		return createStoneBlock2(stoneTypes2, name, hardness, resistance, harvestLevel, tab);
 	}
 	
-	public static MCBlockStone2 createStoneBlock2(String[] types, String name, float hardness, int harvestLevel, CreativeTabs tab)
+	public static MCBlockStone2 createStoneBlock2(String[] types, String name, float hardness, float resistance, int harvestLevel, CreativeTabs tab)
 	{
 		String name1 = "stone_slab_" + name;
-		MCBlockStone2 block = new MCBlockStone2(types, name, hardness);
+		MCBlockStone2 block = new MCBlockStone2(types, name, hardness, resistance, harvestLevel);
 		block.setBlockName(name1).setBlockTextureName(MCAssetManager.getStonecutterTexture(name)).setCreativeTab(tab);
 		block.setHarvestLevel("pickaxe", harvestLevel);
 		GameRegistry.registerBlock(block, MCItemBlockStone2.class, name1);

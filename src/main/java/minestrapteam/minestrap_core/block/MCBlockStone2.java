@@ -1,5 +1,7 @@
 package minestrapteam.minestrap_core.block;
 
+import static net.minecraftforge.common.util.ForgeDirection.UP;
+
 import java.util.List;
 
 import minestrapteam.minestrap_core.common.MCCommonProxy;
@@ -10,12 +12,14 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
 
 /**
  * The second stonecutter block type.<br>
@@ -47,17 +51,29 @@ public class MCBlockStone2 extends Block
 	
 	public String	name;
 	public float	baseHardness;
+	public float	baseResistance;
+	public int		harvestLevel;
 	
 	public IIcon[]	topIcons;
 	public IIcon[]	sideIcons;
 	
-	public MCBlockStone2(String[] types, String name, float baseHardness)
+	public boolean	netherrack;
+	
+	public MCBlockStone2(String[] types, String name, float baseHardness, float baseResistance, int harvestLevel)
 	{
 		super(Material.rock);
 		this.setCreativeTab(Minestrappolation.tabStoneDecor);
 		this.name = name;
 		this.baseHardness = baseHardness;
+		this.baseResistance = baseResistance;
+		this.harvestLevel = harvestLevel;
 		this.types = types;
+	}
+	
+	public MCBlockStone2 setIsNetherrack()
+	{
+		this.netherrack = true;
+		return this;
 	}
 	
 	@Override
@@ -159,6 +175,25 @@ public class MCBlockStone2 extends Block
 	}
 	
 	@Override
+	public float getExplosionResistance(Entity entity, World world, int x, int y, int z, double explosionX, double explosionY, double explosionZ)
+	{
+		float g = this.baseResistance;
+		return g;
+	}
+	
+	@Override
+	public String getHarvestTool(int metadata)
+    {
+        return "pickaxe";
+    }
+	
+	@Override
+	public int getHarvestLevel(int metadata)
+    {
+        return harvestLevel;
+    }
+	
+	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		this.topIcons = new IIcon[5];
@@ -224,6 +259,19 @@ public class MCBlockStone2 extends Block
 		}
 		return this.blockIcon;
 	}
+	
+	@Override
+	public boolean isFireSource(World world, int x, int y, int z, ForgeDirection side)
+    {
+        if (this.netherrack == true && side == UP)
+        {
+            return true;
+        }
+        else
+        {
+        	return false;
+        }
+    }
 	
 	@Override
 	public boolean isOpaqueCube()

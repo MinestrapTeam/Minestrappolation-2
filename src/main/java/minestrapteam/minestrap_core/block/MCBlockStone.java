@@ -1,5 +1,7 @@
 package minestrapteam.minestrap_core.block;
 
+import static net.minecraftforge.common.util.ForgeDirection.UP;
+
 import java.util.List;
 
 import net.minecraft.block.Block;
@@ -13,6 +15,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldProviderEnd;
+import net.minecraftforge.common.util.ForgeDirection;
 
 /**
  * The first Stone Cutter block type.<br>
@@ -40,6 +44,8 @@ public class MCBlockStone extends Block
 	
 	public String	name;
 	public float	baseHardness;
+	public float	baseResistance;
+	public int		harvestLevel;
 	
 	public IIcon	brickIcon;
 	public IIcon	patternBrickIcon;
@@ -59,12 +65,15 @@ public class MCBlockStone extends Block
 	public boolean	clay;
 	public boolean	stone;
 	public boolean	netherrack;
+	public boolean	brick;
 	
-	public MCBlockStone(String[] types, String name, float baseHardness)
+	public MCBlockStone(String[] types, String name, float baseHardness, float baseResistance, int harvestLevel)
 	{
 		super(Material.rock);
 		this.name = name;
 		this.baseHardness = baseHardness;
+		this.baseResistance = baseResistance;
+		this.harvestLevel = harvestLevel;
 		this.types = types;
 	}
 	
@@ -110,6 +119,20 @@ public class MCBlockStone extends Block
 		return this;
 	}
 	
+	public MCBlockStone setIsBrick(int metadata)
+	{
+		if(metadata == 1 || metadata == 2 || metadata == 4)
+		{
+			this.brick = true;
+			return this;
+		}
+		else
+		{
+			this.brick = false;
+			return this;
+		}
+	}
+	
 	private String getType(int metadata)
 	{
 		if (metadata < 0 || metadata >= this.types.length)
@@ -137,8 +160,20 @@ public class MCBlockStone extends Block
 	@Override
 	public float getExplosionResistance(Entity entity, World world, int x, int y, int z, double explosionX, double explosionY, double explosionZ)
 	{
-		return this.getBlockHardness(world, x, y, z) * 2F;
+		return this.getResistance(world.getBlockMetadata(x, y, z));
 	}
+	
+	@Override
+	public String getHarvestTool(int metadata)
+    {
+        return "pickaxe";
+    }
+	
+	@Override
+	public int getHarvestLevel(int metadata)
+    {
+        return harvestLevel;
+    }
 	
 	/**
 	 * Returns the hardness for the given {@code metadata}.
@@ -197,6 +232,25 @@ public class MCBlockStone extends Block
 		}
 		return f;
 	}
+	
+	public float getResistance(int metadata)
+	{
+		float g = this.baseResistance;
+		return g;
+	}
+	
+	@Override
+	public boolean isFireSource(World world, int x, int y, int z, ForgeDirection side)
+    {
+        if (this.netherrack == true && this.brick == false && side == UP)
+        {
+            return true;
+        }
+        else
+        {
+        	return false;
+        }
+    }
 	
 	@Override
 	public int getLightValue(IBlockAccess world, int x, int y, int z)
