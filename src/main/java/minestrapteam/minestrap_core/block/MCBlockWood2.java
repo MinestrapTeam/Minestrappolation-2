@@ -32,7 +32,7 @@ public class MCBlockWood2 extends Block
 	
 	public MCBlockWood2(String[] types, String name)
 	{
-		super(Material.rock);
+		super(Material.wood);
 		this.name = name;
 		this.types = types;
 	}
@@ -71,20 +71,9 @@ public class MCBlockWood2 extends Block
 	@Override
 	public int onBlockPlaced(World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int metadata)
 	{
-		if (metadata < 3)
+		if ((side == 0) || (side != 1 && hitY > 0.5D))
 		{
-			if (side == 0 || side == 1)
-			{
-				return 0;
-			}
-			else if (side == 2 || side == 3)
-			{
-				return 1;
-			}
-			else if (side == 4 || side == 5)
-			{
-				return 2;
-			}
+			return metadata + 1;
 		}
 		return metadata;
 	}

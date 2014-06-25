@@ -132,6 +132,10 @@ public class MCBlockStone2 extends Block
 				return 2;
 			}
 		}
+		else if ((side == 0) || (side != 1 && hitY > 0.5D))
+		{
+			return metadata + 1;
+		}
 		return metadata;
 	}
 	

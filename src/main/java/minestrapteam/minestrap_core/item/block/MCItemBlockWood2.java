@@ -1,7 +1,5 @@
 package minestrapteam.minestrap_core.item.block;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import minestrapteam.minestrap_core.block.MCBlockWood2;
 
 import net.minecraft.block.Block;
@@ -34,12 +32,24 @@ public class MCItemBlockWood2 extends MCItemBlockMulti
 	}
 	
 	@Override
+	public boolean func_150936_a(World world, int x, int y, int z, int side, EntityPlayer player, ItemStack stack)
+	{
+		return this.onItemUse(stack, player, world, x, y, z, side, 0F, 0F, 0F);
+	}
+	
+	@Override
 	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
 	{
-		if (stack.stackSize == 0)
+		if (world.isRemote)
 		{
-			return false;
+			return true;
 		}
+		
+		if (stack.getItemDamage() < 3)
+		{
+			return super.onItemUse(stack, player, world, x, y, z, side, hitX, hitY, hitZ);
+		}
+		
 		if (!player.canPlayerEdit(x, y, z, side, stack))
 		{
 			return false;
@@ -52,21 +62,20 @@ public class MCItemBlockWood2 extends MCItemBlockMulti
 		int model = i % 3;
 		
 		// Handles double slabs
-		if (block1 == this.field_150939_a && side == 1 && model == 0 || side == 0 && model == 1 && type == stack.getItemDamage())
+		if (block1 == this.field_150939_a && type == stack.getItemDamage() && ((side == 1 && model == 0) || (side == 0 && model == 1)))
 		{
-			int newMeta = type + 2;
 			if (world.checkNoEntityCollision(this.field_150939_a.getCollisionBoundingBoxFromPool(world, x, y, z)))
 			{
-				if (world.setBlock(x, y, z, this.field_150939_a, newMeta, 3))
+				if (world.setBlock(x, y, z, this.field_150939_a, type + 2, 3))
 				{
 					this.playPlaceSound(world, x, y, z);
-					stack.stackSize -= 1;
+					stack.stackSize--;
 				}
 			}
 			return true;
 		}
 		
-		if (this.placeBlockAt(stack, player, world, x, y, z, side, hitY > 0.5F))
+		if (this.placeBlockAt(stack, player, world, x, y, z, side))
 		{
 			return true;
 		}
@@ -79,64 +88,7 @@ public class MCItemBlockWood2 extends MCItemBlockMulti
 		world.playSoundEffect(x + 0.5F, y + 0.5F, z + 0.5F, this.field_150939_a.stepSound.func_150496_b(), (this.field_150939_a.stepSound.getVolume() + 1.0F) / 2.0F, this.field_150939_a.stepSound.getPitch() * 0.8F);
 	}
 	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public boolean func_150936_a(World world, int x, int y, int z, int side, EntityPlayer player, ItemStack stack)
-	{
-		int i = x;
-		int j = y;
-		int k = z;
-		
-		Block block = world.getBlock(x, y, z);
-		int metadata = world.getBlockMetadata(x, y, z);
-		
-		int type = metadata / 3 * 3;
-		int model = metadata % 3;
-		
-		// Handles double slabs
-		if (side == 1 && model == 0 || side == 0 && model == 1 && block == this.field_150939_a && type == stack.getItemDamage())
-		{
-			return true;
-		}
-		
-		if (side == 0)
-		{
-			--y;
-		}
-		if (side == 1)
-		{
-			++y;
-		}
-		if (side == 2)
-		{
-			--z;
-		}
-		if (side == 3)
-		{
-			++z;
-		}
-		if (side == 4)
-		{
-			--x;
-		}
-		if (side == 5)
-		{
-			++x;
-		}
-		
-		block = world.getBlock(x, y, z);
-		metadata = world.getBlockMetadata(x, y, z);
-		type = metadata / 3 * 3;
-		
-		if (block == this.field_150939_a && type == stack.getItemDamage())
-		{
-			return true;
-		}
-		
-		return super.func_150936_a(world, i, j, k, side, player, stack);
-	}
-	
-	private boolean placeBlockAt(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, boolean upper)
+	private boolean placeBlockAt(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side)
 	{
 		if (side == 0)
 		{
@@ -169,16 +121,10 @@ public class MCItemBlockWood2 extends MCItemBlockMulti
 		
 		if (block == this.field_150939_a && type == stack.getItemDamage())
 		{
-			int newMeta = i;
-			if (upper)
-			{
-				newMeta++;
-			}
-			
-			if (world.checkNoEntityCollision(this.field_150939_a.getCollisionBoundingBoxFromPool(world, x, y, z)) && world.setBlock(x, y, z, this.field_150939_a, newMeta, 3))
+			if (world.checkNoEntityCollision(this.field_150939_a.getCollisionBoundingBoxFromPool(world, x, y, z)) && world.setBlock(x, y, z, this.field_150939_a, i, 3))
 			{
 				this.playPlaceSound(world, x, y, z);
-				stack.stackSize -= 1;
+				stack.stackSize--;
 			}
 			return true;
 		}
