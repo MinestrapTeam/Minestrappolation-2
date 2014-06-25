@@ -189,8 +189,8 @@ public class MRecipes
 		GameRegistry.addRecipe(new ItemStack(edgeStoneBrick, 1, 1), new Object[] { "SQ", "SQ", 'S', MCItems.brickStone, 'Q', Items.flint });
 		
 		GameRegistry.addRecipe(new ItemStack(snowBrick, 4), new Object[] { "SS", "SS", Character.valueOf('S'), Blocks.snow });
-		GameRegistry.addSmelting(Blocks.glass, new ItemStack(glassRefined), 20);
-		GameRegistry.addRecipe(new ItemStack(glassRefinedPane, 16), new Object[] { "SSS", "SSS", Character.valueOf('S'), glassRefined });
+		GameRegistry.addSmelting(Blocks.glass, new ItemStack(refinedGlass), 20);
+		GameRegistry.addRecipe(new ItemStack(refinedGlassPane, 16), new Object[] { "SSS", "SSS", Character.valueOf('S'), refinedGlass });
 		GameRegistry.addRecipe(new ItemStack(gunpowderBlock, 1), new Object[] { "SSS", "SSS", "SSS", Character.valueOf('S'), Items.gunpowder });
 		GameRegistry.addRecipe(new ItemStack(Items.gunpowder, 9), new Object[] { "S", Character.valueOf('S'), gunpowderBlock });
 		GameRegistry.addRecipe(new ItemStack(ropeItem, 1), new Object[] { "S", "S", "S", Character.valueOf('S'), Items.string });

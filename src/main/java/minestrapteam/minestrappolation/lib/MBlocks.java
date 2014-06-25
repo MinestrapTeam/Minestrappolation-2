@@ -56,19 +56,17 @@ public class MBlocks
 	
 	public static Block		invincium;
 	public static Block		godstone;
-	
-	public static Block		glowGlass;
-	
 	public static Block		nuke;
-	
 	public static Block		melterIdle;
 	public static Block		melterBurning;
 	
 	public static Block		checkerTiles;
 	public static Block		edgeStoneBrick;
 	public static Block		snowBrick;
-	public static Block		glassRefined;
-	public static Block		glassRefinedPane;
+	
+	public static Block		glowGlass;
+	public static Block		refinedGlass;
+	public static Block		refinedGlassPane;
 	
 	public static Block		gunpowderBlock;
 	public static Block		sugarBlock;
@@ -126,7 +124,6 @@ public class MBlocks
 		
 		invincium = new BlockInvincium(Material.rock).setBlockUnbreakable().setResistance(12000000.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockTextureName(MCAssetManager.getMineralTexture("invincium"));
 		godstone = new BlockGodstone(Material.rock).setHardness(6F).setResistance(9F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockTextureName(MCAssetManager.getMineralTexture("godstone"));
-		glowGlass = new BlockGlowGlass(Material.glass, true).setHardness(0.8F).setCreativeTab(Minestrappolation.tabDecorationBlocks).setStepSound(Block.soundTypeGlass).setBlockTextureName(MCAssetManager.getTexture("glow_glass"));
 		nuke = new BlockNuke().setHardness(0.0F).setCreativeTab(Minestrappolation.tabTech).setStepSound(Block.soundTypeGrass);
 		melterIdle = new BlockMelter(false).setHardness(6F).setResistance(8.0F).setCreativeTab(Minestrappolation.tabTech).setStepSound(Block.soundTypeStone);
 		melterBurning = new BlockMelter(true).setHardness(6F).setResistance(8.0F).setStepSound(Block.soundTypeStone);
@@ -135,8 +132,9 @@ public class MBlocks
 		edgeStoneBrick = new BlockEdgeStoneBrick().setHardness(1.5F).setResistance(10F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone);
 		snowBrick = new BlockSnowBrick().setHardness(0.3F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeSnow).setBlockTextureName(MCAssetManager.getTexture("snow_tiles"));
 		
-		glassRefined = new BlockGlassRefined(Material.glass, false).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MCAssetManager.getTexture("glass_refined"));
-		glassRefinedPane = new MCBlockPane(Material.glass, MCAssetManager.getTexture("refined_glass"), MCAssetManager.getTexture("glass_refined_pane"), false).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(Minestrappolation.tabBuildingBlocks);
+		glowGlass = new BlockGlowGlass(Material.glass, true).setHardness(0.8F).setCreativeTab(Minestrappolation.tabDecorationBlocks).setStepSound(Block.soundTypeGlass).setBlockTextureName(MCAssetManager.getTexture("glow_glass"));
+		refinedGlass = new BlockGlassRefined(Material.glass, false).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MCAssetManager.getTexture("glass_refined"));
+		refinedGlassPane = new MCBlockPane(Material.glass, MCAssetManager.getTexture("glass_refined"), MCAssetManager.getTexture("glass_refined_pane"), false).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(Minestrappolation.tabBuildingBlocks);
 		
 		gunpowderBlock = new BlockGunpowderBlock(Material.ground).setHardness(0.6F).setStepSound(Block.soundTypeGravel).setBlockTextureName(MCAssetManager.getMineralTexture("gunpowder_block"));
 		sugarBlock = new BlockSugarBlock().setHardness(0.6F).setCreativeTab(Minestrappolation.tabDecorationBlocks).setStepSound(Block.soundTypeGravel).setBlockTextureName(MCAssetManager.getFoodTexture("sugar_block"));
@@ -198,19 +196,17 @@ public class MBlocks
 		
 		CSBlocks.addBlock(invincium, "invincium");
 		CSBlocks.addBlock(godstone, "godstone");
-		
-		CSBlocks.addBlock(glowGlass, "glow_glass");
-		
 		CSBlocks.addBlock(nuke, "nuke");
-		
 		CSBlocks.addBlock(melterIdle, "melter");
 		CSBlocks.addBlock(melterBurning, "melter_burning");
 		
 		CSBlocks.addBlock(checkerTiles, "checker_tiles");
 		CSBlocks.addBlock(edgeStoneBrick, "edge_stone_brick");
 		CSBlocks.addBlock(snowBrick, "snow_brick");
-		CSBlocks.addBlock(glassRefined, "refined_glass");
-		CSBlocks.addBlock(glassRefinedPane, "refined_glass_pane");
+		
+		CSBlocks.addBlock(glowGlass, "glow_glass");
+		CSBlocks.addBlock(refinedGlass, "refined_glass");
+		CSBlocks.addBlock(refinedGlassPane, "refined_glass_pane");
 		
 		CSBlocks.addBlock(gunpowderBlock, "gunpowder_block");
 		CSBlocks.addBlock(sugarBlock, "sugar_block");
