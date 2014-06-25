@@ -1,23 +1,23 @@
 package minestrapteam.minestrap_core.item.block;
 
-import minestrapteam.minestrap_core.block.MCBlockStone2;
+import minestrapteam.minestrap_core.block.MCBlockCustom2;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class MCItemBlockStone2 extends MCItemBlockMulti
+public class MCItemBlockCustom2 extends MCItemBlockMulti
 {
-	private MCBlockStone2	theBlock;
+	private MCBlockCustom2	theBlock;
 	
-	public MCItemBlockStone2(Block block)
+	public MCItemBlockCustom2(Block block)
 	{
 		super(block);
 		
-		if (block instanceof MCBlockStone2)
+		if (block instanceof MCBlockCustom2)
 		{
-			this.theBlock = (MCBlockStone2) block;
+			this.theBlock = (MCBlockCustom2) block;
 		}
 	}
 	

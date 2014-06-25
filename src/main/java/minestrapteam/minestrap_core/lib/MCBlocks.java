@@ -106,25 +106,25 @@ public class MCBlocks
 		CreativeTabs tab = Minestrappolation.tabStoneDecor;
 		CreativeTabs tab_decor = Minestrappolation.tabDecorationBlocks;
 		
-		String[] types_stone = new String[] { null, null, "pattern_bricks", "tiles", "road", "refined", null, null, "mossy", null, null, null, null, null, "glowstone_lamp", "sunstone_lamp" };
+		String[] types_stone = new String[] { null, null, "pattern_bricks", "tiles", "road", "refined", null, null, "mossy", null, null, null, null, null, "lamp_glowstone", "lamp_sunstone" };
 		String[] types_stone_2 = new String[] { "pillar", null, null, "tile_slab", "refined_slab" };
 		String[] types_granite = new String[] { "raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled" };
 		String[] types_sandstone = new String[] { null, "bricks", "pattern_bricks", "tiles", "road", null, "chiseled", null, "mossy" };
 		String[] types_sandstone_2 = new String[] { "pillar", null, "brick_slab", "tile_slab", "refined_slab" };
-		String[] types_redsandstone = new String[] {"raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", null, "mossy", null, null};
-		String[] types_redsandstone2 = new String[] {"pillar", "raw_slab", "brick_slab", "tile_slab", "refined_slab"};
-		String[] types_flint = new String[] { "raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", null, null, null, null, null, null, null, "glowstone_lamp", "sunstone_lamp" };
+		String[] types_redsandstone = new String[] {"raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", null, "mossy"};
+		String[] types_redsandstone_2 = new String[] {"pillar", "raw_slab", "brick_slab", "tile_slab", "refined_slab"};
+		String[] types_flint = new String[] { "raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", null, null, null, null, null, null, null, "lamp_glowstone", "lamp_sunstone" };
 		String[] types_lapis = new String[] { null, "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled" };
 		String[] types_obsidian = new String[] { null, "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled" };
 		String[] types_endstone = new String[] { "raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled" };
-		String[] types_bedrock = new String[] { null, "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", null, null, null, null, null, null, null, "glowstone_lamp", "sunstone_lamp" };
+		String[] types_bedrock = new String[] { null, "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", null, null, null, null, null, null, null, "lamp_glowstone", "lamp_sunstone" };
 		String[] types_netherrack = new String[] { null, "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled" };
 		String[] types_netherquartz = new String[] { null, "bricks", "pattern_bricks", "tiles", "road", "refined", };
 		String[] types_netherquartz_2 = new String[] { "pillar", null, "brick_slab", "tile_slab", "refined_slab" };
 		String[] types_desertquartz = new String[] { "raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled" };
 		String[] types_desertquartz_2 = new String[] { "pillar", null, "brick_slab", "tile_slab", "refined_slab" };
 		String[] types_radiantquartz = new String[] {"raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", null, null, null, null};
-		String[] types_radiantquartz2 = new String[] {"pillar", "raw_slab", "brick_slab", "tile_slab", "refined_slab"};
+		String[] types_radiantquartz_2 = new String[] {"pillar", "raw_slab", "brick_slab", "tile_slab", "refined_slab"};
 		String[] types_clay = new String[] { null, null, "pattern_bricks", "tiles", "road", "refined", "chiseled" };
 		String[] types_colored_clay = new String[] { null, "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled" };
 		String[] types_clay_2 = new String[] { "pillar", "raw_slab", null, "tile_slab", "refined_slab" };
@@ -153,8 +153,8 @@ public class MCBlocks
 		
 		sandstone = MCBlockHelper.createStoneBlock(types_sandstone, "sandstone", 0.8F, 1.33F, 0, tab);
 		sandstone2 = MCBlockHelper.createStoneBlock2(types_sandstone_2, "sandstone", 0.8F, 1.33F, 0, tab);
-		redSandstone = MCBlockHelper.createStoneBlock("red_sandstone", 0.8F, 1.33F, 0, tab);
-		redSandstone2 = MCBlockHelper.createStoneBlock2("red_sandstone", 0.8F, 1.33F, 0, tab);
+		redSandstone = MCBlockHelper.createStoneBlock(types_redsandstone, "red_sandstone", 0.8F, 1.33F, 0, tab);
+		redSandstone2 = MCBlockHelper.createStoneBlock2(types_redsandstone_2, "red_sandstone", 0.8F, 1.33F, 0, tab);
 		flint = MCBlockHelper.createStoneBlock(types_flint, "flint", 1.8F, 15.0F, 1, tab);
 		flint2 = MCBlockHelper.createStoneBlock2("flint", 1.8F, 15.0F, 1, tab);
 		lapis = MCBlockHelper.createStoneBlock(types_lapis, "lapis", 3.0F, 5.0F, 1, tab).setChiseledSided();
@@ -171,8 +171,8 @@ public class MCBlocks
 		netherQuartz2 = MCBlockHelper.createStoneBlock2(types_netherquartz_2, "netherquartz", 0.8F, 1.33F, 0, tab);
 		desertQuartz = MCBlockHelper.createStoneBlock(types_desertquartz, "desertquartz", 1.7F, 4.0F, 1, tab).setChiseledSided();
 		desertQuartz2 = MCBlockHelper.createStoneBlock2(types_desertquartz_2, "desertquartz", 1.7F, 4.0F, 1, tab);
-		radiantQuartz = MCBlockHelper.createStoneBlock(types_desertquartz, "radiant_quartz", 2F, 6.0F, 3, tab).setChiseledSided().setLightLevel(0.5F);
-		radiantQuartz2 = MCBlockHelper.createStoneBlock2(types_desertquartz_2, "radiant_quartz", 2F, 6.0F, 3, tab).setLightLevel(0.5F);
+		radiantQuartz = MCBlockHelper.createStoneBlock(types_radiantquartz, "radiant_quartz", 2F, 6.0F, 3, tab).setLightLevel(0.5F);
+		radiantQuartz2 = MCBlockHelper.createStoneBlock2(types_radiantquartz_2, "radiant_quartz", 2F, 6.0F, 3, tab).setLightLevel(0.5F);
 		
 		clay = MCBlockHelper.createStoneBlock(types_clay, "clay", 1.25F, 7.0F, 0, tab).setIsClay();
 		clay2 = MCBlockHelper.createStoneBlock2(types_clay_2, "clay", 1.25F, 7.0F, 0, tab);

@@ -2,7 +2,9 @@ package minestrapteam.minestrap_core.block;
 
 import static net.minecraftforge.common.util.ForgeDirection.UP;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import minestrapteam.minestrap_core.common.MCCommonProxy;
 import minestrapteam.minestrappolation.Minestrappolation;
@@ -12,7 +14,6 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
@@ -41,25 +42,31 @@ import net.minecraftforge.common.util.ForgeDirection;
  * <li>13: Refined Slab Upper
  * <li>14: Refined Slab Double
  * </ul>
- * Everything else is added by {@link MCBlockStone}
+ * Everything else is added by {@link MCBlockCustom}
  * 
  * @author Clashsoft
  */
-public class MCBlockStone2 extends Block
+public class MCBlockCustom2 extends Block
 {
-	public String[]	types;
+	public String[]				types;
 	
-	public String	name;
-	public float	baseHardness;
-	public float	baseResistance;
-	public int		harvestLevel;
+	public String				name;
+	public float				baseHardness;
+	public float				baseResistance;
+	public int					harvestLevel;
+	public String harvestTool;
 	
-	public IIcon[]	topIcons;
-	public IIcon[]	sideIcons;
+	public Map<String, IIcon>	iconMap	= new HashMap();
 	
-	public boolean	netherrack;
+	public boolean				netherrack;
+	public boolean				slabSided;
 	
-	public MCBlockStone2(String[] types, String name, float baseHardness, float baseResistance, int harvestLevel)
+	public MCBlockCustom2(String[] types, String name)
+	{
+		this(types, name, 1F, 5F, 0);
+	}
+	
+	public MCBlockCustom2(String[] types, String name, float baseHardness, float baseResistance, int harvestLevel)
 	{
 		super(Material.rock);
 		this.setCreativeTab(Minestrappolation.tabStoneDecor);
@@ -70,10 +77,35 @@ public class MCBlockStone2 extends Block
 		this.types = types;
 	}
 	
-	public MCBlockStone2 setIsNetherrack()
+	public MCBlockCustom2 setIsNetherrack()
 	{
 		this.netherrack = true;
 		return this;
+	}
+	
+	public MCBlockCustom2 setSlabSided()
+	{
+		this.slabSided = true;
+		return this;
+	}
+	
+	public MCBlockCustom2 setHarvestTool(String harvestTool)
+	{
+		this.harvestTool = harvestTool;
+		return this;
+	}
+	
+	public String getType(int metadata)
+	{
+		metadata /= 3;
+		if (metadata < 0 || metadata >= this.types.length)
+			return null;
+		return this.types[metadata];
+	}
+	
+	public String getUnlocalizedName(int metadata)
+	{
+		return "tile." + this.name + "." + this.getType(metadata);
 	}
 	
 	@Override
@@ -156,16 +188,6 @@ public class MCBlockStone2 extends Block
 		return this.limitToValidMetadata(metadata);
 	}
 	
-	public String getUnlocalizedName(int metadata)
-	{
-		metadata /= 3;
-		if (metadata >= this.types.length)
-		{
-			metadata = 0;
-		}
-		return "tile." + this.name + "." + this.types[metadata];
-	}
-	
 	@Override
 	public float getBlockHardness(World world, int x, int y, int z)
 	{
@@ -174,108 +196,157 @@ public class MCBlockStone2 extends Block
 	
 	public float getHardness(int metadata)
 	{
-		float f = this.baseHardness;
-		return f;
+		return this.baseHardness;
 	}
 	
 	@Override
 	public float getExplosionResistance(Entity entity, World world, int x, int y, int z, double explosionX, double explosionY, double explosionZ)
 	{
-		float g = this.baseResistance;
-		return g;
+		return this.baseResistance;
 	}
 	
 	@Override
 	public String getHarvestTool(int metadata)
-    {
-        return "pickaxe";
-    }
+	{
+		return this.harvestTool;
+	}
 	
 	@Override
 	public int getHarvestLevel(int metadata)
-    {
-        return harvestLevel;
-    }
+	{
+		return harvestLevel;
+	}
 	
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.topIcons = new IIcon[5];
-		this.sideIcons = new IIcon[5];
-		
 		String textureName = this.getTextureName();
-		this.topIcons[0] = iconRegister.registerIcon(textureName + "_pillar_top");
-		this.sideIcons[0] = iconRegister.registerIcon(textureName + "_pillar_side");
-		this.topIcons[1] = iconRegister.registerIcon(textureName + "_slab_top");
-		this.sideIcons[1] = iconRegister.registerIcon(textureName + "_slab_side");
-		this.topIcons[2] = this.sideIcons[2] = iconRegister.registerIcon(textureName + "_bricks");
-		this.topIcons[3] = this.sideIcons[3] = iconRegister.registerIcon(textureName + "_tiles");
-		this.topIcons[4] = iconRegister.registerIcon(textureName + "_refined");
-		this.sideIcons[4] = iconRegister.registerIcon(textureName + "_refined_slab_side");
+		
+		this.iconMap.clear();
+		for (String type : this.types)
+		{
+			if (type == null)
+				continue;
+			
+			if ("pillar".equals(type))
+			{
+				this.iconMap.put("pillar_top", iconRegister.registerIcon(textureName + "_pillar_top"));
+				this.iconMap.put("pillar_side", iconRegister.registerIcon(textureName + "_pillar_side"));
+			}
+			else if ("raw_slab".equals(type))
+			{
+				this.iconMap.put("raw_slab_top", iconRegister.registerIcon(textureName + "_slab_top"));
+				if (this.slabSided)
+				{
+					this.iconMap.put("raw_slab_side", iconRegister.registerIcon(textureName + "_slab_side"));
+				}
+			}
+			else if ("refined_slab".equals(type))
+			{
+				this.iconMap.put("refined_slab_top", iconRegister.registerIcon(textureName + "_refined"));
+				if (this.slabSided)
+				{
+					this.iconMap.put("refined_slab_side", iconRegister.registerIcon(textureName + "_refined_slab_side"));
+				}
+			}
+			else if ("tile_slab".equals(type))
+			{
+				this.iconMap.put("tile_slab_top", iconRegister.registerIcon(textureName + "_tiles"));
+				if (this.slabSided)
+				{
+					this.iconMap.put("tile_slab_side", iconRegister.registerIcon(textureName + "_tile_slab_side"));
+				}
+			}
+			else if ("brick_slab".equals(type))
+			{
+				this.iconMap.put("brick_slab_top", iconRegister.registerIcon(textureName + "_bricks"));
+				if (this.slabSided)
+				{
+					this.iconMap.put("brick_slab_side", iconRegister.registerIcon(textureName + "_brick_slab_side"));
+				}
+			}
+			else
+			{
+				this.iconMap.put(type, iconRegister.registerIcon(textureName + "_" + type));
+			}
+		}
 	}
 	
 	@Override
 	public IIcon getIcon(int side, int metadata)
 	{
-		if (metadata == 0)
+		int m = metadata % 3;
+		String type = this.getType(metadata);
+		if (type == null)
 		{
-			if (side == 0 || side == 1)
+			return this.blockIcon;
+		}
+		else if ("pillar".equals(type))
+		{
+			if ((m == 0 && (side == 0 || side == 1)) || (m == 1 && (side == 2 || side == 3)) || (m == 2 && (side == 4 || side == 5)))
 			{
-				return this.topIcons[0];
+				return this.iconMap.get("pillar_top");
 			}
 			else
 			{
-				return this.sideIcons[0];
+				return this.iconMap.get("pillar_side");
 			}
 		}
-		else if (metadata == 1)
+		else if ("raw_slab".equals(type))
 		{
-			if (side == 2 || side == 3)
+			if (side > 1 && this.slabSided)
 			{
-				return this.topIcons[0];
+				return this.iconMap.get("raw_slab_side");
 			}
 			else
 			{
-				return this.sideIcons[0];
+				return this.iconMap.get("raw_slab_top");
 			}
 		}
-		else if (metadata == 2)
+		else if ("refined_slab".equals(type))
 		{
-			if (side == 4 || side == 5)
+			if (side > 1 && this.slabSided)
 			{
-				return this.topIcons[0];
+				return this.iconMap.get("refined_slab_side");
 			}
 			else
 			{
-				return this.sideIcons[0];
+				return this.iconMap.get("refined_slab_top");
 			}
 		}
-		else if (metadata < 15)
+		else if ("tile_slab".equals(type))
 		{
-			if (side == 0 || side == 1)
+			if (side > 1 && this.slabSided)
 			{
-				return this.topIcons[metadata / 3];
+				return this.iconMap.get("tile_slab_side");
 			}
 			else
 			{
-				return this.sideIcons[metadata / 3];
+				return this.iconMap.get("tile_slab_top");
 			}
 		}
-		return this.blockIcon;
+		else if ("brick_slab".equals(type))
+		{
+			if (side > 1 && this.slabSided)
+			{
+				return this.iconMap.get("brick_slab_side");
+			}
+			else
+			{
+				return this.iconMap.get("brick_slab_top");
+			}
+		}
+		else
+		{
+			return this.iconMap.get(type);
+		}
 	}
 	
 	@Override
 	public boolean isFireSource(World world, int x, int y, int z, ForgeDirection side)
-    {
-        if (this.netherrack == true && side == UP)
-        {
-            return true;
-        }
-        else
-        {
-        	return false;
-        }
-    }
+	{
+		return this.netherrack && side == UP;
+	}
 	
 	@Override
 	public boolean isOpaqueCube()
@@ -292,7 +363,7 @@ public class MCBlockStone2 extends Block
 	@Override
 	public int getRenderType()
 	{
-		return MCCommonProxy.stone2RenderType;
+		return MCCommonProxy.custom2RenderType;
 	}
 	
 	@Override

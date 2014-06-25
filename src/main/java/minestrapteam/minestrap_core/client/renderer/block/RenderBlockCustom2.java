@@ -1,7 +1,7 @@
 package minestrapteam.minestrap_core.client.renderer.block;
 
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
-import minestrapteam.minestrap_core.block.MCBlockStone2;
+import minestrapteam.minestrap_core.block.MCBlockCustom2;
 import minestrapteam.minestrap_core.client.MCClientProxy;
 import minestrapteam.minestrap_core.common.MCCommonProxy;
 
@@ -9,27 +9,27 @@ import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.world.IBlockAccess;
 
-public class RenderBlockStone2 implements ISimpleBlockRenderingHandler
+public class RenderBlockCustom2 implements ISimpleBlockRenderingHandler
 {
 	@Override
 	public int getRenderId()
 	{
-		return MCClientProxy.stone2RenderType;
+		return MCClientProxy.custom2RenderType;
 	}
 	
 	@Override
 	public void renderInventoryBlock(Block block, int metadata, int modelID, RenderBlocks renderer)
 	{
-		int i = MCCommonProxy.stone2RenderType;
-		MCCommonProxy.stone2RenderType = 0;
+		int i = MCCommonProxy.custom2RenderType;
+		MCCommonProxy.custom2RenderType = 0;
 		
-		if (block instanceof MCBlockStone2)
+		if (block instanceof MCBlockCustom2)
 		{
-			((MCBlockStone2) block).setBlockBounds(metadata);
+			((MCBlockCustom2) block).setBlockBounds(metadata);
 		}
 		renderer.renderBlockAsItem(block, metadata, 1F);
 		
-		MCCommonProxy.stone2RenderType = i;
+		MCCommonProxy.custom2RenderType = i;
 	}
 	
 	@Override

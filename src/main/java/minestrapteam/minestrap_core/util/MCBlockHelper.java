@@ -2,15 +2,12 @@ package minestrapteam.minestrap_core.util;
 
 import cpw.mods.fml.common.registry.GameData;
 import cpw.mods.fml.common.registry.GameRegistry;
-import minestrapteam.minestrap_core.block.MCBlockStone;
-import minestrapteam.minestrap_core.block.MCBlockStone2;
-import minestrapteam.minestrap_core.block.MCBlockWood;
-import minestrapteam.minestrap_core.block.MCBlockWood2;
-import minestrapteam.minestrap_core.item.block.MCItemBlockWood2;
-import minestrapteam.minestrap_core.item.block.MCItemBlockStone;
-import minestrapteam.minestrap_core.item.block.MCItemBlockStone2;
-import minestrapteam.minestrap_core.item.block.MCItemBlockWood;
+import minestrapteam.minestrap_core.block.MCBlockCustom;
+import minestrapteam.minestrap_core.block.MCBlockCustom2;
+import minestrapteam.minestrap_core.item.block.MCItemBlockCustom;
+import minestrapteam.minestrap_core.item.block.MCItemBlockCustom2;
 import minestrapteam.minestrap_core.lib.MCReference;
+
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 
@@ -22,67 +19,77 @@ import net.minecraft.creativetab.CreativeTabs;
  */
 public class MCBlockHelper
 {
-	public static final String[]	stoneTypes	= new String[] { "raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", "cracked", "mossy", null, null, null, null, null, "glowstone_lamp", "sunstone_lamp" };
+	public static final String[]	stoneTypes	= new String[] { "raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", "cracked", "mossy", null, null, null, null, null, "lamp_glowstone", "lamp_sunstone" };
 	public static final String[]	stoneTypes2	= new String[] { "pillar", "raw_slab", "brick_slab", "tile_slab", "refined_slab" };
 	
 	public static final String[]	woodTypes	= new String[] { "bevel", "boards", "panel", "mossy_planks" };
-	public static final String[]	woodTypes2	= new String[] { "bevel_slab", "boards_slab", "panel_slab", "mossy_planks_slab" };
+	public static final String[]	woodTypes2	= new String[] { null, "bevel", "boards", "panel", "mossy_planks" };
 	
-	public static MCBlockWood createWoodBlock(String name, CreativeTabs tab)
+	public static MCBlockCustom createWoodBlock(String name, CreativeTabs tab)
 	{
 		return createWoodBlock(woodTypes, name, tab);
 	}
 	
-	public static MCBlockWood createWoodBlock(String[] types, String name, CreativeTabs tab)
+	public static MCBlockCustom createWoodBlock(String[] types, String name, CreativeTabs tab)
 	{
 		String name1 = "wood_" + name;
-		MCBlockWood block = new MCBlockWood(types, name);
-		block.setBlockName(name1).setBlockTextureName(MCAssetManager.getWoodTexture(name)).setCreativeTab(tab);
-		GameRegistry.registerBlock(block, MCItemBlockWood.class, name1);
+		MCBlockCustom block = new MCBlockCustom(types, name);
+		block.setBlockName(name1);
+		block.setBlockTextureName(MCAssetManager.getWoodTexture(name));
+		block.setCreativeTab(tab);
+		block.setHarvestTool("axe");
+		GameRegistry.registerBlock(block, MCItemBlockCustom.class, name1);
 		return block;
 	}
 	
-	public static MCBlockWood2 createWoodBlock2(String name, CreativeTabs tab)
+	public static MCBlockCustom2 createWoodBlock2(String name, CreativeTabs tab)
 	{
 		return createWoodBlock2(woodTypes2, name, tab);
 	}
 	
-	public static MCBlockWood2 createWoodBlock2(String[] types, String name, CreativeTabs tab)
+	public static MCBlockCustom2 createWoodBlock2(String[] types, String name, CreativeTabs tab)
 	{
 		String name1 = "wood_slab_" + name;
-		MCBlockWood2 block = new MCBlockWood2(woodTypes2, name);
-		block.setBlockName(name1).setBlockTextureName(MCAssetManager.getWoodTexture(name)).setCreativeTab(tab);
-		GameRegistry.registerBlock(block, MCItemBlockWood2.class, name1);
+		MCBlockCustom2 block = new MCBlockCustom2(woodTypes2, name);
+		block.setBlockName(name1);
+		block.setBlockTextureName(MCAssetManager.getWoodTexture(name));
+		block.setCreativeTab(tab);
+		block.setHarvestTool("axe");
+		GameRegistry.registerBlock(block, MCItemBlockCustom2.class, name1);
 		return block;
 	}
 	
-	public static MCBlockStone createStoneBlock(String name, float hardness, float resistance, int harvestLevel, CreativeTabs tab)
+	public static MCBlockCustom createStoneBlock(String name, float hardness, float resistance, int harvestLevel, CreativeTabs tab)
 	{
 		return createStoneBlock(stoneTypes, name, hardness, resistance, harvestLevel, tab);
 	}
 	
-	public static MCBlockStone createStoneBlock(String[] types, String name, float hardness, float resistance, int harvestLevel, CreativeTabs tab)
+	public static MCBlockCustom createStoneBlock(String[] types, String name, float hardness, float resistance, int harvestLevel, CreativeTabs tab)
 	{
 		String name1 = "stone_" + name;
-		MCBlockStone block = new MCBlockStone(types, name, hardness, resistance, harvestLevel);
-		block.setBlockName(name1).setBlockTextureName(MCAssetManager.getStonecutterTexture(name)).setCreativeTab(tab);
-		block.setHarvestLevel("pickaxe", harvestLevel);
-		GameRegistry.registerBlock(block, MCItemBlockStone.class, name1);
+		MCBlockCustom block = new MCBlockCustom(types, name, hardness, resistance, harvestLevel);
+		block.setBlockName(name1);
+		block.setBlockTextureName(MCAssetManager.getStonecutterTexture(name));
+		block.setCreativeTab(tab);
+		block.setHarvestTool("pickaxe");
+		GameRegistry.registerBlock(block, MCItemBlockCustom.class, name1);
 		return block;
 	}
 	
-	public static MCBlockStone2 createStoneBlock2(String name, float hardness, float resistance, int harvestLevel, CreativeTabs tab)
+	public static MCBlockCustom2 createStoneBlock2(String name, float hardness, float resistance, int harvestLevel, CreativeTabs tab)
 	{
 		return createStoneBlock2(stoneTypes2, name, hardness, resistance, harvestLevel, tab);
 	}
 	
-	public static MCBlockStone2 createStoneBlock2(String[] types, String name, float hardness, float resistance, int harvestLevel, CreativeTabs tab)
+	public static MCBlockCustom2 createStoneBlock2(String[] types, String name, float hardness, float resistance, int harvestLevel, CreativeTabs tab)
 	{
 		String name1 = "stone_slab_" + name;
-		MCBlockStone2 block = new MCBlockStone2(types, name, hardness, resistance, harvestLevel);
-		block.setBlockName(name1).setBlockTextureName(MCAssetManager.getStonecutterTexture(name)).setCreativeTab(tab);
-		block.setHarvestLevel("pickaxe", harvestLevel);
-		GameRegistry.registerBlock(block, MCItemBlockStone2.class, name1);
+		MCBlockCustom2 block = new MCBlockCustom2(types, name, hardness, resistance, harvestLevel);
+		block.setBlockName(name1);
+		block.setBlockTextureName(MCAssetManager.getStonecutterTexture(name));
+		block.setCreativeTab(tab);
+		block.setHarvestTool("pickaxe");
+		GameRegistry.registerBlock(block, MCItemBlockCustom2.class, name1);
 		return block;
 	}
 	

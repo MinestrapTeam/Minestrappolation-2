@@ -1,24 +1,24 @@
 package minestrapteam.minestrap_core.item.block;
 
-import minestrapteam.minestrap_core.block.MCBlockWood;
+import minestrapteam.minestrap_core.block.MCBlockCustom;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 
-public class MCItemBlockWood extends ItemBlock
+public class MCItemBlockCustom extends ItemBlock
 {
-	private MCBlockWood	theBlock;
+	private MCBlockCustom	theBlock;
 	
-	public MCItemBlockWood(Block block)
+	public MCItemBlockCustom(Block block)
 	{
 		super(block);
 		this.setMaxDamage(0);
 		this.setHasSubtypes(true);
 		
-		if (block instanceof MCBlockWood)
+		if (block instanceof MCBlockCustom)
 		{
-			this.theBlock = (MCBlockWood) block;
+			this.theBlock = (MCBlockCustom) block;
 		}
 	}
 	
