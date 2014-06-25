@@ -9,13 +9,13 @@ import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class StonecutterShapelessRecipes implements IStonecutterRecipe
+public class ShapelessSCRecipe implements ISCRecipe
 {
 	public final List		recipeItems;
 	public final ItemStack	recipeOutput;
 	public final ItemStack	extraSlot;
 	
-	public StonecutterShapelessRecipes(ItemStack output, List items, ItemStack extraSlot)
+	public ShapelessSCRecipe(ItemStack output, List items, ItemStack extraSlot)
 	{
 		this.recipeOutput = output;
 		this.recipeItems = items;

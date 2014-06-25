@@ -16,7 +16,8 @@ public class StonecutterCraftingManager
 	public static final StonecutterCraftingManager	instance	= new StonecutterCraftingManager();
 	
 	/** A list of all the recipes added */
-	private List<IStonecutterRecipe>				recipes		= new ArrayList();
+	private List<ISCRecipe>							recipes		= new ArrayList();
+	private boolean									listSorted;
 	
 	private StonecutterCraftingManager()
 	{
@@ -37,28 +38,12 @@ public class StonecutterCraftingManager
 		this.addRecipe(new ItemStack(Blocks.stained_hardened_clay, 9, 13), new ItemStack(Items.dye, 1, 2), objects);
 		this.addRecipe(new ItemStack(Blocks.stained_hardened_clay, 9, 14), new ItemStack(Items.dye, 1, 1), objects);
 		this.addRecipe(new ItemStack(Blocks.stained_hardened_clay, 9, 15), new ItemStack(Items.dye, 1, 0), objects);
-		
-		Collections.sort(this.recipes, new Comparator()
-		{
-			public int compare(IStonecutterRecipe recipe1, IStonecutterRecipe recipe2)
-			{
-				boolean flag1 = recipe1 instanceof StonecutterShapedRecipes;
-				boolean flag2 = recipe1 instanceof StonecutterShapelessRecipes;
-				boolean flag3 = recipe2 instanceof StonecutterShapedRecipes;
-				boolean flag4 = recipe2 instanceof StonecutterShapelessRecipes;
-				return flag2 && flag3 ? 1 : flag4 && flag1 ? -1 : recipe2.getRecipeSize() < recipe1.getRecipeSize() ? -1 : recipe2.getRecipeSize() > recipe1.getRecipeSize() ? 1 : 0;
-			}
-			
-			@Override
-			public int compare(Object o1, Object o2)
-			{
-				return this.compare((IStonecutterRecipe) o1, (IStonecutterRecipe) o2);
-			}
-		});
 	}
 	
-	public StonecutterShapedRecipes addRecipe(ItemStack stack, ItemStack extraSlot, Object... data)
+	public ShapedSCRecipe addRecipe(ItemStack output, ItemStack extraSlot, Object... data)
 	{
+		this.listSorted = false;
+		
 		String s = "";
 		int index = 0;
 		int width = 0;
@@ -127,12 +112,12 @@ public class StonecutterCraftingManager
 			}
 		}
 		
-		StonecutterShapedRecipes recipe = new StonecutterShapedRecipes(width, height, stacks, stack, extraSlot);
+		ShapedSCRecipe recipe = new ShapedSCRecipe(width, height, stacks, output, extraSlot);
 		this.recipes.add(recipe);
 		return recipe;
 	}
 	
-	public StonecutterShapelessRecipes addShapelessRecipe(ItemStack stack, ItemStack extra, Object... data)
+	public ShapelessSCRecipe addShapelessRecipe(ItemStack stack, ItemStack extra, Object... data)
 	{
 		ArrayList list = new ArrayList();
 		int len = data.length;
@@ -159,14 +144,14 @@ public class StonecutterCraftingManager
 			}
 		}
 		
-		StonecutterShapelessRecipes recipe = new StonecutterShapelessRecipes(stack, list, extra);
+		ShapelessSCRecipe recipe = new ShapelessSCRecipe(stack, list, extra);
 		this.recipes.add(recipe);
 		return recipe;
 	}
 	
 	public ItemStack findMatchingRecipe(InventoryCrafting inventory, ItemStack extra, World world)
 	{
-		for (IStonecutterRecipe recipe : this.recipes)
+		for (ISCRecipe recipe : this.getRecipeList())
 		{
 			if (recipe.matches(inventory, extra, world))
 			{
@@ -177,8 +162,31 @@ public class StonecutterCraftingManager
 		return null;
 	}
 	
-	public List getRecipeList()
+	public List<ISCRecipe> getRecipeList()
 	{
+		if (!this.listSorted)
+		{
+			Collections.sort(this.recipes, new Comparator()
+			{
+				public int compare(ISCRecipe recipe1, ISCRecipe recipe2)
+				{
+					boolean flag1 = recipe1 instanceof ShapedSCRecipe;
+					boolean flag2 = recipe1 instanceof ShapelessSCRecipe;
+					boolean flag3 = recipe2 instanceof ShapedSCRecipe;
+					boolean flag4 = recipe2 instanceof ShapelessSCRecipe;
+					return flag2 && flag3 ? 1 : flag4 && flag1 ? -1 : recipe2.getRecipeSize() < recipe1.getRecipeSize() ? -1 : recipe2.getRecipeSize() > recipe1.getRecipeSize() ? 1 : 0;
+				}
+				
+				@Override
+				public int compare(Object o1, Object o2)
+				{
+					return this.compare((ISCRecipe) o1, (ISCRecipe) o2);
+				}
+			});
+			
+			this.listSorted = true;
+		}
+		
 		return this.recipes;
 	}
 }

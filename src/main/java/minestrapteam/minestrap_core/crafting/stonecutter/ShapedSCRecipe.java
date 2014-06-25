@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
-public class StonecutterShapedRecipes implements IStonecutterRecipe
+public class ShapedSCRecipe implements ISCRecipe
 {
 	public final int			recipeWidth;
 	public final int			recipeHeight;
@@ -19,7 +19,7 @@ public class StonecutterShapedRecipes implements IStonecutterRecipe
 	
 	protected boolean			hasNBTResult;
 	
-	public StonecutterShapedRecipes(int width, int height, ItemStack[] data, ItemStack output, ItemStack extra)
+	public ShapedSCRecipe(int width, int height, ItemStack[] data, ItemStack output, ItemStack extra)
 	{
 		this.recipeWidth = width;
 		this.recipeHeight = height;
@@ -126,7 +126,7 @@ public class StonecutterShapedRecipes implements IStonecutterRecipe
 		return this.recipeWidth * this.recipeHeight;
 	}
 	
-	public StonecutterShapedRecipes setHasNBTResult(boolean hasNBTResult)
+	public ShapedSCRecipe setHasNBTResult(boolean hasNBTResult)
 	{
 		this.hasNBTResult = hasNBTResult;
 		return this;

@@ -4,7 +4,7 @@ import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public interface IStonecutterRecipe
+public interface ISCRecipe
 {
 	/**
 	 * Used to check if a recipe matches current crafting inventory
