@@ -152,10 +152,10 @@ public class MOreGenerator implements IWorldGenerator
 			}
 		}
 		// Copper Ore
-		for (int i = 0; i < 13; i++)
+		for (int i = 0; i < 14; i++)
 		{
 			x1 = chunkX + rand.nextInt(16);
-			y1 = rand.nextInt(70);
+			y1 = rand.nextInt(80);
 			z1 = chunkZ + rand.nextInt(16);
 			
 			new WorldGenMinable(MBlocks.copperOre, 10).generate(world, rand, x1, y1, z1);
@@ -164,7 +164,7 @@ public class MOreGenerator implements IWorldGenerator
 		for (int i = 0; i < 14; i++)
 		{
 			x1 = chunkX + rand.nextInt(16);
-			y1 = rand.nextInt(64);
+			y1 = rand.nextInt(80);
 			z1 = chunkZ + rand.nextInt(16);
 			
 			new WorldGenMinable(MBlocks.tinOre, 11).generate(world, rand, x1, y1, z1);
