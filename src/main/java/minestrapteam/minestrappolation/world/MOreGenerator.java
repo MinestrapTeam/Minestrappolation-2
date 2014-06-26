@@ -63,13 +63,13 @@ public class MOreGenerator implements IWorldGenerator
 		// Blocks.sandstone).generate(world, rand, x1, y1, z1);
 		// }
 		
-		for (int i = 0; i < 12; i++)
+		for (int i = 0; i < 20; i++)
 		{
 			x1 = chunkX + rand.nextInt(16);
-			y1 = rand.nextInt(64);
+			y1 = rand.nextInt(200);
 			z1 = chunkZ + rand.nextInt(16);
 			
-			new WorldGenMinable(MCBlocks.woodJungle, 3, Blocks.planks).generate(world, rand, x1, y1, z1);
+			new WorldGenMinable(MCBlocks.woodOak, 3, Blocks.planks).generate(world, rand, x1, y1, z1);
 		}
 		
 		// Meurodite Ore
@@ -155,7 +155,7 @@ public class MOreGenerator implements IWorldGenerator
 		for (int i = 0; i < 13; i++)
 		{
 			x1 = chunkX + rand.nextInt(16);
-			y1 = rand.nextInt(64);
+			y1 = rand.nextInt(70);
 			z1 = chunkZ + rand.nextInt(16);
 			
 			new WorldGenMinable(MBlocks.copperOre, 10).generate(world, rand, x1, y1, z1);
