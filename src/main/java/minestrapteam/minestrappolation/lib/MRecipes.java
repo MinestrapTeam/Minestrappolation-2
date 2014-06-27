@@ -182,7 +182,6 @@ public class MRecipes
 		
 		GameRegistry.addSmelting(Blocks.glowstone, new ItemStack(glowGlass), 0.5F);
 		
-		// TODO ED RECIPES
 		GameRegistry.addRecipe(new ItemStack(MItems.goblet, 1), new Object[] { "D D", " D ", Character.valueOf('D'), Items.gold_ingot });
 		
 		GameRegistry.addRecipe(new ItemStack(edgeStoneBrick, 1, 0), new Object[] { "SQ", "SQ", 'S', MCItems.brickStone, 'Q', Items.quartz });
@@ -208,13 +207,10 @@ public class MRecipes
 		GameRegistry.addRecipe(new ItemStack(barrel), new Object[] { "I", "C", "I", Character.valueOf('I'), Items.iron_ingot, Character.valueOf('C'), crate });
 		GameRegistry.addRecipe(new ItemStack(cardboardItem, 3), new Object[] { "SSS", "SSS", Character.valueOf('S'), Items.paper });
 		GameRegistry.addRecipe(new ItemStack(cardboardBlock, 2), new Object[] { "CCC", " C ", " CC", Character.valueOf('C'), cardboardItem });
-		GameRegistry.addRecipe(new ItemStack(MCBlocks.redSandstone, 1, 0), new Object[] { "SS", "SS", Character.valueOf('S'), (new ItemStack(Blocks.sand, 1, 1))});
+		GameRegistry.addRecipe(new ItemStack(MCBlocks.redSandstone, 1, 0), new Object[] { "SS", "SS", Character.valueOf('S'), new ItemStack(Blocks.sand, 1, 1) });
 		
-		// GameRegistry.addRecipe(new ItemStack(Blocks.stonebrick, 2, 3), new
-		// Object[] { "BBB", "BBB", "BBB", Character.valueOf('B'),
-		// MCItems.brickStone });
+		GameRegistry.addRecipe(new ItemStack(Blocks.stonebrick, 2, 3), new Object[] { "BBB", "BBB", "BBB", Character.valueOf('B'), MCItems.brickStone });
 		
-		// TODO EMD RECIPES
 		GameRegistry.addSmelting(fat, new ItemStack(grease, 1), 0.7F);
 		GameRegistry.addShapelessRecipe(new ItemStack(friedApple, 2), new Object[] { fat, Items.apple, fat });
 		GameRegistry.addShapelessRecipe(new ItemStack(friedBeef, 2), new Object[] { fat, Items.beef, fat });
