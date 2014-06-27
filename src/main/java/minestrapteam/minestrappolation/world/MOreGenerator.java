@@ -11,6 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.BiomeGenDesert;
+import net.minecraft.world.biome.BiomeGenForest;
 import net.minecraft.world.biome.BiomeGenJungle;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.ChunkProviderEnd;
@@ -75,16 +76,16 @@ public class MOreGenerator implements IWorldGenerator
 		}
 		
 		// Meurodite Ore
-		for (int i = 0; i < 5; i++)
+		for (int i = 0; i < 8; i++)
 		{
 			x1 = chunkX + rand.nextInt(16);
-			y1 = rand.nextInt(24);
+			y1 = rand.nextInt(40);
 			z1 = chunkZ + rand.nextInt(16);
 			
 			new WorldGenMinable(MBlocks.meuroditeOre, 5).generate(world, rand, x1, y1, z1);
 		}
 		// Uranium Ore
-		for (int i = 0; i < 8; i++)
+		for (int i = 0; i < 6; i++)
 		{
 			x1 = chunkX + rand.nextInt(16);
 			y1 = rand.nextInt(32);
@@ -93,7 +94,7 @@ public class MOreGenerator implements IWorldGenerator
 			new WorldGenMinable(MBlocks.uraniumOre, 3).generate(world, rand, x1, y1, z1);
 		}
 		// Plutonium Ore
-		for (int i = 0; i < 8; i++)
+		for (int i = 0; i < 6; i++)
 		{
 			x1 = chunkX + rand.nextInt(16);
 			y1 = rand.nextInt(32);
@@ -102,31 +103,31 @@ public class MOreGenerator implements IWorldGenerator
 			new WorldGenMinable(MBlocks.plutoniumOre, 3).generate(world, rand, x1, y1, z1);
 		}
 		// Titanium Ore
-		for (int i = 0; i < 8; i++)
+		for (int i = 0; i < 4; i++)
 		{
 			x1 = chunkX + rand.nextInt(16);
-			y1 = rand.nextInt(16);
+			y1 = rand.nextInt(10);
 			z1 = chunkZ + rand.nextInt(16);
 			
 			new WorldGenMinable(MBlocks.titaniumOre, 3).generate(world, rand, x1, y1, z1);
 		}
 		// Torite Ore
-		if (biome instanceof BiomeGenJungle)
+		if (biome instanceof BiomeGenJungle || biome instanceof BiomeGenForest)
 		{
-			for (int i = 0; i < 12; i++)
+			for (int i = 0; i < 7; i++)
 			{
 				x1 = chunkX + rand.nextInt(16);
-				y1 = rand.nextInt(32);
+				y1 = rand.nextInt(30);
 				z1 = chunkZ + rand.nextInt(16);
 				
-				new WorldGenMinable(MBlocks.toriteOre, 4).generate(world, rand, x1, y1, z1);
+				new WorldGenMinable(MBlocks.toriteOre, 3).generate(world, rand, x1, y1, z1);
 			}
 		}
 		// Sunstone Ore
 		for (int i = 0; i < 10; i++)
 		{
 			x1 = chunkX + rand.nextInt(16);
-			y1 = rand.nextInt(42);
+			y1 = rand.nextInt(256);
 			z1 = chunkZ + rand.nextInt(16);
 			
 			new WorldGenMinable(MBlocks.sunstoneOre, 3).generate(world, rand, x1, y1, z1);
@@ -194,16 +195,16 @@ public class MOreGenerator implements IWorldGenerator
 	public void generateNether(World world, Random rand, int chunkX, int chunkZ)
 	{
 		// blazium ore
-		for (int h = 0; h < 9; h++)
+		for (int h = 0; h < 8; h++)
 		{
 			int i5 = chunkX + rand.nextInt(16);
 			int j5 = rand.nextInt(128);
 			int k5 = chunkZ + rand.nextInt(16);
 			
-			new WorldGenMinable(MBlocks.blaziumOre, 13, Blocks.netherrack).generate(world, rand, i5, j5, k5);
+			new WorldGenMinable(MBlocks.blaziumOre, 8, Blocks.netherrack).generate(world, rand, i5, j5, k5);
 		}
 		// soul ore
-		for (int h = 0; h < 28; h++)
+		for (int h = 0; h < 20; h++)
 		{
 			int i5 = chunkX + rand.nextInt(16);
 			int j5 = rand.nextInt(128);
