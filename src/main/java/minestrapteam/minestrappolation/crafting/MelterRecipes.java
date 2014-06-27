@@ -22,16 +22,16 @@ public class MelterRecipes extends ExperienceRecipeManager
 		this.addRecipe(Blocks.snow, new ItemStack(Items.water_bucket, 1, 0), 0.6F);
 		this.addRecipe(Blocks.ice, new ItemStack(Items.water_bucket, 1, 0), 0.7F);
 		this.addRecipe(Blocks.cobblestone_wall, new ItemStack(Items.lava_bucket, 1, 0), 0.7F);
-		this.addRecipe(MCBlocks.granite, new ItemStack(Items.lava_bucket, 1, 0), 0.8F);
-		this.addRecipe(MCBlocks.granite2, new ItemStack(Items.lava_bucket, 1, 0), 0.8F);
-		this.addRecipe(MCBlocks.graniteBronze, new ItemStack(Items.lava_bucket, 1, 0), 0.8F);
-		this.addRecipe(MCBlocks.graniteBronze2, new ItemStack(Items.lava_bucket, 1, 0), 0.8F);
-		this.addRecipe(MCBlocks.graniteMeurodite, new ItemStack(Items.lava_bucket, 1, 0), 0.8F);
-		this.addRecipe(MCBlocks.graniteMeurodite2, new ItemStack(Items.lava_bucket, 1, 0), 0.8F);
-		this.addRecipe(MCBlocks.graniteSteel, new ItemStack(Items.lava_bucket, 1, 0), 0.8F);
-		this.addRecipe(MCBlocks.graniteSteel2, new ItemStack(Items.lava_bucket, 1, 0), 0.8F);
-		this.addRecipe(MCBlocks.graniteTin, new ItemStack(Items.lava_bucket, 1, 0), 0.8F);
-		this.addRecipe(MCBlocks.graniteTin2, new ItemStack(Items.lava_bucket, 1, 0), 0.8F);
+		this.addRecipe(MCBlocks.graniteSlate, new ItemStack(Items.lava_bucket, 1, 0), 0.8F);
+		this.addRecipe(MCBlocks.graniteSlate2, new ItemStack(Items.lava_bucket, 1, 0), 0.8F);
+		this.addRecipe(MCBlocks.graniteSlateBronze, new ItemStack(Items.lava_bucket, 1, 0), 0.8F);
+		this.addRecipe(MCBlocks.graniteSlateBronze2, new ItemStack(Items.lava_bucket, 1, 0), 0.8F);
+		this.addRecipe(MCBlocks.graniteSlateMeurodite, new ItemStack(Items.lava_bucket, 1, 0), 0.8F);
+		this.addRecipe(MCBlocks.graniteSlateMeurodite2, new ItemStack(Items.lava_bucket, 1, 0), 0.8F);
+		this.addRecipe(MCBlocks.graniteSlateSteel, new ItemStack(Items.lava_bucket, 1, 0), 0.8F);
+		this.addRecipe(MCBlocks.graniteSlateSteel2, new ItemStack(Items.lava_bucket, 1, 0), 0.8F);
+		this.addRecipe(MCBlocks.graniteSlateTin, new ItemStack(Items.lava_bucket, 1, 0), 0.8F);
+		this.addRecipe(MCBlocks.graniteSlateTin2, new ItemStack(Items.lava_bucket, 1, 0), 0.8F);
 		// addSmelting(Blocks.obsidian, new
 		// ItemStack(EOItemManager.bucketMagma,1,0), 0.7F);
 		// addSmelting(Blocks.bedrock, new

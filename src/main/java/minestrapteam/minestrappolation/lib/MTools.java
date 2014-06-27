@@ -318,6 +318,6 @@ public class MTools
 		toolSteel.customCraftingMaterial = steelIngot;
 		toolSandstone.customCraftingMaterial = Item.getItemFromBlock(Blocks.sandstone);
 		toolBedrock.customCraftingMaterial = Item.getItemFromBlock(Blocks.bedrock);
-		toolGranite.customCraftingMaterial = Item.getItemFromBlock(MCBlocks.granite);
+		toolGranite.customCraftingMaterial = Item.getItemFromBlock(MCBlocks.graniteSlate);
 	}
 }

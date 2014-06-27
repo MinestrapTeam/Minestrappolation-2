@@ -1,11 +1,11 @@
 package minestrapteam.minestrap_core.lib;
 
 import clashsoft.cslib.minecraft.block.CSBlocks;
+import minestrapteam.minestrap_core.block.MCBlockCustom2;
 import minestrapteam.minestrap_core.block.MCBlockStonecutter;
 import minestrapteam.minestrap_core.util.MCAssetManager;
 import minestrapteam.minestrap_core.util.MCBlockHelper;
 import minestrapteam.minestrappolation.Minestrappolation;
-
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 
@@ -24,16 +24,16 @@ public class MCBlocks
 	public static Block	stoneMeurodite;
 	public static Block	stoneMeurodite2;
 	
-	public static Block	granite;
-	public static Block	granite2;
-	public static Block	graniteTin;
-	public static Block	graniteTin2;
-	public static Block	graniteBronze;
-	public static Block	graniteBronze2;
-	public static Block	graniteSteel;
-	public static Block	graniteSteel2;
-	public static Block	graniteMeurodite;
-	public static Block	graniteMeurodite2;
+	public static Block	graniteSlate;
+	public static Block	graniteSlate2;
+	public static Block	graniteSlateTin;
+	public static Block	graniteSlateTin2;
+	public static Block	graniteSlateBronze;
+	public static Block	graniteSlateBronze2;
+	public static Block	graniteSlateSteel;
+	public static Block	graniteSlateSteel2;
+	public static Block	graniteSlateMeurodite;
+	public static Block	graniteSlateMeurodite2;
 	
 	public static Block	sandstone;
 	public static Block	sandstone2;
@@ -111,7 +111,7 @@ public class MCBlocks
 		String[] types_granite = new String[] { "raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled" };
 		String[] types_sandstone = new String[] { null, "bricks", "pattern_bricks", "tiles", "road", null, "chiseled", null, "mossy" };
 		String[] types_sandstone_2 = new String[] { "pillar", null, "brick_slab", "tile_slab", "refined_slab" };
-		String[] types_redsandstone = new String[] {"raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", null, "mossy"};
+		String[] types_redsandstone = new String[] {"raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", null, "mossy", "heiroglyph", "heiroglyph2"};
 		String[] types_redsandstone_2 = new String[] {"pillar", "raw_slab", "brick_slab", "tile_slab", "refined_slab"};
 		String[] types_flint = new String[] { "raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", null, null, null, null, null, null, null, "lamp_glowstone", "lamp_sunstone" };
 		String[] types_lapis = new String[] { null, "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled" };
@@ -140,21 +140,21 @@ public class MCBlocks
 		stoneMeurodite = MCBlockHelper.createStoneBlock("stone_meurodite", 2.3F, 15.0F, 0, tab).setIsStone();
 		stoneMeurodite2 = MCBlockHelper.createStoneBlock2("stone_meurodite", 2.3F, 15.0F, 0, tab);
 		
-		granite = MCBlockHelper.createStoneBlock(types_granite, "granite", 2F, 15.0F, 0, tab);
-		granite2 = MCBlockHelper.createStoneBlock2("granite", 2F, 15.0F, 0, tab);
-		graniteTin = MCBlockHelper.createStoneBlock(types_granite, "granite_tin", 2.2F, 16.0F, 0, tab);
-		graniteTin2 = MCBlockHelper.createStoneBlock2("granite_tin", 2.2F, 16.0F, 0, tab);
-		graniteBronze = MCBlockHelper.createStoneBlock(types_granite, "granite_bronze", 2.2F, 30.0F, 0, tab);
-		graniteBronze2 = MCBlockHelper.createStoneBlock2("granite_bronze", 2.2F, 30.0F, 0, tab);
-		graniteSteel = MCBlockHelper.createStoneBlock(types_granite, "granite_steel", 4F, 16.0F, 0, tab);
-		graniteSteel2 = MCBlockHelper.createStoneBlock2("granite_steel", 4F, 16.0F, 0, tab);
-		graniteMeurodite = MCBlockHelper.createStoneBlock(types_granite, "granite_meurodite", 3F, 22.5F, 0, tab);
-		graniteMeurodite2 = MCBlockHelper.createStoneBlock2("granite_meurodite", 3F, 22.5F, 0, tab);
+		graniteSlate = MCBlockHelper.createStoneBlock(types_granite, "granite", 2F, 15.0F, 0, tab);
+		graniteSlate2 = MCBlockHelper.createStoneBlock2("granite", 2F, 15.0F, 0, tab);
+		graniteSlateTin = MCBlockHelper.createStoneBlock(types_granite, "granite_tin", 2.2F, 16.0F, 0, tab);
+		graniteSlateTin2 = MCBlockHelper.createStoneBlock2("granite_tin", 2.2F, 16.0F, 0, tab);
+		graniteSlateBronze = MCBlockHelper.createStoneBlock(types_granite, "granite_bronze", 2.2F, 30.0F, 0, tab);
+		graniteSlateBronze2 = MCBlockHelper.createStoneBlock2("granite_bronze", 2.2F, 30.0F, 0, tab);
+		graniteSlateSteel = MCBlockHelper.createStoneBlock(types_granite, "granite_steel", 4F, 16.0F, 0, tab);
+		graniteSlateSteel2 = MCBlockHelper.createStoneBlock2("granite_steel", 4F, 16.0F, 0, tab);
+		graniteSlateMeurodite = MCBlockHelper.createStoneBlock(types_granite, "granite_meurodite", 3F, 22.5F, 0, tab);
+		graniteSlateMeurodite2 = MCBlockHelper.createStoneBlock2("granite_meurodite", 3F, 22.5F, 0, tab);
 		
 		sandstone = MCBlockHelper.createStoneBlock(types_sandstone, "sandstone", 0.8F, 1.33F, 0, tab);
 		sandstone2 = MCBlockHelper.createStoneBlock2(types_sandstone_2, "sandstone", 0.8F, 1.33F, 0, tab);
-		redSandstone = MCBlockHelper.createStoneBlock(types_redsandstone, "red_sandstone", 0.8F, 1.33F, 0, tab);
-		redSandstone2 = MCBlockHelper.createStoneBlock2(types_redsandstone_2, "red_sandstone", 0.8F, 1.33F, 0, tab);
+		redSandstone = MCBlockHelper.createStoneBlock(types_redsandstone, "red_sandstone", 0.8F, 1.33F, 0, tab).setIsRedSandstone();
+		redSandstone2 = MCBlockHelper.createStoneBlock2(types_redsandstone_2, "red_sandstone", 0.8F, 1.33F, 0, tab).setIsRedSandstone();
 		flint = MCBlockHelper.createStoneBlock(types_flint, "flint", 1.8F, 15.0F, 1, tab);
 		flint2 = MCBlockHelper.createStoneBlock2("flint", 1.8F, 15.0F, 1, tab);
 		lapis = MCBlockHelper.createStoneBlock(types_lapis, "lapis", 3.0F, 5.0F, 1, tab).setChiseledSided();
@@ -172,7 +172,7 @@ public class MCBlocks
 		desertQuartz = MCBlockHelper.createStoneBlock(types_desertquartz, "desertquartz", 1.7F, 4.0F, 1, tab).setChiseledSided();
 		desertQuartz2 = MCBlockHelper.createStoneBlock2(types_desertquartz_2, "desertquartz", 1.7F, 4.0F, 1, tab);
 		radiantQuartz = MCBlockHelper.createStoneBlock(types_radiantquartz, "radiant_quartz", 2F, 6.0F, 3, tab).setLightLevel(0.5F);
-		radiantQuartz2 = MCBlockHelper.createStoneBlock2(types_radiantquartz_2, "radiant_quartz", 2F, 6.0F, 3, tab).setLightLevel(0.5F);
+		radiantQuartz2 = ((MCBlockCustom2) MCBlockHelper.createStoneBlock2(types_radiantquartz_2, "radiant_quartz", 2F, 6.0F, 3, tab).setLightLevel(0.5F)).setIsRadiantQuartz();
 		
 		clay = MCBlockHelper.createStoneBlock(types_clay, "clay", 1.25F, 7.0F, 0, tab).setIsClay();
 		clay2 = MCBlockHelper.createStoneBlock2(types_clay_2, "clay", 1.25F, 7.0F, 0, tab);

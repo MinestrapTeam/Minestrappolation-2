@@ -19,11 +19,11 @@ public class MRecipes
 	{
 		GameRegistry.addRecipe(new RecipesPlatings());
 		
-		GameRegistry.addRecipe(new ItemStack(graniteSword, 1), new Object[] { " Z ", " Z ", " S ", Character.valueOf('Z'), new ItemStack(MCBlocks.granite, 1, 0), Character.valueOf('S'), Items.stick });
-		GameRegistry.addRecipe(new ItemStack(graniteShovel, 1), new Object[] { " Z ", " S ", " S ", Character.valueOf('Z'), new ItemStack(MCBlocks.granite, 1, 0), Character.valueOf('S'), Items.stick });
-		GameRegistry.addRecipe(new ItemStack(graniteAxe, 1), new Object[] { "ZZ ", "ZS ", " S ", Character.valueOf('Z'), new ItemStack(MCBlocks.granite, 1, 0), Character.valueOf('S'), Items.stick });
-		GameRegistry.addRecipe(new ItemStack(granitePickaxe, 1), new Object[] { "ZZZ", " S ", " S ", Character.valueOf('Z'), new ItemStack(MCBlocks.granite, 1, 0), Character.valueOf('S'), Items.stick });
-		GameRegistry.addRecipe(new ItemStack(graniteHoe, 1), new Object[] { "ZZ ", " S ", " S ", Character.valueOf('Z'), new ItemStack(MCBlocks.granite, 1, 0), Character.valueOf('S'), Items.stick });
+		GameRegistry.addRecipe(new ItemStack(graniteSword, 1), new Object[] { " Z ", " Z ", " S ", Character.valueOf('Z'), new ItemStack(MCBlocks.graniteSlate, 1, 0), Character.valueOf('S'), Items.stick });
+		GameRegistry.addRecipe(new ItemStack(graniteShovel, 1), new Object[] { " Z ", " S ", " S ", Character.valueOf('Z'), new ItemStack(MCBlocks.graniteSlate, 1, 0), Character.valueOf('S'), Items.stick });
+		GameRegistry.addRecipe(new ItemStack(graniteAxe, 1), new Object[] { "ZZ ", "ZS ", " S ", Character.valueOf('Z'), new ItemStack(MCBlocks.graniteSlate, 1, 0), Character.valueOf('S'), Items.stick });
+		GameRegistry.addRecipe(new ItemStack(granitePickaxe, 1), new Object[] { "ZZZ", " S ", " S ", Character.valueOf('Z'), new ItemStack(MCBlocks.graniteSlate, 1, 0), Character.valueOf('S'), Items.stick });
+		GameRegistry.addRecipe(new ItemStack(graniteHoe, 1), new Object[] { "ZZ ", " S ", " S ", Character.valueOf('Z'), new ItemStack(MCBlocks.graniteSlate, 1, 0), Character.valueOf('S'), Items.stick });
 		
 		GameRegistry.addSmelting(MBlocks.blaziumOre, new ItemStack(Items.blaze_powder, 3), 1.0F);
 		

@@ -60,6 +60,8 @@ public class MCBlockCustom2 extends Block
 	
 	public boolean				netherrack;
 	public boolean				slabSided;
+	public boolean				redSandstone;
+	public boolean				radiantQuartz;
 	
 	public MCBlockCustom2(String[] types, String name)
 	{
@@ -77,9 +79,21 @@ public class MCBlockCustom2 extends Block
 		this.types = types;
 	}
 	
+	public MCBlockCustom2 setIsRadiantQuartz()
+	{
+		this.radiantQuartz = true;
+		return this;
+	}
+	
 	public MCBlockCustom2 setIsNetherrack()
 	{
 		this.netherrack = true;
+		return this;
+	}
+	
+	public MCBlockCustom2 setIsRedSandstone()
+	{
+		this.redSandstone = true;
 		return this;
 	}
 	
@@ -240,6 +254,18 @@ public class MCBlockCustom2 extends Block
 				{
 					this.iconMap.put("raw_slab_side", iconRegister.registerIcon(textureName + "_slab_side"));
 				}
+				
+				if(this.redSandstone)
+				{
+					this.iconMap.put("top", iconRegister.registerIcon(textureName + "_top"));
+					this.iconMap.put("side", iconRegister.registerIcon(textureName + "_side"));
+					this.iconMap.put("bottom", iconRegister.registerIcon(textureName + "_bottom"));
+				}
+				
+				if(this.radiantQuartz)
+				{
+					this.iconMap.put("raw", iconRegister.registerIcon(textureName));
+				}
 			}
 			else if ("refined_slab".equals(type))
 			{
@@ -297,6 +323,14 @@ public class MCBlockCustom2 extends Block
 			if (side > 1 && this.slabSided)
 			{
 				return this.iconMap.get("raw_slab_side");
+			}
+			else if(this.redSandstone)
+			{
+				return side == 0 ? this.iconMap.get("bottom") : side == 1 ? this.iconMap.get("top") : this.iconMap.get("side");
+			}
+			else if(this.radiantQuartz)
+			{
+				return this.iconMap.get("raw");
 			}
 			else
 			{
