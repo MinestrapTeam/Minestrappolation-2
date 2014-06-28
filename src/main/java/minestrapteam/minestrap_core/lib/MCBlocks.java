@@ -106,7 +106,7 @@ public class MCBlocks
 		CreativeTabs tab = Minestrappolation.tabStoneDecor;
 		CreativeTabs tab_decor = Minestrappolation.tabDecorationBlocks;
 		
-		String[] types_stone = new String[] { null, null, "pattern_bricks", "tiles", "road", "refined", null, null, "mossy", null, null, null, null, null, "lamp_glowstone", "lamp_sunstone" };
+		String[] types_stone = new String[] { null, null, "pattern_bricks", "tiles", "road", "refined", null, null, null, null, null, null, null, null, "lamp_glowstone", "lamp_sunstone" };
 		String[] types_stone_2 = new String[] { "pillar", null, null, "tile_slab", "refined_slab" };
 		String[] types_granite = new String[] { "raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled" };
 		String[] types_sandstone = new String[] { null, "bricks", "pattern_bricks", "tiles", "road", null, "chiseled", null, "mossy" };
@@ -118,7 +118,8 @@ public class MCBlocks
 		String[] types_obsidian = new String[] { null, "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled" };
 		String[] types_endstone = new String[] { "raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled" };
 		String[] types_bedrock = new String[] { null, "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", null, null, null, null, null, null, null, "lamp_glowstone", "lamp_sunstone" };
-		String[] types_netherrack = new String[] { null, "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled" };
+		String[] types_netherrack = new String[] { null, null, "pattern_bricks", "tiles", "road", "refined", "chiseled" };
+		String[] types_netherrack2 = new String[] { "pillar", "raw_slab", null, "tile_slab", "refined_slab" };
 		String[] types_netherquartz = new String[] { null, "bricks", "pattern_bricks", "tiles", "road", "refined", };
 		String[] types_netherquartz_2 = new String[] { "pillar", null, "brick_slab", "tile_slab", "refined_slab" };
 		String[] types_desertquartz = new String[] { "raw", "bricks", "pattern_bricks", "tiles", "refined_tiles", "rough_tiles", "road", "refined", "chiseled" };
@@ -166,7 +167,7 @@ public class MCBlocks
 		bedrock = MCBlockHelper.createStoneBlock(types_bedrock, "bedrock", 80F, 6000000.0F, 4, tab);
 		bedrock2 = MCBlockHelper.createStoneBlock2("bedrock", 80F, 6000000.0F, 4, tab);
 		netherrack = MCBlockHelper.createStoneBlock(types_netherrack, "netherrack", 0.4F, 0.67F, 0, tab).setIsNetherrack();
-		netherrack2 = MCBlockHelper.createStoneBlock2("netherrack", 0.4F, 0.67F, 0, tab).setIsNetherrack();
+		netherrack2 = MCBlockHelper.createStoneBlock2(types_netherrack2, "netherrack", 0.4F, 0.67F, 0, tab).setIsNetherrack();
 		netherQuartz = MCBlockHelper.createStoneBlock(types_netherquartz, "netherquartz", 0.8F, 1.33F, 0, tab).setChiseledSided();
 		netherQuartz2 = MCBlockHelper.createStoneBlock2(types_netherquartz_2, "netherquartz", 0.8F, 1.33F, 0, tab);
 		desertQuartz = MCBlockHelper.createStoneBlock(types_desertquartz, "desertquartz", 1.7F, 4.0F, 1, tab).setChiseledSided();
