@@ -123,35 +123,38 @@ public class TileEntityMelter extends TileEntityInventory implements ISidedInven
 		}
 		if (!this.worldObj.isRemote)
 		{
-			if (this.burnTime == 0 && this.canSmelt())
+			if (this.canSmelt())
 			{
-				this.maxBurnTime = this.burnTime = this.getItemBurnTime(this.itemStacks[1]);
-				if (this.burnTime > 0)
+				if (this.burnTime == 0)
 				{
-					var2 = true;
-					if (this.itemStacks[1] != null)
+					this.maxBurnTime = this.burnTime = this.getItemBurnTime(this.itemStacks[1]);
+					if (this.burnTime > 0)
 					{
-						--this.itemStacks[1].stackSize;
-						if (this.itemStacks[1].stackSize == 0)
+						var2 = true;
+						if (this.itemStacks[1] != null)
 						{
-							this.itemStacks[1] = this.itemStacks[1].getItem().getContainerItem(this.itemStacks[1]);
+							--this.itemStacks[1].stackSize;
+							if (this.itemStacks[1].stackSize == 0)
+							{
+								this.itemStacks[1] = this.itemStacks[1].getItem().getContainerItem(this.itemStacks[1]);
+							}
 						}
 					}
 				}
-			}
-			if (this.isBurning() && this.canSmelt())
-			{
-				++this.meltTime;
-				if (this.meltTime == 200)
+				else if (this.isBurning())
+				{
+					++this.meltTime;
+					if (this.meltTime == 200)
+					{
+						this.meltTime = 0;
+						this.smeltItem();
+						var2 = true;
+					}
+				}
+				else
 				{
 					this.meltTime = 0;
-					this.smeltItem();
-					var2 = true;
 				}
-			}
-			else
-			{
-				this.meltTime = 0;
 			}
 			if (var1 != this.burnTime > 0)
 			{
