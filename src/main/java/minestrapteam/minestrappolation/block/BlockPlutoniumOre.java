@@ -12,6 +12,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockPlutoniumOre extends BlockRadiation
@@ -56,8 +57,8 @@ public class BlockPlutoniumOre extends BlockRadiation
 	}
 	
 	@Override
-	public void onBlockDestroyedByPlayer(World world, int x, int y, int z, int metadata)
+	public int getExpDrop(IBlockAccess world, int metadata, int fortune)
 	{
-		this.dropXpOnBlockBreak(world, x, y, z, world.rand.nextInt(6) + 1);
+		return 5 + fortune;
 	}
 }

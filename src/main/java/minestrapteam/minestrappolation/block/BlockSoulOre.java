@@ -10,12 +10,11 @@ import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockSoulOre extends MCBlock
 {
-	Random	rand	= new Random();
-	
 	public BlockSoulOre()
 	{
 		super(Material.sand);
@@ -48,8 +47,8 @@ public class BlockSoulOre extends MCBlock
 	}
 	
 	@Override
-	public void onBlockDestroyedByPlayer(World world, int x, int y, int z, int metadata)
+	public int getExpDrop(IBlockAccess world, int metadata, int fortune)
 	{
-		this.dropXpOnBlockBreak(world, x, y, z, this.rand.nextInt(6) + 4);
+		return 7 + fortune;
 	}
 }

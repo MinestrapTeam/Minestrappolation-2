@@ -3,12 +3,12 @@ package minestrapteam.minestrappolation.block;
 import java.util.Random;
 
 import minestrapteam.minestrappolation.lib.MItems;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.util.MathHelper;
-import net.minecraft.world.World;
+import net.minecraft.world.IBlockAccess;
 
 public class BlockBlaziumOre extends Block
 {
@@ -37,8 +37,8 @@ public class BlockBlaziumOre extends Block
 	}
 	
 	@Override
-	public void onBlockDestroyedByPlayer(World world, int x, int y, int z, int metadata)
+	public int getExpDrop(IBlockAccess world, int metadata, int fortune)
 	{
-		this.dropXpOnBlockBreak(world, x, y, z, 1);
+		return 1 + fortune;
 	}
 }

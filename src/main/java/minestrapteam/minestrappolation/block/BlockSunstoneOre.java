@@ -7,7 +7,7 @@ import minestrapteam.minestrappolation.lib.MItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
-import net.minecraft.world.World;
+import net.minecraft.world.IBlockAccess;
 
 public class BlockSunstoneOre extends Block
 {
@@ -36,8 +36,8 @@ public class BlockSunstoneOre extends Block
 	}
 	
 	@Override
-	public void onBlockDestroyedByPlayer(World world, int x, int y, int z, int metadata)
+	public int getExpDrop(IBlockAccess world, int metadata, int fortune)
 	{
-		this.dropXpOnBlockBreak(world, x, y, z, world.rand.nextInt(5) + 3);
+		return 8 + fortune;
 	}
 }
