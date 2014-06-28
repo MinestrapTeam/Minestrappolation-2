@@ -13,14 +13,10 @@ import minestrapteam.minestrappolation.tileentity.TileEntityPlate;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Blocks;
 
 public class MBlocks
 {
 	public static Material	materialOoze	= new MaterialOoze(MapColor.foliageColor);
-	
-	public static Block		bedrock2;
 	
 	public static Block		copperOre;
 	public static Block		tinOre;
@@ -88,8 +84,6 @@ public class MBlocks
 	
 	public static void init()
 	{
-		bedrock2 = new BlockBedrock2().setHardness(80F).setResistance(6000000.0F).setStepSound(Block.soundTypeStone).setCreativeTab(CreativeTabs.tabBlock).setBlockName("bedrock").setBlockTextureName("bedrock");
-		
 		copperOre = new MCBlock(Material.rock).setHardness(3F).setResistance(5F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MCAssetManager.getMineralTexture("copper_ore"));
 		tinOre = new MCBlock(Material.rock).setHardness(3F).setResistance(4F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MCAssetManager.getMineralTexture("tin_ore"));
 		titaniumOre = new MCBlock(Material.rock).setHardness(6F).setResistance(6000000.0F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MCAssetManager.getMineralTexture("titanium_ore"));
@@ -159,8 +153,6 @@ public class MBlocks
 	public static void load()
 	{
 		GameRegistry.registerTileEntity(TileEntityPlate.class, "Plate");
-		
-		CSBlocks.replaceBlock(Blocks.bedrock, bedrock2);
 		
 		CSBlocks.addBlock(copperOre, "copper_ore");
 		CSBlocks.addBlock(tinOre, "tin_ore");

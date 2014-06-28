@@ -1,8 +1,5 @@
 package minestrapteam.minestrappolation.crafting;
 
-import static minestrapteam.minestrappolation.lib.MBlocks.titaniumOre;
-import static minestrapteam.minestrappolation.lib.MItems.titaniumIngot;
-import cpw.mods.fml.common.registry.GameRegistry;
 import clashsoft.cslib.minecraft.crafting.ExperienceRecipeManager;
 import minestrapteam.minestrap_core.lib.MCBlocks;
 import minestrapteam.minestrappolation.lib.MBlocks;
