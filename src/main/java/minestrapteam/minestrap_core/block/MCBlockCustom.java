@@ -272,19 +272,11 @@ public class MCBlockCustom extends Block
 				else
 				{
 					this.iconMap.put("chiseled", iconRegister.registerIcon(textureName + "_chiseled"));
-					if (this.chiseledSided || this.clay)
+					if (this.chiseledSided)
 					{
 						this.iconMap.put("chiseled_side", iconRegister.registerIcon(textureName + "_chiseled_side"));
 					}
 				}
-			}
-			else if ("heiroglyph".equals(type))
-			{
-				this.iconMap.put("heiroglyph", iconRegister.registerIcon(textureName + "_chiseled_side_2"));
-			}
-			else if ("heiroglyph2".equals(type))
-			{
-				this.iconMap.put("heiroglyph2", iconRegister.registerIcon(textureName + "_chiseled_side_3"));
 			}
 			else
 			{
@@ -325,35 +317,28 @@ public class MCBlockCustom extends Block
 		}
 		else if ("chiseled".equals(type))
 		{
-			if (side > 1 && (this.clay || this.chiseledSided))
+			if (this.redSandstone)
+			{
+				if (side == 0)
+				{
+					return this.iconMap.get("bottom");
+				}
+				else if (side == 1)
+				{
+					return this.iconMap.get("top");
+				}
+				else
+				{
+					return this.iconMap.get("chiseled");
+				}
+			}
+			else if (side > 1 && (this.clay || this.chiseledSided))
 			{
 				return this.iconMap.get("chiseled_side");
 			}
 			else
 			{
 				return this.iconMap.get("chiseled");
-			}
-		}
-		else if ("heiroglyph".equals(type))
-		{
-			if (side > 1)
-			{
-				return this.iconMap.get("heiroglyph");
-			}
-			else
-			{
-				return this.iconMap.get("refined");
-			}
-		}
-		else if ("heiroglyph2".equals(type))
-		{
-			if (side > 1)
-			{
-				return this.iconMap.get("heiroglyph2");
-			}
-			else
-			{
-				return this.iconMap.get("refined");
 			}
 		}
 		else
