@@ -13,7 +13,7 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
 
 public class MOreDictionary
 {
-	public static void init()
+	public static void load()
 	{
 		add("ingotCopper", MItems.copperIngot);
 		add("oreCopper", MBlocks.copperOre);
@@ -56,13 +56,10 @@ public class MOreDictionary
 		OreDictionary.registerOre("meatRaw", new ItemStack(Items.fish));
 		OreDictionary.registerOre("meatRaw", new ItemStack(Items.chicken));
 		OreDictionary.registerOre("meatRaw", new ItemStack(Items.rotten_flesh));
-	}
-	
-	public static void addRecipes()
-	{
+		
 		GameRegistry.addRecipe(new ShapedOreRecipe(MBlocks.meatBlock, new Object[] { "MMM", "MMM", "MMM", 'M', "meatRaw" }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(MBlocks.crate, new Object[] { "WWW", "SSS", "WWW", 'S', Items.stick, 'W', "plankWood" }));
-	
+		
 		GameRegistry.addRecipe(new ShapedOreRecipe(MTools.sandstonePickaxe, new Object[] { "ZZZ", " S ", " S ", 'Z', "sandstone", 'S', Items.stick }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(MTools.sandstoneShovel, new Object[] { " Z ", " S ", " S ", 'Z', "sandstone", 'S', Items.stick }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(MTools.sandstoneAxe, new Object[] { "ZZ ", "ZS ", " S ", 'Z', "sandstone", 'S', Items.stick }));

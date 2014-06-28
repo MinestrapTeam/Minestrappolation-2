@@ -90,10 +90,13 @@ public class Minestrappolation extends BaseMod
 		MBlocks.init();
 		MItems.init();
 		MTools.init();
+		
 		MBlocks.load();
 		MItems.load();
 		MTools.load();
+		
 		MRecipes.load();
+		MOreDictionary.load();
 		
 		// FluidContainerRegistry.registerFluidContainer(eoFluid, new
 		// ItemStack(EOItemManager.bucketMagma), new
