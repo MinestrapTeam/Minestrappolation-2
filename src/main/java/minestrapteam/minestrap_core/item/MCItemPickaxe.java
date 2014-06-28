@@ -1,10 +1,11 @@
 package minestrapteam.minestrap_core.item;
 
 import clashsoft.cslib.minecraft.item.datatools.ItemDataPickaxe;
-
 import net.minecraft.block.Block;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 
 public class MCItemPickaxe extends MCItemTool
 {
@@ -29,4 +30,14 @@ public class MCItemPickaxe extends MCItemTool
 		}
 		return super.canHarvestBlock(block, stack);
 	}
+	
+    public boolean onBlockDestroyed(ItemStack itemstack, World world, Block blockDestroyed, int x, int y, int z, EntityLivingBase living)
+    {
+    	if(blockDestroyed == Blocks.bedrock)
+    	{
+    		itemstack.damageItem(2000, living);
+    	}
+    	
+		return false;
+    }
 }

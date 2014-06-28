@@ -41,8 +41,8 @@ public class WorldGenDesertQuartzSpire extends WorldGenerator
 		
 		int height = random.nextInt(this.maxTopHeight);
 		for (int i = 0; i < height; i++)
-		{
-			world.setBlock(x, y + height, z, MCBlocks.desertQuartz);
+		{			
+			world.setBlock(x, y + height, z, MCBlocks.desertQuartz);			
 		}
 		
 		return true;

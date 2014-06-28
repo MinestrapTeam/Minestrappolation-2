@@ -19,7 +19,13 @@ public class MRecipes
 	{
 		GameRegistry.addRecipe(new RecipesPlatings());
 		
-		GameRegistry.addSmelting(MBlocks.blaziumOre, new ItemStack(Items.blaze_powder, 3), 1.0F);
+		GameRegistry.addRecipe(new ItemStack(graniteSword, 1), new Object[] { " Z ", " Z ", " S ", Character.valueOf('Z'), new ItemStack(MCBlocks.graniteSlate, 1, 0), Character.valueOf('S'), Items.stick });
+		GameRegistry.addRecipe(new ItemStack(graniteShovel, 1), new Object[] { " Z ", " S ", " S ", Character.valueOf('Z'), new ItemStack(MCBlocks.graniteSlate, 1, 0), Character.valueOf('S'), Items.stick });
+		GameRegistry.addRecipe(new ItemStack(graniteAxe, 1), new Object[] { "ZZ ", "ZS ", " S ", Character.valueOf('Z'), new ItemStack(MCBlocks.graniteSlate, 1, 0), Character.valueOf('S'), Items.stick });
+		GameRegistry.addRecipe(new ItemStack(granitePickaxe, 1), new Object[] { "ZZZ", " S ", " S ", Character.valueOf('Z'), new ItemStack(MCBlocks.graniteSlate, 1, 0), Character.valueOf('S'), Items.stick });
+		GameRegistry.addRecipe(new ItemStack(graniteHoe, 1), new Object[] { "ZZ ", " S ", " S ", Character.valueOf('Z'), new ItemStack(MCBlocks.graniteSlate, 1, 0), Character.valueOf('S'), Items.stick });
+		
+		GameRegistry.addSmelting(MBlocks.blaziumOre, new ItemStack(MItems.blazeShard, 1), 1.0F);
 		
 		GameRegistry.addSmelting(MBlocks.meuroditeOre, new ItemStack(MItems.meuroditeGem, 1), 1.0F);
 		
@@ -35,8 +41,6 @@ public class MRecipes
 		GameRegistry.addRecipe(new ItemStack(meuroditeBlock, 1), new Object[] { "ZZZ", "ZZZ", "ZZZ", Character.valueOf('Z'), meuroditeGem, });
 		GameRegistry.addShapelessRecipe(new ItemStack(meuroditeGem, 9), new Object[] { meuroditeBlock, });
 		
-		GameRegistry.addSmelting(titaniumOre, new ItemStack(titaniumIngot, 1), 2.0F);
-		
 		GameRegistry.addRecipe(new ItemStack(titaniumSword, 1), new Object[] { " Z ", " Z ", " S ", Character.valueOf('Z'), titaniumIngot, Character.valueOf('S'), Items.stick });
 		GameRegistry.addRecipe(new ItemStack(titaniumShovel, 1), new Object[] { " Z ", " S ", " S ", Character.valueOf('Z'), titaniumIngot, Character.valueOf('S'), Items.stick });
 		GameRegistry.addRecipe(new ItemStack(titaniumAxe, 1), new Object[] { "ZZ ", "ZS ", " S ", Character.valueOf('Z'), titaniumIngot, Character.valueOf('S'), Items.stick });
@@ -51,7 +55,7 @@ public class MRecipes
 		
 		GameRegistry.addRecipe(new ItemStack(sunstoneBlock, 1), new Object[] { "ZZ", "ZZ", Character.valueOf('Z'), sunstoneDust, });
 		
-		GameRegistry.addSmelting(sunstoneOre, new ItemStack(sunstoneDust, 4), 1.0F);
+		GameRegistry.addSmelting(sunstoneOre, new ItemStack(sunstoneDust, 1), 1.0F);
 		
 		GameRegistry.addSmelting(toriteOre, new ItemStack(toriteIngot, 1), 1.1F);
 		
@@ -160,8 +164,8 @@ public class MRecipes
 		
 		GameRegistry.addShapelessRecipe(new ItemStack(uranium, 9), new Object[] { uraniumBlock, });
 		GameRegistry.addRecipe(new ItemStack(uraniumBlock, 1), new Object[] { "ZZZ", "ZZZ", "ZZZ", Character.valueOf('Z'), uranium });
-		GameRegistry.addSmelting(uraniumOre, new ItemStack(uranium, 2), 0.15F);
-		GameRegistry.addSmelting(plutoniumOre, new ItemStack(plutonium, 2), 0.15F);
+		GameRegistry.addSmelting(uraniumOre, new ItemStack(uranium, 1), 0.15F);
+		GameRegistry.addSmelting(plutoniumOre, new ItemStack(plutonium, 1), 0.15F);
 		
 		GameRegistry.addShapelessRecipe(new ItemStack(plutonium, 9), new Object[] { plutoniumBlock, });
 		GameRegistry.addRecipe(new ItemStack(plutoniumBlock, 1), new Object[] { "ZZZ", "ZZZ", "ZZZ", Character.valueOf('Z'), plutonium });

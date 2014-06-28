@@ -55,6 +55,7 @@ public class MCBlockCustom extends Block
 	public boolean				clay;
 	public boolean				stone;
 	public boolean				netherrack;
+	public boolean				redSandstone;
 	
 	public MCBlockCustom(String[] types, String name)
 	{
@@ -69,6 +70,12 @@ public class MCBlockCustom extends Block
 		this.baseResistance = baseResistance;
 		this.harvestLevel = harvestLevel;
 		this.types = types;
+	}
+	
+	public MCBlockCustom setIsRedSandstone()
+	{
+		this.redSandstone = true;
+		return this;
 	}
 	
 	public MCBlockCustom setChiseledSided()
@@ -238,7 +245,16 @@ public class MCBlockCustom extends Block
 			
 			if ("raw".equals(type))
 			{
-				this.blockIcon = iconRegister.registerIcon(textureName);
+				if(this.redSandstone)
+				{
+					this.iconMap.put("top", iconRegister.registerIcon(textureName + "_top"));
+					this.iconMap.put("side", iconRegister.registerIcon(textureName + "_side"));
+					this.iconMap.put("bottom", iconRegister.registerIcon(textureName + "_bottom"));
+				}
+				else
+				{
+					this.blockIcon = iconRegister.registerIcon(textureName);
+				}
 			}
 			else if ("road".equals(type))
 			{
@@ -262,6 +278,14 @@ public class MCBlockCustom extends Block
 					}
 				}
 			}
+			else if ("heiroglyph".equals(type))
+			{
+				this.iconMap.put("heiroglyph", iconRegister.registerIcon(textureName + "_chiseled_side_2"));
+			}
+			else if ("heiroglyph2".equals(type))
+			{
+				this.iconMap.put("heiroglyph2", iconRegister.registerIcon(textureName + "_chiseled_side_3"));
+			}
 			else
 			{
 				this.iconMap.put(type, iconRegister.registerIcon(textureName + "_" + type));
@@ -275,7 +299,14 @@ public class MCBlockCustom extends Block
 		String type = this.getType(metadata);
 		if (type == null || "raw".equals(type))
 		{
-			return this.blockIcon;
+			if(this.redSandstone)
+			{
+				return side == 0 ? this.iconMap.get("bottom") : side == 1 ? this.iconMap.get("top") : this.iconMap.get("side");
+			}
+			else
+			{
+				return this.blockIcon;
+			}
 		}
 		if ("road".equals(type))
 		{
@@ -301,6 +332,28 @@ public class MCBlockCustom extends Block
 			else
 			{
 				return this.iconMap.get("chiseled");
+			}
+		}
+		else if ("heiroglyph".equals(type))
+		{
+			if (side > 1)
+			{
+				return this.iconMap.get("heiroglyph");
+			}
+			else
+			{
+				return this.iconMap.get("refined");
+			}
+		}
+		else if ("heiroglyph2".equals(type))
+		{
+			if (side > 1)
+			{
+				return this.iconMap.get("heiroglyph2");
+			}
+			else
+			{
+				return this.iconMap.get("refined");
 			}
 		}
 		else

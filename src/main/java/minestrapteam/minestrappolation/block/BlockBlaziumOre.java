@@ -2,6 +2,7 @@ package minestrapteam.minestrappolation.block;
 
 import java.util.Random;
 
+import minestrapteam.minestrappolation.lib.MItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Items;
@@ -32,7 +33,7 @@ public class BlockBlaziumOre extends Block
 	@Override
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
-		return Items.blaze_powder;
+		return MItems.blazeShard;
 	}
 	
 	@Override
