@@ -11,8 +11,8 @@ import net.minecraft.item.ItemStack;
 public class ContainerStonecutter extends Container
 {
 	public InventoryCrafting		craftMatrix	= new InventoryCrafting(this, 3, 3);
+	public IInventory				extraSlot	= new InventoryCrafting(this, 1, 1);
 	public IInventory				craftResult	= new InventoryCraftResult();
-	public IInventory				extraSlot	= new InventoryBasic("ExtraSlot", true, 1);
 	public TileEntityStonecutter	stoneCutter;
 	
 	public ContainerStonecutter(InventoryPlayer inventory, TileEntityStonecutter te)
@@ -50,7 +50,7 @@ public class ContainerStonecutter extends Container
 	}
 	
 	@Override
-	public void onCraftMatrixChanged(IInventory par1IInventory)
+	public void onCraftMatrixChanged(IInventory inventory)
 	{
 		this.craftResult.setInventorySlotContents(0, StonecutterCraftingManager.instance.findMatchingRecipe(this.craftMatrix, this.extraSlot.getStackInSlot(0), this.stoneCutter.getWorldObj()));
 	}
