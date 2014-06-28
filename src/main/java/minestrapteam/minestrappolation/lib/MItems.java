@@ -340,7 +340,7 @@ public class MItems
 		MBlocks.blaziumOre.setHarvestLevel("pickaxe", 2);
 		MBlocks.radiantQuartzOre.setHarvestLevel("pickaxe", 4);
 		MBlocks.blaziumBlock.setHarvestLevel("pickaxe", 2);
-		MBlocks.soulOre.setHarvestLevel("shovel", 2);
+		MBlocks.soulOre.setHarvestLevel("shovel", 4);
 		MBlocks.bronzeBlock.setHarvestLevel("pickaxe", 1);
 		MBlocks.uraniumBlock.setHarvestLevel("pickaxe", 0);
 		MBlocks.plutoniumBlock.setHarvestLevel("pickaxe", 0);
