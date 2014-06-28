@@ -1,13 +1,8 @@
 package minestrapteam.minestrappolation.lib;
 
-import static minestrapteam.minestrappolation.lib.MTools.sandstoneAxe;
-import static minestrapteam.minestrappolation.lib.MTools.sandstoneHoe;
-import static minestrapteam.minestrappolation.lib.MTools.sandstonePickaxe;
-import static minestrapteam.minestrappolation.lib.MTools.sandstoneShovel;
-import static minestrapteam.minestrappolation.lib.MTools.sandstoneSword;
 import cpw.mods.fml.common.registry.GameRegistry;
-
 import minestrapteam.minestrap_core.lib.MCBlocks;
+
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
