@@ -13,7 +13,7 @@ import net.minecraft.util.StatCollector;
 
 public class GuiMelter extends GuiContainer
 {
-	public static ResourceLocation	texture	= MCAssetManager.getResource("textures/gui/container/melter.png");
+	public static ResourceLocation	texture	= MCAssetManager.getGUIResource("container/melter");
 	
 	private TileEntityMelter		melter;
 	

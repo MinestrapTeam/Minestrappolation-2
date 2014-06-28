@@ -14,7 +14,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class RenderHangGlider extends Render
 {
-	public static ResourceLocation	texture	= MCAssetManager.getModelResource("textures/misc/hangglider.png");
+	public static ResourceLocation	texture	= MCAssetManager.getModelResource("hangglider");
 	public ModelHangGlider			model	= new ModelHangGlider();
 	
 	@Override

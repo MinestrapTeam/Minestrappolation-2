@@ -17,7 +17,7 @@ import net.minecraft.world.World;
 @SideOnly(Side.CLIENT)
 public class GuiStonecutter extends GuiContainer
 {
-	public static ResourceLocation	texture	= MCAssetManager.getResource("stonecutter");
+	public static ResourceLocation	texture	= MCAssetManager.getGUIResource("container/stonecutter");
 	
 	private TileEntityStonecutter	stonecutter;
 	

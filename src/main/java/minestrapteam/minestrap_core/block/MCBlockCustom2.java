@@ -54,7 +54,7 @@ public class MCBlockCustom2 extends Block
 	public float				baseHardness;
 	public float				baseResistance;
 	public int					harvestLevel;
-	public String harvestTool;
+	public String				harvestTool;
 	
 	public Map<String, IIcon>	iconMap	= new HashMap();
 	
@@ -249,31 +249,29 @@ public class MCBlockCustom2 extends Block
 			}
 			else if ("raw_slab".equals(type))
 			{
-				this.iconMap.put("raw_slab_top", iconRegister.registerIcon(textureName + "_slab_top"));
-				if (this.slabSided)
-				{
-					this.iconMap.put("raw_slab_side", iconRegister.registerIcon(textureName + "_slab_side"));
-				}
-				
-				if(this.redSandstone)
+				if (this.redSandstone)
 				{
 					this.iconMap.put("top", iconRegister.registerIcon(textureName + "_top"));
 					this.iconMap.put("side", iconRegister.registerIcon(textureName + "_side"));
 					this.iconMap.put("bottom", iconRegister.registerIcon(textureName + "_bottom"));
 				}
-				
-				if(this.radiantQuartz)
+				else if (this.radiantQuartz)
 				{
 					this.iconMap.put("raw", iconRegister.registerIcon(textureName));
+				}
+				else
+				{
+					this.iconMap.put("raw_slab_top", iconRegister.registerIcon(textureName + "_slab_top"));
+					if (this.slabSided)
+					{
+						this.iconMap.put("raw_slab_side", iconRegister.registerIcon(textureName + "_slab_side"));
+					}
 				}
 			}
 			else if ("refined_slab".equals(type))
 			{
 				this.iconMap.put("refined_slab_top", iconRegister.registerIcon(textureName + "_refined"));
-				if (this.slabSided)
-				{
-					this.iconMap.put("refined_slab_side", iconRegister.registerIcon(textureName + "_refined_slab_side"));
-				}
+				this.iconMap.put("refined_slab_side", iconRegister.registerIcon(textureName + "_refined_slab_side"));
 			}
 			else if ("tile_slab".equals(type))
 			{
@@ -324,11 +322,11 @@ public class MCBlockCustom2 extends Block
 			{
 				return this.iconMap.get("raw_slab_side");
 			}
-			else if(this.redSandstone)
+			else if (this.redSandstone)
 			{
 				return side == 0 ? this.iconMap.get("bottom") : side == 1 ? this.iconMap.get("top") : this.iconMap.get("side");
 			}
-			else if(this.radiantQuartz)
+			else if (this.radiantQuartz)
 			{
 				return this.iconMap.get("raw");
 			}
@@ -339,7 +337,7 @@ public class MCBlockCustom2 extends Block
 		}
 		else if ("refined_slab".equals(type))
 		{
-			if (side > 1 && this.slabSided)
+			if (side > 1)
 			{
 				return this.iconMap.get("refined_slab_side");
 			}

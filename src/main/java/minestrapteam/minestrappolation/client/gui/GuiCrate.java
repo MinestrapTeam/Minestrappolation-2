@@ -13,7 +13,7 @@ import net.minecraft.util.StatCollector;
 
 public class GuiCrate extends GuiContainer
 {
-	public static ResourceLocation	texture	= MCAssetManager.getResource("textures/gui/container/crate.png");
+	public static ResourceLocation	texture	= MCAssetManager.getGUIResource("container/crate");
 	
 	private TileEntityCrate			crate;
 	
