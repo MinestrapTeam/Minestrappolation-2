@@ -12,6 +12,9 @@ import net.minecraft.item.Item;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.EnumPlantType;
+import net.minecraftforge.common.IPlantable;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public class BlockSoulOre extends MCBlock
 {
@@ -50,5 +53,11 @@ public class BlockSoulOre extends MCBlock
 	public int getExpDrop(IBlockAccess world, int metadata, int fortune)
 	{
 		return 7 + fortune;
+	}
+	
+	@Override
+	public boolean canSustainPlant(IBlockAccess world, int x, int y, int z, ForgeDirection direction, IPlantable plantable)
+	{
+		return plantable.getPlantType(world, x, y, z) == EnumPlantType.Nether;
 	}
 }
