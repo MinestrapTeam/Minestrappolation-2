@@ -20,7 +20,6 @@ public class BlockPlutoniumOre extends BlockRadiation
 	public BlockPlutoniumOre(Material material)
 	{
 		super(material);
-		this.range = 1.5F;
 	}
 	
 	@Override
@@ -38,7 +37,7 @@ public class BlockPlutoniumOre extends BlockRadiation
 	@Override
 	public void addPotionEffect(EntityLivingBase living)
 	{
-		if (Minestrappolation.shouldOresEffect && this.entityEffected instanceof EntitySkeleton)
+		if (Minestrappolation.shouldOresEffect && living instanceof EntitySkeleton)
 		{
 			living.addPotionEffect(new PotionEffect(Potion.resistance.getId(), 20 * 6, 1, false));
 			living.addPotionEffect(new PotionEffect(Potion.regeneration.getId(), 20 * 6, 0, false));
@@ -66,5 +65,11 @@ public class BlockPlutoniumOre extends BlockRadiation
 	public int getExpDrop(IBlockAccess world, int metadata, int fortune)
 	{
 		return 5 + fortune;
+	}
+
+	@Override
+	public float getRange()
+	{
+		return 1.5F;
 	}
 }

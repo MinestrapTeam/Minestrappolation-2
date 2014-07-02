@@ -1,7 +1,6 @@
 package minestrapteam.minestrappolation.block;
 
 import minestrapteam.minestrap_core.util.MCAssetManager;
-
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
@@ -17,7 +16,6 @@ public class BlockPlutoniumInsulated extends BlockInsulatedRadiation
 	public BlockPlutoniumInsulated(Material material)
 	{
 		super(material);
-		this.range = 6F;
 	}
 	
 	@Override
@@ -51,5 +49,11 @@ public class BlockPlutoniumInsulated extends BlockInsulatedRadiation
 		{
 			living.addPotionEffect(new PotionEffect(Potion.wither.getId(), 40, 2, false));
 		}
+	}
+	
+	@Override
+	public float getRange()
+	{
+		return 6F;
 	}
 }

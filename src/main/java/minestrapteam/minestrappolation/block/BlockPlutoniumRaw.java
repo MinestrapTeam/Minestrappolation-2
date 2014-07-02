@@ -1,7 +1,6 @@
 package minestrapteam.minestrappolation.block;
 
 import minestrapteam.minestrap_core.util.MCUtil;
-
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
@@ -61,5 +60,11 @@ public class BlockPlutoniumRaw extends BlockRadiation
 	public void onBlockDestroyedByExplosion(World world, int x, int y, int z, Explosion explosion)
 	{
 		this.canPlaceBlockAt(world, x, y, z);
+	}
+	
+	@Override
+	public float getRange()
+	{
+		return 1.5F;
 	}
 }

@@ -1,7 +1,6 @@
 package minestrapteam.minestrappolation.block;
 
 import minestrapteam.minestrap_core.util.MCAssetManager;
-
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
@@ -50,5 +49,11 @@ public class BlockUraniumInsulated extends BlockInsulatedRadiation
 			living.addPotionEffect(new PotionEffect(Potion.poison.getId(), 180, 2, false));
 		}
 		
+	}
+	
+	@Override
+	public float getRange()
+	{
+		return 6F;
 	}
 }
