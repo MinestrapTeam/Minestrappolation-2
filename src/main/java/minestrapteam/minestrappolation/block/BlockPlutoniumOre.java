@@ -5,9 +5,9 @@ import java.util.Random;
 import minestrapteam.minestrap_core.util.MCUtil;
 import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.lib.MItems;
-
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
@@ -38,7 +38,13 @@ public class BlockPlutoniumOre extends BlockRadiation
 	@Override
 	public void addPotionEffect(EntityLivingBase living)
 	{
-		if (Minestrappolation.shouldOresEffect)
+		if (Minestrappolation.shouldOresEffect && this.entityEffected instanceof EntitySkeleton)
+		{
+			living.addPotionEffect(new PotionEffect(Potion.resistance.getId(), 20 * 6, 1, false));
+			living.addPotionEffect(new PotionEffect(Potion.regeneration.getId(), 20 * 6, 0, false));
+
+		}
+		else if (Minestrappolation.shouldOresEffect)
 		{
 			living.addPotionEffect(new PotionEffect(Potion.wither.getId(), 20, 1, false));
 		}

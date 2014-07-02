@@ -12,6 +12,7 @@ import net.minecraft.world.World;
 public abstract class BlockRadiation extends Block
 {
 	protected float	range;
+	protected EntityLivingBase entityEffected = null;
 	
 	protected BlockRadiation(Material material)
 	{
@@ -37,6 +38,7 @@ public abstract class BlockRadiation extends Block
 			
 			for (EntityLivingBase living : list)
 			{
+				this.entityEffected = living;
 				this.addPotionEffect(living);
 			}
 		}
