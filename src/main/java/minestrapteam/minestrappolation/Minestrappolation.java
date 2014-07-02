@@ -20,13 +20,13 @@ import minestrapteam.minestrappolation.crafting.MelterRecipeLoader;
 import minestrapteam.minestrappolation.creativetab.*;
 import minestrapteam.minestrappolation.entity.*;
 import minestrapteam.minestrappolation.handler.BlacksmithTradeHandler;
+import minestrapteam.minestrappolation.handler.FuelHandler;
 import minestrapteam.minestrappolation.handler.MEventHandler;
 import minestrapteam.minestrappolation.handler.PriestTradeHandler;
 import minestrapteam.minestrappolation.lib.*;
 import minestrapteam.minestrappolation.tileentity.TileEntityLocked;
 import minestrapteam.minestrappolation.tileentity.TileEntityMelter;
 import minestrapteam.minestrappolation.world.MOreGenerator;
-
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
@@ -128,6 +128,8 @@ public class Minestrappolation extends BaseMod
 		
 		VillagerRegistry.instance().registerVillageTradeHandler(3, new BlacksmithTradeHandler());
 		VillagerRegistry.instance().registerVillageTradeHandler(2, new PriestTradeHandler());
+		
+		GameRegistry.registerFuelHandler(new FuelHandler());
 	}
 	
 	@Override
