@@ -41,6 +41,6 @@ public class MCItemPickaxe extends MCItemTool
 			itemstack.damageItem(Minestrappolation.bedrockDamage - 1, living);
 		}
 		
-		return false;
+		return super.onBlockDestroyed(itemstack, world, blockDestroyed, x, y, z, living);
 	}
 }
