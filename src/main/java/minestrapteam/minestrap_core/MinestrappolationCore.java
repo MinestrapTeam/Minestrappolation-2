@@ -1,17 +1,18 @@
 package minestrapteam.minestrap_core;
 
 import minestrapteam.minestrap_core.common.MCCommonProxy;
+import minestrapteam.minestrap_core.common.MCEventHandler;
 import minestrapteam.minestrap_core.lib.MCBlocks;
 import minestrapteam.minestrap_core.lib.MCItems;
 import minestrapteam.minestrap_core.lib.MCRecipes;
 import minestrapteam.minestrap_core.lib.MCReference;
 import minestrapteam.minestrap_core.tileentity.TileEntityStonecutter;
-
 import net.minecraft.init.Blocks;
-
+import net.minecraftforge.common.MinecraftForge;
 import clashsoft.brewingapi.BrewingAPI;
 import clashsoft.cslib.config.CSConfig;
 import clashsoft.cslib.minecraft.init.BaseMod;
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -65,6 +66,9 @@ public class MinestrappolationCore extends BaseMod
 		
 		Blocks.bedrock.setHardness(80F);
 		GameRegistry.registerTileEntity(TileEntityStonecutter.class, "StoneCutter");
+		
+		FMLCommonHandler.instance().bus().register(new MCEventHandler());
+		MinecraftForge.EVENT_BUS.register(new MCEventHandler());
 	}
 	
 	@Override

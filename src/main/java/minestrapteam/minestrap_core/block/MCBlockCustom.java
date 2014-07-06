@@ -11,6 +11,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -57,6 +58,9 @@ public class MCBlockCustom extends Block
 	public boolean				netherrack;
 	public boolean				redSandstone;
 	
+	public int					walkSpeedPercent = 25;
+	public boolean				onRoad = false;
+	
 	public MCBlockCustom(String[] types, String name)
 	{
 		this(types, name, 1F, 5F, 0);
@@ -70,6 +74,12 @@ public class MCBlockCustom extends Block
 		this.baseResistance = baseResistance;
 		this.harvestLevel = harvestLevel;
 		this.types = types;
+	}
+	
+	public MCBlockCustom setRoadWalkSpeed(int percent)
+	{
+		this.walkSpeedPercent = percent;
+		return this;
 	}
 	
 	public MCBlockCustom setIsRedSandstone()
@@ -357,5 +367,15 @@ public class MCBlockCustom extends Block
 				list.add(new ItemStack(item, 1, i));
 			}
 		}
+	}
+	
+	public void onEntityWalking(World world, int x, int y, int z, Entity entityWalking)
+	{
+		if(entityWalking instanceof EntityPlayer && world.getBlockMetadata(x, y, z) == 4)
+		{
+			EntityPlayer player = (EntityPlayer)entityWalking;
+			//TODO make it so walk speed is set back to normal!
+			//player.capabilities.setPlayerWalkSpeed(0.1f + (0.1f * (walkSpeedPercent / 100)));
+		}		
 	}
 }
