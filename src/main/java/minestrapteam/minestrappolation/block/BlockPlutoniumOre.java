@@ -12,6 +12,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.world.Explosion;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
@@ -21,19 +22,19 @@ public class BlockPlutoniumOre extends BlockRadiation
 	{
 		super(material);
 	}
-	
+
 	@Override
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
 		return MItems.plutonium;
 	}
-	
+
 	@Override
 	public int quantityDropped(Random random)
 	{
 		return 1 + random.nextInt(2);
 	}
-	
+
 	@Override
 	public void addPotionEffect(EntityLivingBase living)
 	{
@@ -42,25 +43,24 @@ public class BlockPlutoniumOre extends BlockRadiation
 			living.addPotionEffect(new PotionEffect(Potion.resistance.getId(), 20 * 6, 1, false));
 			living.addPotionEffect(new PotionEffect(Potion.regeneration.getId(), 20 * 6, 0, false));
 
-		}
-		else if (Minestrappolation.shouldOresEffect)
+		} else if (Minestrappolation.shouldOresEffect)
 		{
 			living.addPotionEffect(new PotionEffect(Potion.wither.getId(), 20, 1, false));
 		}
 	}
-	
+
 	@Override
 	public void onBlockClicked(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer)
 	{
 		this.spawnParticle(par1World, par2, par3, par4);
 		super.onBlockClicked(par1World, par2, par3, par4, par5EntityPlayer);
 	}
-	
+
 	public void spawnParticle(World world, int x, int y, int z)
 	{
 		MCUtil.spawnParticle(world, x, y, z, world.rand, "mobSpell");
 	}
-	
+
 	@Override
 	public int getExpDrop(IBlockAccess world, int metadata, int fortune)
 	{
@@ -72,4 +72,12 @@ public class BlockPlutoniumOre extends BlockRadiation
 	{
 		return 1.5F;
 	}
+
+	public void onBlockDestroyedByExplosion(World world, int x, int y, int z, Explosion explosion)
+    {
+    	if (!world.isRemote)
+		{
+			world.createExplosion(null, x, y, z, 4F, true);
+		}
+    }
 }

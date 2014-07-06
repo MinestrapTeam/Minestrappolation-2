@@ -61,7 +61,7 @@ public class BlockPlutoniumRaw extends BlockRadiation
 	{
 		this.canPlaceBlockAt(world, x, y, z);
 	}
-	
+    
 	@Override
 	public float getRange()
 	{

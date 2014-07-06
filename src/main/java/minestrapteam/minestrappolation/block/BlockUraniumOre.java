@@ -12,6 +12,7 @@ import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.world.Explosion;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
@@ -65,4 +66,12 @@ public class BlockUraniumOre extends BlockRadiation
 	{
 		return 1.5F;
 	}
+	
+    public void onBlockDestroyedByExplosion(World world, int x, int y, int z, Explosion explosion)
+    {
+    	if (!world.isRemote)
+		{
+			world.createExplosion(null, x, y, z, 4F, true);
+		}
+    }
 }
