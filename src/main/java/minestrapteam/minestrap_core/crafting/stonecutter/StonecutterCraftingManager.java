@@ -2,6 +2,8 @@ package minestrapteam.minestrap_core.crafting.stonecutter;
 
 import java.util.*;
 
+import minestrapteam.minestrap_core.lib.MCBlocks;
+import minestrapteam.minestrap_core.lib.MCItems;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -21,6 +23,30 @@ public class StonecutterCraftingManager
 	
 	private StonecutterCraftingManager()
 	{
+		this.addRecipe(new ItemStack(Blocks.stonebrick, 1, 0), null, new Object[] {"BB", "BB", 'B', MCItems.brickStone});
+		this.addRecipe(new ItemStack(Blocks.sandstone, 9, 2), null, new Object[] {"SSS", "SSS", "SSS", 'S', new ItemStack(Blocks.sandstone, 1, 0)});
+		this.addRecipe(new ItemStack(Blocks.sandstone, 1, 1), null, new Object[] {"S", "S", 'S', new ItemStack(MCBlocks.sandstone2, 1, 12)});
+		this.addRecipe(new ItemStack(Blocks.stone_slab, 6, 0), null, new Object[] {"SSS", 'S', Blocks.stone});
+		this.addRecipe(new ItemStack(Blocks.stone_slab, 6, 1), null, new Object[] {"SSS", 'S', new ItemStack(Blocks.sandstone, 1, 0)});
+		this.addRecipe(new ItemStack(Blocks.stone_slab, 6, 3), null, new Object[] {"SSS", 'S', Blocks.cobblestone});
+		this.addRecipe(new ItemStack(Blocks.stone_slab, 6, 4), null, new Object[] {"SSS", 'S', Blocks.brick_block});
+		this.addRecipe(new ItemStack(Blocks.stone_slab, 6, 5), null, new Object[] {"SSS", 'S', new ItemStack(Blocks.stonebrick, 1, 0)});
+		this.addRecipe(new ItemStack(Blocks.stone_slab, 6, 6), null, new Object[] {"SSS", 'S', Blocks.nether_brick});
+		this.addRecipe(new ItemStack(Blocks.stone_slab, 6, 7), null, new Object[] {"SSS", 'S', new ItemStack(Blocks.quartz_block, 1, 0)});
+		this.addRecipe(new ItemStack(Blocks.brick_block, 1, 0), null, new Object[] {"BB", "BB", 'B', Items.brick});
+		this.addRecipe(new ItemStack(Blocks.stone_stairs, 4, 0), null, new Object[] {"S  ", "SS ", "SSS", 'S', Blocks.cobblestone});
+		this.addRecipe(new ItemStack(Blocks.brick_stairs, 4, 0), null, new Object[] {"S  ", "SS ", "SSS", 'S', Blocks.brick_block});
+		this.addRecipe(new ItemStack(Blocks.stone_brick_stairs, 4, 0), null, new Object[] {"S  ", "SS ", "SSS", 'S', new ItemStack(Blocks.stonebrick, 1, 0)});
+		this.addRecipe(new ItemStack(Blocks.nether_brick, 1, 0), null, new Object[] {"BB", "BB", 'B', Items.netherbrick});
+		this.addRecipe(new ItemStack(Blocks.nether_brick_stairs, 4, 0), null, new Object[] {"S  ", "SS ", "SSS", 'S', Blocks.nether_brick});
+		this.addRecipe(new ItemStack(Blocks.nether_brick_fence, 6, 0), null, new Object[] {"BBB", "BBB", 'B', Blocks.nether_brick});
+		this.addRecipe(new ItemStack(Blocks.sandstone_stairs, 4, 0), null, new Object[] {"S  ", "SS ", "SSS", 'S', new ItemStack(Blocks.sandstone, 1, 0)});
+		this.addRecipe(new ItemStack(Blocks.cobblestone_wall, 6, 0), null, new Object[] {"CCC", "CCC", 'C', Blocks.cobblestone});
+		this.addRecipe(new ItemStack(Blocks.cobblestone_wall, 6, 1), null, new Object[] {"CCC", "CCC", 'C', Blocks.mossy_cobblestone});
+		this.addRecipe(new ItemStack(Blocks.quartz_block, 1, 1), null, new Object[] {"S", "S", 'S', new ItemStack(Blocks.stone_slab, 1, 7)});
+		this.addRecipe(new ItemStack(Blocks.quartz_block, 2, 2), null, new Object[] {"Q", "Q", 'Q', new ItemStack(Blocks.quartz_block, 1, 0)});
+		this.addRecipe(new ItemStack(Blocks.quartz_stairs, 4, 0), null, new Object[] {"S  ", "SS ", "SSS", 'S', new ItemStack(Blocks.quartz_block, 1, 0)});
+		
 		Object[] objects = new Object[] { "CCC", "CCC", "CCC", 'C', Blocks.hardened_clay };
 		this.addRecipe(new ItemStack(Blocks.stained_hardened_clay, 9, 0), new ItemStack(Items.dye, 1, 15), objects);
 		this.addRecipe(new ItemStack(Blocks.stained_hardened_clay, 9, 1), new ItemStack(Items.dye, 1, 14), objects);

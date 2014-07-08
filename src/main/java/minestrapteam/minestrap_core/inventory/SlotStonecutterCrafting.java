@@ -24,7 +24,9 @@ public class SlotStonecutterCrafting extends SlotCrafting
 		
 		ItemStack extraSlotItem = this.extraSlotInv.getStackInSlot(0);
 		
-		this.extraSlotInv.decrStackSize(0, 1);
+		if (this.extraSlotInv.getStackInSlot(0) != null)
+		{
+			this.extraSlotInv.decrStackSize(0, 1);
 		
 		if (extraSlotItem.getItem().hasContainerItem())
 		{
@@ -41,6 +43,7 @@ public class SlotStonecutterCrafting extends SlotCrafting
 					this.thePlayer.dropPlayerItemWithRandomChoice(extraSlotItemContainer, false);
 				}
 			}
+		}
 		}
 	}
 	
