@@ -152,7 +152,7 @@ public class MOreGenerator implements IWorldGenerator
 				y1 = rand.nextInt(100);
 				z1 = chunkZ + rand.nextInt(16);
 				
-				new WorldGenDesertQuartzSpire().generate(world, rand, x1, y1, z1);
+				new WorldGenDesertQuartz().generate(world, rand, x1, y1, z1);
 			}
 		}
 		// Copper Ore
