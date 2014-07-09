@@ -1,6 +1,6 @@
 package minestrapteam.minestrappolation.item;
 
-import minestrapteam.minestrap_core.item.MCItemFood;
+import minestrapteam.mcore.item.MCItemFood;
 import minestrapteam.minestrappolation.lib.MPotions;
 
 import net.minecraft.entity.player.EntityPlayer;

@@ -2,7 +2,7 @@ package minestrapteam.minestrappolation.block;
 
 import java.util.List;
 
-import minestrapteam.minestrap_core.util.MCAssetManager;
+import minestrapteam.mcore.util.MCAssetManager;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

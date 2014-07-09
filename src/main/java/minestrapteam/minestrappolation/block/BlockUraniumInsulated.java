@@ -1,6 +1,7 @@
 package minestrapteam.minestrappolation.block;
 
-import minestrapteam.minestrap_core.util.MCAssetManager;
+import minestrapteam.mcore.util.MCAssetManager;
+
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;

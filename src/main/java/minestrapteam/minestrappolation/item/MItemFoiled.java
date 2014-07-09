@@ -2,7 +2,7 @@ package minestrapteam.minestrappolation.item;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import minestrapteam.minestrap_core.item.MCItem;
+import minestrapteam.mcore.item.MCItem;
 
 import net.minecraft.item.ItemStack;
 

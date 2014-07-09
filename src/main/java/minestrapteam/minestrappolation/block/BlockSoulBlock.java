@@ -2,8 +2,8 @@ package minestrapteam.minestrappolation.block;
 
 import java.util.Random;
 
-import minestrapteam.minestrap_core.block.MCBlock;
-import minestrapteam.minestrap_core.util.MCUtil;
+import minestrapteam.mcore.block.MCBlock;
+import minestrapteam.mcore.util.MCUtil;
 import minestrapteam.minestrappolation.lib.MItems;
 
 import net.minecraft.block.material.Material;

@@ -1,6 +1,6 @@
 package minestrapteam.minestrappolation.block;
 
-import minestrapteam.minestrap_core.util.MCAssetManager;
+import minestrapteam.mcore.util.MCAssetManager;
 import minestrapteam.minestrappolation.tileentity.TileEntityPlate;
 
 import net.minecraft.block.BlockContainer;

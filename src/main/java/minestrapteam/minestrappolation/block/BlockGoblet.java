@@ -3,7 +3,7 @@ package minestrapteam.minestrappolation.block;
 import java.util.List;
 import java.util.Random;
 
-import minestrapteam.minestrap_core.util.MCAssetManager;
+import minestrapteam.mcore.util.MCAssetManager;
 import minestrapteam.minestrappolation.lib.MItems;
 import minestrapteam.minestrappolation.tileentity.TileEntityGoblet;
 

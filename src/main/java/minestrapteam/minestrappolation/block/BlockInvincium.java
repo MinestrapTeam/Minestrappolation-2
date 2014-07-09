@@ -1,6 +1,6 @@
 package minestrapteam.minestrappolation.block;
 
-import minestrapteam.minestrap_core.block.MCBlock;
+import minestrapteam.mcore.block.MCBlock;
 import minestrapteam.minestrappolation.Minestrappolation;
 
 import net.minecraft.block.material.Material;

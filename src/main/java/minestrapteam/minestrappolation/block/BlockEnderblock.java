@@ -2,7 +2,7 @@ package minestrapteam.minestrappolation.block;
 
 import java.util.Random;
 
-import minestrapteam.minestrap_core.util.MCUtil;
+import minestrapteam.mcore.util.MCUtil;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

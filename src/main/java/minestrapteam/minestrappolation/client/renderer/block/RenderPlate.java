@@ -2,7 +2,7 @@ package minestrapteam.minestrappolation.client.renderer.block;
 
 import org.lwjgl.opengl.GL11;
 
-import minestrapteam.minestrap_core.util.MCAssetManager;
+import minestrapteam.mcore.util.MCAssetManager;
 import minestrapteam.minestrappolation.client.model.ModelPlate;
 import minestrapteam.minestrappolation.tileentity.TileEntityPlate;
 

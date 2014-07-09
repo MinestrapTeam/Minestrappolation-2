@@ -1,7 +1,7 @@
 package minestrapteam.minestrappolation.block;
 
-import minestrapteam.minestrap_core.block.MCBlockPillar;
-import minestrapteam.minestrap_core.util.MCAssetManager;
+import minestrapteam.mcore.block.MCBlockPillar;
+import minestrapteam.mcore.util.MCAssetManager;
 
 import net.minecraft.creativetab.CreativeTabs;
 

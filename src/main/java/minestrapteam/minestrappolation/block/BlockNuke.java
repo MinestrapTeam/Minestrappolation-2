@@ -2,7 +2,7 @@ package minestrapteam.minestrappolation.block;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import minestrapteam.minestrap_core.util.MCAssetManager;
+import minestrapteam.mcore.util.MCAssetManager;
 import minestrapteam.minestrappolation.entity.EntityNukePrimed;
 
 import net.minecraft.block.Block;

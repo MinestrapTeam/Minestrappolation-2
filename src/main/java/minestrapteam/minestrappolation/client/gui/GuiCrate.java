@@ -2,7 +2,7 @@ package minestrapteam.minestrappolation.client.gui;
 
 import org.lwjgl.opengl.GL11;
 
-import minestrapteam.minestrap_core.util.MCAssetManager;
+import minestrapteam.mcore.util.MCAssetManager;
 import minestrapteam.minestrappolation.inventory.ContainerCrate;
 import minestrapteam.minestrappolation.tileentity.TileEntityCrate;
 

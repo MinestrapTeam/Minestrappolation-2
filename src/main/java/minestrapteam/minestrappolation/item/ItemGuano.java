@@ -3,7 +3,7 @@ package minestrapteam.minestrappolation.item;
 import java.util.List;
 
 import clashsoft.cslib.minecraft.lang.I18n;
-import minestrapteam.minestrap_core.item.MCItem;
+import minestrapteam.mcore.item.MCItem;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;

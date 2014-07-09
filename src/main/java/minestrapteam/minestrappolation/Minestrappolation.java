@@ -13,8 +13,8 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.VillagerRegistry;
-import minestrapteam.minestrap_core.crafting.CustomRecipeLoader;
-import minestrapteam.minestrap_core.lib.MCReference;
+import minestrapteam.mcore.crafting.CustomRecipeLoader;
+import minestrapteam.mcore.lib.MCReference;
 import minestrapteam.minestrappolation.common.MCommonProxy;
 import minestrapteam.minestrappolation.crafting.MelterRecipeLoader;
 import minestrapteam.minestrappolation.creativetab.*;
@@ -27,6 +27,7 @@ import minestrapteam.minestrappolation.lib.*;
 import minestrapteam.minestrappolation.tileentity.TileEntityLocked;
 import minestrapteam.minestrappolation.tileentity.TileEntityMelter;
 import minestrapteam.minestrappolation.world.MOreGenerator;
+
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;

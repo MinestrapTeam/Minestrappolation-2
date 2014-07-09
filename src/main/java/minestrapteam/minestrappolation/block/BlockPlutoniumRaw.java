@@ -1,6 +1,7 @@
 package minestrapteam.minestrappolation.block;
 
-import minestrapteam.minestrap_core.util.MCUtil;
+import minestrapteam.mcore.util.MCUtil;
+
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;

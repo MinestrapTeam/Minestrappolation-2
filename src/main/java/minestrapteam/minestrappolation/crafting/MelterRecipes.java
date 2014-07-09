@@ -1,7 +1,7 @@
 package minestrapteam.minestrappolation.crafting;
 
 import clashsoft.cslib.minecraft.crafting.ExperienceRecipeManager;
-import minestrapteam.minestrap_core.lib.MCBlocks;
+import minestrapteam.mcore.lib.MCBlocks;
 import minestrapteam.minestrappolation.lib.MBlocks;
 import minestrapteam.minestrappolation.lib.MItems;
 

@@ -3,8 +3,9 @@ package minestrapteam.minestrappolation.world;
 import java.util.Random;
 
 import cpw.mods.fml.common.IWorldGenerator;
-import minestrapteam.minestrap_core.lib.MCBlocks;
+import minestrapteam.mcore.lib.MCBlocks;
 import minestrapteam.minestrappolation.lib.MBlocks;
+
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;

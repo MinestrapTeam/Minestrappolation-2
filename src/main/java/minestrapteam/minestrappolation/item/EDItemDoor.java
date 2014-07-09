@@ -1,6 +1,6 @@
 package minestrapteam.minestrappolation.item;
 
-import minestrapteam.minestrap_core.item.MCItem;
+import minestrapteam.mcore.item.MCItem;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;

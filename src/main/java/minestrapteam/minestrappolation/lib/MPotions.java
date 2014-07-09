@@ -2,8 +2,8 @@ package minestrapteam.minestrappolation.lib;
 
 import clashsoft.brewingapi.potion.IPotionEffectHandler;
 import clashsoft.brewingapi.potion.recipe.PotionRecipes;
-import minestrapteam.minestrap_core.potion.MCPotion;
-import minestrapteam.minestrap_core.util.MCAssetManager;
+import minestrapteam.mcore.potion.MCPotion;
+import minestrapteam.mcore.util.MCAssetManager;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;

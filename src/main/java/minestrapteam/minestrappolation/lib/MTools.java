@@ -1,9 +1,9 @@
 package minestrapteam.minestrappolation.lib;
 
 import clashsoft.cslib.minecraft.item.CSItems;
-import minestrapteam.minestrap_core.item.*;
-import minestrapteam.minestrap_core.lib.MCBlocks;
-import minestrapteam.minestrap_core.util.MCAssetManager;
+import minestrapteam.mcore.item.*;
+import minestrapteam.mcore.lib.MCBlocks;
+import minestrapteam.mcore.util.MCAssetManager;
 import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.common.MCommonProxy;
 

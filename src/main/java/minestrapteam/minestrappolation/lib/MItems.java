@@ -5,9 +5,9 @@ import static minestrapteam.minestrappolation.lib.MTools.bronzeSword;
 import static minestrapteam.minestrappolation.lib.MTools.steelPickaxe;
 import static minestrapteam.minestrappolation.lib.MTools.steelSword;
 import clashsoft.cslib.minecraft.item.CSItems;
-import minestrapteam.minestrap_core.item.MCItem;
-import minestrapteam.minestrap_core.item.MCItemFood;
-import minestrapteam.minestrap_core.util.MCAssetManager;
+import minestrapteam.mcore.item.MCItem;
+import minestrapteam.mcore.item.MCItemFood;
+import minestrapteam.mcore.util.MCAssetManager;
 import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.item.*;
 

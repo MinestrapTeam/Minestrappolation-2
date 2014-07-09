@@ -1,6 +1,7 @@
 package minestrapteam.minestrappolation.creativetab;
 
-import minestrapteam.minestrap_core.lib.MCBlocks;
+import minestrapteam.mcore.lib.MCBlocks;
+
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 

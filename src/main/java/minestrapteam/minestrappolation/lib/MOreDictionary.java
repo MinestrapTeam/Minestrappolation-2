@@ -1,7 +1,7 @@
 package minestrapteam.minestrappolation.lib;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import minestrapteam.minestrap_core.lib.MCBlocks;
+import minestrapteam.mcore.lib.MCBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;

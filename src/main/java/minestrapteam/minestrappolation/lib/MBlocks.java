@@ -2,9 +2,9 @@ package minestrapteam.minestrappolation.lib;
 
 import clashsoft.cslib.minecraft.block.CSBlocks;
 import cpw.mods.fml.common.registry.GameRegistry;
-import minestrapteam.minestrap_core.block.MCBlock;
-import minestrapteam.minestrap_core.block.MCBlockPane;
-import minestrapteam.minestrap_core.util.MCAssetManager;
+import minestrapteam.mcore.block.MCBlock;
+import minestrapteam.mcore.block.MCBlockPane;
+import minestrapteam.mcore.util.MCAssetManager;
 import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.block.*;
 import minestrapteam.minestrappolation.material.MaterialOoze;

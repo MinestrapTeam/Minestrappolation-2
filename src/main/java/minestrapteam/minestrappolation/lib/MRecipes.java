@@ -4,10 +4,10 @@ import static minestrapteam.minestrappolation.lib.MBlocks.*;
 import static minestrapteam.minestrappolation.lib.MItems.*;
 import static minestrapteam.minestrappolation.lib.MTools.*;
 import cpw.mods.fml.common.registry.GameRegistry;
-import minestrapteam.minestrap_core.crafting.RecipesPlatings;
-import minestrapteam.minestrap_core.lib.MCBlocks;
-import minestrapteam.minestrap_core.lib.MCItems;
-import minestrapteam.minestrap_core.util.MCUtil;
+import minestrapteam.mcore.crafting.RecipesPlatings;
+import minestrapteam.mcore.lib.MCBlocks;
+import minestrapteam.mcore.lib.MCItems;
+import minestrapteam.mcore.util.MCUtil;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;

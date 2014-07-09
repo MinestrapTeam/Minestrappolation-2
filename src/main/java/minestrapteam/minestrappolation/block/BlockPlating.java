@@ -2,7 +2,7 @@ package minestrapteam.minestrappolation.block;
 
 import java.util.Random;
 
-import minestrapteam.minestrap_core.block.MCBlock;
+import minestrapteam.mcore.block.MCBlock;
 import minestrapteam.minestrappolation.client.MClientProxy;
 import minestrapteam.minestrappolation.lib.MBlocks;
 import minestrapteam.minestrappolation.lib.MItems;

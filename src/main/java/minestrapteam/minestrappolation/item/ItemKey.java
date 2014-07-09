@@ -2,7 +2,7 @@ package minestrapteam.minestrappolation.item;
 
 import java.util.List;
 
-import minestrapteam.minestrap_core.item.MCItem;
+import minestrapteam.mcore.item.MCItem;
 import minestrapteam.minestrappolation.tileentity.TileEntityLocked;
 
 import net.minecraft.entity.player.EntityPlayer;

@@ -2,7 +2,7 @@ package minestrapteam.minestrappolation.client.renderer;
 
 import org.lwjgl.opengl.GL11;
 
-import minestrapteam.minestrap_core.util.MCAssetManager;
+import minestrapteam.mcore.util.MCAssetManager;
 import minestrapteam.minestrappolation.client.model.ModelHangGlider;
 import minestrapteam.minestrappolation.entity.EntityHangGlider;
 import minestrapteam.minestrappolation.handler.MEventHandler;

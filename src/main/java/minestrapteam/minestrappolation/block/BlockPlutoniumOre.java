@@ -2,7 +2,7 @@ package minestrapteam.minestrappolation.block;
 
 import java.util.Random;
 
-import minestrapteam.minestrap_core.util.MCUtil;
+import minestrapteam.mcore.util.MCUtil;
 import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.lib.MItems;
 
