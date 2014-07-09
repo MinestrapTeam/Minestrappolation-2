@@ -11,15 +11,24 @@ import net.minecraft.item.Item;
 public class MCItems
 {
 	public static Item	brickStone;
-	
+	public static Item  brickStoneTin;
+	public static Item  brickStoneBronze;
+	public static Item  brickStoneSteel;
+	public static Item  brickStoneMeurodite;
 	public static Item	brickSandstone;
+	public static Item  brickRedSandstone;
 	public static Item	brickClay;
 	public static Item	brickColoredClay;
 	
 	public static void init()
 	{
 		brickStone = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MCAssetManager.getStonecutterTexture("stone_brick"));
+		brickStoneTin = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MCAssetManager.getStonecutterTexture("stone_brick_tin"));
+		brickStoneBronze = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MCAssetManager.getStonecutterTexture("stone_brick_bronze"));
+		brickStoneSteel = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MCAssetManager.getStonecutterTexture("stone_brick_steel"));
+		brickStoneMeurodite = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MCAssetManager.getStonecutterTexture("stone_brick_meurodite"));
 		brickSandstone = new MCItem().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MCAssetManager.getStonecutterTexture("sandstone_brick"));
+		brickRedSandstone = new MCItem().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MCAssetManager.getStonecutterTexture("red_sandstone_brick"));
 		brickColoredClay = new MCItemMulti(null, new String[] {
 				MCAssetManager.getStonecutterTexture("black_clay_brick"),
 				MCAssetManager.getStonecutterTexture("blue_clay_brick"),
@@ -39,7 +48,12 @@ public class MCItems
 				MCAssetManager.getStonecutterTexture("yellow_clay_brick") }).setUnlocalizedName("clay_brick").setCreativeTab(Minestrappolation.tabStoneDecor);
 		
 		CSItems.addItem(brickStone, "stone_brick");
+		CSItems.addItem(brickStoneTin, "stone_brick_tin");
+		CSItems.addItem(brickStoneBronze, "stone_brick_bronze");
+		CSItems.addItem(brickStoneSteel, "stone_brick_steel");
+		CSItems.addItem(brickStoneMeurodite, "stone_brick_meurodite");
 		CSItems.addItem(brickSandstone, "sandstone_brick");
+		CSItems.addItem(brickRedSandstone, "red_sandstone_brick");
 		CSItems.addItem(brickColoredClay, "clay_brick");
 	}
 }
