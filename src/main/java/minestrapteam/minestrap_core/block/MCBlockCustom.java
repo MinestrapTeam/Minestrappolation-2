@@ -11,7 +11,6 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -50,7 +49,7 @@ public class MCBlockCustom extends Block
 	public int					harvestLevel;
 	public String				harvestTool;
 	
-	public Map<String, IIcon>	iconMap	= new HashMap();
+	public Map<String, IIcon>	iconMap		= new HashMap();
 	
 	public boolean				chiseledSided;
 	public boolean				clay;
@@ -58,8 +57,7 @@ public class MCBlockCustom extends Block
 	public boolean				netherrack;
 	public boolean				redSandstone;
 	
-	public int					walkSpeedPercent = 25;
-	public boolean				onRoad = false;
+	public float				walkSpeed;
 	
 	public MCBlockCustom(String[] types, String name)
 	{
@@ -76,9 +74,9 @@ public class MCBlockCustom extends Block
 		this.types = types;
 	}
 	
-	public MCBlockCustom setRoadWalkSpeed(int percent)
+	public MCBlockCustom setRoadWalkSpeed(float percent)
 	{
-		this.walkSpeedPercent = percent;
+		this.walkSpeed = percent;
 		return this;
 	}
 	
@@ -255,7 +253,7 @@ public class MCBlockCustom extends Block
 			
 			if ("raw".equals(type))
 			{
-				if(this.redSandstone)
+				if (this.redSandstone)
 				{
 					this.iconMap.put("top", iconRegister.registerIcon(textureName + "_top"));
 					this.iconMap.put("side", iconRegister.registerIcon(textureName + "_side"));
@@ -301,7 +299,7 @@ public class MCBlockCustom extends Block
 		String type = this.getType(metadata);
 		if (type == null || "raw".equals(type))
 		{
-			if(this.redSandstone)
+			if (this.redSandstone)
 			{
 				return side == 0 ? this.iconMap.get("bottom") : side == 1 ? this.iconMap.get("top") : this.iconMap.get("side");
 			}
@@ -369,13 +367,14 @@ public class MCBlockCustom extends Block
 		}
 	}
 	
+	@Override
 	public void onEntityWalking(World world, int x, int y, int z, Entity entityWalking)
 	{
-		if(entityWalking instanceof EntityPlayer && world.getBlockMetadata(x, y, z) == 4)
+		if ("road".equals(this.getType(world.getBlockMetadata(x, y, z))))
 		{
-			EntityPlayer player = (EntityPlayer)entityWalking;
-			//TODO make it so walk speed is set back to normal!
-			//player.capabilities.setPlayerWalkSpeed(0.1f + (0.1f * (walkSpeedPercent / 100)));
-		}		
+			entityWalking.motionX *= this.walkSpeed;
+			entityWalking.motionY *= this.walkSpeed;
+			entityWalking.motionZ *= this.walkSpeed;
+		}
 	}
 }

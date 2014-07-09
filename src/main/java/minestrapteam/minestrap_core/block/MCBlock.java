@@ -15,32 +15,34 @@ public class MCBlock extends Block
 		super(material);
 	}
 	
-    public int quantityDropped(Random p_149745_1_)
-    {
-    	return 1;
-    }
-    
-    public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)
-    {
-    	if(this == MBlocks.meuroditeOre)
-    	{
-    		return MItems.meuroditeGem;
-    	}
-    	if(this == MBlocks.radiantQuartzOre)
-    	{
-    		return MItems.radiantQuartz;
-    	}
-    	
-    	return Item.getItemFromBlock(this);
-    }
-    
-    protected boolean canSilkHarvest()
-    {
-    	if(this == MBlocks.meuroditeOre || this == MBlocks.radiantQuartzOre)
-    	{
-    		return true;
-    	}
-    	return super.canSilkHarvest();
-    }
-
+	@Override
+	public int quantityDropped(Random random)
+	{
+		return 1;
+	}
+	
+	@Override
+	public Item getItemDropped(int metadata, Random random, int fortune)
+	{
+		if (this == MBlocks.meuroditeOre)
+		{
+			return MItems.meuroditeGem;
+		}
+		if (this == MBlocks.radiantQuartzOre)
+		{
+			return MItems.radiantQuartz;
+		}
+		
+		return Item.getItemFromBlock(this);
+	}
+	
+	@Override
+	protected boolean canSilkHarvest()
+	{
+		if (this == MBlocks.meuroditeOre || this == MBlocks.radiantQuartzOre)
+		{
+			return true;
+		}
+		return super.canSilkHarvest();
+	}
 }

@@ -10,7 +10,7 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
 public abstract class BlockRadiation extends Block
-{	
+{
 	protected BlockRadiation(Material material)
 	{
 		super(material);
@@ -30,7 +30,8 @@ public abstract class BlockRadiation extends Block
 		{
 			world.scheduleBlockUpdate(x, y, z, this, 1);
 			
-			AxisAlignedBB axisalignedbb = this.getCollisionBoundingBoxFromPool(world, x, y, z).expand(this.getRange(), this.getRange(), this.getRange());
+			float range = this.getRange();
+			AxisAlignedBB axisalignedbb = this.getCollisionBoundingBoxFromPool(world, x, y, z).expand(range, range, range);
 			List<EntityLivingBase> list = world.getEntitiesWithinAABB(EntityLivingBase.class, axisalignedbb);
 			
 			for (EntityLivingBase living : list)
@@ -41,5 +42,6 @@ public abstract class BlockRadiation extends Block
 	}
 	
 	public abstract void addPotionEffect(EntityLivingBase living);
+	
 	public abstract float getRange();
 }

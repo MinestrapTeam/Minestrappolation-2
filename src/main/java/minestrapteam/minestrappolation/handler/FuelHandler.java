@@ -1,9 +1,9 @@
 package minestrapteam.minestrappolation.handler;
 
-import minestrapteam.minestrappolation.lib.MItems;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import cpw.mods.fml.common.IFuelHandler;
+import minestrapteam.minestrappolation.lib.MItems;
+
+import net.minecraft.item.ItemStack;
 
 public class FuelHandler implements IFuelHandler 
 {
