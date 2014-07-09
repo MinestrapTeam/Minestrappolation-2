@@ -59,12 +59,6 @@ public class MOreDictionary
 		
 		GameRegistry.addRecipe(new ShapedOreRecipe(MBlocks.meatBlock, new Object[] { "MMM", "MMM", "MMM", 'M', "meatRaw" }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(MBlocks.crate, new Object[] { "WWW", "SSS", "WWW", 'S', Items.stick, 'W', "plankWood" }));
-		
-		GameRegistry.addRecipe(new ShapedOreRecipe(MTools.sandstonePickaxe, new Object[] { "ZZZ", " S ", " S ", 'Z', "sandstone", 'S', Items.stick }));
-		GameRegistry.addRecipe(new ShapedOreRecipe(MTools.sandstoneShovel, new Object[] { " Z ", " S ", " S ", 'Z', "sandstone", 'S', Items.stick }));
-		GameRegistry.addRecipe(new ShapedOreRecipe(MTools.sandstoneAxe, new Object[] { "ZZ ", "ZS ", " S ", 'Z', "sandstone", 'S', Items.stick }));
-		GameRegistry.addRecipe(new ShapedOreRecipe(MTools.sandstoneHoe, new Object[] { "ZZ ", " S ", " S ", 'Z', "sandstone", 'S', Items.stick }));
-		GameRegistry.addRecipe(new ShapedOreRecipe(MTools.sandstoneSword, new Object[] { " Z ", " Z ", " S ", 'Z', "sandstone", 'S', Items.stick }));
 	}
 	
 	private static void add(String name, Item item)
