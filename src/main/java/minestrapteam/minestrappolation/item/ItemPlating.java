@@ -6,7 +6,7 @@ import net.minecraft.item.ItemStack;
 
 public class ItemPlating extends ItemReed
 {
-	private String plating;
+	private String	plating;
 	
 	public ItemPlating(Block block, String plating)
 	{

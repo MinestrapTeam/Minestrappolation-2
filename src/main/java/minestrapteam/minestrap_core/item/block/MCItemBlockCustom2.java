@@ -62,7 +62,7 @@ public class MCItemBlockCustom2 extends MCItemBlockMulti
 		int model = i % 3;
 		
 		// Handles double slabs
-		if (block1 == this.field_150939_a && type == stack.getItemDamage() && ((side == 1 && model == 0) || (side == 0 && model == 1)))
+		if (block1 == this.field_150939_a && type == stack.getItemDamage() && (side == 1 && model == 0 || side == 0 && model == 1))
 		{
 			if (world.checkNoEntityCollision(this.field_150939_a.getCollisionBoundingBoxFromPool(world, x, y, z)))
 			{

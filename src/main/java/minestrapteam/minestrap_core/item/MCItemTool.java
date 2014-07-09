@@ -174,13 +174,19 @@ public class MCItemTool extends ItemTool implements IPlatable
 		StringBuilder builder = new StringBuilder(20);
 		
 		if (sword)
+		{
 			builder.append("weapons/");
+		}
 		else
+		{
 			builder.append("tools/");
+		}
 		
 		builder.append("bronze_").append(this.toolType).append("_overlay");
 		if (!sword && this.toolMaterial.getHarvestLevel() >= 5)
+		{
 			builder.append("_2");
+		}
 		
 		this.overlayIcon = iconRegister.registerIcon(MCAssetManager.getTexture(builder.toString()));
 	}

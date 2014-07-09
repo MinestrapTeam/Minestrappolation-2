@@ -23,7 +23,9 @@ public class TileEntityPlate extends TileEntity
 	public EntityItem getItemEntity()
 	{
 		if (this.theItem == null)
+		{
 			this.spawnItem();
+		}
 		return this.theItem;
 	}
 	

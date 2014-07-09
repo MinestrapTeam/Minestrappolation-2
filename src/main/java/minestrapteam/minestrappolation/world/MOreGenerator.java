@@ -133,16 +133,16 @@ public class MOreGenerator implements IWorldGenerator
 			new WorldGenMinable(MBlocks.sunstoneOre, 3).generate(world, rand, x1, y1, z1);
 		}
 		
-		//Granite
-		 for (int i = 0; i < 12; i++)
-		 {
-			 x1 = chunkX + rand.nextInt(16);
-			 y1 = rand.nextInt(256);
-			 z1 = chunkZ + rand.nextInt(16);
+		// Granite
+		for (int i = 0; i < 12; i++)
+		{
+			x1 = chunkX + rand.nextInt(16);
+			y1 = rand.nextInt(256);
+			z1 = chunkZ + rand.nextInt(16);
+			
+			new WorldGenMinable(Block.getBlockFromItem(new ItemStack(MCBlocks.graniteSlate, 1, 0).getItem()), 50).generate(world, rand, x1, y1, z1);
+		}
 		
-			 new WorldGenMinable(Block.getBlockFromItem(new ItemStack(MCBlocks.graniteSlate, 1, 0).getItem()), 50).generate(world, rand, x1, y1, z1);
-		 }
-		 
 		// Desert Quartz
 		if (biome instanceof BiomeGenDesert)
 		{

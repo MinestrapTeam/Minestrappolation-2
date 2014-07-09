@@ -49,7 +49,7 @@ public class MCBlockCustom extends Block
 	public int					harvestLevel;
 	public String				harvestTool;
 	
-	public Map<String, IIcon>	iconMap		= new HashMap();
+	public Map<String, IIcon>	iconMap	= new HashMap();
 	
 	public boolean				chiseledSided;
 	public boolean				clay;
@@ -119,7 +119,9 @@ public class MCBlockCustom extends Block
 	public String getType(int metadata)
 	{
 		if (metadata < 0 || metadata >= this.types.length)
+		{
 			return null;
+		}
 		return this.types[metadata];
 	}
 	
@@ -176,35 +178,53 @@ public class MCBlockCustom extends Block
 		else if ("bricks".equals(type))
 		{
 			if (this.netherrack)
+			{
 				return f + 1.6F;
+			}
 			else if (this.clay)
+			{
 				return f + 0.75F;
+			}
 		}
 		else if ("pattern_bricks".equals(type))
 		{
 			if (this.netherrack)
+			{
 				return f + 1.6F;
+			}
 			else if (this.clay)
+			{
 				return f + 0.75F;
+			}
 		}
 		else if ("refined".equals(type))
 		{
 			if (this.netherrack)
+			{
 				return (f + 1.6F) * (2F / 3F);
+			}
 			else if (this.clay)
+			{
 				return (f + 0.75F) * (2F / 3F);
+			}
 			else
+			{
 				return f * (2F / 3F);
+			}
 		}
 		else if ("cracked".equals(type))
 		{
 			if (this.stone)
+			{
 				return f * (4F / 3F);
+			}
 		}
 		else if ("mossy".equals(type))
 		{
 			if (this.stone)
+			{
 				return f * (4F / 3F);
+			}
 		}
 		else if (type.contains("lamp"))
 		{
@@ -249,7 +269,9 @@ public class MCBlockCustom extends Block
 		for (String type : this.types)
 		{
 			if (type == null)
+			{
 				continue;
+			}
 			
 			if ("raw".equals(type))
 			{

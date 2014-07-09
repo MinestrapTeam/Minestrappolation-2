@@ -2,7 +2,6 @@ package minestrapteam.minestrap_core.client.renderer.block;
 
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import minestrapteam.minestrap_core.block.MCBlockCustom2;
-import minestrapteam.minestrap_core.client.MCClientProxy;
 import minestrapteam.minestrap_core.common.MCCommonProxy;
 
 import net.minecraft.block.Block;
@@ -14,7 +13,7 @@ public class RenderBlockCustom2 implements ISimpleBlockRenderingHandler
 	@Override
 	public int getRenderId()
 	{
-		return MCClientProxy.custom2RenderType;
+		return MCCommonProxy.custom2RenderType;
 	}
 	
 	@Override

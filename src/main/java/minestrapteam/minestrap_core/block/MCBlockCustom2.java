@@ -113,7 +113,9 @@ public class MCBlockCustom2 extends Block
 	{
 		metadata /= 3;
 		if (metadata < 0 || metadata >= this.types.length)
+		{
 			return null;
+		}
 		return this.types[metadata];
 	}
 	
@@ -178,7 +180,7 @@ public class MCBlockCustom2 extends Block
 				return 2;
 			}
 		}
-		else if ((side == 0) || (side != 1 && hitY > 0.5D))
+		else if (side == 0 || side != 1 && hitY > 0.5D)
 		{
 			return metadata + 1;
 		}
@@ -228,7 +230,7 @@ public class MCBlockCustom2 extends Block
 	@Override
 	public int getHarvestLevel(int metadata)
 	{
-		return harvestLevel;
+		return this.harvestLevel;
 	}
 	
 	@Override
@@ -240,7 +242,9 @@ public class MCBlockCustom2 extends Block
 		for (String type : this.types)
 		{
 			if (type == null)
+			{
 				continue;
+			}
 			
 			if ("pillar".equals(type))
 			{
@@ -307,7 +311,7 @@ public class MCBlockCustom2 extends Block
 		}
 		else if ("pillar".equals(type))
 		{
-			if ((m == 0 && (side == 0 || side == 1)) || (m == 1 && (side == 2 || side == 3)) || (m == 2 && (side == 4 || side == 5)))
+			if (m == 0 && (side == 0 || side == 1) || m == 1 && (side == 2 || side == 3) || m == 2 && (side == 4 || side == 5))
 			{
 				return this.iconMap.get("pillar_top");
 			}

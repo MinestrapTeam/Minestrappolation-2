@@ -11,7 +11,7 @@ import net.minecraft.world.World;
 
 public class RecipesPlatings implements IRecipe
 {
-
+	
 	@Override
 	public ItemStack getCraftingResult(InventoryCrafting inventory)
 	{
@@ -22,7 +22,9 @@ public class RecipesPlatings implements IRecipe
 			ItemStack stack = inventory.getStackInSlot(i);
 			
 			if (stack == null)
+			{
 				continue;
+			}
 			
 			if (stack.getItem() instanceof IPlatable)
 			{
@@ -57,19 +59,19 @@ public class RecipesPlatings implements IRecipe
 		
 		return null;
 	}
-
+	
 	@Override
 	public ItemStack getRecipeOutput()
 	{
 		return null;
 	}
-
+	
 	@Override
 	public int getRecipeSize()
 	{
 		return 2;
 	}
-
+	
 	@Override
 	public boolean matches(InventoryCrafting inventory, World world)
 	{
@@ -80,7 +82,9 @@ public class RecipesPlatings implements IRecipe
 			ItemStack stack = inventory.getStackInSlot(i);
 			
 			if (stack == null)
+			{
 				continue;
+			}
 			
 			if (stack.getItem() instanceof IPlatable)
 			{

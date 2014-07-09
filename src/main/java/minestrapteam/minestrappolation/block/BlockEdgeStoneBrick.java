@@ -16,8 +16,8 @@ import net.minecraft.world.IBlockAccess;
 
 public class BlockEdgeStoneBrick extends Block
 {
-	private IIcon[] icons1;
-	private IIcon[] icons2;
+	private IIcon[]	icons1;
+	private IIcon[]	icons2;
 	
 	public BlockEdgeStoneBrick()
 	{
@@ -44,9 +44,13 @@ public class BlockEdgeStoneBrick extends Block
 	public IIcon getIcon(int side, int metadata)
 	{
 		if (metadata == 0)
+		{
 			return this.icons1[0];
+		}
 		else if (metadata == 1)
+		{
 			return this.icons2[0];
+		}
 		return this.blockIcon;
 	}
 	
@@ -105,9 +109,13 @@ public class BlockEdgeStoneBrick extends Block
 		}
 		
 		if (metadata == 0)
+		{
 			return this.icons1[b];
+		}
 		else if (metadata == 1)
+		{
 			return this.icons2[b];
+		}
 		return this.blockIcon;
 	}
 	

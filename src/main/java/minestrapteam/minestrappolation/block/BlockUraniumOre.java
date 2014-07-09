@@ -67,12 +67,12 @@ public class BlockUraniumOre extends BlockRadiation
 		return 1.5F;
 	}
 	
-    @Override
+	@Override
 	public void onBlockDestroyedByExplosion(World world, int x, int y, int z, Explosion explosion)
-    {
-    	if (!world.isRemote)
+	{
+		if (!world.isRemote)
 		{
 			world.createExplosion(null, x, y, z, 4F, true);
 		}
-    }
+	}
 }

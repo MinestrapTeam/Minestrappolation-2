@@ -8,6 +8,6 @@ public class MCEventHandler
 	@SubscribeEvent
 	public void onPlayerTick(TickEvent.PlayerTickEvent event)
 	{
-
+		
 	}
 }

@@ -7,7 +7,7 @@ import net.minecraft.world.World;
 
 public class EntityGrenadeSticky extends EntityThrowableExplosive
 {
-	private boolean impacted;
+	private boolean	impacted;
 	
 	public EntityGrenadeSticky(World world)
 	{

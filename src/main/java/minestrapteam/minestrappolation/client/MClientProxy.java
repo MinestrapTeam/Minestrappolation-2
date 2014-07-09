@@ -23,7 +23,7 @@ import net.minecraft.world.World;
 
 public class MClientProxy extends MCommonProxy implements IGuiHandler
 {
-	public static int platingRenderID;
+	public static int	platingRenderID;
 	
 	@Override
 	public void init(FMLInitializationEvent event)

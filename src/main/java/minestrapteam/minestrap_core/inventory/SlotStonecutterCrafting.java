@@ -27,23 +27,23 @@ public class SlotStonecutterCrafting extends SlotCrafting
 		if (this.extraSlotInv.getStackInSlot(0) != null)
 		{
 			this.extraSlotInv.decrStackSize(0, 1);
-		
-		if (extraSlotItem.getItem().hasContainerItem())
-		{
-			ItemStack extraSlotItemContainer = new ItemStack(extraSlotItem.getItem().getContainerItem());
 			
-			if (!extraSlotItem.getItem().doesContainerItemLeaveCraftingGrid(extraSlotItem) || !this.thePlayer.inventory.addItemStackToInventory(extraSlotItemContainer))
+			if (extraSlotItem.getItem().hasContainerItem())
 			{
-				if (this.extraSlotInv.getStackInSlot(0) == null)
+				ItemStack extraSlotItemContainer = new ItemStack(extraSlotItem.getItem().getContainerItem());
+				
+				if (!extraSlotItem.getItem().doesContainerItemLeaveCraftingGrid(extraSlotItem) || !this.thePlayer.inventory.addItemStackToInventory(extraSlotItemContainer))
 				{
-					this.extraSlotInv.setInventorySlotContents(0, extraSlotItemContainer);
-				}
-				else
-				{
-					this.thePlayer.dropPlayerItemWithRandomChoice(extraSlotItemContainer, false);
+					if (this.extraSlotInv.getStackInSlot(0) == null)
+					{
+						this.extraSlotInv.setInventorySlotContents(0, extraSlotItemContainer);
+					}
+					else
+					{
+						this.thePlayer.dropPlayerItemWithRandomChoice(extraSlotItemContainer, false);
+					}
 				}
 			}
-		}
 		}
 	}
 	
