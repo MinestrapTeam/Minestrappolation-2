@@ -89,6 +89,10 @@ public class MCBlocks
 	public static Block	whiteClay2;
 	public static Block	yellowClay;
 	public static Block	yellowClay2;
+	public static Block greenClay;
+	public static Block greenClay2;
+	public static Block greyClay;
+	public static Block greyClay2;
 	
 	public static Block	woodOak;
 	public static Block	woodOak2;
@@ -206,6 +210,10 @@ public class MCBlocks
 		whiteClay2 = MCBlockHelper.createStoneBlock2(types_clay_2, "white_clay", 1.25F, 7.0F, 0, tab);
 		yellowClay = MCBlockHelper.createStoneBlock(types_colored_clay, "yellow_clay", 1.25F, 7.0F, 0, tab).setIsClay();
 		yellowClay2 = MCBlockHelper.createStoneBlock2(types_clay_2, "yellow_clay", 1.25F, 7.0F, 0, tab);
+		greenClay = MCBlockHelper.createStoneBlock(types_colored_clay, "green_clay", 1.25F, 7.0F, 0, tab).setIsClay();
+		greenClay2 = MCBlockHelper.createStoneBlock2(types_clay_2, "green_clay", 1.25F, 7.0F, 0, tab);
+		greyClay = MCBlockHelper.createStoneBlock(types_colored_clay, "grey_clay", 1.25F, 7.0F, 0, tab).setIsClay();
+		greyClay2 = MCBlockHelper.createStoneBlock2(types_clay_2, "grey_clay", 1.25F, 7.0F, 0, tab);
 		
 		woodOak = MCBlockHelper.createWoodBlock("oak", tab_decor);
 		woodOak2 = MCBlockHelper.createWoodBlock2("oak", tab_decor);

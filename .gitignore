@@ -5,3 +5,5 @@ gradlew
 gradlew.bat
 bin/
 build/
+.classpath
+.settings/
