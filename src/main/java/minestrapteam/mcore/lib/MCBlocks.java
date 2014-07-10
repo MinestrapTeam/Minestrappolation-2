@@ -179,11 +179,11 @@ public class MCBlocks
 		flint2 = MCBlockHelper.createStoneBlock2("flint", 1.8F, 15.0F, 1, tab);
 		lapis = MCBlockHelper.createStoneBlock(types_lapis, "lapis", 3.0F, 5.0F, 1, tab).setChiseledSided();
 		lapis2 = MCBlockHelper.createStoneBlock2("lapis", 3.0F, 5.0F, 1, tab);
-		obsidian = MCBlockHelper.createStoneBlock(types_obsidian, "obsidian", 50.0F, 2000.0F, 3, tab);
+		obsidian = MCBlockHelper.createStoneBlock(types_obsidian, "obsidian", 50.0F, 2000.0F, 3, tab).setEnderDragonCantDestroy();
 		obsidianGodstone = new BlockGodstone(Material.rock).setBlockName("obsidian_lamp_godstone").setCreativeTab(tab).setHardness(50F).setResistance(2000F).setBlockTextureName(MCAssetManager.getStonecutterTexture("obsidian_lamp_godstone"));
 		GameRegistry.registerBlock(obsidianGodstone, "obsidian_lamp_godstone");
-		obsidian2 = MCBlockHelper.createStoneBlock2("obsidian", 50.0F, 2000.0F, 3, tab);
-		endstone = MCBlockHelper.createStoneBlock(types_endstone, "endstone", 3.0F, 15.0F, 0, tab).setChiseledSided();
+		obsidian2 = MCBlockHelper.createStoneBlock2("obsidian", 50.0F, 2000.0F, 3, tab).setEnderDragonCantDestroy();
+		endstone = MCBlockHelper.createStoneBlock(types_endstone, "endstone", 3.0F, 15.0F, 0, tab).setChiseledSided().setEnderDragonCantDestroy();
 		endstone2 = MCBlockHelper.createStoneBlock2("endstone", 3.0F, 15.0F, 0, tab);
 		bedrock = MCBlockHelper.createStoneBlock(types_bedrock, "bedrock", 80F, 6000000.0F, 4, tab).setRoadWalkSpeed(150);
 		bedrock2 = MCBlockHelper.createStoneBlock2("bedrock", 80F, 6000000.0F, 4, tab);

@@ -56,6 +56,7 @@ public class MCBlockCustom extends Block
 	public boolean				stone;
 	public boolean				netherrack;
 	public boolean				redSandstone;
+	public boolean				enderDragonCantDestroy;
 	
 	public float				walkSpeed;
 	
@@ -72,6 +73,12 @@ public class MCBlockCustom extends Block
 		this.baseResistance = baseResistance;
 		this.harvestLevel = harvestLevel;
 		this.types = types;
+	}
+	
+	public MCBlockCustom setEnderDragonCantDestroy()
+	{
+		this.enderDragonCantDestroy = true;
+		return this;
 	}
 	
 	public MCBlockCustom setRoadWalkSpeed(float percent)
@@ -407,4 +414,13 @@ public class MCBlockCustom extends Block
 			entityWalking.motionZ *= this.walkSpeed;
 		}
 	}
+	
+    public boolean canEntityDestroy(IBlockAccess world, int x, int y, int z, Entity entity)
+    {
+    	if(this.enderDragonCantDestroy)
+    	{
+    		return false;
+    	}
+    	return super.canEntityDestroy(world, x, y, z, entity);
+    }
 }

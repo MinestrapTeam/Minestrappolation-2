@@ -62,6 +62,7 @@ public class MCBlockCustom2 extends Block
 	public boolean				slabSided;
 	public boolean				redSandstone;
 	public boolean				radiantQuartz;
+	public boolean				enderDragonCantDestroy;
 	
 	public MCBlockCustom2(String[] types, String name)
 	{
@@ -77,6 +78,12 @@ public class MCBlockCustom2 extends Block
 		this.baseResistance = baseResistance;
 		this.harvestLevel = harvestLevel;
 		this.types = types;
+	}
+	
+	public MCBlockCustom2 setEnderDragonCantDestroy()
+	{
+		this.enderDragonCantDestroy = true;
+		return this;
 	}
 	
 	public MCBlockCustom2 setIsRadiantQuartz()
@@ -421,4 +428,13 @@ public class MCBlockCustom2 extends Block
 			}
 		}
 	}
+	
+	public boolean canEntityDestroy(IBlockAccess world, int x, int y, int z, Entity entity)
+    {
+    	if(this.enderDragonCantDestroy)
+    	{
+    		return false;
+    	}
+    	return super.canEntityDestroy(world, x, y, z, entity);
+    }
 }
