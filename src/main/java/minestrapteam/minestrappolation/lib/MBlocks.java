@@ -209,8 +209,8 @@ public class MBlocks
 		CSBlocks.addBlock(slimeOoze, "slime_ooze");
 		CSBlocks.addBlock(magmaOoze, "magma_ooze");
 		
-		CSBlocks.addBlock(goblet, "goblet_block");
-		CSBlocks.addBlock(plate, "plate_block");
+		CSBlocks.addBlock(goblet, "goblet");
+		CSBlocks.addBlock(plate, "plate");
 		CSBlocks.addBlock(rope, "rope_block");
 		CSBlocks.addBlock(ropeCoil, "rope_coil");
 		CSBlocks.addBlock(crate, "crate");

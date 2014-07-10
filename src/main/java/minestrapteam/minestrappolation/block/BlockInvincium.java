@@ -29,9 +29,9 @@ public class BlockInvincium extends MCBlock
 		entity.setFire(15);
 	}
 	
+	@Override
 	public boolean canEntityDestroy(IBlockAccess world, int x, int y, int z, Entity entity)
 	{
 		return false;
 	}
-	
 }
