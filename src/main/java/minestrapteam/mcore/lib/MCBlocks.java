@@ -1,13 +1,17 @@
 package minestrapteam.mcore.lib;
 
+import cpw.mods.fml.common.registry.GameRegistry;
 import clashsoft.cslib.minecraft.block.CSBlocks;
 import minestrapteam.mcore.block.MCBlockCustom2;
+import minestrapteam.mcore.block.MCBlockMultiSlab;
 import minestrapteam.mcore.block.MCBlockStonecutter;
+import minestrapteam.mcore.item.block.MCItemBlockSlab;
 import minestrapteam.mcore.util.MCAssetManager;
 import minestrapteam.mcore.util.MCBlockHelper;
 import minestrapteam.minestrappolation.Minestrappolation;
-
+import minestrapteam.minestrappolation.block.BlockGodstone;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 
 public class MCBlocks
@@ -24,6 +28,9 @@ public class MCBlocks
 	public static Block	stoneSteel2;
 	public static Block	stoneMeurodite;
 	public static Block	stoneMeurodite2;
+	
+	public static Block stoneCrackedSlabsSingle;
+	public static Block stoneCrackedSlabsDouble;
 	
 	public static Block	graniteSlate;
 	public static Block	graniteSlate2;
@@ -45,6 +52,7 @@ public class MCBlocks
 	public static Block	lapis;
 	public static Block	lapis2;
 	public static Block	obsidian;
+	public static Block obsidianGodstone;
 	public static Block	obsidian2;
 	public static Block	endstone;
 	public static Block	endstone2;
@@ -114,12 +122,12 @@ public class MCBlocks
 		String[] types_stone = new String[] { null, null, "pattern_bricks", "tiles", "road", "refined", null, null, null, null, null, null, null, null, "lamp_glowstone", "lamp_sunstone" };
 		String[] types_stone_2 = new String[] { "pillar", null, null, "tile_slab", "refined_slab" };
 		String[] types_granite = new String[] { "raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled" };
-		String[] types_sandstone = new String[] { null, "bricks", "pattern_bricks", "tiles", "road", null, "chiseled", null, "mossy" };
+		String[] types_sandstone = new String[] { null, "bricks", "pattern_bricks", "tiles", "road", null, "chiseled", "chiseled_2", "mossy" };
 		String[] types_sandstone_2 = new String[] { "pillar", null, "brick_slab", "tile_slab", "refined_slab" };
 		String[] types_redsandstone = new String[] { "raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", "chiseled_2", "chiseled_3", "mossy" };
 		String[] types_redsandstone_2 = new String[] { "pillar", "raw_slab", "brick_slab", "tile_slab", "refined_slab" };
 		String[] types_flint = new String[] { "raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", null, null, null, null, null, null, null, "lamp_glowstone", "lamp_sunstone" };
-		String[] types_lapis = new String[] { null, "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled" };
+		String[] types_lapis = new String[] { null, "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", "gilded" };
 		String[] types_obsidian = new String[] { null, "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled" };
 		String[] types_endstone = new String[] { "raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled" };
 		String[] types_bedrock = new String[] { null, "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", null, null, null, null, null, null, null, "lamp_glowstone", "lamp_sunstone" };
@@ -134,6 +142,7 @@ public class MCBlocks
 		String[] types_clay = new String[] { null, null, "pattern_bricks", "tiles", "road", "refined", "chiseled" };
 		String[] types_colored_clay = new String[] { null, "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled" };
 		String[] types_clay_2 = new String[] { "pillar", "raw_slab", null, "tile_slab", "refined_slab" };
+		String[] types_cracked_slabs = new String[] {MCAssetManager.getStonecutterTexture("stone_tin_cracked"), MCAssetManager.getStonecutterTexture("stone_bronze_cracked"), MCAssetManager.getStonecutterTexture("stone_steel_cracked"), MCAssetManager.getStonecutterTexture("stone_meurodite_cracked")};
 		
 		stone = MCBlockHelper.createStoneBlock(types_stone, "stone", 1.5F, 10.0F, 0, tab).setIsStone();
 		stone2 = MCBlockHelper.createStoneBlock2(types_stone_2, "stone", 1.5F, 10.0F, 0, tab);
@@ -145,7 +154,12 @@ public class MCBlocks
 		stoneSteel2 = MCBlockHelper.createStoneBlock2("stone_steel", 3F, 11.0F, 0, tab);
 		stoneMeurodite = MCBlockHelper.createStoneBlock("stone_meurodite", 2.3F, 15.0F, 0, tab).setIsStone();
 		stoneMeurodite2 = MCBlockHelper.createStoneBlock2("stone_meurodite", 2.3F, 15.0F, 0, tab);
-		
+				
+		stoneCrackedSlabsSingle = (MCBlockMultiSlab)new MCBlockMultiSlab(false, types_cracked_slabs, types_cracked_slabs).setHardness(2.3F).setResistance(15F).setCreativeTab(tab).setBlockName("stone_slab_cracked_single");
+		stoneCrackedSlabsDouble = (MCBlockMultiSlab)new MCBlockMultiSlab(true, types_cracked_slabs, types_cracked_slabs).setHardness(2.3F).setResistance(15F).setBlockName("stone_slab_cracked_double");
+		GameRegistry.registerBlock(stoneCrackedSlabsSingle, MCItemBlockSlab.class, "stone_slab_cracked_single", stoneCrackedSlabsSingle, stoneCrackedSlabsDouble);
+		GameRegistry.registerBlock(stoneCrackedSlabsDouble, MCItemBlockSlab.class, "stone_slab_cracked_double", stoneCrackedSlabsSingle, stoneCrackedSlabsDouble);
+
 		graniteSlate = MCBlockHelper.createStoneBlock(types_granite, "granite", 2F, 15.0F, 0, tab);
 		graniteSlate2 = MCBlockHelper.createStoneBlock2("granite", 2F, 15.0F, 0, tab);
 		graniteSlateTin = MCBlockHelper.createStoneBlock(types_granite, "granite_tin", 2.2F, 16.0F, 0, tab);
@@ -166,6 +180,8 @@ public class MCBlocks
 		lapis = MCBlockHelper.createStoneBlock(types_lapis, "lapis", 3.0F, 5.0F, 1, tab).setChiseledSided();
 		lapis2 = MCBlockHelper.createStoneBlock2("lapis", 3.0F, 5.0F, 1, tab);
 		obsidian = MCBlockHelper.createStoneBlock(types_obsidian, "obsidian", 50.0F, 2000.0F, 3, tab);
+		obsidianGodstone = new BlockGodstone(Material.rock).setBlockName("obsidian_lamp_godstone").setCreativeTab(tab).setHardness(50F).setResistance(2000F).setBlockTextureName(MCAssetManager.getStonecutterTexture("obsidian_lamp_godstone"));
+		GameRegistry.registerBlock(obsidianGodstone, "obsidian_lamp_godstone");
 		obsidian2 = MCBlockHelper.createStoneBlock2("obsidian", 50.0F, 2000.0F, 3, tab);
 		endstone = MCBlockHelper.createStoneBlock(types_endstone, "endstone", 3.0F, 15.0F, 0, tab).setChiseledSided();
 		endstone2 = MCBlockHelper.createStoneBlock2("endstone", 3.0F, 15.0F, 0, tab);

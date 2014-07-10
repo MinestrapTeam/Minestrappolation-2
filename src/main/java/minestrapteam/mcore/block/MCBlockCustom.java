@@ -308,6 +308,10 @@ public class MCBlockCustom extends Block
 					}
 				}
 			}
+			else if ("gilded".equals(type))
+			{
+				this.iconMap.put("gilded", iconRegister.registerIcon(textureName + "_tiles_gilded"));
+			}
 			else
 			{
 				this.iconMap.put(type, iconRegister.registerIcon(textureName + "_" + type));
@@ -370,6 +374,10 @@ public class MCBlockCustom extends Block
 			{
 				return this.iconMap.get("chiseled");
 			}
+		}
+		else if ("gilded".equals(type))
+		{
+			return this.iconMap.get("gilded");
 		}
 		else
 		{

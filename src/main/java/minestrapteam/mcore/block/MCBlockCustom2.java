@@ -293,6 +293,10 @@ public class MCBlockCustom2 extends Block
 					this.iconMap.put("brick_slab_side", iconRegister.registerIcon(textureName + "_brick_slab_side"));
 				}
 			}
+			else if ("cracked_slab".equals(type))
+			{
+				this.iconMap.put("cracked_slab", iconRegister.registerIcon(textureName + "_cracked"));
+			}
 			else
 			{
 				this.iconMap.put(type, iconRegister.registerIcon(textureName + "_" + type));
@@ -371,6 +375,10 @@ public class MCBlockCustom2 extends Block
 			{
 				return this.iconMap.get("brick_slab_top");
 			}
+		}
+		else if ("cracked_slab".equals(type))
+		{
+			return this.iconMap.get("cracked_slab");
 		}
 		else
 		{
