@@ -176,7 +176,7 @@ public class MRecipes
 		
 		GameRegistry.addSmelting(Blocks.glowstone, new ItemStack(glowGlass), 0.5F);
 		
-		GameRegistry.addRecipe(new ItemStack(MItems.goblet, 1), new Object[] { "D D", " D ", 'D', Items.gold_ingot });
+		GameRegistry.addRecipe(new ItemStack(MBlocks.goblet, 1), new Object[] { "D D", " D ", 'D', Items.gold_ingot });
 		
 		GameRegistry.addRecipe(new ItemStack(edgeStoneBrick, 1, 0), new Object[] { "SQ", "SQ", 'S', MCItems.brickStone, 'Q', Items.quartz });
 		GameRegistry.addRecipe(new ItemStack(edgeStoneBrick, 1, 1), new Object[] { "SQ", "SQ", 'S', MCItems.brickStone, 'Q', Items.flint });

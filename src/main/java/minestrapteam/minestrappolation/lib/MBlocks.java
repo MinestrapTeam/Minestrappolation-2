@@ -4,6 +4,7 @@ import clashsoft.cslib.minecraft.block.CSBlocks;
 import cpw.mods.fml.common.registry.GameRegistry;
 import minestrapteam.mcore.block.MCBlock;
 import minestrapteam.mcore.block.MCBlockPane;
+import minestrapteam.mcore.item.block.MCItemBlockMulti;
 import minestrapteam.mcore.util.MCAssetManager;
 import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.block.*;
@@ -135,17 +136,17 @@ public class MBlocks
 		meatBlock = new BlockMeatBlock().setHardness(0.8F).setCreativeTab(Minestrappolation.tabDecorationBlocks).setStepSound(Block.soundTypeCloth).setBlockTextureName(MCAssetManager.getFoodTexture("meat_block"));
 		enderBlock = new BlockEnderblock().setHardness(3.0F).setResistance(4.0F).setCreativeTab(Minestrappolation.tabDecorationBlocks).setStepSound(Block.soundTypeGlass).setBlockTextureName(MCAssetManager.getMineralTexture("ender_block"));
 		
-		slimeOoze = new BlockOoze(materialOoze).setHardness(1F).setResistance(2000F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeCloth).setBlockTextureName(MCAssetManager.getTexture("ooze_slime"));
-		magmaOoze = new BlockOoze(materialOoze).setHardness(1F).setResistance(2000F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeCloth).setBlockTextureName(MCAssetManager.getTexture("ooze_magma"));
+		slimeOoze = new BlockOoze(materialOoze).setHardness(1F).setResistance(2000F).setCreativeTab(Minestrappolation.tabMisc).setStepSound(Block.soundTypeCloth).setBlockTextureName(MCAssetManager.getTexture("ooze_slime"));
+		magmaOoze = new BlockOoze(materialOoze).setHardness(1F).setResistance(2000F).setCreativeTab(Minestrappolation.tabMisc).setStepSound(Block.soundTypeCloth).setBlockTextureName(MCAssetManager.getTexture("ooze_magma"));
 		
-		goblet = new BlockGoblet(Material.rock).setHardness(0.5F);
-		plate = new BlockPlate(Material.rock).setCreativeTab(Minestrappolation.tabBuildingBlocks);
-		rope = new BlockRope().setHardness(0.9F).setCreativeTab(null).setStepSound(Block.soundTypeCloth);
-		ropeCoil = new BlockRopeCoil().setHardness(0.9F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeCloth);
-		crate = new BlockCrate().setHardness(2.5F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeWood);
-		barrel = new BlockBarrel().setHardness(3F).setResistance(6.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeWood);
+		goblet = new BlockGoblet(Material.rock).setHardness(0.5F).setCreativeTab(Minestrappolation.tabDecorationBlocks).setBlockTextureName(MCAssetManager.getTexture("goblet"));
+		plate = new BlockPlate(Material.rock).setHardness(0.7F).setCreativeTab(Minestrappolation.tabDecorationBlocks).setBlockTextureName(MCAssetManager.getTexture("plate"));
+		rope = new BlockRope().setHardness(0.9F).setStepSound(Block.soundTypeCloth);
+		ropeCoil = new BlockRopeCoil().setHardness(0.9F).setCreativeTab(Minestrappolation.tabDecorationBlocks).setStepSound(Block.soundTypeCloth);
+		crate = new BlockCrate().setHardness(2.5F).setCreativeTab(Minestrappolation.tabMisc).setStepSound(Block.soundTypeWood);
+		barrel = new BlockBarrel().setHardness(3F).setResistance(6.0F).setCreativeTab(Minestrappolation.tabMisc).setStepSound(Block.soundTypeWood);
 		cardboard = new MCBlockPane(Material.cloth, MCAssetManager.getTexture("cardboard"), MCAssetManager.getTexture("cardboard_pane_edge"), true).setHardness(0.3F);
-		cardboardBlock = new BlockCardboard(Material.cloth).setHardness(0.4F).setCreativeTab(Minestrappolation.tabBuildingBlocks);
+		cardboardBlock = new BlockCardboard(Material.cloth).setHardness(0.4F).setCreativeTab(Minestrappolation.tabDecorationBlocks);
 		
 		glassDoor = new BlockGlassDoor(Material.glass).setHardness(1F);
 	}
@@ -192,8 +193,8 @@ public class MBlocks
 		CSBlocks.addBlock(melterIdle, "melter");
 		CSBlocks.addBlock(melterBurning, "melter_burning");
 		
-		CSBlocks.addBlock(checkerTiles, "checker_tiles");
-		CSBlocks.addBlock(edgeStoneBrick, "edge_stone_brick");
+		CSBlocks.addBlock(checkerTiles, MCItemBlockMulti.class, "checker_tiles");
+		CSBlocks.addBlock(edgeStoneBrick, MCItemBlockMulti.class, "edge_stone_brick");
 		CSBlocks.addBlock(snowBrick, "snow_brick");
 		
 		CSBlocks.addBlock(glowGlass, "glow_glass");

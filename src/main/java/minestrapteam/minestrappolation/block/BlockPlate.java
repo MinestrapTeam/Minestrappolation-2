@@ -1,11 +1,9 @@
 package minestrapteam.minestrappolation.block;
 
-import minestrapteam.mcore.util.MCAssetManager;
 import minestrapteam.minestrappolation.tileentity.TileEntityPlate;
 
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
@@ -17,12 +15,6 @@ public class BlockPlate extends BlockContainer
 	{
 		super(material);
 		this.setBlockBounds(0.0625F, 0F, 0.0625F, 0.9375F, 0.125F, 0.9375F);
-	}
-	
-	@Override
-	public void registerBlockIcons(IIconRegister iconRegister)
-	{
-		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getBlockModel("plate"));
 	}
 	
 	@Override

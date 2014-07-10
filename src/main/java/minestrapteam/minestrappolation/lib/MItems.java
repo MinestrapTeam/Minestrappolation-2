@@ -60,7 +60,6 @@ public class MItems
 	
 	public static Item	ropeItem;
 	public static Item	cardboardItem;
-	public static Item	goblet;
 	public static Item	glassDoor;
 	
 	/* / {----- Extra Mod Drops -----} / */
@@ -155,14 +154,13 @@ public class MItems
 		plateSteelItem = new ItemPlating(MBlocks.steelPlate, "steel").setCreativeTab(Minestrappolation.tabMisc).setTextureName(MCAssetManager.getMineralTexture("steel_plating"));
 		plateMeuroditeItem = new ItemPlating(MBlocks.meuroditePlate, "meurodite").setCreativeTab(Minestrappolation.tabMisc).setTextureName(MCAssetManager.getMineralTexture("meurodite_plating"));
 		
-		ropeItem = new ItemReed(MBlocks.rope).setCreativeTab(Minestrappolation.tabFood).setCreativeTab(Minestrappolation.tabMisc).setTextureName(MCAssetManager.getTexture("rope"));
-		cardboardItem = new ItemReed(MBlocks.cardboard).setCreativeTab(Minestrappolation.tabMisc).setTextureName(MCAssetManager.getTexture("cardboard"));
-		goblet = new ItemReed(MBlocks.goblet).setCreativeTab(Minestrappolation.tabMisc).setTextureName(MCAssetManager.getTexture("goblet"));
-		glassDoor = new EDItemDoor(MBlocks.glassDoor).setCreativeTab(Minestrappolation.tabBuildingBlocks).setTextureName(MCAssetManager.getTexture("glass_door"));
+		ropeItem = new ItemReed(MBlocks.rope).setCreativeTab(Minestrappolation.tabDecorationBlocks).setTextureName(MCAssetManager.getTexture("rope"));
+		cardboardItem = new ItemReed(MBlocks.cardboard).setCreativeTab(Minestrappolation.tabDecorationBlocks).setTextureName(MCAssetManager.getTexture("cardboard"));
+		glassDoor = new EDItemDoor(MBlocks.glassDoor).setCreativeTab(Minestrappolation.tabDecorationBlocks).setTextureName(MCAssetManager.getTexture("glass_door"));
 		
-		snout = new MCItemFood(3, 0.2F).setPotionEffect(Potion.hunger.id, 10 * 20, 1, 0.25F).setTextureName(MCAssetManager.getMobTexture("snout"));
-		pigHoof = new MCItem().setTextureName(MCAssetManager.getMobTexture("pig_foot"));
-		fat = new MCItemFood(8, 0.2F).setPotionEffect(Potion.hunger.id, 25 * 20, 1, 1.0F).setTextureName(MCAssetManager.getFoodTexture("fat")).setCreativeTab(Minestrappolation.tabFood);
+		snout = new MCItemFood(3, 0.2F).setPotionEffect(Potion.hunger.id, 10 * 20, 1, 0.25F).setCreativeTab(Minestrappolation.tabFood).setTextureName(MCAssetManager.getMobTexture("snout"));
+		pigHoof = new MCItem().setCreativeTab(Minestrappolation.tabFood).setTextureName(MCAssetManager.getMobTexture("pig_foot"));
+		fat = new MCItemFood(8, 0.2F).setPotionEffect(Potion.hunger.id, 25 * 20, 1, 1.0F).setCreativeTab(Minestrappolation.tabFood).setTextureName(MCAssetManager.getFoodTexture("fat"));
 		grease = new MCItem().setCreativeTab(Minestrappolation.tabFood).setTextureName(MCAssetManager.getFoodTexture("grease"));
 		friedApple = new MCItemFood(8, 0.3F).setPotionEffect(Potion.hunger.id, 15 * 20, 1, 0.4F).setTextureName(MCAssetManager.getFoodTexture("fried_apple")).setCreativeTab(Minestrappolation.tabFood);
 		friedBeef = new MCItemFood(16, 0.8F).setPotionEffect(Potion.hunger.id, 15 * 20, 1, 0.4F).setTextureName(MCAssetManager.getFoodTexture("fried_beef")).setCreativeTab(Minestrappolation.tabFood);
@@ -181,26 +179,26 @@ public class MItems
 		lambchopCooked = new ItemCookedLambchop(6, 0.8F).setTextureName(MCAssetManager.getFoodTexture("lamb_chop_cooked")).setCreativeTab(Minestrappolation.tabFood);
 		sheepHoof = new MCItem().setTextureName(MCAssetManager.getMobTexture("sheep_hoof"));
 		squidTentacle = new MCItemFood(2, 0.1F).setPotionEffect(Potion.hunger.id, 8 * 20, 1, 1F).setTextureName(MCAssetManager.getMobTexture("squid_tentacle")).setCreativeTab(Minestrappolation.tabFood);
-		calimari = new ItemCalimari(2, 0.6F).setTextureName(MCAssetManager.getFoodTexture("calimari_cooked")).setCreativeTab(Minestrappolation.tabFood);
-		infectiousFungus = new ItemInfectiousFungus(0, 0F).setTextureName(MCAssetManager.getMobTexture("infectious_fungus")).setCreativeTab(Minestrappolation.tabMisc);
-		airSack = new ItemAirSack().setTextureName(MCAssetManager.getMobTexture("air_sack")).setCreativeTab(Minestrappolation.tabMaterials);
-		whisker = new MCItem().setTextureName(MCAssetManager.getMobTexture("whisker"));
-		catEye = new ItemCatEye(0, 0.0F).setCreativeTab(Minestrappolation.tabMaterials).setTextureName(MCAssetManager.getMobTexture("cat_eye"));
-		wolfHide = new MCItem().setTextureName(MCAssetManager.getMobTexture("wolf_hide"));
-		flesh = new MCItemFood(4, 0.35F).setPotionEffect(Potion.hunger.id, 20, 0, 0.05F).setTextureName(MCAssetManager.getFoodTexture("flesh")).setCreativeTab(Minestrappolation.tabFood);
-		marrow = new MCItemFood(5, 0.0F).setTextureName(MCAssetManager.getFoodTexture("marrow_bowl"));
-		legSpider = new MCItem().setTextureName(MCAssetManager.getMobTexture("spider_leg"));
-		poisonSack = new MCItem().setTextureName(MCAssetManager.getMobTexture("poison_sack"));
-		guano = new ItemGuano().setTextureName(MCAssetManager.getTexture("guano")).setCreativeTab(Minestrappolation.tabMaterials);
-		carcassSilverfish = new MCItem().setTextureName(MCAssetManager.getMobTexture("silverfish_carcass"));
-		hideCreeper = new MCItem().setTextureName(MCAssetManager.getMobTexture("creeper_hide"));
-		slimeCore = new MCItem().setTextureName(MCAssetManager.getMobTexture("slime_core"));
-		enderCore = new ItemEnderCore(0, 0).setTextureName(MCAssetManager.getMobTexture("ender_core")).setCreativeTab(Minestrappolation.tabMaterials);
-		ghastTentacle = new ItemGhastTentacle().setTextureName(MCAssetManager.getMobTexture("ghast_tentacle")).setCreativeTab(Minestrappolation.tabMaterials);
-		horseHoof = new MCItem().setTextureName(MCAssetManager.getMobTexture("horse_foot"));
+		calimari = new ItemCalimari(2, 0.6F).setCreativeTab(Minestrappolation.tabFood).setTextureName(MCAssetManager.getFoodTexture("calimari_cooked"));
+		infectiousFungus = new ItemInfectiousFungus(0, 0F).setCreativeTab(Minestrappolation.tabBrewing).setTextureName(MCAssetManager.getMobTexture("infectious_fungus"));
+		airSack = new ItemAirSack().setCreativeTab(Minestrappolation.tabMaterials).setTextureName(MCAssetManager.getMobTexture("air_sack"));
+		whisker = new MCItem().setCreativeTab(Minestrappolation.tabMaterials).setTextureName(MCAssetManager.getMobTexture("whisker"));
+		catEye = new ItemCatEye(0, 0.0F).setCreativeTab(Minestrappolation.tabBrewing).setTextureName(MCAssetManager.getMobTexture("cat_eye"));
+		wolfHide = new MCItem().setCreativeTab(Minestrappolation.tabMaterials).setTextureName(MCAssetManager.getMobTexture("wolf_hide"));
+		flesh = new MCItemFood(4, 0.35F).setPotionEffect(Potion.hunger.id, 20, 0, 0.05F).setCreativeTab(Minestrappolation.tabFood).setTextureName(MCAssetManager.getFoodTexture("flesh"));
+		marrow = new MCItemFood(5, 0.0F).setCreativeTab(Minestrappolation.tabFood).setTextureName(MCAssetManager.getFoodTexture("marrow_bowl"));
+		legSpider = new MCItem().setCreativeTab(Minestrappolation.tabBrewing).setTextureName(MCAssetManager.getMobTexture("spider_leg"));
+		poisonSack = new MCItem().setCreativeTab(Minestrappolation.tabBrewing).setTextureName(MCAssetManager.getMobTexture("poison_sack"));
+		guano = new ItemGuano().setCreativeTab(Minestrappolation.tabMaterials).setTextureName(MCAssetManager.getTexture("guano"));
+		carcassSilverfish = new MCItem().setCreativeTab(Minestrappolation.tabMaterials).setTextureName(MCAssetManager.getMobTexture("silverfish_carcass"));
+		hideCreeper = new MCItem().setCreativeTab(Minestrappolation.tabMaterials).setTextureName(MCAssetManager.getMobTexture("creeper_hide"));
+		slimeCore = new MCItem().setCreativeTab(Minestrappolation.tabMaterials).setTextureName(MCAssetManager.getMobTexture("slime_core"));
+		enderCore = new ItemEnderCore(0, 0).setCreativeTab(Minestrappolation.tabMaterials).setTextureName(MCAssetManager.getMobTexture("ender_core"));
+		ghastTentacle = new ItemGhastTentacle().setCreativeTab(Minestrappolation.tabBrewing).setTextureName(MCAssetManager.getMobTexture("ghast_tentacle"));
+		horseHoof = new MCItem().setCreativeTab(Minestrappolation.tabFood).setTextureName(MCAssetManager.getMobTexture("horse_foot"));
 		horseHaunchRaw = new MCItemFood(4, 0.4F).setCreativeTab(Minestrappolation.tabFood).setTextureName(MCAssetManager.getFoodTexture("horse_haunch_raw"));
 		horseHaunchCooked = new MCItemFood(10, 0.8F).setCreativeTab(Minestrappolation.tabFood).setTextureName(MCAssetManager.getFoodTexture("horse_haunch_cooked"));
-		horseHair = new MCItem().setTextureName(MCAssetManager.getMobTexture("horse_hair"));
+		horseHair = new MCItem().setCreativeTab(Minestrappolation.tabMaterials).setTextureName(MCAssetManager.getMobTexture("horse_hair"));
 		genes = new ItemGene().setCreativeTab(Minestrappolation.tabMaterials);
 		charms = new ItemCharm().setCreativeTab(Minestrappolation.tabMaterials);
 		amuletPorcum = new ItemAmuletPorcum().setCreativeTab(Minestrappolation.tabMisc).setTextureName(MCAssetManager.getMobTexture("pig_amulet"));
@@ -211,7 +209,7 @@ public class MItems
 		wingSegment = new MCItem().setTextureName(MCAssetManager.getTexture("hangglider_segment"));
 		hangGlider = new ItemHangGlider().setCreativeTab(Minestrappolation.tabMisc).setTextureName(MCAssetManager.getTexture("hangGlider"));
 		enderAura = new MCItem().setTextureName(MCAssetManager.getMobTexture("ender_aura"));
-		ghastlySoul = new MCItem().setCreativeTab(Minestrappolation.tabMisc).setTextureName(MCAssetManager.getDrinkTexture("ghast_soul_bottle"));
+		ghastlySoul = new MCItem().setCreativeTab(Minestrappolation.tabBrewing).setTextureName(MCAssetManager.getDrinkTexture("ghast_soul_bottle"));
 		witheredBone = new MCItem().setTextureName(MCAssetManager.getMobTexture("wither_bone"));
 		horseHairFibre = new MCItem().setTextureName(MCAssetManager.getMobTexture("horse_hair_fibre"));
 		horseHairBow = new ItemHorseHairBow().setCreativeTab(Minestrappolation.tabCombat);
@@ -250,7 +248,6 @@ public class MItems
 		
 		CSItems.addItem(ropeItem, "rope");
 		CSItems.addItem(cardboardItem, "cardboard");
-		CSItems.addItem(goblet, "goblet");
 		CSItems.addItem(glassDoor, "glass_door");
 		
 		CSItems.addItem(snout, "snout");

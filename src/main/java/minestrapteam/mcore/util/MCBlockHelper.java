@@ -23,7 +23,7 @@ public class MCBlockHelper
 	public static final String[]	stoneTypes2	= new String[] { "pillar", "raw_slab", "brick_slab", "tile_slab", "refined_slab" };
 	
 	public static final String[]	woodTypes	= new String[] { "bevel", "boards", "panel", "mossy_planks" };
-	public static final String[]	woodTypes2	= new String[] { null, "bevel", "boards", "panel", "mossy_planks" };
+	public static final String[]	woodTypes2	= woodTypes;
 	
 	public static MCBlockCustom createWoodBlock(String name, CreativeTabs tab)
 	{

@@ -1,17 +1,14 @@
 package minestrapteam.minestrappolation.block;
 
 import java.util.List;
-import java.util.Random;
 
 import minestrapteam.mcore.util.MCAssetManager;
-import minestrapteam.minestrappolation.lib.MItems;
 import minestrapteam.minestrappolation.tileentity.TileEntityGoblet;
 
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemPotion;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
@@ -108,17 +105,5 @@ public class BlockGoblet extends BlockContainer
 	public boolean renderAsNormalBlock()
 	{
 		return false;
-	}
-	
-	@Override
-	public Item getItem(World world, int x, int y, int z)
-	{
-		return MItems.goblet;
-	}
-	
-	@Override
-	public Item getItemDropped(int metadata, Random random, int fortune)
-	{
-		return MItems.goblet;
 	}
 }
