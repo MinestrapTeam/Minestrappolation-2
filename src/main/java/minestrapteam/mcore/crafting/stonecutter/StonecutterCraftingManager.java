@@ -1,6 +1,10 @@
 package minestrapteam.mcore.crafting.stonecutter;
 
+import static minestrapteam.minestrappolation.lib.MBlocks.edgeStoneBrick;
+
 import java.util.*;
+
+import cpw.mods.fml.common.registry.GameRegistry;
 
 import minestrapteam.mcore.lib.MCBlocks;
 import minestrapteam.mcore.lib.MCItems;
@@ -959,6 +963,10 @@ public class StonecutterCraftingManager
 		this.addRecipe(new ItemStack(MBlocks.checkerTiles, 4, 1), null, new Object[] { "BW", "WB", 'B', new ItemStack(MCBlocks.flint, 1, 3), 'W', new ItemStack(MCBlocks.netherQuartz, 1, 3)});
 		this.addRecipe(new ItemStack(MBlocks.checkerTiles, 4, 2), null, new Object[] { "BW", "WB", 'B', new ItemStack(MCBlocks.obsidian, 1, 3), 'W', new ItemStack(MCBlocks.endstone, 1, 3)});
 		this.addRecipe(new ItemStack(MBlocks.checkerTiles, 4, 3), null, new Object[] { "BW", "WB", 'B', new ItemStack(MCBlocks.obsidian, 1, 3), 'W', new ItemStack(MCBlocks.netherQuartz, 1, 3)});
+		
+		//Edge Stone Brick
+		this.addRecipe(new ItemStack(edgeStoneBrick, 1, 0), null, new Object[] { "SQ", "SQ", 'S', MCItems.brickStone, 'Q', Items.quartz });
+		this.addRecipe(new ItemStack(edgeStoneBrick, 1, 1), null, new Object[] { "SQ", "SQ", 'S', MCItems.brickStone, 'Q', Items.flint });
 		}
 	
 	public ShapedSCRecipe addRecipe(ItemStack output, ItemStack extraSlot, Object... data)

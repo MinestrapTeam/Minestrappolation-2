@@ -178,9 +178,6 @@ public class MRecipes
 		
 		GameRegistry.addRecipe(new ItemStack(MBlocks.goblet, 1), new Object[] { "D D", " D ", 'D', Items.gold_ingot });
 		
-		GameRegistry.addRecipe(new ItemStack(edgeStoneBrick, 1, 0), new Object[] { "SQ", "SQ", 'S', MCItems.brickStone, 'Q', Items.quartz });
-		GameRegistry.addRecipe(new ItemStack(edgeStoneBrick, 1, 1), new Object[] { "SQ", "SQ", 'S', MCItems.brickStone, 'Q', Items.flint });
-		
 		GameRegistry.addRecipe(new ItemStack(snowBrick, 4), new Object[] { "SS", "SS", 'S', Blocks.snow });
 		GameRegistry.addSmelting(Blocks.glass, new ItemStack(refinedGlass), 20);
 		GameRegistry.addRecipe(new ItemStack(refinedGlassPane, 16), new Object[] { "SSS", "SSS", 'S', refinedGlass });
@@ -201,9 +198,11 @@ public class MRecipes
 		GameRegistry.addRecipe(new ItemStack(barrel), new Object[] { "I", "C", "I", 'I', Items.iron_ingot, 'C', crate });
 		GameRegistry.addRecipe(new ItemStack(cardboardItem, 3), new Object[] { "SSS", "SSS", 'S', Items.paper });
 		GameRegistry.addRecipe(new ItemStack(cardboardBlock, 2), new Object[] { "CCC", " C ", " CC", 'C', cardboardItem });
-		GameRegistry.addRecipe(new ItemStack(MCBlocks.redSandstone, 1, 0), new Object[] { "SS", "SS", 'S', new ItemStack(Blocks.sand, 1, 1) });
 		
-		GameRegistry.addRecipe(new ItemStack(Blocks.stonebrick, 2, 3), new Object[] { "BBB", "BBB", "BBB", 'B', MCItems.brickStone });
+		GameRegistry.addRecipe(new ItemStack(MCBlocks.redSandstone, 1, 0), new Object[] { "SS", "SS", 'S', new ItemStack(Blocks.sand, 1, 1) });
+		GameRegistry.addRecipe(new ItemStack(MCBlocks.flint, 1, 0), new Object[] {"FF", "FF", 'F', Items.flint});
+		GameRegistry.addRecipe(new ItemStack(MCBlocks.desertQuartz, 1, 0), new Object[] {"QQ", "QQ", 'Q', MItems.desertQuartz});
+		GameRegistry.addSmelting(Blocks.end_stone, new ItemStack(MCBlocks.endstone, 1, 0), 15);
 		
 		GameRegistry.addSmelting(fat, new ItemStack(grease, 1), 0.7F);
 		GameRegistry.addShapelessRecipe(new ItemStack(friedApple, 2), new Object[] { fat, Items.apple, fat });
@@ -212,7 +211,7 @@ public class MRecipes
 		GameRegistry.addShapelessRecipe(new ItemStack(friedCarrot, 2), new Object[] { fat, Items.carrot, fat });
 		GameRegistry.addShapelessRecipe(new ItemStack(friedCookie, 2), new Object[] { fat, Items.cookie, fat });
 		GameRegistry.addShapelessRecipe(new ItemStack(friedFlesh, 2), new Object[] { fat, Items.rotten_flesh, fat });
-		GameRegistry.addRecipe(new ItemStack(Items.dye, 1, 16), new Object[] { "AA", "AA", 'A', animalBones });
+		GameRegistry.addRecipe(new ItemStack(Items.dye, 1, 15), new Object[] { "AA", "AA", 'A', animalBones });
 		GameRegistry.addSmelting(chickenWingRaw, new ItemStack(chickenWingCooked, 1), 0.7F);
 		GameRegistry.addSmelting(lambchopRaw, new ItemStack(lambchopCooked, 1), 0.7F);
 		GameRegistry.addSmelting(squidTentacle, new ItemStack(calimari, 1), 0.7F);
