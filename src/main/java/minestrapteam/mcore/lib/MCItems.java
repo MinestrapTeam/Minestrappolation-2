@@ -45,6 +45,16 @@ public class MCItems
 	public static Item  brickFlint;
 	public static Item  brickLapis;
 	public static Item  brickSlate;
+	public static Item  brickSlateTin;
+	public static Item  brickSlateBronze;
+	public static Item  brickSlateSteel;
+	public static Item  brickSlateMeurodite;
+	public static Item  brickDesertQuartz;
+	public static Item  brickNetherQuartz;
+	public static Item  brickObsidian;
+	public static Item  brickEndStone;
+	public static Item  brickBedrock;
+	public static Item  brickRadiantQuartz;
 	
 	public static void init()
 	{
@@ -60,6 +70,16 @@ public class MCItems
 		brickFlint = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MCAssetManager.getStonecutterTexture("flint_brick"));
 		brickLapis = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MCAssetManager.getStonecutterTexture("lapis_brick"));
 		brickSlate = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MCAssetManager.getStonecutterTexture("granite_brick"));
+		brickSlateTin = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MCAssetManager.getStonecutterTexture("granite_brick_tin"));
+		brickSlateBronze = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MCAssetManager.getStonecutterTexture("granite_brick_bronze"));
+		brickSlateSteel = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MCAssetManager.getStonecutterTexture("granite_brick_steel"));
+		brickSlateMeurodite = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MCAssetManager.getStonecutterTexture("granite_brick_meurodite"));
+		brickDesertQuartz = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MCAssetManager.getStonecutterTexture("desertquartz_brick"));
+		brickNetherQuartz = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MCAssetManager.getStonecutterTexture("netherquartz_brick"));
+		brickObsidian = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MCAssetManager.getStonecutterTexture("obsidian_brick"));
+		brickEndStone = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MCAssetManager.getStonecutterTexture("endstone_brick"));
+		brickBedrock = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MCAssetManager.getStonecutterTexture("bedrock_brick"));
+		brickRadiantQuartz = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MCAssetManager.getStonecutterTexture("radiantquartz_brick"));
 		
 		CSItems.addItem(brickStone, "stone_brick");
 		CSItems.addItem(brickStoneTin, "stone_brick_tin");
@@ -72,5 +92,15 @@ public class MCItems
 		CSItems.addItem(brickFlint, "flint_brick");
 		CSItems.addItem(brickLapis, "lapis_brick");
 		CSItems.addItem(brickSlate, "granite_brick");
+		CSItems.addItem(brickSlateTin, "granite_brick_tin");
+		CSItems.addItem(brickSlateBronze, "granite_brick_bronze");
+		CSItems.addItem(brickSlateSteel, "granite_brick_steel");
+		CSItems.addItem(brickSlateMeurodite, "granite_brick_meurodite");
+		CSItems.addItem(brickDesertQuartz, "desertquartz_brick");
+		CSItems.addItem(brickNetherQuartz, "netherquartz_brick");
+		CSItems.addItem(brickObsidian, "obsidian_brick");
+		CSItems.addItem(brickEndStone, "endstone_brick");
+		CSItems.addItem(brickBedrock, "bedrock_brick");
+		CSItems.addItem(brickRadiantQuartz, "radiantquartz_brick");
 	}
 }
