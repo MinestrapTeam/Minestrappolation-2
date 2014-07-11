@@ -273,10 +273,7 @@ public class MCBlockCustom2 extends Block
 				else
 				{
 					this.iconMap.put("raw_slab_top", iconRegister.registerIcon(textureName + "_slab_top"));
-					if (this.slabSided)
-					{
-						this.iconMap.put("raw_slab_side", iconRegister.registerIcon(textureName + "_slab_side"));
-					}
+					this.iconMap.put("raw_slab_side", iconRegister.registerIcon(textureName + "_slab_side"));
 				}
 			}
 			else if ("refined_slab".equals(type))
@@ -300,12 +297,11 @@ public class MCBlockCustom2 extends Block
 					this.iconMap.put("brick_slab_side", iconRegister.registerIcon(textureName + "_brick_slab_side"));
 				}
 			}
-			else if ("cracked_slab".equals(type))
-			{
-				this.iconMap.put("cracked_slab", iconRegister.registerIcon(textureName + "_cracked"));
-			}
 			else
 			{
+				int i = type.indexOf("_slab");
+				if (i != -1)
+					type = type.substring(0, i);
 				this.iconMap.put(type, iconRegister.registerIcon(textureName + "_" + type));
 			}
 		}
@@ -429,12 +425,13 @@ public class MCBlockCustom2 extends Block
 		}
 	}
 	
+	@Override
 	public boolean canEntityDestroy(IBlockAccess world, int x, int y, int z, Entity entity)
-    {
-    	if(this.enderDragonCantDestroy)
-    	{
-    		return false;
-    	}
-    	return super.canEntityDestroy(world, x, y, z, entity);
-    }
+	{
+		if (this.enderDragonCantDestroy)
+		{
+			return false;
+		}
+		return super.canEntityDestroy(world, x, y, z, entity);
+	}
 }

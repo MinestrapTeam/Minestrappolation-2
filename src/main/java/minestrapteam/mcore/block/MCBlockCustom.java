@@ -315,10 +315,6 @@ public class MCBlockCustom extends Block
 					}
 				}
 			}
-			else if ("gilded".equals(type))
-			{
-				this.iconMap.put("gilded", iconRegister.registerIcon(textureName + "_tiles_gilded"));
-			}
 			else
 			{
 				this.iconMap.put(type, iconRegister.registerIcon(textureName + "_" + type));
@@ -415,12 +411,13 @@ public class MCBlockCustom extends Block
 		}
 	}
 	
-    public boolean canEntityDestroy(IBlockAccess world, int x, int y, int z, Entity entity)
-    {
-    	if(this.enderDragonCantDestroy)
-    	{
-    		return false;
-    	}
-    	return super.canEntityDestroy(world, x, y, z, entity);
-    }
+	@Override
+	public boolean canEntityDestroy(IBlockAccess world, int x, int y, int z, Entity entity)
+	{
+		if (this.enderDragonCantDestroy)
+		{
+			return false;
+		}
+		return super.canEntityDestroy(world, x, y, z, entity);
+	}
 }
