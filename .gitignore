@@ -1,9 +1,8 @@
-.DS_STORE
+.DS_Store
+.classpath
 .gradle/
 gradle/
 gradlew
 gradlew.bat
 bin/
 build/
-.classpath
-.settings/
