@@ -8,6 +8,7 @@ import cpw.mods.fml.common.gameevent.TickEvent.PlayerTickEvent;
 import minestrapteam.minestrappolation.lib.MItems;
 import minestrapteam.minestrappolation.lib.MTools;
 
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.boss.EntityWither;
 import net.minecraft.entity.monster.*;
 import net.minecraft.entity.passive.*;
@@ -77,324 +78,325 @@ public class MEventHandler
 	@SubscribeEvent
 	public void onMobDrops(LivingDropsEvent event)
 	{
-		Random random = event.entityLiving.getRNG();
+		EntityLivingBase living = event.entityLiving;
 		String damageType = event.source.getDamageType();
+		
 		if ("player".equals(damageType))
 		{
-			int looting = event.lootingLevel + 1;
-			double rand = random.nextDouble() / looting;
-			double rand2 = random.nextDouble() / looting;
-			double rand3 = random.nextDouble() / looting;
-			double rand4 = random.nextDouble() / looting;
-			double rand5 = random.nextDouble() / looting;
+			Random random = living.getRNG();
+			int looting = event.lootingLevel;
+			int looting1 = looting + 1;
+			double rand1 = random.nextDouble() / looting1;
+			double rand2 = random.nextDouble() / looting1;
+			double rand3 = random.nextDouble() / looting1;
+			double rand4 = random.nextDouble() / looting1;
+			double rand5 = random.nextDouble() / looting1;
 			
-			if (event.entityLiving instanceof EntityPig)
+			if (living instanceof EntityPig)
 			{
-				if (rand < 0.15D)
+				if (rand1 < 0.15D)
 				{
-					event.entityLiving.dropItem(MItems.snout, 1);
+					living.dropItem(MItems.snout, random.nextInt(1 + looting));
 				}
 				
 				if (rand2 < 0.25D)
 				{
-					event.entityLiving.dropItem(MItems.pigHoof, 4);
+					living.dropItem(MItems.pigHoof, random.nextInt(4 + looting));
 				}
 				
 				if (rand3 < 0.3D)
 				{
-					event.entityLiving.dropItem(MItems.animalBones, 4);
+					living.dropItem(MItems.animalBones, random.nextInt(4 + looting));
 				}
 				
 				if (rand4 < 0.3D)
 				{
-					if (event.entityLiving.isBurning())
+					if (living.isBurning())
 					{
-						event.entityLiving.dropItem(MItems.grease, 5);
+						living.dropItem(MItems.grease, random.nextInt(5 + looting));
 					}
 					else
 					{
-						event.entityLiving.dropItem(MItems.fat, 5);
+						living.dropItem(MItems.fat, random.nextInt(5 + looting));
 					}
 				}
 			}
-			else if (event.entityLiving instanceof EntityCow)
+			else if (living instanceof EntityCow)
 			{
-				if (rand < 0.15D)
+				if (rand1 < 0.15D)
 				{
-					event.entityLiving.dropItem(MItems.snout, 1);
+					living.dropItem(MItems.snout, random.nextInt(1 + looting));
 				}
 				
 				if (rand2 < 0.3D)
 				{
-					event.entityLiving.dropItem(MItems.animalBones, 4);
+					living.dropItem(MItems.animalBones, random.nextInt(4 + looting));
 				}
 				
 				if (rand3 < 0.25D)
 				{
-					event.entityLiving.dropItem(MItems.cowHoof, 4);
+					living.dropItem(MItems.cowHoof, random.nextInt(4 + looting));
 				}
 				
 				if (rand4 < 0.05D)
 				{
-					event.entityLiving.dropItem(MItems.horn, 2);
+					living.dropItem(MItems.horn, random.nextInt(2 + looting));
 				}
 			}
-			else if (event.entityLiving instanceof EntityMooshroom)
+			else if (living instanceof EntityMooshroom)
 			{
-				if (rand < 0.15D)
+				if (rand1 < 0.15D)
 				{
-					event.entityLiving.dropItem(MItems.snout, 1);
+					living.dropItem(MItems.snout, random.nextInt(1 + looting));
 				}
 				
 				if (rand2 < 0.3D)
 				{
-					event.entityLiving.dropItem(MItems.animalBones, 4);
+					living.dropItem(MItems.animalBones, random.nextInt(4 + looting));
 				}
 				
 				if (rand3 < 0.25D)
 				{
-					event.entityLiving.dropItem(MItems.cowHoof, 4);
+					living.dropItem(MItems.cowHoof, random.nextInt(4 + looting));
 				}
 				
 				if (rand4 < 0.05D)
 				{
-					event.entityLiving.dropItem(MItems.horn, 2);
+					living.dropItem(MItems.horn, random.nextInt(2 + looting));
 				}
 				if (rand5 < 0.1D)
 				{
-					event.entityLiving.dropItem(MItems.infectiousFungus, 3);
+					living.dropItem(MItems.infectiousFungus, random.nextInt(3 + looting));
 				}
 			}
-			else if (event.entityLiving instanceof EntityHorse)
+			else if (living instanceof EntityHorse)
 			{
-				if (rand < 0.15D)
+				if (rand1 < 0.15D)
 				{
-					event.entityLiving.dropItem(MItems.snout, 1);
+					living.dropItem(MItems.snout, random.nextInt(1 + looting));
 				}
 				
 				if (rand2 < 0.2D)
 				{
-					event.entityLiving.dropItem(MItems.animalBones, 4);
+					living.dropItem(MItems.animalBones, random.nextInt(4 + looting));
 				}
 				if (rand3 < 0.25D)
 				{
-					event.entityLiving.dropItem(MItems.horseHoof, 4);
+					living.dropItem(MItems.horseHoof, random.nextInt(4 + looting));
 				}
 				if (rand4 < 0.5)
 				{
-					event.entityLiving.dropItem(MItems.horseHaunchRaw, 3);
+					living.dropItem(MItems.horseHaunchRaw, random.nextInt(3 + looting));
 				}
 				if (rand5 < 0.3)
 				{
-					event.entityLiving.dropItem(MItems.horseHair, 4);
+					living.dropItem(MItems.horseHair, random.nextInt(4 + looting));
 				}
 			}
-			else if (event.entityLiving instanceof EntityWolf)
+			else if (living instanceof EntityWolf)
 			{
-				if (rand < 0.05D)
+				if (rand1 < 0.05D)
 				{
-					event.entityLiving.dropItem(MItems.snout, 1);
+					living.dropItem(MItems.snout, random.nextInt(1 + looting));
 				}
 				if (rand2 < 0.4D)
 				{
-					event.entityLiving.dropItem(MItems.wolfHide, 4);
+					living.dropItem(MItems.wolfHide, random.nextInt(4 + looting));
 				}
 			}
-			else if (event.entityLiving instanceof EntityPigZombie)
+			else if (living instanceof EntityPigZombie)
 			{
-				if (rand < 0.05D)
+				if (rand1 < 0.05D)
 				{
-					event.entityLiving.dropItem(MItems.snout, 1);
+					living.dropItem(MItems.snout, random.nextInt(1 + looting));
 				}
 				
 				if (rand2 < 0.1D)
 				{
-					event.entityLiving.dropItem(MItems.pigHoof, 2);
+					living.dropItem(MItems.pigHoof, random.nextInt(2 + looting));
 				}
 				
 				if (rand3 < 0.15D)
 				{
-					event.entityLiving.dropItem(MItems.fat, 2);
+					living.dropItem(MItems.fat, random.nextInt(2 + looting));
 				}
 				
 				if (rand4 < 0.1D)
 				{
-					event.entityLiving.dropItem(MItems.animalBones, 2);
+					living.dropItem(MItems.animalBones, random.nextInt(2 + looting));
 				}
 				
 				if (rand5 < 0.1D)
 				{
-					event.entityLiving.dropItem(MItems.marrow, 3);
+					living.dropItem(MItems.marrow, random.nextInt(3 + looting));
 				}
 			}
-			else if (event.entityLiving instanceof EntitySheep)
+			else if (living instanceof EntitySheep)
 			{
-				if (rand < 0.3D)
+				if (rand1 < 0.3D)
 				{
-					event.entityLiving.dropItem(MItems.animalBones, 4);
+					living.dropItem(MItems.animalBones, random.nextInt(4 + looting));
 				}
 				
 				if (rand2 < 0.9D)
 				{
-					event.entityLiving.dropItem(MItems.lambchopRaw, 3);
+					living.dropItem(MItems.lambchopRaw, random.nextInt(3 + looting));
 				}
 				if (rand3 < 0.25D)
 				{
-					event.entityLiving.dropItem(MItems.sheepHoof, 3);
+					living.dropItem(MItems.sheepHoof, random.nextInt(3 + looting));
 				}
 			}
-			else if (event.entityLiving instanceof EntityChicken)
+			else if (living instanceof EntityChicken)
 			{
-				if (rand < 0.2D)
+				if (rand1 < 0.2D)
 				{
-					event.entityLiving.dropItem(MItems.animalBones, 2);
+					living.dropItem(MItems.animalBones, random.nextInt(2 + looting));
 				}
 				if (rand2 < 0.15D)
 				{
-					event.entityLiving.dropItem(MItems.beakChicken, 1);
+					living.dropItem(MItems.beakChicken, random.nextInt(1 + looting));
 				}
 				if (rand3 < 0.2D)
 				{
-					event.entityLiving.dropItem(MItems.footChicken, 2);
+					living.dropItem(MItems.footChicken, random.nextInt(2 + looting));
 				}
 				if (rand4 < 0.5D)
 				{
-					event.entityLiving.dropItem(MItems.chickenWingRaw, 2);
+					living.dropItem(MItems.chickenWingRaw, random.nextInt(2 + looting));
 				}
 			}
-			else if (event.entityLiving instanceof EntitySpider)
+			else if (living instanceof EntitySpider)
 			{
-				if (rand < 0.05D)
+				if (rand1 < 0.05D)
 				{
-					event.entityLiving.dropItem(MItems.animalBones, 1);
+					living.dropItem(MItems.animalBones, random.nextInt(1 + looting));
 				}
 				if (rand2 < 0.15D)
 				{
-					event.entityLiving.dropItem(MItems.legSpider, 4);
+					living.dropItem(MItems.legSpider, random.nextInt(4 + looting));
 				}
 			}
-			else if (event.entityLiving instanceof EntityCaveSpider)
+			else if (living instanceof EntityCaveSpider)
 			{
-				if (rand < 0.05D)
+				if (rand1 < 0.05D)
 				{
-					event.entityLiving.dropItem(MItems.animalBones, 1);
+					living.dropItem(MItems.animalBones, random.nextInt(1 + looting));
 				}
 				
 				if (rand2 < 0.3D)
 				{
-					event.entityLiving.dropItem(MItems.poisonSack, 2);
+					living.dropItem(MItems.poisonSack, random.nextInt(2 + looting));
 				}
 				
 				if (rand3 < 0.15D)
 				{
-					event.entityLiving.dropItem(MItems.legSpider, 4);
+					living.dropItem(MItems.legSpider, random.nextInt(4 + looting));
 				}
 			}
-			else if (event.entityLiving instanceof EntityOcelot)
+			else if (living instanceof EntityOcelot)
 			{
-				if (rand < 0.05D)
+				if (rand1 < 0.05D)
 				{
-					event.entityLiving.dropItem(MItems.footChicken, 1);
+					living.dropItem(MItems.footChicken, random.nextInt(2 + looting));
 				}
 				
 				if (rand2 < 0.15D)
 				{
-					event.entityLiving.dropItem(MItems.whisker, 4);
+					living.dropItem(MItems.whisker, random.nextInt(4 + looting));
 				}
 				if (rand3 < 0.1D)
 				{
-					event.entityLiving.dropItem(MItems.catEye, 2);
+					living.dropItem(MItems.catEye, random.nextInt(2 + looting));
 				}
 			}
-			else if (event.entityLiving instanceof EntitySquid)
+			else if (living instanceof EntitySquid)
 			{
-				if (rand < 0.4D)
+				if (rand1 < 0.4D)
 				{
-					event.entityLiving.dropItem(MItems.squidTentacle, 4);
+					living.dropItem(MItems.squidTentacle, random.nextInt(4 + looting));
 				}
 				
 				if (rand2 < 0.2D)
 				{
-					event.entityLiving.dropItem(MItems.airSack, 1);
+					living.dropItem(MItems.airSack, random.nextInt(1 + looting));
 				}
 			}
-			else if (event.entityLiving instanceof EntityVillager)
+			else if (living instanceof EntityVillager)
 			{
-				if (rand < 0.2D)
+				if (rand1 < 0.2D)
 				{
-					event.entityLiving.dropItem(MItems.flesh, 3);
+					living.dropItem(MItems.flesh, random.nextInt(3 + looting));
 				}
 			}
-			else if (event.entityLiving instanceof EntitySkeleton)
+			else if (living instanceof EntitySkeleton)
 			{
-				EntitySkeleton skeleton = (EntitySkeleton) event.entityLiving;
-				int type = skeleton.getSkeletonType();
-				
-				if (type == 1)
+				EntitySkeleton skeleton = (EntitySkeleton) living;
+				if (skeleton.getSkeletonType() == 1)
 				{
-					if (rand < 0.2D)
+					if (rand1 < 0.2D)
 					{
-						event.entityLiving.dropItem(MItems.witheredBone, 3);
+						living.dropItem(MItems.witheredBone, random.nextInt(3 + looting));
 					}
 				}
-				else if (rand < 0.15D)
+				else if (rand1 < 0.15D)
 				{
-					event.entityLiving.dropItem(MItems.marrow, 3);
+					living.dropItem(MItems.marrow, random.nextInt(3 + looting));
 				}
 			}
-			else if (event.entityLiving instanceof EntityBat)
+			else if (living instanceof EntityBat)
 			{
-				if (rand < 0.5)
+				if (rand1 < 0.5)
 				{
-					event.entityLiving.dropItem(MItems.guano, 2);
+					living.dropItem(MItems.guano, random.nextInt(2 + looting));
 				}
-				if (rand < 0.5)
+				if (rand1 < 0.5)
 				{
-					event.entityLiving.dropItem(MItems.wingSinew, 2);
+					living.dropItem(MItems.wingSinew, random.nextInt(2 + looting));
 				}
 			}
-			else if (event.entityLiving instanceof EntitySilverfish)
+			else if (living instanceof EntitySilverfish)
 			{
-				if (rand < 0.5)
+				if (rand1 < 0.5)
 				{
-					event.entityLiving.dropItem(MItems.carcassSilverfish, 1);
+					living.dropItem(MItems.carcassSilverfish, 1);
 				}
 			}
-			else if (event.entityLiving instanceof EntityCreeper)
+			else if (living instanceof EntityCreeper)
 			{
-				if (rand < 0.1)
+				if (rand1 < 0.1)
 				{
-					event.entityLiving.dropItem(MItems.hideCreeper, 2);
+					living.dropItem(MItems.hideCreeper, random.nextInt(2 + looting));
 				}
 			}
-			else if (event.entityLiving instanceof EntitySlime)
+			else if (living instanceof EntitySlime)
 			{
-				if (rand < 0.1)
+				if (rand1 < 0.1)
 				{
-					event.entityLiving.dropItem(MItems.slimeCore, 1);
+					living.dropItem(MItems.slimeCore, 1);
 				}
 			}
-			else if (event.entityLiving instanceof EntityEnderman)
+			else if (living instanceof EntityEnderman)
 			{
-				if (rand < 0.25)
+				if (rand1 < 0.25)
 				{
-					event.entityLiving.dropItem(MItems.enderCore, 1);
+					living.dropItem(MItems.enderCore, 1);
 				}
-				if (rand < 0.20)
+				if (rand1 < 0.20)
 				{
-					event.entityLiving.dropItem(MItems.enderAura, 2);
-				}
-			}
-			else if (event.entityLiving instanceof EntityGhast)
-			{
-				if (rand < 0.15)
-				{
-					event.entityLiving.dropItem(MItems.ghastTentacle, 4);
+					living.dropItem(MItems.enderAura, random.nextInt(2 + looting));
 				}
 			}
-			else if (event.entityLiving instanceof EntityWither)
+			else if (living instanceof EntityGhast)
 			{
-				event.entityLiving.dropItem(MItems.witheredBone, 15);
+				if (rand1 < 0.15)
+				{
+					living.dropItem(MItems.ghastTentacle, random.nextInt(4 + looting));
+				}
+			}
+			else if (living instanceof EntityWither)
+			{
+				living.dropItem(MItems.witheredBone, random.nextInt(15 + looting));
 			}
 		}
 	}
