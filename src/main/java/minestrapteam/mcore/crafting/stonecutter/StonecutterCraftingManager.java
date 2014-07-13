@@ -4,8 +4,6 @@ import static minestrapteam.minestrappolation.lib.MBlocks.edgeStoneBrick;
 
 import java.util.*;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-
 import minestrapteam.mcore.lib.MCBlocks;
 import minestrapteam.mcore.lib.MCItems;
 import minestrapteam.minestrappolation.lib.MBlocks;
@@ -280,17 +278,17 @@ public class StonecutterCraftingManager
 		this.addRecipe(new ItemStack(MCBlocks.silverClay, 1, 6), null, new Object[] { "S", "S", 'S', new ItemStack(MCBlocks.silverClay2, 1, 12) });
 		
 		// Grey Stained Clay Decor
-		this.addRecipe(new ItemStack(MCBlocks.greyClay2, 6, 3), null, new Object[] {"SSS", 'S', new ItemStack(Blocks.stained_hardened_clay, 1, 7)}); 
-		this.addRecipe(new ItemStack(MCBlocks.greyClay, 1, 1), null, new Object[] {"BB", "BB", 'B', new ItemStack(MCItems.brickColoredClay, 1, 4)});
-		this.addRecipe(new ItemStack(MCBlocks.greyClay2, 6, 6), null, new Object[] {"SSS", 'S', new ItemStack(MCBlocks.greyClay, 1, 1)});
-		this.addRecipe(new ItemStack(MCBlocks.greyClay, 2, 2), null, new Object[] {"BBB", "BBB", "BBB", 'B', new ItemStack(MCItems.brickColoredClay, 1, 4)}); 
-		this.addRecipe(new ItemStack(MCBlocks.greyClay, 3, 4), null, new Object[] {"BBB", "BBB", "DDD", 'B', new ItemStack(MCItems.brickColoredClay, 1, 4), 'D', new ItemStack(Blocks.dirt, 1, 0)}); 
-		this.addRecipe(new ItemStack(MCBlocks.greyClay, 9, 5), null, new Object[] {"SSS", "SSS", "SSS", 'S', new ItemStack(Blocks.stained_hardened_clay, 1, 7)});
-		this.addRecipe(new ItemStack(MCBlocks.greyClay2, 6, 12), null, new Object[] {"RRR", 'R', new ItemStack(MCBlocks.greyClay, 1, 5)});
-		this.addRecipe(new ItemStack(MCBlocks.greyClay, 4, 3), null, new Object[] {"RR", "RR", 'R', new ItemStack(MCBlocks.greyClay, 1, 5)});
-		this.addRecipe(new ItemStack(MCBlocks.greyClay2, 6, 9), null, new Object[] {"TTT", 'T', new ItemStack(MCBlocks.greyClay, 1, 3)});
-		this.addRecipe(new ItemStack(MCBlocks.greyClay2, 2, 0), null, new Object[] {"R", "R", 'R', new ItemStack(MCBlocks.greyClay, 1, 5)});
-		this.addRecipe(new ItemStack(MCBlocks.greyClay, 1, 6), null, new Object[] {"S", "S", 'S', new ItemStack(MCBlocks.greyClay2, 1, 12)});
+		this.addRecipe(new ItemStack(MCBlocks.greyClay2, 6, 3), null, new Object[] { "SSS", 'S', new ItemStack(Blocks.stained_hardened_clay, 1, 7) });
+		this.addRecipe(new ItemStack(MCBlocks.greyClay, 1, 1), null, new Object[] { "BB", "BB", 'B', new ItemStack(MCItems.brickColoredClay, 1, 4) });
+		this.addRecipe(new ItemStack(MCBlocks.greyClay2, 6, 6), null, new Object[] { "SSS", 'S', new ItemStack(MCBlocks.greyClay, 1, 1) });
+		this.addRecipe(new ItemStack(MCBlocks.greyClay, 2, 2), null, new Object[] { "BBB", "BBB", "BBB", 'B', new ItemStack(MCItems.brickColoredClay, 1, 4) });
+		this.addRecipe(new ItemStack(MCBlocks.greyClay, 3, 4), null, new Object[] { "BBB", "BBB", "DDD", 'B', new ItemStack(MCItems.brickColoredClay, 1, 4), 'D', new ItemStack(Blocks.dirt, 1, 0) });
+		this.addRecipe(new ItemStack(MCBlocks.greyClay, 9, 5), null, new Object[] { "SSS", "SSS", "SSS", 'S', new ItemStack(Blocks.stained_hardened_clay, 1, 7) });
+		this.addRecipe(new ItemStack(MCBlocks.greyClay2, 6, 12), null, new Object[] { "RRR", 'R', new ItemStack(MCBlocks.greyClay, 1, 5) });
+		this.addRecipe(new ItemStack(MCBlocks.greyClay, 4, 3), null, new Object[] { "RR", "RR", 'R', new ItemStack(MCBlocks.greyClay, 1, 5) });
+		this.addRecipe(new ItemStack(MCBlocks.greyClay2, 6, 9), null, new Object[] { "TTT", 'T', new ItemStack(MCBlocks.greyClay, 1, 3) });
+		this.addRecipe(new ItemStack(MCBlocks.greyClay2, 2, 0), null, new Object[] { "R", "R", 'R', new ItemStack(MCBlocks.greyClay, 1, 5) });
+		this.addRecipe(new ItemStack(MCBlocks.greyClay, 1, 6), null, new Object[] { "S", "S", 'S', new ItemStack(MCBlocks.greyClay2, 1, 12) });
 		
 		// Black Stained Clay Decor
 		this.addRecipe(new ItemStack(MCBlocks.blackClay2, 6, 3), null, new Object[] { "SSS", 'S', new ItemStack(Blocks.stained_hardened_clay, 1, 15) });
@@ -384,17 +382,17 @@ public class StonecutterCraftingManager
 		this.addRecipe(new ItemStack(MCBlocks.limeClay, 1, 6), null, new Object[] { "S", "S", 'S', new ItemStack(MCBlocks.limeClay2, 1, 12) });
 		
 		// Green Stained Clay Decor
-		this.addRecipe(new ItemStack(MCBlocks.greenClay2, 6, 3), null, new Object[] {"SSS", 'S', new ItemStack(Blocks.stained_hardened_clay, 1, 13)}); 
-		this.addRecipe(new ItemStack(MCBlocks.greenClay, 1, 1), null, new Object[] {"BB", "BB", 'B', new ItemStack(MCItems.brickColoredClay, 1, 5)});
-		this.addRecipe(new ItemStack(MCBlocks.greenClay2, 6, 6), null, new Object[] {"SSS", 'S', new ItemStack(MCBlocks.greenClay, 1, 1)});
-		this.addRecipe(new ItemStack(MCBlocks.greenClay, 2, 2), null, new Object[] {"BBB", "BBB", "BBB", 'B', new ItemStack(MCItems.brickColoredClay, 1, 5)}); 
-		this.addRecipe(new ItemStack(MCBlocks.greenClay, 3, 4), null, new Object[] {"BBB", "BBB", "DDD", 'B', new ItemStack(MCItems.brickColoredClay, 1, 5), 'D', new ItemStack(Blocks.dirt, 1, 0)}); 
-		this.addRecipe(new ItemStack(MCBlocks.greenClay, 9, 5), null, new Object[] {"SSS", "SSS", "SSS", 'S', new ItemStack(Blocks.stained_hardened_clay, 1, 13)}); 
-		this.addRecipe(new ItemStack(MCBlocks.greenClay2, 6, 12), null, new Object[] {"RRR", 'R', new ItemStack(MCBlocks.greenClay, 1, 5)}); 
-		this.addRecipe(new ItemStack(MCBlocks.greenClay, 4, 3), null, new Object[] {"RR", "RR", 'R', new ItemStack(MCBlocks.greenClay, 1, 5)}); 
-		this.addRecipe(new ItemStack(MCBlocks.greenClay2, 6, 9), null, new Object[] {"TTT", 'T', new ItemStack(MCBlocks.greenClay, 1, 3)});
-		this.addRecipe(new ItemStack(MCBlocks.greenClay2, 2, 0), null, new Object[] {"R", "R", 'R', new ItemStack(MCBlocks.greenClay, 1, 5)});
-		this.addRecipe(new ItemStack(MCBlocks.greenClay, 1, 6), null, new Object[] {"S", "S", 'S', new ItemStack(MCBlocks.greenClay2, 1, 12)});
+		this.addRecipe(new ItemStack(MCBlocks.greenClay2, 6, 3), null, new Object[] { "SSS", 'S', new ItemStack(Blocks.stained_hardened_clay, 1, 13) });
+		this.addRecipe(new ItemStack(MCBlocks.greenClay, 1, 1), null, new Object[] { "BB", "BB", 'B', new ItemStack(MCItems.brickColoredClay, 1, 5) });
+		this.addRecipe(new ItemStack(MCBlocks.greenClay2, 6, 6), null, new Object[] { "SSS", 'S', new ItemStack(MCBlocks.greenClay, 1, 1) });
+		this.addRecipe(new ItemStack(MCBlocks.greenClay, 2, 2), null, new Object[] { "BBB", "BBB", "BBB", 'B', new ItemStack(MCItems.brickColoredClay, 1, 5) });
+		this.addRecipe(new ItemStack(MCBlocks.greenClay, 3, 4), null, new Object[] { "BBB", "BBB", "DDD", 'B', new ItemStack(MCItems.brickColoredClay, 1, 5), 'D', new ItemStack(Blocks.dirt, 1, 0) });
+		this.addRecipe(new ItemStack(MCBlocks.greenClay, 9, 5), null, new Object[] { "SSS", "SSS", "SSS", 'S', new ItemStack(Blocks.stained_hardened_clay, 1, 13) });
+		this.addRecipe(new ItemStack(MCBlocks.greenClay2, 6, 12), null, new Object[] { "RRR", 'R', new ItemStack(MCBlocks.greenClay, 1, 5) });
+		this.addRecipe(new ItemStack(MCBlocks.greenClay, 4, 3), null, new Object[] { "RR", "RR", 'R', new ItemStack(MCBlocks.greenClay, 1, 5) });
+		this.addRecipe(new ItemStack(MCBlocks.greenClay2, 6, 9), null, new Object[] { "TTT", 'T', new ItemStack(MCBlocks.greenClay, 1, 3) });
+		this.addRecipe(new ItemStack(MCBlocks.greenClay2, 2, 0), null, new Object[] { "R", "R", 'R', new ItemStack(MCBlocks.greenClay, 1, 5) });
+		this.addRecipe(new ItemStack(MCBlocks.greenClay, 1, 6), null, new Object[] { "S", "S", 'S', new ItemStack(MCBlocks.greenClay2, 1, 12) });
 		
 		// Cyan Stained Clay Decor
 		this.addRecipe(new ItemStack(MCBlocks.cyanClay2, 6, 3), null, new Object[] { "SSS", 'S', new ItemStack(Blocks.stained_hardened_clay, 1, 9) });
@@ -461,7 +459,7 @@ public class StonecutterCraftingManager
 		this.addRecipe(new ItemStack(MCBlocks.magentaClay2, 2, 0), null, new Object[] { "R", "R", 'R', new ItemStack(MCBlocks.magentaClay, 1, 5) });
 		this.addRecipe(new ItemStack(MCBlocks.magentaClay, 1, 6), null, new Object[] { "S", "S", 'S', new ItemStack(MCBlocks.magentaClay2, 1, 12) });
 		
-		//Stained Clay Dying Recipes
+		// Stained Clay Dying Recipes
 		Object[] rawClay = new Object[] { "CCC", "CCC", "CCC", 'C', Blocks.hardened_clay };
 		this.addRecipe(new ItemStack(Blocks.stained_hardened_clay, 9, 0), new ItemStack(Items.dye, 1, 15), rawClay);
 		this.addRecipe(new ItemStack(Blocks.stained_hardened_clay, 9, 1), new ItemStack(Items.dye, 1, 14), rawClay);
@@ -479,7 +477,7 @@ public class StonecutterCraftingManager
 		this.addRecipe(new ItemStack(Blocks.stained_hardened_clay, 9, 13), new ItemStack(Items.dye, 1, 2), rawClay);
 		this.addRecipe(new ItemStack(Blocks.stained_hardened_clay, 9, 14), new ItemStack(Items.dye, 1, 1), rawClay);
 		this.addRecipe(new ItemStack(Blocks.stained_hardened_clay, 9, 15), new ItemStack(Items.dye, 1, 0), rawClay);
-		Object[] rawClaySlab = new Object[] { "CCC", "CCC", "CCC", 'C', new ItemStack(MCBlocks.clay2, 1, 3)};
+		Object[] rawClaySlab = new Object[] { "CCC", "CCC", "CCC", 'C', new ItemStack(MCBlocks.clay2, 1, 3) };
 		this.addRecipe(new ItemStack(MCBlocks.whiteClay2, 9, 3), new ItemStack(Items.dye, 1, 15), rawClaySlab);
 		this.addRecipe(new ItemStack(MCBlocks.orangeClay2, 9, 3), new ItemStack(Items.dye, 1, 14), rawClaySlab);
 		this.addRecipe(new ItemStack(MCBlocks.magentaClay2, 9, 3), new ItemStack(Items.dye, 1, 13), rawClaySlab);
@@ -496,7 +494,7 @@ public class StonecutterCraftingManager
 		this.addRecipe(new ItemStack(MCBlocks.greenClay2, 9, 3), new ItemStack(Items.dye, 1, 2), rawClaySlab);
 		this.addRecipe(new ItemStack(MCBlocks.redClay2, 9, 3), new ItemStack(Items.dye, 1, 1), rawClaySlab);
 		this.addRecipe(new ItemStack(MCBlocks.blackClay2, 9, 3), new ItemStack(Items.dye, 1, 0), rawClaySlab);
-		Object[] clayBrick = new Object[] { "CCC", "CCC", "CCC", 'C', Items.brick};
+		Object[] clayBrick = new Object[] { "CCC", "CCC", "CCC", 'C', Items.brick };
 		this.addRecipe(new ItemStack(MCItems.brickColoredClay, 9, 14), new ItemStack(Items.dye, 1, 15), clayBrick);
 		this.addRecipe(new ItemStack(MCItems.brickColoredClay, 9, 9), new ItemStack(Items.dye, 1, 14), clayBrick);
 		this.addRecipe(new ItemStack(MCItems.brickColoredClay, 9, 8), new ItemStack(Items.dye, 1, 13), clayBrick);
@@ -513,7 +511,7 @@ public class StonecutterCraftingManager
 		this.addRecipe(new ItemStack(MCItems.brickColoredClay, 9, 5), new ItemStack(Items.dye, 1, 2), clayBrick);
 		this.addRecipe(new ItemStack(MCItems.brickColoredClay, 9, 12), new ItemStack(Items.dye, 1, 1), clayBrick);
 		this.addRecipe(new ItemStack(MCItems.brickColoredClay, 9, 0), new ItemStack(Items.dye, 1, 0), clayBrick);
-		Object[] clayBricks = new Object[] { "CCC", "CCC", "CCC", 'C', Blocks.brick_block};
+		Object[] clayBricks = new Object[] { "CCC", "CCC", "CCC", 'C', Blocks.brick_block };
 		this.addRecipe(new ItemStack(MCBlocks.whiteClay, 9, 1), new ItemStack(Items.dye, 1, 15), clayBricks);
 		this.addRecipe(new ItemStack(MCBlocks.orangeClay, 9, 1), new ItemStack(Items.dye, 1, 14), clayBricks);
 		this.addRecipe(new ItemStack(MCBlocks.magentaClay, 9, 1), new ItemStack(Items.dye, 1, 13), clayBricks);
@@ -530,7 +528,7 @@ public class StonecutterCraftingManager
 		this.addRecipe(new ItemStack(MCBlocks.greenClay, 9, 1), new ItemStack(Items.dye, 1, 2), clayBricks);
 		this.addRecipe(new ItemStack(MCBlocks.redClay, 9, 1), new ItemStack(Items.dye, 1, 1), clayBricks);
 		this.addRecipe(new ItemStack(MCBlocks.blackClay, 9, 1), new ItemStack(Items.dye, 1, 0), clayBricks);
-		Object[] clayBrickSlab = new Object[] { "CCC", "CCC", "CCC", 'C', new ItemStack(MCBlocks.clay2, 1, 6)};
+		Object[] clayBrickSlab = new Object[] { "CCC", "CCC", "CCC", 'C', new ItemStack(MCBlocks.clay2, 1, 6) };
 		this.addRecipe(new ItemStack(MCBlocks.whiteClay2, 9, 6), new ItemStack(Items.dye, 1, 15), clayBrickSlab);
 		this.addRecipe(new ItemStack(MCBlocks.orangeClay2, 9, 6), new ItemStack(Items.dye, 1, 14), clayBrickSlab);
 		this.addRecipe(new ItemStack(MCBlocks.magentaClay2, 9, 6), new ItemStack(Items.dye, 1, 13), clayBrickSlab);
@@ -547,7 +545,7 @@ public class StonecutterCraftingManager
 		this.addRecipe(new ItemStack(MCBlocks.greenClay2, 9, 6), new ItemStack(Items.dye, 1, 2), clayBrickSlab);
 		this.addRecipe(new ItemStack(MCBlocks.redClay2, 9, 6), new ItemStack(Items.dye, 1, 1), clayBrickSlab);
 		this.addRecipe(new ItemStack(MCBlocks.blackClay2, 9, 6), new ItemStack(Items.dye, 1, 0), clayBrickSlab);
-		Object[] clayPatternBricks = new Object[] { "CCC", "CCC", "CCC", 'C', new ItemStack(MCBlocks.clay, 1, 2)};
+		Object[] clayPatternBricks = new Object[] { "CCC", "CCC", "CCC", 'C', new ItemStack(MCBlocks.clay, 1, 2) };
 		this.addRecipe(new ItemStack(MCBlocks.whiteClay, 9, 2), new ItemStack(Items.dye, 1, 15), clayPatternBricks);
 		this.addRecipe(new ItemStack(MCBlocks.orangeClay, 9, 2), new ItemStack(Items.dye, 1, 14), clayPatternBricks);
 		this.addRecipe(new ItemStack(MCBlocks.magentaClay, 9, 2), new ItemStack(Items.dye, 1, 13), clayPatternBricks);
@@ -564,7 +562,7 @@ public class StonecutterCraftingManager
 		this.addRecipe(new ItemStack(MCBlocks.greenClay, 9, 2), new ItemStack(Items.dye, 1, 2), clayPatternBricks);
 		this.addRecipe(new ItemStack(MCBlocks.redClay, 9, 2), new ItemStack(Items.dye, 1, 1), clayPatternBricks);
 		this.addRecipe(new ItemStack(MCBlocks.blackClay, 9, 2), new ItemStack(Items.dye, 1, 0), clayPatternBricks);
-		Object[] clayRoad = new Object[] { "CCC", "CCC", "CCC", 'C', new ItemStack(MCBlocks.clay, 1, 4)};
+		Object[] clayRoad = new Object[] { "CCC", "CCC", "CCC", 'C', new ItemStack(MCBlocks.clay, 1, 4) };
 		this.addRecipe(new ItemStack(MCBlocks.whiteClay, 9, 4), new ItemStack(Items.dye, 1, 15), clayRoad);
 		this.addRecipe(new ItemStack(MCBlocks.orangeClay, 9, 4), new ItemStack(Items.dye, 1, 14), clayRoad);
 		this.addRecipe(new ItemStack(MCBlocks.magentaClay, 9, 4), new ItemStack(Items.dye, 1, 13), clayRoad);
@@ -581,7 +579,7 @@ public class StonecutterCraftingManager
 		this.addRecipe(new ItemStack(MCBlocks.greenClay, 9, 4), new ItemStack(Items.dye, 1, 2), clayRoad);
 		this.addRecipe(new ItemStack(MCBlocks.redClay, 9, 4), new ItemStack(Items.dye, 1, 1), clayRoad);
 		this.addRecipe(new ItemStack(MCBlocks.blackClay, 9, 4), new ItemStack(Items.dye, 1, 0), clayRoad);
-		Object[] clayRefined = new Object[] { "CCC", "CCC", "CCC", 'C', new ItemStack(MCBlocks.clay, 1, 5)};
+		Object[] clayRefined = new Object[] { "CCC", "CCC", "CCC", 'C', new ItemStack(MCBlocks.clay, 1, 5) };
 		this.addRecipe(new ItemStack(MCBlocks.whiteClay, 9, 5), new ItemStack(Items.dye, 1, 15), clayRefined);
 		this.addRecipe(new ItemStack(MCBlocks.orangeClay, 9, 5), new ItemStack(Items.dye, 1, 14), clayRefined);
 		this.addRecipe(new ItemStack(MCBlocks.magentaClay, 9, 5), new ItemStack(Items.dye, 1, 13), clayRefined);
@@ -598,7 +596,7 @@ public class StonecutterCraftingManager
 		this.addRecipe(new ItemStack(MCBlocks.greenClay, 9, 5), new ItemStack(Items.dye, 1, 2), clayRefined);
 		this.addRecipe(new ItemStack(MCBlocks.redClay, 9, 5), new ItemStack(Items.dye, 1, 1), clayRefined);
 		this.addRecipe(new ItemStack(MCBlocks.blackClay, 9, 5), new ItemStack(Items.dye, 1, 0), clayRefined);
-		Object[] clayRefinedSlab = new Object[] { "CCC", "CCC", "CCC", 'C', new ItemStack(MCBlocks.clay2, 1, 12)};
+		Object[] clayRefinedSlab = new Object[] { "CCC", "CCC", "CCC", 'C', new ItemStack(MCBlocks.clay2, 1, 12) };
 		this.addRecipe(new ItemStack(MCBlocks.whiteClay2, 9, 12), new ItemStack(Items.dye, 1, 15), clayRefinedSlab);
 		this.addRecipe(new ItemStack(MCBlocks.orangeClay2, 9, 12), new ItemStack(Items.dye, 1, 14), clayRefinedSlab);
 		this.addRecipe(new ItemStack(MCBlocks.magentaClay2, 9, 12), new ItemStack(Items.dye, 1, 13), clayRefinedSlab);
@@ -615,7 +613,7 @@ public class StonecutterCraftingManager
 		this.addRecipe(new ItemStack(MCBlocks.greenClay2, 9, 12), new ItemStack(Items.dye, 1, 2), clayRefinedSlab);
 		this.addRecipe(new ItemStack(MCBlocks.redClay2, 9, 12), new ItemStack(Items.dye, 1, 1), clayRefinedSlab);
 		this.addRecipe(new ItemStack(MCBlocks.blackClay2, 9, 12), new ItemStack(Items.dye, 1, 0), clayRefinedSlab);
-		Object[] clayTiles = new Object[] { "CCC", "CCC", "CCC", 'C', new ItemStack(MCBlocks.clay, 1, 3)};
+		Object[] clayTiles = new Object[] { "CCC", "CCC", "CCC", 'C', new ItemStack(MCBlocks.clay, 1, 3) };
 		this.addRecipe(new ItemStack(MCBlocks.whiteClay, 9, 3), new ItemStack(Items.dye, 1, 15), clayTiles);
 		this.addRecipe(new ItemStack(MCBlocks.orangeClay, 9, 3), new ItemStack(Items.dye, 1, 14), clayTiles);
 		this.addRecipe(new ItemStack(MCBlocks.magentaClay, 9, 3), new ItemStack(Items.dye, 1, 13), clayTiles);
@@ -632,7 +630,7 @@ public class StonecutterCraftingManager
 		this.addRecipe(new ItemStack(MCBlocks.greenClay, 9, 3), new ItemStack(Items.dye, 1, 2), clayTiles);
 		this.addRecipe(new ItemStack(MCBlocks.redClay, 9, 3), new ItemStack(Items.dye, 1, 1), clayTiles);
 		this.addRecipe(new ItemStack(MCBlocks.blackClay, 9, 3), new ItemStack(Items.dye, 1, 0), clayTiles);
-		Object[] clayTileSlab = new Object[] { "CCC", "CCC", "CCC", 'C', new ItemStack(MCBlocks.clay2, 1, 9)};
+		Object[] clayTileSlab = new Object[] { "CCC", "CCC", "CCC", 'C', new ItemStack(MCBlocks.clay2, 1, 9) };
 		this.addRecipe(new ItemStack(MCBlocks.whiteClay2, 9, 9), new ItemStack(Items.dye, 1, 15), clayTileSlab);
 		this.addRecipe(new ItemStack(MCBlocks.orangeClay2, 9, 9), new ItemStack(Items.dye, 1, 14), clayTileSlab);
 		this.addRecipe(new ItemStack(MCBlocks.magentaClay2, 9, 9), new ItemStack(Items.dye, 1, 13), clayTileSlab);
@@ -649,7 +647,7 @@ public class StonecutterCraftingManager
 		this.addRecipe(new ItemStack(MCBlocks.greenClay2, 9, 9), new ItemStack(Items.dye, 1, 2), clayTileSlab);
 		this.addRecipe(new ItemStack(MCBlocks.redClay2, 9, 9), new ItemStack(Items.dye, 1, 1), clayTileSlab);
 		this.addRecipe(new ItemStack(MCBlocks.blackClay2, 9, 9), new ItemStack(Items.dye, 1, 0), clayTileSlab);
-		Object[] clayPillar = new Object[] { "CCC", "CCC", "CCC", 'C', new ItemStack(MCBlocks.clay2, 1, 0)};
+		Object[] clayPillar = new Object[] { "CCC", "CCC", "CCC", 'C', new ItemStack(MCBlocks.clay2, 1, 0) };
 		this.addRecipe(new ItemStack(MCBlocks.whiteClay2, 9, 0), new ItemStack(Items.dye, 1, 15), clayPillar);
 		this.addRecipe(new ItemStack(MCBlocks.orangeClay2, 9, 0), new ItemStack(Items.dye, 1, 14), clayPillar);
 		this.addRecipe(new ItemStack(MCBlocks.magentaClay2, 9, 0), new ItemStack(Items.dye, 1, 13), clayPillar);
@@ -666,7 +664,7 @@ public class StonecutterCraftingManager
 		this.addRecipe(new ItemStack(MCBlocks.greenClay2, 9, 0), new ItemStack(Items.dye, 1, 2), clayPillar);
 		this.addRecipe(new ItemStack(MCBlocks.redClay2, 9, 0), new ItemStack(Items.dye, 1, 1), clayPillar);
 		this.addRecipe(new ItemStack(MCBlocks.blackClay2, 9, 0), new ItemStack(Items.dye, 1, 0), clayPillar);
-		Object[] clayChiseled = new Object[] { "CCC", "CCC", "CCC", 'C', new ItemStack(MCBlocks.clay, 1, 6)};
+		Object[] clayChiseled = new Object[] { "CCC", "CCC", "CCC", 'C', new ItemStack(MCBlocks.clay, 1, 6) };
 		this.addRecipe(new ItemStack(MCBlocks.whiteClay, 9, 6), new ItemStack(Items.dye, 1, 15), clayChiseled);
 		this.addRecipe(new ItemStack(MCBlocks.orangeClay, 9, 6), new ItemStack(Items.dye, 1, 14), clayChiseled);
 		this.addRecipe(new ItemStack(MCBlocks.magentaClay, 9, 6), new ItemStack(Items.dye, 1, 13), clayChiseled);
@@ -684,44 +682,44 @@ public class StonecutterCraftingManager
 		this.addRecipe(new ItemStack(MCBlocks.redClay, 9, 6), new ItemStack(Items.dye, 1, 1), clayChiseled);
 		this.addRecipe(new ItemStack(MCBlocks.blackClay, 9, 6), new ItemStack(Items.dye, 1, 0), clayChiseled);
 		
-		//Flint Decor
+		// Flint Decor
 		this.addRecipe(new ItemStack(MCBlocks.flint2, 6, 3), null, new Object[] { "SSS", 'S', new ItemStack(MCBlocks.flint, 1, 0) });
 		this.addRecipe(new ItemStack(MCItems.brickFlint, 4, 0), null, new Object[] { "S", 'S', new ItemStack(MCBlocks.flint, 1, 0) });
 		this.addRecipe(new ItemStack(MCBlocks.flint, 1, 1), null, new Object[] { "BB", "BB", 'B', MCItems.brickFlint });
 		this.addRecipe(new ItemStack(MCBlocks.flint2, 6, 6), null, new Object[] { "SSS", 'S', new ItemStack(MCBlocks.flint, 1, 1) });
 		this.addRecipe(new ItemStack(MCBlocks.flint, 2, 2), null, new Object[] { "BBB", "BBB", "BBB", 'B', MCItems.brickFlint });
-		this.addRecipe(new ItemStack(MCBlocks.flint, 3, 4), null, new Object[] { "BBB", "BBB", "DDD", 'B', MCItems.brickFlint, 'D', Blocks.gravel});
+		this.addRecipe(new ItemStack(MCBlocks.flint, 3, 4), null, new Object[] { "BBB", "BBB", "DDD", 'B', MCItems.brickFlint, 'D', Blocks.gravel });
 		this.addRecipe(new ItemStack(MCBlocks.flint, 9, 5), null, new Object[] { "SSS", "SSS", "SSS", 'S', new ItemStack(MCBlocks.flint, 1, 0) });
 		this.addRecipe(new ItemStack(MCBlocks.flint2, 6, 12), null, new Object[] { "RRR", 'R', new ItemStack(MCBlocks.flint, 1, 5) });
 		this.addRecipe(new ItemStack(MCBlocks.flint, 4, 3), null, new Object[] { "RR", "RR", 'R', new ItemStack(MCBlocks.flint, 1, 5) });
 		this.addRecipe(new ItemStack(MCBlocks.flint2, 6, 9), null, new Object[] { "TTT", 'T', new ItemStack(MCBlocks.flint, 1, 3) });
 		this.addRecipe(new ItemStack(MCBlocks.flint2, 2, 0), null, new Object[] { "R", "R", 'R', new ItemStack(MCBlocks.flint, 1, 5) });
 		this.addRecipe(new ItemStack(MCBlocks.flint, 1, 6), null, new Object[] { "S", "S", 'S', new ItemStack(MCBlocks.flint2, 1, 12) });
-		this.addRecipe(new ItemStack(MCBlocks.flint, 8, 14), null, new Object[] { "CCC", "CGC", "CCC", 'C', new ItemStack(MCBlocks.flint, 1, 6), 'G', Blocks.glowstone});
-		this.addRecipe(new ItemStack(MCBlocks.flint, 8, 15), null, new Object[] { "CCC", "CGC", "CCC", 'C', new ItemStack(MCBlocks.flint, 1, 6), 'G', MBlocks.sunstoneBlock});
-			
-		//Lapis Decor
+		this.addRecipe(new ItemStack(MCBlocks.flint, 8, 14), null, new Object[] { "CCC", "CGC", "CCC", 'C', new ItemStack(MCBlocks.flint, 1, 6), 'G', Blocks.glowstone });
+		this.addRecipe(new ItemStack(MCBlocks.flint, 8, 15), null, new Object[] { "CCC", "CGC", "CCC", 'C', new ItemStack(MCBlocks.flint, 1, 6), 'G', MBlocks.sunstoneBlock });
+		
+		// Lapis Decor
 		this.addRecipe(new ItemStack(MCBlocks.lapis2, 6, 3), null, new Object[] { "SSS", 'S', Blocks.lapis_block });
 		this.addRecipe(new ItemStack(MCItems.brickLapis, 4, 0), null, new Object[] { "S", 'S', Blocks.lapis_block });
 		this.addRecipe(new ItemStack(MCBlocks.lapis, 1, 1), null, new Object[] { "BB", "BB", 'B', MCItems.brickLapis });
 		this.addRecipe(new ItemStack(MCBlocks.lapis2, 6, 6), null, new Object[] { "SSS", 'S', new ItemStack(MCBlocks.lapis, 1, 1) });
 		this.addRecipe(new ItemStack(MCBlocks.lapis, 2, 2), null, new Object[] { "BBB", "BBB", "BBB", 'B', MCItems.brickLapis });
-		this.addRecipe(new ItemStack(MCBlocks.lapis, 3, 4), null, new Object[] { "BBB", "BBB", "DDD", 'B', MCItems.brickLapis, 'D', new ItemStack(Blocks.sand, 1, 0)});
+		this.addRecipe(new ItemStack(MCBlocks.lapis, 3, 4), null, new Object[] { "BBB", "BBB", "DDD", 'B', MCItems.brickLapis, 'D', new ItemStack(Blocks.sand, 1, 0) });
 		this.addRecipe(new ItemStack(MCBlocks.lapis, 9, 5), null, new Object[] { "SSS", "SSS", "SSS", 'S', Blocks.lapis_block });
 		this.addRecipe(new ItemStack(MCBlocks.lapis2, 6, 12), null, new Object[] { "RRR", 'R', new ItemStack(MCBlocks.lapis, 1, 5) });
 		this.addRecipe(new ItemStack(MCBlocks.lapis, 4, 3), null, new Object[] { "RR", "RR", 'R', new ItemStack(MCBlocks.lapis, 1, 5) });
 		this.addRecipe(new ItemStack(MCBlocks.lapis2, 6, 9), null, new Object[] { "TTT", 'T', new ItemStack(MCBlocks.lapis, 1, 3) });
 		this.addRecipe(new ItemStack(MCBlocks.lapis2, 2, 0), null, new Object[] { "R", "R", 'R', new ItemStack(MCBlocks.lapis, 1, 5) });
 		this.addRecipe(new ItemStack(MCBlocks.lapis, 1, 6), null, new Object[] { "S", "S", 'S', new ItemStack(MCBlocks.lapis2, 1, 12) });
-		this.addRecipe(new ItemStack(MCBlocks.lapis, 8, 7), null, new Object[] { "CCC", "CGC", "CCC", 'C', new ItemStack(MCBlocks.lapis, 1, 3), 'G', Blocks.gold_block});
+		this.addRecipe(new ItemStack(MCBlocks.lapis, 8, 7), null, new Object[] { "CCC", "CGC", "CCC", 'C', new ItemStack(MCBlocks.lapis, 1, 3), 'G', Blocks.gold_block });
 		
-		//Slate Decor
+		// Slate Decor
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlate2, 6, 3), null, new Object[] { "SSS", 'S', new ItemStack(MCBlocks.graniteSlate, 1, 0) });
 		this.addRecipe(new ItemStack(MCItems.brickSlate, 4, 0), null, new Object[] { "S", 'S', new ItemStack(MCBlocks.graniteSlate, 1, 0) });
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlate, 1, 1), null, new Object[] { "BB", "BB", 'B', MCItems.brickSlate });
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlate2, 6, 6), null, new Object[] { "SSS", 'S', new ItemStack(MCBlocks.graniteSlate, 1, 1) });
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlate, 2, 2), null, new Object[] { "BBB", "BBB", "BBB", 'B', MCItems.brickSlate });
-		this.addRecipe(new ItemStack(MCBlocks.graniteSlate, 3, 4), null, new Object[] { "BBB", "BBB", "DDD", 'B', MCItems.brickSlate, 'D', new ItemStack(Blocks.dirt, 1, 0)});
+		this.addRecipe(new ItemStack(MCBlocks.graniteSlate, 3, 4), null, new Object[] { "BBB", "BBB", "DDD", 'B', MCItems.brickSlate, 'D', new ItemStack(Blocks.dirt, 1, 0) });
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlate, 9, 5), null, new Object[] { "SSS", "SSS", "SSS", 'S', new ItemStack(MCBlocks.graniteSlate, 1, 0) });
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlate2, 6, 12), null, new Object[] { "RRR", 'R', new ItemStack(MCBlocks.graniteSlate, 1, 5) });
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlate, 4, 3), null, new Object[] { "RR", "RR", 'R', new ItemStack(MCBlocks.graniteSlate, 1, 5) });
@@ -729,13 +727,13 @@ public class StonecutterCraftingManager
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlate2, 2, 0), null, new Object[] { "R", "R", 'R', new ItemStack(MCBlocks.graniteSlate, 1, 5) });
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlate, 1, 6), null, new Object[] { "S", "S", 'S', new ItemStack(MCBlocks.graniteSlate2, 1, 12) });
 		
-		//Tin-Plated Slate Decor
+		// Tin-Plated Slate Decor
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlateTin2, 6, 3), null, new Object[] { "SSS", 'S', new ItemStack(MCBlocks.graniteSlateTin, 1, 0) });
 		this.addRecipe(new ItemStack(MCItems.brickSlateTin, 4, 0), null, new Object[] { "S", 'S', new ItemStack(MCBlocks.graniteSlateTin, 1, 0) });
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlateTin, 1, 1), null, new Object[] { "BB", "BB", 'B', MCItems.brickSlateTin });
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlateTin2, 6, 6), null, new Object[] { "SSS", 'S', new ItemStack(MCBlocks.graniteSlateTin, 1, 1) });
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlateTin, 2, 2), null, new Object[] { "BBB", "BBB", "BBB", 'B', MCItems.brickSlateTin });
-		this.addRecipe(new ItemStack(MCBlocks.graniteSlateTin, 3, 4), null, new Object[] { "BBB", "BBB", "DDD", 'B', MCItems.brickSlateTin, 'D', new ItemStack(Blocks.dirt, 1, 0)});
+		this.addRecipe(new ItemStack(MCBlocks.graniteSlateTin, 3, 4), null, new Object[] { "BBB", "BBB", "DDD", 'B', MCItems.brickSlateTin, 'D', new ItemStack(Blocks.dirt, 1, 0) });
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlateTin, 9, 5), null, new Object[] { "SSS", "SSS", "SSS", 'S', new ItemStack(MCBlocks.graniteSlateTin, 1, 0) });
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlateTin2, 6, 12), null, new Object[] { "RRR", 'R', new ItemStack(MCBlocks.graniteSlateTin, 1, 5) });
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlateTin, 4, 3), null, new Object[] { "RR", "RR", 'R', new ItemStack(MCBlocks.graniteSlateTin, 1, 5) });
@@ -743,13 +741,13 @@ public class StonecutterCraftingManager
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlateTin2, 2, 0), null, new Object[] { "R", "R", 'R', new ItemStack(MCBlocks.graniteSlateTin, 1, 5) });
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlateTin, 1, 6), null, new Object[] { "S", "S", 'S', new ItemStack(MCBlocks.graniteSlateTin2, 1, 12) });
 		
-		//Bronze-Plated Slate Decor
+		// Bronze-Plated Slate Decor
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlateBronze2, 6, 3), null, new Object[] { "SSS", 'S', new ItemStack(MCBlocks.graniteSlateBronze, 1, 0) });
 		this.addRecipe(new ItemStack(MCItems.brickSlateBronze, 4, 0), null, new Object[] { "S", 'S', new ItemStack(MCBlocks.graniteSlateBronze, 1, 0) });
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlateBronze, 1, 1), null, new Object[] { "BB", "BB", 'B', MCItems.brickSlateBronze });
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlateBronze2, 6, 6), null, new Object[] { "SSS", 'S', new ItemStack(MCBlocks.graniteSlateBronze, 1, 1) });
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlateBronze, 2, 2), null, new Object[] { "BBB", "BBB", "BBB", 'B', MCItems.brickSlateBronze });
-		this.addRecipe(new ItemStack(MCBlocks.graniteSlateBronze, 3, 4), null, new Object[] { "BBB", "BBB", "DDD", 'B', MCItems.brickSlateBronze, 'D', new ItemStack(Blocks.dirt, 1, 0)});
+		this.addRecipe(new ItemStack(MCBlocks.graniteSlateBronze, 3, 4), null, new Object[] { "BBB", "BBB", "DDD", 'B', MCItems.brickSlateBronze, 'D', new ItemStack(Blocks.dirt, 1, 0) });
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlateBronze, 9, 5), null, new Object[] { "SSS", "SSS", "SSS", 'S', new ItemStack(MCBlocks.graniteSlateBronze, 1, 0) });
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlateBronze2, 6, 12), null, new Object[] { "RRR", 'R', new ItemStack(MCBlocks.graniteSlateBronze, 1, 5) });
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlateBronze, 4, 3), null, new Object[] { "RR", "RR", 'R', new ItemStack(MCBlocks.graniteSlateBronze, 1, 5) });
@@ -757,13 +755,13 @@ public class StonecutterCraftingManager
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlateBronze2, 2, 0), null, new Object[] { "R", "R", 'R', new ItemStack(MCBlocks.graniteSlateBronze, 1, 5) });
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlateTin, 1, 6), null, new Object[] { "S", "S", 'S', new ItemStack(MCBlocks.graniteSlateBronze, 1, 12) });
 		
-		//Steel-Plated Slate Decor
+		// Steel-Plated Slate Decor
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlateSteel2, 6, 3), null, new Object[] { "SSS", 'S', new ItemStack(MCBlocks.graniteSlateSteel, 1, 0) });
 		this.addRecipe(new ItemStack(MCItems.brickSlateSteel, 4, 0), null, new Object[] { "S", 'S', new ItemStack(MCBlocks.graniteSlateSteel, 1, 0) });
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlateSteel, 1, 1), null, new Object[] { "BB", "BB", 'B', MCItems.brickSlateSteel });
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlateSteel2, 6, 6), null, new Object[] { "SSS", 'S', new ItemStack(MCBlocks.graniteSlateSteel, 1, 1) });
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlateSteel, 2, 2), null, new Object[] { "BBB", "BBB", "BBB", 'B', MCItems.brickSlateSteel });
-		this.addRecipe(new ItemStack(MCBlocks.graniteSlateSteel, 3, 4), null, new Object[] { "BBB", "BBB", "DDD", 'B', MCItems.brickSlateSteel, 'D', new ItemStack(Blocks.dirt, 1, 0)});
+		this.addRecipe(new ItemStack(MCBlocks.graniteSlateSteel, 3, 4), null, new Object[] { "BBB", "BBB", "DDD", 'B', MCItems.brickSlateSteel, 'D', new ItemStack(Blocks.dirt, 1, 0) });
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlateSteel, 9, 5), null, new Object[] { "SSS", "SSS", "SSS", 'S', new ItemStack(MCBlocks.graniteSlateSteel, 1, 0) });
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlateSteel2, 6, 12), null, new Object[] { "RRR", 'R', new ItemStack(MCBlocks.graniteSlateSteel, 1, 5) });
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlateSteel, 4, 3), null, new Object[] { "RR", "RR", 'R', new ItemStack(MCBlocks.graniteSlateSteel, 1, 5) });
@@ -771,13 +769,13 @@ public class StonecutterCraftingManager
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlateSteel2, 2, 0), null, new Object[] { "R", "R", 'R', new ItemStack(MCBlocks.graniteSlateSteel, 1, 5) });
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlateSteel, 1, 6), null, new Object[] { "S", "S", 'S', new ItemStack(MCBlocks.graniteSlateSteel2, 1, 12) });
 		
-		//Meurodite-Plated Slate Decor
+		// Meurodite-Plated Slate Decor
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlateMeurodite2, 6, 3), null, new Object[] { "SSS", 'S', new ItemStack(MCBlocks.graniteSlateMeurodite, 1, 0) });
 		this.addRecipe(new ItemStack(MCItems.brickSlateMeurodite, 4, 0), null, new Object[] { "S", 'S', new ItemStack(MCBlocks.graniteSlateMeurodite, 1, 0) });
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlateMeurodite, 1, 1), null, new Object[] { "BB", "BB", 'B', MCItems.brickSlateMeurodite });
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlateMeurodite2, 6, 6), null, new Object[] { "SSS", 'S', new ItemStack(MCBlocks.graniteSlateMeurodite, 1, 1) });
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlateMeurodite, 2, 2), null, new Object[] { "BBB", "BBB", "BBB", 'B', MCItems.brickSlateMeurodite });
-		this.addRecipe(new ItemStack(MCBlocks.graniteSlateMeurodite, 3, 4), null, new Object[] { "BBB", "BBB", "DDD", 'B', MCItems.brickSlateMeurodite, 'D', new ItemStack(Blocks.dirt, 1, 0)});
+		this.addRecipe(new ItemStack(MCBlocks.graniteSlateMeurodite, 3, 4), null, new Object[] { "BBB", "BBB", "DDD", 'B', MCItems.brickSlateMeurodite, 'D', new ItemStack(Blocks.dirt, 1, 0) });
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlateMeurodite, 9, 5), null, new Object[] { "SSS", "SSS", "SSS", 'S', new ItemStack(MCBlocks.graniteSlateMeurodite, 1, 0) });
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlateMeurodite2, 6, 12), null, new Object[] { "RRR", 'R', new ItemStack(MCBlocks.graniteSlateMeurodite, 1, 5) });
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlateMeurodite, 4, 3), null, new Object[] { "RR", "RR", 'R', new ItemStack(MCBlocks.graniteSlateMeurodite, 1, 5) });
@@ -785,7 +783,7 @@ public class StonecutterCraftingManager
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlateMeurodite2, 2, 0), null, new Object[] { "R", "R", 'R', new ItemStack(MCBlocks.graniteSlateMeurodite, 1, 5) });
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlateMeurodite, 1, 6), null, new Object[] { "S", "S", 'S', new ItemStack(MCBlocks.graniteSlateMeurodite2, 1, 12) });
 		
-		//Plating Recipes for Slate Decor
+		// Plating Recipes for Slate Decor
 		Object[] rawSlate = new Object[] { "CCC", "CCC", "CCC", 'C', new ItemStack(MCBlocks.graniteSlate, 1, 0) };
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlateTin, 9, 0), new ItemStack(MItems.plateTinItem, 1, 0), rawSlate);
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlateBronze, 9, 0), new ItemStack(MItems.plateBronzeItem, 1, 0), rawSlate);
@@ -852,30 +850,30 @@ public class StonecutterCraftingManager
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlateSteel, 9, 6), new ItemStack(MItems.plateSteelItem, 1, 0), slateChiseled);
 		this.addRecipe(new ItemStack(MCBlocks.graniteSlateMeurodite, 9, 6), new ItemStack(MItems.plateMeuroditeItem, 1, 0), slateChiseled);
 		
-		//Desert Quartz Decor
+		// Desert Quartz Decor
 		this.addRecipe(new ItemStack(MCBlocks.desertQuartz2, 6, 3), null, new Object[] { "SSS", 'S', new ItemStack(MCBlocks.desertQuartz, 1, 0) });
 		this.addRecipe(new ItemStack(MCItems.brickDesertQuartz, 4, 0), null, new Object[] { "S", 'S', new ItemStack(MCBlocks.desertQuartz, 1, 0) });
 		this.addRecipe(new ItemStack(MCBlocks.desertQuartz, 1, 1), null, new Object[] { "BB", "BB", 'B', MCItems.brickDesertQuartz });
 		this.addRecipe(new ItemStack(MCBlocks.desertQuartz2, 6, 6), null, new Object[] { "SSS", 'S', new ItemStack(MCBlocks.desertQuartz, 1, 1) });
 		this.addRecipe(new ItemStack(MCBlocks.desertQuartz, 2, 2), null, new Object[] { "BBB", "BBB", "BBB", 'B', MCItems.brickDesertQuartz });
-		this.addRecipe(new ItemStack(MCBlocks.desertQuartz, 3, 6), null, new Object[] { "BBB", "BBB", "DDD", 'B', MCItems.brickDesertQuartz, 'D', new ItemStack(Blocks.sand, 1, 0)});
+		this.addRecipe(new ItemStack(MCBlocks.desertQuartz, 3, 6), null, new Object[] { "BBB", "BBB", "DDD", 'B', MCItems.brickDesertQuartz, 'D', new ItemStack(Blocks.sand, 1, 0) });
 		this.addRecipe(new ItemStack(MCBlocks.desertQuartz, 9, 7), null, new Object[] { "SSS", "SSS", "SSS", 'S', new ItemStack(MCBlocks.desertQuartz, 1, 0) });
 		this.addRecipe(new ItemStack(MCBlocks.desertQuartz2, 6, 12), null, new Object[] { "RRR", 'R', new ItemStack(MCBlocks.desertQuartz, 1, 7) });
-		this.addRecipe(new ItemStack(MCBlocks.desertQuartz, 4, 5), null, new Object[] {"RR", "RR", 'R', new ItemStack(MCBlocks.desertQuartz, 1, 0)});
+		this.addRecipe(new ItemStack(MCBlocks.desertQuartz, 4, 5), null, new Object[] { "RR", "RR", 'R', new ItemStack(MCBlocks.desertQuartz, 1, 0) });
 		this.addRecipe(new ItemStack(MCBlocks.desertQuartz, 4, 3), null, new Object[] { "RR", "RR", 'R', new ItemStack(MCBlocks.desertQuartz, 1, 7) });
 		this.addRecipe(new ItemStack(MCBlocks.desertQuartz, 4, 4), null, new Object[] { "TTT", "TST", "TTT", 'T', new ItemStack(MCBlocks.desertQuartz, 1, 3), 'S', Blocks.stone });
 		this.addRecipe(new ItemStack(MCBlocks.desertQuartz2, 6, 9), null, new Object[] { "TTT", 'T', new ItemStack(MCBlocks.desertQuartz, 1, 3) });
 		this.addRecipe(new ItemStack(MCBlocks.desertQuartz2, 2, 0), null, new Object[] { "R", "R", 'R', new ItemStack(MCBlocks.desertQuartz, 1, 7) });
 		this.addRecipe(new ItemStack(MCBlocks.desertQuartz, 1, 8), null, new Object[] { "S", "S", 'S', new ItemStack(MCBlocks.desertQuartz2, 1, 12) });
 		
-		//Netherrack Decor
-		this.addRecipe(new ItemStack(MCBlocks.netherrack2, 6, 3), null, new Object[] {"NNN", 'N', Blocks.netherrack});
+		// Netherrack Decor
+		this.addRecipe(new ItemStack(MCBlocks.netherrack2, 6, 3), null, new Object[] { "NNN", 'N', Blocks.netherrack });
 		this.addRecipe(new ItemStack(Blocks.nether_brick, 1, 0), null, new Object[] { "BB", "BB", 'B', Items.netherbrick });
 		this.addRecipe(new ItemStack(Blocks.stone_slab, 6, 6), null, new Object[] { "SSS", 'S', Blocks.nether_brick });
 		this.addRecipe(new ItemStack(Blocks.nether_brick_stairs, 4, 0), null, new Object[] { "S  ", "SS ", "SSS", 'S', Blocks.nether_brick });
 		this.addRecipe(new ItemStack(Blocks.nether_brick_fence, 6, 0), null, new Object[] { "BBB", "BBB", 'B', Blocks.nether_brick });
-		this.addRecipe(new ItemStack(MCBlocks.netherrack, 1, 2), null, new Object[] {"BBB", "BBB", "BBB", 'B', Items.netherbrick});
-		this.addRecipe(new ItemStack(MCBlocks.netherrack, 3, 4), null, new Object[] { "BBB", "BBB", "DDD", 'B', Items.netherbrick, 'D', Blocks.soul_sand});
+		this.addRecipe(new ItemStack(MCBlocks.netherrack, 1, 2), null, new Object[] { "BBB", "BBB", "BBB", 'B', Items.netherbrick });
+		this.addRecipe(new ItemStack(MCBlocks.netherrack, 3, 4), null, new Object[] { "BBB", "BBB", "DDD", 'B', Items.netherbrick, 'D', Blocks.soul_sand });
 		this.addRecipe(new ItemStack(MCBlocks.netherrack, 9, 5), null, new Object[] { "SSS", "SSS", "SSS", 'S', Blocks.netherrack });
 		this.addRecipe(new ItemStack(MCBlocks.netherrack2, 6, 12), null, new Object[] { "RRR", 'R', new ItemStack(MCBlocks.netherrack, 1, 5) });
 		this.addRecipe(new ItemStack(MCBlocks.netherrack, 4, 3), null, new Object[] { "RR", "RR", 'R', new ItemStack(MCBlocks.netherrack, 1, 5) });
@@ -883,14 +881,14 @@ public class StonecutterCraftingManager
 		this.addRecipe(new ItemStack(MCBlocks.netherrack2, 2, 0), null, new Object[] { "R", "R", 'R', new ItemStack(MCBlocks.netherrack, 1, 5) });
 		this.addRecipe(new ItemStack(MCBlocks.netherrack, 1, 6), null, new Object[] { "S", "S", 'S', new ItemStack(MCBlocks.netherrack2, 1, 12) });
 		
-		//Nether Quartz Decor
+		// Nether Quartz Decor
 		this.addRecipe(new ItemStack(Blocks.stone_slab, 6, 7), null, new Object[] { "SSS", 'S', new ItemStack(Blocks.quartz_block, 1, 0) });
 		this.addRecipe(new ItemStack(Blocks.quartz_stairs, 4, 0), null, new Object[] { "S  ", "SS ", "SSS", 'S', new ItemStack(Blocks.quartz_block, 1, 0) });
 		this.addRecipe(new ItemStack(MCItems.brickNetherQuartz, 4, 0), null, new Object[] { "S", 'S', new ItemStack(Blocks.quartz_block, 1, 0) });
 		this.addRecipe(new ItemStack(MCBlocks.netherQuartz, 1, 1), null, new Object[] { "BB", "BB", 'B', MCItems.brickNetherQuartz });
 		this.addRecipe(new ItemStack(MCBlocks.netherQuartz2, 6, 6), null, new Object[] { "SSS", 'S', new ItemStack(MCBlocks.netherQuartz, 1, 1) });
 		this.addRecipe(new ItemStack(MCBlocks.netherQuartz, 2, 2), null, new Object[] { "BBB", "BBB", "BBB", 'B', MCItems.brickNetherQuartz });
-		this.addRecipe(new ItemStack(MCBlocks.netherQuartz, 3, 4), null, new Object[] { "BBB", "BBB", "DDD", 'B', MCItems.brickNetherQuartz, 'D', Blocks.soul_sand});
+		this.addRecipe(new ItemStack(MCBlocks.netherQuartz, 3, 4), null, new Object[] { "BBB", "BBB", "DDD", 'B', MCItems.brickNetherQuartz, 'D', Blocks.soul_sand });
 		this.addRecipe(new ItemStack(MCBlocks.netherQuartz, 9, 5), null, new Object[] { "SSS", "SSS", "SSS", 'S', new ItemStack(Blocks.quartz_block, 1, 0) });
 		this.addRecipe(new ItemStack(MCBlocks.netherQuartz2, 6, 12), null, new Object[] { "RRR", 'R', new ItemStack(MCBlocks.netherQuartz, 1, 5) });
 		this.addRecipe(new ItemStack(MCBlocks.netherQuartz, 4, 3), null, new Object[] { "RR", "RR", 'R', new ItemStack(MCBlocks.netherQuartz, 1, 5) });
@@ -900,13 +898,13 @@ public class StonecutterCraftingManager
 		this.addRecipe(new ItemStack(Blocks.quartz_block, 1, 1), null, new Object[] { "S", "S", 'S', new ItemStack(Blocks.stone_slab, 1, 7) });
 		this.addRecipe(new ItemStack(MCBlocks.netherQuartz, 1, 6), null, new Object[] { "S", "S", 'S', new ItemStack(MCBlocks.netherQuartz2, 1, 12) });
 		
-		//Obsidian Decor
+		// Obsidian Decor
 		this.addRecipe(new ItemStack(MCBlocks.obsidian2, 6, 3), null, new Object[] { "SSS", 'S', Blocks.obsidian });
 		this.addRecipe(new ItemStack(MCItems.brickObsidian, 4, 0), null, new Object[] { "S", 'S', Blocks.obsidian });
 		this.addRecipe(new ItemStack(MCBlocks.obsidian, 1, 1), null, new Object[] { "BB", "BB", 'B', MCItems.brickObsidian });
 		this.addRecipe(new ItemStack(MCBlocks.obsidian2, 6, 6), null, new Object[] { "SSS", 'S', new ItemStack(MCBlocks.obsidian, 1, 1) });
 		this.addRecipe(new ItemStack(MCBlocks.obsidian, 2, 2), null, new Object[] { "BBB", "BBB", "BBB", 'B', MCItems.brickObsidian });
-		this.addRecipe(new ItemStack(MCBlocks.obsidian, 3, 4), null, new Object[] { "BBB", "BBB", "DDD", 'B', MCItems.brickObsidian, 'D', Blocks.end_stone});
+		this.addRecipe(new ItemStack(MCBlocks.obsidian, 3, 4), null, new Object[] { "BBB", "BBB", "DDD", 'B', MCItems.brickObsidian, 'D', Blocks.end_stone });
 		this.addRecipe(new ItemStack(MCBlocks.obsidian, 9, 5), null, new Object[] { "SSS", "SSS", "SSS", 'S', Blocks.obsidian });
 		this.addRecipe(new ItemStack(MCBlocks.obsidian2, 6, 12), null, new Object[] { "RRR", 'R', new ItemStack(MCBlocks.obsidian, 1, 5) });
 		this.addRecipe(new ItemStack(MCBlocks.obsidian, 4, 3), null, new Object[] { "RR", "RR", 'R', new ItemStack(MCBlocks.obsidian, 1, 5) });
@@ -914,13 +912,13 @@ public class StonecutterCraftingManager
 		this.addRecipe(new ItemStack(MCBlocks.obsidian2, 2, 0), null, new Object[] { "R", "R", 'R', new ItemStack(MCBlocks.obsidian, 1, 5) });
 		this.addRecipe(new ItemStack(MCBlocks.obsidian, 1, 6), null, new Object[] { "S", "S", 'S', new ItemStack(MCBlocks.obsidian2, 1, 12) });
 		
-		//End Stone Decor
+		// End Stone Decor
 		this.addRecipe(new ItemStack(MCBlocks.endstone2, 6, 3), null, new Object[] { "SSS", 'S', new ItemStack(MCBlocks.endstone, 1, 0) });
 		this.addRecipe(new ItemStack(MCItems.brickEndStone, 4, 0), null, new Object[] { "S", 'S', new ItemStack(MCBlocks.endstone, 1, 0) });
 		this.addRecipe(new ItemStack(MCBlocks.endstone, 1, 1), null, new Object[] { "BB", "BB", 'B', MCItems.brickEndStone });
 		this.addRecipe(new ItemStack(MCBlocks.endstone2, 6, 6), null, new Object[] { "SSS", 'S', new ItemStack(MCBlocks.endstone, 1, 1) });
 		this.addRecipe(new ItemStack(MCBlocks.endstone, 2, 2), null, new Object[] { "BBB", "BBB", "BBB", 'B', MCItems.brickEndStone });
-		this.addRecipe(new ItemStack(MCBlocks.endstone, 3, 4), null, new Object[] { "BBB", "BBB", "DDD", 'B', MCItems.brickEndStone, 'D', Blocks.obsidian});
+		this.addRecipe(new ItemStack(MCBlocks.endstone, 3, 4), null, new Object[] { "BBB", "BBB", "DDD", 'B', MCItems.brickEndStone, 'D', Blocks.obsidian });
 		this.addRecipe(new ItemStack(MCBlocks.endstone, 9, 5), null, new Object[] { "SSS", "SSS", "SSS", 'S', new ItemStack(MCBlocks.endstone, 1, 0) });
 		this.addRecipe(new ItemStack(MCBlocks.endstone2, 6, 12), null, new Object[] { "RRR", 'R', new ItemStack(MCBlocks.endstone, 1, 5) });
 		this.addRecipe(new ItemStack(MCBlocks.endstone, 4, 3), null, new Object[] { "RR", "RR", 'R', new ItemStack(MCBlocks.endstone, 1, 5) });
@@ -928,7 +926,7 @@ public class StonecutterCraftingManager
 		this.addRecipe(new ItemStack(MCBlocks.endstone2, 2, 0), null, new Object[] { "R", "R", 'R', new ItemStack(MCBlocks.endstone, 1, 5) });
 		this.addRecipe(new ItemStack(MCBlocks.endstone, 1, 6), null, new Object[] { "S", "S", 'S', new ItemStack(MCBlocks.endstone2, 1, 12) });
 		
-		//Bedrock Decor
+		// Bedrock Decor
 		this.addRecipe(new ItemStack(MCBlocks.bedrock2, 6, 3), null, new Object[] { "SSS", 'S', Blocks.bedrock });
 		this.addRecipe(new ItemStack(MCItems.brickBedrock, 4, 0), null, new Object[] { "S", 'S', Blocks.bedrock });
 		this.addRecipe(new ItemStack(MCBlocks.bedrock, 1, 1), null, new Object[] { "BB", "BB", 'B', MCItems.brickBedrock });
@@ -944,13 +942,13 @@ public class StonecutterCraftingManager
 		this.addRecipe(new ItemStack(MCBlocks.bedrock, 8, 14), null, new Object[] { "CCC", "CGC", "CCC", 'C', new ItemStack(MCBlocks.bedrock, 1, 6), 'G', Blocks.glowstone });
 		this.addRecipe(new ItemStack(MCBlocks.bedrock, 8, 15), null, new Object[] { "CCC", "CSC", "CCC", 'C', new ItemStack(MCBlocks.bedrock, 1, 6), 'S', MBlocks.sunstoneBlock });
 		
-		//Radiant Quartz Decor
+		// Radiant Quartz Decor
 		this.addRecipe(new ItemStack(MCBlocks.radiantQuartz2, 6, 3), null, new Object[] { "SSS", 'S', new ItemStack(MCBlocks.radiantQuartz, 1, 0) });
 		this.addRecipe(new ItemStack(MCItems.brickRadiantQuartz, 4, 0), null, new Object[] { "S", 'S', new ItemStack(MCBlocks.radiantQuartz, 1, 0) });
 		this.addRecipe(new ItemStack(MCBlocks.radiantQuartz, 1, 1), null, new Object[] { "BB", "BB", 'B', MCItems.brickRadiantQuartz });
 		this.addRecipe(new ItemStack(MCBlocks.radiantQuartz2, 6, 6), null, new Object[] { "SSS", 'S', new ItemStack(MCBlocks.radiantQuartz, 1, 1) });
 		this.addRecipe(new ItemStack(MCBlocks.radiantQuartz, 2, 2), null, new Object[] { "BBB", "BBB", "BBB", 'B', MCItems.brickRadiantQuartz });
-		this.addRecipe(new ItemStack(MCBlocks.radiantQuartz, 3, 4), null, new Object[] { "BBB", "BBB", "DDD", 'B', MCItems.brickRadiantQuartz, 'D', new ItemStack(Blocks.dirt, 1, 0)});
+		this.addRecipe(new ItemStack(MCBlocks.radiantQuartz, 3, 4), null, new Object[] { "BBB", "BBB", "DDD", 'B', MCItems.brickRadiantQuartz, 'D', new ItemStack(Blocks.dirt, 1, 0) });
 		this.addRecipe(new ItemStack(MCBlocks.radiantQuartz, 9, 5), null, new Object[] { "SSS", "SSS", "SSS", 'S', new ItemStack(MCBlocks.radiantQuartz, 1, 0) });
 		this.addRecipe(new ItemStack(MCBlocks.radiantQuartz2, 6, 12), null, new Object[] { "RRR", 'R', new ItemStack(MCBlocks.radiantQuartz, 1, 5) });
 		this.addRecipe(new ItemStack(MCBlocks.radiantQuartz, 4, 3), null, new Object[] { "RR", "RR", 'R', new ItemStack(MCBlocks.radiantQuartz, 1, 5) });
@@ -958,16 +956,16 @@ public class StonecutterCraftingManager
 		this.addRecipe(new ItemStack(MCBlocks.radiantQuartz2, 2, 0), null, new Object[] { "R", "R", 'R', new ItemStack(MCBlocks.radiantQuartz, 1, 5) });
 		this.addRecipe(new ItemStack(MCBlocks.radiantQuartz, 1, 6), null, new Object[] { "S", "S", 'S', new ItemStack(MCBlocks.radiantQuartz2, 1, 12) });
 		
-		//Checkered Tiles
-		this.addRecipe(new ItemStack(MBlocks.checkerTiles, 4, 0), null, new Object[] { "BW", "WB", 'B', new ItemStack(MCBlocks.flint, 1, 3), 'W', new ItemStack(MCBlocks.endstone, 1, 3)});
-		this.addRecipe(new ItemStack(MBlocks.checkerTiles, 4, 1), null, new Object[] { "BW", "WB", 'B', new ItemStack(MCBlocks.flint, 1, 3), 'W', new ItemStack(MCBlocks.netherQuartz, 1, 3)});
-		this.addRecipe(new ItemStack(MBlocks.checkerTiles, 4, 2), null, new Object[] { "BW", "WB", 'B', new ItemStack(MCBlocks.obsidian, 1, 3), 'W', new ItemStack(MCBlocks.endstone, 1, 3)});
-		this.addRecipe(new ItemStack(MBlocks.checkerTiles, 4, 3), null, new Object[] { "BW", "WB", 'B', new ItemStack(MCBlocks.obsidian, 1, 3), 'W', new ItemStack(MCBlocks.netherQuartz, 1, 3)});
+		// Checkered Tiles
+		this.addRecipe(new ItemStack(MBlocks.checkerTiles, 4, 0), null, new Object[] { "BW", "WB", 'B', new ItemStack(MCBlocks.flint, 1, 3), 'W', new ItemStack(MCBlocks.endstone, 1, 3) });
+		this.addRecipe(new ItemStack(MBlocks.checkerTiles, 4, 1), null, new Object[] { "BW", "WB", 'B', new ItemStack(MCBlocks.flint, 1, 3), 'W', new ItemStack(MCBlocks.netherQuartz, 1, 3) });
+		this.addRecipe(new ItemStack(MBlocks.checkerTiles, 4, 2), null, new Object[] { "BW", "WB", 'B', new ItemStack(MCBlocks.obsidian, 1, 3), 'W', new ItemStack(MCBlocks.endstone, 1, 3) });
+		this.addRecipe(new ItemStack(MBlocks.checkerTiles, 4, 3), null, new Object[] { "BW", "WB", 'B', new ItemStack(MCBlocks.obsidian, 1, 3), 'W', new ItemStack(MCBlocks.netherQuartz, 1, 3) });
 		
-		//Edge Stone Brick
+		// Edge Stone Brick
 		this.addRecipe(new ItemStack(edgeStoneBrick, 1, 0), null, new Object[] { "SQ", "SQ", 'S', MCItems.brickStone, 'Q', Items.quartz });
 		this.addRecipe(new ItemStack(edgeStoneBrick, 1, 1), null, new Object[] { "SQ", "SQ", 'S', MCItems.brickStone, 'Q', Items.flint });
-		}
+	}
 	
 	public ShapedSCRecipe addRecipe(ItemStack output, ItemStack extraSlot, Object... data)
 	{

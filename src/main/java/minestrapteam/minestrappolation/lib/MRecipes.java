@@ -6,7 +6,6 @@ import static minestrapteam.minestrappolation.lib.MTools.*;
 import cpw.mods.fml.common.registry.GameRegistry;
 import minestrapteam.mcore.crafting.RecipesPlatings;
 import minestrapteam.mcore.lib.MCBlocks;
-import minestrapteam.mcore.lib.MCItems;
 import minestrapteam.mcore.util.MCUtil;
 
 import net.minecraft.init.Blocks;
@@ -18,7 +17,7 @@ public class MRecipes
 	public static void load()
 	{
 		GameRegistry.addRecipe(new RecipesPlatings());
-
+		
 		GameRegistry.addRecipe(new ItemStack(sandstonePickaxe), new Object[] { "ZZZ", " S ", " S ", 'Z', Blocks.sandstone, 'S', Items.stick });
 		GameRegistry.addRecipe(new ItemStack(sandstoneShovel), new Object[] { " Z ", " S ", " S ", 'Z', Blocks.sandstone, 'S', Items.stick });
 		GameRegistry.addRecipe(new ItemStack(sandstoneAxe), new Object[] { "ZZ ", "ZS ", " S ", 'Z', Blocks.sandstone, 'S', Items.stick });
@@ -200,8 +199,8 @@ public class MRecipes
 		GameRegistry.addRecipe(new ItemStack(cardboardBlock, 2), new Object[] { "CCC", " C ", " CC", 'C', cardboardItem });
 		
 		GameRegistry.addRecipe(new ItemStack(MCBlocks.redSandstone, 1, 0), new Object[] { "SS", "SS", 'S', new ItemStack(Blocks.sand, 1, 1) });
-		GameRegistry.addRecipe(new ItemStack(MCBlocks.flint, 1, 0), new Object[] {"FF", "FF", 'F', Items.flint});
-		GameRegistry.addRecipe(new ItemStack(MCBlocks.desertQuartz, 1, 0), new Object[] {"QQ", "QQ", 'Q', MItems.desertQuartz});
+		GameRegistry.addRecipe(new ItemStack(MCBlocks.flint, 1, 0), new Object[] { "FF", "FF", 'F', Items.flint });
+		GameRegistry.addRecipe(new ItemStack(MCBlocks.desertQuartz, 1, 0), new Object[] { "QQ", "QQ", 'Q', MItems.desertQuartz });
 		GameRegistry.addSmelting(Blocks.end_stone, new ItemStack(MCBlocks.endstone, 1, 0), 15);
 		
 		GameRegistry.addSmelting(fat, new ItemStack(grease, 1), 0.7F);
