@@ -22,7 +22,7 @@ public class ItemInfectiousFungus extends MCItemFood
 		super.onFoodEaten(stack, world, player);
 		
 		player.addPotionEffect(new PotionEffect(Potion.confusion.id, 30 * 20, 1));
-		player.addPotionEffect(new PotionEffect(MPotions.infectious.id, 30 * 20, 1));
+		player.addPotionEffect(new PotionEffect(MPotions.infectiousPotion.id, 30 * 20, 1));
 	}
 	
 }

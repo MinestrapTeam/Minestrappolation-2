@@ -32,6 +32,6 @@ public class ItemGhastTentacle extends MCItemFood
 			}
 		}
 		
-		player.addPotionEffect(new PotionEffect(MPotions.ghastTentacle.id, 2 * 20, 0));
+		player.addPotionEffect(new PotionEffect(MPotions.ghastTentaclePotion.id, 2 * 20, 0));
 	}
 }

@@ -2,6 +2,7 @@ package minestrapteam.minestrappolation.lib;
 
 import clashsoft.brewingapi.potion.IPotionEffectHandler;
 import clashsoft.brewingapi.potion.recipe.PotionRecipes;
+import clashsoft.brewingapi.potion.type.PotionType;
 import minestrapteam.mcore.potion.MCPotion;
 import minestrapteam.mcore.util.MCAssetManager;
 
@@ -15,19 +16,24 @@ import net.minecraft.util.ResourceLocation;
 
 public class MPotions implements IPotionEffectHandler
 {
-	private static ResourceLocation	iconLoc	= MCAssetManager.getCoreResource("gui/potion_icons.png");
+	private static ResourceLocation	iconLoc				= MCAssetManager.getCoreResource("gui/potion_icons.png");
 	
-	public static Potion			infectious;
-	public static Potion ghastTentacle;
+	public static Potion			infectiousPotion	= new MCPotion("potion.infectious", 0xFE3040, true).setIcon(iconLoc, 0, 6);
+	public static Potion			ghastTentaclePotion	= new MCPotion("potion.ghastTentacle", 0xED03D5, true).setIcon(iconLoc, 0, 7);
+	
+	public static PotionType		infectious;
+	public static PotionType		ghastTentacle;
 	
 	public static void loadPotions()
 	{
-		infectious = new MCPotion("potion.infectious", 0x000000, true).setIcon(iconLoc, 0, 6);
-		ghastTentacle = new MCPotion("potion.ghastTentacle", 0xED03D5, true).setIcon(iconLoc, 0, 7);
+		PotionType infectious1 = new PotionType(new PotionEffect(infectiousPotion.id, 120 * 20), 1, 240 * 20);
+		PotionType ghastTentacle1 = new PotionType(new PotionEffect(ghastTentaclePotion.id, 90 * 20), 0, 210 * 20);
 	}
 	
 	public static void loadBrewingRecipes()
 	{
+		PotionRecipes.addRecipe(new ItemStack(MItems.infectiousFungus), infectious);
+		PotionRecipes.addRecipe(new ItemStack(MItems.ghastTentacle), ghastTentacle);
 		PotionRecipes.addRecipe(new ItemStack(MItems.airSack), new PotionEffect(Potion.waterBreathing.id, 120 * 20, 0));
 		PotionRecipes.addRecipe(new ItemStack(MItems.marrow), new PotionEffect(Potion.resistance.id, 180 * 20));
 	}
@@ -35,7 +41,7 @@ public class MPotions implements IPotionEffectHandler
 	@Override
 	public void onPotionUpdate(int tick, EntityLivingBase entity, PotionEffect effect)
 	{
-		if (effect.getPotionID() == infectious.id)
+		if (effect.getPotionID() == infectiousPotion.id)
 		{
 			Block block = entity.worldObj.getBlock((int) entity.posX - 1, (int) entity.posY - 1, (int) entity.posZ - 1);
 			if (block == Blocks.grass)
@@ -47,7 +53,7 @@ public class MPotions implements IPotionEffectHandler
 				entity.addPotionEffect(new PotionEffect(Potion.regeneration.id, 1, 1));
 			}
 		}
-		else if (effect.getPotionID() == ghastTentacle.id)
+		else if (effect.getPotionID() == ghastTentaclePotion.id)
 		{
 			if (entity.dimension != -1)
 			{
@@ -64,6 +70,6 @@ public class MPotions implements IPotionEffectHandler
 	@Override
 	public boolean canHandle(PotionEffect effect)
 	{
-		return effect.getPotionID() == MPotions.infectious.id;
+		return effect.getPotionID() == infectiousPotion.id || effect.getPotionID() == ghastTentaclePotion.id;
 	}
 }
