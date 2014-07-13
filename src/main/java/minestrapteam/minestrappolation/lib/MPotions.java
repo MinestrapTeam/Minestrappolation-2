@@ -18,10 +18,12 @@ public class MPotions implements IPotionEffectHandler
 	private static ResourceLocation	iconLoc	= MCAssetManager.getCoreResource("gui/potion_icons.png");
 	
 	public static Potion			infectious;
+	public static Potion ghastTentacle;
 	
 	public static void loadPotions()
 	{
 		infectious = new MCPotion("potion.infectious", 0x000000, true).setIcon(iconLoc, 0, 6);
+		ghastTentacle = new MCPotion("potion.ghastTentacle", 0xED03D5, true).setIcon(iconLoc, 0, 7);
 	}
 	
 	public static void loadBrewingRecipes()
@@ -33,20 +35,20 @@ public class MPotions implements IPotionEffectHandler
 	@Override
 	public void onPotionUpdate(int tick, EntityLivingBase entity, PotionEffect effect)
 	{
-		if (effect.getPotionID() == MPotions.infectious.id)
+		if (effect.getPotionID() == infectious.id)
 		{
 			Block block = entity.worldObj.getBlock((int) entity.posX - 1, (int) entity.posY - 1, (int) entity.posZ - 1);
 			if (block == Blocks.grass)
 			{
-				// check if grass is below, then place mycellium below
 				entity.worldObj.setBlock((int) entity.posX - 1, (int) entity.posY - 1, (int) entity.posZ - 1, Blocks.mycelium);
 			}
 			else if (block == Blocks.mycelium)
 			{
-				// check if mycellium is below, then add potion of regen.
-				entity.addPotionEffect(new PotionEffect(Potion.regeneration.id, 2 * 20, 1));
+				entity.addPotionEffect(new PotionEffect(Potion.regeneration.id, 1, 1));
 			}
-			// TODO poison all mobs touched
+		}
+		else if (effect.getPotionID() == ghastTentacle.id)
+		{
 		}
 	}
 	

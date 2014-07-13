@@ -14,7 +14,6 @@ import net.minecraft.entity.boss.EntityWither;
 import net.minecraft.entity.monster.*;
 import net.minecraft.entity.passive.*;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -25,12 +24,6 @@ import net.minecraftforge.event.entity.player.EntityInteractEvent;
 
 public class MEventHandler implements IFuelHandler
 {
-	public static boolean	ghastTentacleEffect	= false;
-	
-	static int				ticks				= 0;
-	static Random			rand				= new Random();
-	public static int		gTime				= 30 + rand.nextInt(150);
-	
 	@SubscribeEvent
 	public void playerUpdate(PlayerTickEvent evt)
 	{
@@ -38,40 +31,26 @@ public class MEventHandler implements IFuelHandler
 		
 		if (evt.phase == Phase.START)
 		{
-			if (ghastTentacleEffect)
+			
+			ItemStack helmet = player.getCurrentArmor(3);
+			ItemStack chest = player.getCurrentArmor(2);
+			ItemStack pants = player.getCurrentArmor(1);
+			ItemStack boots = player.getCurrentArmor(0);
+			
+			if (helmet != null && chest != null && pants != null && boots != null)
 			{
-				ticks++;
-				if (ticks == gTime * 20)
+				if (helmet.getItem() == MTools.meuroditeHelmet && chest.getItem() == MTools.meuroditeChestplate && pants.getItem() == MTools.meuroditeLeggings && boots.getItem() == MTools.meuroditeBoots)
 				{
-					ghastTentacleEffect = false;
-					EntityPlayerMP playermp = (EntityPlayerMP) player;
-					playermp.mcServer.getConfigurationManager().transferPlayerToDimension(playermp, 0);
+					player.addPotionEffect(new PotionEffect(Potion.fireResistance.id, 1, 0, true));
 				}
-			}
-			else
-			{
-				ticks = 0;
-			}
-		}
-		
-		ItemStack helmet = player.getCurrentArmor(3);
-		ItemStack chest = player.getCurrentArmor(2);
-		ItemStack pants = player.getCurrentArmor(1);
-		ItemStack boots = player.getCurrentArmor(0);
-		
-		if (helmet != null && chest != null && pants != null && boots != null)
-		{
-			if (helmet.getItem() == MTools.meuroditeHelmet && chest.getItem() == MTools.meuroditeChestplate && pants.getItem() == MTools.meuroditeLeggings && boots.getItem() == MTools.meuroditeBoots)
-			{
-				player.addPotionEffect(new PotionEffect(Potion.fireResistance.id, 1, 0, true));
-			}
-			else if (helmet.getItem() == MTools.toriteHelmet && chest.getItem() == MTools.toriteChestplate && pants.getItem() == MTools.toriteLeggings && boots.getItem() == MTools.toriteBoots)
-			{
-				player.addPotionEffect(new PotionEffect(Potion.regeneration.id, 1, 0, true));
-			}
-			else if (helmet.getItem() == MTools.titaniumHelmet && chest.getItem() == MTools.titaniumChestplate && pants.getItem() == MTools.titaniumLeggings && boots.getItem() == MTools.titaniumBoots)
-			{
-				player.addPotionEffect(new PotionEffect(Potion.resistance.id, 1, 1, true));
+				else if (helmet.getItem() == MTools.toriteHelmet && chest.getItem() == MTools.toriteChestplate && pants.getItem() == MTools.toriteLeggings && boots.getItem() == MTools.toriteBoots)
+				{
+					player.addPotionEffect(new PotionEffect(Potion.regeneration.id, 1, 0, true));
+				}
+				else if (helmet.getItem() == MTools.titaniumHelmet && chest.getItem() == MTools.titaniumChestplate && pants.getItem() == MTools.titaniumLeggings && boots.getItem() == MTools.titaniumBoots)
+				{
+					player.addPotionEffect(new PotionEffect(Potion.resistance.id, 1, 1, true));
+				}
 			}
 		}
 	}
