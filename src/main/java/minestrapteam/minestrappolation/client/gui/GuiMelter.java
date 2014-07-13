@@ -9,7 +9,6 @@ import minestrapteam.minestrappolation.tileentity.TileEntityMelter;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.StatCollector;
 
 public class GuiMelter extends GuiContainer
 {
@@ -26,7 +25,7 @@ public class GuiMelter extends GuiContainer
 	@Override
 	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
 	{
-		this.fontRendererObj.drawString(StatCollector.translateToLocal(this.melter.getInventoryName()), 8, this.ySize - 94, 4210752);
+		this.fontRendererObj.drawString(this.melter.getInventoryName(), 8, this.ySize - 94, 4210752);
 	}
 	
 	@Override
