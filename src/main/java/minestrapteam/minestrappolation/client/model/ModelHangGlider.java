@@ -167,27 +167,7 @@ public class ModelHangGlider extends ModelBase
 	{
 		super.render(entity, f, f1, f2, f3, f4, f5);
 		this.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-		this.Mainstrut.render(f5);
-		this.Sidestrut1.render(f5);
-		this.Sidestrut2.render(f5);
-		this.Bottomstrut.render(f5);
-		this.Handlebar.render(f5);
-		this.WingA.render(f5);
-		this.WingB.render(f5);
-		this.WingC.render(f5);
-		this.WingD.render(f5);
-		this.WingE.render(f5);
-		this.WingF.render(f5);
-		this.WingG.render(f5);
-		this.WingH.render(f5);
-		this.WingI.render(f5);
-		this.WingJ.render(f5);
-		this.WingK.render(f5);
-		this.WingL.render(f5);
-		this.WingM.render(f5);
-		this.WingN.render(f5);
-		this.WingO.render(f5);
-		this.WingP.render(f5);
+		this.render(f5);
 	}
 	
 	public void render(float f5)

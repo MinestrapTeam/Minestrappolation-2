@@ -28,8 +28,6 @@ public class EntityHangGlider extends Entity
 	@Override
 	public void onUpdate()
 	{
-		System.out.println("Hangglider @ " + this.posX + ";" + this.posY + ";" + this.posZ);
-		
 		Entity player = this.riddenByEntity;
 		if (player != null)
 		{
