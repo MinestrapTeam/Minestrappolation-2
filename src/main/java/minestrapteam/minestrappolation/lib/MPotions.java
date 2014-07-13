@@ -18,8 +18,8 @@ public class MPotions implements IPotionEffectHandler
 {
 	private static ResourceLocation	iconLoc				= MCAssetManager.getCoreResource("gui/potion_icons.png");
 	
-	public static Potion			infectiousPotion	= new MCPotion("potion.infectious", 0xFE3040, true).setIcon(iconLoc, 0, 6);
-	public static Potion			ghastTentaclePotion	= new MCPotion("potion.ghastTentacle", 0xED03D5, true).setIcon(iconLoc, 0, 7);
+	public static Potion			infectiousPotion	= new MCPotion("potion.infectious", 0xFE3040, true).setIcon(iconLoc, 6, 1);
+	public static Potion			ghastTentaclePotion	= new MCPotion("potion.ghastTentacle", 0xED03D5, true).setIcon(iconLoc, 7, 1);
 	
 	public static PotionType		infectious;
 	public static PotionType		ghastTentacle;
