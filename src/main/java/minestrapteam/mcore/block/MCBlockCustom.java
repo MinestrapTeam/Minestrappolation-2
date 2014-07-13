@@ -49,7 +49,7 @@ public class MCBlockCustom extends Block
 	public int					harvestLevel;
 	public String				harvestTool;
 	
-	public Map<String, IIcon>	iconMap	= new HashMap();
+	public Map<String, IIcon>	iconMap		= new HashMap();
 	
 	public boolean				chiseledSided;
 	public boolean				clay;
@@ -58,7 +58,7 @@ public class MCBlockCustom extends Block
 	public boolean				redSandstone;
 	public boolean				enderDragonCantDestroy;
 	
-	public float				walkSpeed;
+	public float				walkSpeed	= 1F;
 	
 	public MCBlockCustom(String[] types, String name)
 	{
@@ -403,7 +403,8 @@ public class MCBlockCustom extends Block
 	@Override
 	public void onEntityWalking(World world, int x, int y, int z, Entity entityWalking)
 	{
-		if ("road".equals(this.getType(world.getBlockMetadata(x, y, z))))
+		String type = this.getType(world.getBlockMetadata(x, y, z));
+		if ("road".equals(type))
 		{
 			entityWalking.motionX *= this.walkSpeed;
 			entityWalking.motionY *= this.walkSpeed;
@@ -414,10 +415,6 @@ public class MCBlockCustom extends Block
 	@Override
 	public boolean canEntityDestroy(IBlockAccess world, int x, int y, int z, Entity entity)
 	{
-		if (this.enderDragonCantDestroy)
-		{
-			return false;
-		}
-		return super.canEntityDestroy(world, x, y, z, entity);
+		return !this.enderDragonCantDestroy && super.canEntityDestroy(world, x, y, z, entity);
 	}
 }
