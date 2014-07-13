@@ -965,6 +965,9 @@ public class StonecutterCraftingManager
 		// Edge Stone Brick
 		this.addRecipe(new ItemStack(edgeStoneBrick, 1, 0), null, new Object[] { "SQ", "SQ", 'S', MCItems.brickStone, 'Q', Items.quartz });
 		this.addRecipe(new ItemStack(edgeStoneBrick, 1, 1), null, new Object[] { "SQ", "SQ", 'S', MCItems.brickStone, 'Q', Items.flint });
+	
+		//Misc
+		this.addRecipe(new ItemStack(Blocks.anvil, 1, 0), null, new Object[] { "III", " S ", "SSS", 'I', Blocks.iron_block, 'S', MItems.steelIngot});
 	}
 	
 	public ShapedSCRecipe addRecipe(ItemStack output, ItemStack extraSlot, Object... data)
