@@ -4,7 +4,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-import clashsoft.cslib.minecraft.item.CSStacks;
+import clashsoft.cslib.minecraft.stack.CSStacks;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemStack;
