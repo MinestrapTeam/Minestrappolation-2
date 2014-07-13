@@ -49,6 +49,15 @@ public class MPotions implements IPotionEffectHandler
 		}
 		else if (effect.getPotionID() == ghastTentacle.id)
 		{
+			if (entity.dimension != -1)
+			{
+				entity.travelToDimension(-1);
+				entity.addPotionEffect(new PotionEffect(Potion.confusion.id, effect.getDuration(), 0));
+			}
+			else if (effect.getDuration() < 10)
+			{
+				entity.travelToDimension(0);
+			}
 		}
 	}
 	
