@@ -58,11 +58,11 @@ public class MCItemBlockCustom2 extends MCItemBlockMulti
 		Block block1 = world.getBlock(x, y, z);
 		int i = world.getBlockMetadata(x, y, z);
 		
-		int type = i / 3 * 3;
 		int model = i % 3;
+		int type = i - model;
 		
 		// Handles double slabs
-		if (block1 == this.field_150939_a && type == stack.getItemDamage() && (side == 1 && model == 0 || side == 0 && model == 1))
+		if (block1 == this.field_150939_a && type == stack.getItemDamage() && ((side == 1 && model == 0) || (side == 0 && model == 1)))
 		{
 			if (world.checkNoEntityCollision(this.field_150939_a.getCollisionBoundingBoxFromPool(world, x, y, z)))
 			{
@@ -117,11 +117,11 @@ public class MCItemBlockCustom2 extends MCItemBlockMulti
 		
 		Block block = world.getBlock(x, y, z);
 		int i = world.getBlockMetadata(x, y, z);
-		int type = i / 3 * 3;
+		int type = i - (i % 3);
 		
 		if (block == this.field_150939_a && type == stack.getItemDamage())
 		{
-			if (world.checkNoEntityCollision(this.field_150939_a.getCollisionBoundingBoxFromPool(world, x, y, z)) && world.setBlock(x, y, z, this.field_150939_a, i, 3))
+			if (world.checkNoEntityCollision(this.field_150939_a.getCollisionBoundingBoxFromPool(world, x, y, z)) && world.setBlock(x, y, z, this.field_150939_a, type + 2, 3))
 			{
 				this.playPlaceSound(world, x, y, z);
 				stack.stackSize--;
