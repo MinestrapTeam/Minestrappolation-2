@@ -329,7 +329,7 @@ public class MCBlockCustom2 extends Block
 		}
 		else if ("raw_slab".equals(type))
 		{
-			if (side > 1 && this.slabSided)
+			if (side > 1)
 			{
 				return this.iconMap.get("raw_slab_side");
 			}
