@@ -4,6 +4,7 @@ import clashsoft.brewingapi.BrewingAPI;
 import clashsoft.cslib.config.CSConfig;
 import clashsoft.cslib.minecraft.entity.CSEntities;
 import clashsoft.cslib.minecraft.init.BaseMod;
+import cpw.mods.fml.common.IFuelHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -20,7 +21,6 @@ import minestrapteam.minestrappolation.crafting.MelterRecipeLoader;
 import minestrapteam.minestrappolation.creativetab.*;
 import minestrapteam.minestrappolation.entity.*;
 import minestrapteam.minestrappolation.handler.BlacksmithTradeHandler;
-import minestrapteam.minestrappolation.handler.FuelHandler;
 import minestrapteam.minestrappolation.handler.MEventHandler;
 import minestrapteam.minestrappolation.handler.PriestTradeHandler;
 import minestrapteam.minestrappolation.lib.*;
@@ -130,7 +130,7 @@ public class Minestrappolation extends BaseMod
 		VillagerRegistry.instance().registerVillageTradeHandler(3, new BlacksmithTradeHandler());
 		VillagerRegistry.instance().registerVillageTradeHandler(2, new PriestTradeHandler());
 		
-		GameRegistry.registerFuelHandler(new FuelHandler());
+		GameRegistry.registerFuelHandler((IFuelHandler) this.eventHandler);
 	}
 	
 	@Override

@@ -2,6 +2,7 @@ package minestrapteam.minestrappolation.handler;
 
 import java.util.Random;
 
+import cpw.mods.fml.common.IFuelHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent.Phase;
 import cpw.mods.fml.common.gameevent.TickEvent.PlayerTickEvent;
@@ -22,7 +23,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.player.EntityInteractEvent;
 
-public class MEventHandler
+public class MEventHandler implements IFuelHandler
 {
 	public static boolean	ghastTentacleEffect	= false;
 	
@@ -415,5 +416,19 @@ public class MEventHandler
 			inventory.getCurrentItem().stackSize--;
 			inventory.addItemStackToInventory(new ItemStack(MItems.ghastlySoul, 1));
 		}
+	}
+	
+	@Override
+	public int getBurnTime(ItemStack fuel)
+	{
+		if (fuel.getItem() == MItems.uranium)
+		{
+			return 36000;
+		}
+		else if (fuel.getItem() == MItems.plutonium)
+		{
+			return 48000;
+		}
+		return 0;
 	}
 }
