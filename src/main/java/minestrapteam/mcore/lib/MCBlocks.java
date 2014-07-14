@@ -1,12 +1,13 @@
 package minestrapteam.mcore.lib;
 
+import cpw.mods.fml.common.registry.GameRegistry;
 import clashsoft.cslib.minecraft.block.CSBlocks;
 import minestrapteam.mcore.block.MCBlockCustom2;
+import minestrapteam.mcore.block.MCBlockStairs;
 import minestrapteam.mcore.block.MCBlockStonecutter;
 import minestrapteam.mcore.util.MCAssetManager;
 import minestrapteam.mcore.util.MCBlockHelper;
 import minestrapteam.minestrappolation.Minestrappolation;
-
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 
@@ -26,6 +27,10 @@ public class MCBlocks
 	public static Block	stoneMeurodite2;
 	
 	public static Block	graniteSlate;
+	public static Block graniteSlateStairsRaw;
+	public static Block graniteSlateStairsBricks;
+	public static Block graniteSlateStairsTiles;
+	public static Block graniteSlateStairsCracked;
 	public static Block	graniteSlate2;
 	public static Block	graniteSlateTin;
 	public static Block	graniteSlateTin2;
@@ -153,6 +158,14 @@ public class MCBlocks
 		
 		graniteSlate = MCBlockHelper.createStoneBlock(types_granite, "granite", 2F, 15.0F, 0, tab);
 		graniteSlate2 = MCBlockHelper.createStoneBlock2("granite", 2F, 15.0F, 0, tab);
+		graniteSlateStairsRaw = new MCBlockStairs(graniteSlate, 0).setBlockName("stairs_granite_slate_raw").setCreativeTab(tab);
+		CSBlocks.addBlock(graniteSlateStairsRaw);
+		graniteSlateStairsBricks = new MCBlockStairs(graniteSlate, 1).setBlockName("stairs_granite_slate_bricks").setCreativeTab(tab);
+		CSBlocks.addBlock(graniteSlateStairsBricks);
+		graniteSlateStairsTiles = new MCBlockStairs(graniteSlate, 3).setBlockName("stairs_granite_slate_tiles").setCreativeTab(tab);
+		CSBlocks.addBlock(graniteSlateStairsTiles);
+		graniteSlateStairsCracked = new MCBlockStairs(graniteSlate, 7).setBlockName("stairs_granite_slate_cracked").setCreativeTab(tab);
+		CSBlocks.addBlock(graniteSlateStairsCracked);
 		graniteSlateTin = MCBlockHelper.createStoneBlock(types_granite, "granite_tin", 2.2F, 16.0F, 0, tab);
 		graniteSlateTin2 = MCBlockHelper.createStoneBlock2("granite_tin", 2.2F, 16.0F, 0, tab);
 		graniteSlateBronze = MCBlockHelper.createStoneBlock(types_granite, "granite_bronze", 2.2F, 30.0F, 0, tab);
@@ -160,7 +173,7 @@ public class MCBlocks
 		graniteSlateSteel = MCBlockHelper.createStoneBlock(types_granite, "granite_steel", 4F, 16.0F, 0, tab);
 		graniteSlateSteel2 = MCBlockHelper.createStoneBlock2("granite_steel", 4F, 16.0F, 0, tab);
 		graniteSlateMeurodite = MCBlockHelper.createStoneBlock(types_granite, "granite_meurodite", 3F, 22.5F, 0, tab);
-		graniteSlateMeurodite2 = MCBlockHelper.createStoneBlock2("granite_meurodite", 3F, 22.5F, 0, tab);
+		graniteSlateMeurodite2 = MCBlockHelper.createStoneBlock2("granite_meurodite", 3F, 22.5F, 0, tab);		
 		
 		sandstone = MCBlockHelper.createStoneBlock(types_sandstone, "sandstone", 0.8F, 1.33F, 0, tab);
 		sandstone2 = MCBlockHelper.createStoneBlock2(types_sandstone_2, "sandstone", 0.8F, 1.33F, 0, tab);

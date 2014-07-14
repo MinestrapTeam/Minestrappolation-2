@@ -4,10 +4,12 @@ import cpw.mods.fml.common.registry.GameData;
 import cpw.mods.fml.common.registry.GameRegistry;
 import minestrapteam.mcore.block.MCBlockCustom;
 import minestrapteam.mcore.block.MCBlockCustom2;
+import minestrapteam.mcore.block.MCBlockStairs;
 import minestrapteam.mcore.item.block.MCItemBlockCustom;
 import minestrapteam.mcore.item.block.MCItemBlockCustom2;
 import minestrapteam.mcore.lib.MCReference;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockStairs;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 
