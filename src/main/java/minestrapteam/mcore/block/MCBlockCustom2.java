@@ -66,12 +66,17 @@ public class MCBlockCustom2 extends Block
 	
 	public MCBlockCustom2(String[] types, String name)
 	{
-		this(types, name, 1F, 5F, 0);
+		this(types, name, 1F, 5F, 0, Material.rock);
 	}
 	
-	public MCBlockCustom2(String[] types, String name, float baseHardness, float baseResistance, int harvestLevel)
+	public MCBlockCustom2(String[] types, String name, Material mat)
 	{
-		super(Material.rock);
+		this(types, name, 1F, 5F, 0, mat);
+	}
+	
+	public MCBlockCustom2(String[] types, String name, float baseHardness, float baseResistance, int harvestLevel, Material mat)
+	{
+		super(mat);
 		this.setCreativeTab(Minestrappolation.tabStoneDecor);
 		this.name = name;
 		this.baseHardness = baseHardness;

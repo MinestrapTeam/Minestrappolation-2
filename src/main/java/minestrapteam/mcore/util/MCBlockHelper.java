@@ -7,8 +7,8 @@ import minestrapteam.mcore.block.MCBlockCustom2;
 import minestrapteam.mcore.item.block.MCItemBlockCustom;
 import minestrapteam.mcore.item.block.MCItemBlockCustom2;
 import minestrapteam.mcore.lib.MCReference;
-
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 
 /**
@@ -50,7 +50,7 @@ public class MCBlockHelper
 	public static MCBlockCustom2 createWoodBlock2(String[] types, String name, CreativeTabs tab)
 	{
 		String name1 = "wood_slab_" + name;
-		MCBlockCustom2 block = new MCBlockCustom2(woodTypes2, name);
+		MCBlockCustom2 block = new MCBlockCustom2(woodTypes2, name, Material.wood);
 		block.setBlockName(name1);
 		block.setBlockTextureName(MCAssetManager.getWoodTexture(name));
 		block.setCreativeTab(tab);
@@ -67,7 +67,7 @@ public class MCBlockHelper
 	public static MCBlockCustom createStoneBlock(String[] types, String name, float hardness, float resistance, int harvestLevel, CreativeTabs tab)
 	{
 		String name1 = "stone_" + name;
-		MCBlockCustom block = new MCBlockCustom(types, name, hardness, resistance, harvestLevel);
+		MCBlockCustom block = new MCBlockCustom(types, name, hardness, resistance, harvestLevel, Material.rock);
 		block.setBlockName(name1);
 		block.setBlockTextureName(MCAssetManager.getStonecutterTexture(name));
 		block.setCreativeTab(tab);
@@ -84,7 +84,7 @@ public class MCBlockHelper
 	public static MCBlockCustom2 createStoneBlock2(String[] types, String name, float hardness, float resistance, int harvestLevel, CreativeTabs tab)
 	{
 		String name1 = "stone_slab_" + name;
-		MCBlockCustom2 block = new MCBlockCustom2(types, name, hardness, resistance, harvestLevel);
+		MCBlockCustom2 block = new MCBlockCustom2(types, name, hardness, resistance, harvestLevel, Material.rock);
 		block.setBlockName(name1);
 		block.setBlockTextureName(MCAssetManager.getStonecutterTexture(name));
 		block.setCreativeTab(tab);

@@ -23,7 +23,7 @@ buildscript
 apply plugin: 'forge'
 
 version = "3.0"
-group= "com.minestrappolation"
+group= "minestrapteam"
 archivesBaseName = "Minestrappolation"
 
 minecraft
