@@ -4,13 +4,13 @@ import clashsoft.cslib.minecraft.block.CSBlocks;
 import cpw.mods.fml.common.registry.GameRegistry;
 import minestrapteam.mcore.block.MCBlock;
 import minestrapteam.mcore.block.MCBlockPane;
+import minestrapteam.mcore.block.MCBlockStairs;
 import minestrapteam.mcore.item.block.MCItemBlockMulti;
 import minestrapteam.mcore.util.MCAssetManager;
 import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.block.*;
 import minestrapteam.minestrappolation.material.MaterialOoze;
 import minestrapteam.minestrappolation.tileentity.TileEntityPlate;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -58,6 +58,10 @@ public class MBlocks
 	public static Block		melterBurning;
 	
 	public static Block		checkerTiles;
+	public static Block		flintEndstoneStairs;
+	public static Block		flintQuartzStairs;
+	public static Block		obsidianEndstoneStairs;
+	public static Block		obsidianQuartzStairs;
 	public static Block		edgeStoneBrick;
 	public static Block		snowBrick;
 	
@@ -124,6 +128,11 @@ public class MBlocks
 		melterBurning = new BlockMelter(true).setHardness(6F).setResistance(8.0F).setStepSound(Block.soundTypeStone);
 		
 		checkerTiles = new BlockTiles().setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone);
+		flintEndstoneStairs = new MCBlockStairs(checkerTiles, 0).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockName("stairs_flint_endstone");
+		flintQuartzStairs = new MCBlockStairs(checkerTiles, 1).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockName("stairs_flint_quartz");
+		obsidianEndstoneStairs = new MCBlockStairs(checkerTiles, 2).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockName("stairs_obsidian_endstone");
+		obsidianQuartzStairs = new MCBlockStairs(checkerTiles, 3).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockName("stairs_obsidan_quartz");
+
 		edgeStoneBrick = new BlockEdgeStoneBrick().setHardness(1.5F).setResistance(10F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone);
 		snowBrick = new BlockSnowBrick().setHardness(0.3F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeSnow).setBlockTextureName(MCAssetManager.getTexture("snow_tiles"));
 		
@@ -194,6 +203,11 @@ public class MBlocks
 		CSBlocks.addBlock(melterBurning, "melter_burning");
 		
 		CSBlocks.addBlock(checkerTiles, MCItemBlockMulti.class, "checker_tiles");
+		CSBlocks.addBlock(flintQuartzStairs);
+		CSBlocks.addBlock(flintEndstoneStairs);
+		CSBlocks.addBlock(obsidianEndstoneStairs);
+		CSBlocks.addBlock(obsidianQuartzStairs);
+		
 		CSBlocks.addBlock(edgeStoneBrick, MCItemBlockMulti.class, "edge_stone_brick");
 		CSBlocks.addBlock(snowBrick, "snow_brick");
 		
