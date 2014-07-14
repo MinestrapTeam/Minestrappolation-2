@@ -223,10 +223,19 @@ public class MRecipes
 		GameRegistry.addSmelting(horseHaunchRaw, new ItemStack(horseHaunchCooked), 0.8F);
 		GameRegistry.addRecipe(new ItemStack(wingSegment, 1, 0), new Object[] { "FSF", "SLS", "FSF", 'F', Items.feather, 'S', wingSinew, 'L', Items.leather });
 		GameRegistry.addRecipe(new ItemStack(hangGlider, 1, 0), new Object[] { "PPP", "W W", "W W", 'P', Blocks.planks, 'W', wingSegment });
+	
+		GameRegistry.addRecipe(new ItemStack(MCBlocks.woodOak, 8, 3), new Object[] {"PPP", "PVP", "PPP", 'P', new ItemStack(Blocks.planks, 1, 0), 'V', Blocks.vine});
+		GameRegistry.addRecipe(new ItemStack(MCBlocks.woodSpruce, 8, 3), new Object[] {"PPP", "PVP", "PPP", 'P', new ItemStack(Blocks.planks, 1, 1), 'V', Blocks.vine});
+		GameRegistry.addRecipe(new ItemStack(MCBlocks.woodBirch, 8, 3), new Object[] {"PPP", "PVP", "PPP", 'P', new ItemStack(Blocks.planks, 1, 2), 'V', Blocks.vine});
+		GameRegistry.addRecipe(new ItemStack(MCBlocks.woodJungle, 8, 3), new Object[] {"PPP", "PVP", "PPP", 'P', new ItemStack(Blocks.planks, 1, 3), 'V', Blocks.vine});
+		GameRegistry.addRecipe(new ItemStack(MCBlocks.woodAcacia, 8, 3), new Object[] {"PPP", "PVP", "PPP", 'P', new ItemStack(Blocks.planks, 1, 4), 'V', Blocks.vine});
+		GameRegistry.addRecipe(new ItemStack(MCBlocks.woodDarkOak, 8, 3), new Object[] {"PPP", "PVP", "PPP", 'P', new ItemStack(Blocks.planks, 1, 5), 'V', Blocks.vine});
 	}
 	
 	public static void removeRecipes()
 	{
+		MCUtil.removeRecipe(new ItemStack(Blocks.anvil, 1, 0));
+		
 		MCUtil.removeRecipe(new ItemStack(Blocks.stonebrick, 4, 0));
 		MCUtil.removeRecipe(new ItemStack(Blocks.sandstone, 4, 2));
 		MCUtil.removeRecipe(new ItemStack(Blocks.sandstone, 1, 1));

@@ -102,6 +102,10 @@ public class MCBlocks
 	public static Block	woodSpruce2;
 	public static Block	woodJungle;
 	public static Block	woodJungle2;
+	public static Block woodAcacia;
+	public static Block woodAcacia2;
+	public static Block woodDarkOak;
+	public static Block woodDarkOak2;
 	
 	public static void init()
 	{
@@ -224,5 +228,9 @@ public class MCBlocks
 		woodSpruce2 = MCBlockHelper.createWoodBlock2("spruce", tab_decor);
 		woodJungle = MCBlockHelper.createWoodBlock("jungle", tab_decor);
 		woodJungle2 = MCBlockHelper.createWoodBlock2("jungle", tab_decor);
+		woodAcacia = MCBlockHelper.createWoodBlock("acacia", tab_decor);
+		woodAcacia2 = MCBlockHelper.createWoodBlock2("acacia", tab_decor);
+		woodDarkOak = MCBlockHelper.createWoodBlock("dark_oak", tab_decor);
+		woodDarkOak2 = MCBlockHelper.createWoodBlock2("dark_oak", tab_decor);
 	}
 }
