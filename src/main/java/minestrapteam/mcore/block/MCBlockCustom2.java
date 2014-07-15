@@ -6,9 +6,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import cpw.mods.fml.relauncher.Side;
 import minestrapteam.mcore.common.MCCommonProxy;
 import minestrapteam.minestrappolation.Minestrappolation;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -63,6 +63,7 @@ public class MCBlockCustom2 extends Block
 	public boolean				redSandstone;
 	public boolean				radiantQuartz;
 	public boolean				enderDragonCantDestroy;
+	public boolean				beaconBase;
 	
 	public MCBlockCustom2(String[] types, String name)
 	{
@@ -88,6 +89,11 @@ public class MCBlockCustom2 extends Block
 	public MCBlockCustom2 setEnderDragonCantDestroy()
 	{
 		this.enderDragonCantDestroy = true;
+		return this;
+	}
+	
+	public MCBlockCustom2 setBeaconBase(){
+		this.beaconBase = true;
 		return this;
 	}
 	
@@ -439,4 +445,10 @@ public class MCBlockCustom2 extends Block
 		}
 		return super.canEntityDestroy(world, x, y, z, entity);
 	}
+	
+	@Override
+    public boolean isBeaconBase(IBlockAccess worldObj, int x, int y, int z, int beaconX, int beaconY, int beaconZ)
+    {
+        return this.beaconBase;
+    }
 }

@@ -1,10 +1,11 @@
 package minestrapteam.minestrappolation.block;
 
 import minestrapteam.minestrappolation.tileentity.TileEntityPlate;
-
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
@@ -22,9 +23,15 @@ public class BlockPlate extends BlockContainer
 	{
 		ItemStack stack = player.inventory.getCurrentItem();
 		TileEntityPlate te = (TileEntityPlate) world.getTileEntity(x, y, z);
-		if (stack != null)
+		if (stack != null && player.inventory.getCurrentItem().getItem() instanceof ItemFood)
 		{
+			
+			if (te.getItem() != null)
+			{
+			   player.inventory.addItemStackToInventory(new ItemStack(te.getItem().getItem()));
+			}
 			te.setItem(stack);
+			
 			
 			if (!player.capabilities.isCreativeMode)
 			{
@@ -33,11 +40,11 @@ public class BlockPlate extends BlockContainer
 		}
 		else
 		{
-			te.setItem(null);
-			if (!world.isRemote)
+			stack = te.getItem();
+			if (stack != null)
 			{
-				stack = te.getItem();
-				player.inventory.addItemStackToInventory(stack);
+				player.inventory.addItemStackToInventory(new ItemStack(stack.getItem()));
+				te.setItem(null);
 			}
 		}
 		return true;

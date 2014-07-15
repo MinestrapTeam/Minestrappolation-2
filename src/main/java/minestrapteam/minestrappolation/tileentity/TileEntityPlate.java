@@ -32,7 +32,6 @@ public class TileEntityPlate extends TileEntity
 	public void setItem(ItemStack stack)
 	{
 		this.stack = stack;
-		
 		if (this.theItem != null)
 		{
 			this.theItem.setDead();

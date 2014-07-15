@@ -6,7 +6,9 @@ import minestrapteam.minestrappolation.lib.MBlocks;
 import minestrapteam.minestrappolation.lib.MItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.world.IBlockAccess;
 
 public class MCBlock extends Block
 {

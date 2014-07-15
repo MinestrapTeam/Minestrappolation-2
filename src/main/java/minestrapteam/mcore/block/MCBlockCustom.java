@@ -57,6 +57,7 @@ public class MCBlockCustom extends Block
 	public boolean				netherrack;
 	public boolean				redSandstone;
 	public boolean				enderDragonCantDestroy;
+	public boolean				beaconBase;
 	
 	public float				walkSpeed	= 1F;
 	
@@ -83,6 +84,11 @@ public class MCBlockCustom extends Block
 	public MCBlockCustom setEnderDragonCantDestroy()
 	{
 		this.enderDragonCantDestroy = true;
+		return this;
+	}
+	
+	public MCBlockCustom setBeaconBase(){
+		this.beaconBase = true;
 		return this;
 	}
 	
@@ -422,4 +428,10 @@ public class MCBlockCustom extends Block
 	{
 		return !this.enderDragonCantDestroy && super.canEntityDestroy(world, x, y, z, entity);
 	}
+	
+	@Override
+    public boolean isBeaconBase(IBlockAccess worldObj, int x, int y, int z, int beaconX, int beaconY, int beaconZ)
+    {
+        return this.beaconBase;
+    }
 }

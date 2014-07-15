@@ -426,8 +426,8 @@ public class MCBlocks
 		CSBlocks.addBlock(desertQuartzStairsBricks);
 		desertQuartzStairsTiles = new MCBlockStairs(desertQuartz, 3).setBlockName("stairs_desert_quartz_tiles").setCreativeTab(tab);
 		CSBlocks.addBlock(desertQuartzStairsTiles);
-		radiantQuartz = MCBlockHelper.createStoneBlock(types_radiantquartz, "radiant_quartz", 2F, 6.0F, 3, tab).setLightLevel(0.5F);
-		radiantQuartz2 = ((MCBlockCustom2) MCBlockHelper.createStoneBlock2(types_radiantquartz_2, "radiant_quartz", 2F, 6.0F, 3, tab).setLightLevel(0.5F)).setIsRadiantQuartz();
+		radiantQuartz = MCBlockHelper.createStoneBlock(types_radiantquartz, "radiant_quartz", 2F, 6.0F, 3, tab).setBeaconBase().setLightLevel(0.5F);
+		radiantQuartz2 = ((MCBlockCustom2) MCBlockHelper.createStoneBlock2(types_radiantquartz_2, "radiant_quartz", 2F, 6.0F, 3, tab).setBeaconBase().setLightLevel(0.5F)).setIsRadiantQuartz();
 		radiantQuartzStairsRaw = new MCBlockStairs(radiantQuartz, 0).setBlockName("stairs_radiant_quartz_raw").setCreativeTab(tab);
 		CSBlocks.addBlock(radiantQuartzStairsRaw);
 		radiantQuartzStairsBricks = new MCBlockStairs(radiantQuartz, 1).setBlockName("stairs_radiant_quartz_bricks").setCreativeTab(tab);
