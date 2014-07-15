@@ -25,7 +25,7 @@ public class MCBlockHelper
 	public static final String[]	stoneTypes2	= new String[] { "pillar", "raw_slab", "brick_slab", "tile_slab", "refined_slab" };
 	
 	public static final String[]	woodTypes	= new String[] { "bevel", "boards", "panel", "mossy_planks" };
-	public static final String[]	woodTypes2	= woodTypes;
+	public static final String[]	woodTypes2	= new String[] { "bevel", "boards" };
 	
 	public static MCBlockCustom createWoodBlock(String name, CreativeTabs tab)
 	{
@@ -35,7 +35,7 @@ public class MCBlockHelper
 	public static MCBlockCustom createWoodBlock(String[] types, String name, CreativeTabs tab)
 	{
 		String name1 = "wood_" + name;
-		MCBlockCustom block = new MCBlockCustom(types, name);
+		MCBlockCustom block = new MCBlockCustom(types, name,Material.wood);
 		block.setBlockName(name1);
 		block.setBlockTextureName(MCAssetManager.getWoodTexture(name));
 		block.setCreativeTab(tab);
