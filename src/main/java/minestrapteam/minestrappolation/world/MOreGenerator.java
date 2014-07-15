@@ -67,13 +67,13 @@ public class MOreGenerator implements IWorldGenerator
 		// Blocks.sandstone).generate(world, rand, x1, y1, z1);
 		// }
 		
-		for (int i = 0; i < 50; i++)
+		for (int i = 0; i < 500; i++)
 		{
 			x1 = chunkX + rand.nextInt(16);
 			y1 = rand.nextInt(200);
 			z1 = chunkZ + rand.nextInt(16);
 			
-			new WorldGenMinable(Block.getBlockFromItem(new ItemStack(MCBlocks.woodOak, 1, 3).getItem()), 8, Blocks.planks).generate(world, rand, x1, y1, z1);
+			new WorldGenMinable(MCBlocks.woodOak, 3, 15, Blocks.planks).generate(world, rand, x1, y1, z1);
 		}
 		
 		// Meurodite Ore
@@ -158,133 +158,12 @@ public class MOreGenerator implements IWorldGenerator
 		}
 		
 		//Red Sandstone
-		if (biome instanceof BiomeGenMesa)
-		{
-			for (int x0 = 0; x0 < 16; x0++)
-			{
-				int x2 = chunkX + x0;
-				for (int z0 = 0; z0 < 16; z0++)
-				{
-					int z2 = chunkZ + z0;
-					for (int y2 = 0 ; y2 < 256; y2++) 
-					{
-						if (world.getBlock(x2, y2, z2) == Blocks.sand && world.getBlockMetadata(x2, y2, z2) == 1)
-						{
-							if (rand.nextInt(1) == 0)
-							{
-								world.setBlock(x2, y2-1, z2, MCBlocks.redSandstone);
-							}			
-						}
-					}
-				}
-			}	
+		if(biome instanceof BiomeGenMesa){
+			x1 = chunkX + rand.nextInt(16);
+			y1 = rand.nextInt(256);
+			z1 = chunkZ + rand.nextInt(16);
+			new WorldGenRedSandstone().generate(world, rand, x1, y1, z1);
 		}
-		if (biome instanceof BiomeGenMesa)
-		{
-			for (int x0 = 0; x0 < 16; x0++)
-			{
-				int x2 = chunkX + x0;
-				for (int z0 = 0; z0 < 16; z0++)
-				{
-					int z2 = chunkZ + z0;
-					for (int y2 = 0 ; y2 < 256; y2++) 
-					{
-						if (world.getBlock(x2, y2, z2) == MCBlocks.redSandstone && world.getBlockMetadata(x2, y2, z2) == 0)
-						{
-							if (rand.nextInt(1) == 0)
-							{
-								world.setBlock(x2, y2-1, z2, MCBlocks.redSandstone);
-							}			
-						}
-					}
-				}
-			}	
-		}
-		if (biome instanceof BiomeGenMesa)
-		{
-			for (int x0 = 0; x0 < 16; x0++)
-			{
-				int x2 = chunkX + x0;
-				for (int z0 = 0; z0 < 16; z0++)
-				{
-					int z2 = chunkZ + z0;
-					for (int y2 = 0 ; y2 < 256; y2++) 
-					{
-						if (world.getBlock(x2, y2, z2) == MCBlocks.redSandstone && world.getBlockMetadata(x2, y2, z2) == 0)
-						{
-							if (rand.nextInt(1) == 0)
-							{
-								world.setBlock(x2, y2-1, z2, MCBlocks.redSandstone);
-							}			
-						}
-					}
-				}
-			}	
-		}
-		if (biome instanceof BiomeGenMesa)
-		{
-			for (int x0 = 0; x0 < 16; x0++)
-			{
-				int x2 = chunkX + x0;
-				for (int z0 = 0; z0 < 16; z0++)
-				{
-					int z2 = chunkZ + z0;
-					for (int y2 = 0 ; y2 < 256; y2++) 
-					{
-						if (world.getBlock(x2, y2, z2) == MCBlocks.redSandstone && world.getBlockMetadata(x2, y2, z2) == 0)
-						{
-							if (rand.nextInt(2) == 1)
-							{
-								world.setBlock(x2, y2-1, z2, MCBlocks.redSandstone);
-							}			
-						}
-					}
-				}
-			}	
-		}
-		if (biome instanceof BiomeGenMesa)
-		{
-			for (int x0 = 0; x0 < 16; x0++)
-			{
-				int x2 = chunkX + x0;
-				for (int z0 = 0; z0 < 16; z0++)
-				{
-					int z2 = chunkZ + z0;
-					for (int y2 = 0 ; y2 < 256; y2++) 
-					{
-						if (world.getBlock(x2, y2, z2) == MCBlocks.redSandstone && world.getBlockMetadata(x2, y2, z2) == 0)
-						{
-							if (rand.nextInt(4) == 1)
-							{
-								world.setBlock(x2, y2-1, z2, MCBlocks.redSandstone);
-							}			
-						}
-					}
-				}
-			}	
-		}
-		if (biome instanceof BiomeGenMesa)
-		{
-			for (int x0 = 0; x0 < 16; x0++)
-			{
-				int x2 = chunkX + x0;
-				for (int z0 = 0; z0 < 16; z0++)
-				{
-					int z2 = chunkZ + z0;
-					for (int y2 = 0 ; y2 < 256; y2++) 
-					{
-						if (world.getBlock(x2, y2, z2) == MCBlocks.redSandstone && world.getBlockMetadata(x2, y2, z2) == 0)
-						{
-							if (rand.nextInt(10) == 1)
-							{
-								world.setBlock(x2, y2-1, z2, MCBlocks.redSandstone);
-							}			
-						}
-					}
-				}
-			}	
-		}
-		
 		
 		// Copper Ore
 		for (int i = 0; i < 14; i++)
