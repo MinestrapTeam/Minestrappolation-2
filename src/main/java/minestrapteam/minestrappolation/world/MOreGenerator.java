@@ -67,7 +67,7 @@ public class MOreGenerator implements IWorldGenerator
 		// Blocks.sandstone).generate(world, rand, x1, y1, z1);
 		// }
 		
-		for (int i = 0; i < 500; i++)
+		for (int i = 0; i < 50; i++)
 		{
 			x1 = chunkX + rand.nextInt(16);
 			y1 = rand.nextInt(200);
