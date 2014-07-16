@@ -12,6 +12,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
 
 /**
  * A utility class for adding various types of blocks.
@@ -41,6 +42,7 @@ public class MCBlockHelper
 		block.setCreativeTab(tab);
 		block.setHarvestTool("axe");
 		GameRegistry.registerBlock(block, MCItemBlockCustom.class, name1);
+		Blocks.fire.setFireInfo(block, 5, 20);
 		return block;
 	}
 	
@@ -58,6 +60,7 @@ public class MCBlockHelper
 		block.setCreativeTab(tab);
 		block.setHarvestTool("axe");
 		GameRegistry.registerBlock(block, MCItemBlockCustom2.class, name1);
+		Blocks.fire.setFireInfo(block, 5, 20);
 		return block;
 	}
 	
