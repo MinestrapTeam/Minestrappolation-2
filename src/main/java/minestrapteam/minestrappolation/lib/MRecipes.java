@@ -237,6 +237,18 @@ public class MRecipes
 		GameRegistry.addRecipe(new ItemStack(MCBlocks.woodJungle, 16, 1), new Object[] {"LL", "LL", 'L', new ItemStack(Blocks.log, 1, 3)});
 		GameRegistry.addRecipe(new ItemStack(MCBlocks.woodAcacia, 16, 1), new Object[] {"LL", "LL", 'L', new ItemStack(Blocks.log2, 1, 0)});
 		GameRegistry.addRecipe(new ItemStack(MCBlocks.woodDarkOak, 16, 1), new Object[] {"LL", "LL", 'L', new ItemStack(Blocks.log2, 1, 1)});
+		GameRegistry.addRecipe(new ItemStack(MCBlocks.woodOak2, 6, 3), new Object[] {"BBB", 'B', new ItemStack(MCBlocks.woodOak, 1, 1)});
+		GameRegistry.addRecipe(new ItemStack(MCBlocks.woodBirch2, 6, 3), new Object[] {"BBB", 'B', new ItemStack(MCBlocks.woodBirch, 1, 1)});
+		GameRegistry.addRecipe(new ItemStack(MCBlocks.woodSpruce2, 6, 3), new Object[] {"BBB", 'B', new ItemStack(MCBlocks.woodSpruce, 1, 1)});
+		GameRegistry.addRecipe(new ItemStack(MCBlocks.woodJungle2, 6, 3), new Object[] {"BBB", 'B', new ItemStack(MCBlocks.woodJungle, 1, 1)});
+		GameRegistry.addRecipe(new ItemStack(MCBlocks.woodAcacia2, 6, 3), new Object[] {"BBB", 'B', new ItemStack(MCBlocks.woodAcacia, 1, 1)});
+		GameRegistry.addRecipe(new ItemStack(MCBlocks.woodDarkOak2, 6, 3), new Object[] {"BBB", 'B', new ItemStack(MCBlocks.woodDarkOak, 1, 1)});
+		GameRegistry.addRecipe(new ItemStack(MCBlocks.woodOakStairsBoards, 4, 0), new Object[] {"B  ", "BB ", "BBB", 'B', new ItemStack(MCBlocks.woodOak, 1, 1)});
+		GameRegistry.addRecipe(new ItemStack(MCBlocks.woodBirchStairsBoards, 4, 0), new Object[] {"B  ", "BB ", "BBB", 'B', new ItemStack(MCBlocks.woodBirch, 1, 1)});
+		GameRegistry.addRecipe(new ItemStack(MCBlocks.woodSpruceStairsBoards, 4, 0), new Object[] {"B  ", "BB ", "BBB", 'B', new ItemStack(MCBlocks.woodSpruce, 1, 1)});
+		GameRegistry.addRecipe(new ItemStack(MCBlocks.woodJungleStairsBoards, 4, 0), new Object[] {"B  ", "BB ", "BBB", 'B', new ItemStack(MCBlocks.woodJungle, 1, 1)});
+		GameRegistry.addRecipe(new ItemStack(MCBlocks.woodAcaciaStairsBoards, 4, 0), new Object[] {"B  ", "BB ", "BBB", 'B', new ItemStack(MCBlocks.woodAcacia, 1, 1)});
+		GameRegistry.addRecipe(new ItemStack(MCBlocks.woodDarkOakStairsBoards, 4, 0), new Object[] {"B  ", "BB ", "BBB", 'B', new ItemStack(MCBlocks.woodDarkOak, 1, 1)});
 	}
 	
 	public static void removeRecipes()
