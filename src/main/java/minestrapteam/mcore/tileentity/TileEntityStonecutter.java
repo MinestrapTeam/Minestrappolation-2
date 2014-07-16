@@ -4,6 +4,8 @@ import clashsoft.cslib.minecraft.tileentity.TileEntityInventory;
 
 public class TileEntityStonecutter extends TileEntityInventory
 {
+	
+	public int direction;
 	@Override
 	public int getSizeInventory()
 	{

@@ -1,14 +1,14 @@
 package minestrapteam.mcore.client.renderer.tileentity;
 
-import org.lwjgl.opengl.GL11;
-
 import minestrapteam.mcore.client.model.ModelStonecutter;
+import minestrapteam.mcore.tileentity.TileEntityStonecutter;
 import minestrapteam.mcore.util.MCAssetManager;
-
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
+
+import org.lwjgl.opengl.GL11;
 
 public class RenderStonecutter extends TileEntitySpecialRenderer
 {
@@ -27,7 +27,10 @@ public class RenderStonecutter extends TileEntitySpecialRenderer
 		GL11.glTranslatef((float) x + .5F, (float) y + 1.5F, (float) z + 0.5F);
 		this.bindTexture(this.texture);
 		GL11.glPushMatrix();
-		GL11.glRotatef(180, 0F, 0F, 1F);
+		TileEntityStonecutter tile = (TileEntityStonecutter) t;
+		int direction = tile.direction;
+		GL11.glScalef(1F, -1F, -1F);
+		GL11.glRotatef(direction, 0F, 1F, 0F);
 		this.model.render((Entity) null, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
 		GL11.glPopMatrix();
 		GL11.glPopMatrix();
