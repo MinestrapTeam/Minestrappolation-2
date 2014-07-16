@@ -20,10 +20,18 @@ public class MelterRecipes extends ExperienceRecipeManager
 		this.addRecipe(Blocks.gravel, new ItemStack(Items.lava_bucket, 1, 0), 0.2F);
 		this.addRecipe(Blocks.stone, new ItemStack(Items.lava_bucket, 1, 0), 0.5F);
 		this.addRecipe(Blocks.stonebrick, new ItemStack(Items.lava_bucket, 1, 0), 0.5F);
-		this.addRecipe(Blocks.snow, new ItemStack(Items.water_bucket, 1, 0), 0.4F);
-		this.addRecipe(Blocks.ice, new ItemStack(Items.water_bucket, 1, 0), 0.7F);
-		this.addRecipe(Blocks.packed_ice, new ItemStack(Items.water_bucket, 1, 0), 0.8F);
 		this.addRecipe(Blocks.cobblestone_wall, new ItemStack(Items.lava_bucket, 1, 0), 0.4F);
+		this.addRecipe(MCBlocks.stone, new ItemStack(Items.lava_bucket, 1, 0), 0.4F);
+		this.addRecipe(MCBlocks.stone2, new ItemStack(Items.lava_bucket, 1, 0), 0.4F);
+		this.addRecipe(MCBlocks.stoneBronze, new ItemStack(Items.lava_bucket, 1, 0), 0.7F);
+		this.addRecipe(MCBlocks.stoneBronze2, new ItemStack(Items.lava_bucket, 1, 0), 0.7F);
+		this.addRecipe(MCBlocks.stoneMeurodite, new ItemStack(Items.lava_bucket, 1, 0), 0.8F);
+		this.addRecipe(MCBlocks.stoneMeurodite2, new ItemStack(Items.lava_bucket, 1, 0), 0.8F);
+		this.addRecipe(MCBlocks.stoneSteel, new ItemStack(Items.lava_bucket, 1, 0), 0.7F);
+		this.addRecipe(MCBlocks.stoneSteel2, new ItemStack(Items.lava_bucket, 1, 0), 0.7F);
+		this.addRecipe(MCBlocks.stoneTin, new ItemStack(Items.lava_bucket, 1, 0), 0.5F);
+		this.addRecipe(MCBlocks.stoneTin2, new ItemStack(Items.lava_bucket, 1, 0), 0.5F);
+		
 		this.addRecipe(MCBlocks.graniteSlate, new ItemStack(Items.lava_bucket, 1, 0), 0.5F);
 		this.addRecipe(MCBlocks.graniteSlate2, new ItemStack(Items.lava_bucket, 1, 0), 0.5F);
 		this.addRecipe(MCBlocks.graniteSlateBronze, new ItemStack(Items.lava_bucket, 1, 0), 0.8F);
@@ -34,6 +42,13 @@ public class MelterRecipes extends ExperienceRecipeManager
 		this.addRecipe(MCBlocks.graniteSlateSteel2, new ItemStack(Items.lava_bucket, 1, 0), 0.8F);
 		this.addRecipe(MCBlocks.graniteSlateTin, new ItemStack(Items.lava_bucket, 1, 0), 0.6F);
 		this.addRecipe(MCBlocks.graniteSlateTin2, new ItemStack(Items.lava_bucket, 1, 0), 0.6F);
+		
+		this.addRecipe(MBlocks.edgeStoneBrick, new ItemStack(Items.lava_bucket, 1, 0), 0.5F);
+		
+		this.addRecipe(Blocks.snow, new ItemStack(Items.water_bucket, 1, 0), 0.4F);
+		this.addRecipe(Blocks.ice, new ItemStack(Items.water_bucket, 1, 0), 0.7F);
+		this.addRecipe(Blocks.packed_ice, new ItemStack(Items.water_bucket, 1, 0), 0.8F);
+
 		this.addRecipe(MBlocks.titaniumOre, new ItemStack(MItems.titaniumIngot, 1, 0), 2.0F);
 		// addSmelting(Blocks.obsidian, new
 		// ItemStack(EOItemManager.bucketMagma,1,0), 0.7F);

@@ -249,6 +249,13 @@ public class MRecipes
 		GameRegistry.addRecipe(new ItemStack(MCBlocks.woodJungleStairsBoards, 4, 0), new Object[] {"B  ", "BB ", "BBB", 'B', new ItemStack(MCBlocks.woodJungle, 1, 1)});
 		GameRegistry.addRecipe(new ItemStack(MCBlocks.woodAcaciaStairsBoards, 4, 0), new Object[] {"B  ", "BB ", "BBB", 'B', new ItemStack(MCBlocks.woodAcacia, 1, 1)});
 		GameRegistry.addRecipe(new ItemStack(MCBlocks.woodDarkOakStairsBoards, 4, 0), new Object[] {"B  ", "BB ", "BBB", 'B', new ItemStack(MCBlocks.woodDarkOak, 1, 1)});
+		
+		GameRegistry.addRecipe(new ItemStack(MCBlocks.woodOak, 4, 0), new Object[] {"PP", "PP", 'P', new ItemStack(MCBlocks.woodOak, 1, 2)});
+		GameRegistry.addRecipe(new ItemStack(MCBlocks.woodBirch, 4, 0), new Object[] {"PP", "PP", 'P', new ItemStack(MCBlocks.woodBirch, 1, 2)});
+		GameRegistry.addRecipe(new ItemStack(MCBlocks.woodSpruce, 4, 0), new Object[] {"PP", "PP", 'P', new ItemStack(MCBlocks.woodSpruce, 1, 2)});
+		GameRegistry.addRecipe(new ItemStack(MCBlocks.woodJungle, 4, 0), new Object[] {"PP", "PP", 'P', new ItemStack(MCBlocks.woodJungle, 1, 2)});
+		GameRegistry.addRecipe(new ItemStack(MCBlocks.woodAcacia, 4, 0), new Object[] {"PP", "PP", 'P', new ItemStack(MCBlocks.woodAcacia, 1, 2)});
+		GameRegistry.addRecipe(new ItemStack(MCBlocks.woodDarkOak, 4, 0), new Object[] {"PP", "PP", 'P', new ItemStack(MCBlocks.woodDarkOak, 1, 2)});
 	}
 	
 	public static void removeRecipes()

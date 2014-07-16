@@ -58,6 +58,25 @@ public class MOreDictionary
 		OreDictionary.registerOre("plankWood", new ItemStack(MCBlocks.woodAcacia, 1, 1));
 		OreDictionary.registerOre("plankWood", new ItemStack(MCBlocks.woodDarkOak, 1, 1));
 		
+		OreDictionary.registerOre("plankOak", new ItemStack(Blocks.planks, 1, 0));
+		OreDictionary.registerOre("plankBirch", new ItemStack(Blocks.planks, 1, 2));
+		OreDictionary.registerOre("plankSpruce", new ItemStack(Blocks.planks, 1, 1));
+		OreDictionary.registerOre("plankJungle", new ItemStack(Blocks.planks, 1, 3));
+		OreDictionary.registerOre("plankAcacia", new ItemStack(Blocks.planks, 1, 4));
+		OreDictionary.registerOre("plankDarkOak", new ItemStack(Blocks.planks, 1, 5));
+		OreDictionary.registerOre("plankOak", new ItemStack(MCBlocks.woodOak, 1, 3));
+		OreDictionary.registerOre("plankBirch", new ItemStack(MCBlocks.woodBirch, 1, 3));
+		OreDictionary.registerOre("plankSpruce", new ItemStack(MCBlocks.woodSpruce, 1, 3));
+		OreDictionary.registerOre("plankJungle", new ItemStack(MCBlocks.woodJungle, 1, 3));
+		OreDictionary.registerOre("plankAcacia", new ItemStack(MCBlocks.woodAcacia, 1, 3));
+		OreDictionary.registerOre("plankDarkOak", new ItemStack(MCBlocks.woodDarkOak, 1, 3));
+		OreDictionary.registerOre("plankOak", new ItemStack(MCBlocks.woodOak, 1, 1));
+		OreDictionary.registerOre("plankBirch", new ItemStack(MCBlocks.woodBirch, 1, 1));
+		OreDictionary.registerOre("plankSpruce", new ItemStack(MCBlocks.woodSpruce, 1, 1));
+		OreDictionary.registerOre("plankJungle", new ItemStack(MCBlocks.woodJungle, 1, 1));
+		OreDictionary.registerOre("plankAcacia", new ItemStack(MCBlocks.woodAcacia, 1, 1));
+		OreDictionary.registerOre("plankDarkOak", new ItemStack(MCBlocks.woodDarkOak, 1, 1));
+		
 		OreDictionary.registerOre("sandstone", new ItemStack(Blocks.sandstone));
 		OreDictionary.registerOre("sandstone", new ItemStack(MCBlocks.sandstone));
 		OreDictionary.registerOre("sandstone", new ItemStack(MCBlocks.sandstone2));
@@ -76,6 +95,12 @@ public class MOreDictionary
 		
 		GameRegistry.addRecipe(new ShapedOreRecipe(MBlocks.meatBlock, new Object[] { "MMM", "MMM", "MMM", 'M', "meatRaw" }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(MBlocks.crate, new Object[] { "WWW", "SSS", "WWW", 'S', Items.stick, 'W', "plankWood" }));
+	    GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack (MCBlocks.woodOak, 9, 2), new Object[] {"WWW", "WWW", "WWW", 'W', "plankOak"}));
+	    GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack (MCBlocks.woodBirch, 9, 2), new Object[] {"WWW", "WWW", "WWW", 'W', "plankBirch"}));
+	    GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack (MCBlocks.woodSpruce, 9, 2), new Object[] {"WWW", "WWW", "WWW", 'W', "plankSpruce"}));
+	    GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack (MCBlocks.woodJungle, 9, 2), new Object[] {"WWW", "WWW", "WWW", 'W', "plankJungle"}));
+	    GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack (MCBlocks.woodAcacia, 9, 2), new Object[] {"WWW", "WWW", "WWW", 'W', "plankAcacia"}));
+	    GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack (MCBlocks.woodDarkOak, 9, 2), new Object[] {"WWW", "WWW", "WWW", 'W', "plankDarkOak"}));
 	}
 	
 	private static void add(String name, Item item)
