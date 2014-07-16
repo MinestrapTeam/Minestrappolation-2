@@ -57,15 +57,17 @@ public class MOreGenerator implements IWorldGenerator
 		
 		BiomeGenBase biome = world.getBiomeGenForCoords(chunkX, chunkZ);
 		
-		// for (int i = 0; i < 10; i++)
-		// {
-		// x1 = chunkX + rand.nextInt(16);
-		// y1 = rand.nextInt(256);
-		// z1 = chunkZ + rand.nextInt(16);
-		//
-		// new WorldGenMinable(MBlocks.sandstoneBricks, 4,
-		// Blocks.sandstone).generate(world, rand, x1, y1, z1);
-		// }
+		if (biome instanceof BiomeGenDesert)
+		{
+			for (int i = 0; i < 25; i++)
+			{
+				x1 = chunkX + rand.nextInt(16);
+				y1 = rand.nextInt(256);
+				z1 = chunkZ + rand.nextInt(16);
+			
+				new WorldGenMinable(MCBlocks.sandstone, 6, 15, Blocks.sandstone).generate(world, rand, x1, y1, z1);
+			}
+		}
 		
 		for (int i = 0; i < 50; i++)
 		{
