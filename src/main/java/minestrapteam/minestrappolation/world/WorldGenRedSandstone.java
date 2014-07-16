@@ -53,7 +53,7 @@ public class WorldGenRedSandstone extends WorldGenerator
 									}
 									if (rand.nextInt(12) == 0 )
 									{
-										world.setBlock(x2, y2, z2, MCBlocks.redSandstone,6, 2);
+										world.setBlock(x2, y2-rand.nextInt(3), z2, MCBlocks.redSandstone,7, 2);
 									}
 								}
 							}
