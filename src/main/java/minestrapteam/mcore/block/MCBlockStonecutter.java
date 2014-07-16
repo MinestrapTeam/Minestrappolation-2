@@ -76,22 +76,22 @@ public class MCBlockStonecutter extends BlockContainer
 		
 		if (l == 0)
 		{
-			tile.direction = 180;
+			world.setBlockMetadataWithNotify(x, y, z, 2, 2);
 		}
 		
 		if (l == 1)
 		{
-			tile.direction = 270;
+			world.setBlockMetadataWithNotify(x, y, z, 3, 2);
 		}
 		
 		if (l == 2)
 		{
-			tile.direction = 0;
+			world.setBlockMetadataWithNotify(x, y, z, 0, 2);
 		}
 		
 		if (l == 3)
 		{
-			tile.direction = 90;
+			world.setBlockMetadataWithNotify(x, y, z, 1, 2);
 		}
 	}
 }
