@@ -162,8 +162,8 @@ public class MRecipes
 		GameRegistry.addRecipe(new ItemStack(grenade, 1), new Object[] { "SUS", "PGP", "SUS", 'P', plutonium, 'S', plateSteelItem, 'U', uranium, 'G', Items.gunpowder });
 		GameRegistry.addRecipe(new ItemStack(nuke, 1), new Object[] { "UPU", "PUP", "UPU", 'P', plutoniumBlock, 'U', uraniumBlock });
 		
-		GameRegistry.addRecipe(new ItemStack(plutoniumInsulated, 1), new Object[] { "SSS", "GPG", "SSS", 'S', steelIngot, 'G', Blocks.glass_pane, 'P', plutoniumBlock });
-		GameRegistry.addRecipe(new ItemStack(uraniumInsulated, 1), new Object[] { "SSS", "GPG", "SSS", 'S', steelIngot, 'G', Blocks.glass_pane, 'P', uraniumBlock });
+		GameRegistry.addRecipe(new ItemStack(plutoniumInsulated, 1), new Object[] { "SPS", "GUG", "SPS", 'S', steelIngot, 'G', MBlocks.refinedGlassPane, 'U', plutoniumBlock, 'P', MItems.plateSteelItem });
+		GameRegistry.addRecipe(new ItemStack(uraniumInsulated, 1), new Object[] { "SPS", "GUG", "SPS", 'S', steelIngot, 'G', MBlocks.refinedGlassPane, 'U', uraniumBlock, 'P', MItems.plateSteelItem });
 		GameRegistry.addRecipe(new ItemStack(melterIdle, 1), new Object[] { "ZZZ", "ZFZ", "ZBZ", 'Z', plateMeuroditeItem, 'F', Blocks.furnace, 'B', blaziumBlock });
 		
 		GameRegistry.addRecipe(new ItemStack(plateMeuroditeItem, 4), new Object[] { "MMM", "MMM", 'M', meuroditeGem, });
