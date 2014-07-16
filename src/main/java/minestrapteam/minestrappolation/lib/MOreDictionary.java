@@ -45,6 +45,19 @@ public class MOreDictionary
 		add("oreSoul", MBlocks.soulOre);
 		add("gemSoul", MItems.soulGem);
 		
+		OreDictionary.registerOre("plankWood", new ItemStack(MCBlocks.woodOak, 1, 3));
+		OreDictionary.registerOre("plankWood", new ItemStack(MCBlocks.woodBirch, 1, 3));
+		OreDictionary.registerOre("plankWood", new ItemStack(MCBlocks.woodSpruce, 1, 3));
+		OreDictionary.registerOre("plankWood", new ItemStack(MCBlocks.woodJungle, 1, 3));
+		OreDictionary.registerOre("plankWood", new ItemStack(MCBlocks.woodAcacia, 1, 3));
+		OreDictionary.registerOre("plankWood", new ItemStack(MCBlocks.woodDarkOak, 1, 3));
+		OreDictionary.registerOre("plankWood", new ItemStack(MCBlocks.woodOak, 1, 1));
+		OreDictionary.registerOre("plankWood", new ItemStack(MCBlocks.woodBirch, 1, 1));
+		OreDictionary.registerOre("plankWood", new ItemStack(MCBlocks.woodSpruce, 1, 1));
+		OreDictionary.registerOre("plankWood", new ItemStack(MCBlocks.woodJungle, 1, 1));
+		OreDictionary.registerOre("plankWood", new ItemStack(MCBlocks.woodAcacia, 1, 1));
+		OreDictionary.registerOre("plankWood", new ItemStack(MCBlocks.woodDarkOak, 1, 1));
+		
 		OreDictionary.registerOre("sandstone", new ItemStack(Blocks.sandstone));
 		OreDictionary.registerOre("sandstone", new ItemStack(MCBlocks.sandstone));
 		OreDictionary.registerOre("sandstone", new ItemStack(MCBlocks.sandstone2));
@@ -56,6 +69,10 @@ public class MOreDictionary
 		OreDictionary.registerOre("meatRaw", new ItemStack(Items.fish));
 		OreDictionary.registerOre("meatRaw", new ItemStack(Items.chicken));
 		OreDictionary.registerOre("meatRaw", new ItemStack(Items.rotten_flesh));
+		OreDictionary.registerOre("meatRaw", new ItemStack(MItems.chickenWingRaw));
+		OreDictionary.registerOre("meatRaw", new ItemStack(MItems.lambchopRaw));
+		OreDictionary.registerOre("meatRaw", new ItemStack(MItems.squidTentacle));
+		OreDictionary.registerOre("meatRaw", new ItemStack(MItems.horseHaunchRaw));
 		
 		GameRegistry.addRecipe(new ShapedOreRecipe(MBlocks.meatBlock, new Object[] { "MMM", "MMM", "MMM", 'M', "meatRaw" }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(MBlocks.crate, new Object[] { "WWW", "SSS", "WWW", 'S', Items.stick, 'W', "plankWood" }));

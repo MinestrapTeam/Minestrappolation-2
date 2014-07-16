@@ -230,6 +230,13 @@ public class MRecipes
 		GameRegistry.addRecipe(new ItemStack(MCBlocks.woodJungle, 8, 3), new Object[] {"PPP", "PVP", "PPP", 'P', new ItemStack(Blocks.planks, 1, 3), 'V', Blocks.vine});
 		GameRegistry.addRecipe(new ItemStack(MCBlocks.woodAcacia, 8, 3), new Object[] {"PPP", "PVP", "PPP", 'P', new ItemStack(Blocks.planks, 1, 4), 'V', Blocks.vine});
 		GameRegistry.addRecipe(new ItemStack(MCBlocks.woodDarkOak, 8, 3), new Object[] {"PPP", "PVP", "PPP", 'P', new ItemStack(Blocks.planks, 1, 5), 'V', Blocks.vine});
+	
+		GameRegistry.addRecipe(new ItemStack(MCBlocks.woodOak, 16, 1), new Object[] {"LL", "LL", 'L', new ItemStack(Blocks.log, 1, 0)});
+		GameRegistry.addRecipe(new ItemStack(MCBlocks.woodBirch, 16, 1), new Object[] {"LL", "LL", 'L', new ItemStack(Blocks.log, 1, 2)});
+		GameRegistry.addRecipe(new ItemStack(MCBlocks.woodSpruce, 16, 1), new Object[] {"LL", "LL", 'L', new ItemStack(Blocks.log, 1, 1)});
+		GameRegistry.addRecipe(new ItemStack(MCBlocks.woodJungle, 16, 1), new Object[] {"LL", "LL", 'L', new ItemStack(Blocks.log, 1, 3)});
+		GameRegistry.addRecipe(new ItemStack(MCBlocks.woodAcacia, 16, 1), new Object[] {"LL", "LL", 'L', new ItemStack(Blocks.log2, 1, 0)});
+		GameRegistry.addRecipe(new ItemStack(MCBlocks.woodDarkOak, 16, 1), new Object[] {"LL", "LL", 'L', new ItemStack(Blocks.log2, 1, 1)});
 	}
 	
 	public static void removeRecipes()
@@ -275,5 +282,19 @@ public class MRecipes
 		MCUtil.removeRecipe(new ItemStack(Blocks.stained_hardened_clay, 8, 13));
 		MCUtil.removeRecipe(new ItemStack(Blocks.stained_hardened_clay, 8, 14));
 		MCUtil.removeRecipe(new ItemStack(Blocks.stained_hardened_clay, 8, 15));
+		
+		MCUtil.removeRecipe(new ItemStack(Blocks.wooden_slab, 6, 0));
+		MCUtil.removeRecipe(new ItemStack(Blocks.wooden_slab, 6, 1));
+		MCUtil.removeRecipe(new ItemStack(Blocks.wooden_slab, 6, 2));
+		MCUtil.removeRecipe(new ItemStack(Blocks.wooden_slab, 6, 3));
+		MCUtil.removeRecipe(new ItemStack(Blocks.wooden_slab, 6, 4));
+		MCUtil.removeRecipe(new ItemStack(Blocks.wooden_slab, 6, 5));
+		
+		GameRegistry.addRecipe(new ItemStack(Blocks.wooden_slab, 6, 0), new Object[] { "WWW", 'W', new ItemStack(Blocks.planks, 1, 0) });
+		GameRegistry.addRecipe(new ItemStack(Blocks.wooden_slab, 6, 1), new Object[] { "WWW", 'W', new ItemStack(Blocks.planks, 1, 1) });
+		GameRegistry.addRecipe(new ItemStack(Blocks.wooden_slab, 6, 2), new Object[] { "WWW", 'W', new ItemStack(Blocks.planks, 1, 2) });
+		GameRegistry.addRecipe(new ItemStack(Blocks.wooden_slab, 6, 3), new Object[] { "WWW", 'W', new ItemStack(Blocks.planks, 1, 3) });
+		GameRegistry.addRecipe(new ItemStack(Blocks.wooden_slab, 6, 4), new Object[] { "WWW", 'W', new ItemStack(Blocks.planks, 1, 4) });
+		GameRegistry.addRecipe(new ItemStack(Blocks.wooden_slab, 6, 5), new Object[] { "WWW", 'W', new ItemStack(Blocks.planks, 1, 5) });
 	}
 }

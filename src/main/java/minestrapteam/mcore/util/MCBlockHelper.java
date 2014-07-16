@@ -27,15 +27,15 @@ public class MCBlockHelper
 	public static final String[]	woodTypes	= new String[] { "bevel", "boards", "panel", "mossy_planks" };
 	public static final String[]	woodTypes2	= new String[] { "bevel", "boards" };
 	
-	public static MCBlockCustom createWoodBlock(String name, CreativeTabs tab)
+	public static MCBlockCustom createWoodBlock(String name, float hardness, float resistance, CreativeTabs tab)
 	{
-		return createWoodBlock(woodTypes, name, tab);
+		return createWoodBlock(woodTypes, name, hardness, resistance, tab);
 	}
 	
-	public static MCBlockCustom createWoodBlock(String[] types, String name, CreativeTabs tab)
+	public static MCBlockCustom createWoodBlock(String[] types, String name, float hardness, float resistance, CreativeTabs tab)
 	{
 		String name1 = "wood_" + name;
-		MCBlockCustom block = new MCBlockCustom(types, name,Material.wood);
+		MCBlockCustom block = new MCBlockCustom(types, name, hardness, resistance, 0, Material.wood);
 		block.setBlockName(name1);
 		block.setBlockTextureName(MCAssetManager.getWoodTexture(name));
 		block.setCreativeTab(tab);
@@ -44,15 +44,15 @@ public class MCBlockHelper
 		return block;
 	}
 	
-	public static MCBlockCustom2 createWoodBlock2(String name, CreativeTabs tab)
+	public static MCBlockCustom2 createWoodBlock2(String name, float hardness, float resistance, CreativeTabs tab)
 	{
-		return createWoodBlock2(woodTypes2, name, tab);
+		return createWoodBlock2(woodTypes2, name, hardness, resistance, tab);
 	}
 	
-	public static MCBlockCustom2 createWoodBlock2(String[] types, String name, CreativeTabs tab)
+	public static MCBlockCustom2 createWoodBlock2(String[] types, String name, float hardness, float resistance, CreativeTabs tab)
 	{
 		String name1 = "wood_slab_" + name;
-		MCBlockCustom2 block = new MCBlockCustom2(woodTypes2, name, Material.wood);
+		MCBlockCustom2 block = new MCBlockCustom2(woodTypes2, name, hardness, resistance, 0, Material.wood);
 		block.setBlockName(name1);
 		block.setBlockTextureName(MCAssetManager.getWoodTexture(name));
 		block.setCreativeTab(tab);
