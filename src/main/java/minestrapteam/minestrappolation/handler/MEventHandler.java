@@ -402,7 +402,7 @@ public class MEventHandler implements IFuelHandler
 	{
 		if (fuel.getItem() == MItems.uranium)
 		{
-			return 18000;
+			return 24000;
 		}
 		else if (fuel.getItem() == MItems.plutonium)
 		{
