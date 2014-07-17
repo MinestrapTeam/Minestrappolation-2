@@ -3,16 +3,21 @@ package minestrapteam.minestrappolation.lib;
 import clashsoft.brewingapi.potion.IPotionEffectHandler;
 import clashsoft.brewingapi.potion.recipe.PotionRecipes;
 import clashsoft.brewingapi.potion.type.PotionType;
+import clashsoft.cslib.minecraft.world.TeleporterNoPortal;
 import minestrapteam.mcore.potion.MCPotion;
 import minestrapteam.mcore.util.MCAssetManager;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.management.ServerConfigurationManager;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.common.DimensionManager;
 
 public class MPotions implements IPotionEffectHandler
 {
@@ -55,15 +60,19 @@ public class MPotions implements IPotionEffectHandler
 		}
 		else if (effect.getPotionID() == ghastTentaclePotion.id)
 		{
+			if (entity instanceof EntityPlayerMP) {
 			if (entity.dimension != -1)
 			{
-				entity.travelToDimension(-1);
+				ServerConfigurationManager manager = MinecraftServer.getServer().getConfigurationManager();
+				manager.transferPlayerToDimension((EntityPlayerMP) entity, -1, new TeleporterNoPortal(DimensionManager.getWorld(-1)));
 				entity.addPotionEffect(new PotionEffect(Potion.confusion.id, effect.getDuration(), 0));
 			}
-			else if (effect.getDuration() < 10)
+			else if (effect.getDuration() == 0)
 			{
+				ServerConfigurationManager manager = MinecraftServer.getServer().getConfigurationManager();
+				manager.transferPlayerToDimension((EntityPlayerMP) entity, 0, new TeleporterNoPortal(DimensionManager.getWorld(0)));
 				entity.travelToDimension(0);
-			}
+			}}
 		}
 	}
 	
