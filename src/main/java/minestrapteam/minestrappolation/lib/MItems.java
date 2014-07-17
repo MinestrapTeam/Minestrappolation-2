@@ -8,9 +8,9 @@ import static minestrapteam.minestrappolation.lib.MTools.steelSword;
 import clashsoft.cslib.minecraft.item.CSItems;
 import minestrapteam.mcore.item.MCItem;
 import minestrapteam.mcore.item.MCItemFood;
+import minestrapteam.mcore.lib.MCBlocks;
 import minestrapteam.mcore.util.MCAssetManager;
 import minestrapteam.minestrappolation.item.*;
-
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -351,6 +351,10 @@ public class MItems
 		MBlocks.rope.setHarvestLevel("shears", 0);
 		MBlocks.slimeOoze.setHarvestLevel("shovel", 0);
 		MBlocks.magmaOoze.setHarvestLevel("shovel", 0);
+		
+		MCBlocks.obsidianStairsBricks.setHarvestLevel("pickaxe", 3);
+		MCBlocks.obsidianStairsRaw.setHarvestLevel("pickaxe", 3);
+		MCBlocks.obsidianStairsTiles.setHarvestLevel("pickaxe", 3);
 	}
 	
 	public static void addItemsToChests()
