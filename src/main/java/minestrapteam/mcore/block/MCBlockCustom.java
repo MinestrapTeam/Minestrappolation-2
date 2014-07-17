@@ -442,6 +442,11 @@ public class MCBlockCustom extends Block
 	@Override
 	public boolean isBeaconBase(IBlockAccess worldObj, int x, int y, int z, int beaconX, int beaconY, int beaconZ)
 	{
-		return this.beaconBase;
+		if(worldObj.getBlockMetadata(x, y, z) != 4)
+		{
+			return this.beaconBase;
+		}
+		
+		return false;
 	}
 }
