@@ -30,6 +30,12 @@ public class MCBlockPane extends BlockPane
 	}
 	
 	@Override
+	public int getRenderType()
+	{
+	    return this.blockMaterial == Material.cloth ? 41 : 18;
+	}
+	
+	@Override
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
 		if (this == MBlocks.cardboard)

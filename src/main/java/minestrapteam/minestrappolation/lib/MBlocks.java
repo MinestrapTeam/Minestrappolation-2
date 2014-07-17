@@ -155,7 +155,7 @@ public class MBlocks
 		ropeCoil = new BlockRopeCoil().setHardness(0.9F).setCreativeTab(Minestrappolation.tabDecorationBlocks).setStepSound(Block.soundTypeCloth);
 		crate = new BlockCrate().setHardness(2.5F).setCreativeTab(Minestrappolation.tabMisc).setStepSound(Block.soundTypeWood);
 		barrel = new BlockBarrel().setHardness(3F).setResistance(6.0F).setCreativeTab(Minestrappolation.tabMisc).setStepSound(Block.soundTypeWood);
-		cardboard = new MCBlockPane(Material.cloth, MCAssetManager.getTexture("cardboard"), MCAssetManager.getTexture("cardboard_pane_edge"), true).setHardness(0.3F);
+		cardboard = new MCBlockPane(Material.cloth, MCAssetManager.getTexture("cardboard"), MCAssetManager.getTexture("cardboard_pane_edge"), true).setHardness(0.3F).setCreativeTab(null);
 		cardboardBlock = new BlockCardboard(Material.cloth).setHardness(0.4F).setCreativeTab(Minestrappolation.tabDecorationBlocks);
 		
 		glassDoor = new BlockGlassDoor(Material.glass).setHardness(1F);

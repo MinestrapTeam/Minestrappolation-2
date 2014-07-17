@@ -129,7 +129,7 @@ public class BlockEdgeStoneBrick extends Block
 	public boolean isBrick(IBlockAccess world, int x, int y, int z)
 	{
 		Block block = world.getBlock(x, y, z);
-		return block == this || block == Blocks.stonebrick;
+		return block == Blocks.stonebrick;
 	}
 	
 	@Override
