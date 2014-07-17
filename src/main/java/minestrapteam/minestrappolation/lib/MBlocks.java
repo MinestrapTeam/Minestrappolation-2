@@ -14,6 +14,7 @@ import minestrapteam.minestrappolation.tileentity.TileEntityPlate;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
+import net.minecraft.init.Blocks;
 
 public class MBlocks
 {
@@ -233,5 +234,13 @@ public class MBlocks
 		CSBlocks.addBlock(cardboardBlock, "cardboard_block");
 		
 		CSBlocks.addBlock(glassDoor, "glass_door_block");
+		
+		setFlammability();
+	}
+	
+	private static void setFlammability()
+	{
+		Blocks.fire.setFireInfo(rope, 30, 60);
+		Blocks.fire.setFireInfo(ropeCoil, 30, 60);
 	}
 }

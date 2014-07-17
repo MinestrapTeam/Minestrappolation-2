@@ -355,6 +355,8 @@ public class MItems
 		MCBlocks.obsidianStairsBricks.setHarvestLevel("pickaxe", 3);
 		MCBlocks.obsidianStairsRaw.setHarvestLevel("pickaxe", 3);
 		MCBlocks.obsidianStairsTiles.setHarvestLevel("pickaxe", 3);
+		
+		MBlocks.glassDoor.setHarvestLevel("pickaxe", 0);
 	}
 	
 	public static void addItemsToChests()

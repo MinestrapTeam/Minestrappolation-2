@@ -1,13 +1,13 @@
 package minestrapteam.minestrappolation.block;
 
 import minestrapteam.mcore.util.MCAssetManager;
-
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockFalling;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
 
-public class BlockRopeCoil extends Block
+public class BlockRopeCoil extends BlockFalling
 {
 	private IIcon	top;
 	
