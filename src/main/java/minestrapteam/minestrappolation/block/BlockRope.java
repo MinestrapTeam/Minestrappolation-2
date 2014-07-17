@@ -43,12 +43,6 @@ public class BlockRope extends BlockRopeCoil
 	}
 	
 	@Override
-	public boolean isLadder(IBlockAccess world, int x, int y, int z, EntityLivingBase entity)
-	{
-		return true;
-	}
-	
-	@Override
 	public boolean shouldSideBeRendered(IBlockAccess world, int x, int y, int z, int side)
 	{
 		return true;

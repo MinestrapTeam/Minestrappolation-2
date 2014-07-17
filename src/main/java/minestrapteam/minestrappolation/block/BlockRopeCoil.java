@@ -5,7 +5,9 @@ import minestrapteam.mcore.util.MCAssetManager;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.IBlockAccess;
 
 public class BlockRopeCoil extends BlockFalling
 {
@@ -32,5 +34,12 @@ public class BlockRopeCoil extends BlockFalling
 		}
 		
 		return this.blockIcon;
+	}
+	
+
+	@Override
+	public boolean isLadder(IBlockAccess world, int x, int y, int z, EntityLivingBase entity)
+	{
+		return true;
 	}
 }
