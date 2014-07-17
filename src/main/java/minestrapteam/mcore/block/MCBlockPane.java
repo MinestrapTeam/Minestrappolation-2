@@ -8,7 +8,9 @@ import net.minecraft.block.BlockPane;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public class MCBlockPane extends BlockPane
 {
@@ -41,5 +43,10 @@ public class MCBlockPane extends BlockPane
 	public boolean canSilkHarvest(World world, EntityPlayer player, int x, int y, int z, int metadata)
     {
         return false;
+    }
+	
+	public int getFlammability(IBlockAccess world, int x, int y, int z, ForgeDirection face)
+    {
+    	return 300;
     }
 }
