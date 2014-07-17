@@ -45,11 +45,6 @@ public class MCItemBlockCustom2 extends MCItemBlockMulti
 			return true;
 		}
 		
-		if (stack.getItemDamage() < 3)
-		{
-			return super.onItemUse(stack, player, world, x, y, z, side, hitX, hitY, hitZ);
-		}
-		
 		if (!player.canPlayerEdit(x, y, z, side, stack))
 		{
 			return false;
@@ -61,23 +56,26 @@ public class MCItemBlockCustom2 extends MCItemBlockMulti
 		int model = i % 3;
 		int type = i - model;
 		
-		// Handles double slabs
-		if (block1 == this.field_150939_a && type == stack.getItemDamage() && ((side == 1 && model == 0) || (side == 0 && model == 1)))
+		if (!"pillar".equals(this.theBlock.getType(i)))
 		{
-			if (world.checkNoEntityCollision(this.field_150939_a.getCollisionBoundingBoxFromPool(world, x, y, z)))
+			// Handles double slabs
+			if (block1 == this.field_150939_a && type == stack.getItemDamage() && ((side == 1 && model == 0) || (side == 0 && model == 1)))
 			{
-				if (world.setBlock(x, y, z, this.field_150939_a, type + 2, 3))
+				if (world.checkNoEntityCollision(this.field_150939_a.getCollisionBoundingBoxFromPool(world, x, y, z)))
 				{
-					this.playPlaceSound(world, x, y, z);
-					stack.stackSize--;
+					if (world.setBlock(x, y, z, this.field_150939_a, type + 2, 3))
+					{
+						this.playPlaceSound(world, x, y, z);
+						stack.stackSize--;
+					}
 				}
+				return true;
 			}
-			return true;
-		}
-		
-		if (this.placeBlockAt(stack, player, world, x, y, z, side))
-		{
-			return true;
+			
+			if (this.placeBlockAt(stack, player, world, x, y, z, side))
+			{
+				return true;
+			}
 		}
 		
 		return super.onItemUse(stack, player, world, x, y, z, side, hitX, hitY, hitZ);

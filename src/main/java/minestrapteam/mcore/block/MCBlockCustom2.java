@@ -159,7 +159,7 @@ public class MCBlockCustom2 extends Block
 	
 	public void setBlockBounds(int metadata)
 	{
-		if (metadata < 3)
+		if ("pillar".equals(this.getType(metadata)))
 		{
 			this.setBlockBounds(0F, 0F, 0F, 1F, 1F, 1F);
 		}
@@ -185,7 +185,7 @@ public class MCBlockCustom2 extends Block
 	@Override
 	public int onBlockPlaced(World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int metadata)
 	{
-		if (metadata < 3)
+		if ("pillar".equals(this.getType(metadata)))
 		{
 			if (side == 0 || side == 1)
 			{
@@ -215,7 +215,11 @@ public class MCBlockCustom2 extends Block
 	@Override
 	public int quantityDropped(int meta, int fortune, Random random)
 	{
-		return meta > 2 && meta % 3 == 2 ? 2 : 1;
+		if (!"pillar".equals(this.getType(meta)))
+		{
+			return meta % 3 == 2 ? 2 : 1;
+		}
+		return 1;
 	}
 	
 	@Override
@@ -398,10 +402,6 @@ public class MCBlockCustom2 extends Block
 				return this.iconMap.get("brick_slab_top");
 			}
 		}
-		else if ("cracked_slab".equals(type))
-		{
-			return this.iconMap.get("cracked_slab");
-		}
 		else
 		{
 			return this.iconMap.get(type);
@@ -457,7 +457,7 @@ public class MCBlockCustom2 extends Block
 	@Override
 	public boolean isBeaconBase(IBlockAccess worldObj, int x, int y, int z, int beaconX, int beaconY, int beaconZ)
 	{
-		if(worldObj.getBlockMetadata(x, y, z) != 3 &&  worldObj.getBlockMetadata(x, y, z) != 4 && worldObj.getBlockMetadata(x, y, z) != 5 && worldObj.getBlockMetadata(x, y, z) != 12 && worldObj.getBlockMetadata(x, y, z) != 13 && worldObj.getBlockMetadata(x, y, z) != 14)
+		if (worldObj.getBlockMetadata(x, y, z) != 3 && worldObj.getBlockMetadata(x, y, z) != 4 && worldObj.getBlockMetadata(x, y, z) != 5 && worldObj.getBlockMetadata(x, y, z) != 12 && worldObj.getBlockMetadata(x, y, z) != 13 && worldObj.getBlockMetadata(x, y, z) != 14)
 		{
 			return this.beaconBase;
 		}

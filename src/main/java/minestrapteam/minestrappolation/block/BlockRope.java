@@ -5,7 +5,6 @@ import java.util.Random;
 import minestrapteam.minestrappolation.lib.MItems;
 
 import net.minecraft.block.Block;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityFallingBlock;
 import net.minecraft.item.Item;
 import net.minecraft.world.IBlockAccess;
