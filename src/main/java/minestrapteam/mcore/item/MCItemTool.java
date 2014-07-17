@@ -33,7 +33,6 @@ public class MCItemTool extends ItemTool implements IPlatable
 	public MCItemTool(float baseDamage, ToolMaterial material, Set<Block> blocks, String type, boolean ignites)
 	{
 		super(baseDamage, material, blocks);
-		this.setCreativeTab(null);
 		this.toolType = type;
 		this.ignites = ignites;
 	}
@@ -153,7 +152,7 @@ public class MCItemTool extends ItemTool implements IPlatable
 		if (!world.isRemote && this.ignites)
 		{
 			Items.flint_and_steel.onItemUse(stack, player, world, x, y, z, side, hitX, hitY, hitZ);
-			stack.damageItem(1, player);
+			stack.damageItem(4, player);
 			return true;
 		}
 		return false;

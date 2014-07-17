@@ -155,10 +155,10 @@ public class MTools
 		toriteLeggings = new MCItemArmor(armorTorite, MCommonProxy.torite, 2, "torite").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getArmorTexture("torite_leggings"));
 		toriteBoots = new MCItemArmor(armorTorite, MCommonProxy.torite, 3, "torite").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getArmorTexture("torite_boots"));
 		
-		blaziumSword = new MCItemSword(toolBlazium).setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getWeaponTexture("fire_sword"));
-		blaziumShovel = new MCItemShovel(toolBlazium).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("fire_shovel"));
-		blaziumPickaxe = new MCItemPickaxe(toolBlazium).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("fire_pickaxe"));
-		blaziumAxe = new MCItemAxe(toolBlazium).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("fire_axe"));
+		blaziumSword = new MCItemSword(toolBlazium, true).setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getWeaponTexture("fire_sword"));
+		blaziumShovel = new MCItemShovel(toolBlazium, true).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("fire_shovel"));
+		blaziumPickaxe = new MCItemPickaxe(toolBlazium, true).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("fire_pickaxe"));
+		blaziumAxe = new MCItemAxe(toolBlazium, true).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("fire_axe"));
 		blaziumHoe = new MCItemHoe(toolBlazium).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("fire_hoe"));
 		blaziumHelmet = new MCItemArmor(armorBlazium, MCommonProxy.fire, 0, "fire").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getArmorTexture("fire_helmet"));
 		blaziumChestplate = new MCItemArmor(armorBlazium, MCommonProxy.fire, 1, "fire").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getArmorTexture("fire_chestplate"));
