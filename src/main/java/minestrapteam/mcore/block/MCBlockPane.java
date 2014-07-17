@@ -4,11 +4,12 @@ import java.util.Random;
 
 import minestrapteam.minestrappolation.lib.MBlocks;
 import minestrapteam.minestrappolation.lib.MItems;
-
 import net.minecraft.block.BlockPane;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public class MCBlockPane extends BlockPane
 {
@@ -36,4 +37,9 @@ public class MCBlockPane extends BlockPane
 		}
 		return super.getItemDropped(metadata, random, fortune);
 	}
+	
+    public int getFlammability(IBlockAccess world, int x, int y, int z, ForgeDirection face)
+    {
+    	return 300;
+    }
 }

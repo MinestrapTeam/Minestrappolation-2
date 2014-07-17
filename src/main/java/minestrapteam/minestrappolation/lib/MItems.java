@@ -351,6 +351,7 @@ public class MItems
 		MBlocks.rope.setHarvestLevel("shears", 0);
 		MBlocks.slimeOoze.setHarvestLevel("shovel", 0);
 		MBlocks.magmaOoze.setHarvestLevel("shovel", 0);
+		MBlocks.cardboard.setHarvestLevel("sword", 0);
 	}
 	
 	public static void addItemsToChests()
