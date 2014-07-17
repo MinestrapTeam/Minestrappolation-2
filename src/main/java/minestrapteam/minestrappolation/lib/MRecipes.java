@@ -173,8 +173,6 @@ public class MRecipes
 		GameRegistry.addSmelting(radiantQuartzOre, new ItemStack(radiantQuartz), 0.8F);
 		GameRegistry.addSmelting(soulOre, new ItemStack(soulGem), 0.8F);
 		
-		GameRegistry.addSmelting(Blocks.glowstone, new ItemStack(glowGlass), 0.5F);
-		
 		GameRegistry.addRecipe(new ItemStack(MBlocks.goblet, 1), new Object[] { "D D", " D ", 'D', Items.gold_ingot });
 		
 		GameRegistry.addRecipe(new ItemStack(snowBrick, 4), new Object[] { "SS", "SS", 'S', Blocks.snow });

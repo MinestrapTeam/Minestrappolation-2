@@ -136,7 +136,7 @@ public class MBlocks
 		edgeStoneBrick = new BlockEdgeStoneBrick().setHardness(1.5F).setResistance(10F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone);
 		snowBrick = new BlockSnowBrick().setHardness(0.2F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeSnow).setBlockTextureName(MCAssetManager.getTexture("snow_tiles"));
 		
-		glowGlass = new BlockGlowGlass(Material.glass, true).setHardness(0.8F).setCreativeTab(Minestrappolation.tabDecorationBlocks).setStepSound(Block.soundTypeGlass).setBlockTextureName(MCAssetManager.getTexture("glow_glass"));
+		glowGlass = new BlockGlowGlass(Material.glass, true).setHardness(0.3F).setCreativeTab(Minestrappolation.tabDecorationBlocks).setStepSound(Block.soundTypeGlass).setBlockTextureName(MCAssetManager.getTexture("glow_glass"));
 		refinedGlass = new BlockGlassRefined(Material.glass, false).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MCAssetManager.getTexture("glass_refined"));
 		refinedGlassPane = new MCBlockPane(Material.glass, MCAssetManager.getTexture("glass_refined"), MCAssetManager.getTexture("glass_refined_pane"), false).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(Minestrappolation.tabBuildingBlocks);
 		
@@ -150,14 +150,14 @@ public class MBlocks
 		
 		goblet = new BlockGoblet(Material.rock).setHardness(0.5F).setCreativeTab(Minestrappolation.tabDecorationBlocks).setBlockTextureName(MCAssetManager.getTexture("goblet"));
 		plate = new BlockPlate(Material.rock).setHardness(0.7F).setCreativeTab(Minestrappolation.tabDecorationBlocks).setBlockTextureName(MCAssetManager.getTexture("plate"));
-		rope = new BlockRope().setHardness(0.9F).setStepSound(Block.soundTypeCloth);
-		ropeCoil = new BlockRopeCoil().setHardness(0.9F).setCreativeTab(Minestrappolation.tabDecorationBlocks).setStepSound(Block.soundTypeCloth);
+		rope = new BlockRope().setHardness(0.8F).setStepSound(Block.soundTypeCloth);
+		ropeCoil = new BlockRopeCoil().setHardness(0.8F).setCreativeTab(Minestrappolation.tabDecorationBlocks).setStepSound(Block.soundTypeCloth);
 		crate = new BlockCrate().setHardness(2.5F).setCreativeTab(Minestrappolation.tabMisc).setStepSound(Block.soundTypeWood);
 		barrel = new BlockBarrel().setHardness(3F).setResistance(6.0F).setCreativeTab(Minestrappolation.tabMisc).setStepSound(Block.soundTypeWood);
-		cardboard = new MCBlockPane(Material.cloth, MCAssetManager.getTexture("cardboard"), MCAssetManager.getTexture("cardboard_pane_edge"), true).setHardness(0.3F);
-		cardboardBlock = new BlockCardboard(Material.cloth).setHardness(0.4F).setCreativeTab(Minestrappolation.tabDecorationBlocks);
+		cardboard = new MCBlockPane(Material.cloth, MCAssetManager.getTexture("cardboard"), MCAssetManager.getTexture("cardboard_pane_edge"), true).setHardness(0.2F);
+		cardboardBlock = new BlockCardboard(Material.cloth).setHardness(0.2F).setCreativeTab(Minestrappolation.tabDecorationBlocks);
 		
-		glassDoor = new BlockGlassDoor(Material.glass).setHardness(1F);
+		glassDoor = new BlockGlassDoor(Material.glass).setHardness(4.0F).setStepSound(Block.soundTypeGlass);
 	}
 	
 	public static void load()
