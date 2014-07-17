@@ -245,6 +245,25 @@ public class MOreGenerator implements IWorldGenerator
 	
 	public void generateEnd(World world, Random random, int chunkX, int chunkZ)
 	{
-		
+		generateObsidianSpikes(world, random, chunkX, chunkZ);
+	}
+	
+	void generateObsidianSpikes(World world, Random random, int chunkX, int chunkZ)
+	{
+		for(int x = 0; x < 16; x++)
+		{
+			int x1 = chunkX + x;
+			for(int y = 0; y < 128; y++)
+			{
+				for(int z = 0; z < 16; z++)
+				{
+					int z1 = chunkZ + z;
+					if(world.getBlock(x1, y, z1) == Blocks.obsidian && world.getBlock(x1, y + 1, z1) == Blocks.air)
+					{
+						world.setBlock(x1, y, z1, MCBlocks.endstone, 4, 3);
+					}
+				}
+			}
+		}
 	}
 }
