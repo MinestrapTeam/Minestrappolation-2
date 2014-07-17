@@ -76,25 +76,6 @@ public class MOreGenerator implements IWorldGenerator
 				new WorldGenMinable(MCBlocks.sandstone, 7, 7, Blocks.sandstone).generate(world, rand, x1, y1, z1);
 			}
 		}
-		if (biome instanceof BiomeGenMesa)
-		{
-			for (int i = 0; i < 10; i++)
-			{
-				x1 = chunkX + rand.nextInt(16);
-				y1 = rand.nextInt(256);
-				z1 = chunkZ + rand.nextInt(16);
-			
-				new WorldGenMinable(MCBlocks.redSandstone, 7, 3, MCBlocks.redSandstone).generate(world, rand, x1, y1, z1);
-			}
-			for (int i = 0; i < 20; i++)
-			{
-				x1 = chunkX + rand.nextInt(16);
-				y1 = rand.nextInt(256);
-				z1 = chunkZ + rand.nextInt(16);
-			
-				new WorldGenMinable(MCBlocks.redSandstone, 8, 3, MCBlocks.redSandstone).generate(world, rand, x1, y1, z1);
-			}
-		}
 		
 		for (int i = 0; i < 50; i++)
 		{

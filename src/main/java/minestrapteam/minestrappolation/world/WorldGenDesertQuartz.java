@@ -39,7 +39,7 @@ public class WorldGenDesertQuartz extends WorldGenerator
 			int height = random.nextInt(this.maxTopHeight) + 2;
 			for (int i = 0; i < height; i++)
 			{
-				world.setBlock(x, y + height, z, MCBlocks.desertQuartz);
+				world.setBlock(x, y+i, z, MCBlocks.desertQuartz);
 			}
 			
 			return true;

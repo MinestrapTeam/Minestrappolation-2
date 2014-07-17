@@ -1,9 +1,9 @@
 package minestrapteam.minestrappolation.block;
 
 import java.util.List;
+import java.util.Random;
 
 import minestrapteam.mcore.util.MCAssetManager;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -39,6 +39,13 @@ public class BlockEdgeStoneBrick extends Block
 		this.icons2[2] = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("dark_edgestone_right"));
 		this.icons2[3] = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("dark_edgestone_half"));
 	}
+	
+	@Override
+	public int damageDropped(int meta)
+    {
+        return meta;
+    }
+
 	
 	@Override
 	public IIcon getIcon(int side, int metadata)

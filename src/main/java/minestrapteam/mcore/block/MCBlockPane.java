@@ -4,9 +4,9 @@ import java.util.Random;
 
 import minestrapteam.minestrappolation.lib.MBlocks;
 import minestrapteam.minestrappolation.lib.MItems;
-
 import net.minecraft.block.BlockPane;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
 
@@ -36,4 +36,10 @@ public class MCBlockPane extends BlockPane
 		}
 		return super.getItemDropped(metadata, random, fortune);
 	}
+	
+	@Override
+	public boolean canSilkHarvest(World world, EntityPlayer player, int x, int y, int z, int metadata)
+    {
+        return false;
+    }
 }

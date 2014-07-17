@@ -389,7 +389,7 @@ public class MCBlocks
 		obsidianStairsTiles = new MCBlockStairs(obsidian, 3).setBlockName("stairs_obsidian_tiles").setCreativeTab(tab);
 		CSBlocks.addBlock(obsidianStairsTiles);
 		endstone = MCBlockHelper.createStoneBlock(types_endstone, "endstone", 3.0F, 15.0F, 0, tab).setChiseledSided().setEnderDragonCantDestroy();
-		endstone2 = MCBlockHelper.createStoneBlock2("endstone", 3.0F, 15.0F, 0, tab);
+		endstone2 = MCBlockHelper.createStoneBlock2("endstone", 3.0F, 15.0F, 0, tab).setEnderDragonCantDestroy();
 		endstoneStairsRaw = new MCBlockStairs(endstone, 0).setBlockName("stairs_endstone_raw").setCreativeTab(tab);
 		CSBlocks.addBlock(endstoneStairsRaw);
 		endstoneStairsBricks = new MCBlockStairs(endstone, 1).setBlockName("stairs_endstone_bricks").setCreativeTab(tab);
@@ -398,8 +398,8 @@ public class MCBlocks
 		CSBlocks.addBlock(endstoneStairsTiles);
 		endstoneStairsCracked = new MCBlockStairs(Blocks.end_stone, 0).setBlockName("stairs_endstone_cracked").setCreativeTab(tab);
 		CSBlocks.addBlock(endstoneStairsCracked);
-		bedrock = MCBlockHelper.createStoneBlock(types_bedrock, "bedrock", 80F, 6000000.0F, 4, tab).setRoadWalkSpeed(1.5F);
-		bedrock2 = MCBlockHelper.createStoneBlock2("bedrock", 80F, 6000000.0F, 4, tab);
+		bedrock = MCBlockHelper.createStoneBlock(types_bedrock, "bedrock", 80F, 6000000.0F, 4, tab).setRoadWalkSpeed(1.5F).setEnderDragonCantDestroy();
+		bedrock2 = MCBlockHelper.createStoneBlock2("bedrock", 80F, 6000000.0F, 4, tab).setEnderDragonCantDestroy();
 		bedrockStairsRaw = new MCBlockStairs(Blocks.bedrock, 0).setBlockName("stairs_bedrock_raw").setCreativeTab(tab);
 		CSBlocks.addBlock(bedrockStairsRaw);
 		bedrockStairsBricks = new MCBlockStairs(bedrock, 1).setBlockName("stairs_bedrock_bricks").setCreativeTab(tab);
