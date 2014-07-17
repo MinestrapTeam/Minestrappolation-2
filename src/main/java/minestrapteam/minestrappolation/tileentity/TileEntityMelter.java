@@ -83,9 +83,9 @@ public class TileEntityMelter extends TileEntityInventory implements ISidedInven
 	{
 		if (!this.hasPower)
 		{
-			return this.meltTime * scalar / 200 * 64;
+			return this.meltTime * scalar / 200;
 		}
-		return this.meltTime * scalar / 200 * 32;
+		return this.meltTime * scalar / 200;
 	}
 	
 	public int getBurnTimeRemainingScaled(int scalar)
