@@ -16,10 +16,10 @@ import minestrapteam.minestrappolation.common.MCommonProxy;
 import minestrapteam.minestrappolation.entity.*;
 import minestrapteam.minestrappolation.lib.MItems;
 import minestrapteam.minestrappolation.tileentity.*;
-
 import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
+import net.minecraftforge.client.MinecraftForgeClient;
 
 public class MClientProxy extends MCommonProxy implements IGuiHandler
 {
@@ -34,7 +34,8 @@ public class MClientProxy extends MCommonProxy implements IGuiHandler
 		platingRenderID = RenderingRegistry.getNextAvailableRenderId();
 		RenderingRegistry.registerBlockHandler(platingRenderID, new RenderBlockPlating());
 		
-		RenderingRegistry.registerEntityRenderingHandler(EntityHangGlider.class, new RenderHangGlider());
+		MinecraftForgeClient.registerItemRenderer(MItems.hangGlider, new RenderHangGlider());
+		
 		RenderingRegistry.registerEntityRenderingHandler(EntityNukePrimed.class, new RenderNukePrimed());
 		RenderingRegistry.registerEntityRenderingHandler(EntityGrenade.class, new RenderSnowball(MItems.grenade));
 		RenderingRegistry.registerEntityRenderingHandler(EntityGrenadeImpact.class, new RenderSnowball(MItems.grenadeNuke));
