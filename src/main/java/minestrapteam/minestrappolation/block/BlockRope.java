@@ -6,6 +6,7 @@ import minestrapteam.minestrappolation.lib.MItems;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityFallingBlock;
 import net.minecraft.item.Item;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -17,6 +18,16 @@ public class BlockRope extends BlockRopeCoil
 	{
 		super();
 		this.setBlockBounds(0.375F, 0.0F, 0.375F, 0.625F, 1.0F, 0.625F);
+	}
+	
+	@Override
+	public void updateTick(World world, int x, int y, int z, Random random)
+	{
+		if (!world.isRemote && !this.canPlaceBlockAt(world, x, y, z))
+		{
+			EntityFallingBlock entityfallingblock = new EntityFallingBlock(world, x + 0.5F, y + 0.5F, z + 0.5F, this, world.getBlockMetadata(x, y, z));
+			world.spawnEntityInWorld(entityfallingblock);
+		}
 	}
 	
 	@Override
@@ -61,5 +72,5 @@ public class BlockRope extends BlockRopeCoil
 	{
 		return MItems.ropeItem;
 	}
-
+	
 }
