@@ -5,6 +5,7 @@ import static net.minecraftforge.common.util.ForgeDirection.UP;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import minestrapteam.mcore.common.MCCommonProxy;
 import minestrapteam.minestrappolation.Minestrappolation;
@@ -209,6 +210,12 @@ public class MCBlockCustom2 extends Block
 	public int limitToValidMetadata(int metadata)
 	{
 		return metadata - metadata % 3;
+	}
+	
+	@Override
+	public int quantityDropped(int meta, int fortune, Random random)
+	{
+		return meta > 2 && meta % 3 == 2 ? 2 : 1;
 	}
 	
 	@Override
