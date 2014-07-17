@@ -5,6 +5,9 @@ import static net.minecraftforge.common.util.ForgeDirection.UP;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
+
+import minestrapteam.mcore.lib.MCBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -87,7 +90,8 @@ public class MCBlockCustom extends Block
 		return this;
 	}
 	
-	public MCBlockCustom setBeaconBase(){
+	public MCBlockCustom setBeaconBase()
+	{
 		this.beaconBase = true;
 		return this;
 	}
@@ -146,6 +150,12 @@ public class MCBlockCustom extends Block
 	public String getUnlocalizedName(int metadata)
 	{
 		return "tile." + this.name + "." + this.getType(metadata);
+	}
+	
+	@Override
+	public Item getItemDropped(int metadata, Random random, int fortune)
+	{
+		return (this == MCBlocks.endstone && metadata == 0) ? Item.getItemFromBlock(Blocks.end_stone) : super.getItemDropped(metadata, random, fortune);
 	}
 	
 	@Override
@@ -430,8 +440,8 @@ public class MCBlockCustom extends Block
 	}
 	
 	@Override
-    public boolean isBeaconBase(IBlockAccess worldObj, int x, int y, int z, int beaconX, int beaconY, int beaconZ)
-    {
-        return this.beaconBase;
-    }
+	public boolean isBeaconBase(IBlockAccess worldObj, int x, int y, int z, int beaconX, int beaconY, int beaconZ)
+	{
+		return this.beaconBase;
+	}
 }
