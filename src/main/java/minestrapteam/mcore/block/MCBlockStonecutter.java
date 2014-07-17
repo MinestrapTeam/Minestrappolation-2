@@ -3,7 +3,6 @@ package minestrapteam.mcore.block;
 import minestrapteam.mcore.MinestrappolationCore;
 import minestrapteam.mcore.tileentity.TileEntityStonecutter;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;

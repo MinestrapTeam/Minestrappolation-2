@@ -4,6 +4,7 @@ import java.util.Random;
 
 import minestrapteam.minestrappolation.lib.MBlocks;
 import minestrapteam.minestrappolation.lib.MItems;
+
 import net.minecraft.block.BlockPane;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
@@ -51,8 +52,9 @@ public class MCBlockPane extends BlockPane
         return false;
     }
 	
+	@Override
 	public int getFlammability(IBlockAccess world, int x, int y, int z, ForgeDirection face)
     {
-    	return 300;
+    	return this == MBlocks.cardboard ? 300 : 0;
     }
 }

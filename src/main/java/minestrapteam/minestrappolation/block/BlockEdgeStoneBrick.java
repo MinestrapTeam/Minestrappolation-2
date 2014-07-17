@@ -1,9 +1,9 @@
 package minestrapteam.minestrappolation.block;
 
 import java.util.List;
-import java.util.Random;
 
 import minestrapteam.mcore.util.MCAssetManager;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -42,10 +42,9 @@ public class BlockEdgeStoneBrick extends Block
 	
 	@Override
 	public int damageDropped(int meta)
-    {
-        return meta;
-    }
-
+	{
+		return meta;
+	}
 	
 	@Override
 	public IIcon getIcon(int side, int metadata)

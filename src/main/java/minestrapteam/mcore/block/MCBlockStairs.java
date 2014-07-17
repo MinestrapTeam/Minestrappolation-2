@@ -2,7 +2,6 @@ package minestrapteam.mcore.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;
-import net.minecraft.world.World;
 
 public class MCBlockStairs extends BlockStairs
 {

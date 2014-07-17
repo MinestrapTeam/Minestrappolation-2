@@ -3,12 +3,12 @@ package minestrapteam.mcore.client;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.registry.GameRegistry;
 import minestrapteam.mcore.client.gui.GuiStonecutter;
 import minestrapteam.mcore.client.renderer.block.RenderBlockCustom2;
 import minestrapteam.mcore.client.renderer.tileentity.RenderStonecutter;
 import minestrapteam.mcore.common.MCCommonProxy;
 import minestrapteam.mcore.tileentity.TileEntityStonecutter;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ThreadDownloadImageData;
 import net.minecraft.entity.player.EntityPlayer;

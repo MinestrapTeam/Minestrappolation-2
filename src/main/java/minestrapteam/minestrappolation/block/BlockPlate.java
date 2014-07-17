@@ -1,10 +1,10 @@
 package minestrapteam.minestrappolation.block;
 
 import minestrapteam.minestrappolation.tileentity.TileEntityPlate;
+
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
@@ -73,5 +73,4 @@ public class BlockPlate extends BlockContainer
 	{
 		return new TileEntityPlate();
 	}
-	
 }

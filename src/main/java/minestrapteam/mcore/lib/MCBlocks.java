@@ -1,6 +1,5 @@
 package minestrapteam.mcore.lib;
 
-import cpw.mods.fml.common.registry.GameRegistry;
 import clashsoft.cslib.minecraft.block.CSBlocks;
 import minestrapteam.mcore.block.MCBlockCustom2;
 import minestrapteam.mcore.block.MCBlockStairs;
@@ -8,6 +7,7 @@ import minestrapteam.mcore.block.MCBlockStonecutter;
 import minestrapteam.mcore.util.MCAssetManager;
 import minestrapteam.mcore.util.MCBlockHelper;
 import minestrapteam.minestrappolation.Minestrappolation;
+
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
