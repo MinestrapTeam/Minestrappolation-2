@@ -419,7 +419,7 @@ public class MCBlocks
 		netherQuartzStairsTiles = new MCBlockStairs(netherQuartz, 3).setBlockName("stairs_nether_quartz_tiles").setCreativeTab(tab);
 		CSBlocks.addBlock(netherQuartzStairsTiles);
 		desertQuartz = MCBlockHelper.createStoneBlock(types_desertquartz, "desertquartz", 1.7F, 4.0F, 1, tab).setChiseledSided();
-		desertQuartz2 = MCBlockHelper.createStoneBlock2(types_desertquartz_2, "desertquartz", 1.7F, 4.0F, 1, tab);
+		desertQuartz2 = MCBlockHelper.createStoneBlock2(types_desertquartz_2, "desertquartz", 1.7F, 4.0F, 1, tab).setRawSlabUnsided();
 		desertQuartzStairsRaw = new MCBlockStairs(desertQuartz, 0).setBlockName("stairs_desert_quartz_raw").setCreativeTab(tab);
 		CSBlocks.addBlock(desertQuartzStairsRaw);
 		desertQuartzStairsBricks = new MCBlockStairs(desertQuartz, 1).setBlockName("stairs_desert_quartz_bricks").setCreativeTab(tab);
@@ -427,7 +427,7 @@ public class MCBlocks
 		desertQuartzStairsTiles = new MCBlockStairs(desertQuartz, 3).setBlockName("stairs_desert_quartz_tiles").setCreativeTab(tab);
 		CSBlocks.addBlock(desertQuartzStairsTiles);
 		radiantQuartz = MCBlockHelper.createStoneBlock(types_radiantquartz, "radiant_quartz", 2F, 6.0F, 3, tab).setBeaconBase().setLightLevel(0.5F);
-		radiantQuartz2 = ((MCBlockCustom2) MCBlockHelper.createStoneBlock2(types_radiantquartz_2, "radiant_quartz", 2F, 6.0F, 3, tab).setBeaconBase().setLightLevel(0.5F)).setIsRadiantQuartz();
+		radiantQuartz2 = ((MCBlockCustom2) MCBlockHelper.createStoneBlock2(types_radiantquartz_2, "radiant_quartz", 2F, 6.0F, 3, tab).setBeaconBase().setLightLevel(0.5F)).setRawSlabUnsided();
 		radiantQuartzStairsRaw = new MCBlockStairs(radiantQuartz, 0).setBlockName("stairs_radiant_quartz_raw").setCreativeTab(tab);
 		CSBlocks.addBlock(radiantQuartzStairsRaw);
 		radiantQuartzStairsBricks = new MCBlockStairs(radiantQuartz, 1).setBlockName("stairs_radiant_quartz_bricks").setCreativeTab(tab);
