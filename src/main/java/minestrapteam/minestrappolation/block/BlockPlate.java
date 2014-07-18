@@ -2,6 +2,7 @@ package minestrapteam.minestrappolation.block;
 
 import minestrapteam.minestrappolation.tileentity.TileEntityPlate;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
@@ -23,19 +24,18 @@ public class BlockPlate extends BlockContainer
 	{
 		ItemStack stack = player.inventory.getCurrentItem();
 		TileEntityPlate te = (TileEntityPlate) world.getTileEntity(x, y, z);
-		if (stack != null && player.inventory.getCurrentItem().getItem() instanceof ItemFood)
+		if (stack != null && te.getItem() == null)
 		{
-			
-			if (te.getItem() != null)
+			if (stack.getItem() instanceof ItemFood)
 			{
-			   player.inventory.addItemStackToInventory(new ItemStack(te.getItem().getItem()));
-			}
-			te.setItem(stack);
-			
-			
-			if (!player.capabilities.isCreativeMode)
-			{
-				stack.stackSize--;
+				ItemStack stack1 = stack.copy();
+				stack1.stackSize = 1;
+				te.setItem(stack1);
+				
+				if (!player.capabilities.isCreativeMode)
+				{
+					stack.stackSize--;
+				}
 			}
 		}
 		else
@@ -43,11 +43,21 @@ public class BlockPlate extends BlockContainer
 			stack = te.getItem();
 			if (stack != null)
 			{
-				player.inventory.addItemStackToInventory(new ItemStack(stack.getItem()));
-				te.setItem(null);
+				te.dropItem();
 			}
 		}
 		return true;
+	}
+	
+	@Override
+	public void breakBlock(World world, int x, int y, int z, Block block, int metadata)
+	{
+		TileEntity te = world.getTileEntity(x, y, z);
+		if (te instanceof TileEntityPlate)
+		{
+			((TileEntityPlate) te).dropItem();
+		}
+		super.breakBlock(world, x, y, z, block, metadata);
 	}
 	
 	@Override

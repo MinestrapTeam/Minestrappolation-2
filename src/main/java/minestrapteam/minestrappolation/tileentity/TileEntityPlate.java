@@ -12,12 +12,24 @@ public class TileEntityPlate extends TileEntity
 	
 	public EntityItem spawnItem()
 	{
-		if (this.worldObj.isRemote && this.stack != null && this.theItem == null)
+		if (this.worldObj.isRemote && this.stack != null)
 		{
 			this.theItem = new EntityItem(this.worldObj, this.xCoord + 0.5F, this.yCoord + 0.15F, this.zCoord + 0.5F, this.stack);
 			this.theItem.hoverStart = 0F;
 		}
 		return this.theItem;
+	}
+	
+	public EntityItem dropItem()
+	{
+		EntityItem item = null;
+		if (!this.worldObj.isRemote && this.stack != null)
+		{
+			item = new EntityItem(this.worldObj, this.xCoord + 0.5F, this.yCoord + 0.15F, this.zCoord + 0.5F, this.stack);
+			this.worldObj.spawnEntityInWorld(item);
+		}
+		this.setItem(null);
+		return item;
 	}
 	
 	public EntityItem getItemEntity()
