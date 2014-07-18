@@ -60,19 +60,20 @@ public class MPotions implements IPotionEffectHandler
 		}
 		else if (effect.getPotionID() == ghastTentaclePotion.id)
 		{
-			if (entity instanceof EntityPlayerMP) {
-			if (entity.dimension != -1)
+			if (entity instanceof EntityPlayerMP)
 			{
-				ServerConfigurationManager manager = MinecraftServer.getServer().getConfigurationManager();
-				manager.transferPlayerToDimension((EntityPlayerMP) entity, -1, new TeleporterNoPortal(DimensionManager.getWorld(-1)));
-				entity.addPotionEffect(new PotionEffect(Potion.confusion.id, effect.getDuration(), 0));
+				if (entity.dimension != -1)
+				{
+					ServerConfigurationManager manager = MinecraftServer.getServer().getConfigurationManager();
+					manager.transferPlayerToDimension((EntityPlayerMP) entity, -1, new TeleporterNoPortal(DimensionManager.getWorld(-1)));
+					entity.addPotionEffect(new PotionEffect(Potion.confusion.id, effect.getDuration(), 0));
+				}
+				else if (effect.getDuration() == 1)
+				{
+					ServerConfigurationManager manager = MinecraftServer.getServer().getConfigurationManager();
+					manager.transferPlayerToDimension((EntityPlayerMP) entity, 0, new TeleporterNoPortal(DimensionManager.getWorld(0)));
+				}
 			}
-			else if (effect.getDuration() == 0)
-			{
-				ServerConfigurationManager manager = MinecraftServer.getServer().getConfigurationManager();
-				manager.transferPlayerToDimension((EntityPlayerMP) entity, 0, new TeleporterNoPortal(DimensionManager.getWorld(0)));
-				entity.travelToDimension(0);
-			}}
 		}
 	}
 	
