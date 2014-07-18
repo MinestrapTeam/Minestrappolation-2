@@ -352,17 +352,17 @@ public class MCBlockCustom2 extends Block
 		}
 		else if ("raw_slab".equals(type))
 		{
-			if (side > 1)
-			{
-				return this.iconMap.get("raw_slab_side");
-			}
-			else if (this.redSandstone)
+			if (this.redSandstone)
 			{
 				return side == 0 ? this.iconMap.get("bottom") : side == 1 ? this.iconMap.get("top") : this.iconMap.get("side");
 			}
 			else if (this.radiantQuartz)
 			{
 				return this.iconMap.get("raw");
+			}
+			else if (side > 1)
+			{
+				return this.iconMap.get("raw_slab_side");
 			}
 			else
 			{
