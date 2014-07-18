@@ -1,7 +1,5 @@
 package minestrapteam.mcore.block;
 
-import static net.minecraftforge.common.util.ForgeDirection.UP;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -421,12 +419,6 @@ public class MCBlockCustom2 extends Block
 	}
 	
 	@Override
-	public boolean isFireSource(World world, int x, int y, int z, ForgeDirection side)
-	{
-		return this.netherrack && side == UP;
-	}
-	
-	@Override
 	public boolean isOpaqueCube()
 	{
 		return false;
@@ -475,6 +467,26 @@ public class MCBlockCustom2 extends Block
 		}
 		
 		return false;
+	}
+	
+	@Override
+	public boolean isFireSource(World world, int x, int y, int z, ForgeDirection side)
+	{
+		return this.netherrack && this.isSideSolid(world, x, y, z, side);
+	}
+	
+	@Override
+	public boolean isSideSolid(IBlockAccess world, int x, int y, int z, ForgeDirection side)
+	{
+		int metadata = world.getBlockMetadata(x, y, z);
+		String type = this.getType(metadata);
+		int model = metadata % 3;
+		
+		if ("pillar".equals(type) || model == 2)
+		{
+			return true;
+		}
+		return (model == 0 && side == ForgeDirection.DOWN) || (model == 1 && side == ForgeDirection.UP);
 	}
 	
 	@Override
