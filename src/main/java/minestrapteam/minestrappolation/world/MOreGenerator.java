@@ -233,7 +233,7 @@ public class MOreGenerator implements IWorldGenerator
 			
 			new WorldGenMinable(MBlocks.soulOre, 15, Blocks.soul_sand).generate(world, rand, i5, j5, k5);
 		}
-		// invincium
+		// Invincium
 		for (int i = 0; i < 16; i++)
 		{
 			for (int j = 0; j < 16; j++)
@@ -250,17 +250,19 @@ public class MOreGenerator implements IWorldGenerator
 	
 	void generateObsidianSpikes(World world, Random random, int chunkX, int chunkZ)
 	{
-		for(int x = 0; x < 16; x++)
+		for (int x = 0; x < 16; x++)
 		{
 			int x1 = chunkX + x;
-			for(int y = 0; y < 128; y++)
+			for (int z = 0; z < 16; z++)
 			{
-				for(int z = 0; z < 16; z++)
+				int z1 = chunkZ + z;
+				yLoop:
+				for (int y = 0; y < 128; y++)
 				{
-					int z1 = chunkZ + z;
-					if(world.getBlock(x1, y, z1) == Blocks.obsidian && world.getBlock(x1, y + 1, z1) == Blocks.air)
+					if (world.getBlock(x1, y, z1) == Blocks.obsidian && world.getBlock(x1, y + 1, z1) == Blocks.air)
 					{
 						world.setBlock(x1, y, z1, MCBlocks.endstone, 4, 3);
+						break yLoop;
 					}
 				}
 			}
