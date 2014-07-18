@@ -476,4 +476,22 @@ public class MCBlockCustom2 extends Block
 		
 		return false;
 	}
+	
+	@Override
+	public int getFlammability(IBlockAccess world, int x, int y, int z, ForgeDirection face)
+	{
+		if (this.getMaterial() == Material.wood)
+		{
+			int metadata = world.getBlockMetadata(x, y, z);
+			if ("pillar".equals(this.getType(metadata)))
+			{
+				return 300;
+			}
+			else
+			{
+				return 150;
+			}
+		}
+		return super.getFlammability(world, x, y, z, face);
+	}
 }
