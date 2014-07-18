@@ -1,13 +1,13 @@
 package minestrapteam.mcore.item;
 
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import clashsoft.cslib.minecraft.lang.I18n;
 
 import com.google.common.collect.ImmutableSet;
 
 import minestrapteam.mcore.util.MCAssetManager;
+import minestrapteam.minestrappolation.item.ItemPlating;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -24,11 +24,10 @@ import net.minecraft.world.World;
 
 public class MCItemTool extends ItemTool implements IPlatable
 {
-	protected boolean	ignites;
+	protected boolean				ignites;
 	
-	private String		toolType;
-	
-	private IIcon		overlayIcon;
+	private String					toolType;
+	private Map<String, IIcon>		overlayIcons	= new HashMap();
 	
 	public MCItemTool(float baseDamage, ToolMaterial material, Set<Block> blocks, String type, boolean ignites)
 	{
@@ -115,7 +114,6 @@ public class MCItemTool extends ItemTool implements IPlatable
 	protected static void addInformation(ItemStack stack, List list)
 	{
 		String plating = getPlating(stack);
-		
 		if (plating != null)
 		{
 			list.add(I18n.getString("item.plating." + plating + ".desc"));
@@ -159,6 +157,30 @@ public class MCItemTool extends ItemTool implements IPlatable
 	}
 	
 	@Override
+	public float getDigSpeed(ItemStack stack, Block block, int meta)
+	{
+		String plating = getPlating(stack);
+		if (plating != null)
+		{
+			float digSpeed = ItemPlating.getDigSpeed(plating);
+			return super.getDigSpeed(stack, block, meta) * digSpeed;
+		}
+		return super.getDigSpeed(stack, block, meta);
+	}
+	
+	@Override
+	public int getMaxDamage(ItemStack stack)
+	{
+		String plating = getPlating(stack);
+		if (plating != null)
+		{
+			int durability = ItemPlating.getDurability(plating);
+			return super.getMaxDamage(stack) + durability;
+		}
+		return super.getMaxDamage(stack);
+	}
+	
+	@Override
 	public boolean requiresMultipleRenderPasses()
 	{
 		return true;
@@ -169,25 +191,18 @@ public class MCItemTool extends ItemTool implements IPlatable
 	{
 		this.itemIcon = iconRegister.registerIcon(this.getIconString());
 		
-		boolean sword = "sword".equals(this.toolType);
-		StringBuilder builder = new StringBuilder(20);
-		
-		if (sword)
-		{
-			builder.append("weapons/");
+		for (String type : ItemPlating.platings.keySet())
+		{	
+			boolean sword = "sword".equals(this.toolType);
+			StringBuilder builder = new StringBuilder(20);
+			builder.append(sword ? "weapons/" : "tools/").append(type).append("_").append(this.toolType).append("_overlay");
+			if (!sword && this.toolMaterial.getHarvestLevel() >= 5)
+			{
+				builder.append("_2");
+			}
+			String textureName = MCAssetManager.getTexture(builder.toString());
+			this.overlayIcons.put(type, iconRegister.registerIcon(textureName));
 		}
-		else
-		{
-			builder.append("tools/");
-		}
-		
-		builder.append("bronze_").append(this.toolType).append("_overlay");
-		if (!sword && this.toolMaterial.getHarvestLevel() >= 5)
-		{
-			builder.append("_2");
-		}
-		
-		this.overlayIcon = iconRegister.registerIcon(MCAssetManager.getTexture(builder.toString()));
 	}
 	
 	@Override
@@ -196,7 +211,7 @@ public class MCItemTool extends ItemTool implements IPlatable
 		String plating = getPlating(stack);
 		if (renderPass == 1 && plating != null)
 		{
-			return this.overlayIcon;
+			return this.overlayIcons.get(plating);
 		}
 		return this.itemIcon;
 	}

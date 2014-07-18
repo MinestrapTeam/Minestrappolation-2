@@ -149,10 +149,10 @@ public class MItems
 		
 		// bucketMagma
 		
-		plateTinItem = new ItemPlating(MBlocks.tinPlate, "tin").setCreativeTab(tabMisc).setTextureName(MCAssetManager.getMineralTexture("tin_plating"));
-		plateBronzeItem = new ItemPlating(MBlocks.bronzePlate, "bronze").setCreativeTab(tabMisc).setTextureName(MCAssetManager.getMineralTexture("bronze_plating"));
-		plateSteelItem = new ItemPlating(MBlocks.steelPlate, "steel").setCreativeTab(tabMisc).setTextureName(MCAssetManager.getMineralTexture("steel_plating"));
-		plateMeuroditeItem = new ItemPlating(MBlocks.meuroditePlate, "meurodite").setCreativeTab(tabMisc).setTextureName(MCAssetManager.getMineralTexture("meurodite_plating"));
+		plateTinItem = new ItemPlating(MBlocks.tinPlate, "tin", 64, 1.2F).setCreativeTab(tabMisc).setTextureName(MCAssetManager.getMineralTexture("tin_plating"));
+		plateBronzeItem = new ItemPlating(MBlocks.bronzePlate, "bronze", 128, 1.3F).setCreativeTab(tabMisc).setTextureName(MCAssetManager.getMineralTexture("bronze_plating"));
+		plateSteelItem = new ItemPlating(MBlocks.steelPlate, "steel", 192, 1.4F).setCreativeTab(tabMisc).setTextureName(MCAssetManager.getMineralTexture("steel_plating"));
+		plateMeuroditeItem = new ItemPlating(MBlocks.meuroditePlate, "meurodite", 256, 1.5F).setCreativeTab(tabMisc).setTextureName(MCAssetManager.getMineralTexture("meurodite_plating"));
 		
 		ropeItem = new ItemReed(MBlocks.rope).setCreativeTab(tabDecorationBlocks).setTextureName(MCAssetManager.getTexture("rope"));
 		cardboardItem = new ItemReed(MBlocks.cardboard).setCreativeTab(tabDecorationBlocks).setTextureName(MCAssetManager.getTexture("cardboard"));
@@ -170,7 +170,7 @@ public class MItems
 		friedFlesh = new MCItemFood(8, 0.6F).setPotionEffect(Potion.hunger.id, 15 * 20, 1, 0.4F).setCreativeTab(tabFood).setTextureName(MCAssetManager.getFoodTexture("fried_flesh"));
 		animalBones = new MCItem().setCreativeTab(tabMaterials).setTextureName(MCAssetManager.getMobTexture("animal_bones"));
 		cowHoof = new MCItem().setCreativeTab(tabFood).setTextureName(MCAssetManager.getMobTexture("cow_foot"));
-		horn = new MCItem().setCreativeTab(tabMaterials).setTextureName(MCAssetManager.getMobTexture("horn"));
+		horn = new ItemPlating(null, "horn", 0, 0F).setCreativeTab(tabMaterials).setTextureName(MCAssetManager.getMobTexture("horn"));
 		beakChicken = new MCItem().setCreativeTab(tabFood).setTextureName(MCAssetManager.getFoodTexture("chicken_beak"));
 		footChicken = new MCItem().setCreativeTab(tabFood).setTextureName(MCAssetManager.getMobTexture("chicken_foot"));
 		chickenWingRaw = new MCItemFood(1, 0.1F).setPotionEffect(Potion.hunger.id, 10 * 20, 1, 0.3F).setCreativeTab(tabFood).setTextureName(MCAssetManager.getFoodTexture("chicken_wing_raw"));
