@@ -21,7 +21,7 @@ import net.minecraftforge.common.DimensionManager;
 
 public class MPotions implements IPotionEffectHandler
 {
-	private static ResourceLocation	iconLoc				= MCAssetManager.getCoreResource("gui/potion_icons.png");
+	private static ResourceLocation	iconLoc				= MCAssetManager.getResource("textures/gui/potion_icons.png");
 	
 	public static Potion			infectiousPotion	= new MCPotion("potion.infectious", 0xFE3040, true).setIcon(iconLoc, 6, 1);
 	public static Potion			ghastTentaclePotion	= new MCPotion("potion.ghastTentacle", 0xED03D5, true).setIcon(iconLoc, 7, 1);
