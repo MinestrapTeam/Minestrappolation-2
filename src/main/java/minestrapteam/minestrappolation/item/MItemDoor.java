@@ -9,11 +9,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class EDItemDoor extends MCItem
+public class MItemDoor extends MCItem
 {
 	public Block	doorBlock;
 	
-	public EDItemDoor(Block block)
+	public MItemDoor(Block block)
 	{
 		super();
 		this.doorBlock = block;

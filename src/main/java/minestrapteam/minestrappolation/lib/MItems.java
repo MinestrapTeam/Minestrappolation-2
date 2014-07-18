@@ -156,7 +156,7 @@ public class MItems
 		
 		ropeItem = new ItemReed(MBlocks.rope).setCreativeTab(tabDecorationBlocks).setTextureName(MCAssetManager.getTexture("rope"));
 		cardboardItem = new ItemReed(MBlocks.cardboard).setCreativeTab(tabDecorationBlocks).setTextureName(MCAssetManager.getTexture("cardboard"));
-		glassDoor = new EDItemDoor(MBlocks.glassDoor).setCreativeTab(tabDecorationBlocks).setTextureName(MCAssetManager.getTexture("glass_door"));
+		glassDoor = new MItemDoor(MBlocks.glassDoor).setCreativeTab(tabDecorationBlocks).setTextureName(MCAssetManager.getTexture("glass_door"));
 		
 		snout = new MCItemFood(3, 0.2F).setPotionEffect(Potion.hunger.id, 10 * 20, 1, 0.25F).setCreativeTab(tabFood).setTextureName(MCAssetManager.getMobTexture("snout"));
 		pigHoof = new MCItem().setCreativeTab(tabFood).setTextureName(MCAssetManager.getMobTexture("pig_foot"));
