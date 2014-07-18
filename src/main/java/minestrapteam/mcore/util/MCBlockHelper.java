@@ -40,6 +40,7 @@ public class MCBlockHelper
 		block.setBlockTextureName(MCAssetManager.getWoodTexture(name));
 		block.setCreativeTab(tab);
 		block.setHarvestTool("axe");
+		block.setStepSound(Block.soundTypeWood);
 		GameRegistry.registerBlock(block, MCItemBlockCustom.class, name1);
 		Blocks.fire.setFireInfo(block, 5, 20);
 		return block;
@@ -58,6 +59,7 @@ public class MCBlockHelper
 		block.setBlockTextureName(MCAssetManager.getWoodTexture(name));
 		block.setCreativeTab(tab);
 		block.setHarvestTool("axe");
+		block.setStepSound(Block.soundTypeWood);
 		GameRegistry.registerBlock(block, MCItemBlockCustom2.class, name1);
 		Blocks.fire.setFireInfo(block, 5, 20);
 		return block;

@@ -570,29 +570,29 @@ public class MCBlocks
 		greyClayStairsTiles = new MCBlockStairs(greyClay, 3).setBlockName("stairs_grey_clay_tiles").setCreativeTab(tab);
 		CSBlocks.addBlock(greyClayStairsTiles);
 		
-		woodOak = MCBlockHelper.createWoodBlock("oak", 2.0F, 5.0F, tab_decor).setStepSound(Block.soundTypeWood);
-		woodOak2 = MCBlockHelper.createWoodBlock2("oak", 2.0F, 5.0F, tab_decor).setStepSound(Block.soundTypeWood);
+		woodOak = MCBlockHelper.createWoodBlock("oak", 2.0F, 5.0F, tab_decor);
+		woodOak2 = MCBlockHelper.createWoodBlock2("oak", 2.0F, 5.0F, tab_decor);
 		woodOakStairsBoards = new MCBlockStairs(woodOak, 1).setBlockName("stairs_wood_oak_raw").setCreativeTab(tab_decor).setStepSound(Block.soundTypeWood);
-		CSBlocks.addBlock(woodOakStairsBoards);
-		woodBirch = MCBlockHelper.createWoodBlock("birch", 2.0F, 5.0F, tab_decor).setStepSound(Block.soundTypeWood);
-		woodBirch2 = MCBlockHelper.createWoodBlock2("birch", 2.0F, 5.0F, tab_decor).setStepSound(Block.soundTypeWood);
+		woodBirch = MCBlockHelper.createWoodBlock("birch", 2.0F, 5.0F, tab_decor);
+		woodBirch2 = MCBlockHelper.createWoodBlock2("birch", 2.0F, 5.0F, tab_decor);
 		woodBirchStairsBoards = new MCBlockStairs(woodBirch, 1).setBlockName("stairs_wood_birch_raw").setCreativeTab(tab_decor).setStepSound(Block.soundTypeWood);
-		CSBlocks.addBlock(woodBirchStairsBoards);
-		woodSpruce = MCBlockHelper.createWoodBlock("spruce", 2.0F, 5.0F, tab_decor).setStepSound(Block.soundTypeWood);
-		woodSpruce2 = MCBlockHelper.createWoodBlock2("spruce", 2.0F, 5.0F, tab_decor).setStepSound(Block.soundTypeWood);
+		woodSpruce = MCBlockHelper.createWoodBlock("spruce", 2.0F, 5.0F, tab_decor);
+		woodSpruce2 = MCBlockHelper.createWoodBlock2("spruce", 2.0F, 5.0F, tab_decor);
 		woodSpruceStairsBoards = new MCBlockStairs(woodSpruce, 1).setBlockName("stairs_wood_spruce_raw").setCreativeTab(tab_decor).setStepSound(Block.soundTypeWood);
-		CSBlocks.addBlock(woodSpruceStairsBoards);
-		woodJungle = MCBlockHelper.createWoodBlock("jungle", 2.0F, 5.0F, tab_decor).setStepSound(Block.soundTypeWood);
-		woodJungle2 = MCBlockHelper.createWoodBlock2("jungle", 2.0F, 5.0F, tab_decor).setStepSound(Block.soundTypeWood);
+		woodJungle = MCBlockHelper.createWoodBlock("jungle", 2.0F, 5.0F, tab_decor);
+		woodJungle2 = MCBlockHelper.createWoodBlock2("jungle", 2.0F, 5.0F, tab_decor);
 		woodJungleStairsBoards = new MCBlockStairs(woodJungle, 1).setBlockName("stairs_wood_jungle_raw").setCreativeTab(tab_decor).setStepSound(Block.soundTypeWood);
-		CSBlocks.addBlock(woodJungleStairsBoards);
-		woodAcacia = MCBlockHelper.createWoodBlock("acacia", 2.0F, 5.0F, tab_decor).setStepSound(Block.soundTypeWood);
-		woodAcacia2 = MCBlockHelper.createWoodBlock2("acacia", 2.0F, 5.0F, tab_decor).setStepSound(Block.soundTypeWood);
+		woodAcacia = MCBlockHelper.createWoodBlock("acacia", 2.0F, 5.0F, tab_decor);
+		woodAcacia2 = MCBlockHelper.createWoodBlock2("acacia", 2.0F, 5.0F, tab_decor);
 		woodAcaciaStairsBoards = new MCBlockStairs(woodAcacia, 1).setBlockName("stairs_wood_acacia_raw").setCreativeTab(tab_decor).setStepSound(Block.soundTypeWood);
-		CSBlocks.addBlock(woodAcaciaStairsBoards);
-		woodDarkOak = MCBlockHelper.createWoodBlock("dark_oak", 2.0F, 5.0F, tab_decor).setStepSound(Block.soundTypeWood);
-		woodDarkOak2 = MCBlockHelper.createWoodBlock2("dark_oak", 2.0F, 5.0F, tab_decor).setStepSound(Block.soundTypeWood);
+		woodDarkOak = MCBlockHelper.createWoodBlock("dark_oak", 2.0F, 5.0F, tab_decor);
+		woodDarkOak2 = MCBlockHelper.createWoodBlock2("dark_oak", 2.0F, 5.0F, tab_decor);
 		woodDarkOakStairsBoards = new MCBlockStairs(woodDarkOak, 1).setBlockName("stairs_wood_dark_oak_raw").setCreativeTab(tab_decor).setStepSound(Block.soundTypeWood);
+		CSBlocks.addBlock(woodOakStairsBoards);
+		CSBlocks.addBlock(woodBirchStairsBoards);
+		CSBlocks.addBlock(woodSpruceStairsBoards);
+		CSBlocks.addBlock(woodJungleStairsBoards);
+		CSBlocks.addBlock(woodAcaciaStairsBoards);
 		CSBlocks.addBlock(woodDarkOakStairsBoards);
 	}
 }
