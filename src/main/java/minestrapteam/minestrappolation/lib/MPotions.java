@@ -31,8 +31,10 @@ public class MPotions implements IPotionEffectHandler
 	
 	public static void loadPotions()
 	{
-		PotionType infectious1 = new PotionType(new PotionEffect(infectiousPotion.id, 120 * 20), 1, 240 * 20);
-		PotionType ghastTentacle1 = new PotionType(new PotionEffect(ghastTentaclePotion.id, 90 * 20), 0, 210 * 20);
+		infectious = new PotionType(new PotionEffect(infectiousPotion.id, 120 * 20), 1, 240 * 20);
+		ghastTentacle = new PotionType(new PotionEffect(ghastTentaclePotion.id, 90 * 20), 0, 210 * 20);
+		infectious.register();
+		ghastTentacle.register();
 	}
 	
 	public static void loadBrewingRecipes()
