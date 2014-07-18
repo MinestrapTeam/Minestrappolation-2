@@ -1,3 +1,3 @@
-Minestrappolation-Recode
+Minestrappolation 2
 ========================
-A recode of the mod Minestrappolation
+The second major version of the Minestrappolation Mod for Minecraft. This version is a total recode of the first version.
