@@ -358,7 +358,18 @@ public class MCBlockCustom extends Block
 				return this.blockIcon;
 			}
 		}
-		if ("road".equals(type))
+		else if ("refined".equals(type))
+		{
+			if (this.redSandstone)
+			{
+				return side == 0 || side == 1 ? this.iconMap.get("top") : this.iconMap.get("refined");
+			}
+			else
+			{
+				return this.iconMap.get("refined");
+			}
+		}
+		else if ("road".equals(type))
 		{
 			if (side == 0)
 			{

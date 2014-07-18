@@ -301,8 +301,15 @@ public class MCBlockCustom2 extends Block
 			}
 			else if ("refined_slab".equals(type))
 			{
-				this.iconMap.put("refined_slab_top", iconRegister.registerIcon(textureName + "_refined"));
-				this.iconMap.put("refined_slab_side", iconRegister.registerIcon(textureName + "_refined_slab_side"));
+				if (this.redSandstone)
+				{
+					this.iconMap.put("refined_slab_side", iconRegister.registerIcon(textureName + "_refined"));
+				}
+				else
+				{
+					this.iconMap.put("refined_slab_top", iconRegister.registerIcon(textureName + "_refined"));
+					this.iconMap.put("refined_slab_side", iconRegister.registerIcon(textureName + "_refined_slab_side"));
+				}
 			}
 			else if ("tile_slab".equals(type))
 			{
@@ -371,7 +378,11 @@ public class MCBlockCustom2 extends Block
 		}
 		else if ("refined_slab".equals(type))
 		{
-			if (side > 1)
+			if (this.redSandstone)
+			{
+				return side == 0 || side == 1 ? this.iconMap.get("top") : this.iconMap.get("refined_slab_side");
+			}
+			else if (side > 1)
 			{
 				return this.iconMap.get("refined_slab_side");
 			}
