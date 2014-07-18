@@ -53,6 +53,12 @@ public class BlockMelter extends BlockContainer
 	}
 	
 	@Override
+	public Item getItem(World world, int x, int y, int z)
+	{
+		return Item.getItemFromBlock(MBlocks.melterIdle);
+	}
+	
+	@Override
 	public void onBlockAdded(World world, int x, int y, int z)
 	{
 		super.onBlockAdded(world, x, y, z);
