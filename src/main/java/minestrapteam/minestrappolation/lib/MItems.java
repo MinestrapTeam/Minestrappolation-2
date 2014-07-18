@@ -170,7 +170,7 @@ public class MItems
 		friedFlesh = new MCItemFood(8, 0.6F).setPotionEffect(Potion.hunger.id, 15 * 20, 1, 0.4F).setCreativeTab(tabFood).setTextureName(MCAssetManager.getFoodTexture("fried_flesh"));
 		animalBones = new MCItem().setCreativeTab(tabMaterials).setTextureName(MCAssetManager.getMobTexture("animal_bones"));
 		cowHoof = new MCItem().setCreativeTab(tabFood).setTextureName(MCAssetManager.getMobTexture("cow_foot"));
-		horn = new ItemPlating(null, "horn", 0, 0F).setCreativeTab(tabMaterials).setTextureName(MCAssetManager.getMobTexture("horn"));
+		horn = new ItemHorn().setCreativeTab(tabMaterials).setTextureName(MCAssetManager.getMobTexture("horn"));
 		beakChicken = new MCItem().setCreativeTab(tabFood).setTextureName(MCAssetManager.getFoodTexture("chicken_beak"));
 		footChicken = new MCItem().setCreativeTab(tabFood).setTextureName(MCAssetManager.getMobTexture("chicken_foot"));
 		chickenWingRaw = new MCItemFood(1, 0.1F).setPotionEffect(Potion.hunger.id, 10 * 20, 1, 0.3F).setCreativeTab(tabFood).setTextureName(MCAssetManager.getFoodTexture("chicken_wing_raw"));

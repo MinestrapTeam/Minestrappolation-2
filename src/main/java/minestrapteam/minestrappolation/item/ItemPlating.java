@@ -1,19 +1,16 @@
 package minestrapteam.minestrappolation.item;
 
-import java.util.HashMap;
-import java.util.Map;
+import minestrapteam.mcore.item.IPlating;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemReed;
 import net.minecraft.item.ItemStack;
 
-public class ItemPlating extends ItemReed
+public class ItemPlating extends ItemReed implements IPlating
 {
-	public static final Map<String, ItemPlating> platings = new HashMap();
-	
 	private String	plating;
-	public int durability;
-	public float digSpeed;
+	private int durability;
+	private float digSpeed;
 	
 	public ItemPlating(Block block, String plating, int durability, float digSpeed)
 	{
@@ -25,31 +22,39 @@ public class ItemPlating extends ItemReed
 		platings.put(plating, this);
 	}
 	
-	public static ItemPlating getItem(String plating)
+	public static IPlating getPlating(String plating)
 	{
 		return platings.get(plating);
 	}
 	
-	public static int getDurability(String plating)
+	@Override
+	public boolean canApply(String toolType)
 	{
-		ItemPlating item = getItem(plating);
-		return item == null ? 0 : item.durability;
+		return true;
 	}
 	
-	public static float getDigSpeed(String plating)
-	{
-		ItemPlating item = getItem(plating);
-		return item == null ? 1F : item.digSpeed;
-	}
-	
-	public String getPlating()
+	@Override
+	public String getType()
 	{
 		return this.plating;
 	}
 	
-	public String getPlating(ItemStack stack)
+	@Override
+	public String getType(ItemStack stack)
 	{
 		return this.plating;
+	}
+	
+	@Override
+	public int getDurability()
+	{
+		return this.durability;
+	}
+	
+	@Override
+	public float getDigSpeed()
+	{
+		return this.digSpeed;
 	}
 	
 	public void setPlating(String plating)

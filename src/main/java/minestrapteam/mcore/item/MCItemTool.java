@@ -1,6 +1,7 @@
 package minestrapteam.mcore.item;
 
 import java.util.*;
+import java.util.Map.Entry;
 
 import clashsoft.cslib.minecraft.lang.I18n;
 
@@ -24,10 +25,10 @@ import net.minecraft.world.World;
 
 public class MCItemTool extends ItemTool implements IPlatable
 {
-	protected boolean				ignites;
+	protected boolean			ignites;
 	
-	private String					toolType;
-	private Map<String, IIcon>		overlayIcons	= new HashMap();
+	private String				toolType;
+	private Map<String, IIcon>	overlayIcons	= new HashMap();
 	
 	public MCItemTool(float baseDamage, ToolMaterial material, Set<Block> blocks, String type, boolean ignites)
 	{
@@ -46,12 +47,12 @@ public class MCItemTool extends ItemTool implements IPlatable
 		return getPlating(stack) != null;
 	}
 	
-	public static String getPlating(ItemStack stack)
+	public static IPlating getPlating(ItemStack stack)
 	{
 		if (stack.stackTagCompound != null)
 		{
 			String s = stack.stackTagCompound.getString("Plating");
-			return s == null || s.isEmpty() ? null : s;
+			return s == null ? null : IPlating.platings.get(s);
 		}
 		return null;
 	}
@@ -65,13 +66,13 @@ public class MCItemTool extends ItemTool implements IPlatable
 		return 0F;
 	}
 	
-	public static void setPlating(ItemStack stack, String plating)
+	public static void setPlating(ItemStack stack, IPlating plating)
 	{
 		if (stack.stackTagCompound == null)
 		{
 			stack.stackTagCompound = new NBTTagCompound();
 		}
-		stack.stackTagCompound.setString("Plating", plating);
+		stack.stackTagCompound.setString("Plating", plating.getType());
 	}
 	
 	public static void setPoisonLevel(ItemStack stack, float level)
@@ -113,10 +114,10 @@ public class MCItemTool extends ItemTool implements IPlatable
 	
 	protected static void addInformation(ItemStack stack, List list)
 	{
-		String plating = getPlating(stack);
+		IPlating plating = getPlating(stack);
 		if (plating != null)
 		{
-			list.add(I18n.getString("item.plating." + plating + ".desc"));
+			list.add(I18n.getString("item.plating." + plating.getType() + ".desc"));
 		}
 		
 		float poisonLevel = getPoisonLevel(stack);
@@ -159,11 +160,10 @@ public class MCItemTool extends ItemTool implements IPlatable
 	@Override
 	public float getDigSpeed(ItemStack stack, Block block, int meta)
 	{
-		String plating = getPlating(stack);
+		IPlating plating = getPlating(stack);
 		if (plating != null)
 		{
-			float digSpeed = ItemPlating.getDigSpeed(plating);
-			return super.getDigSpeed(stack, block, meta) * digSpeed;
+			return super.getDigSpeed(stack, block, meta) * plating.getDigSpeed();
 		}
 		return super.getDigSpeed(stack, block, meta);
 	}
@@ -171,11 +171,10 @@ public class MCItemTool extends ItemTool implements IPlatable
 	@Override
 	public int getMaxDamage(ItemStack stack)
 	{
-		String plating = getPlating(stack);
+		IPlating plating = getPlating(stack);
 		if (plating != null)
 		{
-			int durability = ItemPlating.getDurability(plating);
-			return super.getMaxDamage(stack) + durability;
+			return super.getMaxDamage(stack) + plating.getDurability();
 		}
 		return super.getMaxDamage(stack);
 	}
@@ -191,27 +190,33 @@ public class MCItemTool extends ItemTool implements IPlatable
 	{
 		this.itemIcon = iconRegister.registerIcon(this.getIconString());
 		
-		for (String type : ItemPlating.platings.keySet())
-		{	
-			boolean sword = "sword".equals(this.toolType);
-			StringBuilder builder = new StringBuilder(20);
-			builder.append(sword ? "weapons/" : "tools/").append(type).append("_").append(this.toolType).append("_overlay");
-			if (!sword && this.toolMaterial.getHarvestLevel() >= 5)
+		for (Entry<String, IPlating> e : ItemPlating.platings.entrySet())
+		{
+			String type = e.getKey();
+			IPlating plating = e.getValue();
+			
+			if (plating.canApply(this.toolType))
 			{
-				builder.append("_2");
+				boolean sword = "sword".equals(this.toolType);
+				StringBuilder builder = new StringBuilder(20);
+				builder.append(sword ? "weapons/" : "tools/").append(type).append("_").append(this.toolType).append("_overlay");
+				if (!sword && this.toolMaterial.getHarvestLevel() >= 5)
+				{
+					builder.append("_2");
+				}
+				String textureName = MCAssetManager.getTexture(builder.toString());
+				this.overlayIcons.put(type, iconRegister.registerIcon(textureName));
 			}
-			String textureName = MCAssetManager.getTexture(builder.toString());
-			this.overlayIcons.put(type, iconRegister.registerIcon(textureName));
 		}
 	}
 	
 	@Override
 	public IIcon getIcon(ItemStack stack, int renderPass)
 	{
-		String plating = getPlating(stack);
+		IPlating plating = getPlating(stack);
 		if (renderPass == 1 && plating != null)
 		{
-			return this.overlayIcons.get(plating);
+			return this.overlayIcons.get(plating.getType());
 		}
 		return this.itemIcon;
 	}

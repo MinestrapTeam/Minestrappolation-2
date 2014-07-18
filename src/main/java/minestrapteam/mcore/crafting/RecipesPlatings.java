@@ -1,6 +1,7 @@
 package minestrapteam.mcore.crafting;
 
 import minestrapteam.mcore.item.IPlatable;
+import minestrapteam.mcore.item.IPlating;
 import minestrapteam.mcore.item.MCItemTool;
 import minestrapteam.minestrappolation.item.ItemPlating;
 
@@ -16,7 +17,7 @@ public class RecipesPlatings implements IRecipe
 	public ItemStack getCraftingResult(InventoryCrafting inventory)
 	{
 		ItemStack platable = null;
-		String plating = null;
+		IPlating plating = null;
 		for (int i = 0; i < inventory.getSizeInventory(); i++)
 		{
 			ItemStack stack = inventory.getStackInSlot(i);
@@ -37,7 +38,7 @@ public class RecipesPlatings implements IRecipe
 					platable = stack;
 				}
 			}
-			else if (stack.getItem() instanceof ItemPlating)
+			else if (stack.getItem() instanceof IPlating)
 			{
 				if (plating != null)
 				{
@@ -45,7 +46,7 @@ public class RecipesPlatings implements IRecipe
 				}
 				else
 				{
-					plating = ((ItemPlating) stack.getItem()).getPlating(stack);
+					plating = (ItemPlating) stack.getItem();
 				}
 			}
 		}
@@ -97,7 +98,7 @@ public class RecipesPlatings implements IRecipe
 					platable = true;
 				}
 			}
-			else if (stack.getItem() instanceof ItemPlating)
+			else if (stack.getItem() instanceof IPlating)
 			{
 				if (plating)
 				{
