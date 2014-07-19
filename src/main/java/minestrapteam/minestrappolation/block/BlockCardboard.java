@@ -4,11 +4,13 @@ import java.util.Random;
 
 import minestrapteam.mcore.util.MCAssetManager;
 import minestrapteam.mcore.util.MCUtil;
+import minestrapteam.minestrappolation.lib.MItems;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
+import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -23,6 +25,18 @@ public class BlockCardboard extends Block
 	public BlockCardboard(Material material)
 	{
 		super(material);
+	}
+	
+	@Override
+	public Item getItemDropped(int metadata, Random random, int fortune)
+	{
+		return metadata == 1 ? MItems.cardboardItem : super.getItemDropped(metadata, random, fortune);
+	}
+	
+	@Override
+	public int quantityDropped(int meta, int fortune, Random random)
+	{
+		return meta == 1 ? 1 + random.nextInt(5 + fortune) : 1;
 	}
 	
 	@Override
