@@ -57,6 +57,12 @@ public class MOreDictionary
 		OreDictionary.registerOre("plankWood", new ItemStack(MCBlocks.woodJungle, 1, 1));
 		OreDictionary.registerOre("plankWood", new ItemStack(MCBlocks.woodAcacia, 1, 1));
 		OreDictionary.registerOre("plankWood", new ItemStack(MCBlocks.woodDarkOak, 1, 1));
+		OreDictionary.registerOre("plankWood", new ItemStack(MCBlocks.woodOak, 1, 4));
+		OreDictionary.registerOre("plankWood", new ItemStack(MCBlocks.woodBirch, 1, 4));
+		OreDictionary.registerOre("plankWood", new ItemStack(MCBlocks.woodSpruce, 1, 4));
+		OreDictionary.registerOre("plankWood", new ItemStack(MCBlocks.woodJungle, 1, 4));
+		OreDictionary.registerOre("plankWood", new ItemStack(MCBlocks.woodAcacia, 1, 4));
+		OreDictionary.registerOre("plankWood", new ItemStack(MCBlocks.woodDarkOak, 1, 4));
 		
 		OreDictionary.registerOre("slabWood", new ItemStack(MCBlocks.woodOak2, 1, 3));
 		OreDictionary.registerOre("slabWood", new ItemStack(MCBlocks.woodBirch2, 1, 3));
@@ -82,6 +88,12 @@ public class MOreDictionary
 		OreDictionary.registerOre("plankSpruce", new ItemStack(MCBlocks.woodSpruce, 1, 1));
 		OreDictionary.registerOre("plankJungle", new ItemStack(MCBlocks.woodJungle, 1, 1));
 		OreDictionary.registerOre("plankAcacia", new ItemStack(MCBlocks.woodAcacia, 1, 1));
+		OreDictionary.registerOre("plankDarkOak", new ItemStack(MCBlocks.woodDarkOak, 1, 1));
+		OreDictionary.registerOre("plankOak", new ItemStack(MCBlocks.woodOak, 1, 4));
+		OreDictionary.registerOre("plankBirch", new ItemStack(MCBlocks.woodBirch, 1, 4));
+		OreDictionary.registerOre("plankSpruce", new ItemStack(MCBlocks.woodSpruce, 1, 4));
+		OreDictionary.registerOre("plankJungle", new ItemStack(MCBlocks.woodJungle, 1, 4));
+		OreDictionary.registerOre("plankAcacia", new ItemStack(MCBlocks.woodAcacia, 1, 4));
 		OreDictionary.registerOre("plankDarkOak", new ItemStack(MCBlocks.woodDarkOak, 1, 1));
 		
 		OreDictionary.registerOre("sandstone", new ItemStack(Blocks.sandstone));
