@@ -269,7 +269,12 @@ public class MCBlockCustom extends Block
 	@Override
 	public boolean isFireSource(World world, int x, int y, int z, ForgeDirection side)
 	{
-		return this.netherrack && side == UP;
+		if (this.netherrack && side == UP)
+		{
+			String type = this.getType(world.getBlockMetadata(x, y, z));
+			return !"road".equals(type) && !"pattern_bricks".equals(type);
+		}
+		return false;
 	}
 	
 	@Override
@@ -453,7 +458,7 @@ public class MCBlockCustom extends Block
 	@Override
 	public boolean isBeaconBase(IBlockAccess worldObj, int x, int y, int z, int beaconX, int beaconY, int beaconZ)
 	{
-		if(worldObj.getBlockMetadata(x, y, z) != 4)
+		if (worldObj.getBlockMetadata(x, y, z) != 4)
 		{
 			return this.beaconBase;
 		}
