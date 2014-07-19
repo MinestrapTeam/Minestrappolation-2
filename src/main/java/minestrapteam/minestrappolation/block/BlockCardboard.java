@@ -55,6 +55,12 @@ public class BlockCardboard extends Block
 	}
 	
 	@Override
+	public void fillWithRain(World world, int x, int y, int z)
+	{
+		world.setBlockMetadataWithNotify(x, y, z, 1, 2);
+	}
+	
+	@Override
 	public IIcon getIcon(int side, int metadata)
 	{
 		if (metadata == 0)
