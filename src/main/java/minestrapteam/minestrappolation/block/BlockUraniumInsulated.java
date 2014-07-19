@@ -13,6 +13,7 @@ import net.minecraft.util.IIcon;
 public class BlockUraniumInsulated extends BlockInsulatedRadiation
 {
 	private IIcon	topIcon;
+	private IIcon	bottomIcon;
 	
 	public BlockUraniumInsulated(Material material)
 	{
@@ -23,15 +24,20 @@ public class BlockUraniumInsulated extends BlockInsulatedRadiation
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getMineralTexture("uranium_insulated"));
-		this.topIcon = iconRegister.registerIcon("iron_block");
+		this.topIcon = iconRegister.registerIcon(MCAssetManager.getMineralTexture("steel_block_top"));
+		this.bottomIcon = iconRegister.registerIcon(MCAssetManager.getMineralTexture("steel_block_bottom"));
 	}
 	
 	@Override
 	public IIcon getIcon(int i, int j)
 	{
-		if (i == 0 || i == 1)
+		if (i == 1)
 		{
 			return this.topIcon;
+		}
+		if (i == 0)
+		{
+			return this.bottomIcon;
 		}
 		
 		return this.blockIcon;
