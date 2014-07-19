@@ -15,16 +15,14 @@ public class ItemAmuletPullum extends ItemAmulet
 	@Override
 	public void onUpdate(ItemStack stack, World world, Entity entity, int i, boolean flag)
 	{
-		if (world.isRemote)
+		if (!world.isRemote && flag)
 		{
-			return;
-		}
-		
-		EntityPlayer player = (EntityPlayer) entity;
-		if (player.getRNG().nextFloat() < 0.33F && player.isAirBorne && player.motionY > 1.2)
-		{
-			player.fallDistance = 0;
-			stack.damageItem(1, player);
+			EntityPlayer player = (EntityPlayer) entity;
+			if (player.getRNG().nextFloat() < 0.33F && player.isAirBorne && player.motionY > 1.2)
+			{
+				player.fallDistance = 0;
+				stack.damageItem(1, player);
+			}
 		}
 	}
 }
