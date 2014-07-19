@@ -5,8 +5,8 @@ import java.util.Random;
 import minestrapteam.minestrappolation.lib.MItems;
 
 import net.minecraft.block.Block;
-import net.minecraft.entity.item.EntityFallingBlock;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
@@ -24,8 +24,12 @@ public class BlockRope extends BlockRopeCoil
 	{
 		if (!world.isRemote && !this.canPlaceBlockAt(world, x, y, z))
 		{
-			EntityFallingBlock entityfallingblock = new EntityFallingBlock(world, x + 0.5F, y + 0.5F, z + 0.5F, this, world.getBlockMetadata(x, y, z));
-			world.spawnEntityInWorld(entityfallingblock);
+			// EntityFallingBlock entityfallingblock = new
+			// EntityFallingBlock(world, x + 0.5F, y + 0.5F, z + 0.5F, this,
+			// world.getBlockMetadata(x, y, z));
+			// world.spawnEntityInWorld(entityfallingblock);
+			world.setBlockToAir(x, y, z);
+			this.dropBlockAsItem(world, x, y, z, new ItemStack(MItems.ropeItem));
 		}
 	}
 	
