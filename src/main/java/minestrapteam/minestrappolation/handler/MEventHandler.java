@@ -8,6 +8,7 @@ import cpw.mods.fml.common.gameevent.TickEvent.Phase;
 import cpw.mods.fml.common.gameevent.TickEvent.PlayerTickEvent;
 import minestrapteam.mcore.block.MCBlockCustom2;
 import minestrapteam.mcore.item.block.MCItemBlockCustom2;
+import minestrapteam.minestrappolation.lib.MBlocks;
 import minestrapteam.minestrappolation.lib.MItems;
 import minestrapteam.minestrappolation.lib.MTools;
 
@@ -19,6 +20,7 @@ import net.minecraft.entity.passive.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
@@ -426,6 +428,14 @@ public class MEventHandler implements IFuelHandler
 					return 150;
 				}
 			}
+		}
+		else if (fuel.getItem() == MItems.cardboardItem)
+		{
+			return 50;
+		}
+		else if (fuel.getItem() == Item.getItemFromBlock(MBlocks.cardboardBlock))
+		{
+			return 200;
 		}
 		return 0;
 	}
