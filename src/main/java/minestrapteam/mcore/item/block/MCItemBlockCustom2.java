@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 
 public class MCItemBlockCustom2 extends MCItemBlockMulti
 {
-	private MCBlockCustom2	theBlock;
+	public MCBlockCustom2	theBlock;
 	
 	public MCItemBlockCustom2(Block block)
 	{
