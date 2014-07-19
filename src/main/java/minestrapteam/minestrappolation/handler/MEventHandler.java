@@ -43,15 +43,15 @@ public class MEventHandler implements IFuelHandler
 			{
 				if (helmet.getItem() == MTools.meuroditeHelmet && chest.getItem() == MTools.meuroditeChestplate && pants.getItem() == MTools.meuroditeLeggings && boots.getItem() == MTools.meuroditeBoots)
 				{
-					player.addPotionEffect(new PotionEffect(Potion.fireResistance.id, 1, 0, true));
+					player.addPotionEffect(new PotionEffect(Potion.fireResistance.id, 2, 0, true));
 				}
 				else if (helmet.getItem() == MTools.toriteHelmet && chest.getItem() == MTools.toriteChestplate && pants.getItem() == MTools.toriteLeggings && boots.getItem() == MTools.toriteBoots)
 				{
-					player.addPotionEffect(new PotionEffect(Potion.regeneration.id, 1, 0, true));
+					player.addPotionEffect(new PotionEffect(Potion.regeneration.id, 2, 0, true));
 				}
 				else if (helmet.getItem() == MTools.titaniumHelmet && chest.getItem() == MTools.titaniumChestplate && pants.getItem() == MTools.titaniumLeggings && boots.getItem() == MTools.titaniumBoots)
 				{
-					player.addPotionEffect(new PotionEffect(Potion.resistance.id, 1, 1, true));
+					player.addPotionEffect(new PotionEffect(Potion.resistance.id, 2, 1, true));
 				}
 			}
 		}
