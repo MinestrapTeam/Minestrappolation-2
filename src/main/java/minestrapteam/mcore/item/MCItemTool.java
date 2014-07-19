@@ -15,6 +15,7 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
+import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTool;
 import net.minecraft.nbt.NBTTagCompound;
@@ -26,6 +27,7 @@ import net.minecraft.world.World;
 public class MCItemTool extends ItemTool implements IPlatable
 {
 	protected boolean			ignites;
+	protected boolean			weapon;
 	
 	private String				toolType;
 	private Map<String, IIcon>	overlayIcons	= new HashMap();
@@ -40,6 +42,12 @@ public class MCItemTool extends ItemTool implements IPlatable
 	public MCItemTool(float baseDamage, ToolMaterial material, Set<Block> blocks, String type)
 	{
 		this(baseDamage, material, blocks, type, false);
+	}
+	
+	public MCItemTool setWeapon()
+	{
+		this.weapon = true;
+		return this;
 	}
 	
 	public static boolean isPlated(ItemStack stack)
@@ -85,6 +93,28 @@ public class MCItemTool extends ItemTool implements IPlatable
 	}
 	
 	@Override
+	public EnumAction getItemUseAction(ItemStack stack)
+	{
+		return this.weapon ? EnumAction.block : EnumAction.none;
+	}
+	
+	@Override
+	public int getMaxItemUseDuration(ItemStack stack)
+	{
+		return this.weapon ? 72000 : 0;
+	}
+	
+	@Override
+	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
+	{
+		if (this.weapon)
+		{
+			player.setItemInUse(stack, this.getMaxItemUseDuration(stack));
+		}
+		return stack;
+	}
+	
+	@Override
 	public boolean hitEntity(ItemStack stack, EntityLivingBase entity, EntityLivingBase attacker)
 	{
 		float level = getPoisonLevel(stack);
@@ -95,7 +125,7 @@ public class MCItemTool extends ItemTool implements IPlatable
 			setPoisonLevel(stack, level);
 		}
 		
-		if ("sword".equals(this.toolType))
+		if (this.weapon)
 		{
 			stack.damageItem(1, attacker);
 		}

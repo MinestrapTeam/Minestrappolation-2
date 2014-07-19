@@ -146,10 +146,10 @@ public class MTools
 		titaniumBoots = new MCItemArmor(armorTitanium, MCommonProxy.titanium, 3, "titanium").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getArmorTexture("titanium_boots"));
 		
 		toriteSword = new MCItemSword(toolTorite).setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getWeaponTexture("torite_sword"));
-		toriteShovel = new MCItemShovel(toolTorite).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("torite_shovel"));
-		toritePickaxe = new MCItemPickaxe(toolTorite).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("torite_pickaxe"));
-		toriteAxe = new MCItemAxe(toolTorite).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("torite_axe"));
-		toriteHoe = new MCItemHoe(toolTorite).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("torite_hoe"));
+		toriteShovel = new MCItemShovel(toolTorite).setWeapon().setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("torite_shovel"));
+		toritePickaxe = new MCItemPickaxe(toolTorite).setWeapon().setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("torite_pickaxe"));
+		toriteAxe = new MCItemAxe(toolTorite).setWeapon().setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("torite_axe"));
+		toriteHoe = new MCItemHoe(toolTorite).setWeapon().setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("torite_hoe"));
 		toriteHelmet = new MCItemArmor(armorTorite, MCommonProxy.torite, 0, "torite").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getArmorTexture("torite_helmet"));
 		toriteChestplate = new MCItemArmor(armorTorite, MCommonProxy.torite, 1, "torite").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getArmorTexture("torite_chestplate"));
 		toriteLeggings = new MCItemArmor(armorTorite, MCommonProxy.torite, 2, "torite").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getArmorTexture("torite_leggings"));

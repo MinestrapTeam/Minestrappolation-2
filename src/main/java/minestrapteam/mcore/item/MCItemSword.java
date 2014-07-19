@@ -6,9 +6,7 @@ import clashsoft.cslib.minecraft.item.datatools.ItemDataSword;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -17,6 +15,7 @@ public class MCItemSword extends MCItemTool
 	public MCItemSword(ToolMaterial material, boolean ignites)
 	{
 		super(ItemDataSword.baseDamage, material, Collections.EMPTY_SET, "sword", ignites);
+		this.weapon = true;
 	}
 	
 	public MCItemSword(ToolMaterial material)
@@ -61,25 +60,6 @@ public class MCItemSword extends MCItemTool
 			stack.damageItem(2, living);
 		}
 		return true;
-	}
-	
-	@Override
-	public EnumAction getItemUseAction(ItemStack stack)
-	{
-		return EnumAction.block;
-	}
-	
-	@Override
-	public int getMaxItemUseDuration(ItemStack stack)
-	{
-		return 72000;
-	}
-	
-	@Override
-	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
-	{
-		player.setItemInUse(stack, this.getMaxItemUseDuration(stack));
-		return stack;
 	}
 	
 	@Override
