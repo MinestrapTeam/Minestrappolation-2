@@ -125,6 +125,11 @@ public class MCItemTool extends ItemTool implements IPlatable
 			setPoisonLevel(stack, level);
 		}
 		
+		if (this.ignites)
+		{
+			entity.setFire(10);
+		}
+		
 		if (this.weapon)
 		{
 			stack.damageItem(1, attacker);
