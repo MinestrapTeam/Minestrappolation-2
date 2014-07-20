@@ -101,4 +101,25 @@ public class MCItemArmor extends ItemArmor implements IPlatable
 		}
 		return MCAssetManager.getArmorModel(material + layer);
 	}
+	
+	@Override
+	public int getPlatingCount(ItemStack stack)
+	{
+		ArmorMaterial material = this.getArmorMaterial();
+		switch (material)
+		{
+		case CHAIN:
+			return 1;
+		case CLOTH:
+			return 1;
+		case IRON:
+			return 2;
+		case GOLD:
+			return 3;
+		case DIAMOND:
+			return 4;
+		default:
+			return 1;
+		}
+	}
 }

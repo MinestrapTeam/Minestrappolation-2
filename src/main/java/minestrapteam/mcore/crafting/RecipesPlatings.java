@@ -1,5 +1,6 @@
 package minestrapteam.mcore.crafting;
 
+import clashsoft.cslib.minecraft.stack.CSStacks;
 import minestrapteam.mcore.item.IPlatable;
 import minestrapteam.mcore.item.IPlating;
 import minestrapteam.mcore.item.MCItemTool;
@@ -18,6 +19,7 @@ public class RecipesPlatings implements IRecipe
 	{
 		ItemStack platable = null;
 		IPlating plating = null;
+		int count = 0;
 		for (int i = 0; i < inventory.getSizeInventory(); i++)
 		{
 			ItemStack stack = inventory.getStackInSlot(i);
@@ -31,10 +33,18 @@ public class RecipesPlatings implements IRecipe
 			{
 				if (platable != null)
 				{
-					return null;
+					if (CSStacks.itemEquals(platable, stack))
+					{
+						count++;
+					}
+					else
+					{
+						return null;
+					}
 				}
 				else
 				{
+					count++;
 					platable = stack;
 				}
 			}
@@ -51,7 +61,7 @@ public class RecipesPlatings implements IRecipe
 			}
 		}
 		
-		if (platable != null && plating != null)
+		if (platable != null && plating != null && count == ((IPlatable) platable.getItem()).getPlatingCount(platable))
 		{
 			ItemStack result = platable.copy();
 			MCItemTool.setPlating(result, plating);

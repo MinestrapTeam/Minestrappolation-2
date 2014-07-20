@@ -21,6 +21,7 @@ import net.minecraft.item.ItemTool;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
@@ -48,6 +49,12 @@ public class MCItemTool extends ItemTool implements IPlatable
 	{
 		this.weapon = true;
 		return this;
+	}
+	
+	@Override
+	public int getPlatingCount(ItemStack stack)
+	{
+		return this.toolMaterial.getHarvestLevel() + 1;
 	}
 	
 	public static boolean isPlated(ItemStack stack)
@@ -123,6 +130,13 @@ public class MCItemTool extends ItemTool implements IPlatable
 			entity.addPotionEffect(new PotionEffect(Potion.poison.id, 20 * 12, 0));
 			level -= 0.5F;
 			setPoisonLevel(stack, level);
+		}
+		
+		IPlating plating = getPlating(stack);
+		if (plating != null)
+		{
+			float f = plating.getDigSpeed() * 1.25F;
+			entity.attackEntityFrom(DamageSource.causeMobDamage(attacker), f);
 		}
 		
 		if (this.ignites)
