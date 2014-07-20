@@ -52,11 +52,12 @@ public class MCItemBlockCustom2 extends MCItemBlockMulti
 		
 		Block block1 = world.getBlock(x, y, z);
 		int i = world.getBlockMetadata(x, y, z);
+		String s = this.theBlock.getType(stack.getItemDamage());
 		
 		int model = i % 3;
 		int type = i - model;
 		
-		if (!"pillar".equals(this.theBlock.getType(i)))
+		if (!"pillar".equals(s))
 		{
 			// Handles double slabs
 			if (block1 == this.field_150939_a && type == stack.getItemDamage() && ((side == 1 && model == 0) || (side == 0 && model == 1)))
