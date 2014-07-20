@@ -74,6 +74,11 @@ public class MPotions implements IPotionEffectHandler
 				{
 					ServerConfigurationManager manager = MinecraftServer.getServer().getConfigurationManager();
 					manager.transferPlayerToDimension((EntityPlayerMP) entity, 0, new TeleporterNoPortal(DimensionManager.getWorld(0)));
+					
+					while (entity.isEntityInsideOpaqueBlock())
+					{
+						entity.posY++;
+					}
 				}
 			}
 		}
