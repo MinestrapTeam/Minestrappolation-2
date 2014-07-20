@@ -1,7 +1,22 @@
+1.7.2-3.0.0
+
+! Merged all mod segments into one mod.
++ Added the Stonecutter and it’s new crafting system.
++ Added more than 300 new stone-based decor blocks.
++ Added new Wood variants.
++ Added Wood variants for the Wood types added in 1.7.
++ Added a good bit of content from Extrapolated Mob Drops.
++ Revamped the Tool and Armor Plating system (WIP).
+* Re-coded almost everything.
+* Many improvements and tweaks.
+* Changed a bunch of recipes.
+* Updated some textures.
+* Bug genocide. Millions are dead.
+* Saved tons of Block IDs by using metadata.
+
 1.5.1
 
 EO-1.5.1
-
 + Added all block and item names.
 * Bugfixes.
 
