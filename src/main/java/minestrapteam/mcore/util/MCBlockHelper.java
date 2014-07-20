@@ -4,8 +4,10 @@ import cpw.mods.fml.common.registry.GameData;
 import cpw.mods.fml.common.registry.GameRegistry;
 import minestrapteam.mcore.block.MCBlockCustom;
 import minestrapteam.mcore.block.MCBlockCustom2;
+import minestrapteam.mcore.block.MCBlockStairs;
 import minestrapteam.mcore.item.block.MCItemBlockCustom;
 import minestrapteam.mcore.item.block.MCItemBlockCustom2;
+import minestrapteam.mcore.item.block.MCItemBlockMulti;
 import minestrapteam.mcore.lib.MCReference;
 
 import net.minecraft.block.Block;
@@ -97,6 +99,52 @@ public class MCBlockHelper
 		block.setHarvestTool("pickaxe");
 		GameRegistry.registerBlock(block, MCItemBlockCustom2.class, name1);
 		return block;
+	}
+	
+	public static MCBlockStairs createWoodStair(Block block, int metadata, CreativeTabs tab)
+	{
+		String name = block.getUnlocalizedName() + "_raw";
+		String name1 = "wood_stair_" + name;
+		MCBlockStairs stair = new MCBlockStairs(block, metadata);
+		stair.setBlockName(name1);
+		stair.setCreativeTab(tab);
+		stair.setStepSound(Block.soundTypeWood);
+		GameRegistry.registerBlock(stair, MCItemBlockMulti.class, name1);
+		return stair;
+	}
+	
+	public static MCBlockStairs createWoodStair(MCBlockCustom block, int metadata, CreativeTabs tab)
+	{
+		String name = block.name + "_" + block.getType(metadata);
+		String name1 = "wood_stair_" + name;
+		MCBlockStairs stair = new MCBlockStairs(block, metadata);
+		stair.setBlockName(name1);
+		stair.setCreativeTab(tab);
+		stair.setStepSound(Block.soundTypeWood);
+		GameRegistry.registerBlock(stair, MCItemBlockMulti.class, name1);
+		return stair;
+	}
+	
+	public static MCBlockStairs createStoneStair(Block block, int metadata, CreativeTabs tab)
+	{
+		String name = block.getUnlocalizedName() + "_raw";
+		String name1 = "stone_stair_" + name;
+		MCBlockStairs stair = new MCBlockStairs(block, metadata);
+		stair.setBlockName(name1);
+		stair.setCreativeTab(tab);
+		GameRegistry.registerBlock(stair, MCItemBlockMulti.class, name1);
+		return stair;
+	}
+	
+	public static MCBlockStairs createStoneStair(MCBlockCustom block, int metadata, CreativeTabs tab)
+	{
+		String name = block.name + "_" + block.getType(metadata);
+		String name1 = "stone_stair_" + name;
+		MCBlockStairs stair = new MCBlockStairs(block, metadata);
+		stair.setBlockName(name1);
+		stair.setCreativeTab(tab);
+		GameRegistry.registerBlock(stair, MCItemBlockMulti.class, name1);
+		return stair;
 	}
 	
 	/**
