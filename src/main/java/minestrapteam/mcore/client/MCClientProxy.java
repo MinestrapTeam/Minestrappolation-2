@@ -9,16 +9,11 @@ import minestrapteam.mcore.client.renderer.tileentity.RenderStonecutter;
 import minestrapteam.mcore.common.MCCommonProxy;
 import minestrapteam.mcore.tileentity.TileEntityStonecutter;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.ThreadDownloadImageData;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
 public class MCClientProxy extends MCCommonProxy
 {
-	public static final String	capeURL	= "https://raw.githubusercontent.com/SoBiohazardous/Minestrappolation-Recode/master/src/main/resources/assets/minestrappolation/textures/misc/cape_dev.png";
-	
 	@Override
 	public Object getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
 	{
@@ -37,18 +32,5 @@ public class MCClientProxy extends MCCommonProxy
 		RenderingRegistry.registerBlockHandler(custom2RenderType, new RenderBlockCustom2());
 		
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityStonecutter.class, new RenderStonecutter());
-		addDevCapes();
-	}
-	
-	public static void addDevCapes()
-	{
-		String[] devs = { "SoBiohazardous", "Delocuro", "triplg3", "thewerty1124", "AdrianKunz" };
-		
-		ThreadDownloadImageData image = new ThreadDownloadImageData(capeURL, null, null);
-		
-		for (String username : devs)
-		{
-			Minecraft.getMinecraft().renderEngine.loadTexture(new ResourceLocation("cloaks/" + username), image);
-		}
 	}
 }
