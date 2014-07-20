@@ -312,7 +312,7 @@ tile.obsidian.refined_slab.name=Refined Obsidian Slab
 tile.obsidian.lamp_godstone.name=Godstone Obsidian Lamp
 tile.stone_stair_tile.obsidian_raw.0.0.name=Obsidian Stairs
 tile.stone_stair_obsidian_bricks.0.name=Obsidian Brick Stairs
-tile.stone_stair_obsidian_bricks.0.name=Obsidian Tile Stairs
+tile.stone_stair_obsidian_tiles.0.name=Obsidian Tile Stairs
 tile.endstone.raw.name=End Stone
 tile.endstone.bricks.name=End Stone Bricks
 tile.endstone.pattern_bricks.name=End Stone Patterned Bricks
@@ -931,3 +931,7 @@ item.plating.tin.desc=Tin-Plated
 item.plating.bronze.desc=Bronze-Plated
 item.plating.steel.desc=Steel-Plated
 item.plating.meurodite.desc=Meurodite-Plated
+lock.added=This container has been locked!
+
+#Potion Effects
+potion.ghastTentacle=Nether Neutrality
