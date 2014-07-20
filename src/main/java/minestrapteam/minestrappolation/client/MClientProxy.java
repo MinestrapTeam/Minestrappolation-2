@@ -2,7 +2,7 @@ package minestrapteam.minestrappolation.client;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.IGuiHandler;
 import minestrapteam.minestrappolation.client.gui.GuiBarrel;
 import minestrapteam.minestrappolation.client.gui.GuiCrate;
@@ -13,9 +13,13 @@ import minestrapteam.minestrappolation.client.renderer.block.RenderBlockPlating;
 import minestrapteam.minestrappolation.client.renderer.block.RenderGoblet;
 import minestrapteam.minestrappolation.client.renderer.block.RenderPlate;
 import minestrapteam.minestrappolation.common.MCommonProxy;
-import minestrapteam.minestrappolation.entity.*;
+import minestrapteam.minestrappolation.entity.EntityGrenade;
+import minestrapteam.minestrappolation.entity.EntityGrenadeImpact;
+import minestrapteam.minestrappolation.entity.EntityGrenadeSticky;
+import minestrapteam.minestrappolation.entity.EntityNukePrimed;
 import minestrapteam.minestrappolation.lib.MItems;
 import minestrapteam.minestrappolation.tileentity.*;
+
 import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
@@ -26,7 +30,7 @@ public class MClientProxy extends MCommonProxy implements IGuiHandler
 	public static int	platingRenderID;
 	
 	@Override
-	public void init(FMLInitializationEvent event)
+	public void preInit(FMLPreInitializationEvent event)
 	{
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGoblet.class, new RenderGoblet());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPlate.class, new RenderPlate());

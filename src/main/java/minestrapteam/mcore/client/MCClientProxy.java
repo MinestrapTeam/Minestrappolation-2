@@ -2,7 +2,7 @@ package minestrapteam.mcore.client;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import minestrapteam.mcore.client.gui.GuiStonecutter;
 import minestrapteam.mcore.client.renderer.block.RenderBlockCustom2;
 import minestrapteam.mcore.client.renderer.tileentity.RenderStonecutter;
@@ -30,7 +30,7 @@ public class MCClientProxy extends MCCommonProxy
 	}
 	
 	@Override
-	public void init(FMLInitializationEvent event)
+	public void preInit(FMLPreInitializationEvent event)
 	{
 		custom2RenderType = RenderingRegistry.getNextAvailableRenderId();
 		
