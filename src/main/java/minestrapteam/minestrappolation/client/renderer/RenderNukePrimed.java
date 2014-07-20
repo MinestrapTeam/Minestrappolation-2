@@ -16,7 +16,7 @@ import net.minecraft.util.ResourceLocation;
 @SideOnly(Side.CLIENT)
 public class RenderNukePrimed extends Render
 {
-	private static RenderBlocks renderBlocks = RenderBlocks.getInstance();
+	private static RenderBlocks	renderBlocks	= RenderBlocks.getInstance();
 	
 	public RenderNukePrimed()
 	{

@@ -93,7 +93,7 @@ public class MEventHandler implements IFuelHandler
 				}
 				if (rand4 < 0.3D)
 				{
-						living.dropItem(onFire ? MItems.grease : MItems.fat, random.nextInt(5 + looting));
+					living.dropItem(onFire ? MItems.grease : MItems.fat, random.nextInt(5 + looting));
 				}
 			}
 			else if (living instanceof EntityCow)

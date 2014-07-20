@@ -8,7 +8,6 @@ import clashsoft.cslib.minecraft.lang.I18n;
 import com.google.common.collect.ImmutableSet;
 
 import minestrapteam.mcore.util.MCAssetManager;
-import minestrapteam.minestrappolation.item.ItemPlating;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -239,7 +238,7 @@ public class MCItemTool extends ItemTool implements IPlatable
 	{
 		this.itemIcon = iconRegister.registerIcon(this.getIconString());
 		
-		for (Entry<String, IPlating> e : ItemPlating.platings.entrySet())
+		for (Entry<String, IPlating> e : IPlating.platings.entrySet())
 		{
 			String type = e.getKey();
 			IPlating plating = e.getValue();

@@ -30,7 +30,7 @@ public class ItemHorseHairBow extends ItemBow
 	@Override
 	public void onPlayerStoppedUsing(ItemStack stack, World world, EntityPlayer player, int duration)
 	{
-		int j = getMaxItemUseDuration(stack) - duration;
+		int j = this.getMaxItemUseDuration(stack) - duration;
 		
 		ArrowLooseEvent event = new ArrowLooseEvent(player, stack, j);
 		MinecraftForge.EVENT_BUS.post(event);
@@ -50,7 +50,9 @@ public class ItemHorseHairBow extends ItemBow
 			}
 			
 			if (world.isRemote)
+			{
 				return;
+			}
 			
 			float f = j / 13F;
 			f = (f * f + f * 2.0F) / 3.0F;

@@ -330,7 +330,9 @@ public class MCBlockCustom2 extends Block
 				int i = type.indexOf("_slab");
 				String type1 = type;
 				if (i != -1)
+				{
 					type1 = type.substring(0, i);
+				}
 				this.iconMap.put(type, iconRegister.registerIcon(textureName + "_" + type1));
 			}
 		}
@@ -486,7 +488,7 @@ public class MCBlockCustom2 extends Block
 		{
 			return true;
 		}
-		return (model == 0 && side == ForgeDirection.DOWN) || (model == 1 && side == ForgeDirection.UP);
+		return model == 0 && side == ForgeDirection.DOWN || model == 1 && side == ForgeDirection.UP;
 	}
 	
 	@Override

@@ -8,29 +8,28 @@ import minestrapteam.minestrappolation.Minestrappolation;
 
 import net.minecraft.item.Item;
 
-
 /**
-* Minestrappolation Core's Items (Mostly Stonecutter Things).<br>
-* Stained Clay Brick Item Metadata:
-* <ul>
-* <li>0: Black
-* <li>1: Blue
-* <li>2: Brown
-* <li>3: Cyan
-* <li>4: Grey
-* <li>5: Green
-* <li>6: Light Blue
-* <li>7: Lime
-* <li>8: Magenta
-* <li>9: Orange
-* <li>10: Pink
-* <li>11: Purple
-* <li>12: Red
-* <li>13: Light Grey
-* <li>14: White
-* <li>15: Yellow
-* </ul>
-*/
+ * Minestrappolation Core's Items (Mostly Stonecutter Things).<br>
+ * Stained Clay Brick Item Metadata:
+ * <ul>
+ * <li>0: Black
+ * <li>1: Blue
+ * <li>2: Brown
+ * <li>3: Cyan
+ * <li>4: Grey
+ * <li>5: Green
+ * <li>6: Light Blue
+ * <li>7: Lime
+ * <li>8: Magenta
+ * <li>9: Orange
+ * <li>10: Pink
+ * <li>11: Purple
+ * <li>12: Red
+ * <li>13: Light Grey
+ * <li>14: White
+ * <li>15: Yellow
+ * </ul>
+ */
 public class MCItems
 {
 	public static Item	brickStone;
@@ -42,19 +41,19 @@ public class MCItems
 	public static Item	brickRedSandstone;
 	public static Item	brickClay;
 	public static Item	brickColoredClay;
-	public static Item  brickFlint;
-	public static Item  brickLapis;
-	public static Item  brickSlate;
-	public static Item  brickSlateTin;
-	public static Item  brickSlateBronze;
-	public static Item  brickSlateSteel;
-	public static Item  brickSlateMeurodite;
-	public static Item  brickDesertQuartz;
-	public static Item  brickNetherQuartz;
-	public static Item  brickObsidian;
-	public static Item  brickEndStone;
-	public static Item  brickBedrock;
-	public static Item  brickRadiantQuartz;
+	public static Item	brickFlint;
+	public static Item	brickLapis;
+	public static Item	brickSlate;
+	public static Item	brickSlateTin;
+	public static Item	brickSlateBronze;
+	public static Item	brickSlateSteel;
+	public static Item	brickSlateMeurodite;
+	public static Item	brickDesertQuartz;
+	public static Item	brickNetherQuartz;
+	public static Item	brickObsidian;
+	public static Item	brickEndStone;
+	public static Item	brickBedrock;
+	public static Item	brickRadiantQuartz;
 	
 	public static void init()
 	{

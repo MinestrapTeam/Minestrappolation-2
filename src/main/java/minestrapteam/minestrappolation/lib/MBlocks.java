@@ -133,7 +133,7 @@ public class MBlocks
 		flintQuartzStairs = new MCBlockStairs(checkerTiles, 1).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockName("stairs_flint_quartz");
 		obsidianEndstoneStairs = new MCBlockStairs(checkerTiles, 2).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockName("stairs_obsidian_endstone");
 		obsidianQuartzStairs = new MCBlockStairs(checkerTiles, 3).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockName("stairs_obsidan_quartz");
-
+		
 		edgeStoneBrick = new BlockEdgeStoneBrick().setHardness(1.5F).setResistance(10F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone);
 		snowBrick = new BlockSnowBrick().setHardness(0.2F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeSnow).setBlockTextureName(MCAssetManager.getTexture("snow_tiles"));
 		

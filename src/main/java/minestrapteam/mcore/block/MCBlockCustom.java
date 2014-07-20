@@ -155,7 +155,7 @@ public class MCBlockCustom extends Block
 	@Override
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
-		return (this == MCBlocks.endstone && metadata == 0) ? Item.getItemFromBlock(Blocks.end_stone) : super.getItemDropped(metadata, random, fortune);
+		return this == MCBlocks.endstone && metadata == 0 ? Item.getItemFromBlock(Blocks.end_stone) : super.getItemDropped(metadata, random, fortune);
 	}
 	
 	@Override

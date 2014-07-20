@@ -8,5 +8,5 @@ public class TileEntityStonecutter extends TileEntityInventory
 	public int getSizeInventory()
 	{
 		return 0;
-	}	
+	}
 }

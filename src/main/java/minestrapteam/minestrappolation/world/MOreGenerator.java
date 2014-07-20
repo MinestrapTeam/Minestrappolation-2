@@ -245,7 +245,7 @@ public class MOreGenerator implements IWorldGenerator
 	
 	public void generateEnd(World world, Random random, int chunkX, int chunkZ)
 	{
-		generateObsidianSpikes(world, random, chunkX, chunkZ);
+		this.generateObsidianSpikes(world, random, chunkX, chunkZ);
 	}
 	
 	void generateObsidianSpikes(World world, Random random, int chunkX, int chunkZ)

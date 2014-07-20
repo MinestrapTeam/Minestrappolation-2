@@ -15,6 +15,6 @@ public class MCRecipes
 	
 	public static void addStairRecipe(Block stairs, ItemStack material)
 	{
-		GameRegistry.addRecipe(new ItemStack(stairs, 4, 0), new Object[]{"M  ", "MM ", "MMM", 'M', material});
+		GameRegistry.addRecipe(new ItemStack(stairs, 4, 0), new Object[] { "M  ", "MM ", "MMM", 'M', material });
 	}
 }

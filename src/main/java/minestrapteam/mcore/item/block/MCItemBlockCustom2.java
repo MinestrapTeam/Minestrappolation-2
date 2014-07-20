@@ -60,7 +60,7 @@ public class MCItemBlockCustom2 extends MCItemBlockMulti
 		if (!"pillar".equals(s))
 		{
 			// Handles double slabs
-			if (block1 == this.field_150939_a && type == stack.getItemDamage() && ((side == 1 && model == 0) || (side == 0 && model == 1)))
+			if (block1 == this.field_150939_a && type == stack.getItemDamage() && (side == 1 && model == 0 || side == 0 && model == 1))
 			{
 				if (world.checkNoEntityCollision(this.field_150939_a.getCollisionBoundingBoxFromPool(world, x, y, z)))
 				{
@@ -116,7 +116,7 @@ public class MCItemBlockCustom2 extends MCItemBlockMulti
 		
 		Block block = world.getBlock(x, y, z);
 		int i = world.getBlockMetadata(x, y, z);
-		int type = i - (i % 3);
+		int type = i - i % 3;
 		
 		if (block == this.field_150939_a && type == stack.getItemDamage())
 		{

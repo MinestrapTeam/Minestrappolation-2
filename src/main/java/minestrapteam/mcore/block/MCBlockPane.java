@@ -33,7 +33,7 @@ public class MCBlockPane extends BlockPane
 	@Override
 	public int getRenderType()
 	{
-	    return this.blockMaterial == Material.cloth ? 41 : 18;
+		return this.blockMaterial == Material.cloth ? 41 : 18;
 	}
 	
 	@Override
@@ -48,13 +48,13 @@ public class MCBlockPane extends BlockPane
 	
 	@Override
 	public boolean canSilkHarvest(World world, EntityPlayer player, int x, int y, int z, int metadata)
-    {
-        return false;
-    }
+	{
+		return false;
+	}
 	
 	@Override
 	public int getFlammability(IBlockAccess world, int x, int y, int z, ForgeDirection face)
-    {
-    	return this == MBlocks.cardboard ? 300 : 0;
-    }
+	{
+		return this == MBlocks.cardboard ? 300 : 0;
+	}
 }

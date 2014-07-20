@@ -99,7 +99,7 @@ public class MelterRecipes extends ExperienceRecipeManager
 		this.addRecipe(Blocks.snow, new ItemStack(Items.water_bucket, 1, 0), 0.4F);
 		this.addRecipe(Blocks.ice, new ItemStack(Items.water_bucket, 1, 0), 0.7F);
 		this.addRecipe(Blocks.packed_ice, new ItemStack(Items.water_bucket, 1, 0), 0.8F);
-
+		
 		this.addRecipe(MBlocks.titaniumOre, new ItemStack(MItems.titaniumIngot, 1, 0), 2.0F);
 		// addSmelting(Blocks.obsidian, new
 		// ItemStack(EOItemManager.bucketMagma,1,0), 0.7F);

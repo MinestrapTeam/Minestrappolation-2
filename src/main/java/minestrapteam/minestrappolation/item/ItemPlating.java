@@ -9,8 +9,8 @@ import net.minecraft.item.ItemStack;
 public class ItemPlating extends ItemReed implements IPlating
 {
 	private String	plating;
-	private int durability;
-	private float digSpeed;
+	private int		durability;
+	private float	digSpeed;
 	
 	public ItemPlating(Block block, String plating, int durability, float digSpeed)
 	{
