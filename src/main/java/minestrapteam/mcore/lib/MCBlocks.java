@@ -346,7 +346,7 @@ public class MCBlocks
 		endstoneStairsRaw = MCBlockHelper.createStoneStair(endstone, 0, tab);
 		endstoneStairsBricks = MCBlockHelper.createStoneStair(endstone, 1, tab);
 		endstoneStairsTiles = MCBlockHelper.createStoneStair(endstone, 3, tab);
-		endstoneStairsCracked = MCBlockHelper.createStoneStair(Blocks.end_stone, "endstone", 0, tab);
+		endstoneStairsCracked = MCBlockHelper.createStoneStair(Blocks.end_stone, "endstone.cracked_stairs", 0, tab);
 		bedrock = MCBlockHelper.createStoneBlock(types_bedrock, "bedrock", 80F, 6000000.0F, 4, tab).setRoadWalkSpeed(1.5F).setEnderDragonCantDestroy();
 		bedrock2 = MCBlockHelper.createStoneBlock2("bedrock", 80F, 6000000.0F, 4, tab).setEnderDragonCantDestroy();
 		bedrockStairsRaw = MCBlockHelper.createStoneStair(Blocks.bedrock, "bedrock", 0, tab);

@@ -125,7 +125,7 @@ public class MCBlockHelper
 	
 	public static MCBlockStairs createStoneStair(Block block, String type, int metadata, CreativeTabs tab)
 	{
-		String name1 = type + ".raw_stair";
+		String name1 = type.indexOf('.') == -1 ? type + ".raw_stair" : type;
 		MCBlockStairs stair = new MCBlockStairs(block, metadata);
 		stair.setBlockName(name1);
 		stair.setCreativeTab(tab);
