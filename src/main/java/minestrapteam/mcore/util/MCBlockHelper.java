@@ -103,8 +103,7 @@ public class MCBlockHelper
 	
 	public static MCBlockStairs createWoodStair(Block block, int metadata, CreativeTabs tab)
 	{
-		String name = block.getUnlocalizedName() + "_raw";
-		String name1 = "wood_stair_" + name + "." + metadata;
+		String name1 = block.getUnlocalizedName() + ".raw_stair";
 		MCBlockStairs stair = new MCBlockStairs(block, metadata);
 		stair.setBlockName(name1);
 		stair.setCreativeTab(tab);
@@ -115,8 +114,7 @@ public class MCBlockHelper
 	
 	public static MCBlockStairs createWoodStair(MCBlockCustom block, int metadata, CreativeTabs tab)
 	{
-		String name = block.name + "_" + block.getType(metadata);
-		String name1 = "wood_stair_" + name;
+		String name1 = block.name + "." + block.getType(metadata) + "_stair";
 		MCBlockStairs stair = new MCBlockStairs(block, metadata);
 		stair.setBlockName(name1);
 		stair.setCreativeTab(tab);
@@ -127,8 +125,7 @@ public class MCBlockHelper
 	
 	public static MCBlockStairs createStoneStair(Block block, int metadata, CreativeTabs tab)
 	{
-		String name = block.getUnlocalizedName() + "_raw";
-		String name1 = "stone_stair_" + name + "." + metadata;
+		String name1 = block.getUnlocalizedName() + ".raw_stair";
 		MCBlockStairs stair = new MCBlockStairs(block, metadata);
 		stair.setBlockName(name1);
 		stair.setCreativeTab(tab);
@@ -138,8 +135,7 @@ public class MCBlockHelper
 	
 	public static MCBlockStairs createStoneStair(MCBlockCustom block, int metadata, CreativeTabs tab)
 	{
-		String name = block.name + "_" + block.getType(metadata);
-		String name1 = "stone_stair_" + name;
+		String name1 = block.name + "." + block.getType(metadata) + "_stair";
 		MCBlockStairs stair = new MCBlockStairs(block, metadata);
 		stair.setBlockName(name1);
 		stair.setCreativeTab(tab);
