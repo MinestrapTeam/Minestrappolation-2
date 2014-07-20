@@ -16,13 +16,13 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.VillagerRegistry;
 import minestrapteam.mcore.crafting.CustomRecipeLoader;
 import minestrapteam.mcore.lib.MCReference;
+import minestrapteam.minestrappolation.common.BlacksmithTradeHandler;
 import minestrapteam.minestrappolation.common.MCommonProxy;
+import minestrapteam.minestrappolation.common.MEventHandler;
+import minestrapteam.minestrappolation.common.PriestTradeHandler;
 import minestrapteam.minestrappolation.crafting.MelterRecipeLoader;
 import minestrapteam.minestrappolation.creativetab.*;
 import minestrapteam.minestrappolation.entity.*;
-import minestrapteam.minestrappolation.handler.BlacksmithTradeHandler;
-import minestrapteam.minestrappolation.handler.MEventHandler;
-import minestrapteam.minestrappolation.handler.PriestTradeHandler;
 import minestrapteam.minestrappolation.lib.*;
 import minestrapteam.minestrappolation.tileentity.TileEntityLocked;
 import minestrapteam.minestrappolation.tileentity.TileEntityMelter;
@@ -64,6 +64,7 @@ public class Minestrappolation extends BaseMod
 	public Minestrappolation()
 	{
 		super(proxy, MCReference.MODID, MCReference.NAME, MCReference.ACRONYM, MCReference.VERSION);
+		this.authors = MCReference.AUTHORS;
 		this.eventHandler = new MEventHandler();
 		this.hasConfig = true;
 	}
