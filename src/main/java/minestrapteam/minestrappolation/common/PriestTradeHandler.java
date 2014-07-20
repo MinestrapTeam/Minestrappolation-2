@@ -1,4 +1,4 @@
-package minestrapteam.minestrappolation.handler;
+package minestrapteam.minestrappolation.common;
 
 import java.util.Random;
 
