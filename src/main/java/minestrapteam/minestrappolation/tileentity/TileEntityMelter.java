@@ -1,5 +1,6 @@
 package minestrapteam.minestrappolation.tileentity;
 
+import clashsoft.cslib.minecraft.stack.CSStacks;
 import clashsoft.cslib.minecraft.tileentity.TileEntityInventory;
 import minestrapteam.minestrappolation.block.BlockMelter;
 import minestrapteam.minestrappolation.crafting.MelterRecipes;
@@ -20,7 +21,6 @@ public class TileEntityMelter extends TileEntityInventory implements ISidedInven
 	public int					front;
 	
 	public boolean				hasPower;
-	public boolean				hasBucket;
 	
 	private static final int[]	topInputSlot	= new int[] { 0 };
 	private static final int[]	outputSlots		= new int[] { 2, 1 };
@@ -114,15 +114,6 @@ public class TileEntityMelter extends TileEntityInventory implements ISidedInven
 		this.hasPower = this.worldObj.isBlockIndirectlyGettingPowered(this.xCoord, this.yCoord, this.zCoord);
 		boolean var1 = this.burnTime > 0;
 		
-		if (this.itemStacks[3] == null)
-		{
-			this.hasBucket = false;
-		}
-		else if (this.itemStacks[3].getItem() == Items.bucket)
-		{
-			this.hasBucket = true;
-		}
-		
 		if (this.burnTime > 0)
 		{
 			if (this.hasPower)
@@ -186,12 +177,20 @@ public class TileEntityMelter extends TileEntityInventory implements ISidedInven
 	
 	private boolean canSmelt()
 	{
-		if (this.itemStacks[0] != null && this.hasBucket)
+		if (this.itemStacks[0] != null)
 		{
 			ItemStack itemstack = MelterRecipes.instance.getResult(this.itemStacks[0]);
 			if (itemstack == null)
 			{
 				return false;
+			}
+			ItemStack container = itemstack.getItem().getContainerItem(itemstack);
+			if (container != null)
+			{
+				if (!CSStacks.itemEquals(container, this.itemStacks[3]))
+				{
+					return false;
+				}
 			}
 			if (this.itemStacks[2] == null)
 			{
@@ -201,16 +200,8 @@ public class TileEntityMelter extends TileEntityInventory implements ISidedInven
 			{
 				return false;
 			}
-			if (this.itemStacks[0] == null && this.itemStacks[3].getItem() == Items.bucket)
-			{
-				return false;
-			}
-			if (this.itemStacks[2].stackSize == this.itemStacks[2].getMaxStackSize())
-			{
-				return false;
-			}
 			int result = this.itemStacks[2].stackSize + itemstack.stackSize;
-			return result <= this.getInventoryStackLimit() && result <= itemstack.getMaxStackSize();
+			return result <= itemstack.getMaxStackSize();
 		}
 		return false;
 	}
@@ -230,21 +221,19 @@ public class TileEntityMelter extends TileEntityInventory implements ISidedInven
 			}
 			
 			--this.itemStacks[0].stackSize;
-			
 			if (this.itemStacks[0].stackSize <= 0)
 			{
 				this.itemStacks[0] = null;
 			}
 			
-			if (this.itemStacks[3].stackSize <= 1)
-			{
-				this.itemStacks[3] = null;
-			}
-			else
+			if (this.itemStacks[3] != null)
 			{
 				--this.itemStacks[3].stackSize;
+				if (this.itemStacks[3].stackSize <= 0)
+				{
+					this.itemStacks[3] = null;
+				}
 			}
-			
 		}
 	}
 	
