@@ -1,6 +1,5 @@
 package minestrapteam.minestrappolation.block;
 
-import java.util.List;
 import java.util.Random;
 
 import minestrapteam.mcore.util.MCAssetManager;
@@ -20,7 +19,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityFurnace;
-import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
@@ -35,12 +33,12 @@ public class BlockMelter extends BlockContainer
 	private IIcon			frontIcon;
 	private IIcon			bottomIcon;
 	
-	public BlockMelter(boolean par2)
+	public BlockMelter(boolean active)
 	{
 		super(Material.rock);
-		this.isActive = par2;
+		this.isActive = active;
 		
-		if (par2)
+		if (active)
 		{
 			this.setLightLevel(1F);
 		}
@@ -288,11 +286,6 @@ public class BlockMelter extends BlockContainer
 		}
 		
 		super.breakBlock(world, x, y, z, block, metadata);
-	}
-	
-	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)
-	{
-		par3List.add(EnumChatFormatting.RED + "WIP");
 	}
 	
 	public boolean isActive()
