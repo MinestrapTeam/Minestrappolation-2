@@ -728,6 +728,7 @@ tile.dark_oak.boards_slab.name=Oak Board Slab
 tile.dark_oak.boards_stair.name=Dark Oak Board Stairs
 
 tile.glow_glass.name=Glow Glass
+tile.glow_glass_pane.name=Glow Glass Pane
 tile.sugar_block.name=Block of Sugar
 tile.meat_block.name=Block of Raw Meat
 tile.ender_block.name=Ender Block

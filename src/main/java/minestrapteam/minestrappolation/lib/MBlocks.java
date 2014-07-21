@@ -67,6 +67,7 @@ public class MBlocks
 	public static Block		snowBrick;
 	
 	public static Block		glowGlass;
+	public static Block		glowGlassPane;
 	public static Block		refinedGlass;
 	public static Block		refinedGlassPane;
 	
@@ -138,6 +139,7 @@ public class MBlocks
 		snowBrick = new BlockSnowBrick().setHardness(0.2F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeSnow).setBlockTextureName(MCAssetManager.getTexture("snow_tiles"));
 		
 		glowGlass = new BlockGlowGlass(Material.glass, true).setHardness(0.8F).setCreativeTab(Minestrappolation.tabDecorationBlocks).setStepSound(Block.soundTypeGlass).setBlockTextureName(MCAssetManager.getTexture("glow_glass"));
+		glowGlassPane = new MCBlockPane(Material.glass, MCAssetManager.getTexture("glow_glass"), MCAssetManager.getTexture("glass_refined_pane"), false).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(Minestrappolation.tabDecorationBlocks);
 		refinedGlass = new BlockGlassRefined(Material.glass, false).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MCAssetManager.getTexture("glass_refined"));
 		refinedGlassPane = new MCBlockPane(Material.glass, MCAssetManager.getTexture("glass_refined"), MCAssetManager.getTexture("glass_refined_pane"), false).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(Minestrappolation.tabBuildingBlocks);
 		
@@ -213,6 +215,7 @@ public class MBlocks
 		CSBlocks.addBlock(snowBrick, "snow_brick");
 		
 		CSBlocks.addBlock(glowGlass, "glow_glass");
+		CSBlocks.addBlock(glowGlassPane, "glow_glass_pane");
 		CSBlocks.addBlock(refinedGlass, "refined_glass");
 		CSBlocks.addBlock(refinedGlassPane, "refined_glass_pane");
 		

@@ -174,7 +174,8 @@ public class MRecipes
 		GameRegistry.addSmelting(soulOre, new ItemStack(soulGem), 0.8F);
 		
 		GameRegistry.addSmelting(Blocks.glowstone, new ItemStack(glowGlass), 0.5F);
-		
+		GameRegistry.addRecipe(new ItemStack(MBlocks.glowGlassPane, 16), new Object[]{"GGG","GGG", 'G', MBlocks.glowGlass});
+
 		GameRegistry.addRecipe(new ItemStack(MBlocks.goblet, 1), new Object[] { "D D", " D ", 'D', Items.gold_ingot });
 		
 		GameRegistry.addRecipe(new ItemStack(snowBrick, 4), new Object[] { "SS", "SS", 'S', Blocks.snow });
@@ -272,7 +273,7 @@ public class MRecipes
 		GameRegistry.addRecipe(new ItemStack(MCBlocks.woodSpruce, 4, 0), new Object[] { "PP", "PP", 'P', new ItemStack(MCBlocks.woodSpruce, 1, 2) });
 		GameRegistry.addRecipe(new ItemStack(MCBlocks.woodJungle, 4, 0), new Object[] { "PP", "PP", 'P', new ItemStack(MCBlocks.woodJungle, 1, 2) });
 		GameRegistry.addRecipe(new ItemStack(MCBlocks.woodAcacia, 4, 0), new Object[] { "PP", "PP", 'P', new ItemStack(MCBlocks.woodAcacia, 1, 2) });
-		GameRegistry.addRecipe(new ItemStack(MCBlocks.woodDarkOak, 4, 0), new Object[] { "PP", "PP", 'P', new ItemStack(MCBlocks.woodDarkOak, 1, 2) });
+		GameRegistry.addRecipe(new ItemStack(MCBlocks.woodDarkOak, 4, 0), new Object[] { "PP", "PP", 'P', new ItemStack(MCBlocks.woodDarkOak, 1, 2) });		
 	}
 	
 	public static void removeRecipes()
