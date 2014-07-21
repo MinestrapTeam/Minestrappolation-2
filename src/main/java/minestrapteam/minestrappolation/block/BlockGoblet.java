@@ -51,13 +51,13 @@ public class BlockGoblet extends BlockContainer
 			}
 			else if (stack.getItem() instanceof ItemPotion)
 			{
-				stack.stackSize--;
 				List<PotionEffect> effects = ((ItemPotion) stack.getItem()).getEffects(stack);
 				if (!effects.isEmpty())
 				{
+					stack.stackSize--;
 					goblet.setPotionEffect(effects.get(0));
+					world.setBlockMetadataWithNotify(x, y, z, 3, 2);
 				}
-				world.setBlockMetadataWithNotify(x, y, z, 3, 2);
 			}
 		}
 		else
