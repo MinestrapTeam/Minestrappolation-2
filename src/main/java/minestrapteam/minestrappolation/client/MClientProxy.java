@@ -2,6 +2,7 @@ package minestrapteam.minestrappolation.client;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.IGuiHandler;
 import minestrapteam.minestrappolation.client.gui.GuiBarrel;
@@ -19,7 +20,6 @@ import minestrapteam.minestrappolation.entity.EntityGrenadeSticky;
 import minestrapteam.minestrappolation.entity.EntityNukePrimed;
 import minestrapteam.minestrappolation.lib.MItems;
 import minestrapteam.minestrappolation.tileentity.*;
-
 import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
@@ -41,6 +41,11 @@ public class MClientProxy extends MCommonProxy implements IGuiHandler
 		MinecraftForgeClient.registerItemRenderer(MItems.hangGlider, new RenderHangGlider());
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityNukePrimed.class, new RenderNukePrimed());
+		
+	}
+	
+	public void init(FMLInitializationEvent event)
+	{
 		RenderingRegistry.registerEntityRenderingHandler(EntityGrenade.class, new RenderSnowball(MItems.grenade));
 		RenderingRegistry.registerEntityRenderingHandler(EntityGrenadeImpact.class, new RenderSnowball(MItems.grenadeNuke));
 		RenderingRegistry.registerEntityRenderingHandler(EntityGrenadeSticky.class, new RenderSnowball(MItems.grenadeSticky));
