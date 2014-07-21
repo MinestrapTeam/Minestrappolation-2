@@ -7,7 +7,6 @@ import minestrapteam.mcore.block.MCBlockCustom2;
 import minestrapteam.mcore.block.MCBlockStairs;
 import minestrapteam.mcore.item.block.MCItemBlockCustom;
 import minestrapteam.mcore.item.block.MCItemBlockCustom2;
-import minestrapteam.mcore.item.block.MCItemBlockMulti;
 import minestrapteam.mcore.lib.MCReference;
 
 import net.minecraft.block.Block;
@@ -103,43 +102,43 @@ public class MCBlockHelper
 	
 	public static MCBlockStairs createWoodStair(Block block, String type, int metadata, CreativeTabs tab)
 	{
-		String name1 = type + ".raw_stair";
+		String name1 = type + ".raw_stairs";
 		MCBlockStairs stair = new MCBlockStairs(block, metadata);
 		stair.setBlockName(name1);
 		stair.setCreativeTab(tab);
 		stair.setStepSound(Block.soundTypeWood);
-		GameRegistry.registerBlock(stair, MCItemBlockMulti.class, name1);
+		GameRegistry.registerBlock(stair, name1);
 		return stair;
 	}
 	
 	public static MCBlockStairs createWoodStair(MCBlockCustom block, int metadata, CreativeTabs tab)
 	{
-		String name1 = block.name + "." + block.getType(metadata) + "_stair";
+		String name1 = block.name + "." + block.getType(metadata) + "_stairs";
 		MCBlockStairs stair = new MCBlockStairs(block, metadata);
 		stair.setBlockName(name1);
 		stair.setCreativeTab(tab);
 		stair.setStepSound(Block.soundTypeWood);
-		GameRegistry.registerBlock(stair, MCItemBlockMulti.class, name1);
+		GameRegistry.registerBlock(stair, name1);
 		return stair;
 	}
 	
 	public static MCBlockStairs createStoneStair(Block block, String type, int metadata, CreativeTabs tab)
 	{
-		String name1 = type.indexOf('.') == -1 ? type + ".raw_stair" : type;
+		String name1 = type.indexOf('.') == -1 ? type + ".raw_stairs" : type;
 		MCBlockStairs stair = new MCBlockStairs(block, metadata);
 		stair.setBlockName(name1);
 		stair.setCreativeTab(tab);
-		GameRegistry.registerBlock(stair, MCItemBlockMulti.class, name1);
+		GameRegistry.registerBlock(stair, name1);
 		return stair;
 	}
 	
 	public static MCBlockStairs createStoneStair(MCBlockCustom block, int metadata, CreativeTabs tab)
 	{
-		String name1 = block.name + "." + block.getType(metadata) + "_stair";
+		String name1 = block.name + "." + block.getType(metadata) + "_stairs";
 		MCBlockStairs stair = new MCBlockStairs(block, metadata);
 		stair.setBlockName(name1);
 		stair.setCreativeTab(tab);
-		GameRegistry.registerBlock(stair, MCItemBlockMulti.class, name1);
+		GameRegistry.registerBlock(stair, name1);
 		return stair;
 	}
 	
