@@ -53,33 +53,4 @@ public class BlockGodstone extends Block
 			}
 		}
 	}
-	
-	@Override
-	public void randomDisplayTick(World world, int x, int y, int z, Random random)
-	{
-		Tessellator tessellator = Tessellator.instance;
-		
-		GL11.glPushMatrix();
-		
-		GL11.glRotatef(random.nextFloat() * 360.0F, 1.0F, 0.0F, 0.0F);
-		GL11.glRotatef(random.nextFloat() * 360.0F, 0.0F, 1.0F, 0.0F);
-		GL11.glRotatef(random.nextFloat() * 360.0F, 0.0F, 0.0F, 1.0F);
-		GL11.glRotatef(random.nextFloat() * 360.0F, 1.0F, 0.0F, 0.0F);
-		GL11.glRotatef(random.nextFloat() * 360.0F, 0.0F, 1.0F, 0.0F);
-		GL11.glRotatef(random.nextFloat() * 360.0F, 0.0F, 0.0F, 1.0F);
-		
-		tessellator.startDrawing(6);
-		
-		tessellator.setColorRGBA_F(1F, 1F, 1F, 1F);
-		tessellator.addVertex(0.0D, 0.0D, 0.0D);
-		
-		tessellator.setColorRGBA_I(16711935, 0);
-		tessellator.addVertex(-0.866D * 50D, 50D, -25D);
-		tessellator.addVertex(0.866D * 50D, 50D, -25D);
-		tessellator.addVertex(0.0D, 50D, 50D);
-		tessellator.addVertex(-0.866D * 50D, 50D, -25D);
-		tessellator.draw();
-		
-		GL11.glPopMatrix();
-	}
 }
