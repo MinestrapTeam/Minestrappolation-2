@@ -18,12 +18,12 @@ public class MCItemAxe extends MCItemTool
 	}
 	
 	@Override
-	public float getDigSpeed(ItemStack stack, Block block, int meta)
+	public float func_150893_a(ItemStack stack, Block block)
 	{
 		if (ItemDataAxe.isEfficientOnMaterial(block.getMaterial()))
 		{
 			return this.efficiencyOnProperMaterial;
 		}
-		return super.getDigSpeed(stack, block, meta);
+		return super.func_150893_a(stack, block);
 	}
 }

@@ -25,6 +25,17 @@ public class MCItemPickaxe extends MCItemTool
 	}
 	
 	@Override
+	public float func_150893_a(ItemStack stack, Block block)
+	{
+		Material material = block.getMaterial();
+		if (material == Material.iron || material == Material.anvil || material == Material.rock)
+		{
+			return this.efficiencyOnProperMaterial;
+		}
+		return super.func_150893_a(stack, block);
+	}
+	
+	@Override
 	public boolean canHarvestBlock(Block block, ItemStack stack)
 	{
 		if (this.breakBedrock && block == Blocks.bedrock)
