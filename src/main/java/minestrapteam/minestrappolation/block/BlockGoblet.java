@@ -41,7 +41,7 @@ public class BlockGoblet extends BlockContainer
 			{
 				stack.stackSize--;
 				player.inventory.addItemStackToInventory(new ItemStack(Items.bucket));
-				world.setBlockMetadataWithNotify(x, y, z, 2, 1);
+				world.setBlockMetadataWithNotify(x, y, z, 1, 2);
 			}
 			else if (stack.getItem() == Items.milk_bucket)
 			{
