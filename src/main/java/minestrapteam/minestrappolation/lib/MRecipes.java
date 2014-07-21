@@ -198,6 +198,7 @@ public class MRecipes
 		GameRegistry.addRecipe(new ItemStack(barrel), new Object[] { "I", "C", "I", 'I', Items.iron_ingot, 'C', crate });
 		GameRegistry.addRecipe(new ItemStack(cardboardItem, 3), new Object[] { "SSS", "SSS", 'S', Items.paper });
 		GameRegistry.addRecipe(new ItemStack(cardboardBlock, 2), new Object[] { "CCC", " C ", " CC", 'C', cardboardItem });
+		GameRegistry.addShapelessRecipe(new ItemStack(cardboardLamp), new ItemStack(cardboardBlock), new ItemStack(Items.glowstone_dust));
 		
 		GameRegistry.addRecipe(new ItemStack(MCBlocks.redSandstone, 1, 0), new Object[] { "SS", "SS", 'S', new ItemStack(Blocks.sand, 1, 1) });
 		GameRegistry.addRecipe(new ItemStack(MCBlocks.flint, 1, 0), new Object[] { "FF", "FF", 'F', Items.flint });

@@ -65,6 +65,7 @@ tile.rope_coil.name=Rope Coil
 tile.crate.name=Crate
 tile.barrel.name=Barrel
 tile.cardboard_block.name=Block of Cardboard
+tile.cardboard_lamp.name=Cardboard Lamp
 item.glass_door.name=Glass Door
 
 #Stone Blocks

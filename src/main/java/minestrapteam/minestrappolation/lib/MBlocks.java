@@ -11,6 +11,7 @@ import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.block.*;
 import minestrapteam.minestrappolation.material.MaterialOoze;
 import minestrapteam.minestrappolation.tileentity.TileEntityPlate;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -86,6 +87,7 @@ public class MBlocks
 	public static Block		barrel;
 	public static Block		cardboard;
 	public static Block		cardboardBlock;
+	public static Block		cardboardLamp;
 	
 	public static Block		glassDoor;
 	
@@ -159,6 +161,7 @@ public class MBlocks
 		barrel = new BlockBarrel().setHardness(3F).setResistance(6.0F).setCreativeTab(Minestrappolation.tabMisc).setStepSound(Block.soundTypeWood);
 		cardboard = new MCBlockPane(Material.cloth, MCAssetManager.getTexture("cardboard"), MCAssetManager.getTexture("cardboard_pane_edge"), true).setHardness(0.3F).setCreativeTab(null);
 		cardboardBlock = new BlockCardboard(Material.cloth).setHardness(0.4F).setCreativeTab(Minestrappolation.tabDecorationBlocks);
+		cardboardLamp = new MCBlock(Material.cloth).setHardness(0.6F).setLightLevel(0.875F).setCreativeTab(Minestrappolation.tabDecorationBlocks);
 		
 		glassDoor = new BlockGlassDoor(Material.glass).setHardness(1F);
 	}
@@ -235,6 +238,7 @@ public class MBlocks
 		CSBlocks.addBlock(barrel, "barrel");
 		CSBlocks.addBlock(cardboard, "cardboard_pane");
 		CSBlocks.addBlock(cardboardBlock, "cardboard_block");
+		CSBlocks.addBlock(cardboardLamp, "cardboard_lamp");
 		
 		CSBlocks.addBlock(glassDoor, "glass_door_block");
 		
