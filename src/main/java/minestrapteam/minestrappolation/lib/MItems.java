@@ -203,8 +203,8 @@ public class MItems
 		charms = new ItemCharm().setCreativeTab(tabMaterials);
 		amuletPorcum = new ItemAmuletPorcum().setCreativeTab(tabMisc).setTextureName(MCAssetManager.getMobTexture("pig_amulet"));
 		amuletVaccam = new ItemAmuletVaccam().setCreativeTab(tabMisc).setTextureName(MCAssetManager.getMobTexture("horse_amulet"));
-		amuletPullum = new ItemAmuletPullum().setCreativeTab(tabMisc).setTextureName(MCAssetManager.getMobTexture("chicken_amulet"));
-		amuletOves = new ItemAmuletOves().setCreativeTab(tabMisc).setTextureName(MCAssetManager.getMobTexture("sheep_amulet"));
+		amuletPullum = new ItemAmulet(30).setCreativeTab(tabMisc).setTextureName(MCAssetManager.getMobTexture("chicken_amulet"));
+		amuletOves = new ItemAmulet(30).setCreativeTab(tabMisc).setTextureName(MCAssetManager.getMobTexture("sheep_amulet"));
 		wingSinew = new MCItem().setCreativeTab(tabMaterials).setTextureName(MCAssetManager.getMobTexture("wing_sinew"));
 		wingSegment = new MCItem().setCreativeTab(tabMaterials).setTextureName(MCAssetManager.getTexture("hangglider_segment"));
 		hangGlider = new ItemHangGlider().setCreativeTab(null).setTextureName(MCAssetManager.getTexture("hangGlider"));

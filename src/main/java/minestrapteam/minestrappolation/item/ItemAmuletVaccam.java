@@ -18,11 +18,9 @@ public class ItemAmuletVaccam extends ItemAmulet
 		if (!entity.worldObj.isRemote && attacker instanceof EntityPlayer)
 		{
 			EntityPlayer player = (EntityPlayer) attacker;
-			if (entity.attackEntityFrom(DamageSource.generic, 1.0F) && player.getRNG().nextInt(10) < 2)
-			{
-				player.onCriticalHit(entity);
-				stack.damageItem(1, player);
-			}
+			entity.attackEntityFrom(DamageSource.generic, 1.0F);
+			player.onCriticalHit(entity);
+			stack.damageItem(1, player);
 		}
 		
 		return true;
