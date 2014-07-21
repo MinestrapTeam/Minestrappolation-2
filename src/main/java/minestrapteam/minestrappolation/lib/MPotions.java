@@ -68,7 +68,9 @@ public class MPotions implements IPotionEffectHandler
 				{
 					ServerConfigurationManager manager = MinecraftServer.getServer().getConfigurationManager();
 					manager.transferPlayerToDimension((EntityPlayerMP) entity, -1, new TeleporterNoPortal(DimensionManager.getWorld(-1)));
+					
 					entity.addPotionEffect(new PotionEffect(Potion.confusion.id, effect.getDuration(), 0));
+					entity.addPotionEffect(new PotionEffect(Potion.invisibility.id, effect.getDuration(), 0));
 				}
 				else if (effect.getDuration() == 1)
 				{
