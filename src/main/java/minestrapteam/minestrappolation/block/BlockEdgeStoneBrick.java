@@ -64,53 +64,53 @@ public class BlockEdgeStoneBrick extends Block
 	public IIcon getIcon(IBlockAccess world, int x, int y, int z, int side)
 	{
 		int metadata = world.getBlockMetadata(x, y, z);
-		boolean x1 = this.isBrick(world, x + 1, y, z);
-		boolean z1 = this.isBrick(world, x, y, z + 1);
-		boolean x2 = this.isBrick(world, x - 1, y, z);
-		boolean z2 = this.isBrick(world, x, y, z - 1);
+		boolean xp = this.isBrick(world, x + 1, y, z);
+		boolean zp = this.isBrick(world, x, y, z + 1);
+		boolean xn = this.isBrick(world, x - 1, y, z);
+		boolean zn = this.isBrick(world, x, y, z - 1);
 		byte b = 0;
 		if (side == 2) // NORTH
 		{
-			if (x1)
-			{
-				b |= 1;
-			}
-			if (x2)
+			if (xp)
 			{
 				b |= 2;
+			}
+			if (xn)
+			{
+				b |= 1;
 			}
 		}
 		else if (side == 3) // SOUTH
 		{
-			if (x1)
+			if (xp)
 			{
 				b |= 1;
 			}
-			if (x2)
+			if (xn)
 			{
 				b |= 2;
 			}
 		}
 		else if (side == 4)
 		{
-			if (z1)
+			if (zp)
 			{
 				b |= 1;
 			}
-			if (z2)
+			if (zn)
 			{
 				b |= 2;
 			}
 		}
 		else if (side == 5)
 		{
-			if (z1)
-			{
-				b |= 1;
-			}
-			if (z2)
+			if (zp)
 			{
 				b |= 2;
+			}
+			if (zn)
+			{
+				b |= 1;
 			}
 		}
 		
