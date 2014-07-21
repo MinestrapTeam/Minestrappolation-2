@@ -54,9 +54,13 @@ public class RecipesPlatings implements IRecipe
 				{
 					return null;
 				}
-				else
+				else if(stack.getItem() instanceof ItemPlating)
 				{
 					plating = (ItemPlating) stack.getItem();
+				}
+				else
+				{
+					plating = (IPlating)stack.getItem();
 				}
 			}
 		}
