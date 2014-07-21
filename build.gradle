@@ -28,7 +28,7 @@ archivesBaseName = "Minestrappolation"
 
 minecraft
 {
-    version = "1.7.2-10.13.0.1180"
+    version = "1.7.10-10.13.0.1180"
     if(file('../run').exists())
 	{
 	   assetDir = "../run/assets/"
