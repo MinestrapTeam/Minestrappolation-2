@@ -39,13 +39,12 @@ public class MClientProxy extends MCommonProxy implements IGuiHandler
 		RenderingRegistry.registerBlockHandler(platingRenderID, new RenderBlockPlating());
 		
 		MinecraftForgeClient.registerItemRenderer(MItems.hangGlider, new RenderHangGlider());
-		
-		RenderingRegistry.registerEntityRenderingHandler(EntityNukePrimed.class, new RenderNukePrimed());
-		
 	}
 	
+	@Override
 	public void init(FMLInitializationEvent event)
 	{
+		RenderingRegistry.registerEntityRenderingHandler(EntityNukePrimed.class, new RenderNukePrimed());
 		RenderingRegistry.registerEntityRenderingHandler(EntityGrenade.class, new RenderSnowball(MItems.grenade));
 		RenderingRegistry.registerEntityRenderingHandler(EntityGrenadeImpact.class, new RenderSnowball(MItems.grenadeNuke));
 		RenderingRegistry.registerEntityRenderingHandler(EntityGrenadeSticky.class, new RenderSnowball(MItems.grenadeSticky));
