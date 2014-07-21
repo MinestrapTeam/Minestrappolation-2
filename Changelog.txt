@@ -1,3 +1,9 @@
+﻿1.7.2-3.0.1
++ Added Glowglass panes
+* Fixed grenade crash
+* Fixed horn crafting crash
+* Fixed goblet textures
+
 1.7.2-3.0.0
 
 ! Merged all mod segments into one mod.
