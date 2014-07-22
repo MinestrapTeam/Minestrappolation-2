@@ -1,4 +1,18 @@
-﻿1.7.2-3.0.1
+﻿1.7.10-3.1.0
+
+! Update to 1.7.10
++ Added Cardboard Lamps
+* Fixed Ghast Tentacle issues
+* Fixed unlocalized names for Stairs
+* Fixed Amulets not working correctly
+* Fixed Edgestone texture issues
+* Fixed Minestrap Tools issues
+* Fixed shift-click issues
+* Improved Plates
+* Improved Goblets
+
+1.7.2-3.0.1
+
 + Added Glowglass panes
 * Fixed grenade crash
 * Fixed horn crafting crash

@@ -1,3 +1,3 @@
-version=3.0.1
-motd=Minestrappolation 3 out now!!!
-motdcolor=green
+version=3.1.0
+motd=Wow! So Minestrappolation 3.1! Much bugfixes!
+motdcolor=yellow
