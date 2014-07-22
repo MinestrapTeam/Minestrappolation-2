@@ -1,4 +1,7 @@
 ﻿1.7.2-3.0.1
+* Fixed stonecutter textures
+
+1.7.2-3.0.1
 + Added Glowglass panes
 * Fixed grenade crash
 * Fixed horn crafting crash

@@ -22,7 +22,7 @@ buildscript
 
 apply plugin: 'forge'
 
-version = "1.7.2-3.0.1"
+version = "1.7.2-3.0.2"
 group= "minestrapteam"
 archivesBaseName = "Minestrappolation"
 
