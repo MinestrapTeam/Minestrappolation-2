@@ -1,8 +1,9 @@
 package minestrapteam.minestrappolation.client.model;
 
+import org.lwjgl.opengl.GL11;
+
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
-import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.entity.Entity;
 
 public class ModelGoblet extends ModelBase
@@ -130,7 +131,13 @@ public class ModelGoblet extends ModelBase
 		this.side3.render(f);
 		this.side4.render(f);
 		
-		Tessellator.instance.setColorOpaque_I(color);
+		if (color != 0xFFFFFF)
+		{
+			float r = ((color >> 16) & 255) / 255F;
+			float g = ((color >> 8) & 255) / 255F;
+			float b = ((color >> 0) & 255) / 255F;
+			GL11.glColor4f(r, g, b, 1F);
+		}
 		this.liquid.render(f);
 	}
 	

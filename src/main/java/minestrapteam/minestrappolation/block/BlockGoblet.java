@@ -39,24 +39,39 @@ public class BlockGoblet extends BlockContainer
 			}
 			else if (stack.getItem() == Items.water_bucket)
 			{
-				stack.stackSize--;
-				player.inventory.addItemStackToInventory(new ItemStack(Items.bucket));
 				world.setBlockMetadataWithNotify(x, y, z, 1, 2);
+				if (!player.capabilities.isCreativeMode)
+				{
+					stack.stackSize--;
+					player.inventory.addItemStackToInventory(new ItemStack(Items.bucket));
+				}
 			}
 			else if (stack.getItem() == Items.milk_bucket)
 			{
-				stack.stackSize--;
-				player.inventory.addItemStackToInventory(new ItemStack(Items.bucket));
 				world.setBlockMetadataWithNotify(x, y, z, 2, 2);
+				if (!player.capabilities.isCreativeMode)
+				{
+					stack.stackSize--;
+					player.inventory.addItemStackToInventory(new ItemStack(Items.bucket));
+				}
 			}
 			else if (stack.getItem() instanceof ItemPotion)
 			{
 				List<PotionEffect> effects = ((ItemPotion) stack.getItem()).getEffects(stack);
 				if (!effects.isEmpty())
 				{
-					stack.stackSize--;
 					goblet.setPotionEffect(effects.get(0));
 					world.setBlockMetadataWithNotify(x, y, z, 3, 2);
+				}
+				else
+				{
+					world.setBlockMetadataWithNotify(x, y, z, 1, 2);
+				}
+				
+				if (!player.capabilities.isCreativeMode)
+				{
+					stack.stackSize--;
+					player.inventory.addItemStackToInventory(new ItemStack(Items.glass_bottle));
 				}
 			}
 		}
@@ -77,6 +92,7 @@ public class BlockGoblet extends BlockContainer
 				if (effect != null)
 				{
 					player.addPotionEffect(new PotionEffect(effect));
+					goblet.setPotionEffect(null);
 				}
 			}
 		}
