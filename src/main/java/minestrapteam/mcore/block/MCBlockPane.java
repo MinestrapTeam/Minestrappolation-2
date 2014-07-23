@@ -21,6 +21,16 @@ public class MCBlockPane extends BlockPane
 	}
 	
 	@Override
+	public int getRenderBlockPass()
+	{
+		if (this == MBlocks.glowGlassPane)
+		{
+			return 2;
+		}
+		return 0;
+	}
+	
+	@Override
 	public Item getItem(World world, int x, int y, int z)
 	{
 		if (this == MBlocks.cardboard)
