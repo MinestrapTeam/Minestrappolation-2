@@ -7,6 +7,11 @@ import minestrapteam.mcore.item.MCItem;
 
 public class ItemHorn extends MCItem implements IPlating
 {
+	public ItemHorn()
+	{
+		platings.put("horn", this);
+	}
+	
 	@Override
 	public boolean canApply(String toolType)
 	{

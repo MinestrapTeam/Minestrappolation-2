@@ -4,7 +4,6 @@ import clashsoft.cslib.minecraft.stack.CSStacks;
 import minestrapteam.mcore.item.IPlatable;
 import minestrapteam.mcore.item.IPlating;
 import minestrapteam.mcore.item.MCItemTool;
-import minestrapteam.minestrappolation.item.ItemPlating;
 
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
@@ -18,8 +17,9 @@ public class RecipesPlatings implements IRecipe
 	public ItemStack getCraftingResult(InventoryCrafting inventory)
 	{
 		ItemStack platable = null;
-		IPlating plating = null;
+		ItemStack plating = null;
 		int count = 0;
+		
 		for (int i = 0; i < inventory.getSizeInventory(); i++)
 		{
 			ItemStack stack = inventory.getStackInSlot(i);
@@ -33,7 +33,18 @@ public class RecipesPlatings implements IRecipe
 			{
 				if (platable != null)
 				{
-					if (CSStacks.itemEquals(platable, stack))
+					return null;
+				}
+				else
+				{
+					platable = stack;
+				}
+			}
+			else if (stack.getItem() instanceof IPlating)
+			{
+				if (plating != null)
+				{
+					if (CSStacks.itemEquals(plating, stack))
 					{
 						count++;
 					}
@@ -45,22 +56,7 @@ public class RecipesPlatings implements IRecipe
 				else
 				{
 					count++;
-					platable = stack;
-				}
-			}
-			else if (stack.getItem() instanceof IPlating)
-			{
-				if (plating != null)
-				{
-					return null;
-				}
-				else if(stack.getItem() instanceof ItemPlating)
-				{
-					plating = (ItemPlating) stack.getItem();
-				}
-				else
-				{
-					plating = (IPlating)stack.getItem();
+					plating = stack;
 				}
 			}
 		}
@@ -68,7 +64,7 @@ public class RecipesPlatings implements IRecipe
 		if (platable != null && plating != null && count == ((IPlatable) platable.getItem()).getPlatingCount(platable))
 		{
 			ItemStack result = platable.copy();
-			MCItemTool.setPlating(result, plating);
+			MCItemTool.setPlating(result, (IPlating) plating.getItem());
 			return result;
 		}
 		
@@ -90,8 +86,10 @@ public class RecipesPlatings implements IRecipe
 	@Override
 	public boolean matches(InventoryCrafting inventory, World world)
 	{
-		boolean platable = false;
-		boolean plating = false;
+		ItemStack platable = null;
+		ItemStack plating = null;
+		int count = 0;
+		
 		for (int i = 0; i < inventory.getSizeInventory(); i++)
 		{
 			ItemStack stack = inventory.getStackInSlot(i);
@@ -103,28 +101,36 @@ public class RecipesPlatings implements IRecipe
 			
 			if (stack.getItem() instanceof IPlatable)
 			{
-				if (platable)
+				if (platable != null)
 				{
 					return false;
 				}
 				else
 				{
-					platable = true;
+					platable = stack;
 				}
 			}
 			else if (stack.getItem() instanceof IPlating)
 			{
-				if (plating)
+				if (plating != null)
 				{
-					return false;
+					if (CSStacks.itemEquals(plating, stack))
+					{
+						count++;
+					}
+					else
+					{
+						return false;
+					}
 				}
 				else
 				{
-					plating = true;
+					count++;
+					plating = stack;
 				}
 			}
 		}
 		
-		return plating && platable;
+		return platable != null && plating != null && count == ((IPlatable) platable.getItem()).getPlatingCount(platable);
 	}
 }
