@@ -4,6 +4,9 @@ import clashsoft.brewingapi.BrewingAPI;
 import clashsoft.cslib.config.CSConfig;
 import clashsoft.cslib.minecraft.entity.CSEntities;
 import clashsoft.cslib.minecraft.init.BaseMod;
+import clashsoft.cslib.minecraft.update.CSUpdate;
+import clashsoft.cslib.minecraft.update.reader.SimpleUpdateReader;
+import clashsoft.cslib.minecraft.update.updater.ModUpdater;
 import cpw.mods.fml.common.IFuelHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -67,6 +70,12 @@ public class Minestrappolation extends BaseMod
 		this.authors = MCReference.AUTHORS;
 		this.eventHandler = new MEventHandler();
 		this.hasConfig = true;
+	}
+	
+	@Override
+	public void updateCheck()
+	{
+		CSUpdate.updateCheck(new ModUpdater(this.name, this.acronym, this.version, "https://github.com/MinestrapTeam/Minestrappolation-2/blob/master/version.txt", SimpleUpdateReader.instance));
 	}
 	
 	@Override
