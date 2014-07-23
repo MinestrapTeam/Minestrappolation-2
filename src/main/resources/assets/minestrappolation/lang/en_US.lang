@@ -934,6 +934,7 @@ item.plating.tin.desc=Tin-Plated
 item.plating.bronze.desc=Bronze-Plated
 item.plating.steel.desc=Steel-Plated
 item.plating.meurodite.desc=Meurodite-Plated
+item.plating.horn.desc=Horned
 lock.added=This container has been locked!
 
 #Potion Effects
