@@ -1,4 +1,15 @@
-﻿1.7.10-3.1.0
+﻿1.7.10-3.1.1
+
+* Improved Metal Plating rendering
+* Improved Cardboard and Wet Cardboard textures
+* Fixed Cardboard Lamps missing textures
+* Fixed Plating and Horn recipes not working
+* Fixed missing Horn assets
+* Fixed Goblets and Plates not breaking when the block below them is destroyed
+* Fixed Goblets and Plates not syncing (making changes invisible to other players)
+* Fixed Crash when punching an entity with your fists
+
+1.7.10-3.1.0
 
 ! Update to 1.7.10
 + Added Cardboard Lamps
