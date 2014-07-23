@@ -10,6 +10,7 @@ import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public class BlockPlate extends BlockContainer
 {
@@ -17,6 +18,27 @@ public class BlockPlate extends BlockContainer
 	{
 		super(material);
 		this.setBlockBounds(0.0625F, 0F, 0.0625F, 0.9375F, 0.125F, 0.9375F);
+	}
+	
+	@Override
+	public boolean canBlockStay(World world, int x, int y, int z)
+	{
+		return world.isSideSolid(x, y - 1, z, ForgeDirection.UP);
+	}
+	
+	@Override
+	public boolean canPlaceBlockAt(World world, int x, int y, int z)
+	{
+		return super.canPlaceBlockAt(world, x, y, z) && this.canBlockStay(world, x, y, z);
+	}
+	
+	@Override
+	public void onNeighborBlockChange(World world, int x, int y, int z, Block neighbor)
+	{
+		if (!this.canBlockStay(world, x, y, z))
+		{
+			world.func_147480_a(x, y, z, true);
+		}
 	}
 	
 	@Override

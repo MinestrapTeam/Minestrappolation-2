@@ -5,6 +5,7 @@ import java.util.List;
 import minestrapteam.mcore.util.MCAssetManager;
 import minestrapteam.minestrappolation.tileentity.TileEntityGoblet;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,6 +15,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public class BlockGoblet extends BlockContainer
 {
@@ -22,6 +24,27 @@ public class BlockGoblet extends BlockContainer
 		super(material);
 		this.setBlockTextureName(MCAssetManager.getTexture("cardboard"));
 		this.setBlockBounds(0.3125F, 0F, 0.3125F, 0.6875F, 0.6875F, 0.6875F);
+	}
+	
+	@Override
+	public boolean canBlockStay(World world, int x, int y, int z)
+	{
+		return world.isSideSolid(x, y - 1, z, ForgeDirection.UP);
+	}
+	
+	@Override
+	public boolean canPlaceBlockAt(World world, int x, int y, int z)
+	{
+		return super.canPlaceBlockAt(world, x, y, z) && this.canBlockStay(world, x, y, z);
+	}
+	
+	@Override
+	public void onNeighborBlockChange(World world, int x, int y, int z, Block neighbor)
+	{
+		if (!this.canBlockStay(world, x, y, z))
+		{
+			world.func_147480_a(x, y, z, true);
+		}
 	}
 	
 	@Override

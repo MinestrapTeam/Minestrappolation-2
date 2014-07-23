@@ -55,7 +55,7 @@ public class BlockRope extends BlockRopeCoil
 	public boolean canPlaceBlockAt(World world, int x, int y, int z)
 	{
 		Block block = world.getBlock(x, y + 1, z);
-		return block == this || block.isSideSolid(world, x, y, z, ForgeDirection.DOWN);
+		return super.canPlaceBlockAt(world, x, y, z) && (this == block || block.isSideSolid(world, x, y + 1, z, ForgeDirection.DOWN));
 	}
 	
 	@Override
