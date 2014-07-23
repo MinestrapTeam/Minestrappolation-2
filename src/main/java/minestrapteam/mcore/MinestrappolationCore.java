@@ -2,7 +2,8 @@ package minestrapteam.mcore;
 
 import clashsoft.cslib.config.CSConfig;
 import clashsoft.cslib.minecraft.init.BaseMod;
-import cpw.mods.fml.common.*;
+import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -15,6 +16,7 @@ import minestrapteam.mcore.lib.MCBlocks;
 import minestrapteam.mcore.lib.MCItems;
 import minestrapteam.mcore.lib.MCRecipes;
 import minestrapteam.mcore.lib.MCReference;
+import minestrapteam.mcore.network.MCNetHandler;
 import minestrapteam.mcore.tileentity.TileEntityStonecutter;
 
 import net.minecraft.init.Blocks;
@@ -34,6 +36,7 @@ public class MinestrappolationCore extends BaseMod
 	{
 		super(proxy, MCReference.CORE_MODID, MCReference.CORE_NAME, MCReference.CORE_ACRONYM, MCReference.CORE_VERSION);
 		this.authors = MCReference.AUTHORS;
+		this.netHandlerClass = MCNetHandler.class;
 	}
 	
 	@Override
