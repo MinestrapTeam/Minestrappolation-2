@@ -64,8 +64,9 @@ tile.plate_block.name=Plate
 tile.rope_coil.name=Rope Coil
 tile.crate.name=Crate
 tile.barrel.name=Barrel
-tile.cardboard_block.name=Block of Cardboard
-tile.cardboard_lamp.name=Cardboard Lamp
+tile.cardboard_block.0.name=Cardboard Block
+tile.cardboard_block.1.name=Wet Cardboard Block
+tile.cardboard_block.2.name=Cardboard Lamp
 item.glass_door.name=Glass Door
 
 #Stone Blocks
@@ -939,3 +940,4 @@ lock.added=This container has been locked!
 
 #Potion Effects
 potion.ghastTentacle=Nether Neutrality
+potion.ghastTentavle.postfix=Potion of Nether Neutrality
