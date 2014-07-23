@@ -37,7 +37,12 @@ public class MEventHandler implements IFuelHandler
 		{
 			EntityPlayer player = (EntityPlayer) event.entityLiving;
 			ItemStack stack = player.getHeldItem();
-			if (stack.getItem() == MItems.amuletOves)
+			
+			if (stack == null)
+			{
+				return;
+			}
+			else if (stack.getItem() == MItems.amuletOves)
 			{
 				if (player.getRNG().nextInt(8) == 0)
 				{
