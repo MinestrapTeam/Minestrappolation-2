@@ -13,6 +13,8 @@ import net.minecraft.world.World;
 
 public class MCommonProxy extends BaseProxy
 {
+	public static int	platingRenderID;
+	
 	public static int	fire;
 	public static int	tin;
 	public static int	bronze;

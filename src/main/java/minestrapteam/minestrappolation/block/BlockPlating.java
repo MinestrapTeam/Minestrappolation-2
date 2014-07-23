@@ -3,13 +3,14 @@ package minestrapteam.minestrappolation.block;
 import java.util.Random;
 
 import minestrapteam.mcore.block.MCBlock;
-import minestrapteam.minestrappolation.client.MClientProxy;
+import minestrapteam.minestrappolation.common.MCommonProxy;
 import minestrapteam.minestrappolation.lib.MBlocks;
 import minestrapteam.minestrappolation.lib.MItems;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
 public class BlockPlating extends MCBlock
@@ -17,14 +18,13 @@ public class BlockPlating extends MCBlock
 	public BlockPlating()
 	{
 		super(Material.iron);
-		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);
-		this.setCreativeTab(null);
+		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.0625F, 1.0F);
 	}
 	
 	@Override
 	public int getRenderType()
 	{
-		return MClientProxy.platingRenderID;
+		return MCommonProxy.platingRenderID;
 	}
 	
 	@Override
@@ -43,6 +43,12 @@ public class BlockPlating extends MCBlock
 	public boolean shouldSideBeRendered(IBlockAccess world, int x, int y, int z, int side)
 	{
 		return true;
+	}
+	
+	@Override
+	public Item getItem(World world, int x, int y, int z)
+	{
+		return this.getItemDropped(world.getBlockMetadata(x, y, z), world.rand, 0);
 	}
 	
 	@Override

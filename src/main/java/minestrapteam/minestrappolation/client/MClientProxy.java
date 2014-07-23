@@ -27,8 +27,6 @@ import net.minecraftforge.client.MinecraftForgeClient;
 
 public class MClientProxy extends MCommonProxy implements IGuiHandler
 {
-	public static int	platingRenderID;
-	
 	@Override
 	public void preInit(FMLPreInitializationEvent event)
 	{
