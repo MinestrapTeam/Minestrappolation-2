@@ -50,6 +50,11 @@ public class BlockGoblet extends BlockContainer
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ)
 	{
+		if (world.isRemote)
+		{
+			return false;
+		}
+		
 		int meta = world.getBlockMetadata(x, y, z);
 		TileEntityGoblet goblet = (TileEntityGoblet) world.getTileEntity(x, y, z);
 		

@@ -26,7 +26,7 @@ public class RenderGoblet extends TileEntitySpecialRenderer
 		
 		ResourceLocation texture = null;
 		int meta = t.getBlockMetadata();
-		int color = ((TileEntityGoblet) t).getColor();
+		int color = 0xFFFFFF;
 		
 		switch (meta)
 		{
@@ -44,6 +44,7 @@ public class RenderGoblet extends TileEntitySpecialRenderer
 		case 3:
 			GL11.glEnable(GL11.GL_BLEND);
 			GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
+			color = ((TileEntityGoblet) t).getColor();
 			texture = MCAssetManager.getModelResource("goblet_potion");
 			break;
 		}

@@ -2,7 +2,6 @@ package minestrapteam.mcore;
 
 import clashsoft.cslib.config.CSConfig;
 import clashsoft.cslib.minecraft.init.BaseMod;
-import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -20,7 +19,6 @@ import minestrapteam.mcore.network.MCNetHandler;
 import minestrapteam.mcore.tileentity.TileEntityStonecutter;
 
 import net.minecraft.init.Blocks;
-import net.minecraftforge.common.MinecraftForge;
 
 @Mod(modid = MCReference.CORE_MODID, name = MCReference.CORE_NAME, version = MCReference.CORE_VERSION, dependencies = MCReference.CORE_DEPENDENCY)
 public class MinestrappolationCore extends BaseMod
@@ -37,6 +35,7 @@ public class MinestrappolationCore extends BaseMod
 		super(proxy, MCReference.CORE_MODID, MCReference.CORE_NAME, MCReference.CORE_ACRONYM, MCReference.CORE_VERSION);
 		this.authors = MCReference.AUTHORS;
 		this.netHandlerClass = MCNetHandler.class;
+		this.eventHandler = new MCEventHandler();
 	}
 	
 	@Override
@@ -49,8 +48,6 @@ public class MinestrappolationCore extends BaseMod
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
-		super.proxy = proxy;
-		
 		super.preInit(event);
 		
 		MCBlocks.init();
@@ -66,9 +63,6 @@ public class MinestrappolationCore extends BaseMod
 		
 		Blocks.bedrock.setHardness(80F);
 		GameRegistry.registerTileEntity(TileEntityStonecutter.class, "StoneCutter");
-		
-		FMLCommonHandler.instance().bus().register(new MCEventHandler());
-		MinecraftForge.EVENT_BUS.register(new MCEventHandler());
 	}
 	
 	@Override

@@ -6,6 +6,9 @@ public class MCNetHandler extends CSNetHandler
 {
 	public MCNetHandler()
 	{
-		super("Minestrappolation");
+		super("MCore");
+
+		this.registerPacket(GobletPacket.class);
+		this.registerPacket(PlatePacket.class);
 	}
 }

@@ -44,21 +44,24 @@ public class BlockPlate extends BlockContainer
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ)
 	{
+		if (world.isRemote)
+		{
+			return false;
+		}
+		
 		ItemStack stack = player.inventory.getCurrentItem();
 		TileEntityPlate te = (TileEntityPlate) world.getTileEntity(x, y, z);
-		if (stack != null && te.getItem() == null)
+		if (stack != null && te.getItem() == null && stack.getItem() instanceof ItemFood)
 		{
-			if (stack.getItem() instanceof ItemFood)
+			ItemStack stack1 = stack.copy();
+			stack1.stackSize = 1;
+			te.setItem(stack1);
+			
+			if (!player.capabilities.isCreativeMode)
 			{
-				ItemStack stack1 = stack.copy();
-				stack1.stackSize = 1;
-				te.setItem(stack1);
-				
-				if (!player.capabilities.isCreativeMode)
-				{
-					stack.stackSize--;
-				}
+				stack.stackSize--;
 			}
+			return true;
 		}
 		else
 		{
@@ -66,9 +69,10 @@ public class BlockPlate extends BlockContainer
 			if (stack != null)
 			{
 				te.dropItem();
+				return true;
 			}
 		}
-		return true;
+		return false;
 	}
 	
 	@Override

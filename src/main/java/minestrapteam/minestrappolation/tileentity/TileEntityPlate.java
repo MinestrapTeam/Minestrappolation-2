@@ -1,5 +1,8 @@
 package minestrapteam.minestrappolation.tileentity;
 
+import minestrapteam.mcore.MinestrappolationCore;
+import minestrapteam.mcore.network.PlatePacket;
+
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -7,7 +10,7 @@ import net.minecraft.tileentity.TileEntity;
 
 public class TileEntityPlate extends TileEntity
 {
-	public ItemStack	stack;
+	private ItemStack	stack;
 	private EntityItem	theItem;
 	
 	public EntityItem spawnItem()
@@ -43,11 +46,21 @@ public class TileEntityPlate extends TileEntity
 	
 	public void setItem(ItemStack stack)
 	{
+		this.setItem(stack, true);
+	}
+	
+	public void setItem(ItemStack stack, boolean sync)
+	{
 		this.stack = stack;
 		if (this.theItem != null)
 		{
 			this.theItem.setDead();
 			this.theItem = null;
+		}
+		
+		if (sync && !this.getWorldObj().isRemote)
+		{
+			MinestrappolationCore.instance.netHandler.sendToAll(new PlatePacket(this.getWorldObj(), this.xCoord, this.yCoord, this.zCoord, this.stack));
 		}
 	}
 	
@@ -66,7 +79,7 @@ public class TileEntityPlate extends TileEntity
 			nbt.setTag("Item", nbt1);
 		}
 		
-		this.setItem(null);
+		this.setItem(null, false);
 	}
 	
 	@Override
@@ -75,7 +88,7 @@ public class TileEntityPlate extends TileEntity
 		if (nbt.hasKey("Item"))
 		{
 			NBTTagCompound nbt1 = nbt.getCompoundTag("Item");
-			this.stack = ItemStack.loadItemStackFromNBT(nbt1);
+			this.setItem(ItemStack.loadItemStackFromNBT(nbt1), false);
 		}
 	}
 }
