@@ -22,6 +22,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 public class BlockCardboard extends Block
 {
 	private IIcon	topIcon;
+	private IIcon sideIcon;
 	private IIcon	wetTopIcon;
 	private IIcon	wetSideIcon;
 	private IIcon	lampIcon;
@@ -88,6 +89,10 @@ public class BlockCardboard extends Block
 			{
 				return this.topIcon;
 			}
+			else if (side != 0)
+			{
+				return this.sideIcon;
+			}
 		}
 		else if (metadata == 1)
 		{
@@ -120,6 +125,7 @@ public class BlockCardboard extends Block
 	{
 		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getTexture("cardboard"));
 		this.topIcon = iconRegister.registerIcon(MCAssetManager.getTexture("cardboard_top"));
+		this.sideIcon = iconRegister.registerIcon(MCAssetManager.getTexture("cardboard_side"));
 		this.wetSideIcon = iconRegister.registerIcon(MCAssetManager.getTexture("cardboard_wet_side"));
 		this.wetTopIcon = iconRegister.registerIcon(MCAssetManager.getTexture("cardboard_wet_top"));
 		this.lampIcon = iconRegister.registerIcon(MCAssetManager.getTexture("cardboard_lamp"));
