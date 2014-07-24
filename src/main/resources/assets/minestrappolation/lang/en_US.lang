@@ -728,6 +728,8 @@ tile.dark_oak.mossy_boards.name=Mossy Oak Wood Boards
 tile.dark_oak.mossy_panel.name=Mossy Oak Wood Panel
 tile.dark_oak.boards_slab.name=Oak Board Slab
 tile.dark_oak.boards_stairs.name=Dark Oak Board Stairs
+tile.redwood_log.name=Redwood Log
+tile.redwood_leaves.name=Redwood Leaves
 
 tile.glow_glass.name=Glow Glass
 tile.glow_glass_pane.name=Glow Glass Pane

@@ -22,6 +22,7 @@ public class MCBlockLeaves extends BlockLeaves {
 	{
 		this.name = name;
 		this.color = color;
+		this.setBlockName(name+"_leaves");
 		GameRegistry.registerBlock(this, name+"_leaves");
 		
 	}
