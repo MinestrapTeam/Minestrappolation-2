@@ -1,7 +1,7 @@
 package minestrapteam.minestrappolation.lib;
 
 import minestrapteam.minestrappolation.biome.BiomeGenRedwood;
-import minestrapteam.minestrappolation.biome.MCBiomeManager;
+import minestrapteam.minestrappolation.biome.MBiomeManager;
 
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeDictionary.Type;
@@ -15,7 +15,7 @@ public class MBiomes
 		redwood = new BiomeGenRedwood(115).setBiomeName("redwood");
 		
 		
-		MCBiomeManager.addWarmBiome(redwood, 75, Type.FOREST);
+		MBiomeManager.addWarmBiome(redwood, 75, Type.FOREST);
 	}
 	
 }

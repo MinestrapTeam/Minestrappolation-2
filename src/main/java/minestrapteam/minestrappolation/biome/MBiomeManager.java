@@ -5,7 +5,7 @@ import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.BiomeDictionary.Type;
 
-public class MCBiomeManager
+public class MBiomeManager
 {
 	private static void addBiomes(BiomeGenBase biome, Type type)
 	{
