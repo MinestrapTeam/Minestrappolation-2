@@ -28,14 +28,14 @@ archivesBaseName = "Minestrappolation"
 
 minecraft
 {
-    version = "1.7.10-10.13.0.1180"
+    version = "1.7.10-10.13.0.1187"
     if(file('../run').exists())
 	{
-	   assetDir = "../run/assets/"
+	    runDir = "../run/"
 	}
 	else
 	{
-	   assetDir = "eclipse/assets"
+	    runDir = "eclipse/"
 	}
 }
 
