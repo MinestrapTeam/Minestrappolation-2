@@ -17,6 +17,7 @@ public class MCBlockLog extends BlockLog
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
+		this.blockIcon = iconRegister.registerIcon(this.textureName + "_side");
 		this.topIcon = iconRegister.registerIcon(this.textureName + "_top");
 	}
 	
