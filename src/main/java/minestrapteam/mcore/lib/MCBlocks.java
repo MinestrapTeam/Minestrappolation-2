@@ -1,13 +1,15 @@
 package minestrapteam.mcore.lib;
 
+import cpw.mods.fml.common.registry.GameRegistry;
 import clashsoft.cslib.minecraft.block.CSBlocks;
 import minestrapteam.mcore.block.MCBlockCustom;
 import minestrapteam.mcore.block.MCBlockCustom2;
+import minestrapteam.mcore.block.MCBlockLeaves;
+import minestrapteam.mcore.block.MCBlockLog;
 import minestrapteam.mcore.block.MCBlockStonecutter;
 import minestrapteam.mcore.util.MCAssetManager;
 import minestrapteam.mcore.util.MCBlockHelper;
 import minestrapteam.minestrappolation.Minestrappolation;
-
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
@@ -228,6 +230,9 @@ public class MCBlocks
 	public static MCBlockCustom	woodDarkOak;
 	public static Block			woodDarkOakStairsBoards;
 	public static Block			woodDarkOak2;
+	
+	public static Block			redwoodLog;
+	public static Block			redwoodLeaves;
 	
 	public static void init()
 	{
@@ -474,5 +479,8 @@ public class MCBlocks
 		woodDarkOak = MCBlockHelper.createWoodBlock("dark_oak", 2.0F, 5.0F, tab_decor);
 		woodDarkOak2 = MCBlockHelper.createWoodBlock2("dark_oak", 2.0F, 5.0F, tab_decor);
 		woodDarkOakStairsBoards = MCBlockHelper.createWoodStair(woodDarkOak, 1, tab_decor);
+		
+		redwoodLog = new MCBlockLog("redwood").setCreativeTab(tab_decor);
+		redwoodLeaves = new MCBlockLeaves("redwood", 865539).setCreativeTab(tab_decor);
 	}
 }
