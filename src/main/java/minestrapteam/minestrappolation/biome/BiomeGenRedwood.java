@@ -27,6 +27,7 @@ public class BiomeGenRedwood extends BiomeGenBase
 		this.theBiomeDecorator.flowersPerChunk = 5;
 		this.theBiomeDecorator.treesPerChunk = 6;
 		this.theBiomeDecorator.grassPerChunk = 11;
+		this.theBiomeDecorator.deadBushPerChunk = 4;
 	}
 	
 	@Override
@@ -46,6 +47,10 @@ public class BiomeGenRedwood extends BiomeGenBase
             {
                 this.topBlock = Blocks.dirt;
                 this.field_150604_aj = 2;
+            }
+            if (p_150573_7_ > 2.5D)
+            {
+                this.topBlock = Blocks.sand;
             }
 
         this.genBiomeTerrain(world, rand, p_150573_3_, p_150573_4_, p_150573_5_, p_150573_6_, p_150573_7_);

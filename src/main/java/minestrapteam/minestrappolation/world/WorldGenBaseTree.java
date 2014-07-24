@@ -119,10 +119,10 @@ public abstract class WorldGenBaseTree extends WorldGenAbstractTree
 		}
 	}
 	
-	protected static void setBlock(World world, int x, int y, int z, Block block, int meta)
+	protected void setBlock(World world, int x, int y, int z, Block block, int meta)
 	{
 		Block cur = world.getBlock(x, y, z);
-		if (cur == Blocks.air || cur == Blocks.leaves)
+		if (cur == Blocks.air || cur == this.leaves)
 		{
 			world.setBlock(x, y, z, block, meta, 2);
 		}
