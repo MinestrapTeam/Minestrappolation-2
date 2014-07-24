@@ -78,7 +78,8 @@ public class Minestrappolation extends BaseMod
 	@Override
 	public void updateCheck()
 	{
-		CSUpdate.updateCheck(new ModUpdater(this.name, this.acronym, this.version, "https://github.com/MinestrapTeam/Minestrappolation-2/blob/master/version.txt", SimpleUpdateReader.instance));
+		final String url = "https://raw.githubusercontent.com/MinestrapTeam/Minestrappolation-2/master/version.txt";
+		CSUpdate.updateCheck(new ModUpdater(this.name, this.acronym, this.version, url, SimpleUpdateReader.instance));
 	}
 	
 	@Override

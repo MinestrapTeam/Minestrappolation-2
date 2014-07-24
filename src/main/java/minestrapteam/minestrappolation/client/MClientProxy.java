@@ -83,4 +83,10 @@ public class MClientProxy extends MCommonProxy implements IGuiHandler
 	{
 		return RenderingRegistry.addNewArmourRendererPrefix(armor);
 	}
+	
+	@Override
+	public boolean isClient()
+	{
+		return true;
+	}
 }
