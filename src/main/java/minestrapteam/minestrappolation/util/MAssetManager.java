@@ -12,11 +12,6 @@ import net.minecraft.util.ResourceLocation;
  */
 public class MAssetManager
 {
-	public static ResourceLocation getCoreResource(String name)
-	{
-		return new ResourceLocation(MReference.CORE_MODID, name);
-	}
-	
 	public static ResourceLocation getResource(String name)
 	{
 		return new ResourceLocation(MReference.MODID, name);
@@ -30,11 +25,6 @@ public class MAssetManager
 	public static ResourceLocation getGUIResource(String name)
 	{
 		return new ResourceLocation(MReference.MODID, "textures/gui/" + name + ".png");
-	}
-	
-	public static String getMCoreTexture(String name)
-	{
-		return MReference.CORE_MODID + ":" + name;
 	}
 	
 	// Minestrappolation Blocks and Items Icons

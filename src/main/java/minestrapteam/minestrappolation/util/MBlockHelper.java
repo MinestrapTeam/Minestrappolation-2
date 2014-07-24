@@ -148,17 +148,6 @@ public class MBlockHelper
 	 * @param name
 	 * @return
 	 */
-	public static Block getMCoreBlock(String name)
-	{
-		return GameRegistry.findBlock(MReference.CORE_MODID, name);
-	}
-	
-	/**
-	 * Gets a block from MinestrappolationCore based on name.
-	 * 
-	 * @param name
-	 * @return
-	 */
 	public static Block getMinestrappolationBlock(String name)
 	{
 		return GameRegistry.findBlock(MReference.MODID, name);

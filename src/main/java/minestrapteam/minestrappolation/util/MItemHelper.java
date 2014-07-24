@@ -27,14 +27,14 @@ public class MItemHelper
 	}
 	
 	/**
-	 * Gets a Item from MAPI based on name.
+	 * Gets a Item from Minestrappolation based on name.
 	 * 
 	 * @param name
 	 * @return
 	 */
 	public static Item get(String name)
 	{
-		return GameRegistry.findItem(MReference.CORE_MODID, name);
+		return GameRegistry.findItem(MReference.MODID, name);
 	}
 	
 	public static String getUniqueName(Item item)
