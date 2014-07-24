@@ -2,7 +2,7 @@ package minestrapteam.minestrappolation.util;
 
 import cpw.mods.fml.common.registry.GameData;
 import cpw.mods.fml.common.registry.GameRegistry;
-import minestrapteam.minestrappolation.lib.MCReference;
+import minestrapteam.minestrappolation.lib.MReference;
 
 import net.minecraft.item.Item;
 
@@ -34,7 +34,7 @@ public class MItemHelper
 	 */
 	public static Item get(String name)
 	{
-		return GameRegistry.findItem(MCReference.CORE_MODID, name);
+		return GameRegistry.findItem(MReference.CORE_MODID, name);
 	}
 	
 	public static String getUniqueName(Item item)

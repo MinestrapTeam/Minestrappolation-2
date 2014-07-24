@@ -1,6 +1,6 @@
 package minestrapteam.minestrappolation.util;
 
-import minestrapteam.minestrappolation.lib.MCReference;
+import minestrapteam.minestrappolation.lib.MReference;
 
 import net.minecraft.util.ResourceLocation;
 
@@ -14,34 +14,34 @@ public class MAssetManager
 {
 	public static ResourceLocation getCoreResource(String name)
 	{
-		return new ResourceLocation(MCReference.CORE_MODID, name);
+		return new ResourceLocation(MReference.CORE_MODID, name);
 	}
 	
 	public static ResourceLocation getResource(String name)
 	{
-		return new ResourceLocation(MCReference.MODID, name);
+		return new ResourceLocation(MReference.MODID, name);
 	}
 	
 	public static ResourceLocation getModelResource(String name)
 	{
-		return new ResourceLocation(MCReference.MODID, "textures/model/" + name + ".png");
+		return new ResourceLocation(MReference.MODID, "textures/model/" + name + ".png");
 	}
 	
 	public static ResourceLocation getGUIResource(String name)
 	{
-		return new ResourceLocation(MCReference.MODID, "textures/gui/" + name + ".png");
+		return new ResourceLocation(MReference.MODID, "textures/gui/" + name + ".png");
 	}
 	
 	public static String getMCoreTexture(String name)
 	{
-		return MCReference.CORE_MODID + ":" + name;
+		return MReference.CORE_MODID + ":" + name;
 	}
 	
 	// Minestrappolation Blocks and Items Icons
 	
 	public static String getTexture(String name)
 	{
-		return MCReference.MODID + ":" + name;
+		return MReference.MODID + ":" + name;
 	}
 	
 	public static String getMobTexture(String name)
@@ -61,7 +61,7 @@ public class MAssetManager
 	
 	public static String getStonecutterTexture(String name)
 	{
-		return MCReference.MODID + ":stonecutter/" + name;
+		return MReference.MODID + ":stonecutter/" + name;
 	}
 	
 	/**
@@ -69,7 +69,7 @@ public class MAssetManager
 	 */
 	public static String getArmorTexture(String name)
 	{
-		return MCReference.MODID + ":armor/" + name;
+		return MReference.MODID + ":armor/" + name;
 	}
 	
 	/**
@@ -77,12 +77,12 @@ public class MAssetManager
 	 */
 	public static String getDrinkTexture(String name)
 	{
-		return MCReference.MODID + ":drinks/" + name;
+		return MReference.MODID + ":drinks/" + name;
 	}
 	
 	public static String getFoodTexture(String name)
 	{
-		return MCReference.MODID + ":food/" + name;
+		return MReference.MODID + ":food/" + name;
 	}
 	
 	/**
@@ -90,7 +90,7 @@ public class MAssetManager
 	 */
 	public static String getLampTexture(String name)
 	{
-		return MCReference.MODID + ":lamps/" + name;
+		return MReference.MODID + ":lamps/" + name;
 	}
 	
 	/**
@@ -98,7 +98,7 @@ public class MAssetManager
 	 */
 	public static String getLiquidTexture(String name)
 	{
-		return MCReference.MODID + ":liquids/" + name;
+		return MReference.MODID + ":liquids/" + name;
 	}
 	
 	/**
@@ -106,17 +106,17 @@ public class MAssetManager
 	 */
 	public static String getMachineTexture(String name)
 	{
-		return MCReference.MODID + ":machines/" + name;
+		return MReference.MODID + ":machines/" + name;
 	}
 	
 	public static String getMineralTexture(String name)
 	{
-		return MCReference.MODID + ":minerals/" + name;
+		return MReference.MODID + ":minerals/" + name;
 	}
 	
 	public static String getMobDropTexture(String name)
 	{
-		return MCReference.MODID + ":mobs/" + name;
+		return MReference.MODID + ":mobs/" + name;
 	}
 	
 	/**
@@ -124,7 +124,7 @@ public class MAssetManager
 	 */
 	public static String getPlantTexture(String name)
 	{
-		return MCReference.MODID + ":plants/" + name;
+		return MReference.MODID + ":plants/" + name;
 	}
 	
 	/**
@@ -132,7 +132,7 @@ public class MAssetManager
 	 */
 	public static String getToolTexture(String name)
 	{
-		return MCReference.MODID + ":tools/" + name;
+		return MReference.MODID + ":tools/" + name;
 	}
 	
 	/**
@@ -140,27 +140,27 @@ public class MAssetManager
 	 */
 	public static String getWeaponTexture(String name)
 	{
-		return MCReference.MODID + ":weapons/" + name;
+		return MReference.MODID + ":weapons/" + name;
 	}
 	
 	public static String getWoodTexture(String name)
 	{
-		return MCReference.MODID + ":wood/" + name;
+		return MReference.MODID + ":wood/" + name;
 	}
 	
 	// Minestrappolation Models
 	public static String getModel(String name)
 	{
-		return MCReference.MODID + ":textures/model/" + name + ".png";
+		return MReference.MODID + ":textures/model/" + name + ".png";
 	}
 	
 	public static String getArmorModel(String name)
 	{
-		return MCReference.MODID + ":textures/armor/" + name + ".png";
+		return MReference.MODID + ":textures/armor/" + name + ".png";
 	}
 	
 	public static String getBlockModel(String name)
 	{
-		return MCReference.MODID + ":textures/blocks/model/" + name + ".png";
+		return MReference.MODID + ":textures/blocks/model/" + name + ".png";
 	}
 }

@@ -2,9 +2,9 @@ package minestrapteam.minestrappolation.network;
 
 import clashsoft.cslib.minecraft.network.CSNetHandler;
 
-public class MCNetHandler extends CSNetHandler
+public class MNetHandler extends CSNetHandler
 {
-	public MCNetHandler()
+	public MNetHandler()
 	{
 		super("MCore");
 

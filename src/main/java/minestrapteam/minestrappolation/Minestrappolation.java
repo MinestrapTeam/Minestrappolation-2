@@ -26,7 +26,7 @@ import minestrapteam.minestrappolation.crafting.MelterRecipeLoader;
 import minestrapteam.minestrappolation.creativetab.*;
 import minestrapteam.minestrappolation.entity.*;
 import minestrapteam.minestrappolation.lib.*;
-import minestrapteam.minestrappolation.network.MCNetHandler;
+import minestrapteam.minestrappolation.network.MNetHandler;
 import minestrapteam.minestrappolation.tileentity.TileEntityLocked;
 import minestrapteam.minestrappolation.tileentity.TileEntityMelter;
 import minestrapteam.minestrappolation.tileentity.TileEntityStonecutter;
@@ -36,10 +36,10 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 
-@Mod(modid = MCReference.MODID, name = MCReference.NAME, version = MCReference.VERSION, dependencies = MCReference.DEPENDENCY)
+@Mod(modid = MReference.MODID, name = MReference.NAME, version = MReference.VERSION, dependencies = MReference.DEPENDENCY)
 public class Minestrappolation extends BaseMod
 {
-	@Instance(MCReference.MODID)
+	@Instance(MReference.MODID)
 	public static Minestrappolation		instance;
 	
 	public static MCommonProxy			proxy				= createProxy("minestrapteam.minestrappolation.client.MClientProxy", "minestrapteam.minestrappolation.common.MCommonProxy");
@@ -68,10 +68,10 @@ public class Minestrappolation extends BaseMod
 	
 	public Minestrappolation()
 	{
-		super(proxy, MCReference.MODID, MCReference.NAME, MCReference.ACRONYM, MCReference.VERSION);
-		this.authors = MCReference.AUTHORS;
+		super(proxy, MReference.MODID, MReference.NAME, MReference.ACRONYM, MReference.VERSION);
+		this.authors = MReference.AUTHORS;
 		this.eventHandler = new MEventHandler();
-		this.netHandlerClass = MCNetHandler.class;
+		this.netHandlerClass = MNetHandler.class;
 		this.hasConfig = true;
 	}
 	

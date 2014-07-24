@@ -7,7 +7,7 @@ import minestrapteam.minestrappolation.block.MBlockCustom2;
 import minestrapteam.minestrappolation.block.MBlockStairs;
 import minestrapteam.minestrappolation.item.block.MCItemBlockCustom;
 import minestrapteam.minestrappolation.item.block.MCItemBlockCustom2;
-import minestrapteam.minestrappolation.lib.MCReference;
+import minestrapteam.minestrappolation.lib.MReference;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -150,7 +150,7 @@ public class MBlockHelper
 	 */
 	public static Block getMCoreBlock(String name)
 	{
-		return GameRegistry.findBlock(MCReference.CORE_MODID, name);
+		return GameRegistry.findBlock(MReference.CORE_MODID, name);
 	}
 	
 	/**
@@ -161,7 +161,7 @@ public class MBlockHelper
 	 */
 	public static Block getMinestrappolationBlock(String name)
 	{
-		return GameRegistry.findBlock(MCReference.MODID, name);
+		return GameRegistry.findBlock(MReference.MODID, name);
 	}
 	
 	public static String getUniqueName(Block block)

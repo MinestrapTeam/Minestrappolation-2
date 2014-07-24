@@ -5,7 +5,7 @@ import java.util.List;
 
 import clashsoft.brewingapi.BrewingAPI;
 
-public class MCReference
+public class MReference
 {
 	public static final String			CORE_MODID		= "mcore";
 	public static final String			CORE_ACRONYM	= "MC";
