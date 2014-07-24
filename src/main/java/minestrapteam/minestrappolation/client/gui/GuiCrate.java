@@ -2,9 +2,9 @@ package minestrapteam.minestrappolation.client.gui;
 
 import org.lwjgl.opengl.GL11;
 
-import minestrapteam.mcore.util.MCAssetManager;
 import minestrapteam.minestrappolation.inventory.ContainerCrate;
 import minestrapteam.minestrappolation.tileentity.TileEntityCrate;
+import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,7 +13,7 @@ import net.minecraft.util.StatCollector;
 
 public class GuiCrate extends GuiContainer
 {
-	public static ResourceLocation	texture	= MCAssetManager.getGUIResource("container/crate");
+	public static ResourceLocation	texture	= MAssetManager.getGUIResource("container/crate");
 	
 	private TileEntityCrate			crate;
 	

@@ -2,7 +2,7 @@ package minestrapteam.minestrappolation.world;
 
 import java.util.Random;
 
-import minestrapteam.mcore.lib.MCBlocks;
+import minestrapteam.minestrappolation.lib.MBlocks;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -25,7 +25,7 @@ public class WorldGenRedSandstone extends WorldGenerator
 					{
 						if (rand.nextInt(1) == 0)
 						{
-							world.setBlock(x2, y2 - 1, z2, MCBlocks.redSandstone);
+							world.setBlock(x2, y2 - 1, z2, MBlocks.redSandstone);
 						}
 					}
 				}
@@ -40,22 +40,22 @@ public class WorldGenRedSandstone extends WorldGenerator
 				int z2 = chunkZ + z0;
 				for (int y2 = 0; y2 < 256; y2++)
 				{
-					if (world.getBlock(x2, y2, z2) == MCBlocks.redSandstone && world.getBlockMetadata(x2, y2, z2) == 0)
+					if (world.getBlock(x2, y2, z2) == MBlocks.redSandstone && world.getBlockMetadata(x2, y2, z2) == 0)
 					{
 						if (rand.nextInt(1) == 0)
 						{
 							for (int d = 0; d < rand.nextInt(3) + 2; d++)
 							{
-								world.setBlock(x2, y2 - d, z2, MCBlocks.redSandstone);
+								world.setBlock(x2, y2 - d, z2, MBlocks.redSandstone);
 							}
 						}
 						if (rand.nextInt(12) == 0)
 						{
-							world.setBlock(x2, y2 - rand.nextInt(3), z2, MCBlocks.redSandstone, 7, 2);
+							world.setBlock(x2, y2 - rand.nextInt(3), z2, MBlocks.redSandstone, 7, 2);
 						}
 						if (rand.nextInt(12) == 6)
 						{
-							world.setBlock(x2, y2 - rand.nextInt(3), z2, MCBlocks.redSandstone, 8, 2);
+							world.setBlock(x2, y2 - rand.nextInt(3), z2, MBlocks.redSandstone, 8, 2);
 						}
 					}
 				}

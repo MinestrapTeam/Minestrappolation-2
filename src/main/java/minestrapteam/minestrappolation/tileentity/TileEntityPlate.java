@@ -1,7 +1,7 @@
 package minestrapteam.minestrappolation.tileentity;
 
-import minestrapteam.mcore.MinestrappolationCore;
-import minestrapteam.mcore.network.PlatePacket;
+import minestrapteam.minestrappolation.Minestrappolation;
+import minestrapteam.minestrappolation.network.PlatePacket;
 
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
@@ -60,7 +60,7 @@ public class TileEntityPlate extends TileEntity
 		
 		if (sync && !this.getWorldObj().isRemote)
 		{
-			MinestrappolationCore.instance.netHandler.sendToAll(new PlatePacket(this.getWorldObj(), this.xCoord, this.yCoord, this.zCoord, this.stack));
+			Minestrappolation.instance.netHandler.sendToAll(new PlatePacket(this.getWorldObj(), this.xCoord, this.yCoord, this.zCoord, this.stack));
 		}
 	}
 	

@@ -1,6 +1,6 @@
 package minestrapteam.minestrappolation.creativetab;
 
-import minestrapteam.mcore.lib.MCBlocks;
+import minestrapteam.minestrappolation.lib.MBlocks;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -15,6 +15,6 @@ public class MCreativeTabStoneDecor extends CreativeTabs
 	@Override
 	public Item getTabIconItem()
 	{
-		return Item.getItemFromBlock(MCBlocks.flint);
+		return Item.getItemFromBlock(MBlocks.flint);
 	}
 }

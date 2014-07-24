@@ -2,7 +2,7 @@ package minestrapteam.minestrappolation.item;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import minestrapteam.mcore.util.MCAssetManager;
+import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.enchantment.Enchantment;
@@ -109,7 +109,7 @@ public class ItemHorseHairBow extends ItemBow
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister iconRegister)
 	{
-		String texture = MCAssetManager.getWeaponTexture("horse_hair_bow");
+		String texture = MAssetManager.getWeaponTexture("horse_hair_bow");
 		this.itemIcon = iconRegister.registerIcon(texture);
 		this.iconArray = new IIcon[3];
 		

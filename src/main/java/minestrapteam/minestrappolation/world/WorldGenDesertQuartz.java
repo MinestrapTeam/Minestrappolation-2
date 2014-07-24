@@ -2,7 +2,7 @@ package minestrapteam.minestrappolation.world;
 
 import java.util.Random;
 
-import minestrapteam.mcore.lib.MCBlocks;
+import minestrapteam.minestrappolation.lib.MBlocks;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -29,17 +29,17 @@ public class WorldGenDesertQuartz extends WorldGenerator
 			for (int i = 0; i < depth; i++)
 			{
 				int y1 = y - i;
-				world.setBlock(x, y1, z, MCBlocks.desertQuartz);
-				world.setBlock(x + 1, y1, z, MCBlocks.desertQuartz);
-				world.setBlock(x - 1, y1, z, MCBlocks.desertQuartz);
-				world.setBlock(x, y1, z + 1, MCBlocks.desertQuartz);
-				world.setBlock(x, y1, z - 1, MCBlocks.desertQuartz);
+				world.setBlock(x, y1, z, MBlocks.desertQuartz);
+				world.setBlock(x + 1, y1, z, MBlocks.desertQuartz);
+				world.setBlock(x - 1, y1, z, MBlocks.desertQuartz);
+				world.setBlock(x, y1, z + 1, MBlocks.desertQuartz);
+				world.setBlock(x, y1, z - 1, MBlocks.desertQuartz);
 			}
 			
 			int height = random.nextInt(this.maxTopHeight) + 2;
 			for (int i = 0; i < height; i++)
 			{
-				world.setBlock(x, y + i, z, MCBlocks.desertQuartz);
+				world.setBlock(x, y + i, z, MBlocks.desertQuartz);
 			}
 			
 			return true;

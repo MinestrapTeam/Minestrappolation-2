@@ -4,8 +4,8 @@ import clashsoft.brewingapi.potion.IPotionEffectHandler;
 import clashsoft.brewingapi.potion.recipe.PotionRecipes;
 import clashsoft.brewingapi.potion.type.PotionType;
 import clashsoft.cslib.minecraft.world.TeleporterNoPortal;
-import minestrapteam.mcore.potion.MCPotion;
-import minestrapteam.mcore.util.MCAssetManager;
+import minestrapteam.minestrappolation.potion.MCPotion;
+import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
@@ -21,7 +21,7 @@ import net.minecraftforge.common.DimensionManager;
 
 public class MPotions implements IPotionEffectHandler
 {
-	private static ResourceLocation	iconLoc				= MCAssetManager.getResource("textures/gui/potion_icons.png");
+	private static ResourceLocation	iconLoc				= MAssetManager.getResource("textures/gui/potion_icons.png");
 	
 	public static Potion			infectiousPotion	= new MCPotion("potion.infectious", 0xFE3040, true).setIcon(iconLoc, 6, 1);
 	public static Potion			ghastTentaclePotion	= new MCPotion("potion.ghastTentacle", 0xED03D5, true).setIcon(iconLoc, 7, 1);

@@ -3,7 +3,6 @@ package minestrapteam.minestrappolation.item;
 import java.util.List;
 
 import clashsoft.cslib.minecraft.lang.I18n;
-import minestrapteam.mcore.item.MCItem;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;
@@ -11,7 +10,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class ItemGuano extends MCItem
+public class ItemGuano extends MItem
 {
 	public ItemGuano()
 	{

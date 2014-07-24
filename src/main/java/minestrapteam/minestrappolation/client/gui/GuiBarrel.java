@@ -2,9 +2,9 @@ package minestrapteam.minestrappolation.client.gui;
 
 import org.lwjgl.opengl.GL11;
 
-import minestrapteam.mcore.util.MCAssetManager;
 import minestrapteam.minestrappolation.inventory.ContainerBarrel;
 import minestrapteam.minestrappolation.tileentity.TileEntityBarrel;
+import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,7 +13,7 @@ import net.minecraft.util.StatCollector;
 
 public class GuiBarrel extends GuiContainer
 {
-	public static ResourceLocation	texture	= MCAssetManager.getGUIResource("container/barrel");
+	public static ResourceLocation	texture	= MAssetManager.getGUIResource("container/barrel");
 	
 	private TileEntityBarrel		barrel;
 	

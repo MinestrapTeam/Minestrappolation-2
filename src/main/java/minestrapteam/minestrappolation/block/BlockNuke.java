@@ -2,8 +2,8 @@ package minestrapteam.minestrappolation.block;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import minestrapteam.mcore.util.MCAssetManager;
 import minestrapteam.minestrappolation.entity.EntityNukePrimed;
+import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -30,9 +30,9 @@ public class BlockNuke extends Block
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getTexture("nuke_side"));
-		this.top = iconRegister.registerIcon(MCAssetManager.getTexture("nuke_top"));
-		this.bottom = iconRegister.registerIcon(MCAssetManager.getTexture("nuke_bottom"));
+		this.blockIcon = iconRegister.registerIcon(MAssetManager.getTexture("nuke_side"));
+		this.top = iconRegister.registerIcon(MAssetManager.getTexture("nuke_top"));
+		this.bottom = iconRegister.registerIcon(MAssetManager.getTexture("nuke_bottom"));
 	}
 	
 	@Override

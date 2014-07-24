@@ -1,7 +1,5 @@
 package minestrapteam.minestrappolation.item;
 
-import minestrapteam.mcore.item.MCItem;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemDoor;
@@ -9,7 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class MItemDoor extends MCItem
+public class MItemDoor extends MItem
 {
 	public Block	doorBlock;
 	

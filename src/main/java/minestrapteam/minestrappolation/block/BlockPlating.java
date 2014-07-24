@@ -2,7 +2,6 @@ package minestrapteam.minestrappolation.block;
 
 import java.util.Random;
 
-import minestrapteam.mcore.block.MCBlock;
 import minestrapteam.minestrappolation.common.MCommonProxy;
 import minestrapteam.minestrappolation.lib.MBlocks;
 import minestrapteam.minestrappolation.lib.MItems;
@@ -13,7 +12,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class BlockPlating extends MCBlock
+public class BlockPlating extends MBlock
 {
 	public BlockPlating()
 	{

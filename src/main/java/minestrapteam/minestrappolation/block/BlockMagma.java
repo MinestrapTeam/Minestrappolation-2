@@ -1,7 +1,7 @@
 package minestrapteam.minestrappolation.block;
 
-import minestrapteam.mcore.util.MCAssetManager;
 import minestrapteam.minestrappolation.Minestrappolation;
+import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -22,8 +22,8 @@ public class BlockMagma extends BlockFluidClassic
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.stillIcon = iconRegister.registerIcon(MCAssetManager.getTexture("liquid/magmaStill"));
-		this.flowingIcon = iconRegister.registerIcon(MCAssetManager.getTexture("liquid/magmaFlow"));
+		this.stillIcon = iconRegister.registerIcon(MAssetManager.getTexture("liquid/magmaStill"));
+		this.flowingIcon = iconRegister.registerIcon(MAssetManager.getTexture("liquid/magmaFlow"));
 	}
 	
 	@Override

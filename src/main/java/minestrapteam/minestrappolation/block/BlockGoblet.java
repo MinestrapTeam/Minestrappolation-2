@@ -2,8 +2,8 @@ package minestrapteam.minestrappolation.block;
 
 import java.util.List;
 
-import minestrapteam.mcore.util.MCAssetManager;
 import minestrapteam.minestrappolation.tileentity.TileEntityGoblet;
+import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
@@ -22,7 +22,7 @@ public class BlockGoblet extends BlockContainer
 	public BlockGoblet(Material material)
 	{
 		super(material);
-		this.setBlockTextureName(MCAssetManager.getTexture("cardboard"));
+		this.setBlockTextureName(MAssetManager.getTexture("cardboard"));
 		this.setBlockBounds(0.3125F, 0F, 0.3125F, 0.6875F, 0.6875F, 0.6875F);
 	}
 	

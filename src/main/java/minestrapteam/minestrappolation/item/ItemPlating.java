@@ -1,7 +1,5 @@
 package minestrapteam.minestrappolation.item;
 
-import minestrapteam.mcore.item.IPlating;
-
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemReed;
 import net.minecraft.item.ItemStack;

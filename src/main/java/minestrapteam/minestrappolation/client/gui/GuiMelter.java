@@ -2,9 +2,9 @@ package minestrapteam.minestrappolation.client.gui;
 
 import org.lwjgl.opengl.GL11;
 
-import minestrapteam.mcore.util.MCAssetManager;
 import minestrapteam.minestrappolation.inventory.ContainerMelter;
 import minestrapteam.minestrappolation.tileentity.TileEntityMelter;
+import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
@@ -12,7 +12,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class GuiMelter extends GuiContainer
 {
-	public static ResourceLocation	texture	= MCAssetManager.getGUIResource("container/melter");
+	public static ResourceLocation	texture	= MAssetManager.getGUIResource("container/melter");
 	
 	private TileEntityMelter		melter;
 	

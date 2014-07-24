@@ -3,17 +3,13 @@ package minestrapteam.minestrappolation.world;
 import java.util.Random;
 
 import cpw.mods.fml.common.IWorldGenerator;
-import minestrapteam.mcore.lib.MCBlocks;
 import minestrapteam.minestrappolation.lib.MBlocks;
+
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.BiomeGenDesert;
-import net.minecraft.world.biome.BiomeGenForest;
-import net.minecraft.world.biome.BiomeGenJungle;
-import net.minecraft.world.biome.BiomeGenMesa;
+import net.minecraft.world.biome.*;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.ChunkProviderEnd;
 import net.minecraft.world.gen.ChunkProviderGenerate;
@@ -65,7 +61,7 @@ public class MOreGenerator implements IWorldGenerator
 				y1 = rand.nextInt(256);
 				z1 = chunkZ + rand.nextInt(16);
 				
-				new WorldGenMinable(MCBlocks.sandstone, 6, 7, Blocks.sandstone).generate(world, rand, x1, y1, z1);
+				new WorldGenMinable(MBlocks.sandstone, 6, 7, Blocks.sandstone).generate(world, rand, x1, y1, z1);
 			}
 			for (int i = 0; i < 40; i++)
 			{
@@ -73,7 +69,7 @@ public class MOreGenerator implements IWorldGenerator
 				y1 = rand.nextInt(256);
 				z1 = chunkZ + rand.nextInt(16);
 				
-				new WorldGenMinable(MCBlocks.sandstone, 7, 7, Blocks.sandstone).generate(world, rand, x1, y1, z1);
+				new WorldGenMinable(MBlocks.sandstone, 7, 7, Blocks.sandstone).generate(world, rand, x1, y1, z1);
 			}
 		}
 		
@@ -83,7 +79,7 @@ public class MOreGenerator implements IWorldGenerator
 			y1 = rand.nextInt(200);
 			z1 = chunkZ + rand.nextInt(16);
 			
-			new WorldGenMinable(MCBlocks.woodOak, 3, 15, Blocks.planks).generate(world, rand, x1, y1, z1);
+			new WorldGenMinable(MBlocks.woodOak, 3, 15, Blocks.planks).generate(world, rand, x1, y1, z1);
 		}
 		
 		// Meurodite Ore
@@ -151,7 +147,7 @@ public class MOreGenerator implements IWorldGenerator
 			y1 = rand.nextInt(256);
 			z1 = chunkZ + rand.nextInt(16);
 			
-			new WorldGenMinable(Block.getBlockFromItem(new ItemStack(MCBlocks.graniteSlate, 1, 0).getItem()), 50).generate(world, rand, x1, y1, z1);
+			new WorldGenMinable(Block.getBlockFromItem(new ItemStack(MBlocks.graniteSlate, 1, 0).getItem()), 50).generate(world, rand, x1, y1, z1);
 		}
 		
 		// Desert Quartz
@@ -248,7 +244,7 @@ public class MOreGenerator implements IWorldGenerator
 		this.generateObsidianSpikes(world, random, chunkX, chunkZ);
 	}
 	
-	void generateObsidianSpikes(World world, Random random, int chunkX, int chunkZ)
+	public void generateObsidianSpikes(World world, Random random, int chunkX, int chunkZ)
 	{
 		for (int x = 0; x < 16; x++)
 		{
@@ -261,7 +257,7 @@ public class MOreGenerator implements IWorldGenerator
 				{
 					if (world.getBlock(x1, y, z1) == Blocks.obsidian && world.getBlock(x1, y + 1, z1) == Blocks.air)
 					{
-						world.setBlock(x1, y, z1, MCBlocks.endstone, 4, 3);
+						world.setBlock(x1, y, z1, MBlocks.endstone, 4, 3);
 						break yLoop;
 					}
 				}

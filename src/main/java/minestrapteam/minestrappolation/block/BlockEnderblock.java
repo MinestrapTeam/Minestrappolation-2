@@ -2,7 +2,7 @@ package minestrapteam.minestrappolation.block;
 
 import java.util.Random;
 
-import minestrapteam.mcore.util.MCUtil;
+import minestrapteam.minestrappolation.util.MUtil;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -34,7 +34,7 @@ public class BlockEnderblock extends Block
 	{
 		for (int i = 0; i < 3; ++i)
 		{
-			MCUtil.spawnParticle(world, x, y, z, random, "portal");
+			MUtil.spawnParticle(world, x, y, z, random, "portal");
 		}
 	}
 }

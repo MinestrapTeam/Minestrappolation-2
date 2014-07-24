@@ -1,7 +1,8 @@
 package minestrapteam.minestrappolation.lib;
 
-import minestrapteam.mcore.biome.MCBiomeManager;
 import minestrapteam.minestrappolation.biome.BiomeGenRedwood;
+import minestrapteam.minestrappolation.biome.MCBiomeManager;
+
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeDictionary.Type;
 

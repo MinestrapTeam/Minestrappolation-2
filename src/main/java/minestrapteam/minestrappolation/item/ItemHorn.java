@@ -2,10 +2,7 @@ package minestrapteam.minestrappolation.item;
 
 import net.minecraft.item.ItemStack;
 
-import minestrapteam.mcore.item.IPlating;
-import minestrapteam.mcore.item.MCItem;
-
-public class ItemHorn extends MCItem implements IPlating
+public class ItemHorn extends MItem implements IPlating
 {
 	public ItemHorn()
 	{

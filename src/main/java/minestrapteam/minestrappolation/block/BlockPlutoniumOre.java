@@ -2,9 +2,9 @@ package minestrapteam.minestrappolation.block;
 
 import java.util.Random;
 
-import minestrapteam.mcore.util.MCUtil;
 import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.lib.MItems;
+import minestrapteam.minestrappolation.util.MUtil;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
@@ -60,7 +60,7 @@ public class BlockPlutoniumOre extends BlockRadiation
 	
 	public void spawnParticle(World world, int x, int y, int z)
 	{
-		MCUtil.spawnParticle(world, x, y, z, world.rand, "mobSpell");
+		MUtil.spawnParticle(world, x, y, z, world.rand, "mobSpell");
 	}
 	
 	@Override

@@ -4,7 +4,7 @@ import java.util.List;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import minestrapteam.mcore.util.MCAssetManager;
+import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -52,7 +52,7 @@ public class ItemCharm extends Item
 		
 		for (int i = 0; i < geneNames.length; ++i)
 		{
-			this.geneIcons[i] = iconRegister.registerIcon(MCAssetManager.getMobTexture(geneNames[i] + "_charm"));
+			this.geneIcons[i] = iconRegister.registerIcon(MAssetManager.getMobTexture(geneNames[i] + "_charm"));
 		}
 	}
 }

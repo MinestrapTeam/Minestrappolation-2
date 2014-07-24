@@ -3,9 +3,9 @@ package minestrapteam.minestrappolation.block;
 import java.util.List;
 import java.util.Random;
 
-import minestrapteam.mcore.util.MCAssetManager;
-import minestrapteam.mcore.util.MCUtil;
 import minestrapteam.minestrappolation.lib.MItems;
+import minestrapteam.minestrappolation.util.MAssetManager;
+import minestrapteam.minestrappolation.util.MUtil;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -123,12 +123,12 @@ public class BlockCardboard extends Block
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getTexture("cardboard"));
-		this.topIcon = iconRegister.registerIcon(MCAssetManager.getTexture("cardboard_top"));
-		this.sideIcon = iconRegister.registerIcon(MCAssetManager.getTexture("cardboard_side"));
-		this.wetSideIcon = iconRegister.registerIcon(MCAssetManager.getTexture("cardboard_wet_side"));
-		this.wetTopIcon = iconRegister.registerIcon(MCAssetManager.getTexture("cardboard_wet_top"));
-		this.lampIcon = iconRegister.registerIcon(MCAssetManager.getTexture("cardboard_lamp"));
+		this.blockIcon = iconRegister.registerIcon(MAssetManager.getTexture("cardboard"));
+		this.topIcon = iconRegister.registerIcon(MAssetManager.getTexture("cardboard_top"));
+		this.sideIcon = iconRegister.registerIcon(MAssetManager.getTexture("cardboard_side"));
+		this.wetSideIcon = iconRegister.registerIcon(MAssetManager.getTexture("cardboard_wet_side"));
+		this.wetTopIcon = iconRegister.registerIcon(MAssetManager.getTexture("cardboard_wet_top"));
+		this.lampIcon = iconRegister.registerIcon(MAssetManager.getTexture("cardboard_lamp"));
 	}
 	
 	@Override
@@ -151,7 +151,7 @@ public class BlockCardboard extends Block
 	
 	public void checkDryness(World world, int x, int y, int z)
 	{
-		if (MCUtil.isWaterTouchingAnySide(world, x, y, z) && world.getBlockMetadata(x, y, z) == 0)
+		if (MUtil.isWaterTouchingAnySide(world, x, y, z) && world.getBlockMetadata(x, y, z) == 0)
 		{
 			world.setBlockMetadataWithNotify(x, y, z, 1, 2);
 		}

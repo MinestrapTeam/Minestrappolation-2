@@ -2,10 +2,10 @@ package minestrapteam.minestrappolation.block;
 
 import java.util.Random;
 
-import minestrapteam.mcore.util.MCAssetManager;
 import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.lib.MBlocks;
 import minestrapteam.minestrappolation.tileentity.TileEntityMelter;
+import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
@@ -149,10 +149,10 @@ public class BlockMelter extends BlockContainer
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getMachineTexture("melter_side"));
-		this.frontIcon = iconRegister.registerIcon(this.isActive ? MCAssetManager.getMachineTexture("melter_front_on") : MCAssetManager.getMachineTexture("melter_front_off"));
-		this.topIcon = iconRegister.registerIcon(MCAssetManager.getMachineTexture("melter_top"));
-		this.bottomIcon = iconRegister.registerIcon(MCAssetManager.getMachineTexture("melter_bottom"));
+		this.blockIcon = iconRegister.registerIcon(MAssetManager.getMachineTexture("melter_side"));
+		this.frontIcon = iconRegister.registerIcon(this.isActive ? MAssetManager.getMachineTexture("melter_front_on") : MAssetManager.getMachineTexture("melter_front_off"));
+		this.topIcon = iconRegister.registerIcon(MAssetManager.getMachineTexture("melter_top"));
+		this.bottomIcon = iconRegister.registerIcon(MAssetManager.getMachineTexture("melter_bottom"));
 	}
 	
 	@Override

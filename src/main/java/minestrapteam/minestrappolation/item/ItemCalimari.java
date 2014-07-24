@@ -1,12 +1,10 @@
 package minestrapteam.minestrappolation.item;
 
-import minestrapteam.mcore.item.MCItemFood;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class ItemCalimari extends MCItemFood
+public class ItemCalimari extends MItemFood
 {
 	public ItemCalimari(int healAmount, float saturationModifier)
 	{

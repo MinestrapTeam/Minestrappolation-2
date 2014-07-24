@@ -2,7 +2,6 @@ package minestrapteam.minestrappolation.block;
 
 import java.util.Random;
 
-import minestrapteam.mcore.block.MCBlock;
 import minestrapteam.minestrappolation.lib.MBlocks;
 
 import net.minecraft.block.Block;
@@ -14,7 +13,7 @@ import net.minecraft.item.Item;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockBlazium extends MCBlock
+public class BlockBlazium extends MBlock
 {
 	public BlockBlazium()
 	{

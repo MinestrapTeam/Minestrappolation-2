@@ -2,7 +2,6 @@ package minestrapteam.minestrappolation.item;
 
 import java.util.List;
 
-import minestrapteam.mcore.item.MCItem;
 import minestrapteam.minestrappolation.tileentity.TileEntityLocked;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,7 +12,7 @@ import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 
-public class ItemKey extends MCItem
+public class ItemKey extends MItem
 {
 	public ItemKey()
 	{

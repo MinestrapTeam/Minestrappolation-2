@@ -1,14 +1,12 @@
 package minestrapteam.minestrappolation.item;
 
-import minestrapteam.mcore.item.MCItemFood;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
-public class ItemEnderCore extends MCItemFood
+public class ItemEnderCore extends MItemFood
 {
 	public ItemEnderCore(int healAmount, float saturationModifier)
 	{

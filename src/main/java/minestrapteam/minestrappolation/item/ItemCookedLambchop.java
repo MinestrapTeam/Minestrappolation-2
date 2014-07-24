@@ -1,13 +1,12 @@
 package minestrapteam.minestrappolation.item;
 
-import minestrapteam.mcore.item.MCItemFood;
 import minestrapteam.minestrappolation.lib.MItems;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class ItemCookedLambchop extends MCItemFood
+public class ItemCookedLambchop extends MItemFood
 {
 	public ItemCookedLambchop(int healAmount, float saturationModifier)
 	{

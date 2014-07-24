@@ -2,7 +2,6 @@ package minestrapteam.minestrappolation.block;
 
 import java.util.Random;
 
-import minestrapteam.mcore.block.MCBlock;
 import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.lib.MItems;
 
@@ -16,7 +15,7 @@ import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class BlockSoulOre extends MCBlock
+public class BlockSoulOre extends MBlock
 {
 	public BlockSoulOre()
 	{

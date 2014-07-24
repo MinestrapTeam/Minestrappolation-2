@@ -2,9 +2,9 @@ package minestrapteam.minestrappolation.client.renderer.block;
 
 import org.lwjgl.opengl.GL11;
 
-import minestrapteam.mcore.util.MCAssetManager;
 import minestrapteam.minestrappolation.client.model.ModelGoblet;
 import minestrapteam.minestrappolation.tileentity.TileEntityGoblet;
+import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
@@ -31,21 +31,21 @@ public class RenderGoblet extends TileEntitySpecialRenderer
 		switch (meta)
 		{
 		case 0:
-			texture = MCAssetManager.getModelResource("goblet_empty");
+			texture = MAssetManager.getModelResource("goblet_empty");
 			break;
 		case 1:
 			GL11.glEnable(GL11.GL_BLEND);
 			GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
-			texture = MCAssetManager.getModelResource("goblet_water");
+			texture = MAssetManager.getModelResource("goblet_water");
 			break;
 		case 2:
-			texture = MCAssetManager.getModelResource("goblet_milk");
+			texture = MAssetManager.getModelResource("goblet_milk");
 			break;
 		case 3:
 			GL11.glEnable(GL11.GL_BLEND);
 			GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
 			color = ((TileEntityGoblet) t).getColor();
-			texture = MCAssetManager.getModelResource("goblet_potion");
+			texture = MAssetManager.getModelResource("goblet_potion");
 			break;
 		}
 		this.bindTexture(texture);

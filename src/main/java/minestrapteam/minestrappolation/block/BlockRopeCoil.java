@@ -1,6 +1,6 @@
 package minestrapteam.minestrappolation.block;
 
-import minestrapteam.mcore.util.MCAssetManager;
+import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.material.Material;
@@ -19,8 +19,8 @@ public class BlockRopeCoil extends BlockFalling
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getTexture("rope_side"));
-		this.top = iconRegister.registerIcon(MCAssetManager.getTexture("rope_top"));
+		this.blockIcon = iconRegister.registerIcon(MAssetManager.getTexture("rope_side"));
+		this.top = iconRegister.registerIcon(MAssetManager.getTexture("rope_top"));
 	}
 	
 	@Override

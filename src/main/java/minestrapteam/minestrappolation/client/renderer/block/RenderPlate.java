@@ -2,9 +2,9 @@ package minestrapteam.minestrappolation.client.renderer.block;
 
 import org.lwjgl.opengl.GL11;
 
-import minestrapteam.mcore.util.MCAssetManager;
 import minestrapteam.minestrappolation.client.model.ModelPlate;
 import minestrapteam.minestrappolation.tileentity.TileEntityPlate;
+import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -14,7 +14,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class RenderPlate extends TileEntitySpecialRenderer
 {
-	public static final ResourceLocation	texture	= MCAssetManager.getModelResource("plate");
+	public static final ResourceLocation	texture	= MAssetManager.getModelResource("plate");
 	
 	private ModelPlate						model;
 	

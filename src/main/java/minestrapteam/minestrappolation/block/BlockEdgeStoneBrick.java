@@ -2,7 +2,7 @@ package minestrapteam.minestrappolation.block;
 
 import java.util.List;
 
-import minestrapteam.mcore.util.MCAssetManager;
+import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -30,14 +30,14 @@ public class BlockEdgeStoneBrick extends Block
 		this.icons1 = new IIcon[4];
 		this.icons2 = new IIcon[4];
 		
-		this.icons1[0] = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("edgestone"));
-		this.icons1[1] = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("edgestone_left"));
-		this.icons1[2] = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("edgestone_right"));
-		this.icons1[3] = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("edgestone_half"));
-		this.icons2[0] = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("dark_edgestone"));
-		this.icons2[1] = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("dark_edgestone_left"));
-		this.icons2[2] = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("dark_edgestone_right"));
-		this.icons2[3] = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("dark_edgestone_half"));
+		this.icons1[0] = iconRegister.registerIcon(MAssetManager.getStonecutterTexture("edgestone"));
+		this.icons1[1] = iconRegister.registerIcon(MAssetManager.getStonecutterTexture("edgestone_left"));
+		this.icons1[2] = iconRegister.registerIcon(MAssetManager.getStonecutterTexture("edgestone_right"));
+		this.icons1[3] = iconRegister.registerIcon(MAssetManager.getStonecutterTexture("edgestone_half"));
+		this.icons2[0] = iconRegister.registerIcon(MAssetManager.getStonecutterTexture("dark_edgestone"));
+		this.icons2[1] = iconRegister.registerIcon(MAssetManager.getStonecutterTexture("dark_edgestone_left"));
+		this.icons2[2] = iconRegister.registerIcon(MAssetManager.getStonecutterTexture("dark_edgestone_right"));
+		this.icons2[3] = iconRegister.registerIcon(MAssetManager.getStonecutterTexture("dark_edgestone_half"));
 	}
 	
 	@Override

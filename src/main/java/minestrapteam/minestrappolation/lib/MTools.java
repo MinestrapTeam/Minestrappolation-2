@@ -1,19 +1,17 @@
 package minestrapteam.minestrappolation.lib;
 
+import static minestrapteam.minestrappolation.lib.MItems.*;
 import clashsoft.cslib.minecraft.item.CSItems;
-import minestrapteam.mcore.item.*;
-import minestrapteam.mcore.lib.MCBlocks;
-import minestrapteam.mcore.util.MCAssetManager;
 import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.common.MCommonProxy;
+import minestrapteam.minestrappolation.item.*;
+import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraftforge.common.util.EnumHelper;
-
-import static minestrapteam.minestrappolation.lib.MItems.*;
 
 public class MTools
 {
@@ -125,92 +123,92 @@ public class MTools
 	
 	public static void init()
 	{
-		meuroditeSword = new MCItemSword(toolMeurodite).setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getWeaponTexture("meurodite_sword"));
-		meuroditeShovel = new MCItemShovel(toolMeurodite).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("meurodite_shovel"));
-		meuroditePickaxe = new MCItemPickaxe(toolMeurodite).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("meurodite_pickaxe"));
-		meuroditeAxe = new MCItemAxe(toolMeurodite).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("meurodite_axe"));
-		meuroditeHoe = new MCItemHoe(toolMeurodite).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("meurodite_hoe"));
-		meuroditeHelmet = new MCItemArmor(armorMeurodite, MCommonProxy.meurodite, 0, "meurodite").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getArmorTexture("meurodite_helmet"));
-		meuroditeChestplate = new MCItemArmor(armorMeurodite, MCommonProxy.meurodite, 1, "meurodite").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getArmorTexture("meurodite_chestplate"));
-		meuroditeLeggings = new MCItemArmor(armorMeurodite, MCommonProxy.meurodite, 2, "meurodite").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getArmorTexture("meurodite_leggings"));
-		meuroditeBoots = new MCItemArmor(armorMeurodite, MCommonProxy.meurodite, 3, "meurodite").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getArmorTexture("meurodite_boots"));
+		meuroditeSword = new MItemSword(toolMeurodite).setCreativeTab(Minestrappolation.tabCombat).setTextureName(MAssetManager.getWeaponTexture("meurodite_sword"));
+		meuroditeShovel = new MItemShovel(toolMeurodite).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("meurodite_shovel"));
+		meuroditePickaxe = new MItemPickaxe(toolMeurodite).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("meurodite_pickaxe"));
+		meuroditeAxe = new MItemAxe(toolMeurodite).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("meurodite_axe"));
+		meuroditeHoe = new MItemHoe(toolMeurodite).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("meurodite_hoe"));
+		meuroditeHelmet = new MItemArmor(armorMeurodite, MCommonProxy.meurodite, 0, "meurodite").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MAssetManager.getArmorTexture("meurodite_helmet"));
+		meuroditeChestplate = new MItemArmor(armorMeurodite, MCommonProxy.meurodite, 1, "meurodite").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MAssetManager.getArmorTexture("meurodite_chestplate"));
+		meuroditeLeggings = new MItemArmor(armorMeurodite, MCommonProxy.meurodite, 2, "meurodite").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MAssetManager.getArmorTexture("meurodite_leggings"));
+		meuroditeBoots = new MItemArmor(armorMeurodite, MCommonProxy.meurodite, 3, "meurodite").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MAssetManager.getArmorTexture("meurodite_boots"));
 		
-		titaniumSword = new MCItemSword(toolTitanium).setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getWeaponTexture("titanium_sword"));
-		titaniumShovel = new MCItemShovel(toolTitanium).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("titanium_shovel"));
-		titaniumPickaxe = new MCItemPickaxe(toolTitanium).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("titanium_pickaxe"));
-		titaniumAxe = new MCItemAxe(toolTitanium).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("titanium_axe"));
-		titaniumHoe = new MCItemHoe(toolTitanium).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("titanium_hoe"));
-		titaniumHelmet = new MCItemArmor(armorTitanium, MCommonProxy.titanium, 0, "titanium").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getArmorTexture("titanium_helmet"));
-		titaniumChestplate = new MCItemArmor(armorTitanium, MCommonProxy.titanium, 1, "titanium").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getArmorTexture("titanium_chestplate"));
-		titaniumLeggings = new MCItemArmor(armorTitanium, MCommonProxy.titanium, 2, "titanium").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getArmorTexture("titanium_leggings"));
-		titaniumBoots = new MCItemArmor(armorTitanium, MCommonProxy.titanium, 3, "titanium").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getArmorTexture("titanium_boots"));
+		titaniumSword = new MItemSword(toolTitanium).setCreativeTab(Minestrappolation.tabCombat).setTextureName(MAssetManager.getWeaponTexture("titanium_sword"));
+		titaniumShovel = new MItemShovel(toolTitanium).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("titanium_shovel"));
+		titaniumPickaxe = new MItemPickaxe(toolTitanium).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("titanium_pickaxe"));
+		titaniumAxe = new MItemAxe(toolTitanium).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("titanium_axe"));
+		titaniumHoe = new MItemHoe(toolTitanium).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("titanium_hoe"));
+		titaniumHelmet = new MItemArmor(armorTitanium, MCommonProxy.titanium, 0, "titanium").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MAssetManager.getArmorTexture("titanium_helmet"));
+		titaniumChestplate = new MItemArmor(armorTitanium, MCommonProxy.titanium, 1, "titanium").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MAssetManager.getArmorTexture("titanium_chestplate"));
+		titaniumLeggings = new MItemArmor(armorTitanium, MCommonProxy.titanium, 2, "titanium").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MAssetManager.getArmorTexture("titanium_leggings"));
+		titaniumBoots = new MItemArmor(armorTitanium, MCommonProxy.titanium, 3, "titanium").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MAssetManager.getArmorTexture("titanium_boots"));
 		
-		toriteSword = new MCItemSword(toolTorite).setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getWeaponTexture("torite_sword"));
-		toriteShovel = new MCItemShovel(toolTorite).setWeapon().setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("torite_shovel"));
-		toritePickaxe = new MCItemPickaxe(toolTorite).setWeapon().setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("torite_pickaxe"));
-		toriteAxe = new MCItemAxe(toolTorite).setWeapon().setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("torite_axe"));
-		toriteHoe = new MCItemHoe(toolTorite).setWeapon().setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("torite_hoe"));
-		toriteHelmet = new MCItemArmor(armorTorite, MCommonProxy.torite, 0, "torite").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getArmorTexture("torite_helmet"));
-		toriteChestplate = new MCItemArmor(armorTorite, MCommonProxy.torite, 1, "torite").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getArmorTexture("torite_chestplate"));
-		toriteLeggings = new MCItemArmor(armorTorite, MCommonProxy.torite, 2, "torite").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getArmorTexture("torite_leggings"));
-		toriteBoots = new MCItemArmor(armorTorite, MCommonProxy.torite, 3, "torite").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getArmorTexture("torite_boots"));
+		toriteSword = new MItemSword(toolTorite).setCreativeTab(Minestrappolation.tabCombat).setTextureName(MAssetManager.getWeaponTexture("torite_sword"));
+		toriteShovel = new MItemShovel(toolTorite).setWeapon().setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("torite_shovel"));
+		toritePickaxe = new MItemPickaxe(toolTorite).setWeapon().setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("torite_pickaxe"));
+		toriteAxe = new MItemAxe(toolTorite).setWeapon().setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("torite_axe"));
+		toriteHoe = new MItemHoe(toolTorite).setWeapon().setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("torite_hoe"));
+		toriteHelmet = new MItemArmor(armorTorite, MCommonProxy.torite, 0, "torite").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MAssetManager.getArmorTexture("torite_helmet"));
+		toriteChestplate = new MItemArmor(armorTorite, MCommonProxy.torite, 1, "torite").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MAssetManager.getArmorTexture("torite_chestplate"));
+		toriteLeggings = new MItemArmor(armorTorite, MCommonProxy.torite, 2, "torite").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MAssetManager.getArmorTexture("torite_leggings"));
+		toriteBoots = new MItemArmor(armorTorite, MCommonProxy.torite, 3, "torite").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MAssetManager.getArmorTexture("torite_boots"));
 		
-		blaziumSword = new MCItemSword(toolBlazium, true).setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getWeaponTexture("fire_sword"));
-		blaziumShovel = new MCItemShovel(toolBlazium, true).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("fire_shovel"));
-		blaziumPickaxe = new MCItemPickaxe(toolBlazium, true).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("fire_pickaxe"));
-		blaziumAxe = new MCItemAxe(toolBlazium, true).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("fire_axe"));
-		blaziumHoe = new MCItemHoe(toolBlazium).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("fire_hoe"));
-		blaziumHelmet = new MCItemArmor(armorBlazium, MCommonProxy.fire, 0, "fire").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getArmorTexture("fire_helmet"));
-		blaziumChestplate = new MCItemArmor(armorBlazium, MCommonProxy.fire, 1, "fire").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getArmorTexture("fire_chestplate"));
-		blaziumLeggings = new MCItemArmor(armorBlazium, MCommonProxy.fire, 2, "fire").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getArmorTexture("fire_leggings"));
-		blaziumBoots = new MCItemArmor(armorBlazium, MCommonProxy.fire, 3, "fire").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getArmorTexture("fire_boots"));
+		blaziumSword = new MItemSword(toolBlazium, true).setCreativeTab(Minestrappolation.tabCombat).setTextureName(MAssetManager.getWeaponTexture("fire_sword"));
+		blaziumShovel = new MItemShovel(toolBlazium, true).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("fire_shovel"));
+		blaziumPickaxe = new MItemPickaxe(toolBlazium, true).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("fire_pickaxe"));
+		blaziumAxe = new MItemAxe(toolBlazium, true).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("fire_axe"));
+		blaziumHoe = new MItemHoe(toolBlazium).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("fire_hoe"));
+		blaziumHelmet = new MItemArmor(armorBlazium, MCommonProxy.fire, 0, "fire").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MAssetManager.getArmorTexture("fire_helmet"));
+		blaziumChestplate = new MItemArmor(armorBlazium, MCommonProxy.fire, 1, "fire").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MAssetManager.getArmorTexture("fire_chestplate"));
+		blaziumLeggings = new MItemArmor(armorBlazium, MCommonProxy.fire, 2, "fire").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MAssetManager.getArmorTexture("fire_leggings"));
+		blaziumBoots = new MItemArmor(armorBlazium, MCommonProxy.fire, 3, "fire").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MAssetManager.getArmorTexture("fire_boots"));
 		
-		copperSword = new MCItemSword(toolCopper).setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getWeaponTexture("copper_sword"));
-		copperShovel = new MCItemShovel(toolCopper).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("copper_shovel"));
-		copperPickaxe = new MCItemPickaxe(toolCopper).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("copper_pickaxe"));
-		copperAxe = new MCItemAxe(toolCopper).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("copper_axe"));
-		copperHoe = new MCItemHoe(toolCopper).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("copper_hoe"));
-		tinHelmet = new MCItemArmor(armorTin, MCommonProxy.tin, 0, "tin").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getArmorTexture("tin_helmet"));
-		tinChestplate = new MCItemArmor(armorTin, MCommonProxy.tin, 1, "tin").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getArmorTexture("tin_chesplate"));
-		tinLeggings = new MCItemArmor(armorTin, MCommonProxy.tin, 2, "tin").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getArmorTexture("tin_leggings"));
-		tinBoots = new MCItemArmor(armorTin, MCommonProxy.tin, 3, "tin").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getArmorTexture("tin_boots"));
+		copperSword = new MItemSword(toolCopper).setCreativeTab(Minestrappolation.tabCombat).setTextureName(MAssetManager.getWeaponTexture("copper_sword"));
+		copperShovel = new MItemShovel(toolCopper).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("copper_shovel"));
+		copperPickaxe = new MItemPickaxe(toolCopper).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("copper_pickaxe"));
+		copperAxe = new MItemAxe(toolCopper).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("copper_axe"));
+		copperHoe = new MItemHoe(toolCopper).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("copper_hoe"));
+		tinHelmet = new MItemArmor(armorTin, MCommonProxy.tin, 0, "tin").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MAssetManager.getArmorTexture("tin_helmet"));
+		tinChestplate = new MItemArmor(armorTin, MCommonProxy.tin, 1, "tin").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MAssetManager.getArmorTexture("tin_chesplate"));
+		tinLeggings = new MItemArmor(armorTin, MCommonProxy.tin, 2, "tin").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MAssetManager.getArmorTexture("tin_leggings"));
+		tinBoots = new MItemArmor(armorTin, MCommonProxy.tin, 3, "tin").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MAssetManager.getArmorTexture("tin_boots"));
 		
-		bronzeSword = new MCItemSword(toolBronze).setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getWeaponTexture("bronze_sword"));
-		bronzeShovel = new MCItemShovel(toolBronze).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("bronze_shovel"));
-		bronzePickaxe = new MCItemPickaxe(toolBronze).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("bronze_pickaxe"));
-		bronzeAxe = new MCItemAxe(toolBronze).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("bronze_axe"));
-		bronzeHoe = new MCItemHoe(toolBronze).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("bronze_hoe"));
-		bronzeHelmet = new MCItemArmor(armorBronze, MCommonProxy.bronze, 0, "bronze").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getArmorTexture("bronze_helmet"));
-		bronzeChestplate = new MCItemArmor(armorBronze, MCommonProxy.bronze, 1, "bronze").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getArmorTexture("bronze_chesplate"));
-		bronzeLeggings = new MCItemArmor(armorBronze, MCommonProxy.bronze, 2, "bronze").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getArmorTexture("bronze_leggings"));
-		bronzeBoots = new MCItemArmor(armorBronze, MCommonProxy.bronze, 3, "bronze").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getArmorTexture("bronze_boots"));
+		bronzeSword = new MItemSword(toolBronze).setCreativeTab(Minestrappolation.tabCombat).setTextureName(MAssetManager.getWeaponTexture("bronze_sword"));
+		bronzeShovel = new MItemShovel(toolBronze).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("bronze_shovel"));
+		bronzePickaxe = new MItemPickaxe(toolBronze).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("bronze_pickaxe"));
+		bronzeAxe = new MItemAxe(toolBronze).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("bronze_axe"));
+		bronzeHoe = new MItemHoe(toolBronze).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("bronze_hoe"));
+		bronzeHelmet = new MItemArmor(armorBronze, MCommonProxy.bronze, 0, "bronze").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MAssetManager.getArmorTexture("bronze_helmet"));
+		bronzeChestplate = new MItemArmor(armorBronze, MCommonProxy.bronze, 1, "bronze").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MAssetManager.getArmorTexture("bronze_chesplate"));
+		bronzeLeggings = new MItemArmor(armorBronze, MCommonProxy.bronze, 2, "bronze").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MAssetManager.getArmorTexture("bronze_leggings"));
+		bronzeBoots = new MItemArmor(armorBronze, MCommonProxy.bronze, 3, "bronze").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MAssetManager.getArmorTexture("bronze_boots"));
 		
-		steelSword = new MCItemSword(toolSteel).setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getWeaponTexture("steel_sword"));
-		steelShovel = new MCItemShovel(toolSteel).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("steel_shovel"));
-		steelPickaxe = new MCItemPickaxe(toolSteel).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("steel_pickaxe"));
-		steelAxe = new MCItemAxe(toolSteel).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("steel_axe"));
-		steelHoe = new MCItemHoe(toolSteel).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("steel_hoe"));
-		steelHelmet = new MCItemArmor(armorSteel, MCommonProxy.steel, 0, "steel").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getArmorTexture("steel_helmet"));
-		steelChestplate = new MCItemArmor(armorSteel, MCommonProxy.steel, 1, "steel").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getArmorTexture("steel_chestplate"));
-		steelLeggings = new MCItemArmor(armorSteel, MCommonProxy.steel, 2, "steel").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getArmorTexture("steel_leggings"));
-		steelBoots = new MCItemArmor(armorSteel, MCommonProxy.steel, 3, "steel").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getArmorTexture("steel_boots"));
+		steelSword = new MItemSword(toolSteel).setCreativeTab(Minestrappolation.tabCombat).setTextureName(MAssetManager.getWeaponTexture("steel_sword"));
+		steelShovel = new MItemShovel(toolSteel).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("steel_shovel"));
+		steelPickaxe = new MItemPickaxe(toolSteel).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("steel_pickaxe"));
+		steelAxe = new MItemAxe(toolSteel).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("steel_axe"));
+		steelHoe = new MItemHoe(toolSteel).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("steel_hoe"));
+		steelHelmet = new MItemArmor(armorSteel, MCommonProxy.steel, 0, "steel").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MAssetManager.getArmorTexture("steel_helmet"));
+		steelChestplate = new MItemArmor(armorSteel, MCommonProxy.steel, 1, "steel").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MAssetManager.getArmorTexture("steel_chestplate"));
+		steelLeggings = new MItemArmor(armorSteel, MCommonProxy.steel, 2, "steel").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MAssetManager.getArmorTexture("steel_leggings"));
+		steelBoots = new MItemArmor(armorSteel, MCommonProxy.steel, 3, "steel").setCreativeTab(Minestrappolation.tabCombat).setTextureName(MAssetManager.getArmorTexture("steel_boots"));
 		
-		sandstoneSword = new MCItemSword(toolSandstone).setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getWeaponTexture("sandstone_sword"));
-		sandstoneShovel = new MCItemShovel(toolSandstone).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("sandstone_shovel"));
-		sandstonePickaxe = new MCItemPickaxe(toolSandstone).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("sandstone_pickaxe"));
-		sandstoneAxe = new MCItemAxe(toolSandstone).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("sandstone_axe"));
-		sandstoneHoe = new MCItemHoe(toolSandstone).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("sandstone_hoe"));
+		sandstoneSword = new MItemSword(toolSandstone).setCreativeTab(Minestrappolation.tabCombat).setTextureName(MAssetManager.getWeaponTexture("sandstone_sword"));
+		sandstoneShovel = new MItemShovel(toolSandstone).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("sandstone_shovel"));
+		sandstonePickaxe = new MItemPickaxe(toolSandstone).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("sandstone_pickaxe"));
+		sandstoneAxe = new MItemAxe(toolSandstone).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("sandstone_axe"));
+		sandstoneHoe = new MItemHoe(toolSandstone).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("sandstone_hoe"));
 		
-		bedrockShovel = new MCItemShovel(toolBedrock).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("bedrock_shovel"));
-		bedrockPickaxe = new MCItemPickaxe(toolBedrock).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("bedrock_pickaxe"));
-		bedrockAxe = new MCItemAxe(toolBedrock).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("bedrock_axe"));
-		bedrockHoe = new MCItemHoe(toolBedrock).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("bedrock_hoe"));
+		bedrockShovel = new MItemShovel(toolBedrock).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("bedrock_shovel"));
+		bedrockPickaxe = new MItemPickaxe(toolBedrock).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("bedrock_pickaxe"));
+		bedrockAxe = new MItemAxe(toolBedrock).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("bedrock_axe"));
+		bedrockHoe = new MItemHoe(toolBedrock).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("bedrock_hoe"));
 		
-		graniteSword = new MCItemSword(toolGranite).setCreativeTab(Minestrappolation.tabCombat).setTextureName(MCAssetManager.getWeaponTexture("granite_sword"));
-		graniteShovel = new MCItemShovel(toolGranite).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("granite_shovel"));
-		granitePickaxe = new MCItemPickaxe(toolGranite).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("granite_pickaxe"));
-		graniteAxe = new MCItemAxe(toolGranite).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("granite_axe"));
-		graniteHoe = new MCItemHoe(toolGranite).setCreativeTab(Minestrappolation.tabTools).setTextureName(MCAssetManager.getToolTexture("granite_hoe"));
+		graniteSword = new MItemSword(toolGranite).setCreativeTab(Minestrappolation.tabCombat).setTextureName(MAssetManager.getWeaponTexture("granite_sword"));
+		graniteShovel = new MItemShovel(toolGranite).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("granite_shovel"));
+		granitePickaxe = new MItemPickaxe(toolGranite).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("granite_pickaxe"));
+		graniteAxe = new MItemAxe(toolGranite).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("granite_axe"));
+		graniteHoe = new MItemHoe(toolGranite).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("granite_hoe"));
 	}
 	
 	public static void load()
@@ -318,6 +316,6 @@ public class MTools
 		toolSteel.customCraftingMaterial = steelIngot;
 		toolSandstone.customCraftingMaterial = Item.getItemFromBlock(Blocks.sandstone);
 		toolBedrock.customCraftingMaterial = Item.getItemFromBlock(Blocks.bedrock);
-		toolGranite.customCraftingMaterial = Item.getItemFromBlock(MCBlocks.graniteSlate);
+		toolGranite.customCraftingMaterial = Item.getItemFromBlock(MBlocks.graniteSlate);
 	}
 }

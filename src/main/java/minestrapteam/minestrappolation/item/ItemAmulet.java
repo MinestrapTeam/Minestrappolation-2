@@ -2,11 +2,10 @@ package minestrapteam.minestrappolation.item;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import minestrapteam.mcore.item.MCItem;
 
 import net.minecraft.item.ItemStack;
 
-public class ItemAmulet extends MCItem
+public class ItemAmulet extends MItem
 {
 	public ItemAmulet(int maxDamage)
 	{

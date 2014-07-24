@@ -6,8 +6,8 @@ import cpw.mods.fml.common.IFuelHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent.Phase;
 import cpw.mods.fml.common.gameevent.TickEvent.PlayerTickEvent;
-import minestrapteam.mcore.block.MCBlockCustom2;
-import minestrapteam.mcore.item.block.MCItemBlockCustom2;
+import minestrapteam.minestrappolation.block.MBlockCustom2;
+import minestrapteam.minestrappolation.item.block.MCItemBlockCustom2;
 import minestrapteam.minestrappolation.lib.MBlocks;
 import minestrapteam.minestrappolation.lib.MItems;
 import minestrapteam.minestrappolation.lib.MTools;
@@ -426,7 +426,7 @@ public class MEventHandler implements IFuelHandler
 		else if (fuel.getItem() instanceof MCItemBlockCustom2)
 		{
 			MCItemBlockCustom2 item = (MCItemBlockCustom2) fuel.getItem();
-			MCBlockCustom2 block = item.theBlock;
+			MBlockCustom2 block = item.theBlock;
 			if (block != null && block.getMaterial() == Material.wood)
 			{
 				String type = block.getType(fuel.getItemDamage());

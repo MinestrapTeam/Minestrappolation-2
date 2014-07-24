@@ -4,9 +4,11 @@ import clashsoft.cslib.minecraft.common.BaseProxy;
 import minestrapteam.minestrappolation.inventory.ContainerBarrel;
 import minestrapteam.minestrappolation.inventory.ContainerCrate;
 import minestrapteam.minestrappolation.inventory.ContainerMelter;
+import minestrapteam.minestrappolation.inventory.ContainerStonecutter;
 import minestrapteam.minestrappolation.tileentity.TileEntityBarrel;
 import minestrapteam.minestrappolation.tileentity.TileEntityCrate;
 import minestrapteam.minestrappolation.tileentity.TileEntityMelter;
+import minestrapteam.minestrappolation.tileentity.TileEntityStonecutter;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
@@ -14,6 +16,7 @@ import net.minecraft.world.World;
 public class MCommonProxy extends BaseProxy
 {
 	public static int	platingRenderID;
+	public static int	custom2RenderID;
 	
 	public static int	fire;
 	public static int	tin;
@@ -42,6 +45,10 @@ public class MCommonProxy extends BaseProxy
 		else if (id == 2)
 		{
 			return new ContainerMelter(player, (TileEntityMelter) world.getTileEntity(x, y, z));
+		}
+		else if (id == 3)
+		{
+			return new ContainerStonecutter(player.inventory, (TileEntityStonecutter) world.getTileEntity(x, y, z));
 		}
 		return null;
 	}

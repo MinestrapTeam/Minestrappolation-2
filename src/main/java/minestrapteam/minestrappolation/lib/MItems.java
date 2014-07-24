@@ -6,11 +6,10 @@ import static minestrapteam.minestrappolation.lib.MTools.bronzeSword;
 import static minestrapteam.minestrappolation.lib.MTools.steelPickaxe;
 import static minestrapteam.minestrappolation.lib.MTools.steelSword;
 import clashsoft.cslib.minecraft.item.CSItems;
-import minestrapteam.mcore.item.MCItem;
-import minestrapteam.mcore.item.MCItemFood;
-import minestrapteam.mcore.lib.MCBlocks;
-import minestrapteam.mcore.util.MCAssetManager;
+import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.item.*;
+import minestrapteam.minestrappolation.util.MAssetManager;
+
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -22,6 +21,31 @@ import net.minecraftforge.common.ChestGenHooks;
 
 public class MItems
 {
+	/* / {----- Stonecutter Bricks -----} / */
+	
+	public static Item	brickStone;
+	public static Item	brickStoneTin;
+	public static Item	brickStoneBronze;
+	public static Item	brickStoneSteel;
+	public static Item	brickStoneMeurodite;
+	public static Item	brickSandstone;
+	public static Item	brickRedSandstone;
+	public static Item	brickClay;
+	public static Item	brickColoredClay;
+	public static Item	brickFlint;
+	public static Item	brickLapis;
+	public static Item	brickSlate;
+	public static Item	brickSlateTin;
+	public static Item	brickSlateBronze;
+	public static Item	brickSlateSteel;
+	public static Item	brickSlateMeurodite;
+	public static Item	brickDesertQuartz;
+	public static Item	brickNetherQuartz;
+	public static Item	brickObsidian;
+	public static Item	brickEndStone;
+	public static Item	brickBedrock;
+	public static Item	brickRadiantQuartz;
+	
 	/* / {----- Extra Ores -----} / */
 	
 	public static Item	copperIngot;
@@ -122,101 +146,146 @@ public class MItems
 	
 	public static void init()
 	{
-		soulGem = new ItemSoulGem().setCreativeTab(tabMaterials).setTextureName(MCAssetManager.getMineralTexture("soul_gem"));
-		meuroditeGem = new MCItem().setCreativeTab(tabMaterials).setTextureName(MCAssetManager.getMineralTexture("meurodite_gem"));
-		uranium = new MCItem().setCreativeTab(tabMaterials).setTextureName(MCAssetManager.getMineralTexture("uranium"));
-		plutonium = new MCItem().setCreativeTab(tabMaterials).setTextureName(MCAssetManager.getMineralTexture("plutonium"));
-		radiantQuartz = new MItemFoiled().setCreativeTab(tabMaterials).setTextureName(MCAssetManager.getMineralTexture("radiant_quartz"));
-		desertQuartz = new MCItem().setTextureName(MCAssetManager.getMineralTexture("desert_quartz"));
-		blazeShard = new MCItem().setCreativeTab(tabMaterials).setTextureName(MCAssetManager.getMineralTexture("blazium_dust"));
-		sunstoneDust = new MCItem().setCreativeTab(tabMaterials).setTextureName(MCAssetManager.getMineralTexture("sunstone_dust"));
+		brickStone = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("stone_brick"));
+		brickStoneTin = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("stone_brick_tin"));
+		brickStoneBronze = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("stone_brick_bronze"));
+		brickStoneSteel = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("stone_brick_steel"));
+		brickStoneMeurodite = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("stone_brick_meurodite"));
+		brickSandstone = new MItem().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("sandstone_brick"));
+		brickRedSandstone = new MItem().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("red_sandstone_brick"));
+		brickColoredClay = new MItemMulti(null, new String[] { MAssetManager.getStonecutterTexture("black_clay_brick"), MAssetManager.getStonecutterTexture("blue_clay_brick"), MAssetManager.getStonecutterTexture("brown_clay_brick"), MAssetManager.getStonecutterTexture("cyan_clay_brick"), MAssetManager.getStonecutterTexture("grey_clay_brick"), MAssetManager.getStonecutterTexture("green_clay_brick"), MAssetManager.getStonecutterTexture("lightblue_clay_brick"), MAssetManager.getStonecutterTexture("lime_clay_brick"), MAssetManager.getStonecutterTexture("magenta_clay_brick"), MAssetManager.getStonecutterTexture("orange_clay_brick"), MAssetManager.getStonecutterTexture("pink_clay_brick"), MAssetManager.getStonecutterTexture("purple_clay_brick"), MAssetManager.getStonecutterTexture("red_clay_brick"), MAssetManager.getStonecutterTexture("silver_clay_brick"), MAssetManager.getStonecutterTexture("white_clay_brick"), MAssetManager.getStonecutterTexture("yellow_clay_brick") }).setUnlocalizedName(
+				"clay_brick").setCreativeTab(Minestrappolation.tabStoneDecor);
+		brickFlint = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("flint_brick"));
+		brickLapis = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("lapis_brick"));
+		brickSlate = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("granite_brick"));
+		brickSlateTin = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("granite_brick_tin"));
+		brickSlateBronze = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("granite_brick_bronze"));
+		brickSlateSteel = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("granite_brick_steel"));
+		brickSlateMeurodite = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("granite_brick_meurodite"));
+		brickDesertQuartz = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("desertquartz_brick"));
+		brickNetherQuartz = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("netherquartz_brick"));
+		brickObsidian = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("obsidian_brick"));
+		brickEndStone = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("endstone_brick"));
+		brickBedrock = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("bedrock_brick"));
+		brickRadiantQuartz = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("radiantquartz_brick"));
 		
-		copperIngot = new MCItem().setTextureName(MCAssetManager.getMineralTexture("copper_ingot"));
-		tinIngot = new MCItem().setTextureName(MCAssetManager.getMineralTexture("tin_ingot"));
-		bronzeIngot = new MCItem().setCreativeTab(tabMaterials).setTextureName(MCAssetManager.getMineralTexture("bronze_ingot"));
-		coalIronIngot = new MCItem().setCreativeTab(tabMaterials).setTextureName(MCAssetManager.getMineralTexture("coaliron_ingot"));
-		steelIngot = new MCItem().setCreativeTab(tabMaterials).setTextureName(MCAssetManager.getMineralTexture("steel_ingot"));
-		titaniumIngot = new MCItem().setCreativeTab(tabMaterials).setTextureName(MCAssetManager.getMineralTexture("titanium_ingot"));
-		toriteIngot = new MCItem().setCreativeTab(tabMaterials).setTextureName(MCAssetManager.getMineralTexture("torite_ingot"));
-		blaziumIngot = new MCItem().setCreativeTab(tabMaterials).setTextureName(MCAssetManager.getMineralTexture("blazium_ingot"));
+		soulGem = new ItemSoulGem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("soul_gem"));
+		meuroditeGem = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("meurodite_gem"));
+		uranium = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("uranium"));
+		plutonium = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("plutonium"));
+		radiantQuartz = new MItemFoiled().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("radiant_quartz"));
+		desertQuartz = new MItem().setTextureName(MAssetManager.getMineralTexture("desert_quartz"));
+		blazeShard = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("blazium_dust"));
+		sunstoneDust = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("sunstone_dust"));
 		
-		steelKey = new ItemKey().setCreativeTab(tabMisc).setTextureName(MCAssetManager.getTexture("steel_key"));
-		steelLock = new ItemLock().setCreativeTab(tabMisc).setTextureName(MCAssetManager.getTexture("steel_lock"));
-		soulBottle = new ItemSoulBottle().setCreativeTab(tabBrewing).setTextureName(MCAssetManager.getTexture("soul_bottle"));
-		grenade = new ItemGrenade().setCreativeTab(tabCombat).setTextureName(MCAssetManager.getTexture("grenade"));
-		grenadeNuke = new ItemGrenadeNuke().setCreativeTab(tabCombat).setTextureName(MCAssetManager.getTexture("grenade_nuke"));
-		grenadeSticky = new ItemGrenadeSticky().setCreativeTab(tabCombat).setTextureName(MCAssetManager.getTexture("grenade_sticky"));
+		copperIngot = new MItem().setTextureName(MAssetManager.getMineralTexture("copper_ingot"));
+		tinIngot = new MItem().setTextureName(MAssetManager.getMineralTexture("tin_ingot"));
+		bronzeIngot = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("bronze_ingot"));
+		coalIronIngot = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("coaliron_ingot"));
+		steelIngot = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("steel_ingot"));
+		titaniumIngot = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("titanium_ingot"));
+		toriteIngot = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("torite_ingot"));
+		blaziumIngot = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("blazium_ingot"));
+		
+		steelKey = new ItemKey().setCreativeTab(tabMisc).setTextureName(MAssetManager.getTexture("steel_key"));
+		steelLock = new ItemLock().setCreativeTab(tabMisc).setTextureName(MAssetManager.getTexture("steel_lock"));
+		soulBottle = new ItemSoulBottle().setCreativeTab(tabBrewing).setTextureName(MAssetManager.getTexture("soul_bottle"));
+		grenade = new ItemGrenade().setCreativeTab(tabCombat).setTextureName(MAssetManager.getTexture("grenade"));
+		grenadeNuke = new ItemGrenadeNuke().setCreativeTab(tabCombat).setTextureName(MAssetManager.getTexture("grenade_nuke"));
+		grenadeSticky = new ItemGrenadeSticky().setCreativeTab(tabCombat).setTextureName(MAssetManager.getTexture("grenade_sticky"));
 		
 		// bucketMagma
 		
-		plateTinItem = new ItemPlating(MBlocks.tinPlate, "tin", 64, 1.2F).setCreativeTab(tabMisc).setTextureName(MCAssetManager.getMineralTexture("tin_plating"));
-		plateBronzeItem = new ItemPlating(MBlocks.bronzePlate, "bronze", 128, 1.3F).setCreativeTab(tabMisc).setTextureName(MCAssetManager.getMineralTexture("bronze_plating"));
-		plateSteelItem = new ItemPlating(MBlocks.steelPlate, "steel", 192, 1.4F).setCreativeTab(tabMisc).setTextureName(MCAssetManager.getMineralTexture("steel_plating"));
-		plateMeuroditeItem = new ItemPlating(MBlocks.meuroditePlate, "meurodite", 256, 1.5F).setCreativeTab(tabMisc).setTextureName(MCAssetManager.getMineralTexture("meurodite_plating"));
+		plateTinItem = new ItemPlating(MBlocks.tinPlate, "tin", 64, 1.2F).setCreativeTab(tabMisc).setTextureName(MAssetManager.getMineralTexture("tin_plating"));
+		plateBronzeItem = new ItemPlating(MBlocks.bronzePlate, "bronze", 128, 1.3F).setCreativeTab(tabMisc).setTextureName(MAssetManager.getMineralTexture("bronze_plating"));
+		plateSteelItem = new ItemPlating(MBlocks.steelPlate, "steel", 192, 1.4F).setCreativeTab(tabMisc).setTextureName(MAssetManager.getMineralTexture("steel_plating"));
+		plateMeuroditeItem = new ItemPlating(MBlocks.meuroditePlate, "meurodite", 256, 1.5F).setCreativeTab(tabMisc).setTextureName(MAssetManager.getMineralTexture("meurodite_plating"));
 		
-		ropeItem = new ItemReed(MBlocks.rope).setCreativeTab(tabDecorationBlocks).setTextureName(MCAssetManager.getTexture("rope"));
-		cardboardItem = new ItemReed(MBlocks.cardboard).setCreativeTab(tabDecorationBlocks).setTextureName(MCAssetManager.getTexture("cardboard"));
-		glassDoor = new MItemDoor(MBlocks.glassDoor).setCreativeTab(tabDecorationBlocks).setTextureName(MCAssetManager.getTexture("glass_door"));
+		ropeItem = new ItemReed(MBlocks.rope).setCreativeTab(tabDecorationBlocks).setTextureName(MAssetManager.getTexture("rope"));
+		cardboardItem = new ItemReed(MBlocks.cardboard).setCreativeTab(tabDecorationBlocks).setTextureName(MAssetManager.getTexture("cardboard"));
+		glassDoor = new MItemDoor(MBlocks.glassDoor).setCreativeTab(tabDecorationBlocks).setTextureName(MAssetManager.getTexture("glass_door"));
 		
-		snout = new MCItemFood(3, 0.2F).setPotionEffect(Potion.hunger.id, 10 * 20, 1, 0.25F).setCreativeTab(tabFood).setTextureName(MCAssetManager.getMobTexture("snout"));
-		pigHoof = new MCItem().setCreativeTab(tabFood).setTextureName(MCAssetManager.getMobTexture("pig_foot"));
-		fat = new MCItemFood(8, 0.2F).setPotionEffect(Potion.hunger.id, 25 * 20, 1, 1.0F).setCreativeTab(tabFood).setTextureName(MCAssetManager.getFoodTexture("fat"));
-		grease = new MCItem().setCreativeTab(tabFood).setTextureName(MCAssetManager.getFoodTexture("grease"));
-		friedApple = new MCItemFood(8, 0.3F).setPotionEffect(Potion.hunger.id, 15 * 20, 1, 0.4F).setCreativeTab(tabFood).setTextureName(MCAssetManager.getFoodTexture("fried_apple"));
-		friedBeef = new MCItemFood(16, 0.8F).setPotionEffect(Potion.hunger.id, 15 * 20, 1, 0.4F).setCreativeTab(tabFood).setTextureName(MCAssetManager.getFoodTexture("fried_beef"));
-		friedBread = new MCItemFood(10, 0.6F).setPotionEffect(Potion.hunger.id, 15 * 20, 1, 0.4F).setCreativeTab(tabFood).setTextureName(MCAssetManager.getFoodTexture("fried_bread"));
-		friedCarrot = new MCItemFood(8, 0.6F).setPotionEffect(Potion.hunger.id, 15 * 20, 1, 0.4F).setCreativeTab(tabFood).setTextureName(MCAssetManager.getFoodTexture("fried_carrot"));
-		friedCookie = new MCItemFood(8, 0.6F).setPotionEffect(Potion.hunger.id, 15 * 20, 1, 0.4F).setCreativeTab(tabFood).setTextureName(MCAssetManager.getFoodTexture("fried_cookie"));
-		friedFlesh = new MCItemFood(8, 0.6F).setPotionEffect(Potion.hunger.id, 15 * 20, 1, 0.4F).setCreativeTab(tabFood).setTextureName(MCAssetManager.getFoodTexture("fried_flesh"));
-		animalBones = new MCItem().setCreativeTab(tabMaterials).setTextureName(MCAssetManager.getMobTexture("animal_bones"));
-		cowHoof = new MCItem().setCreativeTab(tabFood).setTextureName(MCAssetManager.getMobTexture("cow_foot"));
-		horn = new ItemHorn().setCreativeTab(tabMaterials).setTextureName(MCAssetManager.getMobTexture("horn"));
-		beakChicken = new MCItem().setCreativeTab(tabFood).setTextureName(MCAssetManager.getFoodTexture("chicken_beak"));
-		footChicken = new MCItem().setCreativeTab(tabFood).setTextureName(MCAssetManager.getMobTexture("chicken_foot"));
-		chickenWingRaw = new MCItemFood(1, 0.1F).setPotionEffect(Potion.hunger.id, 10 * 20, 1, 0.3F).setCreativeTab(tabFood).setTextureName(MCAssetManager.getFoodTexture("chicken_wing_raw"));
-		chickenWingCooked = new MCItemFood(4, 0.65F).setCreativeTab(tabFood).setTextureName(MCAssetManager.getFoodTexture("chicken_wing_cooked"));
-		lambchopRaw = new MCItemFood(3, 0.2F).setCreativeTab(tabFood).setTextureName(MCAssetManager.getFoodTexture("lamb_chop_raw"));
-		lambchopCooked = new ItemCookedLambchop(6, 0.8F).setCreativeTab(tabFood).setTextureName(MCAssetManager.getFoodTexture("lamb_chop_cooked"));
-		sheepHoof = new MCItem().setCreativeTab(tabFood).setTextureName(MCAssetManager.getMobTexture("sheep_hoof"));
-		squidTentacle = new MCItemFood(2, 0.1F).setPotionEffect(Potion.hunger.id, 8 * 20, 1, 1F).setCreativeTab(tabFood).setTextureName(MCAssetManager.getMobTexture("squid_tentacle"));
-		calimari = new ItemCalimari(2, 0.6F).setCreativeTab(tabFood).setTextureName(MCAssetManager.getFoodTexture("calimari_cooked"));
-		infectiousFungus = new ItemInfectiousFungus(0, 0F).setCreativeTab(tabBrewing).setTextureName(MCAssetManager.getMobTexture("infectious_fungus"));
-		airSack = new ItemAirSack().setCreativeTab(tabBrewing).setTextureName(MCAssetManager.getMobTexture("air_sack"));
-		whisker = new MCItem().setCreativeTab(tabMaterials).setTextureName(MCAssetManager.getMobTexture("whisker"));
-		catEye = new ItemCatEye(0, 0.0F).setCreativeTab(tabBrewing).setTextureName(MCAssetManager.getMobTexture("cat_eye"));
-		wolfHide = new MCItem().setCreativeTab(tabMaterials).setTextureName(MCAssetManager.getMobTexture("wolf_hide"));
-		flesh = new MCItemFood(4, 0.35F).setPotionEffect(Potion.hunger.id, 20, 0, 0.05F).setCreativeTab(tabFood).setTextureName(MCAssetManager.getFoodTexture("flesh"));
-		marrow = new MCItemFood(5, 0.0F).setCreativeTab(tabBrewing).setTextureName(MCAssetManager.getFoodTexture("marrow_bowl"));
-		legSpider = new MCItem().setCreativeTab(tabBrewing).setTextureName(MCAssetManager.getMobTexture("spider_leg"));
-		poisonSack = new MCItem().setCreativeTab(tabBrewing).setTextureName(MCAssetManager.getMobTexture("poison_sack"));
-		guano = new ItemGuano().setCreativeTab(tabMaterials).setTextureName(MCAssetManager.getTexture("guano"));
-		carcassSilverfish = new MCItem().setCreativeTab(tabMaterials).setTextureName(MCAssetManager.getMobTexture("silverfish_carcass"));
-		hideCreeper = new MCItem().setCreativeTab(tabMaterials).setTextureName(MCAssetManager.getMobTexture("creeper_hide"));
-		slimeCore = new MCItem().setCreativeTab(tabMaterials).setTextureName(MCAssetManager.getMobTexture("slime_core"));
-		enderCore = new ItemEnderCore(0, 0).setCreativeTab(tabMaterials).setTextureName(MCAssetManager.getMobTexture("ender_core"));
-		ghastTentacle = new ItemGhastTentacle().setCreativeTab(tabBrewing).setTextureName(MCAssetManager.getMobTexture("ghast_tentacle"));
-		horseHoof = new MCItem().setCreativeTab(tabFood).setTextureName(MCAssetManager.getMobTexture("horse_foot"));
-		horseHaunchRaw = new MCItemFood(4, 0.4F).setCreativeTab(tabFood).setTextureName(MCAssetManager.getFoodTexture("horse_haunch_raw"));
-		horseHaunchCooked = new MCItemFood(10, 0.8F).setCreativeTab(tabFood).setTextureName(MCAssetManager.getFoodTexture("horse_haunch_cooked"));
-		horseHair = new MCItem().setCreativeTab(tabMaterials).setTextureName(MCAssetManager.getMobTexture("horse_hair"));
+		snout = new MItemFood(3, 0.2F).setPotionEffect(Potion.hunger.id, 10 * 20, 1, 0.25F).setCreativeTab(tabFood).setTextureName(MAssetManager.getMobTexture("snout"));
+		pigHoof = new MItem().setCreativeTab(tabFood).setTextureName(MAssetManager.getMobTexture("pig_foot"));
+		fat = new MItemFood(8, 0.2F).setPotionEffect(Potion.hunger.id, 25 * 20, 1, 1.0F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("fat"));
+		grease = new MItem().setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("grease"));
+		friedApple = new MItemFood(8, 0.3F).setPotionEffect(Potion.hunger.id, 15 * 20, 1, 0.4F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("fried_apple"));
+		friedBeef = new MItemFood(16, 0.8F).setPotionEffect(Potion.hunger.id, 15 * 20, 1, 0.4F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("fried_beef"));
+		friedBread = new MItemFood(10, 0.6F).setPotionEffect(Potion.hunger.id, 15 * 20, 1, 0.4F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("fried_bread"));
+		friedCarrot = new MItemFood(8, 0.6F).setPotionEffect(Potion.hunger.id, 15 * 20, 1, 0.4F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("fried_carrot"));
+		friedCookie = new MItemFood(8, 0.6F).setPotionEffect(Potion.hunger.id, 15 * 20, 1, 0.4F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("fried_cookie"));
+		friedFlesh = new MItemFood(8, 0.6F).setPotionEffect(Potion.hunger.id, 15 * 20, 1, 0.4F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("fried_flesh"));
+		animalBones = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMobTexture("animal_bones"));
+		cowHoof = new MItem().setCreativeTab(tabFood).setTextureName(MAssetManager.getMobTexture("cow_foot"));
+		horn = new ItemHorn().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMobTexture("horn"));
+		beakChicken = new MItem().setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("chicken_beak"));
+		footChicken = new MItem().setCreativeTab(tabFood).setTextureName(MAssetManager.getMobTexture("chicken_foot"));
+		chickenWingRaw = new MItemFood(1, 0.1F).setPotionEffect(Potion.hunger.id, 10 * 20, 1, 0.3F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("chicken_wing_raw"));
+		chickenWingCooked = new MItemFood(4, 0.65F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("chicken_wing_cooked"));
+		lambchopRaw = new MItemFood(3, 0.2F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("lamb_chop_raw"));
+		lambchopCooked = new ItemCookedLambchop(6, 0.8F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("lamb_chop_cooked"));
+		sheepHoof = new MItem().setCreativeTab(tabFood).setTextureName(MAssetManager.getMobTexture("sheep_hoof"));
+		squidTentacle = new MItemFood(2, 0.1F).setPotionEffect(Potion.hunger.id, 8 * 20, 1, 1F).setCreativeTab(tabFood).setTextureName(MAssetManager.getMobTexture("squid_tentacle"));
+		calimari = new ItemCalimari(2, 0.6F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("calimari_cooked"));
+		infectiousFungus = new ItemInfectiousFungus(0, 0F).setCreativeTab(tabBrewing).setTextureName(MAssetManager.getMobTexture("infectious_fungus"));
+		airSack = new ItemAirSack().setCreativeTab(tabBrewing).setTextureName(MAssetManager.getMobTexture("air_sack"));
+		whisker = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMobTexture("whisker"));
+		catEye = new ItemCatEye(0, 0.0F).setCreativeTab(tabBrewing).setTextureName(MAssetManager.getMobTexture("cat_eye"));
+		wolfHide = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMobTexture("wolf_hide"));
+		flesh = new MItemFood(4, 0.35F).setPotionEffect(Potion.hunger.id, 20, 0, 0.05F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("flesh"));
+		marrow = new MItemFood(5, 0.0F).setCreativeTab(tabBrewing).setTextureName(MAssetManager.getFoodTexture("marrow_bowl"));
+		legSpider = new MItem().setCreativeTab(tabBrewing).setTextureName(MAssetManager.getMobTexture("spider_leg"));
+		poisonSack = new MItem().setCreativeTab(tabBrewing).setTextureName(MAssetManager.getMobTexture("poison_sack"));
+		guano = new ItemGuano().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getTexture("guano"));
+		carcassSilverfish = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMobTexture("silverfish_carcass"));
+		hideCreeper = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMobTexture("creeper_hide"));
+		slimeCore = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMobTexture("slime_core"));
+		enderCore = new ItemEnderCore(0, 0).setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMobTexture("ender_core"));
+		ghastTentacle = new ItemGhastTentacle().setCreativeTab(tabBrewing).setTextureName(MAssetManager.getMobTexture("ghast_tentacle"));
+		horseHoof = new MItem().setCreativeTab(tabFood).setTextureName(MAssetManager.getMobTexture("horse_foot"));
+		horseHaunchRaw = new MItemFood(4, 0.4F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("horse_haunch_raw"));
+		horseHaunchCooked = new MItemFood(10, 0.8F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("horse_haunch_cooked"));
+		horseHair = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMobTexture("horse_hair"));
 		genes = new ItemGene().setCreativeTab(tabMaterials);
 		charms = new ItemCharm().setCreativeTab(tabMaterials);
-		amuletPorcum = new ItemAmuletPorcum().setCreativeTab(tabMisc).setTextureName(MCAssetManager.getMobTexture("pig_amulet"));
-		amuletVaccam = new ItemAmuletVaccam().setCreativeTab(tabMisc).setTextureName(MCAssetManager.getMobTexture("horse_amulet"));
-		amuletPullum = new ItemAmulet(30).setCreativeTab(tabMisc).setTextureName(MCAssetManager.getMobTexture("chicken_amulet"));
-		amuletOves = new ItemAmulet(30).setCreativeTab(tabMisc).setTextureName(MCAssetManager.getMobTexture("sheep_amulet"));
-		wingSinew = new MCItem().setCreativeTab(tabMaterials).setTextureName(MCAssetManager.getMobTexture("wing_sinew"));
-		wingSegment = new MCItem().setCreativeTab(tabMaterials).setTextureName(MCAssetManager.getTexture("hangglider_segment"));
-		hangGlider = new ItemHangGlider().setCreativeTab(null).setTextureName(MCAssetManager.getTexture("hangGlider"));
-		enderAura = new MCItem().setCreativeTab(tabMisc).setTextureName(MCAssetManager.getMobTexture("ender_aura"));
-		ghastlySoul = new MCItem().setCreativeTab(tabBrewing).setTextureName(MCAssetManager.getDrinkTexture("ghast_soul_bottle"));
-		witheredBone = new MCItem().setCreativeTab(tabMaterials).setTextureName(MCAssetManager.getMobTexture("wither_bone"));
-		horseHairFibre = new MCItem().setCreativeTab(tabMaterials).setTextureName(MCAssetManager.getMobTexture("horse_hair_fibre"));
+		amuletPorcum = new ItemAmuletPorcum().setCreativeTab(tabMisc).setTextureName(MAssetManager.getMobTexture("pig_amulet"));
+		amuletVaccam = new ItemAmuletVaccam().setCreativeTab(tabMisc).setTextureName(MAssetManager.getMobTexture("horse_amulet"));
+		amuletPullum = new ItemAmulet(30).setCreativeTab(tabMisc).setTextureName(MAssetManager.getMobTexture("chicken_amulet"));
+		amuletOves = new ItemAmulet(30).setCreativeTab(tabMisc).setTextureName(MAssetManager.getMobTexture("sheep_amulet"));
+		wingSinew = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMobTexture("wing_sinew"));
+		wingSegment = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getTexture("hangglider_segment"));
+		hangGlider = new ItemHangGlider().setCreativeTab(null).setTextureName(MAssetManager.getTexture("hangGlider"));
+		enderAura = new MItem().setCreativeTab(tabMisc).setTextureName(MAssetManager.getMobTexture("ender_aura"));
+		ghastlySoul = new MItem().setCreativeTab(tabBrewing).setTextureName(MAssetManager.getDrinkTexture("ghast_soul_bottle"));
+		witheredBone = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMobTexture("wither_bone"));
+		horseHairFibre = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMobTexture("horse_hair_fibre"));
 		horseHairBow = new ItemHorseHairBow().setCreativeTab(tabCombat);
 	}
 	
 	public static void load()
 	{
+		CSItems.addItem(brickStone, "stone_brick");
+		CSItems.addItem(brickStoneTin, "stone_brick_tin");
+		CSItems.addItem(brickStoneBronze, "stone_brick_bronze");
+		CSItems.addItem(brickStoneSteel, "stone_brick_steel");
+		CSItems.addItem(brickStoneMeurodite, "stone_brick_meurodite");
+		CSItems.addItem(brickSandstone, "sandstone_brick");
+		CSItems.addItem(brickRedSandstone, "red_sandstone_brick");
+		CSItems.addItem(brickColoredClay, "clay_brick");
+		CSItems.addItem(brickFlint, "flint_brick");
+		CSItems.addItem(brickLapis, "lapis_brick");
+		CSItems.addItem(brickSlate, "granite_brick");
+		CSItems.addItem(brickSlateTin, "granite_brick_tin");
+		CSItems.addItem(brickSlateBronze, "granite_brick_bronze");
+		CSItems.addItem(brickSlateSteel, "granite_brick_steel");
+		CSItems.addItem(brickSlateMeurodite, "granite_brick_meurodite");
+		CSItems.addItem(brickDesertQuartz, "desertquartz_brick");
+		CSItems.addItem(brickNetherQuartz, "netherquartz_brick");
+		CSItems.addItem(brickObsidian, "obsidian_brick");
+		CSItems.addItem(brickEndStone, "endstone_brick");
+		CSItems.addItem(brickBedrock, "bedrock_brick");
+		CSItems.addItem(brickRadiantQuartz, "radiantquartz_brick");
+		
 		CSItems.addItem(soulGem, "soul_gem");
 		CSItems.addItem(meuroditeGem, "meurodite_gem");
 		CSItems.addItem(uranium, "uranium");
@@ -352,9 +421,9 @@ public class MItems
 		MBlocks.slimeOoze.setHarvestLevel("shovel", 0);
 		MBlocks.magmaOoze.setHarvestLevel("shovel", 0);
 		
-		MCBlocks.obsidianStairsBricks.setHarvestLevel("pickaxe", 3);
-		MCBlocks.obsidianStairsRaw.setHarvestLevel("pickaxe", 3);
-		MCBlocks.obsidianStairsTiles.setHarvestLevel("pickaxe", 3);
+		MBlocks.obsidianStairsBricks.setHarvestLevel("pickaxe", 3);
+		MBlocks.obsidianStairsRaw.setHarvestLevel("pickaxe", 3);
+		MBlocks.obsidianStairsTiles.setHarvestLevel("pickaxe", 3);
 		
 		MBlocks.glassDoor.setHarvestLevel("pickaxe", 0);
 	}

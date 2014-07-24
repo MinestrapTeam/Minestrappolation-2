@@ -2,8 +2,8 @@ package minestrapteam.minestrappolation.client.renderer;
 
 import org.lwjgl.opengl.GL11;
 
-import minestrapteam.mcore.util.MCAssetManager;
 import minestrapteam.minestrappolation.client.model.ModelHangGlider;
+import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
@@ -12,7 +12,7 @@ import net.minecraftforge.client.IItemRenderer;
 
 public class RenderHangGlider implements IItemRenderer
 {
-	public static ResourceLocation	texture	= MCAssetManager.getModelResource("hang_glider");
+	public static ResourceLocation	texture	= MAssetManager.getModelResource("hang_glider");
 	public ModelHangGlider			model	= new ModelHangGlider();
 	
 	@Override

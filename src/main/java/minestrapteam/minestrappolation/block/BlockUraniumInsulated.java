@@ -1,6 +1,6 @@
 package minestrapteam.minestrappolation.block;
 
-import minestrapteam.mcore.util.MCAssetManager;
+import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -23,9 +23,9 @@ public class BlockUraniumInsulated extends BlockInsulatedRadiation
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getMineralTexture("uranium_insulated"));
-		this.topIcon = iconRegister.registerIcon(MCAssetManager.getMineralTexture("steel_block_top"));
-		this.bottomIcon = iconRegister.registerIcon(MCAssetManager.getMineralTexture("steel_block_bottom"));
+		this.blockIcon = iconRegister.registerIcon(MAssetManager.getMineralTexture("uranium_insulated"));
+		this.topIcon = iconRegister.registerIcon(MAssetManager.getMineralTexture("steel_block_top"));
+		this.bottomIcon = iconRegister.registerIcon(MAssetManager.getMineralTexture("steel_block_bottom"));
 	}
 	
 	@Override

@@ -17,18 +17,19 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.VillagerRegistry;
-import minestrapteam.mcore.crafting.CustomRecipeLoader;
-import minestrapteam.mcore.lib.MCReference;
 import minestrapteam.minestrappolation.common.BlacksmithTradeHandler;
 import minestrapteam.minestrappolation.common.MCommonProxy;
 import minestrapteam.minestrappolation.common.MEventHandler;
 import minestrapteam.minestrappolation.common.PriestTradeHandler;
+import minestrapteam.minestrappolation.crafting.CustomRecipeLoader;
 import minestrapteam.minestrappolation.crafting.MelterRecipeLoader;
 import minestrapteam.minestrappolation.creativetab.*;
 import minestrapteam.minestrappolation.entity.*;
 import minestrapteam.minestrappolation.lib.*;
+import minestrapteam.minestrappolation.network.MCNetHandler;
 import minestrapteam.minestrappolation.tileentity.TileEntityLocked;
 import minestrapteam.minestrappolation.tileentity.TileEntityMelter;
+import minestrapteam.minestrappolation.tileentity.TileEntityStonecutter;
 import minestrapteam.minestrappolation.world.MOreGenerator;
 
 import net.minecraft.creativetab.CreativeTabs;
@@ -59,6 +60,7 @@ public class Minestrappolation extends BaseMod
 	
 	public static Fluid					magmaFluid;
 	
+	public static boolean				showDurability;
 	public static boolean				shouldOresEffect	= true;
 	public static int					daysUntilTarnish;
 	public static int					daysUntilMossy;
@@ -69,6 +71,7 @@ public class Minestrappolation extends BaseMod
 		super(proxy, MCReference.MODID, MCReference.NAME, MCReference.ACRONYM, MCReference.VERSION);
 		this.authors = MCReference.AUTHORS;
 		this.eventHandler = new MEventHandler();
+		this.netHandlerClass = MCNetHandler.class;
 		this.hasConfig = true;
 	}
 	
@@ -81,9 +84,10 @@ public class Minestrappolation extends BaseMod
 	@Override
 	public void readConfig()
 	{
-		daysUntilTarnish = CSConfig.getInt("misc", "Days until copper tarnish", 3);
-		shouldOresEffect = CSConfig.getBool("misc", "Should Plutonium/Uranium ores affect the player", true);
-		daysUntilMossy = CSConfig.getInt("misc", "Days Until Planks Get Mossy", 3);
+		showDurability = CSConfig.getBool("tools", "Show Durability", true);
+		daysUntilTarnish = CSConfig.getInt("blocks", "Days until copper tarnish", 3);
+		shouldOresEffect = CSConfig.getBool("blocks", "Should Plutonium/Uranium ores affect the player", true);
+		daysUntilMossy = CSConfig.getInt("blocks", "Days Until Planks Get Mossy", 3);
 		bedrockDamage = CSConfig.getInt("blocks", "Bedrock Damage", 2000);
 	}
 	
@@ -115,6 +119,7 @@ public class Minestrappolation extends BaseMod
 		// ItemStack(EOItemManager.bucketMagma), new
 		// ItemStack(Item.bucketEmpty));
 		
+		GameRegistry.registerTileEntity(TileEntityStonecutter.class, "StoneCutter");
 		GameRegistry.registerTileEntity(TileEntityLocked.class, "Locked");
 		
 		EntityRegistry.registerModEntity(EntityGrenade.class, "Grenade", 2, this, 40, 3, true);

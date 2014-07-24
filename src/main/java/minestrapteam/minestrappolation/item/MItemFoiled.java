@@ -2,11 +2,10 @@ package minestrapteam.minestrappolation.item;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import minestrapteam.mcore.item.MCItem;
 
 import net.minecraft.item.ItemStack;
 
-public class MItemFoiled extends MCItem
+public class MItemFoiled extends MItem
 {
 	public MItemFoiled()
 	{

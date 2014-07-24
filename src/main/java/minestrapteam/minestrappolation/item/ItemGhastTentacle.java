@@ -1,7 +1,6 @@
 package minestrapteam.minestrappolation.item;
 
 import clashsoft.cslib.random.CSRandom;
-import minestrapteam.mcore.item.MCItemFood;
 import minestrapteam.minestrappolation.lib.MPotions;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -9,7 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
-public class ItemGhastTentacle extends MCItemFood
+public class ItemGhastTentacle extends MItemFood
 {
 	public ItemGhastTentacle()
 	{

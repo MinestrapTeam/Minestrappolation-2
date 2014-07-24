@@ -2,7 +2,7 @@ package minestrapteam.minestrappolation.world;
 
 import java.util.Random;
 
-import minestrapteam.mcore.lib.MCBlocks;
+import minestrapteam.minestrappolation.lib.MBlocks;
 
 import net.minecraft.world.World;
 
@@ -13,7 +13,7 @@ public class WorldGenRedWoodTree extends WorldGenBaseTree
 	
 	public WorldGenRedWoodTree()
 	{
-		super(MCBlocks.redwoodLog, 1, MCBlocks.redwoodLeaves, 1, 23, 17, 2);
+		super(MBlocks.redwoodLog, 1, MBlocks.redwoodLeaves, 1, 23, 17, 2);
 		
 	}
 	

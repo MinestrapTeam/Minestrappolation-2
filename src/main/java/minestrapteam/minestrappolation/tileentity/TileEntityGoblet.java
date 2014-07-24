@@ -1,7 +1,7 @@
 package minestrapteam.minestrappolation.tileentity;
 
-import minestrapteam.mcore.MinestrappolationCore;
-import minestrapteam.mcore.network.GobletPacket;
+import minestrapteam.minestrappolation.Minestrappolation;
+import minestrapteam.minestrappolation.network.GobletPacket;
 
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
@@ -23,7 +23,7 @@ public class TileEntityGoblet extends TileEntity
 		
 		if (sync && !this.getWorldObj().isRemote)
 		{
-			MinestrappolationCore.instance.netHandler.sendToAll(new GobletPacket(this.getWorldObj(), this.xCoord, this.yCoord, this.zCoord, effect));
+			Minestrappolation.instance.netHandler.sendToAll(new GobletPacket(this.getWorldObj(), this.xCoord, this.yCoord, this.zCoord, effect));
 		}
 	}
 	
