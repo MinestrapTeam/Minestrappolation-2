@@ -235,6 +235,9 @@ public class MBlocks
 	
 	public static Block			redwoodLog;
 	public static Block			redwoodLeaves;
+	public static MBlockCustom  redwood;
+	public static Block  		redwood2;
+	public static Block  		redwoodStairsBoards;
 	
 	public static Block			copperOre;
 	public static Block			tinOre;
@@ -719,5 +722,8 @@ public class MBlocks
 		woodDarkOak = MBlockHelper.createWoodBlock("dark_oak", 2.0F, 5.0F, tab_decor);
 		woodDarkOak2 = MBlockHelper.createWoodBlock2("dark_oak", 2.0F, 5.0F, tab_decor);
 		woodDarkOakStairsBoards = MBlockHelper.createWoodStair(woodDarkOak, 1, tab_decor);
+		redwood = MBlockHelper.createWoodBlock("redwood", 2.0F, 5.0F, tab_decor);
+		redwood2 = MBlockHelper.createWoodBlock2("redwood", 2.0F, 5.0F, tab_decor);
+		redwoodStairsBoards = MBlockHelper.createWoodStair(redwood, 1, tab_decor);
 	}
 }
