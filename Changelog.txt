@@ -1,7 +1,5 @@
 ﻿1.7.10-3.1.1
 
-+ Added Redwood Log and Leaves
-+ Added Redwood Biome
 * Improved Metal Plating rendering
 * Improved Cardboard and Wet Cardboard textures
 * Fixed Cardboard Lamps missing textures
