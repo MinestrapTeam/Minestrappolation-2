@@ -1,12 +1,13 @@
 package minestrapteam.minestrappolation.creativetab;
 
 import minestrapteam.minestrappolation.lib.MBlocks;
+
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
-public class MCreativeTabBuildingBlocks extends CreativeTabs
+public class MTabStoneDecor extends CreativeTabs
 {
-	public MCreativeTabBuildingBlocks(String label)
+	public MTabStoneDecor(String label)
 	{
 		super(label);
 	}
@@ -14,6 +15,6 @@ public class MCreativeTabBuildingBlocks extends CreativeTabs
 	@Override
 	public Item getTabIconItem()
 	{
-		return Item.getItemFromBlock(MBlocks.cardboardBlock);
+		return Item.getItemFromBlock(MBlocks.flint);
 	}
 }

@@ -44,16 +44,16 @@ public class Minestrappolation extends BaseMod
 	
 	public static MCommonProxy			proxy				= createProxy("minestrapteam.minestrappolation.client.MClientProxy", "minestrapteam.minestrappolation.common.MCommonProxy");
 	
-	public static CreativeTabs			tabBuildingBlocks	= new MCreativeTabBuildingBlocks("minestrap_building_blocks");
-	public static CreativeTabs			tabStoneDecor		= new MCreativeTabStoneDecor("minestrap_stone_decor");
-	public static CreativeTabs			tabDecorationBlocks	= new MCreativeTabDecoration("minestrap_decoration_blocks");
-	public static CreativeTabs			tabTech				= new MCreativeTabTech("minestrap_tech");
-	public static CreativeTabs			tabFood				= new MCreativeTabFood("minestrap_food");
-	public static CreativeTabs			tabMaterials		= new MCreativeTabMaterials("minestrap_materials");
-	public static CreativeTabs			tabCombat			= new MCreativeTabCombat("minestrap_combat");
-	public static CreativeTabs			tabTools			= new MCreativeTabTools("minestrap_tools");
-	public static CreativeTabs			tabBrewing			= new MCreativeTabBrewing("minestrap_brewing");
-	public static CreativeTabs			tabMisc				= new MCreativeTabMisc("minestrap_misc");
+	public static CreativeTabs			tabBuildingBlocks	= new MTabBuildingBlocks("minestrap_building_blocks");
+	public static CreativeTabs			tabStoneDecor		= new MTabStoneDecor("minestrap_stone_decor");
+	public static CreativeTabs			tabDecorationBlocks	= new MTabDecoration("minestrap_decoration_blocks");
+	public static CreativeTabs			tabTech				= new MTabTech("minestrap_tech");
+	public static CreativeTabs			tabFood				= new MTabFood("minestrap_food");
+	public static CreativeTabs			tabMaterials		= new MTabMaterials("minestrap_materials");
+	public static CreativeTabs			tabCombat			= new MTabCombat("minestrap_combat");
+	public static CreativeTabs			tabTools			= new MTabTools("minestrap_tools");
+	public static CreativeTabs			tabBrewing			= new MTabBrewing("minestrap_brewing");
+	public static CreativeTabs			tabMisc				= new MTabMisc("minestrap_misc");
 	
 	public static CustomRecipeLoader	smelter				= new CustomRecipeLoader("furnace");
 	public static MelterRecipeLoader	melter				= new MelterRecipeLoader("melter");

@@ -1,12 +1,13 @@
 package minestrapteam.minestrappolation.creativetab;
 
-import minestrapteam.minestrappolation.lib.MItems;
+import minestrapteam.minestrappolation.lib.MTools;
+
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
-public class MCreativeTabFood extends CreativeTabs
+public class MTabTools extends CreativeTabs
 {
-	public MCreativeTabFood(String label)
+	public MTabTools(String label)
 	{
 		super(label);
 	}
@@ -14,7 +15,6 @@ public class MCreativeTabFood extends CreativeTabs
 	@Override
 	public Item getTabIconItem()
 	{
-		return MItems.chickenWingCooked;
+		return MTools.blaziumPickaxe;
 	}
-	
 }
