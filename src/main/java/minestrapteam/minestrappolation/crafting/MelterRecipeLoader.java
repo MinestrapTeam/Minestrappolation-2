@@ -1,5 +1,7 @@
 package minestrapteam.minestrappolation.crafting;
 
+import clashsoft.cslib.minecraft.crafting.loader.CustomRecipeLoader;
+
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 

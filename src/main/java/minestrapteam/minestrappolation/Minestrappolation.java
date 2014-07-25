@@ -21,7 +21,6 @@ import minestrapteam.minestrappolation.common.BlacksmithTradeHandler;
 import minestrapteam.minestrappolation.common.MCommonProxy;
 import minestrapteam.minestrappolation.common.MEventHandler;
 import minestrapteam.minestrappolation.common.PriestTradeHandler;
-import minestrapteam.minestrappolation.crafting.CustomRecipeLoader;
 import minestrapteam.minestrappolation.crafting.MelterRecipeLoader;
 import minestrapteam.minestrappolation.creativetab.*;
 import minestrapteam.minestrappolation.entity.*;
@@ -55,7 +54,6 @@ public class Minestrappolation extends BaseMod
 	public static CreativeTabs			tabBrewing			= new MTabBrewing("minestrap_brewing");
 	public static CreativeTabs			tabMisc				= new MTabMisc("minestrap_misc");
 	
-	public static CustomRecipeLoader	smelter				= new CustomRecipeLoader("furnace");
 	public static MelterRecipeLoader	melter				= new MelterRecipeLoader("melter");
 	
 	public static Fluid					magmaFluid;
@@ -100,8 +98,6 @@ public class Minestrappolation extends BaseMod
 		
 		magmaFluid = new Fluid("Magma").setViscosity(6500).setDensity(3);
 		FluidRegistry.registerFluid(magmaFluid);
-		
-		smelter.load();
 		
 		MBlocks.init();
 		MItems.init();

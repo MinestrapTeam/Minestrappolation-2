@@ -53,20 +53,20 @@ public class PlatePacket extends CSPacket
 	@Override
 	public void read(PacketBuffer buf)
 	{
-		this.world = this.readWorld(buf);
+		this.world = readWorld(buf);
 		this.x = buf.readInt();
 		this.y = buf.readInt();
 		this.z = buf.readInt();
-		this.stack = this.readItemStack(buf);
+		this.stack = readItemStack(buf);
 	}
 	
 	@Override
 	public void write(PacketBuffer buf)
 	{
-		this.writeWorld(buf, this.world);
+		writeWorld(buf, this.world);
 		buf.writeInt(this.x);
 		buf.writeInt(this.y);
 		buf.writeInt(this.z);
-		this.writeItemStack(buf, this.stack);
+		writeItemStack(buf, this.stack);
 	}
 }
