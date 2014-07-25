@@ -238,6 +238,7 @@ public class MBlocks
 	public static MBlockCustom  redwood;
 	public static Block  		redwood2;
 	public static Block  		redwoodStairsBoards;
+	public static Block  		redwoodPlanks;
 	
 	public static Block			copperOre;
 	public static Block			tinOre;
@@ -389,6 +390,8 @@ public class MBlocks
 		cardboardBlock = new BlockCardboard(Material.cloth).setHardness(0.4F).setCreativeTab(Minestrappolation.tabDecorationBlocks);
 		
 		glassDoor = new BlockGlassDoor(Material.glass).setHardness(1F);
+		
+		redwoodPlanks = new MBlock(Material.wood).setStepSound(Block.soundTypeWood).setHardness(2.0F).setBlockTextureName(MAssetManager.getWoodTexture("redwood_planks")).setBlockName("redwood_planks").setCreativeTab(Minestrappolation.tabDecorationBlocks);
 	}
 	
 	public static void load()
@@ -471,6 +474,8 @@ public class MBlocks
 		
 		CSBlocks.addBlock(glassDoor, "glass_door_block");
 		
+		CSBlocks.addBlock(redwoodPlanks, "redwood_planks");
+		
 		setFlammability();
 	}
 	
@@ -478,6 +483,7 @@ public class MBlocks
 	{
 		Blocks.fire.setFireInfo(rope, 30, 60);
 		Blocks.fire.setFireInfo(ropeCoil, 30, 60);
+		Blocks.fire.setFireInfo(redwoodPlanks, 5, 20);
 	}
 	
 	private static void addStoneBlocks()

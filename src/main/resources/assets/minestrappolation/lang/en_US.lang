@@ -738,6 +738,7 @@ tile.redwood.mossy_boards.name=Mossy Redwood Boards
 tile.redwood.mossy_panel.name=Mossy Redwood Panel
 tile.redwood.boards_slab.name=Redwood Slab
 tile.redwood.boards_stairs.name=Redwood Board Stairs
+tile.redwood_planks.name=Redwood Planks
 
 tile.glow_glass.name=Glow Glass
 tile.glow_glass_pane.name=Glow Glass Pane
