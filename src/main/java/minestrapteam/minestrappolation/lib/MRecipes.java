@@ -164,7 +164,7 @@ public class MRecipes
 		
 		GameRegistry.addRecipe(new ItemStack(plutoniumInsulated, 1), new Object[] { "SPS", "GUG", "SPS", 'S', steelIngot, 'G', MBlocks.refinedGlassPane, 'U', plutoniumBlock, 'P', MItems.plateSteelItem });
 		GameRegistry.addRecipe(new ItemStack(uraniumInsulated, 1), new Object[] { "SPS", "GUG", "SPS", 'S', steelIngot, 'G', MBlocks.refinedGlassPane, 'U', uraniumBlock, 'P', MItems.plateSteelItem });
-		GameRegistry.addRecipe(new ItemStack(melterIdle, 1), new Object[] { "ZZZ", "ZFZ", "ZBZ", 'Z', plateMeuroditeItem, 'F', Blocks.furnace, 'B', blaziumBlock });
+		GameRegistry.addRecipe(new ItemStack(melterIdle, 1), new Object[] { "ZZZ", "ZFZ", "IBI", 'Z', plateMeuroditeItem, 'F', Blocks.furnace, 'B', blaziumBlock, 'I', Blocks.iron_bars });
 		
 		GameRegistry.addRecipe(new ItemStack(plateMeuroditeItem, 4), new Object[] { "MMM", "MMM", 'M', meuroditeGem, });
 		GameRegistry.addRecipe(new ItemStack(soulBottle, 4), new Object[] { "S", "G", 'S', soulGem, 'G', Items.glass_bottle });
@@ -197,7 +197,6 @@ public class MRecipes
 		GameRegistry.addRecipe(new ItemStack(Items.magma_cream, 9), new Object[] { "S", 'S', magmaOoze });
 		GameRegistry.addRecipe(new ItemStack(enderBlock), new Object[] { "SSS", "SSS", "SSS", 'S', Items.ender_pearl });
 		GameRegistry.addRecipe(new ItemStack(Items.ender_pearl, 9), new Object[] { "S", 'S', enderBlock });
-		GameRegistry.addRecipe(new ItemStack(barrel), new Object[] { "I", "C", "I", 'I', Items.iron_ingot, 'C', crate });
 		GameRegistry.addRecipe(new ItemStack(cardboardItem, 3), new Object[] { "SSS", "SSS", 'S', Items.paper });
 		GameRegistry.addRecipe(new ItemStack(cardboardBlock, 2), new Object[] { "CCC", " C ", " CC", 'C', cardboardItem });
 		GameRegistry.addShapelessRecipe(new ItemStack(cardboardBlock, 1, 2), new ItemStack(cardboardBlock), new ItemStack(Items.glowstone_dust));

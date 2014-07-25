@@ -430,6 +430,7 @@ public class MItems
 	
 	public static void addItemsToChests()
 	{
+		ChestGenHooks bonusChest = ChestGenHooks.getInfo(ChestGenHooks.BONUS_CHEST);
 		ChestGenHooks dungeonChest = ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST);
 		ChestGenHooks mineshaftCorridor = ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR);
 		ChestGenHooks strongholdCorridor = ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CORRIDOR);
@@ -439,11 +440,17 @@ public class MItems
 		ChestGenHooks blacksmithChest = ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH);
 		ChestGenHooks strongholdLibrary = ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_LIBRARY);
 		
-		dungeonChest.addItem(new WeightedRandomChestContent(new ItemStack(copperIngot), 1, 5, 30));
-		dungeonChest.addItem(new WeightedRandomChestContent(new ItemStack(tinIngot), 1, 5, 30));
-		dungeonChest.addItem(new WeightedRandomChestContent(new ItemStack(bronzeIngot), 1, 3, 25));
-		dungeonChest.addItem(new WeightedRandomChestContent(new ItemStack(coalIronIngot), 1, 5, 17));
-		dungeonChest.addItem(new WeightedRandomChestContent(new ItemStack(steelIngot), 1, 5, 17));
+		bonusChest.addItem(new WeightedRandomChestContent(new ItemStack(MTools.sandstonePickaxe), 0, 1, 4));
+		bonusChest.addItem(new WeightedRandomChestContent(new ItemStack(MTools.sandstoneShovel), 1, 1, 4));
+		bonusChest.addItem(new WeightedRandomChestContent(new ItemStack(MBlocks.stoneCutter), 0, 1, 1));
+		bonusChest.addItem(new WeightedRandomChestContent(new ItemStack(MTools.granitePickaxe), 0, 1, 2));
+		dungeonChest.addItem(new WeightedRandomChestContent(new ItemStack(copperIngot), 1, 4, 20));
+		dungeonChest.addItem(new WeightedRandomChestContent(new ItemStack(tinIngot), 1, 4, 20));
+		dungeonChest.addItem(new WeightedRandomChestContent(new ItemStack(sunstoneDust), 1, 4, 25));
+		dungeonChest.addItem(new WeightedRandomChestContent(new ItemStack(steelIngot), 1, 3, 10));
+		dungeonChest.addItem(new WeightedRandomChestContent(new ItemStack(bronzeIngot), 1, 3, 10));
+		dungeonChest.addItem(new WeightedRandomChestContent(new ItemStack(meuroditeGem), 1, 1, 5));
+		dungeonChest.addItem(new WeightedRandomChestContent(new ItemStack(radiantQuartz), 1, 2, 4));
 		mineshaftCorridor.addItem(new WeightedRandomChestContent(new ItemStack(copperIngot), 1, 5, 30));
 		mineshaftCorridor.addItem(new WeightedRandomChestContent(new ItemStack(tinIngot), 1, 5, 30));
 		mineshaftCorridor.addItem(new WeightedRandomChestContent(new ItemStack(meuroditeGem), 1, 4, 15));
