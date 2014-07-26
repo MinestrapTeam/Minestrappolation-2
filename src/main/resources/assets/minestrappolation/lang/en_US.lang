@@ -68,6 +68,7 @@ tile.cardboard_block.0.name=Cardboard Block
 tile.cardboard_block.1.name=Wet Cardboard Block
 tile.cardboard_block.2.name=Cardboard Lamp
 item.glass_door.name=Glass Door
+tile.gunpowder_block.name=Block of Gunpowder
 
 #Stone Blocks
 tile.stone.pattern_bricks.name=Stone Patterned Bricks

@@ -140,6 +140,7 @@ public class MOreDictionary
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Blocks.daylight_detector, 1, 0), new Object[] { "GGG", "QQQ", "SSS", 'G', "glass", 'Q', Items.quartz, 'S', "slabWood" }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.glass_bottle, 3, 0), new Object[] { "G G", " G ", 'G', "glass" }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MItems.glassDoor, 1, 0), new Object[] { "GG", "GI", "GG", 'G', "glass", 'I', Items.iron_ingot }));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MItems.horseHairBow, 1), new Object[] { " SH", "S H", " SH", 'S', "slabWood", 'H', MItems.horseHairFibre}));
 	}
 	
 	private static void add(String name, Item item)

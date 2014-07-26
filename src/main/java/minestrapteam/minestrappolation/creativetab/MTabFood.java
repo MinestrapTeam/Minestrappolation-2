@@ -14,7 +14,7 @@ public class MTabFood extends CreativeTabs
 	@Override
 	public Item getTabIconItem()
 	{
-		return MItems.chickenWingCooked;
+		return MItems.horseHaunchCooked;
 	}
 	
 }

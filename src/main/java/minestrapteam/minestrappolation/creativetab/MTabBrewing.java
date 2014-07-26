@@ -14,6 +14,6 @@ public class MTabBrewing extends CreativeTabs
 	@Override
 	public Item getTabIconItem()
 	{
-		return MItems.soulBottle;
+		return MItems.pigHoof;
 	}
 }

@@ -15,6 +15,6 @@ public class MTabStoneDecor extends CreativeTabs
 	@Override
 	public Item getTabIconItem()
 	{
-		return Item.getItemFromBlock(MBlocks.flint);
+		return Item.getItemFromBlock(MBlocks.redSandstone);
 	}
 }
