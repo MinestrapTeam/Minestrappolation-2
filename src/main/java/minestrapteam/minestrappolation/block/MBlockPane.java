@@ -25,7 +25,7 @@ public class MBlockPane extends BlockPane
 	{
 		if (this == MBlocks.glowGlassPane)
 		{
-			return 2;
+			return 1;
 		}
 		return 0;
 	}
