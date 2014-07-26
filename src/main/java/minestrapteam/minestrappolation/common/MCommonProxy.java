@@ -17,6 +17,7 @@ public class MCommonProxy extends BaseProxy
 {
 	public static int	platingRenderID;
 	public static int	custom2RenderID;
+	public static int	lockedRenderID;
 	
 	public static int	fire;
 	public static int	tin;

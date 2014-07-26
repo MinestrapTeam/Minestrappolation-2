@@ -11,10 +11,8 @@ import minestrapteam.minestrappolation.client.gui.GuiMelter;
 import minestrapteam.minestrappolation.client.gui.GuiStonecutter;
 import minestrapteam.minestrappolation.client.renderer.RenderHangGlider;
 import minestrapteam.minestrappolation.client.renderer.RenderNukePrimed;
-import minestrapteam.minestrappolation.client.renderer.block.RenderBlockCustom2;
-import minestrapteam.minestrappolation.client.renderer.block.RenderBlockPlating;
-import minestrapteam.minestrappolation.client.renderer.block.RenderGoblet;
-import minestrapteam.minestrappolation.client.renderer.block.RenderPlate;
+import minestrapteam.minestrappolation.client.renderer.block.*;
+import minestrapteam.minestrappolation.client.renderer.tileentity.RenderLocked;
 import minestrapteam.minestrappolation.client.renderer.tileentity.RenderStonecutter;
 import minestrapteam.minestrappolation.common.MCommonProxy;
 import minestrapteam.minestrappolation.entity.EntityGrenade;
@@ -37,12 +35,16 @@ public class MClientProxy extends MCommonProxy implements IGuiHandler
 		custom2RenderID = RenderingRegistry.getNextAvailableRenderId();
 		RenderingRegistry.registerBlockHandler(custom2RenderID, new RenderBlockCustom2());
 		
+		platingRenderID = RenderingRegistry.getNextAvailableRenderId();
+		RenderingRegistry.registerBlockHandler(platingRenderID, new RenderBlockPlating());
+		
+		lockedRenderID = RenderingRegistry.getNextAvailableRenderId();
+		RenderingRegistry.registerBlockHandler(lockedRenderID, new RenderBlockLocked());
+		
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityStonecutter.class, new RenderStonecutter());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGoblet.class, new RenderGoblet());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPlate.class, new RenderPlate());
-		
-		platingRenderID = RenderingRegistry.getNextAvailableRenderId();
-		RenderingRegistry.registerBlockHandler(platingRenderID, new RenderBlockPlating());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityLocked.class, new RenderLocked());
 		
 		MinecraftForgeClient.registerItemRenderer(MItems.hangGlider, new RenderHangGlider());
 	}

@@ -2,12 +2,11 @@ package minestrapteam.minestrappolation.item;
 
 import java.util.List;
 
-import minestrapteam.minestrappolation.tileentity.TileEntityLocked;
+import minestrapteam.minestrappolation.lib.MBlocks;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
@@ -35,6 +34,7 @@ public class ItemKey extends MItem
 		{
 			ItemKey.createNBT(stack, player);
 		}
+		
 		String name = stack.stackTagCompound.getString("player");
 		if (player.getDisplayName().equals(name))
 		{
@@ -44,8 +44,6 @@ public class ItemKey extends MItem
 		{
 			list.add(EnumChatFormatting.GRAY + "Owner: " + EnumChatFormatting.RED + name);
 		}
-		
-		list.add(EnumChatFormatting.RED + "WIP");
 	}
 	
 	@Override
@@ -61,21 +59,17 @@ public class ItemKey extends MItem
 			createNBT(stack, player);
 		}
 		
-		TileEntity te = world.getTileEntity(x, y, z);
-		if (te instanceof TileEntityLocked)
+		String name = stack.stackTagCompound.getString("player");
+		if (!player.getDisplayName().equals(name))
 		{
-			String name = stack.stackTagCompound.getString("player");
-			TileEntityLocked locked = (TileEntityLocked) te;
-			if (locked.isOwner(name))
+			player.addChatMessage(new ChatComponentTranslation("lock.not_owner"));
+			return false;
+		}
+		
+		if (world.getBlock(x, y, z) == MBlocks.lockedBlock)
+		{
+			if (MBlocks.lockedBlock.unlock(name, world, x, y, z))
 			{
-				if (locked.isLocked())
-				{
-					locked.unlock();
-				}
-				else
-				{
-					locked.lock();
-				}
 				return true;
 			}
 			else
@@ -85,7 +79,7 @@ public class ItemKey extends MItem
 		}
 		else
 		{
-			player.addChatMessage(new ChatComponentTranslation("lock.not_applicable"));
+			player.addChatMessage(new ChatComponentTranslation("lock.not_locked"));
 		}
 		
 		return false;

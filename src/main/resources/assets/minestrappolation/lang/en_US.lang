@@ -947,7 +947,13 @@ item.plating.bronze.desc=Bronze-Plated
 item.plating.steel.desc=Steel-Plated
 item.plating.meurodite.desc=Meurodite-Plated
 item.plating.horn.desc=Horned
-lock.added=This container has been locked!
+
+lock.locked=This block is locked!
+lock.added=This block has been locked!
+lock.already_locked=This block is already locked!
+lock.not_applicable=This block is not lockable!
+lock.not_locked=This block is not locked!
+lock.not_owner=You are not the owner of this!
 
 #Potion Effects
 potion.ghastTentacle=Nether Neutrality

@@ -235,10 +235,10 @@ public class MBlocks
 	
 	public static Block			redwoodLog;
 	public static Block			redwoodLeaves;
-	public static MBlockCustom  redwood;
-	public static Block  		redwood2;
-	public static Block  		redwoodStairsBoards;
-	public static Block  		redwoodPlanks;
+	public static MBlockCustom	redwood;
+	public static Block			redwood2;
+	public static Block			redwoodStairsBoards;
+	public static Block			redwoodPlanks;
 	
 	public static Block			copperOre;
 	public static Block			tinOre;
@@ -277,8 +277,9 @@ public class MBlocks
 	public static Block			nuke;
 	public static Block			melterIdle;
 	public static Block			melterBurning;
-	
 	public static Block			stoneCutter;
+	
+	public static BlockLocked	lockedBlock;
 	
 	public static Block			checkerTiles;
 	public static Block			flintEndstoneStairs;
@@ -352,8 +353,9 @@ public class MBlocks
 		nuke = new BlockNuke().setHardness(0.0F).setCreativeTab(Minestrappolation.tabTech).setStepSound(Block.soundTypeGrass);
 		melterIdle = new BlockMelter(false).setHardness(6F).setResistance(8.0F).setCreativeTab(Minestrappolation.tabTech).setStepSound(Block.soundTypeStone);
 		melterBurning = new BlockMelter(true).setHardness(6F).setResistance(8.0F).setStepSound(Block.soundTypeStone);
-		
 		stoneCutter = new BlockStonecutter().setCreativeTab(Minestrappolation.tabTech).setBlockTextureName(MAssetManager.getMachineTexture("stonecutter")).setHardness(3.5F).setStepSound(Block.soundTypeStone);
+		
+		lockedBlock = (BlockLocked) new BlockLocked().setBlockUnbreakable().setBlockTextureName("iron_block");
 		
 		checkerTiles = new BlockTiles().setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone);
 		flintEndstoneStairs = new MBlockStairs(checkerTiles, 0).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockName("stairs_flint_endstone");
@@ -435,8 +437,9 @@ public class MBlocks
 		CSBlocks.addBlock(nuke, "nuke");
 		CSBlocks.addBlock(melterIdle, "melter");
 		CSBlocks.addBlock(melterBurning, "melter_burning");
-		
 		CSBlocks.addBlock(stoneCutter, "stonecutter");
+		
+		CSBlocks.addBlock(lockedBlock, "locked_block");
 		
 		CSBlocks.addBlock(checkerTiles, MCItemBlockMulti.class, "checker_tiles");
 		CSBlocks.addBlock(flintQuartzStairs);
