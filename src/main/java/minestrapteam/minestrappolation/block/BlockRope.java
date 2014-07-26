@@ -20,20 +20,6 @@ public class BlockRope extends BlockRopeCoil
 	}
 	
 	@Override
-	public void updateTick(World world, int x, int y, int z, Random random)
-	{
-		if (!world.isRemote && !this.canPlaceBlockAt(world, x, y, z))
-		{
-			// EntityFallingBlock entityfallingblock = new
-			// EntityFallingBlock(world, x + 0.5F, y + 0.5F, z + 0.5F, this,
-			// world.getBlockMetadata(x, y, z));
-			// world.spawnEntityInWorld(entityfallingblock);
-			world.setBlockToAir(x, y, z);
-			this.dropBlockAsItem(world, x, y, z, new ItemStack(MItems.ropeItem));
-		}
-	}
-	
-	@Override
 	public boolean isOpaqueCube()
 	{
 		return false;
@@ -52,10 +38,26 @@ public class BlockRope extends BlockRopeCoil
 	}
 	
 	@Override
+	public void updateTick(World world, int x, int y, int z, Random random)
+	{
+		if (!world.isRemote && !this.canBlockStay(world, x, y, z))
+		{
+			world.setBlockToAir(x, y, z);
+			this.dropBlockAsItem(world, x, y, z, new ItemStack(MItems.ropeItem));
+		}
+	}
+	
+	@Override
 	public boolean canPlaceBlockAt(World world, int x, int y, int z)
 	{
+		return super.canPlaceBlockAt(world, x, y, z) && this.canBlockStay(world, x, y, z);
+	}
+	
+	@Override
+	public boolean canBlockStay(World world, int x, int y, int z)
+	{
 		Block block = world.getBlock(x, y + 1, z);
-		return super.canPlaceBlockAt(world, x, y, z) && (this == block || block.isSideSolid(world, x, y + 1, z, ForgeDirection.DOWN));
+		return this == block || block.isSideSolid(world, x, y + 1, z, ForgeDirection.DOWN);
 	}
 	
 	@Override
