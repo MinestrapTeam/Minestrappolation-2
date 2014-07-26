@@ -1,70 +1,120 @@
 package minestrapteam.minestrappolation.item;
 
-import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
-import clashsoft.cslib.minecraft.item.datatools.ItemDataSword;
+import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.init.Blocks;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemSword;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-public class MItemSword extends MItemTool
+public class MItemSword extends ItemSword implements IPlatable
 {
-	public MItemSword(ToolMaterial material, boolean ignites)
-	{
-		super(ItemDataSword.baseDamage, material, Collections.EMPTY_SET, "sword", ignites);
-		this.weapon = true;
-	}
+	private ToolMaterial		material;
+	private boolean				ignites;
+	
+	private Map<String, IIcon>	overlayIcons	= new HashMap();
 	
 	public MItemSword(ToolMaterial material)
 	{
-		this(material, false);
+		super(material);
+		this.material = material;
+	}
+	
+	public MItemSword(ToolMaterial material, boolean ignites)
+	{
+		super(material);
+		this.ignites = ignites;
+	}
+	
+	@Override
+	public int getPlatingCount(ItemStack stack)
+	{
+		return this.material.getHarvestLevel() + 1;
 	}
 	
 	@Override
 	public boolean hitEntity(ItemStack stack, EntityLivingBase entity, EntityLivingBase attacker)
 	{
-		if (this.ignites)
+		return MItemTool.hitEntity(stack, entity, attacker, this.ignites, true);
+	}
+	
+	@Override
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean flag)
+	{
+		MItemTool.addInformation(stack, list);
+	}
+	
+	@Override
+	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
+	{
+		if (!world.isRemote && this.ignites)
 		{
-			entity.setFire(10);
-			stack.damageItem(2, attacker);
+			Items.flint_and_steel.onItemUse(stack, player, world, x, y, z, side, hitX, hitY, hitZ);
+			stack.damageItem(4, player);
+			return true;
 		}
-		else
-		{
-			stack.damageItem(1, attacker);
-		}
-		return true;
+		return false;
 	}
 	
 	@Override
 	public float getDigSpeed(ItemStack stack, Block block, int metadata)
 	{
-		if (block == Blocks.web)
-		{
-			return 15.0F;
-		}
-		else
-		{
-			float f = ItemDataSword.isEfficientOnMaterial(block.getMaterial()) ? 1.5F : 1.0F;
-			return super.getDigSpeed(stack, block, metadata) * f;
-		}
+		return MItemTool.getDigSpeed(super.getDigSpeed(stack, block, metadata), stack);
 	}
 	
 	@Override
-	public boolean onBlockDestroyed(ItemStack stack, World world, Block block, int x, int y, int z, EntityLivingBase living)
+	public int getMaxDamage(ItemStack stack)
 	{
-		if (block.getBlockHardness(world, x, y, z) != 0.0D)
-		{
-			stack.damageItem(2, living);
-		}
+		return MItemTool.getMaxDamage(super.getMaxDamage(stack), stack);
+	}
+	
+	@Override
+	public boolean requiresMultipleRenderPasses()
+	{
 		return true;
 	}
 	
 	@Override
-	public boolean canHarvestBlock(Block block, ItemStack stack)
+	public void registerIcons(IIconRegister iconRegister)
 	{
-		return block == Blocks.web;
+		this.itemIcon = iconRegister.registerIcon(this.getIconString());
+		
+		for (Entry<String, IPlating> e : IPlating.platings.entrySet())
+		{
+			String type = e.getKey();
+			IPlating plating = e.getValue();
+			
+			if (plating.canApply("sword"))
+			{
+				StringBuilder builder = new StringBuilder(20);
+				builder.append("weapons/").append(type).append("_sword_overlay");
+				String textureName = MAssetManager.getTexture(builder.toString());
+				this.overlayIcons.put(type, iconRegister.registerIcon(textureName));
+			}
+		}
+	}
+	
+	@Override
+	public IIcon getIcon(ItemStack stack, int renderPass)
+	{
+		if (renderPass == 1)
+		{
+			IPlating plating = MItemTool.getPlating(stack);
+			if (plating != null)
+			{
+				return this.overlayIcons.get(plating.getType());
+			}
+		}
+		return this.itemIcon;
 	}
 }

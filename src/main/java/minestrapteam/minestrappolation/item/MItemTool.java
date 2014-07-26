@@ -120,8 +120,7 @@ public class MItemTool extends ItemTool implements IPlatable
 		return stack;
 	}
 	
-	@Override
-	public boolean hitEntity(ItemStack stack, EntityLivingBase entity, EntityLivingBase attacker)
+	public static boolean hitEntity(ItemStack stack, EntityLivingBase entity, EntityLivingBase attacker, boolean ignites, boolean weapon)
 	{
 		float level = getPoisonLevel(stack);
 		if (level > 0)
@@ -138,12 +137,12 @@ public class MItemTool extends ItemTool implements IPlatable
 			entity.attackEntityFrom(DamageSource.causeMobDamage(attacker), f);
 		}
 		
-		if (this.ignites)
+		if (ignites)
 		{
 			entity.setFire(10);
 		}
 		
-		if (this.weapon)
+		if (weapon)
 		{
 			stack.damageItem(1, attacker);
 		}
@@ -155,12 +154,12 @@ public class MItemTool extends ItemTool implements IPlatable
 	}
 	
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean flag)
+	public boolean hitEntity(ItemStack stack, EntityLivingBase entity, EntityLivingBase attacker)
 	{
-		addInformation(stack, list);
+		return hitEntity(stack, entity, attacker, this.ignites, this.weapon);
 	}
 	
-	protected static void addInformation(ItemStack stack, List list)
+	public static void addInformation(ItemStack stack, List list)
 	{
 		IPlating plating = getPlating(stack);
 		if (plating != null)
@@ -173,6 +172,12 @@ public class MItemTool extends ItemTool implements IPlatable
 		{
 			list.add(I18n.getString("item.poison_sword.desc", poisonLevel));
 		}
+	}
+	
+	@Override
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean flag)
+	{
+		addInformation(stack, list);
 	}
 	
 	@Override
@@ -205,26 +210,36 @@ public class MItemTool extends ItemTool implements IPlatable
 		return false;
 	}
 	
-	@Override
-	public float getDigSpeed(ItemStack stack, Block block, int meta)
+	public static float getDigSpeed(float superDigSpeed, ItemStack stack)
 	{
 		IPlating plating = getPlating(stack);
 		if (plating != null)
 		{
-			return super.getDigSpeed(stack, block, meta) * plating.getDigSpeed();
+			return superDigSpeed * plating.getDigSpeed();
 		}
-		return super.getDigSpeed(stack, block, meta);
+		return superDigSpeed;
+	}
+	
+	@Override
+	public float getDigSpeed(ItemStack stack, Block block, int meta)
+	{
+		return getDigSpeed(super.getDigSpeed(stack, block, meta), stack);
+	}
+	
+	public static int getMaxDamage(int superDamage, ItemStack stack)
+	{
+		IPlating plating = getPlating(stack);
+		if (plating != null)
+		{
+			return superDamage + plating.getDurability();
+		}
+		return superDamage;
 	}
 	
 	@Override
 	public int getMaxDamage(ItemStack stack)
 	{
-		IPlating plating = getPlating(stack);
-		if (plating != null)
-		{
-			return super.getMaxDamage(stack) + plating.getDurability();
-		}
-		return super.getMaxDamage(stack);
+		return getMaxDamage(super.getMaxDamage(stack), stack);
 	}
 	
 	@Override
@@ -245,10 +260,9 @@ public class MItemTool extends ItemTool implements IPlatable
 			
 			if (plating.canApply(this.toolType))
 			{
-				boolean sword = "sword".equals(this.toolType);
 				StringBuilder builder = new StringBuilder(20);
-				builder.append(sword ? "weapons/" : "tools/").append(type).append("_").append(this.toolType).append("_overlay");
-				if (!sword && this.toolMaterial.getHarvestLevel() >= 5)
+				builder.append("tools/").append(type).append("_").append(this.toolType).append("_overlay");
+				if (this.toolMaterial.getHarvestLevel() >= 5)
 				{
 					builder.append("_2");
 				}
@@ -261,10 +275,13 @@ public class MItemTool extends ItemTool implements IPlatable
 	@Override
 	public IIcon getIcon(ItemStack stack, int renderPass)
 	{
-		IPlating plating = getPlating(stack);
-		if (renderPass == 1 && plating != null)
+		if (renderPass == 1)
 		{
-			return this.overlayIcons.get(plating.getType());
+			IPlating plating = getPlating(stack);
+			if (plating != null)
+			{
+				return this.overlayIcons.get(plating.getType());
+			}
 		}
 		return this.itemIcon;
 	}
