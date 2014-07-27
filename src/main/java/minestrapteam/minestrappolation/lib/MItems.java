@@ -66,6 +66,8 @@ public class MItems
 	public static Item	blazeShard;
 	public static Item	sunstoneDust;
 	
+	public static Item magmaBucket;
+	
 	public static Item	steelKey;
 	public static Item	steelLock;
 	public static Item	soulBottle;
@@ -187,6 +189,8 @@ public class MItems
 		toriteIngot = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("torite_ingot"));
 		blaziumIngot = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("blazium_ingot"));
 		
+		magmaBucket = new MItemBucket(MBlocks.magma).setCreativeTab(tabMisc).setTextureName(MAssetManager.getTexture("magma_bucket"));
+		
 		steelKey = new ItemKey().setCreativeTab(tabMisc).setTextureName(MAssetManager.getTexture("steel_key"));
 		steelLock = new ItemLock().setCreativeTab(tabMisc).setTextureName(MAssetManager.getTexture("steel_lock"));
 		soulBottle = new ItemSoulBottle().setCreativeTab(tabBrewing).setTextureName(MAssetManager.getTexture("soul_bottle"));
@@ -303,6 +307,8 @@ public class MItems
 		CSItems.addItem(titaniumIngot, "titanium_ingot");
 		CSItems.addItem(toriteIngot, "torite_ingot");
 		CSItems.addItem(blaziumIngot, "blazium_ingot");
+		
+		CSItems.addItem(magmaBucket, "magma_bucket");
 		
 		CSItems.addItem(steelKey, "steel_key");
 		CSItems.addItem(steelLock, "steel_lock");

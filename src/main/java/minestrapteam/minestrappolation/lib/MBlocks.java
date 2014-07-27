@@ -272,6 +272,8 @@ public class MBlocks
 	public static Block			steelPlate;
 	public static Block			meuroditePlate;
 	
+	public static Block magma;
+	
 	public static Block			invincium;
 	public static Block			godstone;
 	public static Block			nuke;
@@ -347,6 +349,8 @@ public class MBlocks
 		bronzePlate = new BlockPlating().setHardness(0.7F).setStepSound(Block.soundTypeStone).setBlockTextureName(MAssetManager.getMineralTexture("bronze_block"));
 		steelPlate = new BlockPlating().setHardness(0.7F).setStepSound(Block.soundTypeStone).setBlockTextureName(MAssetManager.getMineralTexture("steel_block_top"));
 		meuroditePlate = new BlockPlating().setHardness(0.7F).setStepSound(Block.soundTypeStone).setBlockTextureName(MAssetManager.getMineralTexture("meurodite_block"));
+		
+		magma = new BlockMagma();
 		
 		invincium = new BlockInvincium(Material.rock).setBlockUnbreakable().setResistance(12000000.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockTextureName(MAssetManager.getMineralTexture("invincium"));
 		godstone = new BlockGodstone(Material.rock).setHardness(6F).setResistance(9F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockTextureName(MAssetManager.getMineralTexture("godstone"));
@@ -432,6 +436,8 @@ public class MBlocks
 		CSBlocks.addBlock(steelPlate, "steel_plate_block");
 		CSBlocks.addBlock(meuroditePlate, "meurodite_plate_block");
 		
+		CSBlocks.addBlock(magma, "magma");
+		
 		CSBlocks.addBlock(invincium, "invincium");
 		CSBlocks.addBlock(godstone, "godstone");
 		CSBlocks.addBlock(nuke, "nuke");
@@ -459,7 +465,6 @@ public class MBlocks
 		CSBlocks.addBlock(sugarBlock, "sugar_block");
 		CSBlocks.addBlock(meatBlock, "meat_block");
 		CSBlocks.addBlock(enderBlock, "ender_block");
-		
 		CSBlocks.addBlock(slimeOoze, "slime_ooze");
 		CSBlocks.addBlock(magmaOoze, "magma_ooze");
 		

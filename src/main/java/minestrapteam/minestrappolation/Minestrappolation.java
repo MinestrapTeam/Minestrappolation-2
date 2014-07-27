@@ -32,7 +32,9 @@ import minestrapteam.minestrappolation.tileentity.TileEntityStonecutter;
 import minestrapteam.minestrappolation.world.MOreGenerator;
 
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidRegistry;
 
 @Mod(modid = MReference.MODID, name = MReference.NAME, version = MReference.VERSION, dependencies = MReference.DEPENDENCY)
@@ -47,12 +49,12 @@ public class Minestrappolation extends BaseMod
 	public static CreativeTabs			tabStoneDecor		= new MTabStoneDecor("minestrap_stone_decor");
 	public static CreativeTabs			tabDecorationBlocks	= new MTabDecoration("minestrap_decoration_blocks");
 	public static CreativeTabs			tabTech				= new MTabTech("minestrap_tech");
-	public static CreativeTabs			tabFood				= new MTabFood("minestrap_food");
-	public static CreativeTabs			tabMaterials		= new MTabMaterials("minestrap_materials");
-	public static CreativeTabs			tabCombat			= new MTabCombat("minestrap_combat");
-	public static CreativeTabs			tabTools			= new MTabTools("minestrap_tools");
-	public static CreativeTabs			tabBrewing			= new MTabBrewing("minestrap_brewing");
 	public static CreativeTabs			tabMisc				= new MTabMisc("minestrap_misc");
+	public static CreativeTabs			tabFood				= new MTabFood("minestrap_food");
+	public static CreativeTabs			tabTools			= new MTabTools("minestrap_tools");
+	public static CreativeTabs			tabCombat			= new MTabCombat("minestrap_combat");
+	public static CreativeTabs			tabBrewing			= new MTabBrewing("minestrap_brewing");
+	public static CreativeTabs			tabMaterials		= new MTabMaterials("minestrap_materials");
 	
 	public static MelterRecipeLoader	melter				= new MelterRecipeLoader("melter");
 	
@@ -112,9 +114,7 @@ public class Minestrappolation extends BaseMod
 		
 		MBiomes.loadBiomes();
 		
-		// FluidContainerRegistry.registerFluidContainer(eoFluid, new
-		// ItemStack(EOItemManager.bucketMagma), new
-		// ItemStack(Item.bucketEmpty));
+		FluidContainerRegistry.registerFluidContainer(magmaFluid, new ItemStack(MItems.magmaBucket));
 		
 		GameRegistry.registerTileEntity(TileEntityStonecutter.class, "StoneCutter");
 		GameRegistry.registerTileEntity(TileEntityLocked.class, "Locked");

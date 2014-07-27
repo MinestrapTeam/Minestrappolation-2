@@ -924,6 +924,7 @@ item.soul_bottle.name=Soul Bottle
 item.marrow.name=Marrow
 
 #Misc
+item.magma_bucket.name=Magma Bucket
 item.steel_key.name=Key
 item.steel_lock.name=Lock
 item.tin_plate.name=Tin Plating
@@ -957,4 +958,4 @@ lock.not_owner=You are not the owner of this!
 
 #Potion Effects
 potion.ghastTentacle=Nether Neutrality
-potion.ghastTentavle.postfix=Potion of Nether Neutrality
+potion.ghastTentacle.postfix=Potion of Nether Neutrality

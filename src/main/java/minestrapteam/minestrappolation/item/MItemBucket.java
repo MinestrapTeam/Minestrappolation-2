@@ -6,7 +6,7 @@ import net.minecraft.item.ItemBucket;
 
 public class MItemBucket extends ItemBucket
 {
-	public MItemBucket(int id, Block block)
+	public MItemBucket(Block block)
 	{
 		super(block);
 		this.setContainerItem(Items.bucket);

@@ -7,28 +7,34 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
 import net.minecraftforge.fluids.BlockFluidClassic;
+import net.minecraftforge.fluids.Fluid;
 
 public class BlockMagma extends BlockFluidClassic
 {
-	protected IIcon	stillIcon;
 	protected IIcon	flowingIcon;
 	
-	public BlockMagma(int par1)
+	public BlockMagma()
 	{
 		super(Minestrappolation.magmaFluid, Material.lava);
-		this.setLightLevel(.5F);
+		this.setLightLevel(0.5F);
+	}
+	
+	@Override
+	public Fluid getFluid()
+	{
+		return Minestrappolation.magmaFluid;
 	}
 	
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.stillIcon = iconRegister.registerIcon(MAssetManager.getTexture("liquid/magmaStill"));
-		this.flowingIcon = iconRegister.registerIcon(MAssetManager.getTexture("liquid/magmaFlow"));
+		this.blockIcon = iconRegister.registerIcon(MAssetManager.getLiquidTexture("magma_still"));
+		this.flowingIcon = iconRegister.registerIcon(MAssetManager.getLiquidTexture("magma_flowing"));
 	}
 	
 	@Override
 	public IIcon getIcon(int side, int meta)
 	{
-		return meta == 1 ? this.stillIcon : this.flowingIcon;
+		return meta == 0 ? this.blockIcon : this.flowingIcon;
 	}
 }
