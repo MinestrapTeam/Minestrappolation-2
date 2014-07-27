@@ -100,10 +100,8 @@ public class MelterRecipes extends ExperienceRecipeManager
 		this.addRecipe(Blocks.packed_ice, new ItemStack(Items.water_bucket, 1, 0), 0.8F);
 		
 		this.addRecipe(MBlocks.titaniumOre, new ItemStack(MItems.titaniumIngot, 1, 0), 2.0F);
-		// addSmelting(Blocks.obsidian, new
-		// ItemStack(EOItemManager.bucketMagma,1,0), 0.7F);
-		// addSmelting(Blocks.bedrock, new
-		// ItemStack(EOItemManager.bucketMagma,1,0), 0.7F);
+		this.addRecipe(Blocks.obsidian, new ItemStack(MItems.magmaBucket, 1, 0), 0.7F);
+		this.addRecipe(Blocks.bedrock, new ItemStack(MItems.magmaBucket, 1, 0), 0.7F);
 		this.addRecipe(Blocks.glowstone, new ItemStack(MBlocks.glowGlass), 0.7F);
 	}
 }
