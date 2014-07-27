@@ -10,6 +10,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
+import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class BiomeGenRedwood extends BiomeGenBase
@@ -79,7 +80,7 @@ public class BiomeGenRedwood extends BiomeGenBase
 	@Override
 	public WorldGenAbstractTree func_150567_a(Random rand)
     {
-        return rand.nextInt(4) > 2 ? new WorldGenRedWoodTree() : new WorldGenRedWoodTreeSmall();
+        return rand.nextInt(4) > 2 ? new WorldGenRedWoodTree() : rand.nextInt(8) < 2 ? this.worldGeneratorTrees: new WorldGenRedWoodTreeSmall();
     }
 
 }
