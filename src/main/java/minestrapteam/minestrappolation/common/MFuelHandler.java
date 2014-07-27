@@ -1,6 +1,7 @@
-package minestrapteam.minestrappolation.lib;
+package minestrapteam.minestrappolation.common;
 
 import cpw.mods.fml.common.IFuelHandler;
+import minestrapteam.minestrappolation.lib.MItems;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

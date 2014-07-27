@@ -4,6 +4,7 @@ import java.util.Random;
 
 import cpw.mods.fml.common.IFuelHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.eventhandler.Event.Result;
 import cpw.mods.fml.common.gameevent.TickEvent.Phase;
 import cpw.mods.fml.common.gameevent.TickEvent.PlayerTickEvent;
 import minestrapteam.minestrappolation.block.MBlockCustom2;
@@ -12,6 +13,7 @@ import minestrapteam.minestrappolation.lib.MBlocks;
 import minestrapteam.minestrappolation.lib.MItems;
 import minestrapteam.minestrappolation.lib.MTools;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.boss.EntityWither;
@@ -27,9 +29,21 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.EntityInteractEvent;
+import net.minecraftforge.event.entity.player.FillBucketEvent;
 
 public class MEventHandler implements IFuelHandler
 {
+	@SubscribeEvent
+	public void onBucketFill(FillBucketEvent event)
+	{
+		Block block = event.world.getBlock(event.target.blockX, event.target.blockY, event.target.blockZ);
+		if (block == MBlocks.magma)
+		{
+			event.result = new ItemStack(MItems.magmaBucket);
+			event.setResult(Result.ALLOW);
+		}
+	}
+	
 	@SubscribeEvent
 	public void onDamage(LivingHurtEvent event)
 	{
