@@ -4,7 +4,6 @@ import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.network.IGuiHandler;
 import minestrapteam.minestrappolation.client.gui.GuiBarrel;
 import minestrapteam.minestrappolation.client.gui.GuiCrate;
 import minestrapteam.minestrappolation.client.gui.GuiMelter;
@@ -27,7 +26,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import net.minecraftforge.client.MinecraftForgeClient;
 
-public class MClientProxy extends MCommonProxy implements IGuiHandler
+public class MClientProxy extends MCommonProxy
 {
 	@Override
 	public void preInit(FMLPreInitializationEvent event)

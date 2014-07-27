@@ -50,15 +50,12 @@ public class BlockStonecutter extends BlockContainer
 		{
 			return true;
 		}
-		else
+		if (world.getTileEntity(x, y, z) instanceof TileEntityStonecutter)
 		{
-			if (world.getTileEntity(x, y, z) instanceof TileEntityStonecutter)
-			{
-				player.openGui(Minestrappolation.instance, 3, world, x, y, z);
-			}
-			
-			return true;
+			player.openGui(Minestrappolation.instance, 3, world, x, y, z);
 		}
+		
+		return true;
 	}
 	
 	@Override

@@ -1,14 +1,17 @@
 package minestrapteam.minestrappolation.client.renderer.block;
 
+import static net.minecraftforge.common.util.ForgeDirection.EAST;
+import static net.minecraftforge.common.util.ForgeDirection.NORTH;
+import static net.minecraftforge.common.util.ForgeDirection.SOUTH;
+import static net.minecraftforge.common.util.ForgeDirection.WEST;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
-import minestrapteam.minestrappolation.client.MClientProxy;
+import minestrapteam.minestrappolation.common.MCommonProxy;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public class RenderBlockPlating implements ISimpleBlockRenderingHandler
 {
@@ -19,7 +22,7 @@ public class RenderBlockPlating implements ISimpleBlockRenderingHandler
 	@Override
 	public int getRenderId()
 	{
-		return MClientProxy.platingRenderID;
+		return MCommonProxy.platingRenderID;
 	}
 	
 	@Override
@@ -30,10 +33,24 @@ public class RenderBlockPlating implements ISimpleBlockRenderingHandler
 	@Override
 	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int metadata, RenderBlocks renderer)
 	{
-		boolean xp = world.isSideSolid(x + 1, y, z, ForgeDirection.WEST, false);
-		boolean xn = world.isSideSolid(x - 1, y, z, ForgeDirection.EAST, false);
-		boolean zp = world.isSideSolid(x, y, z + 1, ForgeDirection.NORTH, false);
-		boolean zn = world.isSideSolid(x, y, z - 1, ForgeDirection.SOUTH, false);
+		// boolean n = world.isSideSolid(x, y, z + 1, SOUTH, false);
+		// boolean e = world.isSideSolid(x + 1, y, z, WEST, false);
+		// boolean s = world.isSideSolid(x, y, z - 1, NORTH, false);
+		// boolean w = world.isSideSolid(x - 1, y, z, EAST, false);
+		// boolean ne = n || e || (world.isSideSolid(x + 1, y, z + 1, SOUTH,
+		// false) && world.isSideSolid(x + 1, y, z + 1, WEST, false));
+		// boolean nw = n || w || (world.isSideSolid(x - 1, y, z + 1, SOUTH,
+		// false) && world.isSideSolid(x - 1, y, z + 1, EAST, false));
+		// boolean se = s || e || (world.isSideSolid(x + 1, y, z - 1, NORTH,
+		// false) && world.isSideSolid(x + 1, y, z - 1, WEST, false));
+		// boolean sw = s || w || (world.isSideSolid(x - 1, y, z - 1, NORTH,
+		// false) && world.isSideSolid(x - 1, y, z - 1, EAST, false));
+		//
+		
+		boolean xp = world.isSideSolid(x + 1, y, z, WEST, false);
+		boolean xn = world.isSideSolid(x - 1, y, z, EAST, false);
+		boolean zp = world.isSideSolid(x, y, z + 1, NORTH, false);
+		boolean zn = world.isSideSolid(x, y, z - 1, SOUTH, false);
 		
 		Tessellator tessellator = Tessellator.instance;
 		tessellator.setColorOpaque_F(1.0F, 1.0F, 1.0F);
