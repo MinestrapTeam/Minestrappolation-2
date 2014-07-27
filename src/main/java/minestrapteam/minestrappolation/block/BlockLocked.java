@@ -31,6 +31,7 @@ public class BlockLocked extends Block implements ITileEntityProvider
 		if (!world.isRemote)
 		{
 			player.addChatMessage(new ChatComponentTranslation("lock.locked"));
+			return false;
 		}
 		return true;
 	}
