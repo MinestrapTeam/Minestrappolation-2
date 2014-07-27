@@ -22,13 +22,13 @@ public class ItemLock extends ItemKey
 			return true;
 		}
 		
-		if (stack.stackTagCompound == null)
+		String name = getOwner(stack);
+		if (name.isEmpty())
 		{
 			createNBT(stack, player);
+			return false;
 		}
-		
-		String name = stack.stackTagCompound.getString("player");
-		if (!player.getDisplayName().equals(name))
+		else if (!isOwner(name, player))
 		{
 			player.addChatMessage(new ChatComponentTranslation("lock.not_owner"));
 			return false;

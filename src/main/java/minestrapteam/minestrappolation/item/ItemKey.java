@@ -32,11 +32,15 @@ public class ItemKey extends MItem
 	{
 		if (stack.stackTagCompound == null)
 		{
-			ItemKey.createNBT(stack, player);
+			ItemKey.createNBT(stack, null);
 		}
 		
-		String name = stack.stackTagCompound.getString("player");
-		if (player.getDisplayName().equals(name))
+		String name = getOwner(stack);
+		if (name.isEmpty())
+		{
+			list.add(EnumChatFormatting.GRAY + "No Owner");
+		}
+		else if (isOwner(name, player))
 		{
 			list.add(EnumChatFormatting.GRAY + "Owner: " + EnumChatFormatting.GREEN + name);
 		}
@@ -54,13 +58,13 @@ public class ItemKey extends MItem
 			return true;
 		}
 		
-		if (stack.stackTagCompound == null)
+		String name = getOwner(stack);
+		if (name.isEmpty())
 		{
 			createNBT(stack, player);
+			return false;
 		}
-		
-		String name = stack.stackTagCompound.getString("player");
-		if (!player.getDisplayName().equals(name))
+		else if (!isOwner(name, player))
 		{
 			player.addChatMessage(new ChatComponentTranslation("lock.not_owner"));
 			return false;
@@ -85,10 +89,36 @@ public class ItemKey extends MItem
 		return false;
 	}
 	
-	public static void createNBT(ItemStack item, EntityPlayer player)
+	public static void createNBT(ItemStack stack, EntityPlayer player)
 	{
-		NBTTagCompound nbt = new NBTTagCompound();
-		item.stackTagCompound = nbt;
-		nbt.setString("player", player.getDisplayName());
+		String name = player == null ? "" : player.getDisplayName();
+		
+		if (stack.stackTagCompound == null)
+		{
+			stack.stackTagCompound = new NBTTagCompound();
+		}
+		stack.stackTagCompound.setString("LockOwner", name);
+	}
+	
+	public static String getOwner(ItemStack stack)
+	{
+		if (stack.stackTagCompound == null)
+		{
+			return "";
+		}
+		return stack.stackTagCompound.getString("LockOwner");
+	}
+	
+	public static boolean isOwner(String ownerName, EntityPlayer player)
+	{
+		if (ownerName.isEmpty())
+		{
+			return true;
+		}
+		if (!player.getDisplayName().equals(ownerName))
+		{
+			return false;
+		}
+		return true;
 	}
 }
