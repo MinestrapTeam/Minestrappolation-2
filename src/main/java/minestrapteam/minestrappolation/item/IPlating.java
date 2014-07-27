@@ -15,6 +15,8 @@ public interface IPlating
 	
 	public String getType(ItemStack stack);
 	
+	public float getEntityDamage();
+	
 	public float getDigSpeed();
 	
 	public int getDurability();

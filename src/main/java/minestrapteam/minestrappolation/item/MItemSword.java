@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import com.google.common.collect.Multimap;
+
 import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.block.Block;
@@ -76,6 +78,12 @@ public class MItemSword extends ItemSword implements IPlatable
 	public int getMaxDamage(ItemStack stack)
 	{
 		return MItemTool.getMaxDamage(super.getMaxDamage(stack), stack);
+	}
+	
+	@Override
+	public Multimap getAttributeModifiers(ItemStack stack)
+	{
+		return MItemTool.getAttributeModifiers(super.getAttributeModifiers(stack), stack);
 	}
 	
 	@Override

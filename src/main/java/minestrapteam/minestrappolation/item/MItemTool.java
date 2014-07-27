@@ -6,12 +6,14 @@ import java.util.Map.Entry;
 import clashsoft.cslib.minecraft.lang.I18n;
 
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Multimap;
 
 import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumAction;
@@ -20,12 +22,13 @@ import net.minecraft.item.ItemTool;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 public class MItemTool extends ItemTool implements IPlatable
 {
+	public static final UUID	PLATING_UUID	= UUID.fromString("DB3F55D3-645C-4F38-A497-9C13A33DB5CF");
+	
 	protected boolean			ignites;
 	protected boolean			weapon;
 	
@@ -128,13 +131,6 @@ public class MItemTool extends ItemTool implements IPlatable
 			entity.addPotionEffect(new PotionEffect(Potion.poison.id, 20 * 12, 0));
 			level -= 0.5F;
 			setPoisonLevel(stack, level);
-		}
-		
-		IPlating plating = getPlating(stack);
-		if (plating != null)
-		{
-			float f = plating.getDigSpeed() * 1.25F;
-			entity.attackEntityFrom(DamageSource.causeMobDamage(attacker), f);
 		}
 		
 		if (ignites)
@@ -240,6 +236,23 @@ public class MItemTool extends ItemTool implements IPlatable
 	public int getMaxDamage(ItemStack stack)
 	{
 		return getMaxDamage(super.getMaxDamage(stack), stack);
+	}
+	
+	public static Multimap getAttributeModifiers(Multimap multimap, ItemStack stack)
+	{
+		IPlating plating = getPlating(stack);
+		if (plating != null)
+		{
+			AttributeModifier modifier = new AttributeModifier(PLATING_UUID, "Plating Modifier", plating.getEntityDamage(), 0);
+			multimap.put("generic.attackDamage", modifier);
+		}
+		return multimap;
+	}
+	
+	@Override
+	public Multimap getAttributeModifiers(ItemStack stack)
+	{
+		return getAttributeModifiers(super.getAttributeModifiers(stack), stack);
 	}
 	
 	@Override

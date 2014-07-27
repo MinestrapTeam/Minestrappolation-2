@@ -7,13 +7,15 @@ import net.minecraft.item.ItemStack;
 public class ItemPlating extends ItemReed implements IPlating
 {
 	private String	plating;
+	private float	entityDamage;
 	private int		durability;
 	private float	digSpeed;
 	
-	public ItemPlating(Block block, String plating, int durability, float digSpeed)
+	public ItemPlating(Block block, String plating, float entityDamage, int durability, float digSpeed)
 	{
 		super(block);
 		this.plating = plating;
+		this.entityDamage = entityDamage;
 		this.durability = durability;
 		this.digSpeed = digSpeed;
 		
@@ -41,6 +43,12 @@ public class ItemPlating extends ItemReed implements IPlating
 	public String getType(ItemStack stack)
 	{
 		return this.plating;
+	}
+	
+	@Override
+	public float getEntityDamage()
+	{
+		return this.entityDamage;
 	}
 	
 	@Override

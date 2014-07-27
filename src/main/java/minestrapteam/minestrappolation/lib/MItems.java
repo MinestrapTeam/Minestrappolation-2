@@ -200,10 +200,10 @@ public class MItems
 		
 		// bucketMagma
 		
-		plateTinItem = new ItemPlating(MBlocks.tinPlate, "tin", 64, 1.2F).setCreativeTab(tabMisc).setTextureName(MAssetManager.getMineralTexture("tin_plating"));
-		plateBronzeItem = new ItemPlating(MBlocks.bronzePlate, "bronze", 128, 1.3F).setCreativeTab(tabMisc).setTextureName(MAssetManager.getMineralTexture("bronze_plating"));
-		plateSteelItem = new ItemPlating(MBlocks.steelPlate, "steel", 192, 1.4F).setCreativeTab(tabMisc).setTextureName(MAssetManager.getMineralTexture("steel_plating"));
-		plateMeuroditeItem = new ItemPlating(MBlocks.meuroditePlate, "meurodite", 256, 1.5F).setCreativeTab(tabMisc).setTextureName(MAssetManager.getMineralTexture("meurodite_plating"));
+		plateTinItem = new ItemPlating(MBlocks.tinPlate, "tin", 1F, 64, 1.2F).setCreativeTab(tabMisc).setTextureName(MAssetManager.getMineralTexture("tin_plating"));
+		plateBronzeItem = new ItemPlating(MBlocks.bronzePlate, "bronze", 1.5F, 128, 1.3F).setCreativeTab(tabMisc).setTextureName(MAssetManager.getMineralTexture("bronze_plating"));
+		plateSteelItem = new ItemPlating(MBlocks.steelPlate, "steel", 2F, 192, 1.4F).setCreativeTab(tabMisc).setTextureName(MAssetManager.getMineralTexture("steel_plating"));
+		plateMeuroditeItem = new ItemPlating(MBlocks.meuroditePlate, "meurodite", 2.5F, 256, 1.5F).setCreativeTab(tabMisc).setTextureName(MAssetManager.getMineralTexture("meurodite_plating"));
 		
 		ropeItem = new ItemReed(MBlocks.rope).setCreativeTab(tabDecorationBlocks).setTextureName(MAssetManager.getTexture("rope"));
 		cardboardItem = new ItemReed(MBlocks.cardboard).setCreativeTab(tabDecorationBlocks).setTextureName(MAssetManager.getTexture("cardboard"));

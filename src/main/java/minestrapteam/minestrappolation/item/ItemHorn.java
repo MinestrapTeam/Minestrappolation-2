@@ -28,6 +28,12 @@ public class ItemHorn extends MItem implements IPlating
 	}
 	
 	@Override
+	public float getEntityDamage()
+	{
+		return 1F;
+	}
+	
+	@Override
 	public float getDigSpeed()
 	{
 		return 1.1F;
