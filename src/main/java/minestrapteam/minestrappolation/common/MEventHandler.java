@@ -3,8 +3,8 @@ package minestrapteam.minestrappolation.common;
 import java.util.Random;
 
 import cpw.mods.fml.common.IFuelHandler;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.eventhandler.Event.Result;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent.Phase;
 import cpw.mods.fml.common.gameevent.TickEvent.PlayerTickEvent;
 import minestrapteam.minestrappolation.block.MBlockCustom2;
@@ -20,7 +20,6 @@ import net.minecraft.entity.boss.EntityWither;
 import net.minecraft.entity.monster.*;
 import net.minecraft.entity.passive.*;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -418,11 +417,14 @@ public class MEventHandler implements IFuelHandler
 	@SubscribeEvent
 	public void entityInteract(EntityInteractEvent event)
 	{
-		InventoryPlayer inventory = event.entityPlayer.inventory;
-		if (event.target instanceof EntityGhast && inventory.getCurrentItem().getItem() == Items.glass_bottle)
+		if (event.target instanceof EntityGhast)
 		{
-			inventory.getCurrentItem().stackSize--;
-			inventory.addItemStackToInventory(new ItemStack(MItems.ghastlySoul, 1));
+			ItemStack stack = event.entityPlayer.getHeldItem();
+			if (stack != null && stack.getItem() == Items.glass_bottle)
+			{
+				stack.stackSize--;
+				event.entityPlayer.inventory.addItemStackToInventory(new ItemStack(MItems.ghastlySoul, 1));
+			}
 		}
 	}
 	
