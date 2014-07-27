@@ -26,9 +26,7 @@ import minestrapteam.minestrappolation.creativetab.*;
 import minestrapteam.minestrappolation.entity.*;
 import minestrapteam.minestrappolation.lib.*;
 import minestrapteam.minestrappolation.network.MNetHandler;
-import minestrapteam.minestrappolation.tileentity.TileEntityLocked;
 import minestrapteam.minestrappolation.tileentity.TileEntityMelter;
-import minestrapteam.minestrappolation.tileentity.TileEntityStonecutter;
 import minestrapteam.minestrappolation.world.MOreGenerator;
 
 import net.minecraft.creativetab.CreativeTabs;
@@ -115,9 +113,6 @@ public class Minestrappolation extends BaseMod
 		MBiomes.loadBiomes();
 		
 		FluidContainerRegistry.registerFluidContainer(magmaFluid, new ItemStack(MItems.magmaBucket));
-		
-		GameRegistry.registerTileEntity(TileEntityStonecutter.class, "StoneCutter");
-		GameRegistry.registerTileEntity(TileEntityLocked.class, "Locked");
 		
 		EntityRegistry.registerModEntity(EntityGrenade.class, "Grenade", 2, this, 40, 3, true);
 		EntityRegistry.registerModEntity(EntityNukePrimed.class, "NukePrimed", 6, this, 350, 5, false);

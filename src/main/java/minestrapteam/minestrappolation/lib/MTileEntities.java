@@ -1,9 +1,7 @@
 package minestrapteam.minestrappolation.lib;
 
-import minestrapteam.minestrappolation.tileentity.TileEntityBarrel;
-import minestrapteam.minestrappolation.tileentity.TileEntityCrate;
-import minestrapteam.minestrappolation.tileentity.TileEntityGoblet;
 import cpw.mods.fml.common.registry.GameRegistry;
+import minestrapteam.minestrappolation.tileentity.*;
 
 public class MTileEntities
 {
@@ -12,5 +10,8 @@ public class MTileEntities
 		GameRegistry.registerTileEntityWithAlternatives(TileEntityCrate.class, "Crate", "tileEntityCrate");
 		GameRegistry.registerTileEntityWithAlternatives(TileEntityBarrel.class, "Barrel", "tileEntityBarrel");
 		GameRegistry.registerTileEntityWithAlternatives(TileEntityGoblet.class, "Goblet", "tileEntitygoblet");
+
+		GameRegistry.registerTileEntity(TileEntityStonecutter.class, "StoneCutter");
+		GameRegistry.registerTileEntity(TileEntityLocked.class, "Locked");
 	}
 }
