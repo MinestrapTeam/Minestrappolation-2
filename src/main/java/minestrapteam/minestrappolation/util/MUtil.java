@@ -14,10 +14,8 @@ import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.world.World;
 
 /**
- * This class is for additional block functions i think we will need in the
- * future feel free to use any of them all written by SoBiohazardous (Domenic)
- * 
  * @author SoBiohazardous
+ * @author Clashsoft
  */
 public class MUtil
 {

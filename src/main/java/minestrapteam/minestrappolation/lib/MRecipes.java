@@ -322,20 +322,6 @@ public class MRecipes
 		MUtil.removeRecipe(new ItemStack(Blocks.stained_hardened_clay, 8, 13));
 		MUtil.removeRecipe(new ItemStack(Blocks.stained_hardened_clay, 8, 14));
 		MUtil.removeRecipe(new ItemStack(Blocks.stained_hardened_clay, 8, 15));
-		
-		MUtil.removeRecipe(new ItemStack(Blocks.wooden_slab, 6, 0));
-		MUtil.removeRecipe(new ItemStack(Blocks.wooden_slab, 6, 1));
-		MUtil.removeRecipe(new ItemStack(Blocks.wooden_slab, 6, 2));
-		MUtil.removeRecipe(new ItemStack(Blocks.wooden_slab, 6, 3));
-		MUtil.removeRecipe(new ItemStack(Blocks.wooden_slab, 6, 4));
-		MUtil.removeRecipe(new ItemStack(Blocks.wooden_slab, 6, 5));
-		
-		GameRegistry.addRecipe(new ItemStack(Blocks.wooden_slab, 6, 0), new Object[] { "WWW", 'W', new ItemStack(Blocks.planks, 1, 0) });
-		GameRegistry.addRecipe(new ItemStack(Blocks.wooden_slab, 6, 1), new Object[] { "WWW", 'W', new ItemStack(Blocks.planks, 1, 1) });
-		GameRegistry.addRecipe(new ItemStack(Blocks.wooden_slab, 6, 2), new Object[] { "WWW", 'W', new ItemStack(Blocks.planks, 1, 2) });
-		GameRegistry.addRecipe(new ItemStack(Blocks.wooden_slab, 6, 3), new Object[] { "WWW", 'W', new ItemStack(Blocks.planks, 1, 3) });
-		GameRegistry.addRecipe(new ItemStack(Blocks.wooden_slab, 6, 4), new Object[] { "WWW", 'W', new ItemStack(Blocks.planks, 1, 4) });
-		GameRegistry.addRecipe(new ItemStack(Blocks.wooden_slab, 6, 5), new Object[] { "WWW", 'W', new ItemStack(Blocks.planks, 1, 5) });
 	}
 	
 	public static void addStairRecipe(Block stairs, ItemStack material)
