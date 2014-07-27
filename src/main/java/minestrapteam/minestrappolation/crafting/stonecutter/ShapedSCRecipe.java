@@ -1,8 +1,12 @@
 package minestrapteam.minestrappolation.crafting.stonecutter;
 
+import java.util.HashMap;
+
 import clashsoft.cslib.minecraft.stack.CSStacks;
 
+import net.minecraft.block.Block;
 import net.minecraft.inventory.InventoryCrafting;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
@@ -19,13 +23,90 @@ public class ShapedSCRecipe implements ISCRecipe
 	
 	protected boolean			hasNBTResult;
 	
-	public ShapedSCRecipe(int width, int height, ItemStack[] data, ItemStack output, ItemStack extra)
+	public ShapedSCRecipe(ItemStack output, ItemStack extra, Object... data)
 	{
+		String s = "";
+		int index = 0;
+		int width = 0;
+		int height = 0;
+		
+		if (data[index] instanceof String[])
+		{
+			String[] strings = (String[]) data[index++];
+			
+			for (String s1 : strings)
+			{
+				++height;
+				width = s1.length();
+				s += s1;
+			}
+		}
+		else
+		{
+			while (data[index] instanceof String)
+			{
+				String s1 = (String) data[index++];
+				++height;
+				width = s1.length();
+				s += s1;
+			}
+		}
+		
+		HashMap map;
+		
+		for (map = new HashMap(); index < data.length; index += 2)
+		{
+			Character c = (Character) data[index];
+			int index1 = index + 1;
+			ItemStack stack1 = null;
+			
+			if (data[index1] instanceof Item)
+			{
+				stack1 = new ItemStack((Item) data[index1]);
+			}
+			else if (data[index1] instanceof Block)
+			{
+				stack1 = new ItemStack((Block) data[index1], 1, 32767);
+			}
+			else if (data[index1] instanceof ItemStack)
+			{
+				stack1 = (ItemStack) data[index1];
+			}
+			
+			map.put(c, stack1);
+		}
+		
+		int len = width * height;
+		ItemStack[] stacks = new ItemStack[len];
+		
+		for (int i = 0; i < len; ++i)
+		{
+			char c = s.charAt(i);
+			
+			if (map.containsKey(Character.valueOf(c)))
+			{
+				stacks[i] = ((ItemStack) map.get(Character.valueOf(c))).copy();
+			}
+			else
+			{
+				stacks[i] = null;
+			}
+		}
+		
+		this.recipeWidth = width;
+		this.recipeHeight = height;
+		this.recipeItems = stacks;
+		this.recipeOutput = output;
+		this.extraSlot = extra;
+	}
+	
+	public ShapedSCRecipe(ItemStack output, ItemStack extra, int width, int height, ItemStack[] data)
+	{
+		this.recipeOutput = output;
+		this.extraSlot = extra;
 		this.recipeWidth = width;
 		this.recipeHeight = height;
 		this.recipeItems = data;
-		this.recipeOutput = output;
-		this.extraSlot = extra;
 	}
 	
 	@Override

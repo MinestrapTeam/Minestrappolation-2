@@ -5,7 +5,9 @@ import java.util.List;
 
 import clashsoft.cslib.minecraft.stack.CSStacks;
 
+import net.minecraft.block.Block;
 import net.minecraft.inventory.InventoryCrafting;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -14,6 +16,38 @@ public class ShapelessSCRecipe implements ISCRecipe
 	public final List		recipeItems;
 	public final ItemStack	recipeOutput;
 	public final ItemStack	extraSlot;
+	
+	public ShapelessSCRecipe(ItemStack output, ItemStack extraSlot, Object... data)
+	{
+		ArrayList list = new ArrayList();
+		int len = data.length;
+		
+		for (int i = 0; i < len; ++i)
+		{
+			Object o = data[i];
+			
+			if (o instanceof ItemStack)
+			{
+				list.add(((ItemStack) o).copy());
+			}
+			else if (o instanceof Item)
+			{
+				list.add(new ItemStack((Item) o));
+			}
+			else if (o instanceof Block)
+			{
+				list.add(new ItemStack((Block) o));
+			}
+			else
+			{
+				throw new RuntimeException("Invalid shapeless recipy!");
+			}
+		}
+		
+		this.recipeItems = list;
+		this.recipeOutput = output;
+		this.extraSlot = extraSlot;
+	}
 	
 	public ShapelessSCRecipe(ItemStack output, List items, ItemStack extraSlot)
 	{
@@ -31,6 +65,11 @@ public class ShapelessSCRecipe implements ISCRecipe
 	@Override
 	public boolean matches(InventoryCrafting inventory, ItemStack extra, World par2World)
 	{
+		if (!CSStacks.equals(this.extraSlot, extra))
+		{
+			return false;
+		}
+		
 		ArrayList<ItemStack> list = new ArrayList(this.recipeItems);
 		
 		for (int i = 0; i < inventory.getSizeInventory(); ++i)

@@ -2,16 +2,17 @@ package minestrapteam.minestrappolation.crafting.stonecutter;
 
 import static minestrapteam.minestrappolation.lib.MBlocks.edgeStoneBrick;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 import minestrapteam.minestrappolation.lib.MBlocks;
 import minestrapteam.minestrappolation.lib.MItems;
 
-import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.InventoryCrafting;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -1184,109 +1185,15 @@ public class StonecutterCraftingManager
 	
 	public ShapedSCRecipe addRecipe(ItemStack output, ItemStack extraSlot, Object... data)
 	{
-		this.listSorted = false;
-		
-		String s = "";
-		int index = 0;
-		int width = 0;
-		int height = 0;
-		
-		if (data[index] instanceof String[])
-		{
-			String[] strings = (String[]) data[index++];
-			
-			for (String s1 : strings)
-			{
-				++height;
-				width = s1.length();
-				s += s1;
-			}
-		}
-		else
-		{
-			while (data[index] instanceof String)
-			{
-				String s1 = (String) data[index++];
-				++height;
-				width = s1.length();
-				s += s1;
-			}
-		}
-		
-		HashMap map;
-		
-		for (map = new HashMap(); index < data.length; index += 2)
-		{
-			Character c = (Character) data[index];
-			int index1 = index + 1;
-			ItemStack stack1 = null;
-			
-			if (data[index1] instanceof Item)
-			{
-				stack1 = new ItemStack((Item) data[index1]);
-			}
-			else if (data[index1] instanceof Block)
-			{
-				stack1 = new ItemStack((Block) data[index1], 1, 32767);
-			}
-			else if (data[index1] instanceof ItemStack)
-			{
-				stack1 = (ItemStack) data[index1];
-			}
-			
-			map.put(c, stack1);
-		}
-		
-		int len = width * height;
-		ItemStack[] stacks = new ItemStack[len];
-		
-		for (int i = 0; i < len; ++i)
-		{
-			char c = s.charAt(i);
-			
-			if (map.containsKey(Character.valueOf(c)))
-			{
-				stacks[i] = ((ItemStack) map.get(Character.valueOf(c))).copy();
-			}
-			else
-			{
-				stacks[i] = null;
-			}
-		}
-		
-		ShapedSCRecipe recipe = new ShapedSCRecipe(width, height, stacks, output, extraSlot);
+		ShapedSCRecipe recipe = new ShapedSCRecipe(output, extraSlot, data);
 		this.recipes.add(recipe);
+		this.listSorted = false;
 		return recipe;
 	}
 	
 	public ShapelessSCRecipe addShapelessRecipe(ItemStack stack, ItemStack extra, Object... data)
 	{
-		ArrayList list = new ArrayList();
-		int len = data.length;
-		
-		for (int i = 0; i < len; ++i)
-		{
-			Object o = data[i];
-			
-			if (o instanceof ItemStack)
-			{
-				list.add(((ItemStack) o).copy());
-			}
-			else if (o instanceof Item)
-			{
-				list.add(new ItemStack((Item) o));
-			}
-			else if (o instanceof Block)
-			{
-				list.add(new ItemStack((Block) o));
-			}
-			else
-			{
-				throw new RuntimeException("Invalid shapeless recipy!");
-			}
-		}
-		
-		ShapelessSCRecipe recipe = new ShapelessSCRecipe(stack, list, extra);
+		ShapelessSCRecipe recipe = new ShapelessSCRecipe(stack, extra, data);
 		this.recipes.add(recipe);
 		return recipe;
 	}
@@ -1308,8 +1215,9 @@ public class StonecutterCraftingManager
 	{
 		if (!this.listSorted)
 		{
-			Collections.sort(this.recipes, new Comparator()
+			Collections.sort(this.recipes, new Comparator<ISCRecipe>()
 			{
+				@Override
 				public int compare(ISCRecipe recipe1, ISCRecipe recipe2)
 				{
 					boolean flag1 = recipe1 instanceof ShapedSCRecipe;
@@ -1317,12 +1225,6 @@ public class StonecutterCraftingManager
 					boolean flag3 = recipe2 instanceof ShapedSCRecipe;
 					boolean flag4 = recipe2 instanceof ShapelessSCRecipe;
 					return flag2 && flag3 ? 1 : flag4 && flag1 ? -1 : recipe2.getRecipeSize() < recipe1.getRecipeSize() ? -1 : recipe2.getRecipeSize() > recipe1.getRecipeSize() ? 1 : 0;
-				}
-				
-				@Override
-				public int compare(Object o1, Object o2)
-				{
-					return this.compare((ISCRecipe) o1, (ISCRecipe) o2);
 				}
 			});
 			
