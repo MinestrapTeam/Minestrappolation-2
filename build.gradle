@@ -75,7 +75,7 @@ task sourceJar(type:Jar, dependsOn:'classes')
 sourceJar
 {
     classifier = 'sources'
-    archiveName = "${archivesBaseName} ${version}-sources.jar"
+    archiveName = "${archivesBaseName} ${version}-src.jar"
     from ('build/sources/java')
     {
         include('minestrapteam/minestrappolation/**')
@@ -85,3 +85,5 @@ sourceJar
         include('assets/minestrappolation/**')
     }
 }
+
+task buildApi(dependsOn:['build', 'sourceJar', 'deobfJar'])
