@@ -9,9 +9,15 @@ import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.world.World;
+import net.minecraftforge.oredict.RecipeSorter;
+import net.minecraftforge.oredict.RecipeSorter.Category;
 
 public class RecipesPlatings implements IRecipe
 {
+	static
+	{
+		RecipeSorter.register("minestrappolation:plating", RecipesPlatings.class, Category.SHAPELESS, "after:minecraft:shapeless");
+	}
 	
 	@Override
 	public ItemStack getCraftingResult(InventoryCrafting inventory)
