@@ -26,9 +26,9 @@ public class NEIStonecutterRecipeManager extends ShapedRecipeHandler
 		
 		public SCCachedShapedRecipe(int width, int height, Object[] items, ItemStack out)
 		{
-			this.result = new PositionedStack(out, 119, 24);
 			this.ingredients = new ArrayList<PositionedStack>();
 			this.setIngredients(width, height, items);
+			this.result = new PositionedStack(out, 132, 24);
 		}
 		
 		public SCCachedShapedRecipe(ShapedSCRecipe recipe)
@@ -47,7 +47,7 @@ public class NEIStonecutterRecipeManager extends ShapedRecipeHandler
 						continue;
 					}
 					
-					PositionedStack stack = new PositionedStack(items[y * width + x], 25 + x * 18, 6 + y * 18, false);
+					PositionedStack stack = new PositionedStack(items[y * width + x], 39 + x * 18, 6 + y * 18, false);
 					stack.setMaxSize(1);
 					this.ingredients.add(stack);
 				}
