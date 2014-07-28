@@ -31,11 +31,11 @@ minecraft
     version = "1.7.10-10.13.0.1187"
     if(file('../run').exists())
 	{
-	    runDir = "../run/"
+        runDir = "../run/"
 	}
 	else
 	{
-	    runDir = "eclipse/"
+        runDir = "eclipse/"
 	}
 }
 
