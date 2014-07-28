@@ -14,7 +14,7 @@ public class MTabMisc extends CreativeTabs
 	@Override
 	public Item getTabIconItem()
 	{
-		return MItems.hangGlider;
+		return MItems.animalBones;
 	}
 	
 }

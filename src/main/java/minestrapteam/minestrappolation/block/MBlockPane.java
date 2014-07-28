@@ -4,7 +4,6 @@ import java.util.Random;
 
 import minestrapteam.minestrappolation.lib.MBlocks;
 import minestrapteam.minestrappolation.lib.MItems;
-
 import net.minecraft.block.BlockPane;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
@@ -27,7 +26,7 @@ public class MBlockPane extends BlockPane
 		{
 			return 1;
 		}
-		return 0;
+		return super.getRenderBlockPass();
 	}
 	
 	@Override
@@ -43,7 +42,7 @@ public class MBlockPane extends BlockPane
 	@Override
 	public int getRenderType()
 	{
-		return this.blockMaterial == Material.cloth ? 41 : 18;
+		return this.blockMaterial == Material.cloth ? 41 : this == MBlocks.glowGlassPane ? super.getRenderType() : 18;
 	}
 	
 	@Override

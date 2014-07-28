@@ -272,7 +272,7 @@ public class MBlocks
 	public static Block			steelPlate;
 	public static Block			meuroditePlate;
 	
-	public static Block magma;
+	public static Block			magma;
 	
 	public static Block			invincium;
 	public static Block			godstone;
@@ -335,9 +335,9 @@ public class MBlocks
 		bronzeBlock = new MBlock(Material.iron).setHardness(7F).setResistance(20F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockTextureName(MAssetManager.getMineralTexture("bronze_block"));
 		titaniumBlock = new MBlock(Material.iron).setHardness(10F).setResistance(12000000.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockTextureName(MAssetManager.getMineralTexture("titanium_block"));
 		uraniumBlock = new BlockUraniumRaw(Material.rock).setHardness(6F).setResistance(9F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockTextureName(MAssetManager.getMineralTexture("uranium_block"));
-		uraniumInsulated = new BlockUraniumInsulated(Material.iron).setHardness(6F).setResistance(9F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeMetal);
+		uraniumInsulated = new BlockUraniumInsulated(Material.iron).setHardness(6F).setResistance(9F).setCreativeTab(Minestrappolation.tabTech).setStepSound(Block.soundTypeMetal);
 		plutoniumBlock = new BlockPlutoniumRaw(Material.rock).setHardness(6F).setResistance(9F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockTextureName(MAssetManager.getMineralTexture("plutonium_block"));
-		plutoniumInsulated = new BlockPlutoniumInsulated(Material.iron).setHardness(6F).setResistance(9F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeMetal);
+		plutoniumInsulated = new BlockPlutoniumInsulated(Material.iron).setHardness(6F).setResistance(9F).setCreativeTab(Minestrappolation.tabTech).setStepSound(Block.soundTypeMetal);
 		meuroditeBlock = new MBlock(Material.iron).setHardness(5F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setResistance(10F).setStepSound(Block.soundTypeStone).setBlockTextureName(MAssetManager.getMineralTexture("meurodite_block"));
 		sunstoneBlock = new BlockSunstone(Material.glass).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MAssetManager.getMineralTexture("sunstone_block"));
 		toriteBlock = new MBlock(Material.iron).setHardness(6F).setResistance(10F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockTextureName(MAssetManager.getMineralTexture("torite_block"));
@@ -357,47 +357,48 @@ public class MBlocks
 		nuke = new BlockNuke().setHardness(0.0F).setCreativeTab(Minestrappolation.tabTech).setStepSound(Block.soundTypeGrass);
 		melterIdle = new BlockMelter(false).setHardness(6F).setResistance(8.0F).setCreativeTab(Minestrappolation.tabTech).setStepSound(Block.soundTypeStone);
 		melterBurning = new BlockMelter(true).setHardness(6F).setResistance(8.0F).setStepSound(Block.soundTypeStone);
-		stoneCutter = new BlockStonecutter().setCreativeTab(Minestrappolation.tabTech).setBlockTextureName(MAssetManager.getMachineTexture("stonecutter")).setHardness(3.5F).setStepSound(Block.soundTypeStone);
 		
 		lockedBlock = (BlockLocked) new BlockLocked().setBlockUnbreakable().setBlockTextureName("iron_block");
 		
-		checkerTiles = new BlockTiles().setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone);
-		flintEndstoneStairs = new MBlockStairs(checkerTiles, 0).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockName("stairs_flint_endstone");
-		flintQuartzStairs = new MBlockStairs(checkerTiles, 1).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockName("stairs_flint_quartz");
-		obsidianEndstoneStairs = new MBlockStairs(checkerTiles, 2).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockName("stairs_obsidian_endstone");
-		obsidianQuartzStairs = new MBlockStairs(checkerTiles, 3).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockName("stairs_obsidan_quartz");
+		stoneCutter = new BlockStonecutter().setCreativeTab(Minestrappolation.tabDecorationBlocks).setBlockTextureName(MAssetManager.getMachineTexture("stonecutter")).setHardness(3.5F).setStepSound(Block.soundTypeStone);
 		
-		edgeStoneBrick = new BlockEdgeStoneBrick().setHardness(1.5F).setResistance(10F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone);
+		checkerTiles = new BlockTiles().setCreativeTab(Minestrappolation.tabStoneDecor).setStepSound(Block.soundTypeStone);
+		flintEndstoneStairs = new MBlockStairs(checkerTiles, 0).setCreativeTab(Minestrappolation.tabStoneDecor).setBlockName("stairs_flint_endstone");
+		flintQuartzStairs = new MBlockStairs(checkerTiles, 1).setCreativeTab(Minestrappolation.tabStoneDecor).setBlockName("stairs_flint_quartz");
+		obsidianEndstoneStairs = new MBlockStairs(checkerTiles, 2).setCreativeTab(Minestrappolation.tabStoneDecor).setBlockName("stairs_obsidian_endstone");
+		obsidianQuartzStairs = new MBlockStairs(checkerTiles, 3).setCreativeTab(Minestrappolation.tabStoneDecor).setBlockName("stairs_obsidan_quartz");
+		
+		edgeStoneBrick = new BlockEdgeStoneBrick().setHardness(1.5F).setResistance(10F).setCreativeTab(Minestrappolation.tabStoneDecor).setStepSound(Block.soundTypeStone);
 		snowBrick = new BlockSnowBrick().setHardness(0.2F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeSnow).setBlockTextureName(MAssetManager.getTexture("snow_tiles"));
 		
-		glowGlass = new BlockGlowGlass(Material.glass, true).setHardness(0.8F).setCreativeTab(Minestrappolation.tabDecorationBlocks).setStepSound(Block.soundTypeGlass).setBlockTextureName(MAssetManager.getTexture("glow_glass"));
+		glowGlass = new BlockGlowGlass(Material.glass, true).setHardness(0.8F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeGlass).setBlockTextureName(MAssetManager.getTexture("glow_glass"));
 		glowGlassPane = new MBlockPane(Material.glass, MAssetManager.getTexture("glow_glass"), MAssetManager.getTexture("glass_refined_pane"), false).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(Minestrappolation.tabDecorationBlocks);
 		refinedGlass = new BlockGlassRefined(Material.glass, false).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MAssetManager.getTexture("glass_refined"));
-		refinedGlassPane = new MBlockPane(Material.glass, MAssetManager.getTexture("glass_refined"), MAssetManager.getTexture("glass_refined_pane"), false).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(Minestrappolation.tabBuildingBlocks);
+		refinedGlassPane = new MBlockPane(Material.glass, MAssetManager.getTexture("glass_refined"), MAssetManager.getTexture("glass_refined_pane"), false).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(Minestrappolation.tabDecorationBlocks);
 		
-		gunpowderBlock = new BlockGunpowderBlock(Material.ground).setHardness(0.6F).setStepSound(Block.soundTypeGravel).setBlockTextureName(MAssetManager.getMineralTexture("gunpowder_block"));
-		sugarBlock = new BlockSugarBlock().setHardness(0.6F).setCreativeTab(Minestrappolation.tabDecorationBlocks).setStepSound(Block.soundTypeGravel).setBlockTextureName(MAssetManager.getFoodTexture("sugar_block"));
-		meatBlock = new BlockMeatBlock().setHardness(0.8F).setCreativeTab(Minestrappolation.tabDecorationBlocks).setStepSound(Block.soundTypeCloth).setBlockTextureName(MAssetManager.getFoodTexture("meat_block"));
-		enderBlock = new BlockEnderblock().setHardness(3.0F).setResistance(4.0F).setCreativeTab(Minestrappolation.tabDecorationBlocks).setStepSound(Block.soundTypeGlass).setBlockTextureName(MAssetManager.getMineralTexture("ender_block"));
+		gunpowderBlock = new BlockGunpowderBlock(Material.ground).setHardness(0.6F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeGravel).setBlockTextureName(MAssetManager.getMineralTexture("gunpowder_block"));
+		sugarBlock = new BlockSugarBlock().setHardness(0.6F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeGravel).setBlockTextureName(MAssetManager.getFoodTexture("sugar_block"));
+		meatBlock = new BlockMeatBlock().setHardness(0.8F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeCloth).setBlockTextureName(MAssetManager.getFoodTexture("meat_block"));
+		enderBlock = new BlockEnderblock().setHardness(3.0F).setResistance(4.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeGlass).setBlockTextureName(MAssetManager.getMineralTexture("ender_block"));
 		
-		slimeOoze = new BlockOoze(materialOoze).setHardness(1F).setResistance(2000F).setCreativeTab(Minestrappolation.tabMisc).setStepSound(Block.soundTypeCloth).setBlockTextureName(MAssetManager.getTexture("ooze_slime"));
-		magmaOoze = new BlockOoze(materialOoze).setHardness(1F).setResistance(2000F).setCreativeTab(Minestrappolation.tabMisc).setStepSound(Block.soundTypeCloth).setBlockTextureName(MAssetManager.getTexture("ooze_magma"));
+		slimeOoze = new BlockOoze(materialOoze).setHardness(1F).setResistance(2000F).setCreativeTab(Minestrappolation.tabDecorationBlocks).setStepSound(Block.soundTypeCloth).setBlockTextureName(MAssetManager.getTexture("ooze_slime"));
+		magmaOoze = new BlockOoze(materialOoze).setHardness(1F).setResistance(2000F).setCreativeTab(Minestrappolation.tabDecorationBlocks).setStepSound(Block.soundTypeCloth).setBlockTextureName(MAssetManager.getTexture("ooze_magma"));
 		
 		redwoodLog = new MBlockLog().setBlockTextureName(MAssetManager.getWoodTexture("redwood_log")).setCreativeTab(Minestrappolation.tabBuildingBlocks);
-		redwoodLeaves = new MBlockLeaves(865539).setBlockTextureName(MAssetManager.getPlantTexture("redwood_leaves")).setCreativeTab(Minestrappolation.tabDecorationBlocks);
+		redwoodLeaves = new MBlockLeaves(865539).setBlockTextureName(MAssetManager.getPlantTexture("redwood_leaves")).setCreativeTab(Minestrappolation.tabBuildingBlocks);
 		
 		goblet = new BlockGoblet(Material.rock).setHardness(0.5F).setCreativeTab(Minestrappolation.tabDecorationBlocks).setBlockTextureName(MAssetManager.getTexture("goblet"));
 		plate = new BlockPlate(Material.rock).setHardness(0.7F).setCreativeTab(Minestrappolation.tabDecorationBlocks).setBlockTextureName(MAssetManager.getTexture("plate"));
 		rope = new BlockRope().setHardness(0.9F).setStepSound(Block.soundTypeCloth);
-		ropeCoil = new BlockRopeCoil().setHardness(0.9F).setCreativeTab(Minestrappolation.tabDecorationBlocks).setStepSound(Block.soundTypeCloth);
-		crate = new BlockCrate().setHardness(2.5F).setCreativeTab(Minestrappolation.tabMisc).setStepSound(Block.soundTypeWood);
-		barrel = new BlockBarrel().setHardness(3F).setResistance(6.0F).setCreativeTab(Minestrappolation.tabMisc).setStepSound(Block.soundTypeWood);
+		ropeCoil = new BlockRopeCoil().setHardness(0.9F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeCloth);
+		crate = new BlockCrate().setHardness(2.5F).setCreativeTab(Minestrappolation.tabDecorationBlocks).setStepSound(Block.soundTypeWood);
+		barrel = new BlockBarrel().setHardness(3F).setResistance(6.0F).setCreativeTab(Minestrappolation.tabDecorationBlocks).setStepSound(Block.soundTypeWood);
 		cardboard = new MBlockPane(Material.cloth, MAssetManager.getTexture("cardboard"), MAssetManager.getTexture("cardboard_pane_edge"), true).setHardness(0.3F).setCreativeTab(null);
-		cardboardBlock = new BlockCardboard(Material.cloth).setHardness(0.4F).setCreativeTab(Minestrappolation.tabDecorationBlocks);
+		cardboardBlock = new BlockCardboard(Material.cloth).setHardness(0.4F).setCreativeTab(Minestrappolation.tabBuildingBlocks);
 		
 		glassDoor = new BlockGlassDoor(Material.glass).setHardness(1F);
 		
-		redwoodPlanks = new MBlock(Material.wood).setStepSound(Block.soundTypeWood).setHardness(2.0F).setBlockTextureName(MAssetManager.getWoodTexture("redwood_planks")).setBlockName("redwood_planks").setCreativeTab(Minestrappolation.tabDecorationBlocks);
+		redwoodPlanks = new MBlock(Material.wood).setStepSound(Block.soundTypeWood).setHardness(2.0F).setBlockTextureName(MAssetManager.getWoodTexture("redwood_planks")).setBlockName("redwood_planks").setCreativeTab(Minestrappolation.tabBuildingBlocks);
 	}
 	
 	public static void load()
@@ -497,7 +498,7 @@ public class MBlocks
 	private static void addStoneBlocks()
 	{
 		CreativeTabs tab = Minestrappolation.tabStoneDecor;
-		CreativeTabs tab_decor = Minestrappolation.tabDecorationBlocks;
+		CreativeTabs tab_decor = Minestrappolation.tabBuildingBlocks;
 		
 		String[] types_stone = new String[] { null, null, "pattern_bricks", "tiles", "road", "refined", null, null, null, null, null, null, null, null, "lamp_glowstone", "lamp_sunstone" };
 		String[] types_stone_2 = new String[] { "pillar", null, null, "tile_slab", "refined_slab" };

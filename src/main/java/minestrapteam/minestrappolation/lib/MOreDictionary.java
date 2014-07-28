@@ -50,18 +50,23 @@ public class MOreDictionary
 		OreDictionary.registerOre("plankWood", new ItemStack(MBlocks.woodJungle, 1, 3));
 		OreDictionary.registerOre("plankWood", new ItemStack(MBlocks.woodAcacia, 1, 3));
 		OreDictionary.registerOre("plankWood", new ItemStack(MBlocks.woodDarkOak, 1, 3));
+		OreDictionary.registerOre("plankWood", new ItemStack(MBlocks.woodDarkOak, 1, 3));
+		OreDictionary.registerOre("plankWood", new ItemStack(MBlocks.redwood, 1, 3));
 		OreDictionary.registerOre("plankWood", new ItemStack(MBlocks.woodOak, 1, 1));
 		OreDictionary.registerOre("plankWood", new ItemStack(MBlocks.woodBirch, 1, 1));
 		OreDictionary.registerOre("plankWood", new ItemStack(MBlocks.woodSpruce, 1, 1));
 		OreDictionary.registerOre("plankWood", new ItemStack(MBlocks.woodJungle, 1, 1));
 		OreDictionary.registerOre("plankWood", new ItemStack(MBlocks.woodAcacia, 1, 1));
 		OreDictionary.registerOre("plankWood", new ItemStack(MBlocks.woodDarkOak, 1, 1));
+		OreDictionary.registerOre("plankWood", new ItemStack(MBlocks.redwood, 1, 1));
 		OreDictionary.registerOre("plankWood", new ItemStack(MBlocks.woodOak, 1, 4));
 		OreDictionary.registerOre("plankWood", new ItemStack(MBlocks.woodBirch, 1, 4));
 		OreDictionary.registerOre("plankWood", new ItemStack(MBlocks.woodSpruce, 1, 4));
 		OreDictionary.registerOre("plankWood", new ItemStack(MBlocks.woodJungle, 1, 4));
 		OreDictionary.registerOre("plankWood", new ItemStack(MBlocks.woodAcacia, 1, 4));
 		OreDictionary.registerOre("plankWood", new ItemStack(MBlocks.woodDarkOak, 1, 4));
+		OreDictionary.registerOre("plankWood", new ItemStack(MBlocks.redwood, 1, 4));
+		OreDictionary.registerOre("plankWood", new ItemStack(MBlocks.redwoodPlanks, 1, 0));
 		
 		OreDictionary.registerOre("slabWood", new ItemStack(MBlocks.woodOak2, 1, 3));
 		OreDictionary.registerOre("slabWood", new ItemStack(MBlocks.woodBirch2, 1, 3));
@@ -69,6 +74,7 @@ public class MOreDictionary
 		OreDictionary.registerOre("slabWood", new ItemStack(MBlocks.woodJungle2, 1, 3));
 		OreDictionary.registerOre("slabWood", new ItemStack(MBlocks.woodAcacia2, 1, 3));
 		OreDictionary.registerOre("slabWood", new ItemStack(MBlocks.woodDarkOak2, 1, 3));
+		OreDictionary.registerOre("slabWood", new ItemStack(MBlocks.redwood2, 1, 3));
 		
 		OreDictionary.registerOre("plankOak", new ItemStack(Blocks.planks, 1, 0));
 		OreDictionary.registerOre("plankBirch", new ItemStack(Blocks.planks, 1, 2));
@@ -76,24 +82,28 @@ public class MOreDictionary
 		OreDictionary.registerOre("plankJungle", new ItemStack(Blocks.planks, 1, 3));
 		OreDictionary.registerOre("plankAcacia", new ItemStack(Blocks.planks, 1, 4));
 		OreDictionary.registerOre("plankDarkOak", new ItemStack(Blocks.planks, 1, 5));
+		OreDictionary.registerOre("plankRedwood", new ItemStack(MBlocks.redwoodPlanks, 1, 0));
 		OreDictionary.registerOre("plankOak", new ItemStack(MBlocks.woodOak, 1, 3));
 		OreDictionary.registerOre("plankBirch", new ItemStack(MBlocks.woodBirch, 1, 3));
 		OreDictionary.registerOre("plankSpruce", new ItemStack(MBlocks.woodSpruce, 1, 3));
 		OreDictionary.registerOre("plankJungle", new ItemStack(MBlocks.woodJungle, 1, 3));
 		OreDictionary.registerOre("plankAcacia", new ItemStack(MBlocks.woodAcacia, 1, 3));
 		OreDictionary.registerOre("plankDarkOak", new ItemStack(MBlocks.woodDarkOak, 1, 3));
+		OreDictionary.registerOre("plankRedwood", new ItemStack(MBlocks.redwood, 1, 3));
 		OreDictionary.registerOre("plankOak", new ItemStack(MBlocks.woodOak, 1, 1));
 		OreDictionary.registerOre("plankBirch", new ItemStack(MBlocks.woodBirch, 1, 1));
 		OreDictionary.registerOre("plankSpruce", new ItemStack(MBlocks.woodSpruce, 1, 1));
 		OreDictionary.registerOre("plankJungle", new ItemStack(MBlocks.woodJungle, 1, 1));
 		OreDictionary.registerOre("plankAcacia", new ItemStack(MBlocks.woodAcacia, 1, 1));
 		OreDictionary.registerOre("plankDarkOak", new ItemStack(MBlocks.woodDarkOak, 1, 1));
+		OreDictionary.registerOre("plankRedwood", new ItemStack(MBlocks.redwood, 1, 1));
 		OreDictionary.registerOre("plankOak", new ItemStack(MBlocks.woodOak, 1, 4));
 		OreDictionary.registerOre("plankBirch", new ItemStack(MBlocks.woodBirch, 1, 4));
 		OreDictionary.registerOre("plankSpruce", new ItemStack(MBlocks.woodSpruce, 1, 4));
 		OreDictionary.registerOre("plankJungle", new ItemStack(MBlocks.woodJungle, 1, 4));
 		OreDictionary.registerOre("plankAcacia", new ItemStack(MBlocks.woodAcacia, 1, 4));
-		OreDictionary.registerOre("plankDarkOak", new ItemStack(MBlocks.woodDarkOak, 1, 1));
+		OreDictionary.registerOre("plankDarkOak", new ItemStack(MBlocks.woodDarkOak, 1, 4));
+		OreDictionary.registerOre("plankRedwood", new ItemStack(MBlocks.redwood, 1, 4));
 		
 		OreDictionary.registerOre("sandstone", new ItemStack(Blocks.sandstone));
 		OreDictionary.registerOre("sandstone", new ItemStack(MBlocks.sandstone));
@@ -116,16 +126,19 @@ public class MOreDictionary
 		
 		GameRegistry.addRecipe(new ShapedOreRecipe(MBlocks.meatBlock, new Object[] { "MMM", "MMM", "MMM", 'M', "meatRaw" }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(MBlocks.crate, new Object[] { "WWW", "SSS", "WWW", 'S', Items.stick, 'W', "plankWood" }));
+		GameRegistry.addRecipe(new ShapedOreRecipe(MBlocks.barrel, new Object[] { "WTW", "W W", "WTW", 'T', "ingotTin", 'W', "plankWood" }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MBlocks.woodOak, 9, 2), new Object[] { "WWW", "WWW", "WWW", 'W', "plankOak" }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MBlocks.woodBirch, 9, 2), new Object[] { "WWW", "WWW", "WWW", 'W', "plankBirch" }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MBlocks.woodSpruce, 9, 2), new Object[] { "WWW", "WWW", "WWW", 'W', "plankSpruce" }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MBlocks.woodJungle, 9, 2), new Object[] { "WWW", "WWW", "WWW", 'W', "plankJungle" }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MBlocks.woodAcacia, 9, 2), new Object[] { "WWW", "WWW", "WWW", 'W', "plankAcacia" }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MBlocks.woodDarkOak, 9, 2), new Object[] { "WWW", "WWW", "WWW", 'W', "plankDarkOak" }));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MBlocks.redwood, 9, 2), new Object[] { "WWW", "WWW", "WWW", 'W', "plankRedwood" }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Blocks.beacon, 1, 0), new Object[] { "GGG", "GNG", "OOO", 'G', "glass", 'N', Items.nether_star, 'O', Blocks.obsidian }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Blocks.daylight_detector, 1, 0), new Object[] { "GGG", "QQQ", "SSS", 'G', "glass", 'Q', Items.quartz, 'S', "slabWood" }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.glass_bottle, 3, 0), new Object[] { "G G", " G ", 'G', "glass" }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MItems.glassDoor, 1, 0), new Object[] { "GG", "GI", "GG", 'G', "glass", 'I', Items.iron_ingot }));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MItems.horseHairBow, 1), new Object[] { " SH", "S H", " SH", 'S', "slabWood", 'H', MItems.horseHairFibre}));
 	}
 	
 	private static void add(String name, Item item)

@@ -4,6 +4,7 @@ import java.util.Random;
 
 import minestrapteam.minestrappolation.world.WorldGenRedWoodTree;
 import minestrapteam.minestrappolation.world.WorldGenRedWoodTreeSmall;
+
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -77,7 +78,7 @@ public class BiomeGenRedwood extends BiomeGenBase
 	
 	@Override
 	public WorldGenAbstractTree func_150567_a(Random rand)
-	{
-		return rand.nextInt(4) == 0 ? new WorldGenRedWoodTree() : new WorldGenRedWoodTreeSmall();
-	}
+    {
+        return rand.nextInt(4) == 0 ? new WorldGenRedWoodTree() : rand.nextInt(8) < 2 ? this.worldGeneratorTrees: new WorldGenRedWoodTreeSmall();
+    }
 }
