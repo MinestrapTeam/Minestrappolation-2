@@ -55,3 +55,33 @@ processResources
         exclude 'mcmod.info'
     }
 }
+
+task deobfJar(type:Jar, dependsOn:'classes')
+deobfJar
+{
+    classifier = 'deobf'
+    archiveName = "${archivesBaseName} ${minecraft.version}-deobf.jar"
+    from ('build/classes/main')
+    {
+        include('minestrapteam/minestrappolation/**')
+    }
+    from ('build/resources/main')
+    {
+        include('assets/minestrappolation**')
+    }
+}
+
+task sourceJar(type:Jar, dependsOn:'classes')
+sourceJar
+{
+    classifier = 'sources'
+    archiveName = "${archivesBaseName} ${minecraft.version}-sources.jar"
+    from ('build/sources/java')
+    {
+        include('minestrapteam/minestrappolation/**')
+    }
+    from ('build/resources/main')
+    {
+        include('assets/minestrappolation/**')
+    }
+}
