@@ -26,5 +26,4 @@ public class NEIMinestrappolationConfig implements IConfigureNEI
 	{
 		return MReference.VERSION;
 	}
-
 }
