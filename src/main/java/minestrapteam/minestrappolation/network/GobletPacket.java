@@ -3,7 +3,6 @@ package minestrapteam.minestrappolation.network;
 import clashsoft.cslib.minecraft.network.CSPacket;
 import minestrapteam.minestrappolation.tileentity.TileEntityGoblet;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
@@ -35,7 +34,7 @@ public class GobletPacket extends CSPacket
 	@Override
 	public void handleClient(EntityPlayer player)
 	{
-		TileEntityGoblet goblet = (TileEntityGoblet) Minecraft.getMinecraft().theWorld.getTileEntity(this.x, this.y, this.z);
+		TileEntityGoblet goblet = (TileEntityGoblet) player.worldObj.getTileEntity(this.x, this.y, this.z);
 		goblet.setPotionEffect(this.effect, false);
 	}
 	

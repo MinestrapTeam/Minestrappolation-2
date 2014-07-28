@@ -1,10 +1,11 @@
 package minestrapteam.minestrappolation.block;
 
 import minestrapteam.minestrappolation.common.MCommonProxy;
+import minestrapteam.minestrappolation.lib.MBlocks;
 import minestrapteam.minestrappolation.tileentity.TileEntityLocked;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.ITileEntityProvider;
+import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -12,7 +13,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.world.World;
 
-public class BlockLocked extends Block implements ITileEntityProvider
+public class BlockLocked extends BlockContainer
 {
 	public BlockLocked()
 	{
@@ -45,28 +46,34 @@ public class BlockLocked extends Block implements ITileEntityProvider
 		}
 	}
 	
+	@Override
+	public boolean isOpaqueCube()
+	{
+		return false;
+	}
+	
 	public boolean isLockable(Block block, int metadata)
 	{
-		return block == Blocks.chest;
+		return block == Blocks.chest || block == MBlocks.crate || block == MBlocks.barrel;
 	}
 	
 	public boolean lock(String owner, World world, int x, int y, int z)
 	{
 		Block block = world.getBlock(x, y, z);
 		int metadata = world.getBlockMetadata(x, y, z);
+		TileEntity tileEntity = world.getTileEntity(x, y, z);
 		
 		if (!this.isLockable(block, metadata))
 		{
 			return false;
 		}
 		
-		TileEntity tileEntity = world.getTileEntity(x, y, z);
-		TileEntityLocked locked = new TileEntityLocked(owner);
-		
 		world.setBlock(x, y, z, this, metadata, 3);
-		world.setTileEntity(x, y, z, locked);
 		
-		locked.setBlock(block, tileEntity);
+		TileEntityLocked locked = (TileEntityLocked) world.getTileEntity(x, y, z);
+		locked.setOwner(owner);
+		locked.setBlock(block);
+		locked.setTileEntity(tileEntity);
 		
 		return true;
 	}

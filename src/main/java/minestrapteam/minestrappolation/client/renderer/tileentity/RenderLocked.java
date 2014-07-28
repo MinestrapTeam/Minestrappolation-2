@@ -12,6 +12,11 @@ public class RenderLocked extends TileEntitySpecialRenderer
 	public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)
 	{
 		TileEntityLocked locked = (TileEntityLocked) tileEntity;
+		TileEntity te = locked.getTileEntity();
+		if (te == null)
+		{
+			return;
+		}
 		TileEntityRendererDispatcher.instance.renderTileEntityAt(locked.getTileEntity(), x, y, z, f);
 	}
 }

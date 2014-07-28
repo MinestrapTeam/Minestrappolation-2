@@ -10,9 +10,10 @@ import net.minecraft.tileentity.TileEntity;
 public class TileEntityLocked extends TileEntity
 {
 	protected String		owner;
-	
 	protected Block			block;
 	protected TileEntity	tileEntity;
+	
+	private boolean			dirty;
 	
 	public TileEntityLocked()
 	{
@@ -25,28 +26,25 @@ public class TileEntityLocked extends TileEntity
 	
 	public void setOwner(String owner)
 	{
+		this.markDirty();
 		this.owner = owner;
-	}
-	
-	public void setBlock(Block block, TileEntity tileEntity)
-	{
-		this.block = block;
-		this.tileEntity = tileEntity;
-		
-		if (!this.getWorldObj().isRemote)
-		{
-			Minestrappolation.instance.netHandler.sendToAll(new LockedPacket(this.getWorldObj(), this.xCoord, this.yCoord, this.zCoord, this.owner, block, tileEntity));
-		}
 	}
 	
 	public void setBlock(Block block)
 	{
+		this.markDirty();
 		this.block = block;
 	}
 	
 	public void setTileEntity(TileEntity tileEntity)
 	{
+		this.markDirty();
 		this.tileEntity = tileEntity;
+	}
+	
+	public String getOwner()
+	{
+		return this.owner;
 	}
 	
 	public Block getBlock()
@@ -61,15 +59,43 @@ public class TileEntityLocked extends TileEntity
 	
 	public boolean isOwner(String name)
 	{
-		return this.owner.equals(name);
+		if (name == null || name.isEmpty())
+		{
+			return false;
+		}
+		else if (this.owner == null || this.owner.isEmpty())
+		{
+			return true;
+		}
+		return name.equals(this.owner);
+	}
+	
+	@Override
+	public void markDirty()
+	{
+		this.dirty = true;
+		super.markDirty();
+	}
+	
+	@Override
+	public void updateEntity()
+	{
+		if (this.dirty)
+		{
+			this.dirty = false;
+			if (!this.getWorldObj().isRemote)
+			{
+				Minestrappolation.instance.netHandler.sendToAll(new LockedPacket(this.getWorldObj(), this.xCoord, this.yCoord, this.zCoord, this.owner, this.block, this.tileEntity));
+			}
+		}
 	}
 	
 	@Override
 	public void readFromNBT(NBTTagCompound nbt)
 	{
 		super.readFromNBT(nbt);
-		this.owner = nbt.getString("Owner");
 		
+		this.owner = nbt.getString("Owner");
 		this.block = Block.getBlockById(nbt.getInteger("BlockID"));
 		if (nbt.hasKey("TileEntity"))
 		{
@@ -81,8 +107,8 @@ public class TileEntityLocked extends TileEntity
 	public void writeToNBT(NBTTagCompound nbt)
 	{
 		super.writeToNBT(nbt);
-		nbt.setString("Owner", this.owner);
 		
+		nbt.setString("Owner", this.owner);
 		nbt.setInteger("BlockID", Block.getIdFromBlock(this.block));
 		if (this.tileEntity != null)
 		{

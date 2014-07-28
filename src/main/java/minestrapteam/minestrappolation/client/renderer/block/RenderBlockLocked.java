@@ -30,7 +30,7 @@ public class RenderBlockLocked implements ISimpleBlockRenderingHandler
 		{
 			return renderer.renderBlockByRenderType(block1, x, y, z);
 		}
-		return renderer.renderStandardBlock(block, x, y, z);
+		return false;
 	}
 	
 	@Override

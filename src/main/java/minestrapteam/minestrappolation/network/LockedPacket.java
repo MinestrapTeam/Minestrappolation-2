@@ -40,20 +40,15 @@ public class LockedPacket extends CSPacket
 	@Override
 	public void handleClient(EntityPlayer player)
 	{
-		TileEntity te = player.worldObj.getTileEntity(this.x, this.y, this.z);
-		TileEntityLocked locked;
+		World world = player.worldObj;
+		TileEntity te = world.getTileEntity(this.x, this.y, this.z);
 		if (te instanceof TileEntityLocked)
 		{
-			locked = (TileEntityLocked) te;
+			TileEntityLocked locked = (TileEntityLocked) te;
+			locked.setOwner(this.owner);
+			locked.setBlock(this.block);
+			locked.setTileEntity(this.tileEntity);
 		}
-		else
-		{
-			locked = new TileEntityLocked(this.owner);
-			player.worldObj.setTileEntity(this.x, this.y, this.z, locked);
-		}
-		
-		locked.setBlock(this.block);
-		locked.setTileEntity(this.tileEntity);
 	}
 	
 	@Override
@@ -69,6 +64,7 @@ public class LockedPacket extends CSPacket
 		this.y = buf.readInt();
 		this.z = buf.readInt();
 		
+		this.owner = buf.readStringFromBuffer(64);
 		this.block = Block.getBlockById(buf.readInt());
 		this.tileEntity = TileEntity.createAndLoadEntity(buf.readNBTTagCompoundFromBuffer());
 	}
@@ -80,8 +76,9 @@ public class LockedPacket extends CSPacket
 		buf.writeInt(this.x);
 		buf.writeInt(this.y);
 		buf.writeInt(this.z);
-		buf.writeInt(Block.getIdFromBlock(this.block));
 		
+		buf.writeStringToBuffer(this.owner);
+		buf.writeInt(Block.getIdFromBlock(this.block));
 		NBTTagCompound nbt = null;
 		if (this.tileEntity != null)
 		{
