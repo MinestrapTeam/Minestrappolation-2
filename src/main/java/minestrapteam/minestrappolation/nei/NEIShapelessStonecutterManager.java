@@ -93,6 +93,23 @@ public class NEIShapelessStonecutterManager extends ShapelessRecipeHandler
 	}
 	
 	@Override
+	public void loadCraftingRecipes(String outputId, Object... results)
+	{
+		if ("stonecutter".equals(outputId))
+		{
+			for (ISCRecipe irecipe : StonecutterCraftingManager.instance.getRecipeList())
+			{
+				if (irecipe instanceof ShapelessSCRecipe)
+				{
+					NEIShapelessStonecutterManager manager = NEIMinestrappolationConfig.shapelessStonecutterManager;
+					CachedShapelessSCRecipe recipe = manager.new CachedShapelessSCRecipe((ShapelessSCRecipe) irecipe);
+					this.arecipes.add(recipe);
+				}
+			}
+		}
+	}
+	
+	@Override
 	public void loadCraftingRecipes(ItemStack result)
 	{
 		for (ISCRecipe irecipe : StonecutterCraftingManager.instance.getRecipeList())
@@ -113,12 +130,15 @@ public class NEIShapelessStonecutterManager extends ShapelessRecipeHandler
 	{
 		for (ISCRecipe irecipe : StonecutterCraftingManager.instance.getRecipeList())
 		{
-			CachedShapelessRecipe recipe = new CachedShapelessSCRecipe((ShapelessSCRecipe) irecipe);
-			
-			if (recipe.contains(recipe.ingredients, ingredient))
+			if (irecipe instanceof ShapelessSCRecipe)
 			{
-				recipe.setIngredientPermutation(recipe.ingredients, ingredient);
-				this.arecipes.add(recipe);
+				CachedShapelessRecipe recipe = new CachedShapelessSCRecipe((ShapelessSCRecipe) irecipe);
+				
+				if (recipe.contains(recipe.ingredients, ingredient))
+				{
+					recipe.setIngredientPermutation(recipe.ingredients, ingredient);
+					this.arecipes.add(recipe);
+				}
 			}
 		}
 	}

@@ -100,6 +100,41 @@ public class NEIShapedStonecutterManager extends ShapedRecipeHandler
 	}
 	
 	@Override
+	public void loadCraftingRecipes(String outputId, Object... results)
+	{
+		if ("stonecutter".equals(outputId))
+		{
+			for (ISCRecipe irecipe : StonecutterCraftingManager.instance.getRecipeList())
+			{
+				if (irecipe instanceof ShapedSCRecipe)
+				{
+					CachedShapedSCRecipe recipe = new CachedShapedSCRecipe((ShapedSCRecipe) irecipe);
+					
+					recipe.computeVisuals();
+					this.arecipes.add(recipe);
+				}
+			}
+		}
+	}
+	
+	@Override
+	public void loadCraftingRecipes(ItemStack result)
+	{
+		for (ISCRecipe irecipe : StonecutterCraftingManager.instance.getRecipeList())
+		{
+			if (irecipe instanceof ShapedSCRecipe)
+			{
+				if (CSStacks.itemEquals(irecipe.getRecipeOutput(), result))
+				{
+					CachedShapedSCRecipe recipe = new CachedShapedSCRecipe((ShapedSCRecipe) irecipe);
+					recipe.computeVisuals();
+					this.arecipes.add(recipe);
+				}
+			}
+		}
+	}
+	
+	@Override
 	public void loadUsageRecipes(ItemStack ingredient)
 	{
 		for (ISCRecipe irecipe : StonecutterCraftingManager.instance.getRecipeList())
@@ -116,24 +151,6 @@ public class NEIShapedStonecutterManager extends ShapedRecipeHandler
 						recipe.setIngredientPermutation(recipe.ingredients, ingredient);
 						this.arecipes.add(recipe);
 					}
-				}
-			}
-		}
-	}
-	
-	@Override
-	public void loadCraftingRecipes(ItemStack result)
-	{
-		for (ISCRecipe irecipe : StonecutterCraftingManager.instance.getRecipeList())
-		{
-			if (irecipe instanceof ShapedSCRecipe)
-			{
-				if (CSStacks.itemEquals(irecipe.getRecipeOutput(), result))
-				{
-					CachedShapedSCRecipe recipe = new CachedShapedSCRecipe((ShapedSCRecipe) irecipe);
-					
-					recipe.computeVisuals();
-					this.arecipes.add(recipe);
 				}
 			}
 		}
