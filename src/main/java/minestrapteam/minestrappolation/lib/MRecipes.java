@@ -159,6 +159,9 @@ public class MRecipes
 		GameRegistry.addShapelessRecipe(new ItemStack(plutonium, 9), new Object[] { plutoniumBlock, });
 		GameRegistry.addRecipe(new ItemStack(plutoniumBlock, 1), new Object[] { "ZZZ", "ZZZ", "ZZZ", 'Z', plutonium });
 		
+		GameRegistry.addRecipe(new ItemStack(steelLock), new Object[] { " I ", "SSS", " S ", 'I', Items.iron_ingot, 'S', steelIngot });
+		GameRegistry.addRecipe(new ItemStack(steelKey), new Object[] { "SSS", "GG ", 'G', Items.gold_ingot, 'S', steelIngot });
+		
 		GameRegistry.addRecipe(new ItemStack(grenade, 1), new Object[] { "SUS", "PGP", "SUS", 'P', plutonium, 'S', plateSteelItem, 'U', uranium, 'G', Items.gunpowder });
 		GameRegistry.addRecipe(new ItemStack(nuke, 1), new Object[] { "UPU", "PUP", "UPU", 'P', plutoniumBlock, 'U', uraniumBlock });
 		
