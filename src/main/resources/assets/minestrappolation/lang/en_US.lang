@@ -950,7 +950,8 @@ item.plating.steel.desc=Steel-Plated
 item.plating.meurodite.desc=Meurodite-Plated
 item.plating.horn.desc=Horned
 
-lock.locked=This block is locked!
+lock.locked=This block has been locked by %1$s. You need the key to open it!
+lock.locked.no_owner=This block is locked. You need a key to open it.
 lock.added=This block has been locked!
 lock.already_locked=This block is already locked!
 lock.not_applicable=This block is not lockable!

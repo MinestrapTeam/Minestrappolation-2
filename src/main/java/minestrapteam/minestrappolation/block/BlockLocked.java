@@ -31,7 +31,7 @@ public class BlockLocked extends BlockContainer
 	{
 		if (!world.isRemote)
 		{
-			player.addChatMessage(new ChatComponentTranslation("lock.locked"));
+			this.addInfoMessage(world, x, y, z, player);
 			return false;
 		}
 		return true;
@@ -42,7 +42,21 @@ public class BlockLocked extends BlockContainer
 	{
 		if (!world.isRemote)
 		{
-			player.addChatMessage(new ChatComponentTranslation("lock.locked"));
+			this.addInfoMessage(world, x, y, z, player);
+		}
+	}
+	
+	private void addInfoMessage(World world, int x, int y, int z, EntityPlayer player)
+	{
+		TileEntityLocked locked = (TileEntityLocked) world.getTileEntity(x, y, z);
+		String owner = locked.getOwner();
+		if (owner == null || owner.isEmpty())
+		{
+			player.addChatMessage(new ChatComponentTranslation("lock.locked.no_owner"));
+		}
+		else
+		{
+			player.addChatMessage(new ChatComponentTranslation("lock.locked", locked.getOwner()));
 		}
 	}
 	
