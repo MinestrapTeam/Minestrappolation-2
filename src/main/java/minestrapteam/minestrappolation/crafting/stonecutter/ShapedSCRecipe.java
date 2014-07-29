@@ -19,7 +19,7 @@ public class ShapedSCRecipe implements ISCRecipe
 	public final ItemStack[]	recipeItems;
 	public final ItemStack		recipeOutput;
 	
-	private ItemStack			extraSlot;
+	public ItemStack			extraSlot;
 	
 	protected boolean			hasNBTResult;
 	

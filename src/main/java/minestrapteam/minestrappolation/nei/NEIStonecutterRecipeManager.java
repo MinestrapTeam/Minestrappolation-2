@@ -4,6 +4,7 @@ import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.List;
 
+import clashsoft.cslib.minecraft.lang.I18n;
 import clashsoft.cslib.minecraft.stack.CSStacks;
 import codechicken.nei.PositionedStack;
 import codechicken.nei.recipe.ShapedRecipeHandler;
@@ -22,18 +23,23 @@ public class NEIStonecutterRecipeManager extends ShapedRecipeHandler
 	public class SCCachedShapedRecipe extends CachedRecipe
 	{
 		public ArrayList<PositionedStack>	ingredients;
+		public PositionedStack				extraSlot;
 		public PositionedStack				result;
 		
-		public SCCachedShapedRecipe(int width, int height, Object[] items, ItemStack out)
+		public SCCachedShapedRecipe(int width, int height, Object[] items, ItemStack extra, ItemStack out)
 		{
 			this.ingredients = new ArrayList<PositionedStack>();
-			this.setIngredients(width, height, items);
 			this.result = new PositionedStack(out, 132, 24);
+			if (extra != null)
+			{
+				this.extraSlot = new PositionedStack(extra, 3, 24);
+			}
+			this.setIngredients(width, height, items);
 		}
 		
 		public SCCachedShapedRecipe(ShapedSCRecipe recipe)
 		{
-			this(recipe.recipeWidth, recipe.recipeHeight, recipe.recipeItems, recipe.getRecipeOutput());
+			this(recipe.recipeWidth, recipe.recipeHeight, recipe.recipeItems, recipe.extraSlot, recipe.recipeOutput);
 		}
 		
 		public void setIngredients(int width, int height, Object[] items)
@@ -66,6 +72,12 @@ public class NEIStonecutterRecipeManager extends ShapedRecipeHandler
 			return this.result;
 		}
 		
+		@Override
+		public PositionedStack getOtherStack()
+		{
+			return this.extraSlot;
+		}
+		
 		public void computeVisuals()
 		{
 			for (PositionedStack p : this.ingredients)
@@ -84,7 +96,7 @@ public class NEIStonecutterRecipeManager extends ShapedRecipeHandler
 	@Override
 	public String getRecipeName()
 	{
-		return "Stonecutter";
+		return I18n.getString("tile.stonecutter.name");
 	}
 	
 	@Override
