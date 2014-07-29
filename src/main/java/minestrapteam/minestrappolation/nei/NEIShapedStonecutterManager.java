@@ -1,6 +1,7 @@
 package minestrapteam.minestrappolation.nei;
 
 import java.awt.Rectangle;
+import java.util.Collection;
 
 import clashsoft.cslib.minecraft.lang.I18n;
 import clashsoft.cslib.minecraft.stack.CSStacks;
@@ -14,6 +15,7 @@ import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.inventory.Container;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 public class NEIShapedStonecutterManager extends ShapedRecipeHandler
@@ -60,6 +62,26 @@ public class NEIShapedStonecutterManager extends ShapedRecipeHandler
 					this.ingredients.add(stack);
 				}
 			}
+		}
+		
+		@Override
+		public boolean contains(Collection<PositionedStack> ingredients, Item ingred)
+		{
+			if (this.extraSlot != null && this.extraSlot.contains(ingred))
+			{
+				return true;
+			}
+			return super.contains(ingredients, ingred);
+		}
+		
+		@Override
+		public boolean contains(Collection<PositionedStack> ingredients, ItemStack ingredient)
+		{
+			if (this.extraSlot != null && this.extraSlot.contains(ingredient))
+			{
+				return true;
+			}
+			return super.contains(ingredients, ingredient);
 		}
 		
 		@Override
