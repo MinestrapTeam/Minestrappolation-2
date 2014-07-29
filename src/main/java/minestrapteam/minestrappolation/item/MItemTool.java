@@ -54,6 +54,12 @@ public class MItemTool extends ItemTool implements IPlatable
 	}
 	
 	@Override
+	public String getType()
+	{
+		return this.toolType;
+	}
+	
+	@Override
 	public int getPlatingCount(ItemStack stack)
 	{
 		return this.toolMaterial.getHarvestLevel() + 1;
@@ -271,7 +277,7 @@ public class MItemTool extends ItemTool implements IPlatable
 			String type = e.getKey();
 			IPlating plating = e.getValue();
 			
-			if (plating.canApply(this.toolType))
+			if (plating.canApply(this))
 			{
 				StringBuilder builder = new StringBuilder(20);
 				builder.append("tools/").append(type).append("_").append(this.toolType).append("_overlay");

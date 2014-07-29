@@ -10,9 +10,9 @@ public class ItemHorn extends MItem implements IPlating
 	}
 	
 	@Override
-	public boolean canApply(String toolType)
+	public boolean canApply(IPlatable platable)
 	{
-		return "sword".equals(toolType);
+		return "sword".equals(platable.getType());
 	}
 	
 	@Override

@@ -52,8 +52,11 @@ public class NEIPlatingManager extends ShapelessRecipeHandler
 		{
 			for (IPlating iplating : IPlating.platings.values())
 			{
-				ItemStack plating = new ItemStack((Item) iplating, 1, 0);
-				this.arecipes.add(new CachedPlatingRecipe(ingredient, plating));
+				if (iplating.canApply((IPlatable) ingredient.getItem()))
+				{
+					ItemStack plating = new ItemStack((Item) iplating, 1, 0);
+					this.arecipes.add(new CachedPlatingRecipe(ingredient, plating));
+				}
 			}
 		}
 		if (ingredient.getItem() instanceof IPlating)

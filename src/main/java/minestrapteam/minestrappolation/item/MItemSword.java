@@ -40,6 +40,12 @@ public class MItemSword extends ItemSword implements IPlatable
 	}
 	
 	@Override
+	public String getType()
+	{
+		return "sword";
+	}
+	
+	@Override
 	public int getPlatingCount(ItemStack stack)
 	{
 		return this.material.getHarvestLevel() + 1;
@@ -103,7 +109,7 @@ public class MItemSword extends ItemSword implements IPlatable
 			String type = e.getKey();
 			IPlating plating = e.getValue();
 			
-			if (plating.canApply("sword"))
+			if (plating.canApply(this))
 			{
 				StringBuilder builder = new StringBuilder(20);
 				builder.append("weapons/").append(type).append("_sword_overlay");

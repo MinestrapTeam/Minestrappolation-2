@@ -28,7 +28,7 @@ public class ItemPlating extends ItemReed implements IPlating
 	}
 	
 	@Override
-	public boolean canApply(String toolType)
+	public boolean canApply(IPlatable platable)
 	{
 		return true;
 	}

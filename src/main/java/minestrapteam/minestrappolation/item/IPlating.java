@@ -9,7 +9,7 @@ public interface IPlating
 {
 	public static final Map<String, IPlating>	platings	= new HashMap();
 	
-	public boolean canApply(String toolType);
+	public boolean canApply(IPlatable platable);
 	
 	public String getType();
 	
