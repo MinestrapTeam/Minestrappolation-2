@@ -7,14 +7,18 @@ import minestrapteam.minestrappolation.lib.MReference;
 
 public class NEIMinestrappolationConfig implements IConfigureNEI
 {
-	public static NEIShapedStonecutterManager	stonecutterManager	= new NEIShapedStonecutterManager();
-	public static NEIPlatingManager		platingManager		= new NEIPlatingManager();
+	public static NEIShapedStonecutterManager		shapedStonecutterManager	= new NEIShapedStonecutterManager();
+	public static NEIShapelessStonecutterManager	shapelessStonecutterManager	= new NEIShapelessStonecutterManager();
+	public static NEIPlatingManager					platingManager				= new NEIPlatingManager();
 	
 	@Override
 	public void loadConfig()
 	{
-		API.registerRecipeHandler(stonecutterManager);
-		API.registerUsageHandler(stonecutterManager);
+		API.registerRecipeHandler(shapedStonecutterManager);
+		API.registerUsageHandler(shapedStonecutterManager);
+		API.registerRecipeHandler(shapelessStonecutterManager);
+		API.registerUsageHandler(shapelessStonecutterManager);
+		
 		API.registerGuiOverlay(GuiStonecutter.class, "stonecutter");
 		
 		API.registerRecipeHandler(platingManager);
