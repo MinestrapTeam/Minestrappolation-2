@@ -7,7 +7,7 @@ import minestrapteam.minestrappolation.lib.MReference;
 
 public class NEIMinestrappolationConfig implements IConfigureNEI
 {
-	public static NEIStonecutterManager	stonecutterManager	= new NEIStonecutterManager();
+	public static NEIShapedStonecutterManager	stonecutterManager	= new NEIShapedStonecutterManager();
 	public static NEIPlatingManager		platingManager		= new NEIPlatingManager();
 	
 	@Override
