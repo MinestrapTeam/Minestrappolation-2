@@ -35,6 +35,7 @@ public class MItemSword extends ItemSword implements IPlatable
 	public MItemSword(ToolMaterial material, boolean ignites)
 	{
 		super(material);
+		this.material = material;
 		this.ignites = ignites;
 	}
 	
