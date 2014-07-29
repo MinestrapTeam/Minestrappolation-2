@@ -122,14 +122,15 @@ public class MItemSword extends ItemSword implements IPlatable
 	@Override
 	public IIcon getIcon(ItemStack stack, int renderPass)
 	{
+		IIcon icon = null;
 		if (renderPass == 1)
 		{
 			IPlating plating = MItemTool.getPlating(stack);
 			if (plating != null)
 			{
-				return this.overlayIcons.get(plating.getType());
+				icon = this.overlayIcons.get(plating.getType());
 			}
 		}
-		return this.itemIcon;
+		return icon == null ? this.itemIcon : icon;
 	}
 }
