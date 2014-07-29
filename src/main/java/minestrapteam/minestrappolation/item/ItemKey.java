@@ -64,11 +64,6 @@ public class ItemKey extends MItem
 			createNBT(stack, player);
 			return false;
 		}
-		else if (!isOwner(name, player))
-		{
-			player.addChatMessage(new ChatComponentTranslation("lock.not_owner"));
-			return false;
-		}
 		
 		if (world.getBlock(x, y, z) == MBlocks.lockedBlock)
 		{
