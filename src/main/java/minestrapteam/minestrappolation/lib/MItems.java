@@ -42,7 +42,7 @@ public class MItems
 	public static Item	brickBedrock;
 	public static Item	brickRadiantQuartz;
 	
-	/* / {----- Extra Ores -----} / */
+	/* / {----- EO Items -----} / */
 	
 	public static Item	copperIngot;
 	public static Item	tinIngot;
@@ -76,15 +76,13 @@ public class MItems
 	public static Item	plateSteelItem;
 	public static Item	plateMeuroditeItem;
 	
-	// public static Item bucketMagma;
-	
-	/* / {----- Extra Decor -----} / */
+	/* / {----- ED Items -----} / */
 	
 	public static Item	ropeItem;
 	public static Item	cardboardItem;
-	public static Item	glassDoor;
+	public static Item	glassDoorItem;
 	
-	/* / {----- Extra Mod Drops -----} / */
+	/* / {----- EMD Items -----} / */
 	
 	public static Item	snout;
 	public static Item	pigHoof;
@@ -201,7 +199,7 @@ public class MItems
 		
 		ropeItem = new ItemReed(MBlocks.rope).setCreativeTab(tabDecorationBlocks).setTextureName(MAssetManager.getTexture("rope"));
 		cardboardItem = new ItemReed(MBlocks.cardboard).setCreativeTab(tabDecorationBlocks).setTextureName(MAssetManager.getTexture("cardboard"));
-		glassDoor = new MItemDoor(MBlocks.glassDoor).setCreativeTab(tabDecorationBlocks).setTextureName(MAssetManager.getTexture("glass_door"));
+		glassDoorItem = new MItemDoor(MBlocks.glassDoor).setCreativeTab(tabDecorationBlocks).setTextureName(MAssetManager.getTexture("glass_door"));
 		
 		snout = new MItemFood(3, 0.2F).setPotionEffect(Potion.hunger.id, 10 * 20, 1, 0.25F).setCreativeTab(tabFood).setTextureName(MAssetManager.getMobTexture("snout"));
 		pigHoof = new MItem().setCreativeTab(tabBrewing).setTextureName(MAssetManager.getMobTexture("pig_foot"));
@@ -317,7 +315,7 @@ public class MItems
 		
 		CSItems.addItem(ropeItem, "rope");
 		CSItems.addItem(cardboardItem, "cardboard");
-		CSItems.addItem(glassDoor, "glass_door");
+		CSItems.addItem(glassDoorItem, "glass_door");
 		
 		CSItems.addItem(snout, "snout");
 		CSItems.addItem(pigHoof, "pig_hoof");

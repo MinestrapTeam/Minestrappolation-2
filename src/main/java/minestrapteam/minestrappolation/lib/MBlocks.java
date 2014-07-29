@@ -20,6 +20,8 @@ public class MBlocks
 {
 	public static Material		materialOoze	= new MaterialOoze(MapColor.foliageColor);
 	
+	/* / {----- Stonecutter Blocks -----} / */
+	
 	public static MBlockCustom	stone;
 	public static Block			stoneStairsRaw;
 	public static Block			stoneStairsTiles;
@@ -214,6 +216,8 @@ public class MBlocks
 	public static Block			greyClayStairsTiles;
 	public static Block			greyClay2;
 	
+	/* / {----- Wood Blocks -----} / */
+	
 	public static MBlockCustom	woodOak;
 	public static Block			woodOakStairsBoards;
 	public static Block			woodOak2;
@@ -239,6 +243,8 @@ public class MBlocks
 	public static Block			redwood2;
 	public static Block			redwoodStairsBoards;
 	public static Block			redwoodPlanks;
+	
+	/* / {----- EO Blocks -----} / */
 	
 	public static Block			copperOre;
 	public static Block			tinOre;
@@ -282,6 +288,8 @@ public class MBlocks
 	public static Block			stoneCutter;
 	
 	public static BlockLocked	lockedBlock;
+	
+	/* / {----- ED Blocks -----} / */
 	
 	public static Block			checkerTiles;
 	public static Block			flintEndstoneStairs;

@@ -21,12 +21,12 @@ public class BlockGlassDoor extends BlockDoor
 	@Override
 	public Item getItem(World world, int x, int y, int z)
 	{
-		return MItems.glassDoor;
+		return MItems.glassDoorItem;
 	}
 	
 	@Override
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
-		return MItems.glassDoor;
+		return MItems.glassDoorItem;
 	}
 }
