@@ -1,5 +1,7 @@
 package minestrapteam.minestrappolation.network;
 
+import java.io.IOException;
+
 import clashsoft.cslib.minecraft.network.CSPacket;
 import minestrapteam.minestrappolation.tileentity.TileEntityLocked;
 
@@ -64,9 +66,15 @@ public class LockedPacket extends CSPacket
 		this.y = buf.readInt();
 		this.z = buf.readInt();
 		
-		this.owner = buf.readStringFromBuffer(64);
-		this.block = Block.getBlockById(buf.readInt());
-		this.tileEntity = TileEntity.createAndLoadEntity(buf.readNBTTagCompoundFromBuffer());
+		try
+		{
+			this.owner = buf.readStringFromBuffer(64);
+			this.block = Block.getBlockById(buf.readInt());
+			this.tileEntity = TileEntity.createAndLoadEntity(buf.readNBTTagCompoundFromBuffer());
+		}
+		catch (IOException ex)
+		{
+		}
 	}
 	
 	@Override
@@ -77,14 +85,20 @@ public class LockedPacket extends CSPacket
 		buf.writeInt(this.y);
 		buf.writeInt(this.z);
 		
-		buf.writeStringToBuffer(this.owner);
-		buf.writeInt(Block.getIdFromBlock(this.block));
-		NBTTagCompound nbt = null;
-		if (this.tileEntity != null)
+		try
 		{
-			nbt = new NBTTagCompound();
-			this.tileEntity.writeToNBT(nbt);
+			buf.writeStringToBuffer(this.owner);
+			buf.writeInt(Block.getIdFromBlock(this.block));
+			NBTTagCompound nbt = null;
+			if (this.tileEntity != null)
+			{
+				nbt = new NBTTagCompound();
+				this.tileEntity.writeToNBT(nbt);
+			}
+			buf.writeNBTTagCompoundToBuffer(nbt);
 		}
-		buf.writeNBTTagCompoundToBuffer(nbt);
+		catch (IOException ex)
+		{
+		}
 	}
 }
