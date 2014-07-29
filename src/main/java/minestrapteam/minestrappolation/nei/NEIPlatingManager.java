@@ -46,6 +46,19 @@ public class NEIPlatingManager extends ShapelessRecipeHandler
 	}
 	
 	@Override
+	public void loadCraftingRecipes(ItemStack result)
+	{
+		if (result.getItem() instanceof IPlatable)
+		{
+			IPlating iplating = MItemTool.getPlating(result);
+			ItemStack plating = new ItemStack((Item) iplating, 1, 0);
+			ItemStack platable = result.copy();
+			platable.stackTagCompound = new NBTTagCompound();
+			this.arecipes.add(new CachedPlatingRecipe(platable, plating));
+		}
+	}
+	
+	@Override
 	public void loadUsageRecipes(ItemStack ingredient)
 	{
 		if (ingredient.getItem() instanceof IPlatable)
@@ -76,19 +89,6 @@ public class NEIPlatingManager extends ShapelessRecipeHandler
 					}
 				}
 			}
-		}
-	}
-	
-	@Override
-	public void loadCraftingRecipes(ItemStack result)
-	{
-		if (result.getItem() instanceof IPlatable)
-		{
-			IPlating iplating = MItemTool.getPlating(result);
-			ItemStack plating = new ItemStack((Item) iplating, 1, 0);
-			ItemStack platable = result.copy();
-			platable.stackTagCompound = new NBTTagCompound();
-			this.arecipes.add(new CachedPlatingRecipe(platable, plating));
 		}
 	}
 }

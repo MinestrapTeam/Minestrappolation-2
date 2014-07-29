@@ -78,7 +78,7 @@ public class BiomeGenRedwood extends BiomeGenBase
 	
 	@Override
 	public WorldGenAbstractTree func_150567_a(Random rand)
-    {
-        return rand.nextInt(4) == 0 ? new WorldGenRedWoodTree() : rand.nextInt(8) < 2 ? this.worldGeneratorTrees: new WorldGenRedWoodTreeSmall();
-    }
+	{
+		return rand.nextInt(4) == 0 ? new WorldGenRedWoodTree() : rand.nextInt(8) < 2 ? this.worldGeneratorTrees : new WorldGenRedWoodTreeSmall();
+	}
 }

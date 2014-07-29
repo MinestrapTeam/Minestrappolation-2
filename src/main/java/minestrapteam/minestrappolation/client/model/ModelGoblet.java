@@ -133,9 +133,9 @@ public class ModelGoblet extends ModelBase
 		
 		if (color != 0xFFFFFF)
 		{
-			float r = ((color >> 16) & 255) / 255F;
-			float g = ((color >> 8) & 255) / 255F;
-			float b = ((color >> 0) & 255) / 255F;
+			float r = (color >> 16 & 255) / 255F;
+			float g = (color >> 8 & 255) / 255F;
+			float b = (color >> 0 & 255) / 255F;
 			GL11.glColor4f(r, g, b, 1F);
 		}
 		this.liquid.render(f);

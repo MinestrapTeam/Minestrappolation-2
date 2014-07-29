@@ -20,10 +20,10 @@ public class WorldGenRedWoodTree extends WorldGenBaseTree
 	@Override
 	public boolean genLeafStructure(World world, Random rand, int x, int y, int z)
 	{
-		setBlock(world, x, y + this.topHeight, z, this.leaves, this.lMeta);
-		setBlock(world, x, y + this.topHeight, z + 1, this.leaves, this.lMeta);
-		setBlock(world, x - 1, y + this.topHeight, z + 1, this.leaves, this.lMeta);
-		setBlock(world, x - 1, y + this.topHeight, z, this.leaves, this.lMeta);
+		this.setBlock(world, x, y + this.topHeight, z, this.leaves, this.lMeta);
+		this.setBlock(world, x, y + this.topHeight, z + 1, this.leaves, this.lMeta);
+		this.setBlock(world, x - 1, y + this.topHeight, z + 1, this.leaves, this.lMeta);
+		this.setBlock(world, x - 1, y + this.topHeight, z, this.leaves, this.lMeta);
 		
 		double thinkness = 6.5;
 		for (int r = this.leafStart; r < this.topHeight; r++)
@@ -58,7 +58,7 @@ public class WorldGenRedWoodTree extends WorldGenBaseTree
 					{
 						for (int l = 0; l < rand.nextInt(2) + minL; l++)
 						{
-							setBlock(world, x + l, y + r, z, this.wood, this.wMeta);
+							this.setBlock(world, x + l, y + r, z, this.wood, this.wMeta);
 						}
 						
 					}
@@ -67,7 +67,7 @@ public class WorldGenRedWoodTree extends WorldGenBaseTree
 					{
 						for (int l = 0; l < rand.nextInt(2) + minL; l++)
 						{
-							setBlock(world, x - l, y + r, z, this.wood, this.wMeta);
+							this.setBlock(world, x - l, y + r, z, this.wood, this.wMeta);
 						}
 					}
 					
@@ -75,7 +75,7 @@ public class WorldGenRedWoodTree extends WorldGenBaseTree
 					{
 						for (int l = 0; l < rand.nextInt(2) + minL; l++)
 						{
-							setBlock(world, x, y + r, z - l, this.wood, this.wMeta);
+							this.setBlock(world, x, y + r, z - l, this.wood, this.wMeta);
 						}
 						
 					}
@@ -84,7 +84,7 @@ public class WorldGenRedWoodTree extends WorldGenBaseTree
 					{
 						for (int l = 0; l < rand.nextInt(2) + minL; l++)
 						{
-							setBlock(world, x, y + r, z + l, this.wood, this.wMeta);
+							this.setBlock(world, x, y + r, z + l, this.wood, this.wMeta);
 						}
 					}
 					

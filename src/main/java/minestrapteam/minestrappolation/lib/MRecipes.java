@@ -176,10 +176,10 @@ public class MRecipes
 		GameRegistry.addRecipe(new ItemStack(MBlocks.stoneCutter), new Object[] { "II", "CC", "CC", 'C', Blocks.cobblestone, 'I', Items.iron_ingot });
 		
 		GameRegistry.addSmelting(Blocks.glowstone, new ItemStack(glowGlass), 0.5F);
-		GameRegistry.addRecipe(new ItemStack(MBlocks.glowGlassPane, 16), new Object[]{"GGG","GGG", 'G', MBlocks.glowGlass});
-
+		GameRegistry.addRecipe(new ItemStack(MBlocks.glowGlassPane, 16), new Object[] { "GGG", "GGG", 'G', MBlocks.glowGlass });
+		
 		GameRegistry.addRecipe(new ItemStack(MBlocks.goblet, 1), new Object[] { "D D", " D ", 'D', Items.gold_ingot });
-		GameRegistry.addRecipe(new ItemStack(MBlocks.plate, 2), new Object[] { "GG", "GG", 'G', Items.gold_ingot});
+		GameRegistry.addRecipe(new ItemStack(MBlocks.plate, 2), new Object[] { "GG", "GG", 'G', Items.gold_ingot });
 		
 		GameRegistry.addRecipe(new ItemStack(snowBrick, 4), new Object[] { "SS", "SS", 'S', Blocks.snow });
 		GameRegistry.addSmelting(Blocks.glass, new ItemStack(refinedGlass), 20);
@@ -204,11 +204,11 @@ public class MRecipes
 		
 		GameRegistry.addRecipe(new ItemStack(MBlocks.redSandstone, 1, 0), new Object[] { "SS", "SS", 'S', new ItemStack(Blocks.sand, 1, 1) });
 		GameRegistry.addRecipe(new ItemStack(MBlocks.flint, 1, 0), new Object[] { "FF", "FF", 'F', Items.flint });
-		GameRegistry.addRecipe(new ItemStack(Items.flint, 4, 0), new Object[] { "F", 'F', new ItemStack(MBlocks.flint, 1, 0)});
+		GameRegistry.addRecipe(new ItemStack(Items.flint, 4, 0), new Object[] { "F", 'F', new ItemStack(MBlocks.flint, 1, 0) });
 		GameRegistry.addRecipe(new ItemStack(MBlocks.desertQuartz, 1, 0), new Object[] { "QQ", "QQ", 'Q', MItems.desertQuartz });
 		GameRegistry.addSmelting(Blocks.end_stone, new ItemStack(MBlocks.endstone, 1, 0), 15);
-		GameRegistry.addRecipe(new ItemStack(MBlocks.godstone, 1, 0), new Object[] { "SSS", "SES", "SSS", 'S', MItems.sunstoneDust, 'E', new ItemStack(MBlocks.endstone, 1, 0)});
-		GameRegistry.addRecipe(new ItemStack(MBlocks.radiantQuartz, 1, 0), new Object[] { "QQ", "QQ", 'Q', MItems.radiantQuartz});
+		GameRegistry.addRecipe(new ItemStack(MBlocks.godstone, 1, 0), new Object[] { "SSS", "SES", "SSS", 'S', MItems.sunstoneDust, 'E', new ItemStack(MBlocks.endstone, 1, 0) });
+		GameRegistry.addRecipe(new ItemStack(MBlocks.radiantQuartz, 1, 0), new Object[] { "QQ", "QQ", 'Q', MItems.radiantQuartz });
 		
 		GameRegistry.addSmelting(fat, new ItemStack(grease, 1), 0.7F);
 		GameRegistry.addShapelessRecipe(new ItemStack(friedApple, 2), new Object[] { fat, Items.apple, fat });
@@ -288,7 +288,7 @@ public class MRecipes
 		GameRegistry.addRecipe(new ItemStack(MBlocks.woodDarkOak, 4, 0), new Object[] { "PP", "PP", 'P', new ItemStack(MBlocks.woodDarkOak, 1, 2) });
 		GameRegistry.addRecipe(new ItemStack(MBlocks.redwood, 4, 0), new Object[] { "PP", "PP", 'P', new ItemStack(MBlocks.redwood, 1, 2) });
 		
-		GameRegistry.addRecipe(new ItemStack(MBlocks.redwoodPlanks, 4, 0), new Object[] { "L", 'L', MBlocks.redwoodLog});
+		GameRegistry.addRecipe(new ItemStack(MBlocks.redwoodPlanks, 4, 0), new Object[] { "L", 'L', MBlocks.redwoodLog });
 	}
 	
 	public static void removeRecipes()

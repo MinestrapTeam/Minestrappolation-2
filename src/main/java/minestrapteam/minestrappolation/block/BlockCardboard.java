@@ -22,7 +22,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 public class BlockCardboard extends Block
 {
 	private IIcon	topIcon;
-	private IIcon sideIcon;
+	private IIcon	sideIcon;
 	private IIcon	wetTopIcon;
 	private IIcon	wetSideIcon;
 	private IIcon	lampIcon;

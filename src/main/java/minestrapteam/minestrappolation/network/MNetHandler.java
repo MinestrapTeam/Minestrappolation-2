@@ -7,7 +7,7 @@ public class MNetHandler extends CSNetHandler
 	public MNetHandler()
 	{
 		super("MCore");
-
+		
 		this.registerPacket(GobletPacket.class);
 		this.registerPacket(PlatePacket.class);
 		this.registerPacket(LockedPacket.class);

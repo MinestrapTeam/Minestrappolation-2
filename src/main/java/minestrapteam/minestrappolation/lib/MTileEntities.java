@@ -10,7 +10,7 @@ public class MTileEntities
 		GameRegistry.registerTileEntityWithAlternatives(TileEntityCrate.class, "Crate", "tileEntityCrate");
 		GameRegistry.registerTileEntityWithAlternatives(TileEntityBarrel.class, "Barrel", "tileEntityBarrel");
 		GameRegistry.registerTileEntityWithAlternatives(TileEntityGoblet.class, "Goblet", "tileEntitygoblet");
-
+		
 		GameRegistry.registerTileEntity(TileEntityStonecutter.class, "StoneCutter");
 		GameRegistry.registerTileEntity(TileEntityLocked.class, "Locked");
 	}

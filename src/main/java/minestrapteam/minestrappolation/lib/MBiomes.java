@@ -14,7 +14,6 @@ public class MBiomes
 	{
 		redwood = new BiomeGenRedwood(115).setBiomeName("redwood");
 		
-		
 		MBiomeManager.addWarmBiome(redwood, 75, Type.FOREST);
 	}
 	

@@ -112,7 +112,7 @@ public abstract class WorldGenBaseTree extends WorldGenAbstractTree
 				{
 					if (xfr * xfr + zfr * zfr <= radius2 || random.nextInt(2) == 0)
 					{
-						setBlock(world, x, h, z, this.leaves, this.lMeta);
+						this.setBlock(world, x, h, z, this.leaves, this.lMeta);
 					}
 				}
 			}

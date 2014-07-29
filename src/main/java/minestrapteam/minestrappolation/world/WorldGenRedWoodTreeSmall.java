@@ -20,7 +20,7 @@ public class WorldGenRedWoodTreeSmall extends WorldGenBaseTree
 	@Override
 	public boolean genLeafStructure(World world, Random rand, int x, int y, int z)
 	{
-		setBlock(world, x, y + this.topHeight, z, this.leaves, this.lMeta);
+		this.setBlock(world, x, y + this.topHeight, z, this.leaves, this.lMeta);
 		
 		double thickness = 4;
 		for (int r = this.leafStart; r < this.topHeight; r++)
