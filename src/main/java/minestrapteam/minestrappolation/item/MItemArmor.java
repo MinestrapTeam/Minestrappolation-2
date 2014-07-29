@@ -1,6 +1,9 @@
 package minestrapteam.minestrappolation.item;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import minestrapteam.minestrappolation.util.MAssetManager;
 
@@ -13,22 +16,37 @@ import net.minecraft.util.IIcon;
 
 public class MItemArmor extends ItemArmor implements IPlatable
 {
-	private String	armorPrefix;
+	private String				part;
 	
-	private IIcon	overlayIcon;
+	private Map<String, IIcon>	overlayIcons	= new HashMap();
 	
-	public MItemArmor(ArmorMaterial material, int renderIndex, int type, String armorPrefix)
+	public MItemArmor(ArmorMaterial material, int renderIndex, int type)
 	{
 		super(material, renderIndex, type);
 		this.setCreativeTab(null);
-		this.armorPrefix = armorPrefix;
+		
+		if (type == 0)
+		{
+			this.part = "helmet";
+		}
+		else if (type == 1)
+		{
+			this.part = "chestplate";
+		}
+		else if (type == 2)
+		{
+			this.part = "leggings";
+		}
+		else if (type == 3)
+		{
+			this.part = "boots";
+		}
 	}
 	
 	@Override
 	public int getMaxDamage(ItemStack stack)
 	{
-		int i = super.getMaxDamage();
-		return MItemTool.isPlated(stack) ? i * 2 : i;
+		return MItemTool.getMaxDamage(super.getMaxDamage(stack), stack);
 	}
 	
 	@Override
@@ -40,46 +58,38 @@ public class MItemArmor extends ItemArmor implements IPlatable
 	@Override
 	public void registerIcons(IIconRegister iconRegister)
 	{
-		this.itemIcon = iconRegister.registerIcon(this.getIconString());
+		this.itemIcon = iconRegister.registerIcon(this.iconString);
 		
-		String s;
-		if (this.renderIndex == 0)
+		for (Entry<String, IPlating> e : IPlating.platings.entrySet())
 		{
-			s = "bronze_helmet_overlay";
+			String type = e.getKey();
+			IPlating plating = e.getValue();
+			
+			if (!plating.canApply(this))
+			{
+				continue;
+			}
+			
+			StringBuilder builder = new StringBuilder(20);
+			builder.append("armor/").append(type).append("_").append(this.part).append("_overlay");
+			String textureName = MAssetManager.getTexture(builder.toString());
+			this.overlayIcons.put(type, iconRegister.registerIcon(textureName));
 		}
-		else if (this.renderIndex == 1)
-		{
-			s = "bronze_chestplate_overlay";
-		}
-		else if (this.renderIndex == 2)
-		{
-			s = "bronze_leggings_overlay";
-		}
-		else
-		{
-			s = "bronze_boots_overlay";
-		}
-		this.overlayIcon = iconRegister.registerIcon(MAssetManager.getArmorTexture(s));
 	}
 	
 	@Override
 	public IIcon getIcon(ItemStack stack, int renderPass)
 	{
-		if (renderPass == 1 && MItemTool.isPlated(stack))
+		IIcon icon = null;
+		if (renderPass == 1)
 		{
-			return this.overlayIcon;
+			IPlating plating = MItemTool.getPlating(stack);
+			if (plating != null)
+			{
+				icon = this.overlayIcons.get(plating.getType());
+			}
 		}
-		return this.itemIcon;
-	}
-	
-	@Override
-	public int getColorFromItemStack(ItemStack stack, int renderPass)
-	{
-		if (renderPass == 0)
-		{
-			return 421010;
-		}
-		return 16777215;
+		return icon == null ? this.itemIcon : icon;
 	}
 	
 	@Override
@@ -91,15 +101,28 @@ public class MItemArmor extends ItemArmor implements IPlatable
 	@Override
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type)
 	{
-		String layer = "1";
-		
-		String material = this.armorPrefix;
-		
-		if (slot == 2)
+		if (type == null)
 		{
-			layer = "2";
+			String material = this.getArmorMaterial().name().toLowerCase();
+			String slot1 = slot == 2 ? "_2" : "_1";
+			return MAssetManager.getArmorModel(material + slot1);
 		}
-		return MAssetManager.getArmorModel(material + layer);
+		else
+		{
+			IPlating plating = MItemTool.getPlating(stack);
+			if (plating != null)
+			{
+				String slot1 = slot == 2 ? "_overlay_2" : "_overlay_1";
+				return MAssetManager.getArmorModel(plating.getType() + slot1);
+			}
+			return null;
+		}
+	}
+	
+	@Override
+	public String getType()
+	{
+		return this.part;
 	}
 	
 	@Override
