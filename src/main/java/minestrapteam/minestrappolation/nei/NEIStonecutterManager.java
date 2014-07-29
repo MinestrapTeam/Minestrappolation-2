@@ -18,7 +18,7 @@ import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.inventory.Container;
 import net.minecraft.item.ItemStack;
 
-public class NEIStonecutterRecipeManager extends ShapedRecipeHandler
+public class NEIStonecutterManager extends ShapedRecipeHandler
 {
 	public class SCCachedShapedRecipe extends CachedRecipe
 	{
@@ -63,7 +63,7 @@ public class NEIStonecutterRecipeManager extends ShapedRecipeHandler
 		@Override
 		public List<PositionedStack> getIngredients()
 		{
-			return this.getCycledIngredients(NEIStonecutterRecipeManager.this.cycleticks / 20, this.ingredients);
+			return this.getCycledIngredients(NEIStonecutterManager.this.cycleticks / 20, this.ingredients);
 		}
 		
 		@Override
