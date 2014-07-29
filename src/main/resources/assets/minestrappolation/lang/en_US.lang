@@ -957,6 +957,10 @@ lock.not_applicable=This block is not lockable!
 lock.not_locked=This block is not locked!
 lock.not_owner=You are not the owner of this!
 
+recipe.plating=Plating
+recipe.stonecutter.shaped=Shaped Stone Cutting
+recipe.stonecutter.shapeless=Shapeless Stone Cutting
+
 #Potion Effects
 potion.ghastTentacle=Nether Neutrality
 potion.ghastTentacle.postfix=Potion of Nether Neutrality

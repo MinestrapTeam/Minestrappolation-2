@@ -96,7 +96,7 @@ public class NEIStonecutterManager extends ShapedRecipeHandler
 	@Override
 	public String getRecipeName()
 	{
-		return I18n.getString("tile.stonecutter.name");
+		return I18n.getString("recipe.stonecutter.shaped");
 	}
 	
 	@Override
