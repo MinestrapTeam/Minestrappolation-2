@@ -52,7 +52,6 @@ public class EntityNukePrimed extends EntityTNTPrimed
 	
 	private void explode()
 	{
-		float f = 4.0F * 8;
-		this.worldObj.createExplosion(this, this.posX, this.posY, this.posZ, f, true);
+		this.worldObj.createExplosion(this, this.posX, this.posY, this.posZ, 32F, true);
 	}
 }

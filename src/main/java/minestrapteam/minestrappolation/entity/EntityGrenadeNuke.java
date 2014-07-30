@@ -10,16 +10,19 @@ public class EntityGrenadeNuke extends EntityThrowableExplosive
 	public EntityGrenadeNuke(World world)
 	{
 		super(world);
+		this.explosionRange = 8F;
 	}
 	
 	public EntityGrenadeNuke(World world, EntityLivingBase thrower)
 	{
 		super(world, thrower);
+		this.explosionRange = 8F;
 	}
 	
 	public EntityGrenadeNuke(World world, double x, double y, double z)
 	{
 		super(world, x, y, z);
+		this.explosionRange = 8F;
 	}
 
 	@Override
