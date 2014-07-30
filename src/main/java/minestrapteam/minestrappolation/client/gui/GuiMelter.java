@@ -26,7 +26,8 @@ public class GuiMelter extends GuiContainer
 	@Override
 	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
 	{
-		this.fontRendererObj.drawString(this.melter.getInventoryName(), 80, 6, 4210752);
+		String s = this.melter.getInventoryName();
+		this.fontRendererObj.drawString(s, (this.xSize - this.fontRendererObj.getStringWidth(s)) / 2, 6, 4210752);
 		this.fontRendererObj.drawString(I18n.getString("container.inventory"), 8, this.ySize - 94, 4210752);
 	}
 	
@@ -39,15 +40,16 @@ public class GuiMelter extends GuiContainer
 		int k = (this.height - this.ySize) / 2;
 		this.drawTexturedModalRect(j, k, 0, 0, this.xSize, this.ySize);
 		
+		boolean power = this.melter.isPowered();
 		if (this.melter.isBurning())
 		{
 			int burn = this.melter.getBurnTimeRemainingScaled(12);
-			this.drawTexturedModalRect(j + 56, k + 48 - burn, 176, 12 - burn, 14, burn + 2);
+			this.drawTexturedModalRect(j + 56, k + 48 - burn, power ? 190 : 176, 12 - burn, 14, burn + 2);
 		}
 		
-		if (this.melter.isPowered())
+		if (power)
 		{
-			this.drawTexturedModalRect(j + 58, k + 5, 176, 31, 12, 10);
+			this.drawTexturedModalRect(j + 43, k + 20, 176, 31, 12, 10);
 		}
 		
 		int update = this.melter.getProgressScaled(24);
