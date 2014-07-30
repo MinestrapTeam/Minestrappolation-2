@@ -85,7 +85,6 @@ public class MRecipes
 		GameRegistry.addShapelessRecipe(new ItemStack(coalIronIngot, 1), new Object[] { Items.iron_ingot, Items.coal, Items.coal, Items.coal, Items.coal, Items.coal, Items.coal, Items.coal, Items.coal });
 		GameRegistry.addSmelting(coalIronIngot, new ItemStack(steelIngot, 1), 0.7F);
 		GameRegistry.addShapelessRecipe(new ItemStack(steelIngot, 9), new Object[] { steelBlock });
-		GameRegistry.addSmelting(titaniumOre, new ItemStack(titaniumIngot), 0.8F);
 		GameRegistry.addShapelessRecipe(new ItemStack(titaniumIngot, 9), new Object[] { titaniumBlock });
 		GameRegistry.addSmelting(toriteOre, new ItemStack(toriteIngot, 1), 1.1F);
 		GameRegistry.addShapelessRecipe(new ItemStack(toriteIngot, 9), new Object[] { toriteBlock });
@@ -240,7 +239,6 @@ public class MRecipes
 		
 		GameRegistry.addRecipe(new ItemStack(snowBrick, 4), new Object[] { "SS", "SS", 'S', Blocks.snow });
 		
-		GameRegistry.addSmelting(Blocks.glowstone, new ItemStack(glowGlass), 0.5F);
 		GameRegistry.addRecipe(new ItemStack(MBlocks.glowGlassPane, 16), new Object[] { "GGG", "GGG", 'G', glowGlass });
 		GameRegistry.addSmelting(Blocks.glass, new ItemStack(refinedGlass), 20);
 		GameRegistry.addRecipe(new ItemStack(refinedGlassPane, 16), new Object[] { "SSS", "SSS", 'S', refinedGlass });
