@@ -10,7 +10,7 @@ public class MBiomes
 {
 	public static BiomeGenBase	redwood;
 	
-	public static void loadBiomes()
+	public static void load()
 	{
 		redwood = new BiomeGenRedwood(115).setBiomeName("redwood");
 		

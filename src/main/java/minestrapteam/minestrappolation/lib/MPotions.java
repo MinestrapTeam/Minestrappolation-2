@@ -1,5 +1,6 @@
 package minestrapteam.minestrappolation.lib;
 
+import clashsoft.brewingapi.BrewingAPI;
 import clashsoft.brewingapi.potion.IPotionEffectHandler;
 import clashsoft.brewingapi.potion.recipe.PotionRecipes;
 import clashsoft.brewingapi.potion.type.PotionType;
@@ -32,18 +33,19 @@ public class MPotions implements IPotionEffectHandler
 	public static PotionType		ghastTentacle;
 	public static PotionType		hydrophobia;
 	
-	public static void loadPotions()
+	public static void load()
 	{
+		BrewingAPI.registerEffectHandler(new MPotions());
+		
+		// Init
 		infectious = new PotionType(new PotionEffect(infectiousPotion.id, 120 * 20), 1, 240 * 20);
 		ghastTentacle = new PotionType(new PotionEffect(ghastTentaclePotion.id, 90 * 20), 0, 210 * 20);
 		hydrophobia = new PotionType(new PotionEffect(hydrophobiaPotion.id, 90 * 20), 0, 180 * 20);
 		infectious.register();
 		ghastTentacle.register();
 		hydrophobia.register();
-	}
-	
-	public static void loadBrewingRecipes()
-	{
+		
+		// Recipes
 		PotionRecipes.addRecipe(new ItemStack(MItems.infectiousFungus), infectious);
 		PotionRecipes.addRecipe(new ItemStack(MItems.ghastTentacle), ghastTentacle);
 		PotionRecipes.addRecipe(new ItemStack(MItems.airSack), new PotionEffect(Potion.waterBreathing.id, 120 * 20, 0));

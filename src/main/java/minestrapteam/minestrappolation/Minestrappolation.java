@@ -1,8 +1,6 @@
 package minestrapteam.minestrappolation;
 
-import clashsoft.brewingapi.BrewingAPI;
 import clashsoft.cslib.config.CSConfig;
-import clashsoft.cslib.minecraft.entity.CSEntities;
 import clashsoft.cslib.minecraft.init.BaseMod;
 import clashsoft.cslib.minecraft.update.CSUpdate;
 import clashsoft.cslib.minecraft.update.reader.SimpleUpdateReader;
@@ -14,7 +12,6 @@ import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.VillagerRegistry;
 import minestrapteam.minestrappolation.common.BlacksmithTradeHandler;
@@ -23,10 +20,8 @@ import minestrapteam.minestrappolation.common.MEventHandler;
 import minestrapteam.minestrappolation.common.PriestTradeHandler;
 import minestrapteam.minestrappolation.crafting.MelterRecipeLoader;
 import minestrapteam.minestrappolation.creativetab.*;
-import minestrapteam.minestrappolation.entity.*;
 import minestrapteam.minestrappolation.lib.*;
 import minestrapteam.minestrappolation.network.MNetHandler;
-import minestrapteam.minestrappolation.tileentity.TileEntityMelter;
 import minestrapteam.minestrappolation.world.MOreGenerator;
 
 import net.minecraft.creativetab.CreativeTabs;
@@ -109,16 +104,9 @@ public class Minestrappolation extends BaseMod
 		
 		MRecipes.load();
 		MOreDictionary.load();
-		
-		MBiomes.loadBiomes();
+		MEntities.load();
 		
 		FluidContainerRegistry.registerFluidContainer(magmaFluid, new ItemStack(MItems.magmaBucket));
-		
-		EntityRegistry.registerModEntity(EntityNukePrimed.class, "NukePrimed", 1, this, 350, 5, false);
-		EntityRegistry.registerModEntity(EntityGrenade.class, "Grenade", 2, this, 40, 3, true);
-		EntityRegistry.registerModEntity(EntityGrenadeImpact.class, "GrenadeImpact", 4, this, 40, 3, true);
-		EntityRegistry.registerModEntity(EntityGrenadeSticky.class, "GrenadeSticky", 5, this, 40, 3, true);
-		EntityRegistry.registerModEntity(EntityGrenadeNuke.class, "GrenadeNuke", 6, this, 40, 3, true);
 	}
 	
 	@Override
@@ -127,15 +115,10 @@ public class Minestrappolation extends BaseMod
 	{
 		super.init(event);
 		
-		MTileEntities.registerTileEntitys();
 		GameRegistry.registerWorldGenerator(new MOreGenerator(), 0);
-		BrewingAPI.registerEffectHandler(new MPotions());
 		
-		MPotions.loadPotions();
-		MPotions.loadBrewingRecipes();
-		
-		CSEntities.register("HangGlider", 700, EntityHangGlider.class);
-		GameRegistry.registerTileEntity(TileEntityMelter.class, "Melter");
+		MBiomes.load();
+		MPotions.load();
 		
 		VillagerRegistry.instance().registerVillageTradeHandler(3, new BlacksmithTradeHandler());
 		VillagerRegistry.instance().registerVillageTradeHandler(2, new PriestTradeHandler());
