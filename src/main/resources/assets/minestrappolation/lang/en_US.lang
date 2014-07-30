@@ -961,6 +961,8 @@ lock.not_owner=You are not the owner of this!
 recipe.plating=Plating
 recipe.stonecutter.shaped=Shaped Stone Cutting
 recipe.stonecutter.shapeless=Shapeless Stone Cutting
+recipe.melting=Melting
+recipe.melter_fuel=Melter Fuel
 
 #Potion Effects
 potion.ghastTentacle=Nether Neutrality

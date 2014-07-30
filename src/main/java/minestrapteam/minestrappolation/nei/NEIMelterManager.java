@@ -97,7 +97,7 @@ public class NEIMelterManager extends TemplateRecipeHandler
 	@Override
 	public String getRecipeName()
 	{
-		return I18n.getString("recipe.melter");
+		return I18n.getString("recipe.melting");
 	}
 	
 	@Override
