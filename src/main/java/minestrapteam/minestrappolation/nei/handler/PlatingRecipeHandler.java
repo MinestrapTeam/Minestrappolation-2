@@ -51,10 +51,13 @@ public class PlatingRecipeHandler extends ShapelessRecipeHandler
 		if (result.getItem() instanceof IPlatable)
 		{
 			IPlating iplating = MItemTool.getPlating(result);
-			ItemStack plating = new ItemStack((Item) iplating, 1, 0);
-			ItemStack platable = result.copy();
-			platable.stackTagCompound = new NBTTagCompound();
-			this.arecipes.add(new CachedPlatingRecipe(platable, plating));
+			if (iplating != null)
+			{
+				ItemStack plating = new ItemStack((Item) iplating, 1, 0);
+				ItemStack platable = result.copy();
+				platable.stackTagCompound = new NBTTagCompound();
+				this.arecipes.add(new CachedPlatingRecipe(platable, plating));
+			}
 		}
 	}
 	
