@@ -836,7 +836,8 @@ item.withered_bone.name=Withered Bone
 item.horse_hair_fibre.name=Horse Hair Fibre
 
 #Combat
-item.grenade.name=Impact Grenade
+item.grenade.name=Grenade
+item.impact_grenade.name=Impact Grenade
 item.nuke_grenade.name=Nuclear Grenade
 item.sticky_grenade.name=Sticky Grenade
 item.horse_hair_bow.name=Horse Hair Bow
