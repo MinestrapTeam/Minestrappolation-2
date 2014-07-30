@@ -310,6 +310,7 @@ public class MItems
 		CSItems.addItem(grenade, "grenade");
 		CSItems.addItem(grenadeImpact, "impact_grenade");
 		CSItems.addItem(grenadeSticky, "sticky_grenade");
+		CSItems.addItem(grenadeNuke, "nuke_grenade");
 		CSItems.addItem(plateTinItem, "tin_plate");
 		CSItems.addItem(plateBronzeItem, "bronze_plate");
 		CSItems.addItem(plateSteelItem, "steel_plate");
