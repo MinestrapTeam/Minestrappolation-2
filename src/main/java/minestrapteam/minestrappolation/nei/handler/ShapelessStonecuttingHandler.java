@@ -7,9 +7,9 @@ import clashsoft.cslib.minecraft.stack.CSStacks;
 import codechicken.nei.PositionedStack;
 import codechicken.nei.recipe.ShapelessRecipeHandler;
 import minestrapteam.minestrappolation.client.gui.GuiStonecutter;
-import minestrapteam.minestrappolation.crafting.stonecutter.ISCRecipe;
-import minestrapteam.minestrappolation.crafting.stonecutter.ShapelessSCRecipe;
-import minestrapteam.minestrappolation.crafting.stonecutter.StonecutterCraftingManager;
+import minestrapteam.minestrappolation.crafting.stonecutter.ICuttingRecipe;
+import minestrapteam.minestrappolation.crafting.stonecutter.ShapelessCuttingRecipe;
+import minestrapteam.minestrappolation.crafting.stonecutter.StonecuttingManager;
 import minestrapteam.minestrappolation.nei.NEIMinestrappolationConfig;
 import minestrapteam.minestrappolation.util.MAssetManager;
 
@@ -23,7 +23,7 @@ public class ShapelessStonecuttingHandler extends ShapelessRecipeHandler
 	{
 		private PositionedStack	extraSlot;
 		
-		public CachedShapelessSCRecipe(ShapelessSCRecipe recipe)
+		public CachedShapelessSCRecipe(ShapelessCuttingRecipe recipe)
 		{
 			this.setIngredients(recipe.recipeItems);
 			this.setResult(recipe.recipeOutput);
@@ -98,12 +98,12 @@ public class ShapelessStonecuttingHandler extends ShapelessRecipeHandler
 	{
 		if ("stonecutter".equals(outputId))
 		{
-			for (ISCRecipe irecipe : StonecutterCraftingManager.instance.getRecipeList())
+			for (ICuttingRecipe irecipe : StonecuttingManager.instance.getRecipeList())
 			{
-				if (irecipe instanceof ShapelessSCRecipe)
+				if (irecipe instanceof ShapelessCuttingRecipe)
 				{
 					ShapelessStonecuttingHandler manager = NEIMinestrappolationConfig.shapelessStonecutterManager;
-					CachedShapelessSCRecipe recipe = manager.new CachedShapelessSCRecipe((ShapelessSCRecipe) irecipe);
+					CachedShapelessSCRecipe recipe = manager.new CachedShapelessSCRecipe((ShapelessCuttingRecipe) irecipe);
 					this.arecipes.add(recipe);
 				}
 			}
@@ -113,13 +113,13 @@ public class ShapelessStonecuttingHandler extends ShapelessRecipeHandler
 	@Override
 	public void loadCraftingRecipes(ItemStack result)
 	{
-		for (ISCRecipe irecipe : StonecutterCraftingManager.instance.getRecipeList())
+		for (ICuttingRecipe irecipe : StonecuttingManager.instance.getRecipeList())
 		{
-			if (irecipe instanceof ShapelessSCRecipe)
+			if (irecipe instanceof ShapelessCuttingRecipe)
 			{
 				if (CSStacks.itemEquals(irecipe.getRecipeOutput(), result))
 				{
-					CachedShapelessSCRecipe recipe = new CachedShapelessSCRecipe((ShapelessSCRecipe) irecipe);
+					CachedShapelessSCRecipe recipe = new CachedShapelessSCRecipe((ShapelessCuttingRecipe) irecipe);
 					this.arecipes.add(recipe);
 				}
 			}
@@ -129,11 +129,11 @@ public class ShapelessStonecuttingHandler extends ShapelessRecipeHandler
 	@Override
 	public void loadUsageRecipes(ItemStack ingredient)
 	{
-		for (ISCRecipe irecipe : StonecutterCraftingManager.instance.getRecipeList())
+		for (ICuttingRecipe irecipe : StonecuttingManager.instance.getRecipeList())
 		{
-			if (irecipe instanceof ShapelessSCRecipe)
+			if (irecipe instanceof ShapelessCuttingRecipe)
 			{
-				CachedShapelessRecipe recipe = new CachedShapelessSCRecipe((ShapelessSCRecipe) irecipe);
+				CachedShapelessRecipe recipe = new CachedShapelessSCRecipe((ShapelessCuttingRecipe) irecipe);
 				
 				if (recipe.contains(recipe.ingredients, ingredient))
 				{

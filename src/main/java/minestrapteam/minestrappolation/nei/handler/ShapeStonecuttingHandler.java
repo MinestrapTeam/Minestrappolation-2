@@ -8,9 +8,9 @@ import clashsoft.cslib.minecraft.stack.CSStacks;
 import codechicken.nei.PositionedStack;
 import codechicken.nei.recipe.ShapedRecipeHandler;
 import minestrapteam.minestrappolation.client.gui.GuiStonecutter;
-import minestrapteam.minestrappolation.crafting.stonecutter.ISCRecipe;
-import minestrapteam.minestrappolation.crafting.stonecutter.ShapedSCRecipe;
-import minestrapteam.minestrappolation.crafting.stonecutter.StonecutterCraftingManager;
+import minestrapteam.minestrappolation.crafting.stonecutter.ICuttingRecipe;
+import minestrapteam.minestrappolation.crafting.stonecutter.ShapedCuttingRecipe;
+import minestrapteam.minestrappolation.crafting.stonecutter.StonecuttingManager;
 import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
@@ -32,7 +32,7 @@ public class ShapeStonecuttingHandler extends ShapedRecipeHandler
 			this.setIngredients(width, height, items);
 		}
 		
-		public CachedShapedSCRecipe(ShapedSCRecipe recipe)
+		public CachedShapedSCRecipe(ShapedCuttingRecipe recipe)
 		{
 			this(recipe.recipeWidth, recipe.recipeHeight, recipe.recipeItems, recipe.extraSlot, recipe.recipeOutput);
 		}
@@ -126,11 +126,11 @@ public class ShapeStonecuttingHandler extends ShapedRecipeHandler
 	{
 		if ("stonecutter".equals(outputId))
 		{
-			for (ISCRecipe irecipe : StonecutterCraftingManager.instance.getRecipeList())
+			for (ICuttingRecipe irecipe : StonecuttingManager.instance.getRecipeList())
 			{
-				if (irecipe instanceof ShapedSCRecipe)
+				if (irecipe instanceof ShapedCuttingRecipe)
 				{
-					CachedShapedSCRecipe recipe = new CachedShapedSCRecipe((ShapedSCRecipe) irecipe);
+					CachedShapedSCRecipe recipe = new CachedShapedSCRecipe((ShapedCuttingRecipe) irecipe);
 					
 					recipe.computeVisuals();
 					this.arecipes.add(recipe);
@@ -142,13 +142,13 @@ public class ShapeStonecuttingHandler extends ShapedRecipeHandler
 	@Override
 	public void loadCraftingRecipes(ItemStack result)
 	{
-		for (ISCRecipe irecipe : StonecutterCraftingManager.instance.getRecipeList())
+		for (ICuttingRecipe irecipe : StonecuttingManager.instance.getRecipeList())
 		{
-			if (irecipe instanceof ShapedSCRecipe)
+			if (irecipe instanceof ShapedCuttingRecipe)
 			{
 				if (CSStacks.itemEquals(irecipe.getRecipeOutput(), result))
 				{
-					CachedShapedSCRecipe recipe = new CachedShapedSCRecipe((ShapedSCRecipe) irecipe);
+					CachedShapedSCRecipe recipe = new CachedShapedSCRecipe((ShapedCuttingRecipe) irecipe);
 					recipe.computeVisuals();
 					this.arecipes.add(recipe);
 				}
@@ -159,11 +159,11 @@ public class ShapeStonecuttingHandler extends ShapedRecipeHandler
 	@Override
 	public void loadUsageRecipes(ItemStack ingredient)
 	{
-		for (ISCRecipe irecipe : StonecutterCraftingManager.instance.getRecipeList())
+		for (ICuttingRecipe irecipe : StonecuttingManager.instance.getRecipeList())
 		{
-			if (irecipe instanceof ShapedSCRecipe)
+			if (irecipe instanceof ShapedCuttingRecipe)
 			{
-				CachedShapedSCRecipe recipe = new CachedShapedSCRecipe((ShapedSCRecipe) irecipe);
+				CachedShapedSCRecipe recipe = new CachedShapedSCRecipe((ShapedCuttingRecipe) irecipe);
 				
 				if (recipe.contains(recipe.ingredients, ingredient.getItem()))
 				{

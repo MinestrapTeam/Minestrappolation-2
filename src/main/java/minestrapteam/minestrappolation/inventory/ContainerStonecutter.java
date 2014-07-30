@@ -1,6 +1,6 @@
 package minestrapteam.minestrappolation.inventory;
 
-import minestrapteam.minestrappolation.crafting.stonecutter.StonecutterCraftingManager;
+import minestrapteam.minestrappolation.crafting.stonecutter.StonecuttingManager;
 import minestrapteam.minestrappolation.tileentity.TileEntityStonecutter;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -52,7 +52,7 @@ public class ContainerStonecutter extends Container
 	@Override
 	public void onCraftMatrixChanged(IInventory inventory)
 	{
-		this.craftResult.setInventorySlotContents(0, StonecutterCraftingManager.instance.findMatchingRecipe(this.craftMatrix, this.extraSlot.getStackInSlot(0), this.stoneCutter.getWorldObj()));
+		this.craftResult.setInventorySlotContents(0, StonecuttingManager.instance.findMatchingRecipe(this.craftMatrix, this.extraSlot.getStackInSlot(0), this.stoneCutter.getWorldObj()));
 	}
 	
 	@Override

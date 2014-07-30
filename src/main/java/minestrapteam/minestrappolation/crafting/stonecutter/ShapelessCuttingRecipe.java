@@ -11,13 +11,13 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class ShapelessSCRecipe implements ISCRecipe
+public class ShapelessCuttingRecipe implements ICuttingRecipe
 {
 	public final List		recipeItems;
 	public final ItemStack	recipeOutput;
 	public final ItemStack	extraSlot;
 	
-	public ShapelessSCRecipe(ItemStack output, ItemStack extraSlot, Object... data)
+	public ShapelessCuttingRecipe(ItemStack output, ItemStack extraSlot, Object... data)
 	{
 		ArrayList list = new ArrayList();
 		int len = data.length;
@@ -49,7 +49,7 @@ public class ShapelessSCRecipe implements ISCRecipe
 		this.extraSlot = extraSlot;
 	}
 	
-	public ShapelessSCRecipe(ItemStack output, List items, ItemStack extraSlot)
+	public ShapelessCuttingRecipe(ItemStack output, List items, ItemStack extraSlot)
 	{
 		this.recipeOutput = output;
 		this.recipeItems = items;

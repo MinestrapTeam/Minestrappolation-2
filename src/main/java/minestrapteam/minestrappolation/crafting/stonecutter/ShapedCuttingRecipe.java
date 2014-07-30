@@ -11,7 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
-public class ShapedSCRecipe implements ISCRecipe
+public class ShapedCuttingRecipe implements ICuttingRecipe
 {
 	public final int			recipeWidth;
 	public final int			recipeHeight;
@@ -23,7 +23,7 @@ public class ShapedSCRecipe implements ISCRecipe
 	
 	protected boolean			hasNBTResult;
 	
-	public ShapedSCRecipe(ItemStack output, ItemStack extra, Object... data)
+	public ShapedCuttingRecipe(ItemStack output, ItemStack extra, Object... data)
 	{
 		String s = "";
 		int index = 0;
@@ -100,7 +100,7 @@ public class ShapedSCRecipe implements ISCRecipe
 		this.extraSlot = extra;
 	}
 	
-	public ShapedSCRecipe(ItemStack output, ItemStack extra, int width, int height, ItemStack[] data)
+	public ShapedCuttingRecipe(ItemStack output, ItemStack extra, int width, int height, ItemStack[] data)
 	{
 		this.recipeOutput = output;
 		this.extraSlot = extra;
@@ -207,7 +207,7 @@ public class ShapedSCRecipe implements ISCRecipe
 		return this.recipeWidth * this.recipeHeight;
 	}
 	
-	public ShapedSCRecipe setHasNBTResult(boolean hasNBTResult)
+	public ShapedCuttingRecipe setHasNBTResult(boolean hasNBTResult)
 	{
 		this.hasNBTResult = hasNBTResult;
 		return this;
