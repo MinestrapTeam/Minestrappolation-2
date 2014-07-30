@@ -103,5 +103,6 @@ public class MelterRecipes extends ExperienceRecipeManager
 		this.addRecipe(Blocks.obsidian, new ItemStack(MItems.magmaBucket, 1, 0), 0.7F);
 		this.addRecipe(Blocks.bedrock, new ItemStack(MItems.magmaBucket, 1, 0), 0.7F);
 		this.addRecipe(Blocks.glowstone, new ItemStack(MBlocks.glowGlass), 0.7F);
+		this.addRecipe(Blocks.soul_sand, new ItemStack(MBlocks.slowGlass), 0.7F);
 	}
 }

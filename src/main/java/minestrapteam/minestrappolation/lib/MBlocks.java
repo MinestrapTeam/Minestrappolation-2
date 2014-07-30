@@ -303,6 +303,7 @@ public class MBlocks
 	public static Block			glowGlassPane;
 	public static Block			refinedGlass;
 	public static Block			refinedGlassPane;
+	public static Block			slowGlass;
 	
 	public static Block			gunpowderBlock;
 	public static Block			sugarBlock;
@@ -383,6 +384,7 @@ public class MBlocks
 		glowGlassPane = new MBlockPane(Material.glass, MAssetManager.getTexture("glow_glass"), MAssetManager.getTexture("glass_refined_pane"), false).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(Minestrappolation.tabDecorationBlocks);
 		refinedGlass = new BlockGlassRefined(Material.glass, false).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MAssetManager.getTexture("glass_refined"));
 		refinedGlassPane = new MBlockPane(Material.glass, MAssetManager.getTexture("glass_refined"), MAssetManager.getTexture("glass_refined_pane"), false).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(Minestrappolation.tabDecorationBlocks);
+		slowGlass = new BlockSlowGlass(Material.glass, true).setHardness(0.5F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeGlass).setBlockTextureName(MAssetManager.getTexture("slow_glass"));
 		
 		gunpowderBlock = new BlockGunpowderBlock(Material.ground).setHardness(0.6F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeGravel).setBlockTextureName(MAssetManager.getMineralTexture("gunpowder_block"));
 		sugarBlock = new BlockSugarBlock().setHardness(0.6F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeGravel).setBlockTextureName(MAssetManager.getFoodTexture("sugar_block"));
@@ -469,6 +471,7 @@ public class MBlocks
 		CSBlocks.addBlock(glowGlassPane, "glow_glass_pane");
 		CSBlocks.addBlock(refinedGlass, "refined_glass");
 		CSBlocks.addBlock(refinedGlassPane, "refined_glass_pane");
+		CSBlocks.addBlock(slowGlass, "slow_glass");
 		
 		CSBlocks.addBlock(gunpowderBlock, "gunpowder_block");
 		CSBlocks.addBlock(sugarBlock, "sugar_block");
