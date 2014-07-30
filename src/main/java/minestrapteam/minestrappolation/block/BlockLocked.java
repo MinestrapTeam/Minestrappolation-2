@@ -1,14 +1,13 @@
 package minestrapteam.minestrappolation.block;
 
 import minestrapteam.minestrappolation.common.MCommonProxy;
-import minestrapteam.minestrappolation.lib.MBlocks;
 import minestrapteam.minestrappolation.tileentity.TileEntityLocked;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
+import net.minecraft.block.BlockDoor;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.world.World;
@@ -68,7 +67,7 @@ public class BlockLocked extends BlockContainer
 	
 	public boolean isLockable(Block block, int metadata)
 	{
-		return block == Blocks.chest || block == MBlocks.crate || block == MBlocks.barrel;
+		return block.hasTileEntity(metadata) || block instanceof BlockDoor;
 	}
 	
 	public boolean lock(String owner, World world, int x, int y, int z)

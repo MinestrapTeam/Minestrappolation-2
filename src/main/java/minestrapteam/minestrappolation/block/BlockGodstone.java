@@ -18,15 +18,8 @@ public class BlockGodstone extends Block
 	}
 	
 	@Override
-	public int quantityDropped(Random random)
-	{
-		return 1;
-	}
-	
-	@Override
 	public void onBlockAdded(World world, int x, int y, int z)
 	{
-		world.setBlockMetadataWithNotify(x, y, z, 0, z);
 		world.scheduleBlockUpdate(x, y, z, this, this.tickRate());
 	}
 	
