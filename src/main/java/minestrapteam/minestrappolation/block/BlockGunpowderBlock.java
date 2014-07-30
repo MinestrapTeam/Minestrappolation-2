@@ -35,9 +35,10 @@ public class BlockGunpowderBlock extends BlockFalling
 	@Override
 	public void updateTick(World world, int x, int y, int z, Random random)
 	{
+		super.updateTick(world, x, y, z, random);
 		if (MUtil.isBlockTouchingAnySide(world, x, y, z, Blocks.fire))
 		{
-			world.createExplosion(null, x, y, z, 8F, true);
+			world.newExplosion(null, x, y, z, 8F, true, true);
 		}
 	}
 	
