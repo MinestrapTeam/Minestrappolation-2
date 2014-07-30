@@ -28,7 +28,7 @@ archivesBaseName = "Minestrappolation"
 
 minecraft
 {
-    version = "1.7.10-10.13.0.1187"
+    version = "1.7.10-10.13.0.1189"
     if(file('../run').exists())
 	{
         runDir = "../run/"
@@ -37,23 +37,6 @@ minecraft
 	{
         runDir = "eclipse/"
 	}
-}
-
-processResources
-{
-    inputs.property "version", project.version
-    inputs.property "mcversion", project.minecraft.version
-
-    from(sourceSets.main.resources.srcDirs)
-    {
-        include 'mcmod.info'
-        expand 'version':project.version, 'mcversion':project.minecraft.version
-    }
-
-    from(sourceSets.main.resources.srcDirs)
-    {
-        exclude 'mcmod.info'
-    }
 }
 
 task deobfJar(type:Jar, dependsOn:'classes')
@@ -87,3 +70,20 @@ sourceJar
 }
 
 task buildApi(dependsOn:['build', 'sourceJar', 'deobfJar'])
+
+processResources
+{
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
+
+    from(sourceSets.main.resources.srcDirs)
+    {
+        include 'mcmod.info'
+        expand 'version':project.version, 'mcversion':project.minecraft.version
+    }
+
+    from(sourceSets.main.resources.srcDirs)
+    {
+        exclude 'mcmod.info'
+    }
+}
