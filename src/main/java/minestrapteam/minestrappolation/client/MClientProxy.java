@@ -14,10 +14,7 @@ import minestrapteam.minestrappolation.client.renderer.block.*;
 import minestrapteam.minestrappolation.client.renderer.tileentity.RenderLocked;
 import minestrapteam.minestrappolation.client.renderer.tileentity.RenderStonecutter;
 import minestrapteam.minestrappolation.common.MCommonProxy;
-import minestrapteam.minestrappolation.entity.EntityGrenade;
-import minestrapteam.minestrappolation.entity.EntityGrenadeImpact;
-import minestrapteam.minestrappolation.entity.EntityGrenadeSticky;
-import minestrapteam.minestrappolation.entity.EntityNukePrimed;
+import minestrapteam.minestrappolation.entity.*;
 import minestrapteam.minestrappolation.lib.MItems;
 import minestrapteam.minestrappolation.tileentity.*;
 
@@ -55,6 +52,7 @@ public class MClientProxy extends MCommonProxy
 		RenderingRegistry.registerEntityRenderingHandler(EntityGrenade.class, new RenderSnowball(MItems.grenade));
 		RenderingRegistry.registerEntityRenderingHandler(EntityGrenadeImpact.class, new RenderSnowball(MItems.grenadeImpact));
 		RenderingRegistry.registerEntityRenderingHandler(EntityGrenadeSticky.class, new RenderSnowball(MItems.grenadeSticky));
+		RenderingRegistry.registerEntityRenderingHandler(EntityGrenadeNuke.class, new RenderSnowball(MItems.grenadeNuke));
 	}
 	
 	@Override
