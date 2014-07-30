@@ -2,6 +2,7 @@ package minestrapteam.minestrappolation.client.gui;
 
 import org.lwjgl.opengl.GL11;
 
+import clashsoft.cslib.minecraft.lang.I18n;
 import minestrapteam.minestrappolation.inventory.ContainerMelter;
 import minestrapteam.minestrappolation.tileentity.TileEntityMelter;
 import minestrapteam.minestrappolation.util.MAssetManager;
@@ -25,7 +26,8 @@ public class GuiMelter extends GuiContainer
 	@Override
 	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
 	{
-		this.fontRendererObj.drawString(this.melter.getInventoryName(), 8, this.ySize - 94, 4210752);
+		this.fontRendererObj.drawString(this.melter.getInventoryName(), 80, 6, 4210752);
+		this.fontRendererObj.drawString(I18n.getString("container.inventory"), 8, this.ySize - 94, 4210752);
 	}
 	
 	@Override

@@ -29,10 +29,6 @@ public class TileEntityMelter extends TileEntityInventory implements ISidedInven
 	public TileEntityMelter()
 	{
 		super(4);
-		this.burnTime = 0;
-		this.maxBurnTime = 0;
-		this.meltTime = 0;
-		this.hasPower = false;
 	}
 	
 	public void setFrontDirection(int f)
@@ -65,7 +61,6 @@ public class TileEntityMelter extends TileEntityInventory implements ISidedInven
 		this.burnTime = nbt.getShort("BurnTime");
 		this.meltTime = nbt.getShort("CookTime");
 		this.maxBurnTime = this.getItemBurnTime(this.itemStacks[1]);
-		this.hasPower = nbt.getBoolean("hasPower");
 	}
 	
 	public boolean isPowered()
@@ -81,7 +76,6 @@ public class TileEntityMelter extends TileEntityInventory implements ISidedInven
 		nbt.setInteger("FrontDirection", this.front);
 		nbt.setShort("BurnTime", (short) this.burnTime);
 		nbt.setShort("CookTime", (short) this.meltTime);
-		nbt.setBoolean("hasPower", this.hasPower);
 	}
 	
 	public int getProgressScaled(int scalar)
@@ -126,52 +120,54 @@ public class TileEntityMelter extends TileEntityInventory implements ISidedInven
 			}
 		}
 		
-		if (!this.worldObj.isRemote)
+		if (this.worldObj.isRemote)
 		{
-			if (this.canSmelt())
+			return;
+		}
+		
+		if (this.canSmelt())
+		{
+			if (this.burnTime == 0)
 			{
-				if (this.burnTime == 0)
+				this.maxBurnTime = this.burnTime = this.getItemBurnTime(this.itemStacks[1]);
+				if (this.burnTime > 0)
 				{
-					this.maxBurnTime = this.burnTime = this.getItemBurnTime(this.itemStacks[1]);
-					if (this.burnTime > 0)
+					this.markDirty();
+					if (this.itemStacks[1] != null)
 					{
-						this.markDirty();
-						if (this.itemStacks[1] != null)
+						--this.itemStacks[1].stackSize;
+						if (this.itemStacks[1].stackSize == 0)
 						{
-							--this.itemStacks[1].stackSize;
-							if (this.itemStacks[1].stackSize == 0)
-							{
-								this.itemStacks[1] = this.itemStacks[1].getItem().getContainerItem(this.itemStacks[1]);
-							}
+							this.itemStacks[1] = this.itemStacks[1].getItem().getContainerItem(this.itemStacks[1]);
 						}
 					}
 				}
-				else if (this.isBurning())
-				{
-					++this.meltTime;
-					if (this.meltTime == this.getMaxMeltTime())
-					{
-						this.meltTime = 0;
-						this.smeltItem();
-						this.markDirty();
-					}
-				}
-				else
+			}
+			else if (this.isBurning())
+			{
+				++this.meltTime;
+				if (this.meltTime == this.getMaxMeltTime())
 				{
 					this.meltTime = 0;
+					this.smeltItem();
+					this.markDirty();
 				}
 			}
 			else
 			{
 				this.meltTime = 0;
 			}
-			
-			if (var1 != this.burnTime > 0)
-			{
-				this.markDirty();
-				this.validate();
-				BlockMelter.updateBlockState(this.burnTime > 0, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
-			}
+		}
+		else
+		{
+			this.meltTime = 0;
+		}
+		
+		if (var1 != this.burnTime > 0)
+		{
+			this.markDirty();
+			this.validate();
+			BlockMelter.updateBlockState(this.burnTime > 0, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
 		}
 	}
 	
@@ -226,7 +222,7 @@ public class TileEntityMelter extends TileEntityInventory implements ISidedInven
 				this.itemStacks[0] = null;
 			}
 			
-			if (this.itemStacks[3] != null)
+			if (this.itemStacks[3] != null && CSStacks.equals(this.itemStacks[3], itemstack.getItem().getContainerItem(itemstack)))
 			{
 				--this.itemStacks[3].stackSize;
 				if (this.itemStacks[3].stackSize <= 0)
