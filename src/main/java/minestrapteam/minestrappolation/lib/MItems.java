@@ -68,8 +68,9 @@ public class MItems
 	public static Item	steelLock;
 	public static Item	soulBottle;
 	public static Item	grenade;
-	public static Item	grenadeNuke;
+	public static Item	grenadeImpact;
 	public static Item	grenadeSticky;
+	public static Item grenadeNuke;
 	
 	public static Item	plateTinItem;
 	public static Item	plateBronzeItem;
@@ -189,8 +190,9 @@ public class MItems
 		steelLock = new ItemLock().setCreativeTab(tabMisc).setTextureName(MAssetManager.getTexture("steel_lock"));
 		soulBottle = new ItemSoulBottle().setCreativeTab(tabTools).setTextureName(MAssetManager.getTexture("soul_bottle"));
 		grenade = new ItemGrenade().setCreativeTab(tabCombat).setTextureName(MAssetManager.getTexture("grenade"));
-		grenadeNuke = new ItemGrenadeNuke().setCreativeTab(tabCombat).setTextureName(MAssetManager.getTexture("grenade_nuke"));
+		grenadeImpact = new ItemGrenadeImpact().setCreativeTab(tabCombat).setTextureName(MAssetManager.getTexture("grenade_impact"));
 		grenadeSticky = new ItemGrenadeSticky().setCreativeTab(tabCombat).setTextureName(MAssetManager.getTexture("grenade_sticky"));
+		grenadeNuke = new ItemGrenadeNuke().setCreativeTab(tabCombat).setTextureName(MAssetManager.getTexture("grenade_nuke"));
 		
 		plateTinItem = new ItemPlating(MBlocks.tinPlate, "tin", 1F, 64, 1.2F).setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("tin_plating"));
 		plateBronzeItem = new ItemPlating(MBlocks.bronzePlate, "bronze", 1.5F, 128, 1.3F).setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("bronze_plating"));
@@ -306,7 +308,7 @@ public class MItems
 		CSItems.addItem(steelLock, "steel_lock");
 		CSItems.addItem(soulBottle, "soul_bottle");
 		CSItems.addItem(grenade, "grenade");
-		CSItems.addItem(grenadeNuke, "nuke_grenade");
+		CSItems.addItem(grenadeImpact, "impact_grenade");
 		CSItems.addItem(grenadeSticky, "sticky_grenade");
 		CSItems.addItem(plateTinItem, "tin_plate");
 		CSItems.addItem(plateBronzeItem, "bronze_plate");
@@ -461,7 +463,7 @@ public class MItems
 		mineshaftCorridor.addItem(new WeightedRandomChestContent(new ItemStack(uranium), 0, 2, 2));
 		mineshaftCorridor.addItem(new WeightedRandomChestContent(new ItemStack(plutonium), 0, 2, 2));
 		mineshaftCorridor.addItem(new WeightedRandomChestContent(new ItemStack(radiantQuartz), 0, 5, 1));
-		mineshaftCorridor.addItem(new WeightedRandomChestContent(new ItemStack(grenadeNuke), 0, 1, 1));
+		mineshaftCorridor.addItem(new WeightedRandomChestContent(new ItemStack(grenadeImpact), 0, 1, 1));
 		strongholdCorridor.addItem(new WeightedRandomChestContent(new ItemStack(copperIngot), 1, 5, 30));
 		strongholdCorridor.addItem(new WeightedRandomChestContent(new ItemStack(tinIngot), 1, 5, 30));
 		strongholdCorridor.addItem(new WeightedRandomChestContent(new ItemStack(sunstoneDust), 3, 9, 30));

@@ -12,6 +12,7 @@ public abstract class EntityThrowableExplosive extends EntityThrowable
 {
 	private int		fuse			= 60;
 	private double	bounceFactor	= 0.5D;
+	protected float	explosionRange	= 4F;
 	
 	public EntityThrowableExplosive(World world)
 	{
@@ -67,9 +68,9 @@ public abstract class EntityThrowableExplosive extends EntityThrowable
 	
 	private void explode()
 	{
-		this.worldObj.createExplosion(null, this.posX, this.posY, this.posZ, 4F, true);
+		this.worldObj.createExplosion(null, this.posX, this.posY, this.posZ, this.explosionRange, true);
 		
-		AxisAlignedBB axisalignedbb = this.boundingBox.expand(4.0D, 2.0D, 4.0D);
+		AxisAlignedBB axisalignedbb = this.boundingBox.expand(this.explosionRange, this.explosionRange, this.explosionRange);
 		List<EntityLivingBase> list = this.worldObj.getEntitiesWithinAABB(EntityLivingBase.class, axisalignedbb);
 		for (EntityLivingBase living : list)
 		{

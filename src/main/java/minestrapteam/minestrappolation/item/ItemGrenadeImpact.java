@@ -1,14 +1,14 @@
 package minestrapteam.minestrappolation.item;
 
-import minestrapteam.minestrappolation.entity.EntityGrenadeSticky;
+import minestrapteam.minestrappolation.entity.EntityGrenadeImpact;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class ItemGrenadeSticky extends ItemGrenade
+public class ItemGrenadeImpact extends ItemGrenade
 {
-	public ItemGrenadeSticky()
+	public ItemGrenadeImpact()
 	{
 		super();
 	}
@@ -24,7 +24,7 @@ public class ItemGrenadeSticky extends ItemGrenade
 			}
 			
 			world.playSoundAtEntity(player, "random.bow", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
-			world.spawnEntityInWorld(new EntityGrenadeSticky(world, player));
+			world.spawnEntityInWorld(new EntityGrenadeImpact(world, player));
 		}
 		
 		return stack;

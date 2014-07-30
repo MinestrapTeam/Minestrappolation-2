@@ -108,7 +108,10 @@ public class MRecipes
 		GameRegistry.addRecipe(new ItemStack(steelLock), new Object[] { " I ", "SSS", " S ", 'I', Items.iron_ingot, 'S', steelIngot });
 		GameRegistry.addRecipe(new ItemStack(steelKey), new Object[] { "SSS", "GG ", 'G', Items.gold_ingot, 'S', steelIngot });
 		GameRegistry.addRecipe(new ItemStack(soulBottle, 4), new Object[] { "S", "G", 'S', soulGem, 'G', Items.glass_bottle });
-		GameRegistry.addRecipe(new ItemStack(grenade), new Object[] { "SUS", "PGP", "SUS", 'P', plutonium, 'S', plateSteelItem, 'U', uranium, 'G', Items.gunpowder });
+		GameRegistry.addRecipe(new ItemStack(grenade), new Object[] { " I ", "SGS", "SGS", 'I', Items.iron_ingot, 'S', plateSteelItem, 'G', Items.gunpowder });
+		GameRegistry.addShapelessRecipe(new ItemStack(grenadeImpact), new ItemStack(Items.gunpowder), new ItemStack(grenade), new ItemStack(Items.gunpowder));
+		GameRegistry.addShapelessRecipe(new ItemStack(grenadeSticky), new ItemStack(grenade), new ItemStack(Items.slime_ball));
+		GameRegistry.addRecipe(new ItemStack(grenadeNuke), new Object[] { "SUS", "PGP", "SUS", 'S', plateSteelItem, 'U', uranium, 'P', plutonium, 'G', Items.gunpowder });
 		GameRegistry.addRecipe(new ItemStack(plateTinItem, 4), new Object[] { "ZZZ", "ZZZ", 'Z', tinIngot });
 		GameRegistry.addRecipe(new ItemStack(plateBronzeItem, 4), new Object[] { "ZZZ", "ZZZ", 'Z', bronzeIngot });
 		GameRegistry.addRecipe(new ItemStack(plateSteelItem, 4), new Object[] { "ZZZ", "ZZZ", 'Z', steelIngot });

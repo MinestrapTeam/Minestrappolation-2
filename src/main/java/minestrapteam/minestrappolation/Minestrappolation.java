@@ -114,10 +114,11 @@ public class Minestrappolation extends BaseMod
 		
 		FluidContainerRegistry.registerFluidContainer(magmaFluid, new ItemStack(MItems.magmaBucket));
 		
+		EntityRegistry.registerModEntity(EntityNukePrimed.class, "NukePrimed", 1, this, 350, 5, false);
 		EntityRegistry.registerModEntity(EntityGrenade.class, "Grenade", 2, this, 40, 3, true);
-		EntityRegistry.registerModEntity(EntityNukePrimed.class, "NukePrimed", 6, this, 350, 5, false);
 		EntityRegistry.registerModEntity(EntityGrenadeImpact.class, "GrenadeImpact", 4, this, 40, 3, true);
 		EntityRegistry.registerModEntity(EntityGrenadeSticky.class, "GrenadeSticky", 5, this, 40, 3, true);
+		EntityRegistry.registerModEntity(EntityGrenadeNuke.class, "GrenadeNuke", 6, this, 40, 3, true);
 	}
 	
 	@Override

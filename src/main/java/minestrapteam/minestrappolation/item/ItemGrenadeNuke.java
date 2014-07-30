@@ -1,21 +1,16 @@
 package minestrapteam.minestrappolation.item;
 
-import java.util.List;
-
-import minestrapteam.minestrappolation.entity.EntityGrenade;
+import minestrapteam.minestrappolation.entity.EntityGrenadeNuke;
 
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 
-public class ItemGrenadeNuke extends Item
+public class ItemGrenadeNuke extends ItemGrenade
 {
 	public ItemGrenadeNuke()
 	{
 		super();
-		this.setMaxStackSize(16);
 	}
 	
 	@Override
@@ -29,16 +24,9 @@ public class ItemGrenadeNuke extends Item
 			}
 			
 			world.playSoundAtEntity(player, "random.bow", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
-			world.spawnEntityInWorld(new EntityGrenade(world, player));
+			world.spawnEntityInWorld(new EntityGrenadeNuke(world, player));
 		}
 		
 		return stack;
 	}
-	
-	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean flag)
-	{
-		list.add(EnumChatFormatting.RED + "WIP");
-	}
-	
 }

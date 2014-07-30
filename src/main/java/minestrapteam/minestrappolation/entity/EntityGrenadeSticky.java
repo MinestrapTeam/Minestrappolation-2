@@ -29,7 +29,7 @@ public class EntityGrenadeSticky extends EntityThrowableExplosive
 	{
 		super.onUpdate();
 		
-		if (this.impacted && this.inGround)
+		if (this.impacted)
 		{
 			this.motionX = 0;
 			this.motionY = 0;
