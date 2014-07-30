@@ -340,7 +340,7 @@ public class MBlocks
 		radiantQuartzOre = new MBlock(Material.rock).setHardness(3F).setResistance(6F).setLightLevel(0.3F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MAssetManager.getMineralTexture("radiant_quartz_ore"));
 		
 		copperBlock = new BlockCopper(Material.iron).setHardness(5F).setResistance(10F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("blockCopper");
-		tinBlock = new MBlock(Material.iron).setHardness(3F).setResistance(2F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockTextureName(MAssetManager.getMineralTexture("tin_block"));
+		tinBlock = new BlockTin(Material.iron).setHardness(3F).setResistance(2F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockTextureName(MAssetManager.getMineralTexture("tin_block"));
 		bronzeBlock = new MBlock(Material.iron).setHardness(7F).setResistance(20F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockTextureName(MAssetManager.getMineralTexture("bronze_block"));
 		titaniumBlock = new MBlock(Material.iron).setHardness(10F).setResistance(12000000.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockTextureName(MAssetManager.getMineralTexture("titanium_block"));
 		uraniumBlock = new BlockUraniumRaw(Material.rock).setHardness(6F).setResistance(9F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockTextureName(MAssetManager.getMineralTexture("uranium_block"));
