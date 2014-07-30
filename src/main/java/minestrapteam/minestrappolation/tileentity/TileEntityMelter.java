@@ -60,7 +60,7 @@ public class TileEntityMelter extends TileEntityInventory implements ISidedInven
 		this.front = nbt.getInteger("FrontDirection");
 		this.burnTime = nbt.getShort("BurnTime");
 		this.meltTime = nbt.getShort("CookTime");
-		this.maxBurnTime = this.getItemBurnTime(this.itemStacks[1]);
+		this.maxBurnTime = getItemBurnTime(this.itemStacks[1]);
 	}
 	
 	public boolean isPowered()
@@ -129,7 +129,7 @@ public class TileEntityMelter extends TileEntityInventory implements ISidedInven
 		{
 			if (this.burnTime == 0)
 			{
-				this.maxBurnTime = this.burnTime = this.getItemBurnTime(this.itemStacks[1]);
+				this.maxBurnTime = this.burnTime = getItemBurnTime(this.itemStacks[1]);
 				if (this.burnTime > 0)
 				{
 					this.markDirty();
@@ -235,10 +235,10 @@ public class TileEntityMelter extends TileEntityInventory implements ISidedInven
 	
 	public boolean isItemFuel(ItemStack stack)
 	{
-		return this.getItemBurnTime(stack) > 0;
+		return getItemBurnTime(stack) > 0;
 	}
 	
-	public int getItemBurnTime(ItemStack stack)
+	public static int getItemBurnTime(ItemStack stack)
 	{
 		if (stack == null)
 		{
