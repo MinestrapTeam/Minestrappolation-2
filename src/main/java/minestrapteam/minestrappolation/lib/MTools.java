@@ -8,6 +8,7 @@ import minestrapteam.minestrappolation.item.*;
 import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
@@ -123,6 +124,32 @@ public class MTools
 	
 	public static void init()
 	{
+		CSItems.replaceItem(Items.wooden_sword, new MItemSword(ToolMaterial.WOOD).setUnlocalizedName("swordWood").setTextureName("wood_sword"));
+		CSItems.replaceItem(Items.wooden_shovel, new MItemShovel(ToolMaterial.WOOD).setUnlocalizedName("shovelWood").setTextureName("wood_shovel"));
+		CSItems.replaceItem(Items.wooden_pickaxe, new MItemPickaxe(ToolMaterial.WOOD).setUnlocalizedName("pickaxeWood").setTextureName("wood_pickaxe"));
+		CSItems.replaceItem(Items.wooden_axe, new MItemAxe(ToolMaterial.WOOD).setUnlocalizedName("hatchetWood").setTextureName("wood_axe"));
+		CSItems.replaceItem(Items.wooden_hoe, new MItemHoe(ToolMaterial.WOOD).setUnlocalizedName("hoeWood").setTextureName("wood_hoe"));
+		CSItems.replaceItem(Items.stone_sword, new MItemSword(ToolMaterial.STONE).setUnlocalizedName("swordStone").setTextureName("stone_sword"));
+		CSItems.replaceItem(Items.stone_shovel, new MItemShovel(ToolMaterial.STONE).setUnlocalizedName("shovelStone").setTextureName("stone_shovel"));
+		CSItems.replaceItem(Items.stone_pickaxe, new MItemPickaxe(ToolMaterial.STONE).setUnlocalizedName("pickaxeStone").setTextureName("stone_pickaxe"));
+		CSItems.replaceItem(Items.stone_axe, new MItemAxe(ToolMaterial.STONE).setUnlocalizedName("hatchetStone").setTextureName("stone_axe"));
+		CSItems.replaceItem(Items.stone_hoe, new MItemHoe(ToolMaterial.STONE).setUnlocalizedName("hoeStone").setTextureName("stone_hoe"));
+		CSItems.replaceItem(Items.iron_sword, new MItemSword(ToolMaterial.IRON).setUnlocalizedName("swordIron").setTextureName("iron_sword"));
+		CSItems.replaceItem(Items.iron_shovel, new MItemShovel(ToolMaterial.IRON).setUnlocalizedName("shovelIron").setTextureName("iron_shovel"));
+		CSItems.replaceItem(Items.iron_pickaxe, new MItemPickaxe(ToolMaterial.IRON).setUnlocalizedName("pickaxeIron").setTextureName("iron_pickaxe"));
+		CSItems.replaceItem(Items.iron_axe, new MItemAxe(ToolMaterial.IRON).setUnlocalizedName("hatchetIron").setTextureName("iron_axe"));
+		CSItems.replaceItem(Items.iron_hoe, new MItemHoe(ToolMaterial.IRON).setUnlocalizedName("hoeIron").setTextureName("iron_hoe"));
+		CSItems.replaceItem(Items.golden_sword, new MItemSword(ToolMaterial.GOLD).setUnlocalizedName("swordGold").setTextureName("gold_sword"));
+		CSItems.replaceItem(Items.golden_shovel, new MItemShovel(ToolMaterial.GOLD).setUnlocalizedName("shovelGold").setTextureName("gold_shovel"));
+		CSItems.replaceItem(Items.golden_pickaxe, new MItemPickaxe(ToolMaterial.GOLD).setUnlocalizedName("pickaxeGold").setTextureName("gold_pickaxe"));
+		CSItems.replaceItem(Items.golden_axe, new MItemAxe(ToolMaterial.GOLD).setUnlocalizedName("hatchetGold").setTextureName("gold_axe"));
+		CSItems.replaceItem(Items.golden_hoe, new MItemHoe(ToolMaterial.GOLD).setUnlocalizedName("hoeGold").setTextureName("gold_hoe"));
+		CSItems.replaceItem(Items.diamond_sword, new MItemSword(ToolMaterial.EMERALD).setUnlocalizedName("swordDiamond").setTextureName("diamond_sword"));
+		CSItems.replaceItem(Items.diamond_shovel, new MItemShovel(ToolMaterial.EMERALD).setUnlocalizedName("shovelDiamond").setTextureName("diamond_shovel"));
+		CSItems.replaceItem(Items.diamond_pickaxe, new MItemPickaxe(ToolMaterial.EMERALD).setUnlocalizedName("pickaxeDiamond").setTextureName("diamond_pickaxe"));
+		CSItems.replaceItem(Items.diamond_axe, new MItemAxe(ToolMaterial.EMERALD).setUnlocalizedName("hatchetDiamond").setTextureName("diamond_axe"));
+		CSItems.replaceItem(Items.diamond_hoe, new MItemHoe(ToolMaterial.EMERALD).setUnlocalizedName("hoeDiamond").setTextureName("diamond_hoe"));
+		
 		meuroditeSword = new MItemSword(toolMeurodite).setCreativeTab(Minestrappolation.tabCombat).setTextureName(MAssetManager.getWeaponTexture("meurodite_sword"));
 		meuroditeShovel = new MItemShovel(toolMeurodite).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("meurodite_shovel"));
 		meuroditePickaxe = new MItemPickaxe(toolMeurodite).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("meurodite_pickaxe"));
