@@ -1,4 +1,4 @@
-package minestrapteam.minestrappolation.nei;
+package minestrapteam.minestrappolation.nei.handler;
 
 import java.awt.Rectangle;
 import java.util.*;
@@ -17,7 +17,7 @@ import minestrapteam.minestrappolation.util.MAssetManager;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.item.ItemStack;
 
-public class NEIMelterManager extends TemplateRecipeHandler
+public class MelterRecipeHandler extends TemplateRecipeHandler
 {
 	public class MeltingPair extends CachedRecipe
 	{
@@ -41,7 +41,7 @@ public class NEIMelterManager extends TemplateRecipeHandler
 		@Override
 		public List<PositionedStack> getIngredients()
 		{
-			return this.getCycledIngredients(NEIMelterManager.this.cycleticks / 48, Arrays.asList(this.ingred));
+			return this.getCycledIngredients(MelterRecipeHandler.this.cycleticks / 48, Arrays.asList(this.ingred));
 		}
 		
 		@Override
@@ -54,7 +54,7 @@ public class NEIMelterManager extends TemplateRecipeHandler
 		public List<PositionedStack> getOtherStacks()
 		{
 			List<PositionedStack> list = super.getOtherStacks();
-			PositionedStack fuel = afuels.get(NEIMelterManager.this.cycleticks / 48 % afuels.size()).stack;
+			PositionedStack fuel = afuels.get(MelterRecipeHandler.this.cycleticks / 48 % afuels.size()).stack;
 			if (fuel != null)
 			{
 				list.add(fuel);

@@ -5,14 +5,15 @@ import codechicken.nei.api.IConfigureNEI;
 import minestrapteam.minestrappolation.client.gui.GuiMelter;
 import minestrapteam.minestrappolation.client.gui.GuiStonecutter;
 import minestrapteam.minestrappolation.lib.MReference;
+import minestrapteam.minestrappolation.nei.handler.*;
 
 public class NEIMinestrappolationConfig implements IConfigureNEI
 {
-	public static NEIShapedStonecutterManager		shapedStonecutterManager	= new NEIShapedStonecutterManager();
-	public static NEIShapelessStonecutterManager	shapelessStonecutterManager	= new NEIShapelessStonecutterManager();
-	public static NEIMelterManager					melterManager				= new NEIMelterManager();
-	public static NEIMelterFuelManager				melterFuelManager			= new NEIMelterFuelManager();
-	public static NEIPlatingManager					platingManager				= new NEIPlatingManager();
+	public static ShapeStonecuttingHandler		shapedStonecutterManager	= new ShapeStonecuttingHandler();
+	public static ShapelessStonecuttingHandler	shapelessStonecutterManager	= new ShapelessStonecuttingHandler();
+	public static MelterRecipeHandler			melterManager				= new MelterRecipeHandler();
+	public static MelterFuelHandler				melterFuelManager			= new MelterFuelHandler();
+	public static PlatingRecipeHandler			platingManager				= new PlatingRecipeHandler();
 	
 	@Override
 	public void loadConfig()

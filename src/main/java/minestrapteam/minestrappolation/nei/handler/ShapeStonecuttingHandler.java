@@ -1,4 +1,4 @@
-package minestrapteam.minestrappolation.nei;
+package minestrapteam.minestrappolation.nei.handler;
 
 import java.awt.Rectangle;
 import java.util.Collection;
@@ -18,7 +18,7 @@ import net.minecraft.inventory.Container;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public class NEIShapedStonecutterManager extends ShapedRecipeHandler
+public class ShapeStonecuttingHandler extends ShapedRecipeHandler
 {
 	public class CachedShapedSCRecipe extends CachedShapedRecipe
 	{

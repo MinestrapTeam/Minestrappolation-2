@@ -1,4 +1,4 @@
-package minestrapteam.minestrappolation.nei;
+package minestrapteam.minestrappolation.nei.handler;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -14,7 +14,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
-public class NEIPlatingManager extends ShapelessRecipeHandler
+public class PlatingRecipeHandler extends ShapelessRecipeHandler
 {
 	public class CachedPlatingRecipe extends CachedShapelessRecipe
 	{

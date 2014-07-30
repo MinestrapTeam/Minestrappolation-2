@@ -1,4 +1,4 @@
-package minestrapteam.minestrappolation.nei;
+package minestrapteam.minestrappolation.nei.handler;
 
 import java.util.List;
 
@@ -10,13 +10,14 @@ import minestrapteam.minestrappolation.client.gui.GuiStonecutter;
 import minestrapteam.minestrappolation.crafting.stonecutter.ISCRecipe;
 import minestrapteam.minestrappolation.crafting.stonecutter.ShapelessSCRecipe;
 import minestrapteam.minestrappolation.crafting.stonecutter.StonecutterCraftingManager;
+import minestrapteam.minestrappolation.nei.NEIMinestrappolationConfig;
 import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.inventory.Container;
 import net.minecraft.item.ItemStack;
 
-public class NEIShapelessStonecutterManager extends ShapelessRecipeHandler
+public class ShapelessStonecuttingHandler extends ShapelessRecipeHandler
 {
 	public class CachedShapelessSCRecipe extends CachedShapelessRecipe
 	{
@@ -55,7 +56,7 @@ public class NEIShapelessStonecutterManager extends ShapelessRecipeHandler
 			this.ingredients.clear();
 			for (int ingred = 0; ingred < items.size(); ingred++)
 			{
-				PositionedStack stack = new PositionedStack(items.get(ingred), 39 + NEIShapelessStonecutterManager.this.stackorder[ingred][0] * 18, 6 + NEIShapelessStonecutterManager.this.stackorder[ingred][1] * 18);
+				PositionedStack stack = new PositionedStack(items.get(ingred), 39 + ShapelessStonecuttingHandler.this.stackorder[ingred][0] * 18, 6 + ShapelessStonecuttingHandler.this.stackorder[ingred][1] * 18);
 				stack.setMaxSize(1);
 				this.ingredients.add(stack);
 			}
@@ -101,7 +102,7 @@ public class NEIShapelessStonecutterManager extends ShapelessRecipeHandler
 			{
 				if (irecipe instanceof ShapelessSCRecipe)
 				{
-					NEIShapelessStonecutterManager manager = NEIMinestrappolationConfig.shapelessStonecutterManager;
+					ShapelessStonecuttingHandler manager = NEIMinestrappolationConfig.shapelessStonecutterManager;
 					CachedShapelessSCRecipe recipe = manager.new CachedShapelessSCRecipe((ShapelessSCRecipe) irecipe);
 					this.arecipes.add(recipe);
 				}

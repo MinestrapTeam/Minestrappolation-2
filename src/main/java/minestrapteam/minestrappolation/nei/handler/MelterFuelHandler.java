@@ -1,4 +1,4 @@
-package minestrapteam.minestrappolation.nei;
+package minestrapteam.minestrappolation.nei.handler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ import minestrapteam.minestrappolation.crafting.MelterRecipes;
 
 import net.minecraft.item.ItemStack;
 
-public class NEIMelterFuelManager extends NEIMelterManager
+public class MelterFuelHandler extends MelterRecipeHandler
 {
 	public class CachedFuelRecipe extends CachedRecipe
 	{
@@ -25,7 +25,7 @@ public class NEIMelterFuelManager extends NEIMelterManager
 		
 		private MeltingPair getRecipe()
 		{
-			return NEIMelterFuelManager.this.mfurnace.get(NEIMelterFuelManager.this.cycleticks / 48 % NEIMelterFuelManager.this.mfurnace.size());
+			return MelterFuelHandler.this.mfurnace.get(MelterFuelHandler.this.cycleticks / 48 % MelterFuelHandler.this.mfurnace.size());
 		}
 		
 		@Override
@@ -59,7 +59,7 @@ public class NEIMelterFuelManager extends NEIMelterManager
 	
 	private ArrayList<MeltingPair>	mfurnace	= new ArrayList();
 	
-	public NEIMelterFuelManager()
+	public MelterFuelHandler()
 	{
 		super();
 		this.loadAllSmelting();
