@@ -4,10 +4,7 @@ import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import minestrapteam.minestrappolation.client.gui.GuiBarrel;
-import minestrapteam.minestrappolation.client.gui.GuiCrate;
-import minestrapteam.minestrappolation.client.gui.GuiMelter;
-import minestrapteam.minestrappolation.client.gui.GuiStonecutter;
+import minestrapteam.minestrappolation.client.gui.*;
 import minestrapteam.minestrappolation.client.renderer.RenderHangGlider;
 import minestrapteam.minestrappolation.client.renderer.RenderNukePrimed;
 import minestrapteam.minestrappolation.client.renderer.block.*;
@@ -73,6 +70,10 @@ public class MClientProxy extends MCommonProxy
 		else if (id == 3)
 		{
 			return new GuiStonecutter(player.inventory, (TileEntityStonecutter) world.getTileEntity(x, y, z));
+		}
+		else if (id == 4)
+		{
+			return new GuiSawmill(player.inventory, (TileEntitySawmill) world.getTileEntity(x, y, z));
 		}
 		return null;
 	}
