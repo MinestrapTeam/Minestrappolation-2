@@ -2,10 +2,7 @@ package minestrapteam.minestrappolation.block;
 
 import static net.minecraftforge.common.util.ForgeDirection.UP;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 import minestrapteam.minestrappolation.lib.MBlocks;
 
@@ -136,6 +133,17 @@ public class MBlockCustom extends Block
 	{
 		this.harvestTool = tool;
 		return this;
+	}
+	
+	public ItemStack toStack(String type)
+	{
+		return this.toStack(type, 1);
+	}
+	
+	public ItemStack toStack(String type, int size)
+	{
+		int i = Arrays.binarySearch(this.types, type);
+		return new ItemStack(this, size, i);
 	}
 	
 	public String getType(int metadata)

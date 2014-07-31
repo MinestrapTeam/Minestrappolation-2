@@ -1,9 +1,6 @@
 package minestrapteam.minestrappolation.block;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.common.MCommonProxy;
@@ -125,6 +122,17 @@ public class MBlockCustom2 extends Block
 	{
 		this.harvestTool = harvestTool;
 		return this;
+	}
+	
+	public ItemStack toStack(String type)
+	{
+		return this.toStack(type, 1);
+	}
+	
+	public ItemStack toStack(String type, int size)
+	{
+		int i = Arrays.binarySearch(this.types, type);
+		return new ItemStack(this, size, i);
 	}
 	
 	public String getType(int metadata)

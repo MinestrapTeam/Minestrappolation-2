@@ -408,7 +408,7 @@ public class MBlocks
 		cardboard = new MBlockPane(Material.cloth, MAssetManager.getTexture("cardboard"), MAssetManager.getTexture("cardboard_pane_edge"), true).setHardness(0.3F).setCreativeTab(null);
 		cardboardBlock = new BlockCardboard(Material.cloth).setHardness(0.4F).setCreativeTab(Minestrappolation.tabBuildingBlocks);
 		
-		glassDoor = new BlockGlassDoor(Material.glass).setHardness(1F);		
+		glassDoor = new BlockGlassDoor(Material.glass).setHardness(1F);
 		
 		redwoodSapling = new BlockRedwoodSapling().setHardness(0.0F).setStepSound(Block.soundTypeGrass);
 	}
@@ -537,7 +537,7 @@ public class MBlocks
 		String[] types_colored_clay = new String[] { null, "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled" };
 		String[] types_colored_clay_2 = new String[] { "pillar", "raw_slab", "brick_slab", "tile_slab", "refined_slab" };
 		String[] types_redwood = new String[] { "planks", "bevel", "boards", "panel", "mossy_planks", "mossy_boards", "mossy_panel" };
-		String[] types_redwood_2	= new String[] { "planks_slab", "boards_slab" };
+		String[] types_redwood_2 = new String[] { "planks_slab", "boards_slab" };
 		
 		stone = MBlockHelper.createStoneBlock(types_stone, "stone", 1.5F, 10.0F, 0, tab).setIsStone();
 		stone2 = MBlockHelper.createStoneBlock2(types_stone_2, "stone", 1.5F, 10.0F, 0, tab);
@@ -754,7 +754,6 @@ public class MBlocks
 		redwood = MBlockHelper.createWoodBlock(types_redwood, "redwood", 2.0F, 5.0F, tab_decor);
 		redwood2 = MBlockHelper.createWoodBlock2(types_redwood_2, "redwood", 2.0F, 5.0F, tab_decor);
 		redwoodStairsPlanks = MBlockHelper.createWoodStair(redwood, 0, tab_decor);
-		redwoodStairsBoards = MBlockHelper.createWoodStair(redwood, 2, tab_decor);
-
+		redwoodStairsBoards = MBlockHelper.createWoodStair(redwood, 2, tab_decor);	
 	}
 }
