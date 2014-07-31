@@ -1,7 +1,5 @@
 package minestrapteam.minestrappolation.block;
 
-import minestrapteam.minestrappolation.Minestrappolation;
-import minestrapteam.minestrappolation.tileentity.TileEntityStonecutter;
 import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.block.BlockContainer;
@@ -26,15 +24,15 @@ public abstract class MBlockMachine extends BlockContainer
 		this.setBlockTextureName(MAssetManager.getMachineTexture(iconName));
 	}
 	
-	public abstract int getGuiID();
+	public abstract void openGUI(EntityPlayer player, World world, int x, int y, int z);
 	
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon(MAssetManager.getMachineTexture("stonecutter_side"));
-		this.frontIcon = iconRegister.registerIcon(MAssetManager.getMachineTexture("stonecutter_front"));
-		this.topIcon = iconRegister.registerIcon(MAssetManager.getMachineTexture("stonecutter_top"));
-		this.bottomIcon = iconRegister.registerIcon(MAssetManager.getMachineTexture("stonecutter_bottom"));
+		this.blockIcon = iconRegister.registerIcon(this.textureName + "_side");
+		this.frontIcon = iconRegister.registerIcon(this.textureName + "_front");
+		this.topIcon = iconRegister.registerIcon(this.textureName + "_top");
+		this.bottomIcon = iconRegister.registerIcon(this.textureName + "_bottom");
 	}
 	
 	@Override
@@ -62,10 +60,7 @@ public abstract class MBlockMachine extends BlockContainer
 		{
 			return true;
 		}
-		if (world.getTileEntity(x, y, z) instanceof TileEntityStonecutter)
-		{
-			player.openGui(Minestrappolation.instance, 3, world, x, y, z);
-		}
+		this.openGUI(player, world, x, y, z);
 		
 		return true;
 	}

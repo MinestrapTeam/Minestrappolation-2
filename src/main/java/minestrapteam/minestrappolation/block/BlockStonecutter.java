@@ -1,8 +1,11 @@
 package minestrapteam.minestrappolation.block;
 
+import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
+import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.tileentity.TileEntityStonecutter;
 
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
@@ -21,8 +24,11 @@ public class BlockStonecutter extends MBlockMachine
 	}
 	
 	@Override
-	public int getGuiID()
+	public void openGUI(EntityPlayer player, World world, int x, int y, int z)
 	{
-		return 3;
+		if (world.getTileEntity(x, y, z) instanceof TileEntityStonecutter)
+		{
+			FMLNetworkHandler.openGui(player, Minestrappolation.instance, 3, world, x, y, z);
+		}
 	}
 }

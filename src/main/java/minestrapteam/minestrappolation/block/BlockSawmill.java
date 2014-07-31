@@ -1,8 +1,11 @@
 package minestrapteam.minestrappolation.block;
 
+import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
+import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.tileentity.TileEntitySawmill;
 
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
@@ -11,6 +14,7 @@ public class BlockSawmill extends MBlockMachine
 	public BlockSawmill()
 	{
 		super(Material.wood, "sawmill");
+		this.setBlockBounds(0F, 0F, 0F, 1F, 0.9375F, 1F);
 	}
 	
 	@Override
@@ -20,8 +24,11 @@ public class BlockSawmill extends MBlockMachine
 	}
 	
 	@Override
-	public int getGuiID()
+	public void openGUI(EntityPlayer player, World world, int x, int y, int z)
 	{
-		return 4;
+		if (world.getTileEntity(x, y, z) instanceof TileEntitySawmill)
+		{
+			FMLNetworkHandler.openGui(player, Minestrappolation.instance, 4, world, x, y, z);
+		}
 	}
 }
