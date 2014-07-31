@@ -12,7 +12,6 @@ import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
-import net.minecraft.world.World;
 
 @SideOnly(Side.CLIENT)
 public class GuiStonecutter extends GuiContainer
@@ -21,10 +20,10 @@ public class GuiStonecutter extends GuiContainer
 	
 	private TileEntityStonecutter	stonecutter;
 	
-	public GuiStonecutter(InventoryPlayer inventory, TileEntityStonecutter te, World world, int x, int y, int z)
+	public GuiStonecutter(InventoryPlayer inventory, TileEntityStonecutter stonecutter)
 	{
-		super(new ContainerStonecutter(inventory, te));
-		this.stonecutter = te;
+		super(new ContainerStonecutter(inventory, stonecutter));
+		this.stonecutter = stonecutter;
 	}
 	
 	@Override

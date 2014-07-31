@@ -72,7 +72,7 @@ public class MClientProxy extends MCommonProxy
 		}
 		else if (id == 3)
 		{
-			return new GuiStonecutter(player.inventory, (TileEntityStonecutter) world.getTileEntity(x, y, z), world, x, y, z);
+			return new GuiStonecutter(player.inventory, (TileEntityStonecutter) world.getTileEntity(x, y, z));
 		}
 		return null;
 	}
