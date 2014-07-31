@@ -113,8 +113,6 @@ public class MelterRecipeHandler extends TemplateRecipeHandler
 	@Override
 	public void loadCraftingRecipes(String outputId, Object... results)
 	{
-		findFuels();
-		
 		if (outputId.equals("melting"))
 		{
 			Map<ItemStack, ItemStack> recipes = MelterRecipes.instance.getRecipes();
@@ -122,6 +120,10 @@ public class MelterRecipeHandler extends TemplateRecipeHandler
 			{
 				this.arecipes.add(new MeltingPair(recipe.getKey(), recipe.getValue()));
 			}
+		}
+		else
+		{
+			super.loadCraftingRecipes(outputId, results);
 		}
 	}
 	

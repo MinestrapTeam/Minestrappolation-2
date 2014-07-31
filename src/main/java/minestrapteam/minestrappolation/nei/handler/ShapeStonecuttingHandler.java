@@ -137,6 +137,10 @@ public class ShapeStonecuttingHandler extends ShapedRecipeHandler
 				}
 			}
 		}
+		else
+		{
+			super.loadCraftingRecipes(outputId, results);
+		}
 	}
 	
 	@Override

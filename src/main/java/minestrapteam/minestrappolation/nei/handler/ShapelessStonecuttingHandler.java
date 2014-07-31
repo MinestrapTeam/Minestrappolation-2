@@ -108,6 +108,10 @@ public class ShapelessStonecuttingHandler extends ShapelessRecipeHandler
 				}
 			}
 		}
+		else
+		{
+			super.loadCraftingRecipes(outputId, results);
+		}
 	}
 	
 	@Override
