@@ -55,7 +55,7 @@ public class MBlockHelper
 	public static MBlockCustom2 createWoodBlock2(String[] types, String name, float hardness, float resistance, CreativeTabs tab)
 	{
 		String name1 = "wood_slab_" + name;
-		MBlockCustom2 block = new MBlockCustom2(woodTypes2, name, hardness, resistance, 0, Material.wood);
+		MBlockCustom2 block = new MBlockCustom2(types, name, hardness, resistance, 0, Material.wood);
 		block.setBlockName(name1);
 		block.setBlockTextureName(MAssetManager.getWoodTexture(name));
 		block.setCreativeTab(tab);

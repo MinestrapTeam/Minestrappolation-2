@@ -743,6 +743,8 @@ tile.redwood.mossy_panel.name=Mossy Redwood Panel
 tile.redwood.boards_slab.name=Redwood Slab
 tile.redwood.boards_stairs.name=Redwood Board Stairs
 tile.redwood_planks.name=Redwood Planks
+tile.redwood.planks_slab.name=Redwood Planks Slab
+tile.redwood_planks.raw_stairs.name=Redwood Plank Stairs
 
 tile.sugar_block.name=Block of Sugar
 tile.meat_block.name=Block of Raw Meat
