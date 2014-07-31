@@ -11,7 +11,7 @@ import net.minecraft.world.World;
 
 public class ContainerSawmill extends ContainerWorkbench
 {
-	public World worldObj;
+	public World				worldObj;
 	public TileEntitySawmill	sawmill;
 	
 	public ContainerSawmill(InventoryPlayer inventory, TileEntitySawmill sawmill)
@@ -28,8 +28,8 @@ public class ContainerSawmill extends ContainerWorkbench
 	}
 	
 	@Override
-	public void onCraftMatrixChanged(IInventory p_75130_1_)
-    {
-        this.craftResult.setInventorySlotContents(0, SawingManager.instance.findMatchingRecipe(this.craftMatrix, this.worldObj));
-    }
+	public void onCraftMatrixChanged(IInventory inventory)
+	{
+		this.craftResult.setInventorySlotContents(0, SawingManager.instance.findMatchingRecipe(this.craftMatrix, this.worldObj));
+	}
 }

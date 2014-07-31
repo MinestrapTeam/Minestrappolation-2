@@ -14,9 +14,9 @@ import net.minecraft.world.World;
 
 public abstract class MBlockMachine extends BlockContainer
 {
-	protected IIcon frontIcon;
-	protected IIcon topIcon;
-	protected IIcon bottomIcon;
+	protected IIcon	frontIcon;
+	protected IIcon	topIcon;
+	protected IIcon	bottomIcon;
 	
 	public MBlockMachine(Material material, String iconName)
 	{
