@@ -6,7 +6,6 @@ import net.minecraft.entity.Entity;
 
 public class ModelStonecutter extends ModelBase
 {
-	private ModelRenderer	base;
 	private ModelRenderer	blade1;
 	private ModelRenderer	blade2;
 	private ModelRenderer	blade3;
@@ -26,12 +25,6 @@ public class ModelStonecutter extends ModelBase
 		this.textureWidth = 64;
 		this.textureHeight = 64;
 		
-		this.base = new ModelRenderer(this, 0, 0);
-		this.base.addBox(0F, 0F, 0F, 16, 15, 16);
-		this.base.setRotationPoint(-8F, 9F, -8F);
-		this.base.setTextureSize(64, 64);
-		this.base.mirror = true;
-		this.setRotation(this.base, 0F, 0F, 0F);
 		this.blade1 = new ModelRenderer(this, 0, 0);
 		this.blade1.addBox(0F, 0F, 0F, 2, 1, 1);
 		this.blade1.setRotationPoint(-2F, 8F, 4F);
@@ -115,7 +108,6 @@ public class ModelStonecutter extends ModelBase
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
 	{
-		this.base.render(f5);
 		this.blade1.render(f5);
 		this.blade2.render(f5);
 		this.blade3.render(f5);

@@ -371,7 +371,7 @@ public class MBlocks
 		
 		lockedBlock = (BlockLocked) new BlockLocked().setBlockUnbreakable().setBlockTextureName("iron_block");
 		
-		stoneCutter = new BlockStonecutter().setCreativeTab(Minestrappolation.tabDecorationBlocks).setBlockTextureName(MAssetManager.getMachineTexture("stonecutter")).setHardness(3.5F).setStepSound(Block.soundTypeStone);
+		stoneCutter = new BlockStonecutter().setCreativeTab(Minestrappolation.tabDecorationBlocks).setHardness(3.5F).setStepSound(Block.soundTypeStone);
 		
 		checkerTiles = new BlockTiles().setCreativeTab(Minestrappolation.tabStoneDecor).setStepSound(Block.soundTypeStone);
 		flintEndstoneStairs = new MBlockStairs(checkerTiles, 0).setCreativeTab(Minestrappolation.tabStoneDecor).setBlockName("stairs_flint_endstone");

@@ -2,21 +2,29 @@ package minestrapteam.minestrappolation.block;
 
 import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.tileentity.TileEntityStonecutter;
+import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class BlockStonecutter extends BlockContainer
 {
+	private IIcon frontIcon;
+	private IIcon topIcon;
+	private IIcon bottomIcon;
+	
 	public BlockStonecutter()
 	{
 		super(Material.rock);
+		this.setBlockBounds(0F, 0F, 0F, 1F, 0.9375F, 1F);
 	}
 	
 	@Override
@@ -26,21 +34,30 @@ public class BlockStonecutter extends BlockContainer
 	}
 	
 	@Override
-	public int getRenderType()
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		return -1;
+		this.blockIcon = iconRegister.registerIcon(MAssetManager.getMachineTexture("stonecutter_side"));
+		this.frontIcon = iconRegister.registerIcon(MAssetManager.getMachineTexture("stonecutter_front"));
+		this.topIcon = iconRegister.registerIcon(MAssetManager.getMachineTexture("stonecutter_top"));
+		this.bottomIcon = iconRegister.registerIcon(MAssetManager.getMachineTexture("stonecutter_bottom"));
 	}
 	
 	@Override
-	public boolean isOpaqueCube()
+	public IIcon getIcon(int side, int metadata)
 	{
-		return false;
-	}
-	
-	@Override
-	public boolean renderAsNormalBlock()
-	{
-		return false;
+		if (side == 0)
+		{
+			return this.bottomIcon;
+		}
+		else if (side == 1)
+		{
+			return this.topIcon;
+		}
+		else if (side - 2 == metadata)
+		{
+			return this.frontIcon;
+		}
+		return this.blockIcon;
 	}
 	
 	@Override
@@ -56,12 +73,6 @@ public class BlockStonecutter extends BlockContainer
 		}
 		
 		return true;
-	}
-	
-	@Override
-	public void onBlockAdded(World world, int x, int y, int z)
-	{
-		super.onBlockAdded(world, x, y, z);
 	}
 	
 	@Override
