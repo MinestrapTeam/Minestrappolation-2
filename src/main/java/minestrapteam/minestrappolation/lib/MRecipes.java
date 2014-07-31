@@ -234,7 +234,6 @@ public class MRecipes
 		GameRegistry.addRecipe(new ItemStack(ropeItem, 1), new Object[] { "S", "S", "S", 'S', Items.string });
 		GameRegistry.addRecipe(new ItemStack(ropeItem, 9), new Object[] { "S", 'S', ropeCoil });
 		GameRegistry.addRecipe(new ItemStack(cardboardItem, 3), new Object[] { "SSS", "SSS", 'S', Items.paper });
-		GameRegistry.addRecipe(new ItemStack(glassDoor), new Object[] { "GG", "GI", "GG", 'G', Blocks.glass, 'I', Items.iron_ingot });
 		
 		// ED Blocks
 		
