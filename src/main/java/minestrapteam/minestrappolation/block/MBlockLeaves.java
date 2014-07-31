@@ -3,10 +3,10 @@ package minestrapteam.minestrappolation.block;
 import java.util.Random;
 
 import minestrapteam.minestrappolation.lib.MBlocks;
+
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
 
@@ -61,7 +61,8 @@ public class MBlockLeaves extends BlockLeaves
 		return null;
 	}
 	
-	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)
+	@Override
+	public Item getItemDropped(int metadata, Random random, int fortune)
     {
         return Item.getItemFromBlock(MBlocks.redwoodSapling);
     }

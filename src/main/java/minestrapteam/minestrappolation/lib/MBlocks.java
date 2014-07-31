@@ -9,6 +9,7 @@ import minestrapteam.minestrappolation.material.MaterialOoze;
 import minestrapteam.minestrappolation.tileentity.TileEntityPlate;
 import minestrapteam.minestrappolation.util.MAssetManager;
 import minestrapteam.minestrappolation.util.MBlockHelper;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -240,7 +241,6 @@ public class MBlocks
 	public static Block			redwoodLeaves;
 	public static MBlockCustom	redwood;
 	public static Block			redwood2;
-	public static Block			redwoodPlanks;
 	public static Block			redwoodStairsBoards;
 	public static Block			redwoodStairsPlanks;
 	
@@ -496,8 +496,6 @@ public class MBlocks
 		
 		CSBlocks.addBlock(glassDoor, "glass_door_block");
 		
-		CSBlocks.addBlock(redwoodPlanks, "redwood_planks");
-		
 		CSBlocks.addBlock(redwoodSapling, "redwood_sapling");
 		
 		setFlammability();
@@ -507,7 +505,6 @@ public class MBlocks
 	{
 		Blocks.fire.setFireInfo(rope, 30, 60);
 		Blocks.fire.setFireInfo(ropeCoil, 30, 60);
-		Blocks.fire.setFireInfo(redwoodPlanks, 5, 20);
 	}
 	
 	private static void addStoneBlocks()
@@ -539,8 +536,8 @@ public class MBlocks
 		String[] types_clay_2 = new String[] { "pillar", "raw_slab", null, "tile_slab", "refined_slab" };
 		String[] types_colored_clay = new String[] { null, "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled" };
 		String[] types_colored_clay_2 = new String[] { "pillar", "raw_slab", "brick_slab", "tile_slab", "refined_slab" };
-		String[] types_redwood_2	= new String[] { "boards_slab", "planks_slab" };
-
+		String[] types_redwood = new String[] { "planks", "bevel", "boards", "panel", "mossy_planks", "mossy_boards", "mossy_panel" };
+		String[] types_redwood_2	= new String[] { "planks_slab", "boards_slab" };
 		
 		stone = MBlockHelper.createStoneBlock(types_stone, "stone", 1.5F, 10.0F, 0, tab).setIsStone();
 		stone2 = MBlockHelper.createStoneBlock2(types_stone_2, "stone", 1.5F, 10.0F, 0, tab);
@@ -754,11 +751,10 @@ public class MBlocks
 		woodDarkOak = MBlockHelper.createWoodBlock("dark_oak", 2.0F, 5.0F, tab_decor);
 		woodDarkOak2 = MBlockHelper.createWoodBlock2("dark_oak", 2.0F, 5.0F, tab_decor);
 		woodDarkOakStairsBoards = MBlockHelper.createWoodStair(woodDarkOak, 1, tab_decor);
-		redwood = MBlockHelper.createWoodBlock("redwood", 2.0F, 5.0F, tab_decor);
+		redwood = MBlockHelper.createWoodBlock(types_redwood, "redwood", 2.0F, 5.0F, tab_decor);
 		redwood2 = MBlockHelper.createWoodBlock2(types_redwood_2, "redwood", 2.0F, 5.0F, tab_decor);
-		redwoodPlanks = new MBlock(Material.wood).setStepSound(Block.soundTypeWood).setHardness(2.0F).setBlockTextureName(MAssetManager.getWoodTexture("redwood_planks")).setBlockName("redwood_planks").setCreativeTab(Minestrappolation.tabBuildingBlocks);
-		redwoodStairsBoards = MBlockHelper.createWoodStair(redwood, 1, tab_decor);
-		redwoodStairsPlanks = MBlockHelper.createWoodStair(redwoodPlanks, "redwood_planks", 0, tab_decor);
+		redwoodStairsPlanks = MBlockHelper.createWoodStair(redwood, 0, tab_decor);
+		redwoodStairsBoards = MBlockHelper.createWoodStair(redwood, 2, tab_decor);
 
 	}
 }
