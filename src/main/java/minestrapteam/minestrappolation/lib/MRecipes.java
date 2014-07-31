@@ -33,14 +33,14 @@ public class MRecipes
 		GameRegistry.addRecipe(new ItemStack(MBlocks.woodJungle, 8, 4), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.woodJungle, 1, 1), 'V', Blocks.vine });
 		GameRegistry.addRecipe(new ItemStack(MBlocks.woodAcacia, 8, 4), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.woodAcacia, 1, 1), 'V', Blocks.vine });
 		GameRegistry.addRecipe(new ItemStack(MBlocks.woodDarkOak, 8, 4), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.woodDarkOak, 1, 1), 'V', Blocks.vine });
-		GameRegistry.addRecipe(new ItemStack(MBlocks.redwood, 8, 5), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.redwood, 1, 1), 'V', Blocks.vine });
+		GameRegistry.addRecipe(new ItemStack(MBlocks.redwood, 8, 5), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.redwood, 1, 2), 'V', Blocks.vine });
 		GameRegistry.addRecipe(new ItemStack(MBlocks.woodOak, 8, 5), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.woodOak, 1, 2), 'V', Blocks.vine });
 		GameRegistry.addRecipe(new ItemStack(MBlocks.woodSpruce, 8, 5), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.woodSpruce, 1, 2), 'V', Blocks.vine });
 		GameRegistry.addRecipe(new ItemStack(MBlocks.woodBirch, 8, 5), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.woodBirch, 1, 2), 'V', Blocks.vine });
 		GameRegistry.addRecipe(new ItemStack(MBlocks.woodJungle, 8, 5), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.woodJungle, 1, 2), 'V', Blocks.vine });
 		GameRegistry.addRecipe(new ItemStack(MBlocks.woodAcacia, 8, 5), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.woodAcacia, 1, 2), 'V', Blocks.vine });
 		GameRegistry.addRecipe(new ItemStack(MBlocks.woodDarkOak, 8, 5), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.woodDarkOak, 1, 2), 'V', Blocks.vine });
-		GameRegistry.addRecipe(new ItemStack(MBlocks.redwood, 8, 5), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.redwood, 1, 2), 'V', Blocks.vine });
+		GameRegistry.addRecipe(new ItemStack(MBlocks.redwood, 8, 6), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.redwood, 1, 3), 'V', Blocks.vine });
 		
 		GameRegistry.addRecipe(new ItemStack(MBlocks.woodOak, 16, 1), new Object[] { "LL", "LL", 'L', new ItemStack(Blocks.log, 1, 0) });
 		GameRegistry.addRecipe(new ItemStack(MBlocks.woodBirch, 16, 1), new Object[] { "LL", "LL", 'L', new ItemStack(Blocks.log, 1, 2) });
@@ -48,14 +48,14 @@ public class MRecipes
 		GameRegistry.addRecipe(new ItemStack(MBlocks.woodJungle, 16, 1), new Object[] { "LL", "LL", 'L', new ItemStack(Blocks.log, 1, 3) });
 		GameRegistry.addRecipe(new ItemStack(MBlocks.woodAcacia, 16, 1), new Object[] { "LL", "LL", 'L', new ItemStack(Blocks.log2, 1, 0) });
 		GameRegistry.addRecipe(new ItemStack(MBlocks.woodDarkOak, 16, 1), new Object[] { "LL", "LL", 'L', new ItemStack(Blocks.log2, 1, 1) });
-		GameRegistry.addRecipe(new ItemStack(MBlocks.redwood, 16, 1), new Object[] { "LL", "LL", 'L', new ItemStack(MBlocks.redwoodLog, 1, 0) });
+		GameRegistry.addRecipe(new ItemStack(MBlocks.redwood, 16, 2), new Object[] { "LL", "LL", 'L', new ItemStack(MBlocks.redwoodLog, 1, 0) });
 		GameRegistry.addRecipe(new ItemStack(MBlocks.woodOak2, 6, 0), new Object[] { "BBB", 'B', new ItemStack(MBlocks.woodOak, 1, 1) });
 		GameRegistry.addRecipe(new ItemStack(MBlocks.woodBirch2, 6, 0), new Object[] { "BBB", 'B', new ItemStack(MBlocks.woodBirch, 1, 1) });
 		GameRegistry.addRecipe(new ItemStack(MBlocks.woodSpruce2, 6, 0), new Object[] { "BBB", 'B', new ItemStack(MBlocks.woodSpruce, 1, 1) });
 		GameRegistry.addRecipe(new ItemStack(MBlocks.woodJungle2, 6, 0), new Object[] { "BBB", 'B', new ItemStack(MBlocks.woodJungle, 1, 1) });
 		GameRegistry.addRecipe(new ItemStack(MBlocks.woodAcacia2, 6, 0), new Object[] { "BBB", 'B', new ItemStack(MBlocks.woodAcacia, 1, 1) });
 		GameRegistry.addRecipe(new ItemStack(MBlocks.woodDarkOak2, 6, 0), new Object[] { "BBB", 'B', new ItemStack(MBlocks.woodDarkOak, 1, 1) });
-		GameRegistry.addRecipe(new ItemStack(MBlocks.redwood2, 6, 0), new Object[] { "BBB", 'B', new ItemStack(MBlocks.redwood, 1, 1) });
+		GameRegistry.addRecipe(new ItemStack(MBlocks.redwood2, 6, 0), new Object[] { "BBB", 'B', new ItemStack(MBlocks.redwood, 1, 0) });
 		GameRegistry.addRecipe(new ItemStack(MBlocks.woodOakStairsBoards, 4, 0), new Object[] { "B  ", "BB ", "BBB", 'B', new ItemStack(MBlocks.woodOak, 1, 1) });
 		GameRegistry.addRecipe(new ItemStack(MBlocks.woodBirchStairsBoards, 4, 0), new Object[] { "B  ", "BB ", "BBB", 'B', new ItemStack(MBlocks.woodBirch, 1, 1) });
 		GameRegistry.addRecipe(new ItemStack(MBlocks.woodSpruceStairsBoards, 4, 0), new Object[] { "B  ", "BB ", "BBB", 'B', new ItemStack(MBlocks.woodSpruce, 1, 1) });
@@ -70,7 +70,7 @@ public class MRecipes
 		GameRegistry.addRecipe(new ItemStack(MBlocks.woodJungle, 4, 0), new Object[] { "PP", "PP", 'P', new ItemStack(MBlocks.woodJungle, 1, 2) });
 		GameRegistry.addRecipe(new ItemStack(MBlocks.woodAcacia, 4, 0), new Object[] { "PP", "PP", 'P', new ItemStack(MBlocks.woodAcacia, 1, 2) });
 		GameRegistry.addRecipe(new ItemStack(MBlocks.woodDarkOak, 4, 0), new Object[] { "PP", "PP", 'P', new ItemStack(MBlocks.woodDarkOak, 1, 2) });
-		GameRegistry.addRecipe(new ItemStack(MBlocks.redwood, 4, 0), new Object[] { "PP", "PP", 'P', new ItemStack(MBlocks.redwood, 1, 2) });
+		GameRegistry.addRecipe(new ItemStack(MBlocks.redwood, 4, 0), new Object[] { "PP", "PP", 'P', new ItemStack(MBlocks.redwood, 1, 3) });
 		
 		GameRegistry.addRecipe(new ItemStack(MBlocks.redwood, 4, 0), new Object[] { "L", 'L', MBlocks.redwoodLog });
 		
