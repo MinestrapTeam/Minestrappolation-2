@@ -288,6 +288,7 @@ public class MBlocks
 	public static Block			melterIdle;
 	public static Block			melterBurning;
 	public static Block			stoneCutter;
+	public static Block			sawmill;
 	
 	public static BlockLocked	lockedBlock;
 	
@@ -372,6 +373,7 @@ public class MBlocks
 		lockedBlock = (BlockLocked) new BlockLocked().setBlockUnbreakable().setBlockTextureName("iron_block");
 		
 		stoneCutter = new BlockStonecutter().setCreativeTab(Minestrappolation.tabDecorationBlocks).setHardness(3.5F).setStepSound(Block.soundTypeStone);
+		sawmill = new BlockSawmill().setCreativeTab(Minestrappolation.tabDecorationBlocks).setHardness(2.5F).setStepSound(Block.soundTypeWood);
 		
 		checkerTiles = new BlockTiles().setCreativeTab(Minestrappolation.tabStoneDecor).setStepSound(Block.soundTypeStone);
 		flintEndstoneStairs = new MBlockStairs(checkerTiles, 0).setCreativeTab(Minestrappolation.tabStoneDecor).setBlockName("stairs_flint_endstone");
@@ -457,6 +459,7 @@ public class MBlocks
 		CSBlocks.addBlock(melterIdle, "melter");
 		CSBlocks.addBlock(melterBurning, "melter_burning");
 		CSBlocks.addBlock(stoneCutter, "stonecutter");
+		CSBlocks.addBlock(sawmill, "sawmill");
 		
 		CSBlocks.addBlock(lockedBlock, "locked_block");
 		

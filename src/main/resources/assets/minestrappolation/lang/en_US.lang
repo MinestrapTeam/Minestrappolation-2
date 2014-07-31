@@ -12,6 +12,7 @@ itemGroup.minestrap_misc=§9Minestrappolation - Misc
 
 #GUI
 tile.stonecutter=Stonecutter
+tile.sawmill=Sawmill
 tile.melter=Melter
 tile.melter_burning.name=Melter
 tile.crate=Crate
@@ -755,6 +756,7 @@ tile.plate.name=Plate
 
 #Technology
 tile.stonecutter.name=Stonecutter
+tile.sawmill.name=Sawmill
 tile.nuke.name=Nuke
 tile.melter.name=Melter
 

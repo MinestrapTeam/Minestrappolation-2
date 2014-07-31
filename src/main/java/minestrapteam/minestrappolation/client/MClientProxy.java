@@ -9,6 +9,7 @@ import minestrapteam.minestrappolation.client.renderer.RenderHangGlider;
 import minestrapteam.minestrappolation.client.renderer.RenderNukePrimed;
 import minestrapteam.minestrappolation.client.renderer.block.*;
 import minestrapteam.minestrappolation.client.renderer.tileentity.RenderLocked;
+import minestrapteam.minestrappolation.client.renderer.tileentity.RenderSawmill;
 import minestrapteam.minestrappolation.client.renderer.tileentity.RenderStonecutter;
 import minestrapteam.minestrappolation.common.MCommonProxy;
 import minestrapteam.minestrappolation.entity.*;
@@ -35,6 +36,7 @@ public class MClientProxy extends MCommonProxy
 		RenderingRegistry.registerBlockHandler(lockedRenderID, new RenderBlockLocked());
 		
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityStonecutter.class, new RenderStonecutter());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntitySawmill.class, new RenderSawmill());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGoblet.class, new RenderGoblet());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPlate.class, new RenderPlate());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityLocked.class, new RenderLocked());

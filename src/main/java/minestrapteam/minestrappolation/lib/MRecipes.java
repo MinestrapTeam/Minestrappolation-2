@@ -137,6 +137,7 @@ public class MRecipes
 		GameRegistry.addRecipe(new ItemStack(nuke, 1), new Object[] { "UPU", "PUP", "UPU", 'P', plutoniumBlock, 'U', uraniumBlock });
 		GameRegistry.addRecipe(new ItemStack(melterIdle, 1), new Object[] { "ZZZ", "ZFZ", "IBI", 'Z', plateMeuroditeItem, 'F', Blocks.furnace, 'B', blaziumBlock, 'I', Blocks.iron_bars });
 		GameRegistry.addRecipe(new ItemStack(stoneCutter), new Object[] { "II", "CC", "CC", 'C', Blocks.cobblestone, 'I', Items.iron_ingot });
+		GameRegistry.addRecipe(new ItemStack(sawmill), new Object[] { "II", "WW", "WW", 'W', Blocks.planks, 'I', Items.iron_ingot });
 		
 		// EO Tool Recipes
 		
