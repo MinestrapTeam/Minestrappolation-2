@@ -745,6 +745,7 @@ tile.redwood.boards_stairs.name=Redwood Board Stairs
 tile.redwood_planks.name=Redwood Planks
 tile.redwood.planks_slab.name=Redwood Planks Slab
 tile.redwood_planks.raw_stairs.name=Redwood Plank Stairs
+tile.redwood_sapling.name=Redwood Sapling
 
 tile.sugar_block.name=Block of Sugar
 tile.meat_block.name=Block of Raw Meat

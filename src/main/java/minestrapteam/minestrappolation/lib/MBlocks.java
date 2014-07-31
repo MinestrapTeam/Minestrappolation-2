@@ -244,6 +244,8 @@ public class MBlocks
 	public static Block			redwoodStairsBoards;
 	public static Block			redwoodStairsPlanks;
 	
+	public static Block			redwoodSapling;
+	
 	/* / {----- EO Blocks -----} / */
 	
 	public static Block			copperOre;
@@ -407,6 +409,8 @@ public class MBlocks
 		cardboardBlock = new BlockCardboard(Material.cloth).setHardness(0.4F).setCreativeTab(Minestrappolation.tabBuildingBlocks);
 		
 		glassDoor = new BlockGlassDoor(Material.glass).setHardness(1F);		
+		
+		redwoodSapling = new BlockRedwoodSapling().setHardness(0.0F).setStepSound(Block.soundTypeGrass);
 	}
 	
 	public static void load()
@@ -493,6 +497,8 @@ public class MBlocks
 		CSBlocks.addBlock(glassDoor, "glass_door_block");
 		
 		CSBlocks.addBlock(redwoodPlanks, "redwood_planks");
+		
+		CSBlocks.addBlock(redwoodSapling, "redwood_sapling");
 		
 		setFlammability();
 	}
