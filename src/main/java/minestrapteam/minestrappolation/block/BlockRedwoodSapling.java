@@ -1,7 +1,7 @@
 package minestrapteam.minestrappolation.block;
 
-import minestrapteam.minestrappolation.world.WorldGenBaseTree;
-import minestrapteam.minestrappolation.world.WorldGenRedWoodTree;
+import minestrapteam.minestrappolation.world.gen.feature.WorldGenBaseTree;
+import minestrapteam.minestrappolation.world.gen.feature.WorldGenRedWoodTree;
 
 public class BlockRedwoodSapling extends MBlockSapling
 {
