@@ -2,6 +2,8 @@ package minestrapteam.minestrappolation.block;
 
 import java.util.List;
 
+import minestrapteam.minestrappolation.util.MAssetManager;
+
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -33,7 +35,7 @@ public class BlockRoads extends MBlock
 		
 		for (int i = 0; i < names.length; i++)
 		{
-			String name = names[i];
+			String name = MAssetManager.getStonecutterTexture(names[i]);
 			this.topIcons[i] = iconRegister.registerIcon(name + "_road_top");
 			this.sideIcons[i] = iconRegister.registerIcon(name + "_road_side");
 			this.bottomIcons[i] = iconRegister.registerIcon(name + "_road_bottom");
