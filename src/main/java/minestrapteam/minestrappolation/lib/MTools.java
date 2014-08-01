@@ -35,7 +35,6 @@ public class MTools
 	public static ToolMaterial	toolBedrock		= EnumHelper.addToolMaterial("Bedrock", 5, 6247, 7F, 2, 5);
 	public static ToolMaterial	toolGranite		= EnumHelper.addToolMaterial("Granite", 1, 199, 4.3F, 2, 4);
 	public static ToolMaterial	toolSoulsteel	= EnumHelper.addToolMaterial("Soul-Steel", 2, 300, 7.5F, 3, 26);
-
 	
 	public static Item			meuroditeSword;
 	public static Item			meuroditeShovel;
@@ -125,7 +124,7 @@ public class MTools
 	public static Item			graniteHoe;
 	
 	public static Item			soulsteelSword;
-	public static Item 			soulsteelShovel;
+	public static Item			soulsteelShovel;
 	public static Item			soulsteelPickaxe;
 	public static Item			soulsteelAxe;
 	public static Item			soulsteelHoe;

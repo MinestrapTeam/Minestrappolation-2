@@ -22,8 +22,8 @@ public class StonecuttingManager
 	public static final StonecuttingManager	instance	= new StonecuttingManager();
 	
 	/** A list of all the recipes added */
-	private List<ICuttingRecipe>							recipes		= new ArrayList();
-	private boolean									listSorted;
+	private List<ICuttingRecipe>			recipes		= new ArrayList();
+	private boolean							listSorted;
 	
 	private StonecuttingManager()
 	{
@@ -1181,11 +1181,11 @@ public class StonecuttingManager
 		
 		// Misc
 		this.addRecipe(new ItemStack(Blocks.anvil, 1, 0), null, new Object[] { "III", " S ", "SSS", 'I', Blocks.iron_block, 'S', MItems.steelIngot });
-		this.addShapelessRecipe(new ItemStack(MTools.soulsteelAxe), new ItemStack(MItems.soulGem), new Object[] {MTools.steelAxe});
-		this.addShapelessRecipe(new ItemStack(MTools.soulsteelHoe), new ItemStack(MItems.soulGem), new Object[] {MTools.steelHoe});
-		this.addShapelessRecipe(new ItemStack(MTools.soulsteelPickaxe), new ItemStack(MItems.soulGem), new Object[] {MTools.steelPickaxe});
-		this.addShapelessRecipe(new ItemStack(MTools.soulsteelShovel), new ItemStack(MItems.soulGem), new Object[] {MTools.steelShovel});
-		this.addShapelessRecipe(new ItemStack(MTools.soulsteelSword), new ItemStack(MItems.soulGem), new Object[] {MTools.steelSword});
+		this.addShapelessRecipe(new ItemStack(MTools.soulsteelAxe), new ItemStack(MItems.soulGem), new Object[] { MTools.steelAxe });
+		this.addShapelessRecipe(new ItemStack(MTools.soulsteelHoe), new ItemStack(MItems.soulGem), new Object[] { MTools.steelHoe });
+		this.addShapelessRecipe(new ItemStack(MTools.soulsteelPickaxe), new ItemStack(MItems.soulGem), new Object[] { MTools.steelPickaxe });
+		this.addShapelessRecipe(new ItemStack(MTools.soulsteelShovel), new ItemStack(MItems.soulGem), new Object[] { MTools.steelShovel });
+		this.addShapelessRecipe(new ItemStack(MTools.soulsteelSword), new ItemStack(MItems.soulGem), new Object[] { MTools.steelSword });
 	}
 	
 	public ShapedCuttingRecipe addRecipe(ItemStack output, ItemStack extraSlot, Object... data)
