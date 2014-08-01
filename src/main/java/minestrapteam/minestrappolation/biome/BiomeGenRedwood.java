@@ -2,8 +2,9 @@ package minestrapteam.minestrappolation.biome;
 
 import java.util.Random;
 
-import minestrapteam.minestrappolation.world.gen.feature.WorldGenRedWoodTree;
-import minestrapteam.minestrappolation.world.gen.feature.WorldGenRedWoodTreeSmall;
+import minestrapteam.minestrappolation.world.gen.WorldGenRedWoodTree;
+import minestrapteam.minestrappolation.world.gen.WorldGenRedWoodTreeSmall;
+
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;

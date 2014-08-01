@@ -10,11 +10,11 @@ import com.google.common.collect.Multimap;
 
 import minestrapteam.minestrappolation.lib.MTools;
 import minestrapteam.minestrappolation.util.MAssetManager;
+
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
-import net.minecraft.entity.item.EntityExpBottle;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -154,7 +154,7 @@ public class MItemTool extends ItemTool implements IPlatable
 		{
 			stack.damageItem(2, attacker);
 		}
-        
+		
 		return true;
 	}
 	
@@ -309,18 +309,19 @@ public class MItemTool extends ItemTool implements IPlatable
 		return icon == null ? this.itemIcon : icon;
 	}
 	
-    public boolean onBlockDestroyed(ItemStack itemstack, World world, Block blockDestroyed, int x, int y, int z, EntityLivingBase living)
-    {
-    	if(this == MTools.soulsteelAxe || this == MTools.soulsteelHoe || this == MTools.soulsteelPickaxe || this == MTools.soulsteelShovel)
-	    {
-	    	world.playSoundAtEntity(living, "random.bow", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
-	
-	        if (!world.isRemote)
-	        {
-	            world.spawnEntityInWorld(new EntityXPOrb(world, x, y, z, blockDestroyed.getExpDrop(world, 0, 1)));
-	            return true;
-	        }
-	    }
-		return false;   	
-    }
+	@Override
+	public boolean onBlockDestroyed(ItemStack itemstack, World world, Block blockDestroyed, int x, int y, int z, EntityLivingBase living)
+	{
+		if (this == MTools.soulsteelAxe || this == MTools.soulsteelHoe || this == MTools.soulsteelPickaxe || this == MTools.soulsteelShovel)
+		{
+			world.playSoundAtEntity(living, "random.bow", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
+			
+			if (!world.isRemote)
+			{
+				world.spawnEntityInWorld(new EntityXPOrb(world, x, y, z, blockDestroyed.getExpDrop(world, 0, 1)));
+				return true;
+			}
+		}
+		return false;
+	}
 }

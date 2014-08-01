@@ -4,8 +4,9 @@ import java.util.Random;
 
 import cpw.mods.fml.common.IWorldGenerator;
 import minestrapteam.minestrappolation.lib.MBlocks;
-import minestrapteam.minestrappolation.world.gen.feature.WorldGenDesertQuartz;
-import minestrapteam.minestrappolation.world.gen.feature.WorldGenRedSandstone;
+import minestrapteam.minestrappolation.world.gen.WorldGenDesertQuartz;
+import minestrapteam.minestrappolation.world.gen.WorldGenRedSandstone;
+
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.*;

@@ -1,4 +1,4 @@
-package minestrapteam.minestrappolation.world.gen.feature;
+package minestrapteam.minestrappolation.world.gen;
 
 import java.util.Random;
 

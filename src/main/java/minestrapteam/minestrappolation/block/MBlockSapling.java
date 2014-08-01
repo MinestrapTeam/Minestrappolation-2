@@ -2,7 +2,8 @@ package minestrapteam.minestrappolation.block;
 
 import java.util.Random;
 
-import minestrapteam.minestrappolation.world.gen.feature.WorldGenBaseTree;
+import minestrapteam.minestrappolation.world.gen.WorldGenBaseTree;
+
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.IGrowable;
 import net.minecraft.init.Blocks;
