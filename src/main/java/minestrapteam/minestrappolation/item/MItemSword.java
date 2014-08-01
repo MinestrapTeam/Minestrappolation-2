@@ -7,11 +7,12 @@ import java.util.Map.Entry;
 
 import com.google.common.collect.Multimap;
 
+import minestrapteam.minestrappolation.lib.MTools;
 import minestrapteam.minestrappolation.util.MAssetManager;
-
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -54,6 +55,15 @@ public class MItemSword extends ItemSword implements IPlatable
 	@Override
 	public boolean hitEntity(ItemStack stack, EntityLivingBase entity, EntityLivingBase attacker)
 	{
+		if(this == MTools.soulsteelSword)
+		{
+			attacker.worldObj.playSoundAtEntity(attacker, "random.bow", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
+			
+	        if (!attacker.worldObj.isRemote)
+	        {
+	        	attacker.worldObj.spawnEntityInWorld(new EntityXPOrb(attacker.worldObj, attacker.posX, attacker.posX, attacker.posX, 25));
+	        }
+		}
 		return MItemTool.hitEntity(stack, entity, attacker, this.ignites, true);
 	}
 	

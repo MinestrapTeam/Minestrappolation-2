@@ -884,6 +884,7 @@ item.steel_leggings.name=Steel Leggings
 item.steel_boots.name=Steel Boots
 item.sandstone_sword.name=Sandstone Sword
 item.granite_sword.name=Slate Sword
+item.soulsteel_sword.name=Soul-Steel Sword
 
 #Tools
 item.meurodite_shovel.name=Meurodite Shovel
@@ -926,6 +927,10 @@ item.granite_shovel.name=Slate Shovel
 item.granite_pickaxe.name=Slate Pickaxe
 item.granite_axe.name=Slate Axe
 item.granite_hoe.name=Slate Hoe
+item.soulsteel_shovel.name=Soul-Steel Shovel
+item.soulsteel_pickaxe.name=Soul-Steel Pickaxe
+item.soulsteel_axe.name=Soul-Steel Axe
+item.soulsteel_hoe.name=Soul-Steel Hoe
 
 #Brewing
 item.soul_bottle.name=Soul Bottle

@@ -34,6 +34,8 @@ public class MTools
 	public static ToolMaterial	toolSteel		= EnumHelper.addToolMaterial("Steel", 2, 300, 7.5F, 3, 15);
 	public static ToolMaterial	toolBedrock		= EnumHelper.addToolMaterial("Bedrock", 5, 6247, 7F, 2, 5);
 	public static ToolMaterial	toolGranite		= EnumHelper.addToolMaterial("Granite", 1, 199, 4.3F, 2, 4);
+	public static ToolMaterial	toolSoulsteel	= EnumHelper.addToolMaterial("Soul-Steel", 2, 300, 7.5F, 3, 26);
+
 	
 	public static Item			meuroditeSword;
 	public static Item			meuroditeShovel;
@@ -121,6 +123,12 @@ public class MTools
 	public static Item			granitePickaxe;
 	public static Item			graniteAxe;
 	public static Item			graniteHoe;
+	
+	public static Item			soulsteelSword;
+	public static Item 			soulsteelShovel;
+	public static Item			soulsteelPickaxe;
+	public static Item			soulsteelAxe;
+	public static Item			soulsteelHoe;
 	
 	public static void init()
 	{
@@ -236,6 +244,12 @@ public class MTools
 		granitePickaxe = new MItemPickaxe(toolGranite).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("granite_pickaxe"));
 		graniteAxe = new MItemAxe(toolGranite).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("granite_axe"));
 		graniteHoe = new MItemHoe(toolGranite).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("granite_hoe"));
+		
+		soulsteelSword = new MItemSword(toolSoulsteel).setCreativeTab(Minestrappolation.tabCombat).setTextureName(MAssetManager.getWeaponTexture("soulsteel_sword"));
+		soulsteelShovel = new MItemShovel(toolSoulsteel).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("soulsteel_shovel"));
+		soulsteelPickaxe = new MItemPickaxe(toolSoulsteel).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("soulsteel_pickaxe"));
+		soulsteelAxe = new MItemAxe(toolSoulsteel).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("soulsteel_axe"));
+		soulsteelHoe = new MItemHoe(toolSoulsteel).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("soulsteel_hoe"));
 	}
 	
 	public static void load()
@@ -327,6 +341,12 @@ public class MTools
 		CSItems.addItem(graniteAxe, "granite_axe");
 		CSItems.addItem(graniteHoe, "granite_hoe");
 		
+		CSItems.addItem(soulsteelSword, "soulsteel_sword");
+		CSItems.addItem(soulsteelShovel, "soulsteel_shovel");
+		CSItems.addItem(soulsteelPickaxe, "soulsteel_pickaxe");
+		CSItems.addItem(soulsteelAxe, "soulsteel_axe");
+		CSItems.addItem(soulsteelHoe, "soulsteel_hoe");
+		
 		armorMeurodite.customCraftingMaterial = meuroditeGem;
 		armorTitanium.customCraftingMaterial = titaniumIngot;
 		armorTorite.customCraftingMaterial = toriteIngot;
@@ -344,5 +364,6 @@ public class MTools
 		toolSandstone.customCraftingMaterial = Item.getItemFromBlock(Blocks.sandstone);
 		toolBedrock.customCraftingMaterial = Item.getItemFromBlock(Blocks.bedrock);
 		toolGranite.customCraftingMaterial = Item.getItemFromBlock(MBlocks.graniteSlate);
+		toolSoulsteel.customCraftingMaterial = soulGem;
 	}
 }
