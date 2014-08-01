@@ -1,7 +1,5 @@
 package minestrapteam.minestrappolation.crafting.stonecutter;
 
-import static minestrapteam.minestrappolation.lib.MBlocks.edgeStoneBrick;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -10,6 +8,7 @@ import java.util.List;
 import minestrapteam.minestrappolation.lib.MBlocks;
 import minestrapteam.minestrappolation.lib.MItems;
 import minestrapteam.minestrappolation.lib.MTools;
+
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.InventoryCrafting;
@@ -1176,8 +1175,16 @@ public class StonecuttingManager
 		this.addRecipe(new ItemStack(MBlocks.obsidianQuartzStairs, 4, 0), null, new Object[] { "M  ", "MM ", "MMM", 'M', new ItemStack(MBlocks.checkerTiles, 1, 3) });
 		
 		// Edge Stone Brick
-		this.addRecipe(new ItemStack(edgeStoneBrick, 1, 0), null, new Object[] { "SQ", "SQ", 'S', MItems.brickStone, 'Q', MItems.brickNetherQuartz });
-		this.addRecipe(new ItemStack(edgeStoneBrick, 1, 1), null, new Object[] { "SQ", "SQ", 'S', MItems.brickStone, 'Q', MItems.brickFlint });
+		this.addRecipe(new ItemStack(MBlocks.edgeStoneBrick, 1, 0), null, new Object[] { "SQ", "SQ", 'S', MItems.brickStone, 'Q', MItems.brickNetherQuartz });
+		this.addRecipe(new ItemStack(MBlocks.edgeStoneBrick, 1, 1), null, new Object[] { "SQ", "SQ", 'S', MItems.brickStone, 'Q', MItems.brickFlint });
+		
+		// Misc Roads
+		this.addRecipe(new ItemStack(MBlocks.roads, 6, 0), null, new Object[] { "CCC", "CCC", "DDD", 'C', Blocks.cobblestone, 'D', Blocks.dirt });
+		this.addRecipe(new ItemStack(MBlocks.roads, 6, 1), null, new Object[] { "CCC", "CCC", "GGG", 'C', Blocks.cobblestone, 'G', Blocks.gravel });
+		this.addRecipe(new ItemStack(MBlocks.roads, 6, 2), null, new Object[] { "CCC", "CCC", "SSS", 'C', Blocks.cobblestone, 'S', new ItemStack(Blocks.sand, 1, 0) });
+		this.addRecipe(new ItemStack(MBlocks.roads, 6, 3), null, new Object[] { "CCC", "CCC", "SSS", 'C', Blocks.cobblestone, 'S', new ItemStack(Blocks.sand, 1, 1) });
+		this.addRecipe(new ItemStack(MBlocks.roads, 6, 4), null, new Object[] { "NNN", "NNN", "SSS", 'N', Blocks.netherrack, 'S', Blocks.soul_sand });
+		this.addRecipe(new ItemStack(MBlocks.roads, 6, 5), new ItemStack(MItems.plateSteelItem), new Object[] { "NNN", "NNN", "SSS", 'N', Blocks.netherrack, 'S', MBlocks.soulOre });
 		
 		// Misc
 		this.addRecipe(new ItemStack(Blocks.anvil, 1, 0), null, new Object[] { "III", " S ", "SSS", 'I', Blocks.iron_block, 'S', MItems.steelIngot });
