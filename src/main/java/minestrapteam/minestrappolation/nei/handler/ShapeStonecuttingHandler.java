@@ -48,6 +48,7 @@ public class ShapeStonecuttingHandler extends ShapedRecipeHandler
 		@Override
 		public void setIngredients(int width, int height, Object[] items)
 		{
+			this.ingredients.clear();
 			for (int x = 0; x < width; x++)
 			{
 				for (int y = 0; y < height; y++)
