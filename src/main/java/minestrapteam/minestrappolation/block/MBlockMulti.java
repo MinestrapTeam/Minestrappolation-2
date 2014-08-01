@@ -32,9 +32,9 @@ public class MBlockMulti extends Block
 	}
 	
 	@Override
-	public int damageDropped(int metdata)
+	public int damageDropped(int metadata)
 	{
-		return metdata;
+		return metadata;
 	}
 	
 	@Override

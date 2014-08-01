@@ -21,9 +21,10 @@ public class MEntities
 		
 		// Tile Entities
 		
-		GameRegistry.registerTileEntityWithAlternatives(TileEntityCrate.class, "Crate", "tileEntityCrate");
-		GameRegistry.registerTileEntityWithAlternatives(TileEntityBarrel.class, "Barrel", "tileEntityBarrel");
-		GameRegistry.registerTileEntityWithAlternatives(TileEntityGoblet.class, "Goblet", "tileEntitygoblet");
+		GameRegistry.registerTileEntity(TileEntityCrate.class, "Crate");
+		GameRegistry.registerTileEntity(TileEntityBarrel.class, "Barrel");
+		GameRegistry.registerTileEntity(TileEntityGoblet.class, "Goblet");
+		GameRegistry.registerTileEntity(TileEntityPlate.class, "Plate");
 		
 		GameRegistry.registerTileEntity(TileEntityMelter.class, "Melter");
 		GameRegistry.registerTileEntity(TileEntityStonecutter.class, "StoneCutter");

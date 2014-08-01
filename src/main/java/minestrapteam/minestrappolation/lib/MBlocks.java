@@ -1,12 +1,10 @@
 package minestrapteam.minestrappolation.lib;
 
 import clashsoft.cslib.minecraft.block.CSBlocks;
-import cpw.mods.fml.common.registry.GameRegistry;
 import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.block.*;
 import minestrapteam.minestrappolation.item.block.MCItemBlockMulti;
 import minestrapteam.minestrappolation.material.MaterialOoze;
-import minestrapteam.minestrappolation.tileentity.TileEntityPlate;
 import minestrapteam.minestrappolation.util.MAssetManager;
 import minestrapteam.minestrappolation.util.MBlockHelper;
 
@@ -301,6 +299,7 @@ public class MBlocks
 	public static Block			obsidianQuartzStairs;
 	public static Block			edgeStoneBrick;
 	public static Block			snowBrick;
+	public static Block roads;
 	
 	public static Block			glowGlass;
 	public static Block			glowGlassPane;
@@ -383,6 +382,7 @@ public class MBlocks
 		
 		edgeStoneBrick = new BlockEdgeStoneBrick().setHardness(1.5F).setResistance(10F).setCreativeTab(Minestrappolation.tabStoneDecor).setStepSound(Block.soundTypeStone);
 		snowBrick = new BlockSnowBrick().setHardness(0.2F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeSnow).setBlockTextureName(MAssetManager.getTexture("snow_tiles"));
+		roads = new BlockRoads().setCreativeTab(Minestrappolation.tabStoneDecor).setStepSound(Block.soundTypeStone);
 		
 		glowGlass = new BlockGlowGlass(Material.glass, true).setHardness(0.8F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeGlass).setBlockTextureName(MAssetManager.getTexture("glow_glass"));
 		glowGlassPane = new MBlockPane(Material.glass, MAssetManager.getTexture("glow_glass"), MAssetManager.getTexture("glass_refined_pane"), false).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(Minestrappolation.tabDecorationBlocks);
@@ -417,8 +417,6 @@ public class MBlocks
 	
 	public static void load()
 	{
-		GameRegistry.registerTileEntity(TileEntityPlate.class, "Plate");
-		
 		CSBlocks.addBlock(copperOre, "copper_ore");
 		CSBlocks.addBlock(tinOre, "tin_ore");
 		CSBlocks.addBlock(titaniumOre, "titanium_ore");
@@ -471,6 +469,7 @@ public class MBlocks
 		
 		CSBlocks.addBlock(edgeStoneBrick, MCItemBlockMulti.class, "edge_stone_brick");
 		CSBlocks.addBlock(snowBrick, "snow_brick");
+		CSBlocks.addBlock(roads, MCItemBlockMulti.class, "roads");
 		
 		CSBlocks.addBlock(glowGlass, "glow_glass");
 		CSBlocks.addBlock(glowGlassPane, "glow_glass_pane");

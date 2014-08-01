@@ -57,6 +57,12 @@ tile.stairs_obsidan_quartz.name=Obsidian and Nether Quartz Checkered Tile Stairs
 tile.edge_stone_brick.0.name=White Edge Stone Bricks
 tile.edge_stone_brick.1.name=Black Edge Stone Bricks
 tile.snow_brick.name=Snow Tiles
+tile.roads.0.name=Cobbled Road
+tile.roads.1.name=Gravel Road
+tile.roads.2.name=Sand Road
+tile.roads.3.name=Red Sand Road
+tile.roads.4.name=Nether Road
+tile.roads.5.name=Soul-Steel Road
 tile.refined_glass.name=Refined Glass
 tile.refined_glass_pane.name=Refined Glass Pane
 tile.glow_glass.name=Glow Glass
@@ -72,7 +78,6 @@ tile.cardboard_block.0.name=Cardboard Block
 tile.cardboard_block.1.name=Wet Cardboard Block
 tile.cardboard_block.2.name=Cardboard Lamp
 item.glass_door.name=Glass Door
-tile.gunpowder_block.name=Block of Gunpowder
 
 #Stone Blocks
 tile.stone.pattern_bricks.name=Stone Patterned Bricks
@@ -751,6 +756,7 @@ tile.redwood_sapling.name=Redwood Sapling
 tile.sugar_block.name=Block of Sugar
 tile.meat_block.name=Block of Raw Meat
 tile.ender_block.name=Ender Block
+tile.gunpowder_block.name=Block of Gunpowder
 tile.goblet.name=Goblet
 tile.plate.name=Plate
 
@@ -981,3 +987,5 @@ recipe.melter_fuel=Melter Fuel
 #Potion Effects
 potion.ghastTentacle=Nether Neutrality
 potion.ghastTentacle.postfix=Potion of Nether Neutrality
+potion.hydrophobia=Hydrophobia
+potion.hydrophobia.postfix=Potion of Hydrophobia
