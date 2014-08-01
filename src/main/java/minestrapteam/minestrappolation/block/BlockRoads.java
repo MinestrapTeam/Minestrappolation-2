@@ -90,13 +90,13 @@ public class BlockRoads extends MBlock
 		}
 		else if (metadata == 4)
 		{
-			entity.motionX *= 2.0D;
-			entity.motionZ *= 2.0D;
+			entity.motionX *= 1.9D;
+			entity.motionZ *= 1.9D;
 		}
 		else if (metadata == 5)
 		{
-			entity.motionX *= 5.0D;
-			entity.motionZ *= 5.0D;
+			entity.motionX *= 2.5D;
+			entity.motionZ *= 2.5D;
 			entity.setFire(10);
 		}
 	}
