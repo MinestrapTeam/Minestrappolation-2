@@ -1176,8 +1176,8 @@ public class StonecuttingManager
 		this.addRecipe(new ItemStack(MBlocks.obsidianQuartzStairs, 4, 0), null, new Object[] { "M  ", "MM ", "MMM", 'M', new ItemStack(MBlocks.checkerTiles, 1, 3) });
 		
 		// Edge Stone Brick
-		this.addRecipe(new ItemStack(edgeStoneBrick, 1, 0), null, new Object[] { "SQ", "SQ", 'S', MItems.brickStone, 'Q', Items.quartz });
-		this.addRecipe(new ItemStack(edgeStoneBrick, 1, 1), null, new Object[] { "SQ", "SQ", 'S', MItems.brickStone, 'Q', Items.flint });
+		this.addRecipe(new ItemStack(edgeStoneBrick, 1, 0), null, new Object[] { "SQ", "SQ", 'S', MItems.brickStone, 'Q', MItems.brickNetherQuartz });
+		this.addRecipe(new ItemStack(edgeStoneBrick, 1, 1), null, new Object[] { "SQ", "SQ", 'S', MItems.brickStone, 'Q', MItems.brickFlint });
 		
 		// Misc
 		this.addRecipe(new ItemStack(Blocks.anvil, 1, 0), null, new Object[] { "III", " S ", "SSS", 'I', Blocks.iron_block, 'S', MItems.steelIngot });
