@@ -973,6 +973,8 @@ lock.not_owner=You are not the owner of this!
 recipe.plating=Plating
 recipe.stonecutter.shaped=Shaped Stone Cutting
 recipe.stonecutter.shapeless=Shapeless Stone Cutting
+recipe.sawmill.shaped=Shaped Sawing
+recipe.sawmill.shapeless=Shapeless Sawing
 recipe.melting=Melting
 recipe.melter_fuel=Melter Fuel
 
