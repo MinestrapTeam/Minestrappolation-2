@@ -1,13 +1,10 @@
 package minestrapteam.minestrappolation.network;
 
-import java.io.IOException;
-
 import clashsoft.cslib.minecraft.network.CSPacket;
 import minestrapteam.minestrappolation.tileentity.TileEntityGoblet;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
@@ -54,20 +51,7 @@ public class GobletPacket extends CSPacket
 		this.x = buf.readInt();
 		this.y = buf.readInt();
 		this.z = buf.readInt();
-		
-		NBTTagCompound nbt1;
-		try
-		{
-			nbt1 = buf.readNBTTagCompoundFromBuffer();
-			if (nbt1 != null)
-			{
-				this.effect = PotionEffect.readCustomPotionEffectFromNBT(nbt1);
-			}
-		}
-		catch (IOException ex)
-		{
-			ex.printStackTrace();
-		}
+		this.effect = readPotionEffect(buf);
 	}
 	
 	@Override
@@ -77,20 +61,6 @@ public class GobletPacket extends CSPacket
 		buf.writeInt(this.x);
 		buf.writeInt(this.y);
 		buf.writeInt(this.z);
-		
-		try
-		{
-			NBTTagCompound nbt1 = null;
-			if (this.effect != null)
-			{
-				nbt1 = new NBTTagCompound();
-				this.effect.writeCustomPotionEffectToNBT(nbt1);
-			}
-			buf.writeNBTTagCompoundToBuffer(nbt1);
-		}
-		catch (IOException ex)
-		{
-			ex.printStackTrace();
-		}
+		writePotionEffect(buf, this.effect);
 	}
 }
