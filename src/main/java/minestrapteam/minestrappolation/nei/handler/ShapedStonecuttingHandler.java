@@ -18,7 +18,7 @@ import net.minecraft.inventory.Container;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public class ShapeStonecuttingHandler extends ShapedRecipeHandler
+public class ShapedStonecuttingHandler extends ShapedRecipeHandler
 {
 	public class CachedShapedSCRecipe extends CachedShapedRecipe
 	{
