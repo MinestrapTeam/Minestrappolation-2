@@ -27,6 +27,12 @@ public class BlockRoads extends MBlock
 	}
 	
 	@Override
+	public int damageDropped(int metadata)
+	{
+		return metadata;
+	}
+	
+	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		this.topIcons = new IIcon[names.length];
