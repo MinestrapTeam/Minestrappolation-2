@@ -5,6 +5,7 @@ import java.util.Random;
 import minestrapteam.minestrappolation.lib.MItems;
 
 import net.minecraft.block.Block;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.IBlockAccess;
@@ -51,6 +52,12 @@ public class BlockRope extends BlockRopeCoil
 	public boolean canPlaceBlockAt(World world, int x, int y, int z)
 	{
 		return super.canPlaceBlockAt(world, x, y, z) && this.canBlockStay(world, x, y, z);
+	}
+	
+	@Override
+	public boolean isLadder(IBlockAccess world, int x, int y, int z, EntityLivingBase entity)
+	{
+		return true;
 	}
 	
 	@Override
