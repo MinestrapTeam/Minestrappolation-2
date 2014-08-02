@@ -10,13 +10,13 @@ import minestrapteam.minestrappolation.nei.handler.*;
 
 public class NEIMinestrappolationConfig implements IConfigureNEI
 {
-	public static ShapedStonecuttingHandler		shapedStonecuttingManager	= new ShapedStonecuttingHandler();
+	public static ShapedStonecuttingHandler		shapedStonecuttingManager		= new ShapedStonecuttingHandler();
 	public static ShapelessStonecuttingHandler	shapelessStonecuttingManager	= new ShapelessStonecuttingHandler();
-	public static ShapedSawingHandler			shapedSawingManager			= new ShapedSawingHandler();
-	public static ShapelessSawingHandler		shapelessSawingManager		= new ShapelessSawingHandler();
-	public static MelterRecipeHandler			melterManager				= new MelterRecipeHandler();
-	public static MelterFuelHandler				melterFuelManager			= new MelterFuelHandler();
-	public static PlatingRecipeHandler			platingManager				= new PlatingRecipeHandler();
+	public static ShapedSawingHandler			shapedSawingManager				= new ShapedSawingHandler();
+	public static ShapelessSawingHandler		shapelessSawingManager			= new ShapelessSawingHandler();
+	public static MelterRecipeHandler			melterManager					= new MelterRecipeHandler();
+	public static MelterFuelHandler				melterFuelManager				= new MelterFuelHandler();
+	public static PlatingRecipeHandler			platingManager					= new PlatingRecipeHandler();
 	
 	@Override
 	public void loadConfig()

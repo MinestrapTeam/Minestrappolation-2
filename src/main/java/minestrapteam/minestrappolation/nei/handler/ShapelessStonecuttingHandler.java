@@ -24,17 +24,9 @@ public class ShapelessStonecuttingHandler extends ShapelessRecipeHandler
 		
 		public CachedShapelessSCRecipe(ShapelessCuttingRecipe recipe)
 		{
-			this.setIngredients(recipe.recipeItems);
 			this.setResult(recipe.recipeOutput);
+			this.setIngredients(recipe.recipeItems);
 			this.setExtraSlot(recipe.extraSlot);
-		}
-		
-		public void setExtraSlot(ItemStack extra)
-		{
-			if (extra != null)
-			{
-				this.extraSlot = new PositionedStack(extra, 3, 24);
-			}
 		}
 		
 		public CachedShapelessSCRecipe(ItemStack extra, Object[] input, ItemStack output)
@@ -47,6 +39,20 @@ public class ShapelessStonecuttingHandler extends ShapelessRecipeHandler
 		{
 			super(input, output);
 			this.setExtraSlot(extra);
+		}
+		
+		@Override
+		public void setResult(ItemStack output)
+		{
+			this.result = new PositionedStack(output, 132, 24);
+		}
+		
+		public void setExtraSlot(ItemStack extra)
+		{
+			if (extra != null)
+			{
+				this.extraSlot = new PositionedStack(extra, 3, 24);
+			}
 		}
 		
 		@Override
