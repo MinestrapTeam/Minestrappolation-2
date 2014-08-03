@@ -1,13 +1,38 @@
-version=3.1.1
-motd=Grab Minestrappolation 3.1.1 now! Bugs were smashed with hammers!
-motdcolor=red
-url=https://github.com/MinestrapTeam/Minestrappolation-2/releases/download/1.7.10-3.1.1/Minestrappolation.1.7.10-3.1.1.jar
+version=3.2.0
+motd=Minestrappolation 3.2 out now! Lots of changes!
+motdcolor=aqua
+url=https://github.com/MinestrapTeam/Minestrappolation-2/releases/download/1.7.10-3.2.0/Minestrappolation-1.7.10-3.2.0.jar
 
-* Improved Metal Plating rendering
-* Improved Cardboard and Wet Cardboard textures
-* Fixed Cardboard Lamps missing textures
-* Fixed Plating and Horn recipes not working
-* Fixed missing Horn assets
-* Fixed Goblets and Plates not breaking when the block below them is destroyed
-* Fixed Goblets and Plates not syncing (making changes invisible to other players)
-* Fixed Crash when punching an entity with your fists
+! Merged MCore and Minestrappolation
+! Update to Minecraft 1.7.10
+! Update to Clashsoft Lib 1.7.10-2.4.0
+! Update to Brewing API 1.7.10-3.0.0
++ Added NEI support.
++ Added Sawmills.
++ Added Redwood Biomes.
++ Added Redwood Blocks.
++ Added Magma.
++ Added the Hydrophobia Potion effect.
++ Added Nuclear Grenades.
++ Added Slow Glass.
++ Added Soul Steel tools and weapons.
++ Added Soul Steel Roads.
++ Re-Added Cobbled Roads, Gravel Roads, Sand and Red Sand Roads and Nether Roads.
++ Revamped the Lock/Key system (It should actually be functional now).
++ Vanilla Tools are now Platable.
++ Obsidian and Bedrock blocks are now meltable.
+* Improved Dungeon Loot.
+* Improved Plating Entity Damage.
+* Improved World Gen performance.
+* Improved Melter GUI.
+* Improved Grenade physics.
+* Improved Edge Stone Bricks crafting.
+* Improved Stonecutter rendering.
+* Fixed Grenades not being craftable.
+* Fixed UpdateChecker not working.
+* Fixed Glow Glass Panes being invisible.
+* Fixed Rope issues.
+* Fixed Minestrappolation Swords being treated as Tools while in Creative mode.
+* Fixed Ghast right-click crash.
+- Removed Glow Glass smelting recipe.
+- Removed Titanium Ingot smelting recipe.
