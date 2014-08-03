@@ -26,7 +26,7 @@ public class MOreGenerator implements IWorldGenerator
 	public static WorldGenMinable		copperGen			= new WorldGenMinable(MBlocks.copperOre, 10);
 	public static WorldGenMinable		tinGen				= new WorldGenMinable(MBlocks.tinOre, 11);
 	public static WorldGenMinable		radiantQuartzGen	= new WorldGenMinable(MBlocks.radiantQuartzOre, 3);
-	public static WorldGenMinable		mossyPlankGen		= new WorldGenMinable(MBlocks.woodOak, 3, 15, Blocks.planks);
+	public static WorldGenMinable		mossyPlankGen		= new WorldGenMinable(MBlocks.oak, 3, 15, Blocks.planks);
 	public static WorldGenMinable		meuroditeGen		= new WorldGenMinable(MBlocks.meuroditeOre, 5);
 	public static WorldGenMinable		uraniumGen			= new WorldGenMinable(MBlocks.uraniumOre, 3);
 	public static WorldGenMinable		plutoniumGen		= new WorldGenMinable(MBlocks.plutoniumOre, 3);

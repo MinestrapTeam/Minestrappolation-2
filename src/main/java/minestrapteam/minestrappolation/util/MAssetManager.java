@@ -39,7 +39,7 @@ public class MAssetManager
 		return getTexture("mobs/" + name);
 	}
 	
-	public static String getPlantsTexture(String name)
+	public static String getModelTexture(String name)
 	{
 		return getTexture("model/" + name);
 	}
