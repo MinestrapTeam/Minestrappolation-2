@@ -18,6 +18,18 @@ public class BlockStonecutter extends MBlockMachine
 	}
 	
 	@Override
+	public boolean renderAsNormalBlock()
+	{
+		return false;
+	}
+	
+	@Override
+	public boolean isOpaqueCube()
+	{
+		return false;
+	}
+	
+	@Override
 	public TileEntity createNewTileEntity(World world, int metadata)
 	{
 		return new TileEntityStonecutter();

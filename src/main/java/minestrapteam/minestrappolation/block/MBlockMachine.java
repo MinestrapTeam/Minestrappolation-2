@@ -46,7 +46,7 @@ public abstract class MBlockMachine extends BlockContainer
 		{
 			return this.topIcon;
 		}
-		else if (side - 2 == metadata)
+		else if (metadata == side - 2)
 		{
 			return this.frontIcon;
 		}
@@ -72,7 +72,7 @@ public abstract class MBlockMachine extends BlockContainer
 		
 		if (l == 0)
 		{
-			world.setBlockMetadataWithNotify(x, y, z, 2, 2);
+			world.setBlockMetadataWithNotify(x, y, z, 0, 2);
 		}
 		
 		if (l == 1)
@@ -82,12 +82,12 @@ public abstract class MBlockMachine extends BlockContainer
 		
 		if (l == 2)
 		{
-			world.setBlockMetadataWithNotify(x, y, z, 0, 2);
+			world.setBlockMetadataWithNotify(x, y, z, 1, 2);
 		}
 		
 		if (l == 3)
 		{
-			world.setBlockMetadataWithNotify(x, y, z, 1, 2);
+			world.setBlockMetadataWithNotify(x, y, z, 2, 2);
 		}
 	}
 }
