@@ -77,6 +77,8 @@ public class MItems
 	public static Item	plateSteelItem;
 	public static Item	plateMeuroditeItem;
 	
+	public static Item stoneChunk;
+	
 	/* / {----- ED Items -----} / */
 	
 	public static Item	ropeItem;
@@ -143,6 +145,8 @@ public class MItems
 	
 	public static void init()
 	{
+		// Brick Items
+		
 		brickStone = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("stone_brick"));
 		brickStoneTin = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("stone_brick_tin"));
 		brickStoneBronze = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("stone_brick_bronze"));
@@ -165,6 +169,8 @@ public class MItems
 		brickEndStone = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("endstone_brick"));
 		brickBedrock = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("bedrock_brick"));
 		brickRadiantQuartz = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("radiantquartz_brick"));
+		
+		// EO Items
 		
 		soulGem = new ItemSoulGem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("soul_gem"));
 		meuroditeGem = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("meurodite_gem"));
@@ -199,9 +205,15 @@ public class MItems
 		plateSteelItem = new ItemPlating(MBlocks.steelPlate, "steel", 2F, 192, 1.4F).setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("steel_plating"));
 		plateMeuroditeItem = new ItemPlating(MBlocks.meuroditePlate, "meurodite", 2.5F, 256, 1.5F).setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("meurodite_plating"));
 		
+		stoneChunk = new MItem().setCreativeTab(Minestrappolation.tabMaterials).setTextureName(MAssetManager.getMineralTexture("rock_chunk"));
+		
+		// ED Items
+		
 		ropeItem = new ItemReed(MBlocks.rope).setCreativeTab(tabDecorationBlocks).setTextureName(MAssetManager.getTexture("rope"));
 		cardboardItem = new ItemReed(MBlocks.cardboard).setCreativeTab(tabDecorationBlocks).setTextureName(MAssetManager.getTexture("cardboard"));
 		glassDoorItem = new MItemDoor(MBlocks.glassDoor).setCreativeTab(tabDecorationBlocks).setTextureName(MAssetManager.getTexture("glass_door"));
+		
+		// EMD Items
 		
 		snout = new MItemFood(3, 0.2F).setPotionEffect(Potion.hunger.id, 10 * 20, 1, 0.25F).setCreativeTab(tabFood).setTextureName(MAssetManager.getMobTexture("snout"));
 		pigHoof = new MItem().setCreativeTab(tabBrewing).setTextureName(MAssetManager.getMobTexture("pig_foot"));
@@ -262,6 +274,8 @@ public class MItems
 	
 	public static void load()
 	{
+		// Bricks Items
+		
 		CSItems.addItem(brickStone, "stone_brick");
 		CSItems.addItem(brickStoneTin, "stone_brick_tin");
 		CSItems.addItem(brickStoneBronze, "stone_brick_bronze");
@@ -283,6 +297,8 @@ public class MItems
 		CSItems.addItem(brickEndStone, "endstone_brick");
 		CSItems.addItem(brickBedrock, "bedrock_brick");
 		CSItems.addItem(brickRadiantQuartz, "radiantquartz_brick");
+		
+		// EO Items
 		
 		CSItems.addItem(soulGem, "soul_gem");
 		CSItems.addItem(meuroditeGem, "meurodite_gem");
@@ -311,14 +327,21 @@ public class MItems
 		CSItems.addItem(grenadeImpact, "impact_grenade");
 		CSItems.addItem(grenadeSticky, "sticky_grenade");
 		CSItems.addItem(grenadeNuke, "nuke_grenade");
+		
 		CSItems.addItem(plateTinItem, "tin_plate");
 		CSItems.addItem(plateBronzeItem, "bronze_plate");
 		CSItems.addItem(plateSteelItem, "steel_plate");
 		CSItems.addItem(plateMeuroditeItem, "meurodite_plate");
 		
+		CSItems.addItem(stoneChunk, "stone_chunk");
+		
+		// ED Items
+		
 		CSItems.addItem(ropeItem, "rope");
 		CSItems.addItem(cardboardItem, "cardboard");
 		CSItems.addItem(glassDoorItem, "glass_door");
+		
+		// EMD Items
 		
 		CSItems.addItem(snout, "snout");
 		CSItems.addItem(pigHoof, "pig_hoof");

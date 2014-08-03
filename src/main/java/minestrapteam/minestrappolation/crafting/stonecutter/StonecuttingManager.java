@@ -26,6 +26,9 @@ public class StonecuttingManager
 	
 	private StonecuttingManager()
 	{
+		this.addRecipe(new ItemStack(MItems.stoneChunk, 4), null, new Object[] { "S", 'S', new ItemStack(Blocks.cobblestone, 1, 0) });
+		this.addRecipe(new ItemStack(Blocks.cobblestone, 1), null, new Object[] { "SS", "SS", 'S', MItems.stoneChunk });
+		
 		// Stone Decor
 		this.addRecipe(new ItemStack(Blocks.stone_slab, 6, 0), null, new Object[] { "SSS", 'S', Blocks.stone });
 		this.addRecipe(new ItemStack(MItems.brickStone, 4, 0), null, new Object[] { "S", 'S', Blocks.stone });
@@ -1179,10 +1182,10 @@ public class StonecuttingManager
 		this.addRecipe(new ItemStack(MBlocks.edgeStoneBrick, 1, 1), null, new Object[] { "SQ", "SQ", 'S', MItems.brickStone, 'Q', MItems.brickFlint });
 		
 		// Misc Roads
-		this.addRecipe(new ItemStack(MBlocks.roads, 6, 0), null, new Object[] { "CCC", "CCC", "DDD", 'C', Blocks.cobblestone, 'D', Blocks.dirt });
-		this.addRecipe(new ItemStack(MBlocks.roads, 6, 1), null, new Object[] { "CCC", "CCC", "GGG", 'C', Blocks.cobblestone, 'G', Blocks.gravel });
-		this.addRecipe(new ItemStack(MBlocks.roads, 6, 2), null, new Object[] { "CCC", "CCC", "SSS", 'C', Blocks.cobblestone, 'S', new ItemStack(Blocks.sand, 1, 0) });
-		this.addRecipe(new ItemStack(MBlocks.roads, 6, 3), null, new Object[] { "CCC", "CCC", "SSS", 'C', Blocks.cobblestone, 'S', new ItemStack(Blocks.sand, 1, 1) });
+		this.addRecipe(new ItemStack(MBlocks.roads, 6, 0), null, new Object[] { "CCC", "CCC", "DDD", 'C', MItems.stoneChunk, 'D', Blocks.dirt });
+		this.addRecipe(new ItemStack(MBlocks.roads, 6, 1), null, new Object[] { "CCC", "CCC", "GGG", 'C', MItems.stoneChunk, 'G', Blocks.gravel });
+		this.addRecipe(new ItemStack(MBlocks.roads, 6, 2), null, new Object[] { "CCC", "CCC", "SSS", 'C', MItems.stoneChunk, 'S', new ItemStack(Blocks.sand, 1, 0) });
+		this.addRecipe(new ItemStack(MBlocks.roads, 6, 3), null, new Object[] { "CCC", "CCC", "SSS", 'C', MItems.stoneChunk, 'S', new ItemStack(Blocks.sand, 1, 1) });
 		this.addRecipe(new ItemStack(MBlocks.roads, 6, 4), null, new Object[] { "NNN", "NNN", "SSS", 'N', Blocks.netherrack, 'S', Blocks.soul_sand });
 		this.addRecipe(new ItemStack(MBlocks.roads, 6, 5), new ItemStack(MItems.plateSteelItem), new Object[] { "NNN", "NNN", "SSS", 'N', Blocks.netherrack, 'S', MBlocks.soulOre });
 		
