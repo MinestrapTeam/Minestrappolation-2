@@ -233,7 +233,7 @@ public class MBlocks
 	public static Block			acacia2;
 	public static MBlockCustom	darkOak;
 	public static Block			darkOakStairsBoards;
-	public static Block			darkOak2;	
+	public static Block			darkOak2;
 	public static MBlockCustom	redwood;
 	public static Block			redwoodStairsBoards;
 	public static Block			redwoodStairsPlanks;
@@ -298,7 +298,7 @@ public class MBlocks
 	public static Block			obsidianQuartzStairs;
 	public static Block			edgeStoneBrick;
 	public static Block			snowBrick;
-	public static Block roads;
+	public static Block			roads;
 	
 	public static Block			glowGlass;
 	public static Block			glowGlassPane;
@@ -400,7 +400,7 @@ public class MBlocks
 		redwoodLog = new MBlockLog().setBlockTextureName(MAssetManager.getWoodTexture("redwood_log")).setCreativeTab(Minestrappolation.tabBuildingBlocks);
 		redwoodLeaves = new MBlockLeaves(865539).setBlockTextureName(MAssetManager.getPlantTexture("redwood_leaves")).setCreativeTab(Minestrappolation.tabBuildingBlocks);
 		redwoodSapling = new BlockRedwoodSapling().setHardness(0.0F).setStepSound(Block.soundTypeGrass).setBlockTextureName(MAssetManager.getPlantTexture("redwood_sapling")).setCreativeTab(Minestrappolation.tabBuildingBlocks);
-
+		
 		goblet = new BlockGoblet(Material.rock).setHardness(0.5F).setCreativeTab(Minestrappolation.tabDecorationBlocks).setBlockTextureName(MAssetManager.getTexture("goblet"));
 		plate = new BlockPlate(Material.rock).setHardness(0.7F).setCreativeTab(Minestrappolation.tabDecorationBlocks).setBlockTextureName(MAssetManager.getTexture("plate"));
 		rope = new BlockRope().setHardness(0.9F).setStepSound(Block.soundTypeCloth);
@@ -484,7 +484,7 @@ public class MBlocks
 		
 		CSBlocks.addBlock(redwoodLog, "redwood_log");
 		CSBlocks.addBlock(redwoodLeaves, "redwood_leaves");
-		CSBlocks.addBlock(redwoodSapling, "redwood_sapling");		
+		CSBlocks.addBlock(redwoodSapling, "redwood_sapling");
 		
 		CSBlocks.addBlock(goblet, "goblet");
 		CSBlocks.addBlock(plate, "plate");
@@ -753,6 +753,6 @@ public class MBlocks
 		redwood = MBlockHelper.createWoodBlock(types_redwood, "redwood", 2.0F, 5.0F, tab_decor);
 		redwood2 = MBlockHelper.createWoodBlock2(types_redwood_2, "redwood", 2.0F, 5.0F, tab_decor);
 		redwoodStairsPlanks = MBlockHelper.createWoodStair(redwood, 0, tab_decor);
-		redwoodStairsBoards = MBlockHelper.createWoodStair(redwood, 2, tab_decor);	
+		redwoodStairsBoards = MBlockHelper.createWoodStair(redwood, 2, tab_decor);
 	}
 }

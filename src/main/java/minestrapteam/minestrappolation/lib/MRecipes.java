@@ -290,7 +290,7 @@ public class MRecipes
 		MUtil.removeRecipe(new ItemStack(Items.sign, 3));
 		MUtil.removeRecipe(new ItemStack(Blocks.oak_stairs, 4));
 		MUtil.removeRecipe(new ItemStack(Blocks.birch_stairs, 4));
-		MUtil.removeRecipe(new ItemStack(Blocks.spruce_stairs, 4)); 
+		MUtil.removeRecipe(new ItemStack(Blocks.spruce_stairs, 4));
 		MUtil.removeRecipe(new ItemStack(Blocks.jungle_stairs, 4));
 		MUtil.removeRecipe(new ItemStack(Blocks.acacia_stairs, 4));
 		MUtil.removeRecipe(new ItemStack(Blocks.dark_oak_stairs, 4));

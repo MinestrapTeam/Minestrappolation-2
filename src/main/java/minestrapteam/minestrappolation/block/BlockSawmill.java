@@ -3,11 +3,13 @@ package minestrapteam.minestrappolation.block;
 import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
 import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.tileentity.TileEntitySawmill;
+import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 public class BlockSawmill extends MBlockMachine
@@ -20,6 +22,13 @@ public class BlockSawmill extends MBlockMachine
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
+		this.blockIcon = iconRegister.registerIcon(MAssetManager.getMachineTexture("carpenters_bench"));
+	}
+	
+	@Override
+	public IIcon getIcon(int side, int metadata)
+	{
+		return this.blockIcon;
 	}
 	
 	@Override

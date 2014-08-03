@@ -24,7 +24,7 @@ public class EntityGrenadeNuke extends EntityThrowableExplosive
 		super(world, x, y, z);
 		this.explosionRange = 8F;
 	}
-
+	
 	@Override
 	public void affectEntity(EntityLivingBase living)
 	{

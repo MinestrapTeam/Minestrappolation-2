@@ -32,12 +32,12 @@ public class SawingManager
 		this.addRecipe(new ItemStack(Blocks.noteblock, 1), new Object[] { "###", "#X#", "###", '#', Blocks.planks, 'X', Items.redstone });
 		this.addRecipe(new ItemStack(Blocks.bookshelf, 1), new Object[] { "###", "XXX", "###", '#', Blocks.planks, 'X', Items.book });
 		this.addRecipe(new ItemStack(Items.stick, 6), new Object[] { "#", "#", '#', Blocks.planks });
-		this.addRecipe(new ItemStack(Items.boat, 1), new Object[] {"# #", "###", '#', Blocks.planks});
+		this.addRecipe(new ItemStack(Items.boat, 1), new Object[] { "# #", "###", '#', Blocks.planks });
 		this.addRecipe(new ItemStack(Blocks.ladder, 3), new Object[] { "# #", "###", "# #", '#', Items.stick });
 		this.addRecipe(new ItemStack(Items.wooden_door, 1), new Object[] { "##", "##", "##", '#', Blocks.planks });
 		this.addRecipe(new ItemStack(Blocks.trapdoor, 2), new Object[] { "###", "###", '#', Blocks.planks });
 		this.addRecipe(new ItemStack(Items.sign, 3), new Object[] { "###", "###", " X ", '#', Blocks.planks, 'X', Items.stick });
-		this.addRecipe(new ItemStack(Items.bed, 1), new Object[] {"###", "XXX", '#', Blocks.wool, 'X', Blocks.planks});
+		this.addRecipe(new ItemStack(Items.bed, 1), new Object[] { "###", "XXX", '#', Blocks.wool, 'X', Blocks.planks });
 		
 		// Planks
 		this.addRecipe(new ItemStack(Blocks.planks, 6, 0), new Object[] { "#", '#', new ItemStack(Blocks.log, 1, 0) });

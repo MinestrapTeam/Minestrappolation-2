@@ -30,6 +30,6 @@ public class ItemSoulBottle extends Item
 				player.dropItem(Items.experience_bottle, 1);
 			}
 		}
-		return stack;	
+		return stack;
 	}
 }

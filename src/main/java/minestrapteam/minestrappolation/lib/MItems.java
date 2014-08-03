@@ -70,14 +70,14 @@ public class MItems
 	public static Item	grenade;
 	public static Item	grenadeImpact;
 	public static Item	grenadeSticky;
-	public static Item grenadeNuke;
+	public static Item	grenadeNuke;
 	
 	public static Item	plateTinItem;
 	public static Item	plateBronzeItem;
 	public static Item	plateSteelItem;
 	public static Item	plateMeuroditeItem;
 	
-	public static Item stoneChunk;
+	public static Item	stoneChunk;
 	
 	/* / {----- ED Items -----} / */
 	

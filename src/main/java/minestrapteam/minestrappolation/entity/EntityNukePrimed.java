@@ -5,7 +5,7 @@ import net.minecraft.entity.item.EntityTNTPrimed;
 import net.minecraft.world.World;
 
 public class EntityNukePrimed extends EntityTNTPrimed
-{	
+{
 	public EntityNukePrimed(World world)
 	{
 		super(world);
