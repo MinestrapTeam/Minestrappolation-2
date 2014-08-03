@@ -126,13 +126,6 @@ public class MOreDictionary
 		GameRegistry.addRecipe(new ShapedOreRecipe(MBlocks.meatBlock, new Object[] { "MMM", "MMM", "MMM", 'M', "meatRaw" }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(MBlocks.crate, new Object[] { "WWW", "SSS", "WWW", 'S', Items.stick, 'W', "plankWood" }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(MBlocks.barrel, new Object[] { "WTW", "W W", "WTW", 'T', "ingotTin", 'W', "plankWood" }));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MBlocks.oak, 9, 2), new Object[] { "WWW", "WWW", "WWW", 'W', "plankOak" }));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MBlocks.birch, 9, 2), new Object[] { "WWW", "WWW", "WWW", 'W', "plankBirch" }));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MBlocks.spruce, 9, 2), new Object[] { "WWW", "WWW", "WWW", 'W', "plankSpruce" }));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MBlocks.jungleWood, 9, 2), new Object[] { "WWW", "WWW", "WWW", 'W', "plankJungle" }));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MBlocks.acacia, 9, 2), new Object[] { "WWW", "WWW", "WWW", 'W', "plankAcacia" }));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MBlocks.darkOak, 9, 2), new Object[] { "WWW", "WWW", "WWW", 'W', "plankDarkOak" }));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MBlocks.redwood, 9, 3), new Object[] { "WWW", "WWW", "WWW", 'W', "plankRedwood" }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Blocks.beacon, 1, 0), new Object[] { "GGG", "GNG", "OOO", 'G', "glass", 'N', Items.nether_star, 'O', Blocks.obsidian }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Blocks.daylight_detector, 1, 0), new Object[] { "GGG", "QQQ", "SSS", 'G', "glass", 'Q', Items.quartz, 'S', "slabWood" }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.glass_bottle, 3, 0), new Object[] { "G G", " G ", 'G', "glass" }));

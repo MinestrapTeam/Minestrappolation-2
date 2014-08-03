@@ -7,7 +7,6 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import minestrapteam.minestrappolation.crafting.RecipesPlatings;
 import minestrapteam.minestrappolation.util.MUtil;
 
-import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -248,8 +247,10 @@ public class MRecipes
 	
 	public static void removeRecipes()
 	{
+		// Misc Recipes
 		MUtil.removeRecipe(new ItemStack(Blocks.anvil, 1, 0));
 		
+		// Stone Recipes
 		MUtil.removeRecipe(new ItemStack(Blocks.stonebrick, 4, 0));
 		MUtil.removeRecipe(new ItemStack(Blocks.sandstone, 4, 2));
 		MUtil.removeRecipe(new ItemStack(Blocks.sandstone, 1, 1));
@@ -274,10 +275,25 @@ public class MRecipes
 		MUtil.removeRecipe(new ItemStack(Blocks.quartz_block, 2, 2));
 		MUtil.removeRecipe(new ItemStack(Blocks.quartz_stairs, 4, 0));
 		MUtil.removeRecipe(Blocks.stained_hardened_clay);
-	}
-	
-	public static void addStairRecipe(Block stairs, ItemStack material)
-	{
-		GameRegistry.addRecipe(new ItemStack(stairs, 4, 0), new Object[] { "M  ", "MM ", "MMM", 'M', material });
+		
+		// Wood Recipes
+		MUtil.removeRecipe(new ItemStack(Blocks.fence, 2));
+		MUtil.removeRecipe(new ItemStack(Blocks.fence_gate, 1));
+		MUtil.removeRecipe(new ItemStack(Blocks.jukebox, 1));
+		MUtil.removeRecipe(new ItemStack(Blocks.noteblock, 1));
+		MUtil.removeRecipe(new ItemStack(Blocks.bookshelf, 1));
+		MUtil.removeRecipe(Blocks.wooden_slab);
+		MUtil.removeRecipe(new ItemStack(Items.boat, 1));
+		MUtil.removeRecipe(new ItemStack(Blocks.ladder, 3));
+		MUtil.removeRecipe(new ItemStack(Items.wooden_door, 1));
+		MUtil.removeRecipe(new ItemStack(Blocks.trapdoor, 2));
+		MUtil.removeRecipe(new ItemStack(Items.sign, 3));
+		MUtil.removeRecipe(new ItemStack(Blocks.oak_stairs, 4));
+		MUtil.removeRecipe(new ItemStack(Blocks.birch_stairs, 4));
+		MUtil.removeRecipe(new ItemStack(Blocks.spruce_stairs, 4)); 
+		MUtil.removeRecipe(new ItemStack(Blocks.jungle_stairs, 4));
+		MUtil.removeRecipe(new ItemStack(Blocks.acacia_stairs, 4));
+		MUtil.removeRecipe(new ItemStack(Blocks.dark_oak_stairs, 4));
+		MUtil.removeRecipe(new ItemStack(Items.bed, 1));
 	}
 }
