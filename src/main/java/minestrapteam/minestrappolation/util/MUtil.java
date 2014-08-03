@@ -1,16 +1,13 @@
 package minestrapteam.minestrappolation.util;
 
-import java.util.Iterator;
-import java.util.List;
 import java.util.Random;
 
-import clashsoft.cslib.minecraft.stack.CSStacks;
+import clashsoft.cslib.minecraft.crafting.CSCrafting;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.CraftingManager;
-import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.world.World;
 
 /**
@@ -174,25 +171,18 @@ public class MUtil
 		}
 	}
 	
-	/**
-	 * Removes a vanilla recipe based on the result item and amount.
-	 * 
-	 * @param output
-	 */
+	public static void removeRecipe(Item output)
+	{
+		CSCrafting.removeRecipe(new ItemStack(output, 1, CSCrafting.WILDCARD_VALUE));
+	}
+	
+	public static void removeRecipe(Block output)
+	{
+		CSCrafting.removeRecipe(new ItemStack(output, 1, CSCrafting.WILDCARD_VALUE));
+	}
+	
 	public static void removeRecipe(ItemStack output)
 	{
-		List<IRecipe> recipes = CraftingManager.getInstance().getRecipeList();
-		Iterator<IRecipe> iterator = recipes.iterator();
-		IRecipe recipe;
-		
-		while (iterator.hasNext())
-		{
-			recipe = iterator.next();
-			ItemStack stack = recipe.getRecipeOutput();
-			if (CSStacks.equals(output, stack))
-			{
-				iterator.remove();
-			}
-		}
+		CSCrafting.removeRecipe(output);
 	}
 }

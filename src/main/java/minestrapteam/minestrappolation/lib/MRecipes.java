@@ -273,22 +273,7 @@ public class MRecipes
 		MUtil.removeRecipe(new ItemStack(Blocks.quartz_block, 1, 1));
 		MUtil.removeRecipe(new ItemStack(Blocks.quartz_block, 2, 2));
 		MUtil.removeRecipe(new ItemStack(Blocks.quartz_stairs, 4, 0));
-		MUtil.removeRecipe(new ItemStack(Blocks.stained_hardened_clay, 8, 0));
-		MUtil.removeRecipe(new ItemStack(Blocks.stained_hardened_clay, 8, 1));
-		MUtil.removeRecipe(new ItemStack(Blocks.stained_hardened_clay, 8, 2));
-		MUtil.removeRecipe(new ItemStack(Blocks.stained_hardened_clay, 8, 3));
-		MUtil.removeRecipe(new ItemStack(Blocks.stained_hardened_clay, 8, 4));
-		MUtil.removeRecipe(new ItemStack(Blocks.stained_hardened_clay, 8, 5));
-		MUtil.removeRecipe(new ItemStack(Blocks.stained_hardened_clay, 8, 6));
-		MUtil.removeRecipe(new ItemStack(Blocks.stained_hardened_clay, 8, 7));
-		MUtil.removeRecipe(new ItemStack(Blocks.stained_hardened_clay, 8, 8));
-		MUtil.removeRecipe(new ItemStack(Blocks.stained_hardened_clay, 8, 9));
-		MUtil.removeRecipe(new ItemStack(Blocks.stained_hardened_clay, 8, 10));
-		MUtil.removeRecipe(new ItemStack(Blocks.stained_hardened_clay, 8, 11));
-		MUtil.removeRecipe(new ItemStack(Blocks.stained_hardened_clay, 8, 12));
-		MUtil.removeRecipe(new ItemStack(Blocks.stained_hardened_clay, 8, 13));
-		MUtil.removeRecipe(new ItemStack(Blocks.stained_hardened_clay, 8, 14));
-		MUtil.removeRecipe(new ItemStack(Blocks.stained_hardened_clay, 8, 15));
+		MUtil.removeRecipe(Blocks.stained_hardened_clay);
 	}
 	
 	public static void addStairRecipe(Block stairs, ItemStack material)
