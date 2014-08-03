@@ -39,11 +39,11 @@ minecraft
 	}
 }
 
-task deobfJar(type:Jar, dependsOn:'classes')
-deobfJar
+task devJar(type:Jar, dependsOn:'classes')
+devJar
 {
     classifier = 'deobf'
-    archiveName = "${archivesBaseName}-${version}-deobf.jar"
+    archiveName = "${archivesBaseName}-${version}-dev.jar"
     from ('build/classes/main')
     {
         include('minestrapteam/minestrappolation/**')
@@ -54,8 +54,8 @@ deobfJar
     }
 }
 
-task sourceJar(type:Jar, dependsOn:'classes')
-sourceJar
+task srcJar(type:Jar, dependsOn:'classes')
+srcJar
 {
     classifier = 'sources'
     archiveName = "${archivesBaseName}-${version}-src.jar"
@@ -69,7 +69,7 @@ sourceJar
     }
 }
 
-task buildApi(dependsOn:['build', 'sourceJar', 'deobfJar'])
+task buildApi(dependsOn:['build', 'srcJar', 'devJar'])
 
 processResources
 {
