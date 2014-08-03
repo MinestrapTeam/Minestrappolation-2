@@ -21,5 +21,4 @@ public class ItemCatEye extends MItemFood
 		player.addPotionEffect(new PotionEffect(Potion.nightVision.id, 45 * 20, 0));
 		player.addPotionEffect(new PotionEffect(Potion.hunger.id, 10 * 20, 0));
 	}
-	
 }

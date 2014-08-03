@@ -19,9 +19,8 @@ public class ItemGhastTentacle extends MItemFood
 	@Override
 	protected void onFoodEaten(ItemStack stack, World world, EntityPlayer player)
 	{
-		super.onFoodEaten(stack, world, player);
-		
 		int seconds = CSRandom.nextInt(player.getRNG(), 30, 180);
 		player.addPotionEffect(new PotionEffect(MPotions.ghastTentaclePotion.id, seconds * 20, 0));
+		super.onFoodEaten(stack, world, player);
 	}
 }

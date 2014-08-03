@@ -15,7 +15,6 @@ public class ItemCalimari extends MItemFood
 	public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player)
 	{
 		player.heal(2F);
-		super.onEaten(stack, world, player);
 		return super.onEaten(stack, world, player);
 	}
 	

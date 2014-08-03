@@ -82,7 +82,7 @@ public class PlatingRecipeHandler extends ShapelessRecipeHandler
 			while (iterator.hasNext())
 			{
 				Item item = iterator.next();
-				if (item instanceof IPlatable)
+				if (item instanceof IPlatable && iplating.canApply((IPlatable) item))
 				{
 					List<ItemStack> list = new ArrayList();
 					item.getSubItems(item, null, list);

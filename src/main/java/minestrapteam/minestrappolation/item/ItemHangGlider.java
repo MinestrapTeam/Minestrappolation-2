@@ -20,7 +20,7 @@ public class ItemHangGlider extends MItem
 	{
 		if (!player.capabilities.isCreativeMode)
 		{
-			stack.stackSize -= 1;
+			stack.stackSize--;
 		}
 		if (!world.isRemote)
 		{

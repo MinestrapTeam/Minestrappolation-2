@@ -24,19 +24,18 @@ public class ItemGuano extends MItem
 		{
 			return false;
 		}
-		else
+		
+		if (applyBonemeal(stack, world, x, y, z))
 		{
-			if (applyBonemeal(stack, world, x, y, z))
+			if (!world.isRemote)
 			{
-				if (!world.isRemote)
-				{
-					world.playAuxSFX(2005, x, y, z, 0);
-				}
-				
-				return true;
+				world.playAuxSFX(2005, x, y, z, 0);
 			}
-			return false;
+			
+			return true;
 		}
+		
+		return false;
 	}
 	
 	public static boolean applyBonemeal(ItemStack item, World world, int x, int y, int z)
@@ -72,5 +71,4 @@ public class ItemGuano extends MItem
 		list.add(I18n.getString("item.guano.desc"));
 		list.add(I18n.getString("item.guano.desc2"));
 	}
-	
 }

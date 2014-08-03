@@ -30,7 +30,7 @@ public class MItemHoe extends ItemHoe implements IPlatable
 	@Override
 	public String getType()
 	{
-		return "sword";
+		return "hoe";
 	}
 	
 	@Override
@@ -98,7 +98,7 @@ public class MItemHoe extends ItemHoe implements IPlatable
 			if (plating.canApply(this))
 			{
 				StringBuilder builder = new StringBuilder(20);
-				builder.append("weapons/").append(type).append("_hoe_overlay");
+				builder.append("tools/").append(type).append("_hoe_overlay");
 				if (this.theToolMaterial.getHarvestLevel() >= 5)
 				{
 					builder.append("_2");
