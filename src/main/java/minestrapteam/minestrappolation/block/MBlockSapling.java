@@ -15,7 +15,7 @@ public abstract class MBlockSapling extends BlockBush implements IGrowable
 {
 	public MBlockSapling()
 	{
-		this.setBlockBounds(0.1F, 0.0F, 0.4F, 0.9F, 0.8F, 0.9F);
+		this.setBlockBounds(0.1F, 0.0F, 0.1F, 0.9F, 0.8F, 0.9F);
 	}
 	
 	@Override
