@@ -1,5 +1,6 @@
 package minestrapteam.minestrappolation.nei.handler;
 
+import java.awt.Rectangle;
 import java.util.List;
 
 import clashsoft.cslib.minecraft.lang.I18n;
@@ -44,7 +45,7 @@ public class ShapelessStonecuttingHandler extends ShapelessRecipeHandler
 		@Override
 		public void setResult(ItemStack output)
 		{
-			this.result = new PositionedStack(output, 132, 24);
+			this.result = new PositionedStack(output, 133, 24);
 		}
 		
 		public void setExtraSlot(ItemStack extra)
@@ -84,6 +85,19 @@ public class ShapelessStonecuttingHandler extends ShapelessRecipeHandler
 	public String getRecipeName()
 	{
 		return I18n.getString("recipe.stonecutter.shapeless");
+	}
+	
+	@Override
+	public String getOverlayIdentifier()
+	{
+		return "stonecutter";
+	}
+	
+	@Override
+	public void loadTransferRects()
+	{
+		this.transferRects.add(new RecipeTransferRect(new Rectangle(22, 23, 12, 18), "stonecutter"));
+		this.transferRects.add(new RecipeTransferRect(new Rectangle(98, 23, 24, 18), "stonecutter"));
 	}
 	
 	@Override

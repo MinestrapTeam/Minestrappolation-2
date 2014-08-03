@@ -27,7 +27,7 @@ public class ShapedStonecuttingHandler extends ShapedRecipeHandler
 		public CachedShapedSCRecipe(int width, int height, Object[] items, ItemStack extra, ItemStack out)
 		{
 			super(width, height, items, out);
-			this.result = new PositionedStack(out, 132, 24);
+			this.result = new PositionedStack(out, 133, 24);
 			this.setExtraSlot(extra);
 			this.setIngredients(width, height, items);
 		}
@@ -105,9 +105,16 @@ public class ShapedStonecuttingHandler extends ShapedRecipeHandler
 	}
 	
 	@Override
+	public String getOverlayIdentifier()
+	{
+		return "stonecutter";
+	}
+	
+	@Override
 	public void loadTransferRects()
 	{
-		this.transferRects.add(new RecipeTransferRect(new Rectangle(8, 35, 24, 26), "stonecutter"));
+		this.transferRects.add(new RecipeTransferRect(new Rectangle(22, 23, 12, 18), "stonecutter"));
+		this.transferRects.add(new RecipeTransferRect(new Rectangle(98, 23, 24, 18), "stonecutter"));
 	}
 	
 	@Override
@@ -125,6 +132,9 @@ public class ShapedStonecuttingHandler extends ShapedRecipeHandler
 	@Override
 	public void loadCraftingRecipes(String outputId, Object... results)
 	{
+		this.transferRects.clear();
+		this.loadTransferRects();
+		
 		if ("stonecutter".equals(outputId))
 		{
 			for (ICuttingRecipe irecipe : StonecuttingManager.instance.getRecipeList())
