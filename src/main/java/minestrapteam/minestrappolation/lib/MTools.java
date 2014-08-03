@@ -181,7 +181,7 @@ public class MTools
 		toriteShovel = new MItemShovel(toolTorite).setWeapon().setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("torite_shovel"));
 		toritePickaxe = new MItemPickaxe(toolTorite).setWeapon().setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("torite_pickaxe"));
 		toriteAxe = new MItemAxe(toolTorite).setWeapon().setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("torite_axe"));
-		toriteHoe = new MItemHoe(toolTorite).setWeapon().setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("torite_hoe"));
+		toriteHoe = new MItemHoe(toolTorite).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("torite_hoe"));
 		toriteHelmet = new MItemArmor(armorTorite, MCommonProxy.torite, 0).setCreativeTab(Minestrappolation.tabCombat).setTextureName(MAssetManager.getArmorTexture("torite_helmet"));
 		toriteChestplate = new MItemArmor(armorTorite, MCommonProxy.torite, 1).setCreativeTab(Minestrappolation.tabCombat).setTextureName(MAssetManager.getArmorTexture("torite_chestplate"));
 		toriteLeggings = new MItemArmor(armorTorite, MCommonProxy.torite, 2).setCreativeTab(Minestrappolation.tabCombat).setTextureName(MAssetManager.getArmorTexture("torite_leggings"));

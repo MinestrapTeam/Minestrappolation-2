@@ -1,22 +1,42 @@
 package minestrapteam.minestrappolation.item;
 
-import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import cpw.mods.fml.common.eventhandler.Event;
+import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemHoe;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.UseHoeEvent;
 
-public class MItemHoe extends MItemTool
+public class MItemHoe extends ItemHoe implements IPlatable
 {
+	private Map<String, IIcon>	overlayIcons	= new HashMap();
+	
 	public MItemHoe(ToolMaterial material)
 	{
-		super(0F, material, Collections.EMPTY_SET, "hoe", false);
+		super(material);
+	}
+	
+	@Override
+	public String getType()
+	{
+		return "sword";
+	}
+	
+	@Override
+	public int getPlatingCount(ItemStack stack)
+	{
+		return this.theToolMaterial.getHarvestLevel() + 1;
 	}
 	
 	@Override
@@ -57,5 +77,50 @@ public class MItemHoe extends MItemTool
 		}
 		
 		return false;
+	}
+	
+	@Override
+	public int getMaxDamage(ItemStack stack)
+	{
+		return MItemTool.getMaxDamage(super.getMaxDamage(stack), stack);
+	}
+	
+	@Override
+	public void registerIcons(IIconRegister iconRegister)
+	{
+		this.itemIcon = iconRegister.registerIcon(this.getIconString());
+		
+		for (Entry<String, IPlating> e : IPlating.platings.entrySet())
+		{
+			String type = e.getKey();
+			IPlating plating = e.getValue();
+			
+			if (plating.canApply(this))
+			{
+				StringBuilder builder = new StringBuilder(20);
+				builder.append("weapons/").append(type).append("_hoe_overlay");
+				if (this.theToolMaterial.getHarvestLevel() >= 5)
+				{
+					builder.append("_2");
+				}
+				String textureName = MAssetManager.getTexture(builder.toString());
+				this.overlayIcons.put(type, iconRegister.registerIcon(textureName));
+			}
+		}
+	}
+	
+	@Override
+	public IIcon getIcon(ItemStack stack, int renderPass)
+	{
+		IIcon icon = null;
+		if (renderPass == 1)
+		{
+			IPlating plating = MItemTool.getPlating(stack);
+			if (plating != null)
+			{
+				icon = this.overlayIcons.get(plating.getType());
+			}
+		}
+		return icon == null ? this.itemIcon : icon;
 	}
 }
