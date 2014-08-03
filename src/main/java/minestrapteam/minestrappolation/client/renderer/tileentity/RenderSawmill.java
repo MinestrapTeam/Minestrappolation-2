@@ -2,7 +2,7 @@ package minestrapteam.minestrappolation.client.renderer.tileentity;
 
 import org.lwjgl.opengl.GL11;
 
-import minestrapteam.minestrappolation.client.model.ModelStonecutter;
+import minestrapteam.minestrappolation.client.model.ModelSawmill;
 import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -12,12 +12,12 @@ import net.minecraft.util.ResourceLocation;
 
 public class RenderSawmill extends TileEntitySpecialRenderer
 {
-	private final ModelStonecutter	model;
+	private final ModelSawmill		model;
 	public static ResourceLocation	texture	= MAssetManager.getModelResource("sawmill");
 	
 	public RenderSawmill()
 	{
-		this.model = new ModelStonecutter();
+		this.model = new ModelSawmill();
 	}
 	
 	@Override

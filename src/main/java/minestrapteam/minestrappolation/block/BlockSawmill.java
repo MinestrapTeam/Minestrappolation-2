@@ -5,6 +5,7 @@ import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.tileentity.TileEntitySawmill;
 
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
@@ -14,7 +15,29 @@ public class BlockSawmill extends MBlockMachine
 	public BlockSawmill()
 	{
 		super(Material.wood, "sawmill");
-		this.setBlockBounds(0F, 0F, 0F, 1F, 0.9375F, 1F);
+	}
+	
+	@Override
+	public void registerBlockIcons(IIconRegister iconRegister)
+	{
+	}
+	
+	@Override
+	public int getRenderType()
+	{
+		return -1;
+	}
+	
+	@Override
+	public boolean isOpaqueCube()
+	{
+		return false;
+	}
+	
+	@Override
+	public boolean renderAsNormalBlock()
+	{
+		return false;
 	}
 	
 	@Override
