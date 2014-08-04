@@ -91,7 +91,7 @@ public class Minestrappolation extends BaseMod
 	{
 		super.preInit(event);
 		
-		magmaFluid = new Fluid("Magma").setViscosity(6500).setDensity(3);
+		magmaFluid = new Fluid("Magma").setLuminosity(10).setViscosity(6500).setDensity(4000).setTemperature(1500);
 		FluidRegistry.registerFluid(magmaFluid);
 		
 		MBlocks.init();

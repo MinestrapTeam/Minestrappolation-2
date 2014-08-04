@@ -39,6 +39,7 @@ public class MEventHandler implements IFuelHandler
 		if (block == MBlocks.magma)
 		{
 			event.result = new ItemStack(MItems.magmaBucket);
+			event.world.setBlockToAir(event.target.blockX, event.target.blockY, event.target.blockZ);
 			event.setResult(Result.ALLOW);
 		}
 	}

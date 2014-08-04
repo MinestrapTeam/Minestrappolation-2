@@ -16,7 +16,8 @@ public class BlockMagma extends BlockFluidClassic
 	public BlockMagma()
 	{
 		super(Minestrappolation.magmaFluid, Material.lava);
-		this.setLightLevel(0.5F);
+		Minestrappolation.magmaFluid.setBlock(this);
+		this.setQuantaPerBlock(4);
 	}
 	
 	@Override
@@ -35,6 +36,6 @@ public class BlockMagma extends BlockFluidClassic
 	@Override
 	public IIcon getIcon(int side, int meta)
 	{
-		return meta == 0 ? this.blockIcon : this.flowingIcon;
+		return side == 0 || side == 1 ? this.blockIcon : this.flowingIcon;
 	}
 }
