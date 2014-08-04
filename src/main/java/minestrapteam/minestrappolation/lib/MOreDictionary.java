@@ -2,10 +2,8 @@ package minestrapteam.minestrappolation.lib;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
-import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
@@ -14,35 +12,35 @@ public class MOreDictionary
 {
 	public static void load()
 	{
-		add("ingotCopper", MItems.copperIngot);
-		add("oreCopper", MBlocks.copperOre);
-		add("ingotTin", MItems.tinIngot);
-		add("oreTin", MBlocks.tinOre);
-		add("plateTin", MBlocks.tinPlate);
-		add("ingotBronze", MItems.bronzeIngot);
-		add("plateBronze", MBlocks.bronzePlate);
-		add("ingotCoalIron", MItems.coalIronIngot);
-		add("ingotSteel", MItems.steelIngot);
-		add("plateSteel", MBlocks.steelPlate);
-		add("oreMeurodite", MBlocks.meuroditeOre);
-		add("plateMeurodite", MBlocks.meuroditePlate);
-		add("oreTorite", MBlocks.toriteOre);
-		add("ingotTorite", MItems.toriteIngot);
-		add("oreTitanium", MBlocks.titaniumOre);
-		add("ingotTitanium", MItems.titaniumIngot);
-		add("oreSunstone", MBlocks.sunstoneOre);
-		add("dustSunstone", MItems.sunstoneDust);
-		add("oreUranium", MBlocks.uraniumOre);
-		add("ingotUranium", MItems.uranium);
-		add("orePlutonium", MBlocks.plutoniumOre);
-		add("ingotPlutonium", MItems.plutonium);
-		add("oreQuartzRadiant", MBlocks.radiantQuartzOre);
-		add("gemRadiantQuartz", MItems.radiantQuartz);
-		add("oreBlazium", MBlocks.blaziumOre);
-		add("gemBlazium", MItems.blazeShard);
-		add("ingotBlazium", MItems.blaziumIngot);
-		add("oreSoul", MBlocks.soulOre);
-		add("gemSoul", MItems.soulGem);
+		OreDictionary.registerOre("ingotCopper", MItems.copperIngot);
+		OreDictionary.registerOre("oreCopper", MBlocks.copperOre);
+		OreDictionary.registerOre("ingotTin", MItems.tinIngot);
+		OreDictionary.registerOre("oreTin", MBlocks.tinOre);
+		OreDictionary.registerOre("plateTin", MBlocks.tinPlate);
+		OreDictionary.registerOre("ingotBronze", MItems.bronzeIngot);
+		OreDictionary.registerOre("plateBronze", MBlocks.bronzePlate);
+		OreDictionary.registerOre("ingotCoalIron", MItems.coalIronIngot);
+		OreDictionary.registerOre("ingotSteel", MItems.steelIngot);
+		OreDictionary.registerOre("plateSteel", MBlocks.steelPlate);
+		OreDictionary.registerOre("oreMeurodite", MBlocks.meuroditeOre);
+		OreDictionary.registerOre("plateMeurodite", MBlocks.meuroditePlate);
+		OreDictionary.registerOre("oreTorite", MBlocks.toriteOre);
+		OreDictionary.registerOre("ingotTorite", MItems.toriteIngot);
+		OreDictionary.registerOre("oreTitanium", MBlocks.titaniumOre);
+		OreDictionary.registerOre("ingotTitanium", MItems.titaniumIngot);
+		OreDictionary.registerOre("oreSunstone", MBlocks.sunstoneOre);
+		OreDictionary.registerOre("dustSunstone", MItems.sunstoneDust);
+		OreDictionary.registerOre("oreUranium", MBlocks.uraniumOre);
+		OreDictionary.registerOre("ingotUranium", MItems.uranium);
+		OreDictionary.registerOre("orePlutonium", MBlocks.plutoniumOre);
+		OreDictionary.registerOre("ingotPlutonium", MItems.plutonium);
+		OreDictionary.registerOre("oreQuartzRadiant", MBlocks.radiantQuartzOre);
+		OreDictionary.registerOre("gemRadiantQuartz", MItems.radiantQuartz);
+		OreDictionary.registerOre("oreBlazium", MBlocks.blaziumOre);
+		OreDictionary.registerOre("gemBlazium", MItems.blazeShard);
+		OreDictionary.registerOre("ingotBlazium", MItems.blaziumIngot);
+		OreDictionary.registerOre("oreSoul", MBlocks.soulOre);
+		OreDictionary.registerOre("gemSoul", MItems.soulGem);
 		
 		OreDictionary.registerOre("plankWood", new ItemStack(MBlocks.oak, 1, 3));
 		OreDictionary.registerOre("plankWood", new ItemStack(MBlocks.birch, 1, 3));
@@ -67,13 +65,13 @@ public class MOreDictionary
 		OreDictionary.registerOre("plankWood", new ItemStack(MBlocks.darkOak, 1, 4));
 		OreDictionary.registerOre("plankWood", new ItemStack(MBlocks.redwood, 1, 4));
 		
-		OreDictionary.registerOre("slabWood", new ItemStack(MBlocks.oak2, 1, 3));
-		OreDictionary.registerOre("slabWood", new ItemStack(MBlocks.birch2, 1, 3));
-		OreDictionary.registerOre("slabWood", new ItemStack(MBlocks.spruce2, 1, 3));
-		OreDictionary.registerOre("slabWood", new ItemStack(MBlocks.jungleWood2, 1, 3));
-		OreDictionary.registerOre("slabWood", new ItemStack(MBlocks.acacia2, 1, 3));
-		OreDictionary.registerOre("slabWood", new ItemStack(MBlocks.darkOak2, 1, 3));
-		OreDictionary.registerOre("slabWood", new ItemStack(MBlocks.redwood2, 1, 3));
+		OreDictionary.registerOre("slabWood", new ItemStack(MBlocks.oak2, 1, 0));
+		OreDictionary.registerOre("slabWood", new ItemStack(MBlocks.birch2, 1, 0));
+		OreDictionary.registerOre("slabWood", new ItemStack(MBlocks.spruce2, 1, 0));
+		OreDictionary.registerOre("slabWood", new ItemStack(MBlocks.jungleWood2, 1, 0));
+		OreDictionary.registerOre("slabWood", new ItemStack(MBlocks.acacia2, 1, 0));
+		OreDictionary.registerOre("slabWood", new ItemStack(MBlocks.darkOak2, 1, 0));
+		OreDictionary.registerOre("slabWood", new ItemStack(MBlocks.redwood2, 1, 0));
 		
 		OreDictionary.registerOre("plankOak", new ItemStack(Blocks.planks, 1, 0));
 		OreDictionary.registerOre("plankBirch", new ItemStack(Blocks.planks, 1, 2));
@@ -104,42 +102,28 @@ public class MOreDictionary
 		OreDictionary.registerOre("plankDarkOak", new ItemStack(MBlocks.darkOak, 1, 4));
 		OreDictionary.registerOre("plankRedwood", new ItemStack(MBlocks.redwood, 1, 4));
 		
-		OreDictionary.registerOre("sandstone", new ItemStack(Blocks.sandstone));
-		OreDictionary.registerOre("sandstone", new ItemStack(MBlocks.sandstone));
-		OreDictionary.registerOre("sandstone", new ItemStack(MBlocks.sandstone2));
-		OreDictionary.registerOre("sandstone", new ItemStack(MBlocks.redSandstone));
-		OreDictionary.registerOre("sandstone", new ItemStack(MBlocks.redSandstone2));
+		OreDictionary.registerOre("sandstone", MBlocks.sandstone);
+		OreDictionary.registerOre("sandstone", MBlocks.redSandstone);
 		
-		OreDictionary.registerOre("meatRaw", new ItemStack(Items.beef));
-		OreDictionary.registerOre("meatRaw", new ItemStack(Items.porkchop));
-		OreDictionary.registerOre("meatRaw", new ItemStack(Items.fish));
-		OreDictionary.registerOre("meatRaw", new ItemStack(Items.chicken));
-		OreDictionary.registerOre("meatRaw", new ItemStack(Items.rotten_flesh));
-		OreDictionary.registerOre("meatRaw", new ItemStack(MItems.chickenWingRaw));
-		OreDictionary.registerOre("meatRaw", new ItemStack(MItems.lambchopRaw));
-		OreDictionary.registerOre("meatRaw", new ItemStack(MItems.squidTentacle));
-		OreDictionary.registerOre("meatRaw", new ItemStack(MItems.horseHaunchRaw));
+		OreDictionary.registerOre("meatRaw", Items.beef);
+		OreDictionary.registerOre("meatRaw", Items.porkchop);
+		OreDictionary.registerOre("meatRaw", Items.fish);
+		OreDictionary.registerOre("meatRaw", Items.chicken);
+		OreDictionary.registerOre("meatRaw", Items.rotten_flesh);
+		OreDictionary.registerOre("meatRaw", MItems.chickenWingRaw);
+		OreDictionary.registerOre("meatRaw", MItems.lambchopRaw);
+		OreDictionary.registerOre("meatRaw", MItems.squidTentacle);
+		OreDictionary.registerOre("meatRaw", MItems.horseHaunchRaw);
 		
-		OreDictionary.registerOre("glass", new ItemStack(Blocks.glass));
-		OreDictionary.registerOre("glass", new ItemStack(MBlocks.refinedGlass));
+		OreDictionary.registerOre("blockGlass", MBlocks.refinedGlass);
+		OreDictionary.registerOre("blockGlassColorless", MBlocks.refinedGlass);
+		OreDictionary.registerOre("paneGlass", MBlocks.refinedGlassPane);
+		OreDictionary.registerOre("paneGlassColorless", MBlocks.refinedGlassPane);
 		
 		GameRegistry.addRecipe(new ShapedOreRecipe(MBlocks.meatBlock, new Object[] { "MMM", "MMM", "MMM", 'M', "meatRaw" }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(MBlocks.crate, new Object[] { "WWW", "SSS", "WWW", 'S', Items.stick, 'W', "plankWood" }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(MBlocks.barrel, new Object[] { "WTW", "W W", "WTW", 'T', "ingotTin", 'W', "plankWood" }));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Blocks.beacon, 1, 0), new Object[] { "GGG", "GNG", "OOO", 'G', "glass", 'N', Items.nether_star, 'O', Blocks.obsidian }));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Blocks.daylight_detector, 1, 0), new Object[] { "GGG", "QQQ", "SSS", 'G', "glass", 'Q', Items.quartz, 'S', "slabWood" }));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.glass_bottle, 3, 0), new Object[] { "G G", " G ", 'G', "glass" }));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MItems.glassDoorItem, 1, 0), new Object[] { "GG", "GI", "GG", 'G', "glass", 'I', Items.iron_ingot }));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MItems.horseHairBow, 1), new Object[] { " SH", "S H", " SH", 'S', "slabWood", 'H', MItems.horseHairFibre }));
-	}
-	
-	private static void add(String name, Item item)
-	{
-		OreDictionary.registerOre(name, new ItemStack(item));
-	}
-	
-	private static void add(String name, Block block)
-	{
-		OreDictionary.registerOre(name, new ItemStack(block));
+		GameRegistry.addRecipe(new ShapedOreRecipe(MItems.glassDoorItem, new Object[] { "GG", "GI", "GG", 'G', "glass", 'I', Items.iron_ingot }));
+		GameRegistry.addRecipe(new ShapedOreRecipe(MItems.horseHairBow, new Object[] { " SH", "S H", " SH", 'S', "slabWood", 'H', MItems.horseHairFibre }));
 	}
 }
