@@ -33,4 +33,9 @@ public class MBlockLog extends BlockLog
 		return this.topIcon;
 	}
 	
+	@Override
+	public int damageDropped(int metadata)
+	{
+		return 0;
+	}
 }

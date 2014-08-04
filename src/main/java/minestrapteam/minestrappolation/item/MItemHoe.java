@@ -1,6 +1,7 @@
 package minestrapteam.minestrappolation.item;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -80,6 +81,12 @@ public class MItemHoe extends ItemHoe implements IPlatable
 	}
 	
 	@Override
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean flag)
+	{
+		MItemTool.addInformation(stack, list);
+	}
+	
+	@Override
 	public int getMaxDamage(ItemStack stack)
 	{
 		return MItemTool.getMaxDamage(super.getMaxDamage(stack), stack);
@@ -107,6 +114,12 @@ public class MItemHoe extends ItemHoe implements IPlatable
 				this.overlayIcons.put(type, iconRegister.registerIcon(textureName));
 			}
 		}
+	}
+	
+	@Override
+	public boolean requiresMultipleRenderPasses()
+	{
+		return true;
 	}
 	
 	@Override
