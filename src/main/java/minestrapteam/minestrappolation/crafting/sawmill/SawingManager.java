@@ -11,7 +11,12 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.item.crafting.ShapedRecipes;
+import net.minecraft.item.crafting.ShapelessRecipes;
 import net.minecraft.world.World;
+import net.minecraftforge.oredict.ShapedOreRecipe;
+import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 public class SawingManager
 {
@@ -19,25 +24,25 @@ public class SawingManager
 	public static final SawingManager	instance	= new SawingManager();
 	
 	/** A list of all the recipes added */
-	private List<ISawingRecipe>			recipes		= new ArrayList();
+	private List<IRecipe>			recipes		= new ArrayList();
 	private boolean						listSorted;
 	
 	private SawingManager()
 	{
-		this.addRecipe(new ItemStack(Blocks.chest), new Object[] { "###", "# #", "###", '#', Blocks.planks });
-		this.addRecipe(new ItemStack(Blocks.crafting_table), new Object[] { "##", "##", '#', Blocks.planks });
-		this.addRecipe(new ItemStack(Blocks.fence, 2), new Object[] { "###", "###", '#', Items.stick });
-		this.addRecipe(new ItemStack(Blocks.fence_gate, 1), new Object[] { "#W#", "#W#", '#', Items.stick, 'W', Blocks.planks });
-		this.addRecipe(new ItemStack(Blocks.jukebox, 1), new Object[] { "###", "#X#", "###", '#', Blocks.planks, 'X', Items.diamond });
-		this.addRecipe(new ItemStack(Blocks.noteblock, 1), new Object[] { "###", "#X#", "###", '#', Blocks.planks, 'X', Items.redstone });
-		this.addRecipe(new ItemStack(Blocks.bookshelf, 1), new Object[] { "###", "XXX", "###", '#', Blocks.planks, 'X', Items.book });
-		this.addRecipe(new ItemStack(Items.stick, 6), new Object[] { "#", "#", '#', Blocks.planks });
-		this.addRecipe(new ItemStack(Items.boat, 1), new Object[] { "# #", "###", '#', Blocks.planks });
-		this.addRecipe(new ItemStack(Blocks.ladder, 3), new Object[] { "# #", "###", "# #", '#', Items.stick });
-		this.addRecipe(new ItemStack(Items.wooden_door, 1), new Object[] { "##", "##", "##", '#', Blocks.planks });
-		this.addRecipe(new ItemStack(Blocks.trapdoor, 2), new Object[] { "###", "###", '#', Blocks.planks });
-		this.addRecipe(new ItemStack(Items.sign, 3), new Object[] { "###", "###", " X ", '#', Blocks.planks, 'X', Items.stick });
-		this.addRecipe(new ItemStack(Items.bed, 1), new Object[] { "###", "XXX", '#', Blocks.wool, 'X', Blocks.planks });
+		this.addRecipe(new ItemStack(Blocks.chest), new Object[] { "###", "# #", "###", '#', "plankWood" });
+		this.addRecipe(new ItemStack(Blocks.crafting_table), new Object[] { "##", "##", '#', "plankWood" });
+		this.addRecipe(new ItemStack(Blocks.fence, 2), new Object[] { "###", "###", '#', "stickWood" });
+		this.addRecipe(new ItemStack(Blocks.fence_gate, 1), new Object[] { "#W#", "#W#", '#', "stickWood", 'W', "plankWood" });
+		this.addRecipe(new ItemStack(Blocks.jukebox, 1), new Object[] { "###", "#X#", "###", '#', "plankWood", 'X', "gemDiamond" });
+		this.addRecipe(new ItemStack(Blocks.noteblock, 1), new Object[] { "###", "#X#", "###", '#', "plankWood", 'X', "dustRedstone" });
+		this.addRecipe(new ItemStack(Blocks.bookshelf, 1), new Object[] { "###", "XXX", "###", '#', "plankWood", 'X', Items.book });
+		this.addRecipe(new ItemStack(Items.stick, 6), new Object[] { "#", "#", '#', "plankWood" });
+		this.addRecipe(new ItemStack(Items.boat, 1), new Object[] { "# #", "###", '#', "plankWood" });
+		this.addRecipe(new ItemStack(Blocks.ladder, 3), new Object[] { "# #", "###", "# #", '#', "stickWood" });
+		this.addRecipe(new ItemStack(Items.wooden_door, 1), new Object[] { "##", "##", "##", '#', "plankWood" });
+		this.addRecipe(new ItemStack(Blocks.trapdoor, 2), new Object[] { "###", "###", '#', "plankWood" });
+		this.addRecipe(new ItemStack(Items.sign, 3), new Object[] { "###", "###", " X ", '#', "plankWood", 'X', "stickWood" });
+		this.addRecipe(new ItemStack(Items.bed, 1), new Object[] { "###", "XXX", '#', Blocks.wool, 'X', "plankWood" });
 		
 		// Planks
 		this.addRecipe(new ItemStack(Blocks.planks, 6, 0), new Object[] { "#", '#', new ItemStack(Blocks.log, 1, 0) });
@@ -139,17 +144,17 @@ public class SawingManager
 		this.addRecipe(new ItemStack(MBlocks.redwoodStairsBoards, 4, 0), new Object[] { "B  ", "BB ", "BBB", 'B', new ItemStack(MBlocks.redwood, 1, 2) });
 	}
 	
-	public ShapedSawingRecipe addRecipe(ItemStack output, Object... data)
+	public ShapedOreRecipe addRecipe(ItemStack output, Object... data)
 	{
-		ShapedSawingRecipe recipe = new ShapedSawingRecipe(output, data);
+		ShapedOreRecipe recipe = new ShapedOreRecipe(output, data);
 		this.recipes.add(recipe);
 		this.listSorted = false;
 		return recipe;
 	}
 	
-	public ShapelessSawingRecipe addShapelessRecipe(ItemStack stack, Object... data)
+	public ShapelessOreRecipe addShapelessRecipe(ItemStack stack, Object... data)
 	{
-		ShapelessSawingRecipe recipe = new ShapelessSawingRecipe(stack, data);
+		ShapelessOreRecipe recipe = new ShapelessOreRecipe(stack, data);
 		this.recipes.add(recipe);
 		this.listSorted = false;
 		return recipe;
@@ -157,7 +162,7 @@ public class SawingManager
 	
 	public ItemStack findMatchingRecipe(InventoryCrafting inventory, World world)
 	{
-		for (ISawingRecipe recipe : this.getRecipeList())
+		for (IRecipe recipe : this.getRecipeList())
 		{
 			if (recipe.matches(inventory, world))
 			{
@@ -168,19 +173,19 @@ public class SawingManager
 		return null;
 	}
 	
-	public List<ISawingRecipe> getRecipeList()
+	public List<IRecipe> getRecipeList()
 	{
 		if (!this.listSorted)
 		{
-			Collections.sort(this.recipes, new Comparator<ISawingRecipe>()
+			Collections.sort(this.recipes, new Comparator<IRecipe>()
 			{
 				@Override
-				public int compare(ISawingRecipe recipe1, ISawingRecipe recipe2)
+				public int compare(IRecipe recipe1, IRecipe recipe2)
 				{
-					boolean flag1 = recipe1 instanceof ShapedSawingRecipe;
-					boolean flag2 = recipe1 instanceof ShapelessSawingRecipe;
-					boolean flag3 = recipe2 instanceof ShapedSawingRecipe;
-					boolean flag4 = recipe2 instanceof ShapelessSawingRecipe;
+					boolean flag1 = recipe1 instanceof ShapedRecipes;
+					boolean flag2 = recipe1 instanceof ShapelessRecipes;
+					boolean flag3 = recipe2 instanceof ShapedRecipes;
+					boolean flag4 = recipe2 instanceof ShapelessRecipes;
 					return flag2 && flag3 ? 1 : flag4 && flag1 ? -1 : recipe2.getRecipeSize() < recipe1.getRecipeSize() ? -1 : recipe2.getRecipeSize() > recipe1.getRecipeSize() ? 1 : 0;
 				}
 			});

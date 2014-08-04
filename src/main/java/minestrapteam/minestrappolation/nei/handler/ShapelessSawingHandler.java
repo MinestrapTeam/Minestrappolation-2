@@ -4,13 +4,14 @@ import clashsoft.cslib.minecraft.lang.I18n;
 import clashsoft.cslib.minecraft.stack.CSStacks;
 import codechicken.nei.recipe.ShapelessRecipeHandler;
 import minestrapteam.minestrappolation.client.gui.GuiSawmill;
-import minestrapteam.minestrappolation.crafting.sawmill.ISawingRecipe;
 import minestrapteam.minestrappolation.crafting.sawmill.SawingManager;
-import minestrapteam.minestrappolation.crafting.sawmill.ShapelessSawingRecipe;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.inventory.Container;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.item.crafting.ShapelessRecipes;
+import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 public class ShapelessSawingHandler extends ShapelessRecipeHandler
 {
@@ -37,14 +38,24 @@ public class ShapelessSawingHandler extends ShapelessRecipeHandler
 	{
 		if ("sawmill".equals(outputId))
 		{
-			for (ISawingRecipe irecipe : SawingManager.instance.getRecipeList())
+			for (IRecipe irecipe : SawingManager.instance.getRecipeList())
 			{
-				if (irecipe instanceof ShapelessSawingRecipe)
+				CachedShapelessRecipe recipe = null;
+				if (irecipe instanceof ShapelessRecipes)
 				{
-					ShapelessSawingRecipe srecipe = (ShapelessSawingRecipe) irecipe;
-					CachedShapelessRecipe recipe = new CachedShapelessRecipe(srecipe.recipeItems, srecipe.recipeOutput);
-					this.arecipes.add(recipe);
+					recipe = this.shapelessRecipe((ShapelessRecipes) irecipe);
 				}
+				else if (irecipe instanceof ShapelessOreRecipe)
+				{
+					recipe = this.forgeShapelessRecipe((ShapelessOreRecipe) irecipe);
+				}
+				
+				if (recipe == null)
+				{
+					continue;
+				}
+				
+				this.arecipes.add(recipe);
 			}
 		}
 		else
@@ -56,16 +67,26 @@ public class ShapelessSawingHandler extends ShapelessRecipeHandler
 	@Override
 	public void loadCraftingRecipes(ItemStack result)
 	{
-		for (ISawingRecipe irecipe : SawingManager.instance.getRecipeList())
+		for (IRecipe irecipe : SawingManager.instance.getRecipeList())
 		{
-			if (irecipe instanceof ShapelessSawingRecipe)
+			if (CSStacks.itemEquals(irecipe.getRecipeOutput(), result))
 			{
-				if (CSStacks.itemEquals(irecipe.getRecipeOutput(), result))
+				CachedShapelessRecipe recipe = null;
+				if (irecipe instanceof ShapelessRecipes)
 				{
-					ShapelessSawingRecipe srecipe = (ShapelessSawingRecipe) irecipe;
-					CachedShapelessRecipe recipe = new CachedShapelessRecipe(srecipe.recipeItems, srecipe.recipeOutput);
-					this.arecipes.add(recipe);
+					recipe = this.shapelessRecipe((ShapelessRecipes) irecipe);
 				}
+				else if (irecipe instanceof ShapelessOreRecipe)
+				{
+					recipe = this.forgeShapelessRecipe((ShapelessOreRecipe) irecipe);
+				}
+				
+				if (recipe == null)
+				{
+					continue;
+				}
+				
+				this.arecipes.add(recipe);
 			}
 		}
 	}
@@ -73,19 +94,37 @@ public class ShapelessSawingHandler extends ShapelessRecipeHandler
 	@Override
 	public void loadUsageRecipes(ItemStack ingredient)
 	{
-		for (ISawingRecipe irecipe : SawingManager.instance.getRecipeList())
+		for (IRecipe irecipe : SawingManager.instance.getRecipeList())
 		{
-			if (irecipe instanceof ShapelessSawingRecipe)
+			CachedShapelessRecipe recipe = null;
+			if (irecipe instanceof ShapelessRecipes)
 			{
-				ShapelessSawingRecipe srecipe = (ShapelessSawingRecipe) irecipe;
-				CachedShapelessRecipe recipe = new CachedShapelessRecipe(srecipe.recipeItems, srecipe.recipeOutput);
-				
-				if (recipe.contains(recipe.ingredients, ingredient))
-				{
-					recipe.setIngredientPermutation(recipe.ingredients, ingredient);
-					this.arecipes.add(recipe);
-				}
+				recipe = this.shapelessRecipe((ShapelessRecipes) irecipe);
+			}
+			else if (irecipe instanceof ShapelessOreRecipe)
+			{
+				recipe = this.forgeShapelessRecipe((ShapelessOreRecipe) irecipe);
+			}
+			
+			if (recipe == null)
+			{
+				continue;
+			}
+			
+			if (recipe.contains(recipe.ingredients, ingredient))
+			{
+				recipe.setIngredientPermutation(recipe.ingredients, ingredient);
+				this.arecipes.add(recipe);
 			}
 		}
+	}
+	
+	protected CachedShapelessRecipe shapelessRecipe(ShapelessRecipes recipe)
+	{
+		if (recipe.recipeItems == null)
+		{
+			return null;
+		}
+		return new CachedShapelessRecipe(recipe.recipeItems, recipe.getRecipeOutput());
 	}
 }

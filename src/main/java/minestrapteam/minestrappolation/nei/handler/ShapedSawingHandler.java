@@ -6,13 +6,14 @@ import clashsoft.cslib.minecraft.lang.I18n;
 import clashsoft.cslib.minecraft.stack.CSStacks;
 import codechicken.nei.recipe.ShapedRecipeHandler;
 import minestrapteam.minestrappolation.client.gui.GuiSawmill;
-import minestrapteam.minestrappolation.crafting.sawmill.ISawingRecipe;
 import minestrapteam.minestrappolation.crafting.sawmill.SawingManager;
-import minestrapteam.minestrappolation.crafting.sawmill.ShapedSawingRecipe;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.inventory.Container;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.item.crafting.ShapedRecipes;
+import net.minecraftforge.oredict.ShapedOreRecipe;
 
 public class ShapedSawingHandler extends ShapedRecipeHandler
 {
@@ -45,16 +46,24 @@ public class ShapedSawingHandler extends ShapedRecipeHandler
 	{
 		if ("sawmill".equals(outputId))
 		{
-			for (ISawingRecipe irecipe : SawingManager.instance.getRecipeList())
+			for (IRecipe irecipe : SawingManager.instance.getRecipeList())
 			{
-				if (irecipe instanceof ShapedSawingRecipe)
+				CachedShapedRecipe recipe = null;
+				if (irecipe instanceof ShapedRecipes)
 				{
-					ShapedSawingRecipe srecipe = (ShapedSawingRecipe) irecipe;
-					CachedShapedRecipe recipe = new CachedShapedRecipe(srecipe.recipeWidth, srecipe.recipeHeight, srecipe.recipeItems, srecipe.recipeOutput);
-					
-					recipe.computeVisuals();
-					this.arecipes.add(recipe);
+					recipe = new CachedShapedRecipe((ShapedRecipes) irecipe);
 				}
+				else if (irecipe instanceof ShapedOreRecipe)
+				{
+					recipe = this.forgeShapedRecipe((ShapedOreRecipe) irecipe);
+				}
+				if (recipe == null)
+				{
+					continue;
+				}
+				
+				recipe.computeVisuals();
+				this.arecipes.add(recipe);
 			}
 		}
 		else
@@ -66,18 +75,27 @@ public class ShapedSawingHandler extends ShapedRecipeHandler
 	@Override
 	public void loadCraftingRecipes(ItemStack result)
 	{
-		for (ISawingRecipe irecipe : SawingManager.instance.getRecipeList())
+		for (IRecipe irecipe : SawingManager.instance.getRecipeList())
 		{
-			if (irecipe instanceof ShapedSawingRecipe)
+			if (CSStacks.itemEquals(irecipe.getRecipeOutput(), result))
 			{
-				if (CSStacks.itemEquals(irecipe.getRecipeOutput(), result))
+				CachedShapedRecipe recipe = null;
+				if (irecipe instanceof ShapedRecipes)
 				{
-					ShapedSawingRecipe srecipe = (ShapedSawingRecipe) irecipe;
-					CachedShapedRecipe recipe = new CachedShapedRecipe(srecipe.recipeWidth, srecipe.recipeHeight, srecipe.recipeItems, srecipe.recipeOutput);
-					
-					recipe.computeVisuals();
-					this.arecipes.add(recipe);
+					recipe = new CachedShapedRecipe((ShapedRecipes) irecipe);
 				}
+				else if (irecipe instanceof ShapedOreRecipe)
+				{
+					recipe = this.forgeShapedRecipe((ShapedOreRecipe) irecipe);
+				}
+				
+				if (recipe == null)
+				{
+					continue;
+				}
+				
+				recipe.computeVisuals();
+				this.arecipes.add(recipe);
 			}
 		}
 	}
@@ -85,22 +103,28 @@ public class ShapedSawingHandler extends ShapedRecipeHandler
 	@Override
 	public void loadUsageRecipes(ItemStack ingredient)
 	{
-		for (ISawingRecipe irecipe : SawingManager.instance.getRecipeList())
+		for (IRecipe irecipe : SawingManager.instance.getRecipeList())
 		{
-			if (irecipe instanceof ShapedSawingRecipe)
+			CachedShapedRecipe recipe = null;
+			if (irecipe instanceof ShapedRecipes)
 			{
-				ShapedSawingRecipe srecipe = (ShapedSawingRecipe) irecipe;
-				CachedShapedRecipe recipe = new CachedShapedRecipe(srecipe.recipeWidth, srecipe.recipeHeight, srecipe.recipeItems, srecipe.recipeOutput);
-				
-				if (recipe.contains(recipe.ingredients, ingredient.getItem()))
-				{
-					recipe.computeVisuals();
-					if (recipe.contains(recipe.ingredients, ingredient))
-					{
-						recipe.setIngredientPermutation(recipe.ingredients, ingredient);
-						this.arecipes.add(recipe);
-					}
-				}
+				recipe = new CachedShapedRecipe((ShapedRecipes) irecipe);
+			}
+			else if (irecipe instanceof ShapedOreRecipe)
+			{
+				recipe = this.forgeShapedRecipe((ShapedOreRecipe) irecipe);
+			}
+			
+			if (recipe == null || !recipe.contains(recipe.ingredients, ingredient.getItem()))
+			{
+				continue;
+			}
+			
+			recipe.computeVisuals();
+			if (recipe.contains(recipe.ingredients, ingredient))
+			{
+				recipe.setIngredientPermutation(recipe.ingredients, ingredient);
+				this.arecipes.add(recipe);
 			}
 		}
 	}
