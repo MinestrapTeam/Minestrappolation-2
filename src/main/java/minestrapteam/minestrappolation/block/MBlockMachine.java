@@ -69,25 +69,25 @@ public abstract class MBlockMachine extends BlockContainer
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack)
 	{
 		int l = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
-		
-		if (l == 0)
+		this.setFacing(world, x, y, z, l);
+	}
+	
+	public void setFacing(World world, int x, int y, int z, int l)
+	{
+		switch (l)
 		{
+		case 0:
 			world.setBlockMetadataWithNotify(x, y, z, 0, 2);
-		}
-		
-		if (l == 1)
-		{
+			break;
+		case 1:
 			world.setBlockMetadataWithNotify(x, y, z, 3, 2);
-		}
-		
-		if (l == 2)
-		{
+			break;
+		case 2:
 			world.setBlockMetadataWithNotify(x, y, z, 1, 2);
-		}
-		
-		if (l == 3)
-		{
+			break;
+		case 3:
 			world.setBlockMetadataWithNotify(x, y, z, 2, 2);
+			break;
 		}
 	}
 }

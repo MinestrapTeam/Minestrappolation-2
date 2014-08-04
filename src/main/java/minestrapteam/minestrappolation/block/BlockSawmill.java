@@ -63,4 +63,10 @@ public class BlockSawmill extends MBlockMachine
 			FMLNetworkHandler.openGui(player, Minestrappolation.instance, 4, world, x, y, z);
 		}
 	}
+	
+	@Override
+	public void setFacing(World world, int x, int y, int z, int l)
+	{
+		world.setBlockMetadataWithNotify(x, y, z, (l + 3) & 3, 2);
+	}
 }
