@@ -310,18 +310,18 @@ public class MItemTool extends ItemTool implements IPlatable
 	}
 	
 	@Override
-	public boolean onBlockDestroyed(ItemStack itemstack, World world, Block blockDestroyed, int x, int y, int z, EntityLivingBase living)
+	public boolean onBlockDestroyed(ItemStack stack, World world, Block block, int x, int y, int z, EntityLivingBase living)
 	{
-		if (this == MTools.soulsteelAxe || this == MTools.soulsteelHoe || this == MTools.soulsteelPickaxe || this == MTools.soulsteelShovel)
+		if (this == MTools.soulsteelAxe || this == MTools.soulsteelPickaxe || this == MTools.soulsteelShovel)
 		{
 			world.playSoundAtEntity(living, "random.bow", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
 			
 			if (!world.isRemote)
 			{
-				world.spawnEntityInWorld(new EntityXPOrb(world, x, y, z, blockDestroyed.getExpDrop(world, 0, 1)));
+				world.spawnEntityInWorld(new EntityXPOrb(world, x, y, z, 5 + world.rand.nextInt(8)));
 				return true;
 			}
 		}
-		return false;
+		return super.onBlockDestroyed(stack, world, block, x, y, z, living);
 	}
 }
