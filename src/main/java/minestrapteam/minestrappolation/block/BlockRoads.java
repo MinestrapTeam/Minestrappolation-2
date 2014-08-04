@@ -76,13 +76,13 @@ public class BlockRoads extends MBlock
 		int metadata = world.getBlockMetadata(x, y, z);
 		if (metadata == 0)
 		{
-			entity.motionX *= 1.8D;
-			entity.motionZ *= 1.8D;
+			entity.motionX *= 1.2D;
+			entity.motionZ *= 1.2D;
 		}
 		else if (metadata == 1)
 		{
-			entity.motionX *= 1.5D;
-			entity.motionZ *= 1.5D;
+			entity.motionX *= 1.25D;
+			entity.motionZ *= 1.25D;
 		}
 		else if (metadata == 2)
 		{
@@ -91,19 +91,19 @@ public class BlockRoads extends MBlock
 		}
 		else if (metadata == 3)
 		{
-			entity.motionX *= 1.2D;
-			entity.motionZ *= 1.2D;
+			entity.motionX *= 1.25D;
+			entity.motionZ *= 1.25D;
 		}
 		else if (metadata == 4)
 		{
-			entity.motionX *= 1.9D;
-			entity.motionZ *= 1.9D;
+			entity.motionX *= 1.4D;
+			entity.motionZ *= 1.4D;
 		}
 		else if (metadata == 5)
 		{
-			entity.motionX *= 2.5D;
-			entity.motionZ *= 2.5D;
-			entity.setFire(10);
+			entity.motionX *= 6.0D;
+			entity.motionZ *= 6.0D;
+			entity.setFire(100);
 		}
 	}
 	
