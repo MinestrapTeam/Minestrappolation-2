@@ -67,6 +67,6 @@ public class BlockSawmill extends MBlockMachine
 	@Override
 	public void setFacing(World world, int x, int y, int z, int l)
 	{
-		world.setBlockMetadataWithNotify(x, y, z, (l + 3) & 3, 2);
+		world.setBlockMetadataWithNotify(x, y, z, (l + 2) & 3, 2);
 	}
 }
