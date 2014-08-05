@@ -59,7 +59,7 @@ public class MUtil
 		return isMaterial(world, x + 1, y, z, Material.water) // x+
 				|| isMaterial(world, x - 1, y, z, Material.water) // x-
 				|| isMaterial(world, x, y + 1, z, Material.water) // y+
-				|| isMaterial(world, x, y - 1, z, Material.water) // y-
+				// || isMaterial(world, x, y - 1, z, Material.water) // y-
 				|| isMaterial(world, x, y, z + 1, Material.water) // z+
 				|| isMaterial(world, x, y, z - 1, Material.water); // z-
 	}
