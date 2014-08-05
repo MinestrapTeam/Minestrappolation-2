@@ -1,8 +1,10 @@
 .DS_Store
 .classpath
 .gradle/
+.settings/
 gradle/
 gradlew
 gradlew.bat
 bin/
 build/
+eclipse/
