@@ -147,6 +147,10 @@ public class MelterRecipeHandler extends TemplateRecipeHandler
 		{
 			this.loadCraftingRecipes("melting");
 		}
+		else
+		{
+			super.loadUsageRecipes(inputId, ingredients);
+		}
 	}
 	
 	@Override
