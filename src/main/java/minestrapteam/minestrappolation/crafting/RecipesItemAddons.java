@@ -1,9 +1,7 @@
 package minestrapteam.minestrappolation.crafting;
 
 import clashsoft.cslib.minecraft.stack.CSStacks;
-import minestrapteam.minestrappolation.item.IPlatable;
-import minestrapteam.minestrappolation.item.IPlating;
-import minestrapteam.minestrappolation.item.MItemTool;
+import minestrapteam.minestrappolation.item.IItemAddon;
 
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
@@ -12,18 +10,18 @@ import net.minecraft.world.World;
 import net.minecraftforge.oredict.RecipeSorter;
 import net.minecraftforge.oredict.RecipeSorter.Category;
 
-public class RecipesPlatings implements IRecipe
+public class RecipesItemAddons implements IRecipe
 {
 	static
 	{
-		RecipeSorter.register("minestrappolation:plating", RecipesPlatings.class, Category.SHAPELESS, "after:minecraft:shapeless");
+		RecipeSorter.register("minestrappolation:plating", RecipesItemAddons.class, Category.SHAPELESS, "after:minecraft:shapeless");
 	}
 	
 	@Override
 	public ItemStack getCraftingResult(InventoryCrafting inventory)
 	{
 		ItemStack platable = null;
-		ItemStack plating = null;
+		ItemStack addon = null;
 		int count = 0;
 		
 		for (int i = 0; i < inventory.getSizeInventory(); i++)
@@ -35,22 +33,11 @@ public class RecipesPlatings implements IRecipe
 				continue;
 			}
 			
-			if (stack.getItem() instanceof IPlatable)
+			if (stack.getItem() instanceof IItemAddon)
 			{
-				if (platable != null)
+				if (addon != null)
 				{
-					return null;
-				}
-				else
-				{
-					platable = stack;
-				}
-			}
-			else if (stack.getItem() instanceof IPlating)
-			{
-				if (plating != null)
-				{
-					if (CSStacks.itemEquals(plating, stack))
+					if (CSStacks.itemEquals(addon, stack))
 					{
 						count++;
 					}
@@ -62,16 +49,28 @@ public class RecipesPlatings implements IRecipe
 				else
 				{
 					count++;
-					plating = stack;
+					addon = stack;
 				}
+			}
+			else if (platable == null)
+			{
+				platable = stack;
+			}
+			else
+			{
+				return null;
 			}
 		}
 		
-		if (platable != null && plating != null && count == ((IPlatable) platable.getItem()).getPlatingCount(platable))
+		if (platable != null && addon != null)
 		{
-			ItemStack result = platable.copy();
-			MItemTool.setPlating(result, (IPlating) plating.getItem());
-			return result;
+			IItemAddon iaddon = (IItemAddon) addon.getItem();
+			if (!iaddon.isApplied(platable) && count == iaddon.getCount(platable))
+			{
+				ItemStack result = platable.copy();
+				iaddon.apply(result);
+				return result;
+			}
 		}
 		
 		return null;
@@ -93,7 +92,7 @@ public class RecipesPlatings implements IRecipe
 	public boolean matches(InventoryCrafting inventory, World world)
 	{
 		ItemStack platable = null;
-		ItemStack plating = null;
+		ItemStack addon = null;
 		int count = 0;
 		
 		for (int i = 0; i < inventory.getSizeInventory(); i++)
@@ -105,22 +104,11 @@ public class RecipesPlatings implements IRecipe
 				continue;
 			}
 			
-			if (stack.getItem() instanceof IPlatable)
+			if (stack.getItem() instanceof IItemAddon)
 			{
-				if (platable != null)
+				if (addon != null)
 				{
-					return false;
-				}
-				else
-				{
-					platable = stack;
-				}
-			}
-			else if (stack.getItem() instanceof IPlating)
-			{
-				if (plating != null)
-				{
-					if (CSStacks.itemEquals(plating, stack))
+					if (CSStacks.itemEquals(addon, stack))
 					{
 						count++;
 					}
@@ -132,11 +120,24 @@ public class RecipesPlatings implements IRecipe
 				else
 				{
 					count++;
-					plating = stack;
+					addon = stack;
 				}
+			}
+			else if (platable == null)
+			{
+				platable = stack;
+			}
+			else
+			{
+				return false;
 			}
 		}
 		
-		return platable != null && plating != null && count == ((IPlatable) platable.getItem()).getPlatingCount(platable);
+		if (platable != null && addon != null)
+		{
+			IItemAddon iaddon = (IItemAddon) addon.getItem();
+			return !iaddon.isApplied(platable) && count == iaddon.getCount(platable);
+		}
+		return false;
 	}
 }

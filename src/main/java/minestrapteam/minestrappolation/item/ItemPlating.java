@@ -20,6 +20,7 @@ public class ItemPlating extends ItemReed implements IPlating
 		this.digSpeed = digSpeed;
 		
 		platings.put(plating, this);
+		addons.add(this);
 	}
 	
 	public static IPlating getPlating(String plating)
@@ -28,9 +29,27 @@ public class ItemPlating extends ItemReed implements IPlating
 	}
 	
 	@Override
-	public boolean canApply(IPlatable platable)
+	public boolean canApply(ItemStack platable)
 	{
-		return true;
+		return platable.getItem() instanceof IPlatable;
+	}
+	
+	@Override
+	public void apply(ItemStack platable)
+	{
+		MItemTool.setPlating(platable, this);
+	}
+	
+	@Override
+	public void unapply(ItemStack platable)
+	{
+		MItemTool.setPlating(platable, null);
+	}
+	
+	@Override
+	public boolean isApplied(ItemStack platable)
+	{
+		return MItemTool.getPlating(platable) == this;
 	}
 	
 	@Override
@@ -66,5 +85,11 @@ public class ItemPlating extends ItemReed implements IPlating
 	public void setPlating(String plating)
 	{
 		this.plating = plating;
+	}
+	
+	@Override
+	public int getCount(ItemStack platable)
+	{
+		return ((IPlatable)platable.getItem()).getPlatingCount(platable);
 	}
 }

@@ -1002,7 +1002,7 @@ lock.not_applicable=This block is not lockable!
 lock.not_locked=This block is not locked!
 lock.not_owner=You are not the owner of this!
 
-recipe.plating=Plating
+recipe.item_addons=Item Addons
 recipe.stonecutter.shaped=Shaped Stone Cutting
 recipe.stonecutter.shapeless=Shapeless Stone Cutting
 recipe.sawmill.shaped=Shaped Sawing

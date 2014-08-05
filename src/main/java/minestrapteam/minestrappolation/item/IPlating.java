@@ -5,11 +5,9 @@ import java.util.Map;
 
 import net.minecraft.item.ItemStack;
 
-public interface IPlating
+public interface IPlating extends IItemAddon
 {
 	public static final Map<String, IPlating>	platings	= new HashMap();
-	
-	public boolean canApply(IPlatable platable);
 	
 	public String getType();
 	

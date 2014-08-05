@@ -4,7 +4,7 @@ import static minestrapteam.minestrappolation.lib.MBlocks.*;
 import static minestrapteam.minestrappolation.lib.MItems.*;
 import static minestrapteam.minestrappolation.lib.MTools.*;
 import cpw.mods.fml.common.registry.GameRegistry;
-import minestrapteam.minestrappolation.crafting.RecipesPlatings;
+import minestrapteam.minestrappolation.crafting.RecipesItemAddons;
 import minestrapteam.minestrappolation.util.MUtil;
 
 import net.minecraft.init.Blocks;
@@ -15,7 +15,7 @@ public class MRecipes
 {
 	public static void load()
 	{
-		GameRegistry.addRecipe(new RecipesPlatings());
+		GameRegistry.addRecipe(new RecipesItemAddons());
 		
 		// Wood Recipes
 		

@@ -114,19 +114,22 @@ public class MItemSword extends ItemSword implements IPlatable
 	public void registerIcons(IIconRegister iconRegister)
 	{
 		this.itemIcon = iconRegister.registerIcon(this.getIconString());
+		ItemStack thisStack = new ItemStack(this, 1, 0);
 		
 		for (Entry<String, IPlating> e : IPlating.platings.entrySet())
 		{
 			String type = e.getKey();
 			IPlating plating = e.getValue();
 			
-			if (plating.canApply(this))
+			if (!plating.canApply(thisStack))
 			{
-				StringBuilder builder = new StringBuilder(20);
-				builder.append("weapons/").append(type).append("_sword_overlay");
-				String textureName = MAssetManager.getTexture(builder.toString());
-				this.overlayIcons.put(type, iconRegister.registerIcon(textureName));
+				continue;
 			}
+			
+			StringBuilder builder = new StringBuilder(20);
+			builder.append("weapons/").append(type).append("_sword_overlay");
+			String textureName = MAssetManager.getTexture(builder.toString());
+			this.overlayIcons.put(type, iconRegister.registerIcon(textureName));
 		}
 	}
 	

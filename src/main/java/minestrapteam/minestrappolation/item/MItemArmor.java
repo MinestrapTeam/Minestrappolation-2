@@ -59,13 +59,14 @@ public class MItemArmor extends ItemArmor implements IPlatable
 	public void registerIcons(IIconRegister iconRegister)
 	{
 		this.itemIcon = iconRegister.registerIcon(this.iconString);
+		ItemStack thisStack = new ItemStack(this, 1, 0);
 		
 		for (Entry<String, IPlating> e : IPlating.platings.entrySet())
 		{
 			String type = e.getKey();
 			IPlating plating = e.getValue();
 			
-			if (!plating.canApply(this))
+			if (!plating.canApply(thisStack))
 			{
 				continue;
 			}

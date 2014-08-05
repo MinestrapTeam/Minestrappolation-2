@@ -96,23 +96,26 @@ public class MItemHoe extends ItemHoe implements IPlatable
 	public void registerIcons(IIconRegister iconRegister)
 	{
 		this.itemIcon = iconRegister.registerIcon(this.getIconString());
+		ItemStack thisStack = new ItemStack(this, 1, 0);
 		
 		for (Entry<String, IPlating> e : IPlating.platings.entrySet())
 		{
 			String type = e.getKey();
 			IPlating plating = e.getValue();
 			
-			if (plating.canApply(this))
+			if (!plating.canApply(thisStack))
 			{
-				StringBuilder builder = new StringBuilder(20);
-				builder.append("tools/").append(type).append("_hoe_overlay");
-				if (this.theToolMaterial.getHarvestLevel() >= 5)
-				{
-					builder.append("_2");
-				}
-				String textureName = MAssetManager.getTexture(builder.toString());
-				this.overlayIcons.put(type, iconRegister.registerIcon(textureName));
+				continue;
 			}
+			
+			StringBuilder builder = new StringBuilder(20);
+			builder.append("tools/").append(type).append("_hoe_overlay");
+			if (this.theToolMaterial.getHarvestLevel() >= 5)
+			{
+				builder.append("_2");
+			}
+			String textureName = MAssetManager.getTexture(builder.toString());
+			this.overlayIcons.put(type, iconRegister.registerIcon(textureName));
 		}
 	}
 	

@@ -77,7 +77,7 @@ public class MItemTool extends ItemTool implements IPlatable
 		if (stack.stackTagCompound != null)
 		{
 			String s = stack.stackTagCompound.getString("Plating");
-			return s == null ? null : IPlating.platings.get(s);
+			return s == null || s.isEmpty() ? null : IPlating.platings.get(s);
 		}
 		return null;
 	}
@@ -97,7 +97,7 @@ public class MItemTool extends ItemTool implements IPlatable
 		{
 			stack.stackTagCompound = new NBTTagCompound();
 		}
-		stack.stackTagCompound.setString("Plating", plating.getType());
+		stack.stackTagCompound.setString("Plating", plating == null ? "" : plating.getType());
 	}
 	
 	public static void setPoisonLevel(ItemStack stack, float level)
@@ -274,13 +274,14 @@ public class MItemTool extends ItemTool implements IPlatable
 	public void registerIcons(IIconRegister iconRegister)
 	{
 		this.itemIcon = iconRegister.registerIcon(this.getIconString());
+		ItemStack thisStack = new ItemStack(this, 1, 0);
 		
 		for (Entry<String, IPlating> e : IPlating.platings.entrySet())
 		{
 			String type = e.getKey();
 			IPlating plating = e.getValue();
 			
-			if (plating.canApply(this))
+			if (plating.canApply(thisStack))
 			{
 				StringBuilder builder = new StringBuilder(20);
 				builder.append("tools/").append(type).append("_").append(this.toolType).append("_overlay");
