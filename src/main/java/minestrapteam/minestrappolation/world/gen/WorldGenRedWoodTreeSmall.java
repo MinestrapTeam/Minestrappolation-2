@@ -13,22 +13,21 @@ public class WorldGenRedWoodTreeSmall extends WorldGenBaseTree
 	
 	public WorldGenRedWoodTreeSmall()
 	{
-		super(MBlocks.redwoodLog, 1, MBlocks.redwoodLeaves, 1, 18, 13, 1);
-		
+		super(MBlocks.redwoodLog, 0, MBlocks.redwoodLeaves, 0, 13, 18, 1);
 	}
 	
 	@Override
 	public boolean genLeafStructure(World world, Random rand, int x, int y, int z)
 	{
-		this.setBlock(world, x, y + this.topHeight, z, this.leaves, this.lMeta);
+		this.setBlock(world, x, y + this.topHeight, z, this.leaves, this.leavesMetadata);
 		
-		double thickness = 4;
+		double thickness = 4D;
 		for (int r = this.leafStart; r < this.topHeight; r++)
 		{
 			if (r % this.leafSpacing == 0)
 			{
 				this.generateLeafCircles(world, rand, thickness, x, z, y + r);
-				thickness -= .4;
+				thickness -= 0.4D;
 			}
 		}
 		return true;
@@ -39,5 +38,4 @@ public class WorldGenRedWoodTreeSmall extends WorldGenBaseTree
 	{
 		return false;
 	}
-	
 }

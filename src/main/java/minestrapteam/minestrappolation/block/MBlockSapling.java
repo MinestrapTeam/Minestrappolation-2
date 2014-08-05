@@ -82,31 +82,33 @@ public abstract class MBlockSapling extends BlockBush implements IGrowable
 		WorldGenerator worldGen = this.getTreeToGrow(metadata & 7, flag);
 		
 		if (flag)
-        {
-            world.setBlock(x + i1, y, z + j1, Blocks.air, 0, 4);
-            world.setBlock(x + i1 + 1, y, z + j1, Blocks.air, 0, 4);
-            world.setBlock(x + i1, y, z + j1 + 1, Blocks.air, 0, 4);
-            world.setBlock(x + i1 + 1, y, z + j1 + 1, Blocks.air, 0, 4);
-        }
-        else
-        {
-            world.setBlock(x, y, z, Blocks.air, 0, 4);
-        }
-
-        if (!worldGen.generate(world, rand, x + i1, y, z + j1))
-        {
-            if (flag)
-            {
-                world.setBlock(x + i1, y, z + j1, this, metadata, 4);
-                world.setBlock(x + i1 + 1, y, z + j1, this, metadata, 4);
-                world.setBlock(x + i1, y, z + j1 + 1, this, metadata, 4);
-                world.setBlock(x + i1 + 1, y, z + j1 + 1, this, metadata, 4);
-            }
-            else
-            {
-                world.setBlock(x, y, z, this, metadata, 4);
-            }
-        }
+		{
+			world.setBlock(x + i1, y, z + j1, Blocks.air, 0, 4);
+			world.setBlock(x + i1 + 1, y, z + j1, Blocks.air, 0, 4);
+			world.setBlock(x + i1, y, z + j1 + 1, Blocks.air, 0, 4);
+			world.setBlock(x + i1 + 1, y, z + j1 + 1, Blocks.air, 0, 4);
+		}
+		else
+		{
+			i1 = 0;
+			j1 = 0;
+			world.setBlock(x, y, z, Blocks.air, 0, 4);
+		}
+		
+		if (!worldGen.generate(world, rand, x + i1, y, z + j1))
+		{
+			if (flag)
+			{
+				world.setBlock(x + i1, y, z + j1, this, metadata, 4);
+				world.setBlock(x + i1 + 1, y, z + j1, this, metadata, 4);
+				world.setBlock(x + i1, y, z + j1 + 1, this, metadata, 4);
+				world.setBlock(x + i1 + 1, y, z + j1 + 1, this, metadata, 4);
+			}
+			else
+			{
+				world.setBlock(x, y, z, this, metadata, 4);
+			}
+		}
 	}
 	
 	public abstract WorldGenBaseTree getTreeToGrow(int metadata, boolean big);

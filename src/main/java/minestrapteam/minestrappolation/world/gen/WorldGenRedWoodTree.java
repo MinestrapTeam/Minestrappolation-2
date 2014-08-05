@@ -13,25 +13,24 @@ public class WorldGenRedWoodTree extends WorldGenBaseTree
 	
 	public WorldGenRedWoodTree()
 	{
-		super(MBlocks.redwoodLog, 1, MBlocks.redwoodLeaves, 1, 23, 17, 2);
-		
+		super(MBlocks.redwoodLog, 0, MBlocks.redwoodLeaves, 0, 17, 23, 2);
 	}
 	
 	@Override
 	public boolean genLeafStructure(World world, Random rand, int x, int y, int z)
 	{
-		this.setBlock(world, x, y + this.topHeight, z, this.leaves, this.lMeta);
-		this.setBlock(world, x, y + this.topHeight, z + 1, this.leaves, this.lMeta);
-		this.setBlock(world, x - 1, y + this.topHeight, z + 1, this.leaves, this.lMeta);
-		this.setBlock(world, x - 1, y + this.topHeight, z, this.leaves, this.lMeta);
+		this.setBlock(world, x, y + this.topHeight, z, this.leaves, this.leavesMetadata);
+		this.setBlock(world, x, y + this.topHeight, z + 1, this.leaves, this.leavesMetadata);
+		this.setBlock(world, x + 1, y + this.topHeight, z + 1, this.leaves, this.leavesMetadata);
+		this.setBlock(world, x + 1, y + this.topHeight, z, this.leaves, this.leavesMetadata);
 		
-		double thinkness = 6.5;
+		double thinkness = 6.5D;
 		for (int r = this.leafStart; r < this.topHeight; r++)
 		{
 			if (r % this.leafSpacing == 0)
 			{
-				this.generateLeafCircles(world, rand, thinkness, x - 1, z + 1, y + r);
-				thinkness -= .4;
+				this.generateLeafCircles(world, rand, thinkness, x + 1, z + 1, y + r);
+				thinkness -= 0.4D;
 			}
 		}
 		return true;
@@ -58,7 +57,7 @@ public class WorldGenRedWoodTree extends WorldGenBaseTree
 					{
 						for (int l = 0; l < rand.nextInt(2) + minL; l++)
 						{
-							this.setBlock(world, x + l, y + r, z, this.wood, this.wMeta);
+							this.setBlock(world, x + l, y + r, z, this.wood, this.woodMetadata);
 						}
 						
 					}
@@ -67,7 +66,7 @@ public class WorldGenRedWoodTree extends WorldGenBaseTree
 					{
 						for (int l = 0; l < rand.nextInt(2) + minL; l++)
 						{
-							this.setBlock(world, x - l, y + r, z, this.wood, this.wMeta);
+							this.setBlock(world, x - l, y + r, z, this.wood, this.woodMetadata);
 						}
 					}
 					
@@ -75,7 +74,7 @@ public class WorldGenRedWoodTree extends WorldGenBaseTree
 					{
 						for (int l = 0; l < rand.nextInt(2) + minL; l++)
 						{
-							this.setBlock(world, x, y + r, z - l, this.wood, this.wMeta);
+							this.setBlock(world, x, y + r, z - l, this.wood, this.woodMetadata);
 						}
 						
 					}
@@ -84,7 +83,7 @@ public class WorldGenRedWoodTree extends WorldGenBaseTree
 					{
 						for (int l = 0; l < rand.nextInt(2) + minL; l++)
 						{
-							this.setBlock(world, x, y + r, z + l, this.wood, this.wMeta);
+							this.setBlock(world, x, y + r, z + l, this.wood, this.woodMetadata);
 						}
 					}
 					
