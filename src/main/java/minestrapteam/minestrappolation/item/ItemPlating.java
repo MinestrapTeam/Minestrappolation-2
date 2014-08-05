@@ -31,7 +31,7 @@ public class ItemPlating extends ItemReed implements IPlating
 	@Override
 	public boolean canApply(ItemStack platable)
 	{
-		return platable.getItem() instanceof IPlatable;
+		return platable.getItem() instanceof IPlatable && !isApplied(platable);
 	}
 	
 	@Override

@@ -65,7 +65,7 @@ public class RecipesItemAddons implements IRecipe
 		if (platable != null && addon != null)
 		{
 			IItemAddon iaddon = (IItemAddon) addon.getItem();
-			if (!iaddon.isApplied(platable) && count == iaddon.getCount(platable))
+			if (iaddon.canApply(platable) && count == iaddon.getCount(platable))
 			{
 				ItemStack result = platable.copy();
 				iaddon.apply(result);
@@ -136,7 +136,7 @@ public class RecipesItemAddons implements IRecipe
 		if (platable != null && addon != null)
 		{
 			IItemAddon iaddon = (IItemAddon) addon.getItem();
-			return !iaddon.isApplied(platable) && count == iaddon.getCount(platable);
+			return iaddon.canApply(platable) && count == iaddon.getCount(platable);
 		}
 		return false;
 	}
