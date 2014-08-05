@@ -17,7 +17,14 @@ public class ItemAirSack extends MItemFood
 		super.onFoodEaten(stack, world, player);
 		if (player.isInWater())
 		{
-			player.setAir(player.getAir() + 60);
+			if (player.getAir() <= 540)
+			{
+				player.setAir(player.getAir() + 120);
+			}
+			else
+			{
+				player.setAir(660);
+			}
 		}
 	}
 	

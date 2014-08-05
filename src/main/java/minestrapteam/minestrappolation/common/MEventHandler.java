@@ -129,7 +129,7 @@ public class MEventHandler implements IFuelHandler
 				{
 					living.dropItem(MItems.snout, random.nextInt(1 + looting));
 				}
-				if (rand2 < 0.25D)
+				if (rand2 < 0.15D)
 				{
 					living.dropItem(MItems.pigHoof, random.nextInt(4 + looting));
 				}
@@ -137,7 +137,7 @@ public class MEventHandler implements IFuelHandler
 				{
 					living.dropItem(MItems.animalBones, random.nextInt(4 + looting));
 				}
-				if (rand4 < 0.3D)
+				if (rand4 < 0.5D)
 				{
 					living.dropItem(onFire ? MItems.grease : MItems.fat, random.nextInt(5 + looting));
 				}
@@ -152,7 +152,7 @@ public class MEventHandler implements IFuelHandler
 				{
 					living.dropItem(MItems.animalBones, random.nextInt(4 + looting));
 				}
-				if (rand3 < 0.25D)
+				if (rand3 < 0.15D)
 				{
 					living.dropItem(MItems.cowHoof, random.nextInt(4 + looting));
 				}
@@ -194,7 +194,7 @@ public class MEventHandler implements IFuelHandler
 				{
 					living.dropItem(MItems.animalBones, random.nextInt(4 + looting));
 				}
-				if (rand3 < 0.25D)
+				if (rand3 < 0.20D)
 				{
 					living.dropItem(MItems.horseHoof, random.nextInt(4 + looting));
 				}
@@ -209,18 +209,18 @@ public class MEventHandler implements IFuelHandler
 			}
 			else if (living instanceof EntityWolf)
 			{
-				if (rand1 < 0.05D)
+				if (rand1 < 0.1D)
 				{
 					living.dropItem(MItems.snout, random.nextInt(1 + looting));
 				}
 				if (rand2 < 0.4D)
 				{
-					living.dropItem(MItems.wolfHide, random.nextInt(4 + looting));
+					living.dropItem(MItems.wolfHide, random.nextInt(3 + looting));
 				}
 			}
 			else if (living instanceof EntityPigZombie)
 			{
-				if (rand1 < 0.05D)
+				if (rand1 < 0.1D)
 				{
 					living.dropItem(MItems.snout, random.nextInt(1 + looting));
 				}
@@ -252,11 +252,11 @@ public class MEventHandler implements IFuelHandler
 					living.dropItem(MItems.animalBones, random.nextInt(4 + looting));
 				}
 				
-				if (rand2 < 0.9D)
+				if (rand2 < 0.7D)
 				{
 					living.dropItem(onFire ? MItems.lambchopCooked : MItems.lambchopRaw, random.nextInt(3 + looting));
 				}
-				if (rand3 < 0.25D)
+				if (rand3 < 0.15D)
 				{
 					living.dropItem(MItems.sheepHoof, random.nextInt(3 + looting));
 				}
@@ -271,7 +271,7 @@ public class MEventHandler implements IFuelHandler
 				{
 					living.dropItem(MItems.beakChicken, random.nextInt(1 + looting));
 				}
-				if (rand3 < 0.2D)
+				if (rand3 < 0.15D)
 				{
 					living.dropItem(MItems.footChicken, random.nextInt(2 + looting));
 				}
@@ -312,14 +312,14 @@ public class MEventHandler implements IFuelHandler
 			{
 				if (rand1 < 0.05D)
 				{
-					living.dropItem(MItems.footChicken, random.nextInt(2 + looting));
+					living.dropItem(MItems.footChicken, random.nextInt(1 + looting));
 				}
 				
-				if (rand2 < 0.15D)
+				if (rand2 < 0.25D)
 				{
 					living.dropItem(MItems.whisker, random.nextInt(4 + looting));
 				}
-				if (rand3 < 0.1D)
+				if (rand3 < 0.15D)
 				{
 					living.dropItem(MItems.catEye, random.nextInt(2 + looting));
 				}
