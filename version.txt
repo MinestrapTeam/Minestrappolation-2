@@ -1,4 +1,4 @@
-version=3.2.0
+version=1.7.10-3.2.0
 motd=3... 2... 1... Minestrappolation 3.2.1! Fixed Bugfixes and improved Improvements!
 motdcolor=gold
 url=https://github.com/MinestrapTeam/Minestrappolation-2/releases/download/1.7.10-3.2.1/Minestrappolation-1.7.10-3.2.1.jar
