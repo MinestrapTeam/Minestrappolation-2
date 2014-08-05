@@ -26,6 +26,7 @@ public class MItemSword extends ItemSword implements IPlatable
 	private ToolMaterial		material;
 	private boolean				ignites;
 	
+	private IIcon				hornIcon;
 	private Map<String, IIcon>	overlayIcons	= new HashMap();
 	
 	public MItemSword(ToolMaterial material)
@@ -111,9 +112,17 @@ public class MItemSword extends ItemSword implements IPlatable
 	}
 	
 	@Override
+	public int getRenderPasses(int metadata)
+	{
+		return 3;
+	}
+	
+	@Override
 	public void registerIcons(IIconRegister iconRegister)
 	{
 		this.itemIcon = iconRegister.registerIcon(this.getIconString());
+		this.hornIcon = iconRegister.registerIcon(MAssetManager.getWeaponTexture("horned_sword_overlay"));
+		
 		ItemStack thisStack = new ItemStack(this, 1, 0);
 		
 		for (Entry<String, IPlating> e : IPlating.platings.entrySet())
@@ -137,12 +146,19 @@ public class MItemSword extends ItemSword implements IPlatable
 	public IIcon getIcon(ItemStack stack, int renderPass)
 	{
 		IIcon icon = null;
-		if (renderPass == 1)
+		if (renderPass == 2)
 		{
 			IPlating plating = MItemTool.getPlating(stack);
 			if (plating != null)
 			{
 				icon = this.overlayIcons.get(plating.getType());
+			}
+		}
+		else if (renderPass == 1)
+		{
+			if (MItemTool.isHorned(stack))
+			{
+				icon = this.hornIcon;
 			}
 		}
 		return icon == null ? this.itemIcon : icon;

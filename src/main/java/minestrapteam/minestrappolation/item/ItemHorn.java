@@ -2,11 +2,10 @@ package minestrapteam.minestrappolation.item;
 
 import net.minecraft.item.ItemStack;
 
-public class ItemHorn extends MItem implements IPlating
+public class ItemHorn extends MItem implements IItemAddon
 {
 	public ItemHorn()
 	{
-		platings.put("horn", this);
 		addons.add(this);
 	}
 	
@@ -24,49 +23,19 @@ public class ItemHorn extends MItem implements IPlating
 	@Override
 	public void apply(ItemStack platable)
 	{
-		MItemTool.setPlating(platable, this);
+		MItemTool.setHorned(platable, true);
 	}
 	
 	@Override
 	public void unapply(ItemStack platable)
 	{
-		MItemTool.setPlating(platable, null);
+		MItemTool.setHorned(platable, false);
 	}
 	
 	@Override
 	public boolean isApplied(ItemStack platable)
 	{
-		return MItemTool.getPlating(platable) == this;
-	}
-	
-	@Override
-	public String getType()
-	{
-		return "horn";
-	}
-	
-	@Override
-	public String getType(ItemStack stack)
-	{
-		return "horn";
-	}
-	
-	@Override
-	public float getEntityDamage()
-	{
-		return 1F;
-	}
-	
-	@Override
-	public float getDigSpeed()
-	{
-		return 1.1F;
-	}
-	
-	@Override
-	public int getDurability()
-	{
-		return 16;
+		return MItemTool.isHorned(platable);
 	}
 	
 	@Override

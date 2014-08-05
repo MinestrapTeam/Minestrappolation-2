@@ -30,6 +30,7 @@ import net.minecraft.world.World;
 public class MItemTool extends ItemTool implements IPlatable
 {
 	public static final UUID	PLATING_UUID	= UUID.fromString("DB3F55D3-645C-4F38-A497-9C13A33DB5CF");
+	public static final UUID	HORN_UUID		= UUID.fromString("DB3F55D3-645C-4F38-A497-9C13A33DB5DF");
 	
 	protected boolean			ignites;
 	protected boolean			weapon;
@@ -82,15 +83,6 @@ public class MItemTool extends ItemTool implements IPlatable
 		return null;
 	}
 	
-	public static float getPoisonLevel(ItemStack stack)
-	{
-		if (stack.stackTagCompound != null)
-		{
-			return stack.stackTagCompound.getFloat("PoisonLevel");
-		}
-		return 0F;
-	}
-	
 	public static void setPlating(ItemStack stack, IPlating plating)
 	{
 		if (stack.stackTagCompound == null)
@@ -98,6 +90,33 @@ public class MItemTool extends ItemTool implements IPlatable
 			stack.stackTagCompound = new NBTTagCompound();
 		}
 		stack.stackTagCompound.setString("Plating", plating == null ? "" : plating.getType());
+	}
+	
+	public static boolean isHorned(ItemStack stack)
+	{
+		if (stack.stackTagCompound != null)
+		{
+			return stack.stackTagCompound.getBoolean("Horned");
+		}
+		return false;
+	}
+	
+	public static void setHorned(ItemStack stack, boolean horned)
+	{
+		if (stack.stackTagCompound == null)
+		{
+			stack.stackTagCompound = new NBTTagCompound();
+		}
+		stack.stackTagCompound.setBoolean("Horned", horned);
+	}
+	
+	public static float getPoisonLevel(ItemStack stack)
+	{
+		if (stack.stackTagCompound != null)
+		{
+			return stack.stackTagCompound.getFloat("PoisonLevel");
+		}
+		return 0F;
 	}
 	
 	public static void setPoisonLevel(ItemStack stack, float level)
@@ -177,6 +196,11 @@ public class MItemTool extends ItemTool implements IPlatable
 		{
 			list.add(I18n.getString("item.poison_sword.desc", poisonLevel));
 		}
+		
+		if (isHorned(stack))
+		{
+			list.add(I18n.getString("item.horned_sword.desc"));
+		}
 	}
 	
 	@Override
@@ -253,6 +277,12 @@ public class MItemTool extends ItemTool implements IPlatable
 		if (plating != null)
 		{
 			AttributeModifier modifier = new AttributeModifier(PLATING_UUID, "Plating Modifier", plating.getEntityDamage(), 0);
+			multimap.put("generic.attackDamage", modifier);
+		}
+		
+		if (isHorned(stack))
+		{
+			AttributeModifier modifier = new AttributeModifier(PLATING_UUID, "Plating Modifier", 2, 0);
 			multimap.put("generic.attackDamage", modifier);
 		}
 		return multimap;
