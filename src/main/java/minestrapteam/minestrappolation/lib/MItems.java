@@ -299,7 +299,7 @@ public class MItems
 		flesh = new MItemFood(4, 0.35F).setPotionEffect(Potion.hunger.id, 20, 0, 0.05F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("flesh"));
 		marrow = new MItemFood(5, 0.32F).setCreativeTab(tabBrewing).setTextureName(MAssetManager.getFoodTexture("marrow_bowl"));
 		legSpider = new MItem().setCreativeTab(tabBrewing).setTextureName(MAssetManager.getMobTexture("spider_leg"));
-		poisonSack = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMobTexture("poison_sack"));
+		poisonSack = new ItemPoisonSack().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMobTexture("poison_sack"));
 		guano = new ItemGuano().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getTexture("guano"));
 		carcassSilverfish = new MItem().setCreativeTab(tabBrewing).setTextureName(MAssetManager.getMobTexture("silverfish_carcass"));
 		hideCreeper = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMobTexture("creeper_hide"));

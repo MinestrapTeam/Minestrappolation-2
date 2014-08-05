@@ -992,7 +992,9 @@ item.plating.tin.desc=Tin-Plated
 item.plating.bronze.desc=Bronze-Plated
 item.plating.steel.desc=Steel-Plated
 item.plating.meurodite.desc=Meurodite-Plated
-item.plating.horn.desc=Horned
+
+item.horned_sword.desc=Horned
+item.poison_sword.desc=§aPoisoned: %.1d
 
 lock.locked=This block has been locked by %1$s. You need the key to open it!
 lock.locked.no_owner=This block is locked. You need a key to open it.

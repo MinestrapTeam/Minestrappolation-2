@@ -29,8 +29,8 @@ import net.minecraft.world.World;
 
 public class MItemTool extends ItemTool implements IPlatable
 {
-	public static final UUID	PLATING_UUID	= UUID.fromString("DB3F55D3-645C-4F38-A497-9C13A33DB5CF");
-	public static final UUID	HORN_UUID		= UUID.fromString("DB3F55D3-645C-4F38-A497-9C13A33DB5DF");
+	public static final UUID	PLATING_UUID	= UUID.fromString("CB3F55D3-745C-4F38-A497-9C13A33DB5CF");
+	public static final UUID	HORN_UUID		= UUID.fromString("CB3F55D3-845C-4F38-A497-9C13A33DB5CF");
 	
 	protected boolean			ignites;
 	protected boolean			weapon;
@@ -185,12 +185,6 @@ public class MItemTool extends ItemTool implements IPlatable
 	
 	public static void addInformation(ItemStack stack, List list)
 	{
-		IPlating plating = getPlating(stack);
-		if (plating != null)
-		{
-			list.add(I18n.getString("item.plating." + plating.getType() + ".desc"));
-		}
-		
 		float poisonLevel = getPoisonLevel(stack);
 		if (poisonLevel > 0F)
 		{
@@ -200,6 +194,12 @@ public class MItemTool extends ItemTool implements IPlatable
 		if (isHorned(stack))
 		{
 			list.add(I18n.getString("item.horned_sword.desc"));
+		}
+		
+		IPlating plating = getPlating(stack);
+		if (plating != null)
+		{
+			list.add(I18n.getString("item.plating." + plating.getType() + ".desc"));
 		}
 	}
 	
@@ -282,7 +282,7 @@ public class MItemTool extends ItemTool implements IPlatable
 		
 		if (isHorned(stack))
 		{
-			AttributeModifier modifier = new AttributeModifier(PLATING_UUID, "Plating Modifier", 2, 0);
+			AttributeModifier modifier = new AttributeModifier(HORN_UUID, "Horn Modifier", 2, 0);
 			multimap.put("generic.attackDamage", modifier);
 		}
 		return multimap;

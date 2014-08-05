@@ -1,10 +1,11 @@
 package minestrapteam.minestrappolation.item;
 
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public class ItemHorn extends MItem implements IItemAddon
+public class ItemPoisonSack extends Item implements IItemAddon
 {
-	public ItemHorn()
+	public ItemPoisonSack()
 	{
 		addons.add(this);
 	}
@@ -12,30 +13,30 @@ public class ItemHorn extends MItem implements IItemAddon
 	@Override
 	public boolean canApply(ItemStack platable)
 	{
-		return platable.getItem() instanceof MItemSword;
+		return platable.getItem() instanceof MItemSword && MItemTool.getPoisonLevel(platable) < 4F;
 	}
-	
+
 	@Override
 	public void apply(ItemStack platable)
 	{
-		MItemTool.setHorned(platable, true);
+		MItemTool.setPoisonLevel(platable, 4F);
 	}
-	
+
 	@Override
 	public void unapply(ItemStack platable)
 	{
-		MItemTool.setHorned(platable, false);
+		MItemTool.setPoisonLevel(platable, 0F);
 	}
-	
+
 	@Override
 	public boolean isApplied(ItemStack platable)
 	{
-		return MItemTool.isHorned(platable);
+		return MItemTool.getPoisonLevel(platable) == 4F;
 	}
-	
+
 	@Override
 	public int getCount(ItemStack platable)
 	{
-		return 2;
+		return 1;
 	}
 }
