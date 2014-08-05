@@ -1,13 +1,13 @@
 package minestrapteam.minestrappolation.block;
 
-import minestrapteam.mcore.block.MCBlock;
 import minestrapteam.minestrappolation.Minestrappolation;
+
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockInvincium extends MCBlock
+public class BlockInvincium extends MBlock
 {
 	public BlockInvincium(Material material)
 	{

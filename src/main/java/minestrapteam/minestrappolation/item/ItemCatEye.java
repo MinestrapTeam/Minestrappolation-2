@@ -1,14 +1,12 @@
 package minestrapteam.minestrappolation.item;
 
-import minestrapteam.mcore.item.MCItemFood;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
-public class ItemCatEye extends MCItemFood
+public class ItemCatEye extends MItemFood
 {
 	public ItemCatEye(int healAmount, float saturationModifier)
 	{
@@ -23,5 +21,4 @@ public class ItemCatEye extends MCItemFood
 		player.addPotionEffect(new PotionEffect(Potion.nightVision.id, 45 * 20, 0));
 		player.addPotionEffect(new PotionEffect(Potion.hunger.id, 10 * 20, 0));
 	}
-	
 }

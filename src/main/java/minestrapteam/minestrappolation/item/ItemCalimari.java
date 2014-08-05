@@ -1,23 +1,28 @@
 package minestrapteam.minestrappolation.item;
 
-import minestrapteam.mcore.item.MCItemFood;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class ItemCalimari extends MCItemFood
+public class ItemCalimari extends MItemFood
 {
+	public float healBonus;
 	public ItemCalimari(int healAmount, float saturationModifier)
 	{
 		super(healAmount, saturationModifier);
+		
+	}
+	
+	public ItemCalimari setHealBonus(float healBonus)
+	{
+		this.healBonus = healBonus;
+		return this;
 	}
 	
 	@Override
 	public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player)
 	{
-		player.heal(2F);
-		super.onEaten(stack, world, player);
+		player.heal(this.healBonus);
 		return super.onEaten(stack, world, player);
 	}
 	

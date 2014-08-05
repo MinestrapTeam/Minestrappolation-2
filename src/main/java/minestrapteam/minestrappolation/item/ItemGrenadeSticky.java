@@ -1,21 +1,16 @@
 package minestrapteam.minestrappolation.item;
 
-import java.util.List;
-
 import minestrapteam.minestrappolation.entity.EntityGrenadeSticky;
 
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 
-public class ItemGrenadeSticky extends Item
+public class ItemGrenadeSticky extends ItemGrenade
 {
 	public ItemGrenadeSticky()
 	{
 		super();
-		this.setMaxStackSize(16);
 	}
 	
 	@Override
@@ -33,11 +28,5 @@ public class ItemGrenadeSticky extends Item
 		}
 		
 		return stack;
-	}
-	
-	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean flag)
-	{
-		list.add(EnumChatFormatting.RED + "WIP");
 	}
 }

@@ -1,5 +1,8 @@
 package minestrapteam.minestrappolation.tileentity;
 
+import minestrapteam.minestrappolation.Minestrappolation;
+import minestrapteam.minestrappolation.network.GobletPacket;
+
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
@@ -11,7 +14,17 @@ public class TileEntityGoblet extends TileEntity
 	
 	public void setPotionEffect(PotionEffect effect)
 	{
+		this.setPotionEffect(effect, true);
+	}
+	
+	public void setPotionEffect(PotionEffect effect, boolean sync)
+	{
 		this.potionEffect = effect;
+		
+		if (sync && !this.getWorldObj().isRemote)
+		{
+			Minestrappolation.instance.netHandler.sendToAll(new GobletPacket(this.getWorldObj(), this.xCoord, this.yCoord, this.zCoord, effect));
+		}
 	}
 	
 	public PotionEffect getPotionEffect()
@@ -49,7 +62,7 @@ public class TileEntityGoblet extends TileEntity
 		if (nbt.hasKey("PotionEffect"))
 		{
 			NBTTagCompound nbt1 = nbt.getCompoundTag("PotionEffect");
-			this.potionEffect = PotionEffect.readCustomPotionEffectFromNBT(nbt1);
+			this.setPotionEffect(PotionEffect.readCustomPotionEffectFromNBT(nbt1), false);
 		}
 	}
 }

@@ -1,8 +1,8 @@
 package minestrapteam.minestrappolation.block;
 
-import minestrapteam.mcore.util.MCAssetManager;
 import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.tileentity.TileEntityBarrel;
+import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
@@ -47,8 +47,8 @@ public class BlockBarrel extends BlockFalling implements ITileEntityProvider
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getMachineTexture("barrel_side"));
-		this.top = iconRegister.registerIcon(MCAssetManager.getMachineTexture("barrel_top"));
+		this.blockIcon = iconRegister.registerIcon(MAssetManager.getMachineTexture("barrel_side"));
+		this.top = iconRegister.registerIcon(MAssetManager.getMachineTexture("barrel_top"));
 	}
 	
 	@Override

@@ -1,14 +1,16 @@
 package minestrapteam.minestrappolation.block;
 
 import minestrapteam.minestrappolation.tileentity.TileEntityPlate;
+
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public class BlockPlate extends BlockContainer
 {
@@ -19,35 +21,69 @@ public class BlockPlate extends BlockContainer
 	}
 	
 	@Override
+	public boolean canBlockStay(World world, int x, int y, int z)
+	{
+		return world.isSideSolid(x, y - 1, z, ForgeDirection.UP);
+	}
+	
+	@Override
+	public boolean canPlaceBlockAt(World world, int x, int y, int z)
+	{
+		return super.canPlaceBlockAt(world, x, y, z) && this.canBlockStay(world, x, y, z);
+	}
+	
+	@Override
+	public void onNeighborBlockChange(World world, int x, int y, int z, Block neighbor)
+	{
+		if (!this.canBlockStay(world, x, y, z))
+		{
+			world.func_147480_a(x, y, z, true);
+		}
+	}
+	
+	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ)
 	{
+		if (world.isRemote)
+		{
+			return false;
+		}
+		
 		ItemStack stack = player.inventory.getCurrentItem();
 		TileEntityPlate te = (TileEntityPlate) world.getTileEntity(x, y, z);
-		if (stack != null && player.inventory.getCurrentItem().getItem() instanceof ItemFood)
+		if (stack != null && te.getItem() == null && stack.getItem() instanceof ItemFood)
 		{
-			
-			if (te.getItem() != null)
-			{
-			   player.inventory.addItemStackToInventory(new ItemStack(te.getItem().getItem()));
-			}
-			te.setItem(stack);
-			
+			ItemStack stack1 = stack.copy();
+			stack1.stackSize = 1;
+			te.setItem(stack1);
 			
 			if (!player.capabilities.isCreativeMode)
 			{
 				stack.stackSize--;
 			}
+			return true;
 		}
 		else
 		{
 			stack = te.getItem();
 			if (stack != null)
 			{
-				player.inventory.addItemStackToInventory(new ItemStack(stack.getItem()));
-				te.setItem(null);
+				te.dropItem();
+				return true;
 			}
 		}
-		return true;
+		return false;
+	}
+	
+	@Override
+	public void breakBlock(World world, int x, int y, int z, Block block, int metadata)
+	{
+		TileEntity te = world.getTileEntity(x, y, z);
+		if (te instanceof TileEntityPlate)
+		{
+			((TileEntityPlate) te).dropItem();
+		}
+		super.breakBlock(world, x, y, z, block, metadata);
 	}
 	
 	@Override
@@ -73,5 +109,4 @@ public class BlockPlate extends BlockContainer
 	{
 		return new TileEntityPlate();
 	}
-	
 }

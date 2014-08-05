@@ -22,22 +22,54 @@ buildscript
 
 apply plugin: 'forge'
 
-version = "3.0"
-group= "minestrapteam"
+version = "1.7.10-3.2.1"
+group = "minestrapteam"
 archivesBaseName = "Minestrappolation"
 
 minecraft
 {
-    version = "1.7.2-10.12.2.1126"
+    version = "1.7.10-10.13.0.1189"
     if(file('../run').exists())
 	{
-	   assetDir = "../run/assets/"
+        runDir = "../run/"
 	}
 	else
 	{
-	   assetDir = "eclipse/assets"
+        runDir = "eclipse/"
 	}
 }
+
+task devJar(type:Jar, dependsOn:'classes')
+devJar
+{
+    classifier = 'deobf'
+    archiveName = "${archivesBaseName}-${version}-dev.jar"
+    from ('build/classes/main')
+    {
+        include('minestrapteam/minestrappolation/**')
+    }
+    from ('build/resources/main')
+    {
+        include('assets/minestrappolation**')
+    }
+}
+
+task srcJar(type:Jar, dependsOn:'classes')
+srcJar
+{
+    classifier = 'sources'
+    archiveName = "${archivesBaseName}-${version}-src.jar"
+    from ('build/sources/java')
+    {
+        include('minestrapteam/minestrappolation/**')
+    }
+    from ('build/resources/main')
+    {
+        include('assets/minestrappolation/**')
+    }
+}
+
+task buildApi(dependsOn:['build', 'srcJar', 'devJar'])
 
 processResources
 {

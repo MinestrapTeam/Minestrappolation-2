@@ -2,8 +2,8 @@ package minestrapteam.minestrappolation.block;
 
 import java.util.Random;
 
-import minestrapteam.mcore.util.MCAssetManager;
 import minestrapteam.minestrappolation.Minestrappolation;
+import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -25,9 +25,9 @@ public class BlockCopper extends Block
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getMineralTexture("copper_block"));
-		this.tarnishedSideIcon = iconRegister.registerIcon(MCAssetManager.getMineralTexture("copper_block_tarnished_side"));
-		this.tarnishedTopIcon = iconRegister.registerIcon(MCAssetManager.getMineralTexture("copper_block_tarnished_top"));
+		this.blockIcon = iconRegister.registerIcon(MAssetManager.getMineralTexture("copper_block"));
+		this.tarnishedSideIcon = iconRegister.registerIcon(MAssetManager.getMineralTexture("copper_block_tarnished_side"));
+		this.tarnishedTopIcon = iconRegister.registerIcon(MAssetManager.getMineralTexture("copper_block_tarnished_top"));
 	}
 	
 	@Override

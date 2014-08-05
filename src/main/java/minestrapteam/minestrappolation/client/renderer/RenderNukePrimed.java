@@ -16,7 +16,7 @@ import net.minecraft.util.ResourceLocation;
 @SideOnly(Side.CLIENT)
 public class RenderNukePrimed extends Render
 {
-	private RenderBlocks	blockRenderer	= new RenderBlocks();
+	private static RenderBlocks	renderBlocks	= RenderBlocks.getInstance();
 	
 	public RenderNukePrimed()
 	{
@@ -52,7 +52,7 @@ public class RenderNukePrimed extends Render
 		
 		f2 = (1.0F - f / 100.0F) * 0.8F;
 		this.bindEntityTexture(entity);
-		this.blockRenderer.renderBlockAsItem(MBlocks.nuke, 0, entity.getBrightness(partialTickTime));
+		renderBlocks.renderBlockAsItem(MBlocks.nuke, 0, entity.getBrightness(partialTickTime));
 		
 		if (entity.fuse / 5 % 2 == 0)
 		{
@@ -61,7 +61,7 @@ public class RenderNukePrimed extends Render
 			GL11.glEnable(GL11.GL_BLEND);
 			GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_DST_ALPHA);
 			GL11.glColor4f(1.0F, 1.0F, 1.0F, f2);
-			this.blockRenderer.renderBlockAsItem(MBlocks.nuke, 0, 1.0F);
+			renderBlocks.renderBlockAsItem(MBlocks.nuke, 0, 1.0F);
 			GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 			GL11.glDisable(GL11.GL_BLEND);
 			GL11.glEnable(GL11.GL_LIGHTING);

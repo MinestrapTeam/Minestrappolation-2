@@ -1,15 +1,14 @@
 package minestrapteam.minestrappolation.item;
 
-import minestrapteam.mcore.item.MCItemFood;
+import clashsoft.cslib.random.CSRandom;
 import minestrapteam.minestrappolation.lib.MPotions;
 
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
-public class ItemGhastTentacle extends MCItemFood
+public class ItemGhastTentacle extends MItemFood
 {
 	public ItemGhastTentacle()
 	{
@@ -20,18 +19,8 @@ public class ItemGhastTentacle extends MCItemFood
 	@Override
 	protected void onFoodEaten(ItemStack stack, World world, EntityPlayer player)
 	{
+		int seconds = CSRandom.nextInt(player.getRNG(), 30, 180);
+		player.addPotionEffect(new PotionEffect(MPotions.ghastTentaclePotion.id, seconds * 20, 0));
 		super.onFoodEaten(stack, world, player);
-		
-		if (player instanceof EntityPlayerMP)
-		{
-			EntityPlayerMP playermp = (EntityPlayerMP) player;
-			
-			if (player.dimension == 0)
-			{
-				playermp.mcServer.getConfigurationManager().transferPlayerToDimension(playermp, -1);
-			}
-		}
-		
-		player.addPotionEffect(new PotionEffect(MPotions.ghastTentaclePotion.id, 2 * 20, 0));
 	}
 }

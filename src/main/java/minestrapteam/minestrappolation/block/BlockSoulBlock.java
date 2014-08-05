@@ -2,16 +2,15 @@ package minestrapteam.minestrappolation.block;
 
 import java.util.Random;
 
-import minestrapteam.mcore.block.MCBlock;
-import minestrapteam.mcore.util.MCUtil;
 import minestrapteam.minestrappolation.lib.MItems;
+import minestrapteam.minestrappolation.util.MUtil;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class BlockSoulBlock extends MCBlock
+public class BlockSoulBlock extends MBlock
 {
 	Random	rand	= new Random();
 	
@@ -26,7 +25,7 @@ public class BlockSoulBlock extends MCBlock
 	{
 		for (int var6 = 0; var6 < 3; ++var6)
 		{
-			MCUtil.spawnParticle(world, x, y, z, random, "portal");
+			MUtil.spawnParticle(world, x, y, z, random, "portal");
 		}
 	}
 	

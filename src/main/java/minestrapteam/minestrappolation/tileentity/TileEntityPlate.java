@@ -1,5 +1,8 @@
 package minestrapteam.minestrappolation.tileentity;
 
+import minestrapteam.minestrappolation.Minestrappolation;
+import minestrapteam.minestrappolation.network.PlatePacket;
+
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -7,17 +10,29 @@ import net.minecraft.tileentity.TileEntity;
 
 public class TileEntityPlate extends TileEntity
 {
-	public ItemStack	stack;
+	private ItemStack	stack;
 	private EntityItem	theItem;
 	
 	public EntityItem spawnItem()
 	{
-		if (this.worldObj.isRemote && this.stack != null && this.theItem == null)
+		if (this.worldObj.isRemote && this.stack != null)
 		{
 			this.theItem = new EntityItem(this.worldObj, this.xCoord + 0.5F, this.yCoord + 0.15F, this.zCoord + 0.5F, this.stack);
 			this.theItem.hoverStart = 0F;
 		}
 		return this.theItem;
+	}
+	
+	public EntityItem dropItem()
+	{
+		EntityItem item = null;
+		if (!this.worldObj.isRemote && this.stack != null)
+		{
+			item = new EntityItem(this.worldObj, this.xCoord + 0.5F, this.yCoord + 0.15F, this.zCoord + 0.5F, this.stack);
+			this.worldObj.spawnEntityInWorld(item);
+		}
+		this.setItem(null);
+		return item;
 	}
 	
 	public EntityItem getItemEntity()
@@ -31,11 +46,21 @@ public class TileEntityPlate extends TileEntity
 	
 	public void setItem(ItemStack stack)
 	{
+		this.setItem(stack, true);
+	}
+	
+	public void setItem(ItemStack stack, boolean sync)
+	{
 		this.stack = stack;
 		if (this.theItem != null)
 		{
 			this.theItem.setDead();
 			this.theItem = null;
+		}
+		
+		if (sync && !this.getWorldObj().isRemote)
+		{
+			Minestrappolation.instance.netHandler.sendToAll(new PlatePacket(this.getWorldObj(), this.xCoord, this.yCoord, this.zCoord, this.stack));
 		}
 	}
 	
@@ -54,7 +79,7 @@ public class TileEntityPlate extends TileEntity
 			nbt.setTag("Item", nbt1);
 		}
 		
-		this.setItem(null);
+		this.setItem(null, false);
 	}
 	
 	@Override
@@ -63,7 +88,7 @@ public class TileEntityPlate extends TileEntity
 		if (nbt.hasKey("Item"))
 		{
 			NBTTagCompound nbt1 = nbt.getCompoundTag("Item");
-			this.stack = ItemStack.loadItemStackFromNBT(nbt1);
+			this.setItem(ItemStack.loadItemStackFromNBT(nbt1), false);
 		}
 	}
 }

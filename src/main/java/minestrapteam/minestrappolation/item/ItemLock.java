@@ -1,10 +1,9 @@
 package minestrapteam.minestrappolation.item;
 
-import minestrapteam.minestrappolation.tileentity.TileEntityLocked;
+import minestrapteam.minestrappolation.lib.MBlocks;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.world.World;
 
@@ -23,36 +22,26 @@ public class ItemLock extends ItemKey
 			return true;
 		}
 		
-		if (stack.stackTagCompound == null)
+		String name = getOwner(stack);
+		if (name.isEmpty())
 		{
 			createNBT(stack, player);
+			return false;
+		}
+		else if (!isOwner(name, player))
+		{
+			player.addChatMessage(new ChatComponentTranslation("lock.not_owner"));
+			return false;
 		}
 		
-		TileEntity te = world.getTileEntity(x, y, z);
-		String name = stack.stackTagCompound.getString("player");
-		if (te instanceof TileEntityLocked)
+		if (world.getBlock(x, y, z) == MBlocks.lockedBlock)
 		{
-			TileEntityLocked locked = (TileEntityLocked) te;
-			
-			if (locked.isOwner(name))
-			{
-				if (locked.isLocked())
-				{
-					player.addChatMessage(new ChatComponentTranslation("lock.already_locked"));
-				}
-				return true;
-			}
-			else
-			{
-				player.addChatMessage(new ChatComponentTranslation("lock.not_owner"));
-				return false;
-			}
+			player.addChatMessage(new ChatComponentTranslation("lock.already_locked"));
+			return false;
 		}
-		else if (te != null)
+		
+		if (MBlocks.lockedBlock.lock(name, world, x, y, z))
 		{
-			TileEntityLocked locked = new TileEntityLocked(name, te);
-			locked.lock();
-			world.setTileEntity(x, y, z, locked);
 			stack.stackSize--;
 			player.addChatMessage(new ChatComponentTranslation("lock.added"));
 			return true;
@@ -60,7 +49,8 @@ public class ItemLock extends ItemKey
 		else
 		{
 			player.addChatMessage(new ChatComponentTranslation("lock.not_applicable"));
-			return false;
 		}
+		
+		return false;
 	}
 }

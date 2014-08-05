@@ -5,6 +5,7 @@ import minestrapteam.minestrappolation.tileentity.TileEntityCrate;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Slot;
+import net.minecraft.item.ItemStack;
 
 public class ContainerCrate extends ContainerInventory
 {
@@ -12,7 +13,6 @@ public class ContainerCrate extends ContainerInventory
 	{
 		super(player, crate);
 		
-		this.addInventorySlots(0, -18);
 		for (int j = 0; j < 2; ++j)
 		{
 			for (int k = 0; k < 9; ++k)
@@ -20,5 +20,12 @@ public class ContainerCrate extends ContainerInventory
 				this.addSlotToContainer(new Slot(crate, k + j * 9, 8 + k * 18, 18 + j * 18 - 1));
 			}
 		}
+		this.addInventorySlots(0, -18);
+	}
+	
+	@Override
+	public int[] merge(EntityPlayer player, int slot, ItemStack stack)
+	{
+		return new int[] { 0, 18 };
 	}
 }

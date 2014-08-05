@@ -1,7 +1,111 @@
+﻿1.7.10-3.2.1
+
++ Added Fried variants of just about every food in the game.
++ Small Redwood trees can now rarely generate in other biomes.
++ Carpenter’s Benches now use OreDictionary recipes.
++ Replaced Plating System with Item Addon system.
+* Improved Redwood Log textures.
+* Improved and fixed Redwood Sapling growth mechanics.
+* Fixed Poison Sacks not making Swords poisonous.
+* Fixed Platings replacing Horns and vice-versa, making Horned Plated Swords impossible.
+* Fixed Melter NEI ‘usage’ functionality not working.
+* Fixed Carpenter’s Bench placement behavior.
+* Fixed Tools not losing durability.
+* Fixed Magma fluid displacements and flow length.
+* Fixed Flowing Magma texture resolution.
+* Fixed Magma Bucket duplication glitch.
+* Fixed missing armor textures for Titanium, Blazium and Meurodite Armor.
+* Fixed Cobbled, Gravel, Sand, Red Sand, and Soul Steel Roads’ speed bonuses.
+* Fixed Godstone igniting non-undead mobs.
+* Fixed Fried Foods being crafted with Fat instead of Grease.
+* Fixed Melters and Stonecutters facing the wrong way in the inventory.
+
+1.7.10-3.2.0
+
+! Merged MCore and Minestrappolation
+! Update to Minecraft 1.7.10
+! Update to Clashsoft Lib 1.7.10-2.4.0
+! Update to Brewing API 1.7.10-3.0.0
++ Added NEI support.
++ Added Sawmills.
++ Added Redwood Biomes.
++ Added Redwood Blocks.
++ Added Magma.
++ Added the Hydrophobia Potion effect.
++ Added Nuclear Grenades.
++ Added Slow Glass.
++ Added Soul Steel tools and weapons.
++ Added Soul Steel Roads.
++ Re-Added Cobbled Roads, Gravel Roads, Sand and Red Sand Roads and Nether Roads.
++ Revamped the Lock/Key system (It should actually be functional now).
++ Vanilla Tools are now Platable.
++ Obsidian and Bedrock blocks are now meltable.
+* Improved Dungeon Loot.
+* Improved Plating Entity Damage.
+* Improved World Gen performance.
+* Improved Melter GUI.
+* Improved Grenade physics.
+* Improved Edge Stone Bricks crafting.
+* Improved Stonecutter rendering.
+* Fixed Grenades not being craftable.
+* Fixed UpdateChecker not working.
+* Fixed Glow Glass Panes being invisible.
+* Fixed Rope issues.
+* Fixed Minestrappolation Swords being treated as Tools while in Creative mode.
+* Fixed Ghast right-click crash.
+- Removed Glow Glass smelting recipe.
+- Removed Titanium Ingot smelting recipe.
+
+1.7.10-3.1.1
+
+* Improved Metal Plating rendering
+* Improved Cardboard and Wet Cardboard textures
+* Fixed Cardboard Lamps missing textures
+* Fixed Plating and Horn recipes not working
+* Fixed missing Horn assets
+* Fixed Goblets and Plates not breaking when the block below them is destroyed
+* Fixed Goblets and Plates not syncing (making changes invisible to other players)
+* Fixed Crash when punching an entity with your fists
+
+1.7.10-3.1.0
+
+! Update to 1.7.10
++ Added Cardboard Lamps
+* Fixed Ghast Tentacle issues
+* Fixed unlocalized names for Stairs
+* Fixed Amulets not working correctly
+* Fixed Edgestone texture issues
+* Fixed Minestrap Tools issues
+* Fixed shift-click issues
+* Improved Plates
+* Improved Goblets
+
+1.7.2-3.0.1
+
++ Added Glowglass panes
+* Fixed grenade crash
+* Fixed horn crafting crash
+* Fixed goblet textures
+
+1.7.2-3.0.0
+
+! Merged all mod segments into one mod.
++ Added the Stonecutter and it’s new crafting system.
++ Added more than 300 new stone-based decor blocks.
++ Added new Wood variants.
++ Added Wood variants for the Wood types added in 1.7.
++ Added a good bit of content from Extrapolated Mob Drops.
++ Revamped the Tool and Armor Plating system (WIP).
+* Re-coded almost everything.
+* Many improvements and tweaks.
+* Changed a bunch of recipes.
+* Updated some textures.
+* Bug genocide. Millions are dead.
+* Saved tons of Block IDs by using metadata.
+
 1.5.1
 
 EO-1.5.1
-
 + Added all block and item names.
 * Bugfixes.
 

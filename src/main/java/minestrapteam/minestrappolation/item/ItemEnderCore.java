@@ -1,6 +1,6 @@
 package minestrapteam.minestrappolation.item;
 
-import minestrapteam.mcore.item.MCItemFood;
+import minestrapteam.minestrappolation.lib.MPotions;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -8,7 +8,7 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
-public class ItemEnderCore extends MCItemFood
+public class ItemEnderCore extends MItemFood
 {
 	public ItemEnderCore(int healAmount, float saturationModifier)
 	{
@@ -22,7 +22,7 @@ public class ItemEnderCore extends MCItemFood
 	{
 		player.addPotionEffect(new PotionEffect(Potion.invisibility.id, 30 * 20, 0));
 		player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 30 * 20, 2));
-		// TODO Hydrophobia potion effect
+		player.addPotionEffect(new PotionEffect(MPotions.hydrophobiaPotion.id, 30 * 20, 0));
 		
 		super.onFoodEaten(stack, world, player);
 	}

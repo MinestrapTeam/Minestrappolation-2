@@ -1,13 +1,12 @@
 package minestrapteam.minestrappolation.item;
 
-import minestrapteam.mcore.item.MCItem;
 import minestrapteam.minestrappolation.entity.EntityHangGlider;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class ItemHangGlider extends MCItem
+public class ItemHangGlider extends MItem
 {
 	public ItemHangGlider()
 	{
@@ -21,7 +20,7 @@ public class ItemHangGlider extends MCItem
 	{
 		if (!player.capabilities.isCreativeMode)
 		{
-			stack.stackSize -= 1;
+			stack.stackSize--;
 		}
 		if (!world.isRemote)
 		{

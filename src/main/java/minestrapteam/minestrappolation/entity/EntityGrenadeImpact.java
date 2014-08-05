@@ -27,6 +27,7 @@ public class EntityGrenadeImpact extends EntityThrowableExplosive
 		if (!this.worldObj.isRemote)
 		{
 			this.worldObj.createExplosion(null, this.posX, this.posY, this.posZ, 2F, true);
+			this.setDead();
 		}
 	}
 	

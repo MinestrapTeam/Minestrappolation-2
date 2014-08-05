@@ -1,46 +1,35 @@
 package minestrapteam.minestrappolation.block;
 
-import java.util.List;
 import java.util.Random;
 
-import minestrapteam.mcore.util.MCAssetManager;
 import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.lib.MBlocks;
 import minestrapteam.minestrappolation.tileentity.TileEntityMelter;
+import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tileentity.TileEntityFurnace;
-import net.minecraft.util.EnumChatFormatting;
-import net.minecraft.util.IIcon;
-import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class BlockMelter extends BlockContainer
+public class BlockMelter extends MBlockMachine
 {
 	private final boolean	isActive;
 	
 	private static boolean	keepInventory	= false;
 	
-	private IIcon			topIcon;
-	private IIcon			frontIcon;
-	private IIcon			bottomIcon;
-	
-	public BlockMelter(boolean par2)
+	public BlockMelter(boolean active)
 	{
-		super(Material.rock);
-		this.isActive = par2;
+		super(Material.rock, "melter");
+		this.isActive = active;
 		
-		if (par2)
+		if (active)
 		{
 			this.setLightLevel(1F);
 		}
@@ -53,117 +42,18 @@ public class BlockMelter extends BlockContainer
 	}
 	
 	@Override
-	public void onBlockAdded(World world, int x, int y, int z)
+	public Item getItem(World world, int x, int y, int z)
 	{
-		super.onBlockAdded(world, x, y, z);
-		this.setDefaultDirection(world, x, y, z);
-	}
-	
-	private void setDefaultDirection(World world, int x, int y, int z)
-	{
-		if (!world.isRemote)
-		{
-			Block var5 = world.getBlock(x, y, z - 1);
-			Block var6 = world.getBlock(x, y, z + 1);
-			Block var7 = world.getBlock(x - 1, y, z);
-			Block var8 = world.getBlock(x + 1, y, z);
-			byte var9 = 3;
-			
-			if (var5.func_149730_j() && !var6.func_149730_j())
-			{
-				var9 = 3;
-			}
-			
-			if (var6.func_149730_j() && !var5.func_149730_j())
-			{
-				var9 = 2;
-			}
-			
-			if (var7.func_149730_j() && !var8.func_149730_j())
-			{
-				var9 = 5;
-			}
-			
-			if (var8.func_149730_j() && !var7.func_149730_j())
-			{
-				var9 = 4;
-			}
-			
-			world.setBlockMetadataWithNotify(x, y, z, var9, 2);
-		}
-	}
-	
-	@Override
-	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase living, ItemStack stack)
-	{
-		int var7 = MathHelper.floor_double(living.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
-		
-		if (var7 == 0)
-		{
-			world.setBlockMetadataWithNotify(x, y, z, 2, 2);
-		}
-		
-		if (var7 == 1)
-		{
-			world.setBlockMetadataWithNotify(x, y, z, 5, 2);
-		}
-		
-		if (var7 == 2)
-		{
-			world.setBlockMetadataWithNotify(x, y, z, 3, 2);
-		}
-		
-		if (var7 == 3)
-		{
-			world.setBlockMetadataWithNotify(x, y, z, 4, 2);
-		}
-		
-		if (stack.hasDisplayName())
-		{
-			((TileEntityFurnace) world.getTileEntity(x, y, z)).func_145951_a(stack.getDisplayName());
-		}
-	}
-	
-	@Override
-	public IIcon getIcon(int side, int metadata)
-	{
-		if (side == 0)
-		{
-			return this.bottomIcon;
-		}
-		else if (side == 1)
-		{
-			return this.topIcon;
-		}
-		else if (side != metadata)
-		{
-			return this.blockIcon;
-		}
-		return this.frontIcon;
+		return Item.getItemFromBlock(MBlocks.melterIdle);
 	}
 	
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getMachineTexture("melter_side"));
-		this.frontIcon = iconRegister.registerIcon(this.isActive ? MCAssetManager.getMachineTexture("melter_front_on") : MCAssetManager.getMachineTexture("melter_front_off"));
-		this.topIcon = iconRegister.registerIcon(MCAssetManager.getMachineTexture("melter_top"));
-		this.bottomIcon = iconRegister.registerIcon(MCAssetManager.getMachineTexture("melter_bottom"));
-	}
-	
-	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ)
-	{
-		if (!world.isRemote)
-		{
-			TileEntity te = world.getTileEntity(x, y, z);
-			
-			if (te instanceof TileEntityMelter)
-			{
-				player.openGui(Minestrappolation.instance, 2, world, x, y, z);
-			}
-		}
-		return true;
+		this.blockIcon = iconRegister.registerIcon(MAssetManager.getMachineTexture("melter_side"));
+		this.frontIcon = iconRegister.registerIcon(this.isActive ? MAssetManager.getMachineTexture("melter_front_on") : MAssetManager.getMachineTexture("melter_front_off"));
+		this.topIcon = iconRegister.registerIcon(MAssetManager.getMachineTexture("melter_top"));
+		this.bottomIcon = iconRegister.registerIcon(MAssetManager.getMachineTexture("melter_bottom"));
 	}
 	
 	public static void updateBlockState(boolean active, World world, int x, int y, int z)
@@ -284,13 +174,17 @@ public class BlockMelter extends BlockContainer
 		super.breakBlock(world, x, y, z, block, metadata);
 	}
 	
-	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)
-	{
-		par3List.add(EnumChatFormatting.RED + "WIP");
-	}
-	
 	public boolean isActive()
 	{
 		return this.isActive;
+	}
+
+	@Override
+	public void openGUI(EntityPlayer player, World world, int x, int y, int z)
+	{
+		if (world.getTileEntity(x, y, z) instanceof TileEntityMelter)
+		{
+			player.openGui(Minestrappolation.instance, 2, world, x, y, z);
+		}
 	}
 }

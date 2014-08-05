@@ -1,6 +1,6 @@
 package minestrapteam.minestrappolation.block;
 
-import minestrapteam.mcore.util.MCUtil;
+import minestrapteam.minestrappolation.util.MUtil;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -45,7 +45,7 @@ public class BlockPlutoniumRaw extends BlockRadiation
 	@Override
 	public boolean canPlaceBlockAt(World world, int x, int y, int z)
 	{
-		if (!world.isRemote && !MCUtil.isWaterTouchingAnySide(world, x, y, z))
+		if (!world.isRemote && !MUtil.isWaterTouchingAnySide(world, x, y, z))
 		{
 			world.createExplosion(null, x, y, z, 4F, false);
 		}

@@ -3,15 +3,14 @@ package minestrapteam.minestrappolation.client;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.network.IGuiHandler;
-import minestrapteam.minestrappolation.client.gui.GuiBarrel;
-import minestrapteam.minestrappolation.client.gui.GuiCrate;
-import minestrapteam.minestrappolation.client.gui.GuiMelter;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import minestrapteam.minestrappolation.client.gui.*;
 import minestrapteam.minestrappolation.client.renderer.RenderHangGlider;
 import minestrapteam.minestrappolation.client.renderer.RenderNukePrimed;
-import minestrapteam.minestrappolation.client.renderer.block.RenderBlockPlating;
-import minestrapteam.minestrappolation.client.renderer.block.RenderGoblet;
-import minestrapteam.minestrappolation.client.renderer.block.RenderPlate;
+import minestrapteam.minestrappolation.client.renderer.block.*;
+import minestrapteam.minestrappolation.client.renderer.tileentity.RenderLocked;
+import minestrapteam.minestrappolation.client.renderer.tileentity.RenderSawmill;
+import minestrapteam.minestrappolation.client.renderer.tileentity.RenderStonecutter;
 import minestrapteam.minestrappolation.common.MCommonProxy;
 import minestrapteam.minestrappolation.entity.*;
 import minestrapteam.minestrappolation.lib.MItems;
@@ -20,25 +19,39 @@ import minestrapteam.minestrappolation.tileentity.*;
 import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
+import net.minecraftforge.client.MinecraftForgeClient;
 
-public class MClientProxy extends MCommonProxy implements IGuiHandler
+public class MClientProxy extends MCommonProxy
 {
-	public static int	platingRenderID;
-	
 	@Override
-	public void init(FMLInitializationEvent event)
+	public void preInit(FMLPreInitializationEvent event)
 	{
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGoblet.class, new RenderGoblet());
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPlate.class, new RenderPlate());
+		custom2RenderID = RenderingRegistry.getNextAvailableRenderId();
+		RenderingRegistry.registerBlockHandler(custom2RenderID, new RenderBlockCustom2());
 		
 		platingRenderID = RenderingRegistry.getNextAvailableRenderId();
 		RenderingRegistry.registerBlockHandler(platingRenderID, new RenderBlockPlating());
 		
-		RenderingRegistry.registerEntityRenderingHandler(EntityHangGlider.class, new RenderHangGlider());
+		lockedRenderID = RenderingRegistry.getNextAvailableRenderId();
+		RenderingRegistry.registerBlockHandler(lockedRenderID, new RenderBlockLocked());
+		
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityStonecutter.class, new RenderStonecutter());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntitySawmill.class, new RenderSawmill());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGoblet.class, new RenderGoblet());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPlate.class, new RenderPlate());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityLocked.class, new RenderLocked());
+		
+		MinecraftForgeClient.registerItemRenderer(MItems.hangGlider, new RenderHangGlider());
+	}
+	
+	@Override
+	public void init(FMLInitializationEvent event)
+	{
 		RenderingRegistry.registerEntityRenderingHandler(EntityNukePrimed.class, new RenderNukePrimed());
 		RenderingRegistry.registerEntityRenderingHandler(EntityGrenade.class, new RenderSnowball(MItems.grenade));
-		RenderingRegistry.registerEntityRenderingHandler(EntityGrenadeImpact.class, new RenderSnowball(MItems.grenadeNuke));
+		RenderingRegistry.registerEntityRenderingHandler(EntityGrenadeImpact.class, new RenderSnowball(MItems.grenadeImpact));
 		RenderingRegistry.registerEntityRenderingHandler(EntityGrenadeSticky.class, new RenderSnowball(MItems.grenadeSticky));
+		RenderingRegistry.registerEntityRenderingHandler(EntityGrenadeNuke.class, new RenderSnowball(MItems.grenadeNuke));
 	}
 	
 	@Override
@@ -56,6 +69,14 @@ public class MClientProxy extends MCommonProxy implements IGuiHandler
 		{
 			return new GuiMelter(player, (TileEntityMelter) world.getTileEntity(x, y, z));
 		}
+		else if (id == 3)
+		{
+			return new GuiStonecutter(player.inventory, (TileEntityStonecutter) world.getTileEntity(x, y, z));
+		}
+		else if (id == 4)
+		{
+			return new GuiSawmill(player.inventory, (TileEntitySawmill) world.getTileEntity(x, y, z));
+		}
 		return null;
 	}
 	
@@ -63,5 +84,11 @@ public class MClientProxy extends MCommonProxy implements IGuiHandler
 	public int addArmor(String armor)
 	{
 		return RenderingRegistry.addNewArmourRendererPrefix(armor);
+	}
+	
+	@Override
+	public boolean isClient()
+	{
+		return true;
 	}
 }

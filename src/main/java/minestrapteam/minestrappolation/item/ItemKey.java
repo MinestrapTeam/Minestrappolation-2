@@ -2,18 +2,16 @@ package minestrapteam.minestrappolation.item;
 
 import java.util.List;
 
-import minestrapteam.mcore.item.MCItem;
-import minestrapteam.minestrappolation.tileentity.TileEntityLocked;
+import minestrapteam.minestrappolation.lib.MBlocks;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 
-public class ItemKey extends MCItem
+public class ItemKey extends MItem
 {
 	public ItemKey()
 	{
@@ -34,10 +32,15 @@ public class ItemKey extends MCItem
 	{
 		if (stack.stackTagCompound == null)
 		{
-			ItemKey.createNBT(stack, player);
+			ItemKey.createNBT(stack, null);
 		}
-		String name = stack.stackTagCompound.getString("player");
-		if (player.getDisplayName().equals(name))
+		
+		String name = getOwner(stack);
+		if (name.isEmpty())
+		{
+			list.add(EnumChatFormatting.GRAY + "No Owner");
+		}
+		else if (isOwner(name, player))
 		{
 			list.add(EnumChatFormatting.GRAY + "Owner: " + EnumChatFormatting.GREEN + name);
 		}
@@ -45,8 +48,6 @@ public class ItemKey extends MCItem
 		{
 			list.add(EnumChatFormatting.GRAY + "Owner: " + EnumChatFormatting.RED + name);
 		}
-		
-		list.add(EnumChatFormatting.RED + "WIP");
 	}
 	
 	@Override
@@ -57,26 +58,17 @@ public class ItemKey extends MCItem
 			return true;
 		}
 		
-		if (stack.stackTagCompound == null)
+		String name = getOwner(stack);
+		if (name.isEmpty())
 		{
 			createNBT(stack, player);
+			return false;
 		}
 		
-		TileEntity te = world.getTileEntity(x, y, z);
-		if (te instanceof TileEntityLocked)
+		if (world.getBlock(x, y, z) == MBlocks.lockedBlock)
 		{
-			String name = stack.stackTagCompound.getString("player");
-			TileEntityLocked locked = (TileEntityLocked) te;
-			if (locked.isOwner(name))
+			if (MBlocks.lockedBlock.unlock(name, world, x, y, z))
 			{
-				if (locked.isLocked())
-				{
-					locked.unlock();
-				}
-				else
-				{
-					locked.lock();
-				}
 				return true;
 			}
 			else
@@ -86,16 +78,42 @@ public class ItemKey extends MCItem
 		}
 		else
 		{
-			player.addChatMessage(new ChatComponentTranslation("lock.not_applicable"));
+			player.addChatMessage(new ChatComponentTranslation("lock.not_locked"));
 		}
 		
 		return false;
 	}
 	
-	public static void createNBT(ItemStack item, EntityPlayer player)
+	public static void createNBT(ItemStack stack, EntityPlayer player)
 	{
-		NBTTagCompound nbt = new NBTTagCompound();
-		item.stackTagCompound = nbt;
-		nbt.setString("player", player.getDisplayName());
+		String name = player == null ? "" : player.getDisplayName();
+		
+		if (stack.stackTagCompound == null)
+		{
+			stack.stackTagCompound = new NBTTagCompound();
+		}
+		stack.stackTagCompound.setString("LockOwner", name);
+	}
+	
+	public static String getOwner(ItemStack stack)
+	{
+		if (stack.stackTagCompound == null)
+		{
+			return "";
+		}
+		return stack.stackTagCompound.getString("LockOwner");
+	}
+	
+	public static boolean isOwner(String ownerName, EntityPlayer player)
+	{
+		if (ownerName.isEmpty())
+		{
+			return true;
+		}
+		if (!player.getDisplayName().equals(ownerName))
+		{
+			return false;
+		}
+		return true;
 	}
 }

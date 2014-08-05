@@ -3,7 +3,6 @@ package minestrapteam.minestrappolation.item;
 import java.util.List;
 
 import clashsoft.cslib.minecraft.lang.I18n;
-import minestrapteam.mcore.item.MCItem;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;
@@ -11,7 +10,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class ItemGuano extends MCItem
+public class ItemGuano extends MItem
 {
 	public ItemGuano()
 	{
@@ -25,19 +24,18 @@ public class ItemGuano extends MCItem
 		{
 			return false;
 		}
-		else
+		
+		if (applyBonemeal(stack, world, x, y, z))
 		{
-			if (applyBonemeal(stack, world, x, y, z))
+			if (!world.isRemote)
 			{
-				if (!world.isRemote)
-				{
-					world.playAuxSFX(2005, x, y, z, 0);
-				}
-				
-				return true;
+				world.playAuxSFX(2005, x, y, z, 0);
 			}
-			return false;
+			
+			return true;
 		}
+		
+		return false;
 	}
 	
 	public static boolean applyBonemeal(ItemStack item, World world, int x, int y, int z)
@@ -73,5 +71,4 @@ public class ItemGuano extends MCItem
 		list.add(I18n.getString("item.guano.desc"));
 		list.add(I18n.getString("item.guano.desc2"));
 	}
-	
 }

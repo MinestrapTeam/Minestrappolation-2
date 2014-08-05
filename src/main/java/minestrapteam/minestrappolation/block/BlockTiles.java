@@ -2,7 +2,7 @@ package minestrapteam.minestrappolation.block;
 
 import java.util.List;
 
-import minestrapteam.mcore.util.MCAssetManager;
+import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -45,10 +45,10 @@ public class BlockTiles extends Block
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.flintEndstoneIcon = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("checker_tiles_flint_endstone"));
-		this.flintQuartzIcon = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("checker_tiles_flint_netherquartz"));
-		this.obsidianEndstoneIcon = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("checker_tiles_obsidian_endstone"));
-		this.obsidianQuartzIcon = iconRegister.registerIcon(MCAssetManager.getStonecutterTexture("checker_tiles_obsidian_netherquartz"));
+		this.flintEndstoneIcon = iconRegister.registerIcon(MAssetManager.getStonecutterTexture("checker_tiles_flint_endstone"));
+		this.flintQuartzIcon = iconRegister.registerIcon(MAssetManager.getStonecutterTexture("checker_tiles_flint_netherquartz"));
+		this.obsidianEndstoneIcon = iconRegister.registerIcon(MAssetManager.getStonecutterTexture("checker_tiles_obsidian_endstone"));
+		this.obsidianQuartzIcon = iconRegister.registerIcon(MAssetManager.getStonecutterTexture("checker_tiles_obsidian_netherquartz"));
 	}
 	
 	@Override

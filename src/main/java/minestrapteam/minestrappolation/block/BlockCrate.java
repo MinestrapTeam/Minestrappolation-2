@@ -1,8 +1,8 @@
 package minestrapteam.minestrappolation.block;
 
-import minestrapteam.mcore.util.MCAssetManager;
 import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.tileentity.TileEntityCrate;
+import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
@@ -18,8 +18,8 @@ public class BlockCrate extends BlockBarrel
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon(MCAssetManager.getMachineTexture("crate_side"));
-		this.top = iconRegister.registerIcon(MCAssetManager.getMachineTexture("crate_top"));
+		this.blockIcon = iconRegister.registerIcon(MAssetManager.getMachineTexture("crate_side"));
+		this.top = iconRegister.registerIcon(MAssetManager.getMachineTexture("crate_top"));
 	}
 	
 	@Override

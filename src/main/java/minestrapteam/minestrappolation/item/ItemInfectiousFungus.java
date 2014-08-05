@@ -1,6 +1,5 @@
 package minestrapteam.minestrappolation.item;
 
-import minestrapteam.mcore.item.MCItemFood;
 import minestrapteam.minestrappolation.lib.MPotions;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -9,7 +8,7 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
-public class ItemInfectiousFungus extends MCItemFood
+public class ItemInfectiousFungus extends MItemFood
 {
 	public ItemInfectiousFungus(int healAmount, float saturationModifier)
 	{

@@ -2,8 +2,8 @@ package minestrapteam.minestrappolation.block;
 
 import java.util.Random;
 
-import minestrapteam.mcore.util.MCAssetManager;
 import minestrapteam.minestrappolation.lib.MItems;
+import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.material.Material;
@@ -15,18 +15,18 @@ public class BlockGlassDoor extends BlockDoor
 	public BlockGlassDoor(Material material)
 	{
 		super(material);
-		this.setBlockTextureName(MCAssetManager.getTexture("glass_door"));
+		this.setBlockTextureName(MAssetManager.getTexture("glass_door"));
 	}
 	
 	@Override
 	public Item getItem(World world, int x, int y, int z)
 	{
-		return MItems.glassDoor;
+		return MItems.glassDoorItem;
 	}
 	
 	@Override
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
-		return MItems.glassDoor;
+		return MItems.glassDoorItem;
 	}
 }

@@ -26,10 +26,10 @@ public class ContainerMelter extends ContainerInventory
 		this.lastMeltTime = 0;
 		this.lastBurnTime = 0;
 		this.lastMaxBurnTime = 0;
-		// burn
-		this.addSlotToContainer(new Slot(melter, 1, 47, 53));
 		// fuel
 		this.addSlotToContainer(new Slot(melter, 0, 56, 17));
+		// burn
+		this.addSlotToContainer(new Slot(melter, 1, 47, 53));
 		// result
 		this.addSlotToContainer(new SlotMelter(player, melter, 2, 116, 35));
 		// bucket
@@ -98,18 +98,9 @@ public class ContainerMelter extends ContainerInventory
 			ItemStack itemstack1 = slot.getStack();
 			itemstack = itemstack1.copy();
 			
-			if (slotID == 1 || slotID == 0)
+			if (slotID < 4)
 			{
-				if (!this.mergeItemStack(itemstack1, 3, 30, true))
-				{
-					return null;
-				}
-				
-				slot.onSlotChange(itemstack1, itemstack);
-			}
-			else if (slotID == 1 || slotID == 0)
-			{
-				if (!this.mergeItemStack(itemstack1, 3, 30, false))
+				if (!this.mergeItemStack(itemstack1, 4, 40, true))
 				{
 					return null;
 				}
@@ -128,24 +119,26 @@ public class ContainerMelter extends ContainerInventory
 					return null;
 				}
 			}
-			
-			else if (slotID == 2 || slotID == 1 || slotID == 0)
+			else if (itemstack1.getItem().getContainerItem(itemstack1) != null)
 			{
-				if (!this.mergeItemStack(itemstack1, 3, 39, false))
+				if (!this.mergeItemStack(itemstack1, 3, 4, false))
 				{
 					return null;
 				}
 			}
 			else if (slotID >= 3 && slotID < 30)
 			{
-				if (!this.mergeItemStack(itemstack1, 30, 39, false))
+				if (!this.mergeItemStack(itemstack1, 31, 40, false))
 				{
 					return null;
 				}
 			}
-			else if (slotID >= 30 && slotID < 39 && !this.mergeItemStack(itemstack1, 3, 30, false))
+			else if (slotID >= 30 && slotID < 39)
 			{
-				return null;
+				if (!this.mergeItemStack(itemstack1, 4, 31, false))
+				{
+					return null;
+				}
 			}
 			
 			if (itemstack1.stackSize == 0)
