@@ -1,5 +1,5 @@
-version=1.7.10-3.2.0
-motd=3... 2... 1... Minestrappolation 3.2.1! Fixed Bugfixes and improved Improvements!
+version=1.7.10-3.2.1
+motd=Minestrappolation 3.2.1 is out! Make sure to also grab latest Clashsoft Lib and Brewing API versions!
 motdcolor=gold
 url=https://github.com/MinestrapTeam/Minestrappolation-2/releases/download/1.7.10-3.2.1/Minestrappolation-1.7.10-3.2.1.jar
 
