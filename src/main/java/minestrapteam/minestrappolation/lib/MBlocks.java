@@ -7,8 +7,8 @@ import minestrapteam.minestrappolation.item.block.MCItemBlockMulti;
 import minestrapteam.minestrappolation.material.MaterialOoze;
 import minestrapteam.minestrappolation.util.MAssetManager;
 import minestrapteam.minestrappolation.util.MBlockHelper;
-
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockWorkbench;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -324,6 +324,8 @@ public class MBlocks
 	
 	public static Block			glassDoor;
 	
+	public static Block			craftingTable2;
+	
 	public static void init()
 	{
 		addStoneBlocks();
@@ -370,7 +372,7 @@ public class MBlocks
 		
 		lockedBlock = (BlockLocked) new BlockLocked().setBlockUnbreakable().setBlockTextureName("iron_block");
 		
-		stoneCutter = new BlockStonecutter().setCreativeTab(Minestrappolation.tabDecorationBlocks).setHardness(3.5F).setStepSound(Block.soundTypeStone);
+		stoneCutter = new BlockStonecutter().setCreativeTab(Minestrappolation.tabTech).setHardness(3.5F).setStepSound(Block.soundTypeStone);
 		sawmill = new BlockSawmill().setCreativeTab(Minestrappolation.tabTech).setHardness(2.5F).setStepSound(Block.soundTypeWood);
 		
 		checkerTiles = new BlockTiles().setCreativeTab(Minestrappolation.tabStoneDecor).setStepSound(Block.soundTypeStone);
@@ -411,6 +413,8 @@ public class MBlocks
 		cardboardBlock = new BlockCardboard(Material.cloth).setHardness(0.4F).setCreativeTab(Minestrappolation.tabBuildingBlocks);
 		
 		glassDoor = new BlockGlassDoor(Material.glass).setHardness(1F);
+		
+		craftingTable2 = new BlockWorkbench2().setHardness(2.5F).setStepSound(Block.soundTypeWood).setBlockName("workbench").setBlockTextureName("crafting_table");
 	}
 	
 	public static void load()
@@ -496,6 +500,8 @@ public class MBlocks
 		CSBlocks.addBlock(cardboardBlock, MCItemBlockMulti.class, "cardboard_block");
 		
 		CSBlocks.addBlock(glassDoor, "glass_door_block");
+		
+		CSBlocks.replaceBlock(Blocks.crafting_table, craftingTable2);
 		
 		setFlammability();
 	}
