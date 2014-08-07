@@ -25,10 +25,6 @@ import minestrapteam.minestrappolation.network.MNetHandler;
 import minestrapteam.minestrappolation.world.MOreGenerator;
 
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fluids.FluidContainerRegistry;
-import net.minecraftforge.fluids.FluidRegistry;
 
 @Mod(modid = MReference.MODID, name = MReference.NAME, version = MReference.VERSION, dependencies = MReference.DEPENDENCY)
 public class Minestrappolation extends BaseMod
