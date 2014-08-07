@@ -50,9 +50,7 @@ public class Minestrappolation extends BaseMod
 	public static CreativeTabs			tabMaterials		= new MTabMaterials("minestrap_materials");
 	
 	public static MelterRecipeLoader	melter				= new MelterRecipeLoader("melter");
-	
-	public static Fluid					magmaFluid;
-	
+		
 	public static boolean				showDurability;
 	public static boolean				shouldOresEffect	= true;
 	public static int					daysUntilTarnish;
@@ -90,9 +88,9 @@ public class Minestrappolation extends BaseMod
 	public void preInit(FMLPreInitializationEvent event)
 	{
 		super.preInit(event);
-		
-		magmaFluid = new Fluid("Magma").setLuminosity(10).setViscosity(6500).setDensity(4000).setTemperature(1500);
-		FluidRegistry.registerFluid(magmaFluid);
+				
+		MLiquids.init();
+		MLiquids.load();
 		
 		MBlocks.init();
 		MItems.init();
@@ -106,7 +104,7 @@ public class Minestrappolation extends BaseMod
 		MOreDictionary.load();
 		MEntities.load();
 		
-		FluidContainerRegistry.registerFluidContainer(magmaFluid, new ItemStack(MItems.magmaBucket));
+		MLiquids.registerFluidContainers();
 	}
 	
 	@Override
