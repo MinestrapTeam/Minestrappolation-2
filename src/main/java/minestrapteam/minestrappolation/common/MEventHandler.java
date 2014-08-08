@@ -2,6 +2,7 @@ package minestrapteam.minestrappolation.common;
 
 import java.util.Random;
 
+import clashsoft.cslib.minecraft.init.CSLib;
 import cpw.mods.fml.common.IFuelHandler;
 import cpw.mods.fml.common.eventhandler.Event.Result;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -102,6 +103,9 @@ public class MEventHandler implements IFuelHandler
 					player.addPotionEffect(new PotionEffect(Potion.resistance.id, 2, 1, true));
 				}
 			}
+			
+			// Empty String means default
+			CSLib.getNetHandler().sendCapePacket(player, "");
 		}
 	}
 	

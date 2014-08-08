@@ -1,6 +1,7 @@
 package minestrapteam.minestrappolation;
 
 import clashsoft.cslib.config.CSConfig;
+import clashsoft.cslib.minecraft.cape.Capes;
 import clashsoft.cslib.minecraft.init.BaseMod;
 import clashsoft.cslib.minecraft.update.CSUpdate;
 import clashsoft.cslib.minecraft.update.reader.SimpleUpdateReader;
@@ -25,10 +26,7 @@ import minestrapteam.minestrappolation.network.MNetHandler;
 import minestrapteam.minestrappolation.world.MOreGenerator;
 
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fluids.FluidContainerRegistry;
-import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraft.util.ResourceLocation;
 
 @Mod(modid = MReference.MODID, name = MReference.NAME, version = MReference.VERSION, dependencies = MReference.DEPENDENCY)
 public class Minestrappolation extends BaseMod
@@ -105,6 +103,13 @@ public class Minestrappolation extends BaseMod
 		MEntities.load();
 		
 		MLiquids.registerFluidContainers();
+		
+		Capes.addCape("minestrap_dev", new ResourceLocation("minestrappolation", "textures/misc/cape_dev.png"));
+		
+		Capes.setCapeName("SoBiohazardous", "minestrap_dev");
+		Capes.setLocalCape("AdrianKunz", new ResourceLocation("minestrappolation", "textures/misc/cape_clashsoft.png"));
+		Capes.setCapeName("Delocuro", "minestrap_dev");
+		Capes.setCapeName("Thewerty1124", "minestrap_dev");
 	}
 	
 	@Override
