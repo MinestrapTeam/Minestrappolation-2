@@ -6,7 +6,6 @@ import net.minecraft.entity.Entity;
 
 public class ModelWorkbench extends ModelBase
 {
-	private ModelRenderer base;
 	private ModelRenderer frontSaw1;
 	private ModelRenderer frontSaw2;
 	private ModelRenderer frontSaw3;
@@ -41,12 +40,6 @@ public class ModelWorkbench extends ModelBase
 		this.textureWidth = 64;
 		this.textureHeight = 32;
 
-		this.base = new ModelRenderer(this, 0, 0);
-		this.base.addBox(0F, 0F, 0F, 16, 16, 16);
-		this.base.setRotationPoint(-8F, 8F, -8F);
-		this.base.setTextureSize(64, 32);
-		this.base.mirror = true;
-		setRotation(this.base, 0F, 0F, 0F);
 		this.frontSaw1 = new ModelRenderer(this, 48, 0);
 		this.frontSaw1.addBox(0F, 0F, 0F, 3, 1, 1);
 		this.frontSaw1.setRotationPoint(3F, 11F, -9F);
@@ -220,7 +213,6 @@ public class ModelWorkbench extends ModelBase
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
 	{
-		this.base.render(f5);
 		this.frontSaw1.render(f5);
 		this.frontSaw2.render(f5);
 		this.frontSaw3.render(f5);

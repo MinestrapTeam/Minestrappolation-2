@@ -2,10 +2,8 @@ package minestrapteam.minestrappolation.block;
 
 import minestrapteam.minestrappolation.tileentity.TileEntityWorkbench2;
 import minestrapteam.minestrappolation.util.MAssetManager;
-import net.minecraft.block.Block;
+
 import net.minecraft.block.BlockContainer;
-import net.minecraft.block.BlockWorkbench;
-import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -24,7 +22,7 @@ public class BlockWorkbench2 extends BlockContainer
 	{
 		super(Material.wood);
         this.setCreativeTab(CreativeTabs.tabDecorations);
-		this.setBlockTextureName(MAssetManager.getMachineTexture("CraftingTable"));
+		this.setBlockTextureName(MAssetManager.getMachineTexture("crafting_table"));
 	}
 	
 	

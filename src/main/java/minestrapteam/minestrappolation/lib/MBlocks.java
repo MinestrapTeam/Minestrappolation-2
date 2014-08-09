@@ -414,7 +414,7 @@ public class MBlocks
 		
 		glassDoor = new BlockGlassDoor(Material.glass).setHardness(1F);
 		
-		craftingTable2 = new BlockWorkbench2().setHardness(2.5F).setStepSound(Block.soundTypeWood).setBlockName("workbench").setBlockTextureName("crafting_table");
+		craftingTable2 = new BlockWorkbench2().setHardness(2.5F).setStepSound(Block.soundTypeWood).setBlockName("workbench");
 	}
 	
 	public static void load()
