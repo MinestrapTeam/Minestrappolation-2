@@ -51,8 +51,6 @@ public class MRecipes
 		GameRegistry.addSmelting(Items.blaze_powder, new ItemStack(blazeShard), 1.0F);
 		GameRegistry.addSmelting(sunstoneOre, new ItemStack(sunstoneDust), 1.0F);
 		
-		GameRegistry.addRecipe(new ItemStack(steelLock), new Object[] { " I ", "SSS", " S ", 'I', Items.iron_ingot, 'S', steelIngot });
-		GameRegistry.addRecipe(new ItemStack(steelKey), new Object[] { "SSS", "GG ", 'G', Items.gold_ingot, 'S', steelIngot });
 		GameRegistry.addRecipe(new ItemStack(soulBottle, 4), new Object[] { "S", "G", 'S', soulGem, 'G', Items.glass_bottle });
 		GameRegistry.addRecipe(new ItemStack(grenade), new Object[] { " I ", "SGS", "SGS", 'I', Items.iron_ingot, 'S', plateSteelItem, 'G', Items.gunpowder });
 		GameRegistry.addShapelessRecipe(new ItemStack(grenadeImpact), new ItemStack(Items.gunpowder), new ItemStack(grenade), new ItemStack(Items.gunpowder));
@@ -85,7 +83,6 @@ public class MRecipes
 		// MBlockMachine recipes require the metadata 1 because of the front texture of the item.
 		GameRegistry.addRecipe(new ItemStack(melterIdle, 1, 1), new Object[] { "ZZZ", "ZFZ", "IBI", 'Z', plateMeuroditeItem, 'F', Blocks.furnace, 'B', blaziumBlock, 'I', Blocks.iron_bars });
 		GameRegistry.addRecipe(new ItemStack(stoneCutter, 1, 1), new Object[] { "II", "CC", "CC", 'C', Blocks.cobblestone, 'I', Items.iron_ingot });
-		GameRegistry.addRecipe(new ItemStack(sawmill, 1, 1), new Object[] { "II", "WW", "WW", 'W', Blocks.planks, 'I', MItems.copperIngot });
 		
 		// EO Tool Recipes
 		
@@ -310,12 +307,14 @@ public class MRecipes
 		MUtil.removeRecipe(new ItemStack(Blocks.jukebox, 1));
 		MUtil.removeRecipe(new ItemStack(Blocks.noteblock, 1));
 		MUtil.removeRecipe(new ItemStack(Blocks.bookshelf, 1));
-		MUtil.removeRecipe(Blocks.wooden_slab);
+		MUtil.removeRecipe(new ItemStack(Blocks.wooden_slab, 6));
 		MUtil.removeRecipe(new ItemStack(Items.boat, 1));
 		MUtil.removeRecipe(new ItemStack(Blocks.ladder, 3));
 		MUtil.removeRecipe(new ItemStack(Items.wooden_door, 1));
 		MUtil.removeRecipe(new ItemStack(Blocks.trapdoor, 2));
 		MUtil.removeRecipe(new ItemStack(Items.sign, 3));
+		MUtil.removeRecipe(new ItemStack(Items.item_frame, 1));
+		MUtil.removeRecipe(new ItemStack(Items.painting, 1));
 		MUtil.removeRecipe(new ItemStack(Blocks.oak_stairs, 4));
 		MUtil.removeRecipe(new ItemStack(Blocks.birch_stairs, 4));
 		MUtil.removeRecipe(new ItemStack(Blocks.spruce_stairs, 4));

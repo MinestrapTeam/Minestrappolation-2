@@ -29,8 +29,8 @@ public class SawingManager
 	
 	private SawingManager()
 	{
-		this.addRecipe(new ItemStack(Blocks.chest), new Object[] { "###", "# #", "###", '#', "plankWood" });
-		this.addRecipe(new ItemStack(Blocks.crafting_table), new Object[] { "##", "##", '#', "plankWood" });
+		this.addRecipe(new ItemStack(Blocks.chest, 1), new Object[] { "###", "# #", "###", '#', "plankWood" });
+		this.addRecipe(new ItemStack(Blocks.crafting_table, 1), new Object[] { "##", "##", '#', "plankWood" });
 		this.addRecipe(new ItemStack(Blocks.fence, 2), new Object[] { "###", "###", '#', "stickWood" });
 		this.addRecipe(new ItemStack(Blocks.fence_gate, 1), new Object[] { "#W#", "#W#", '#', "stickWood", 'W', "plankWood" });
 		this.addRecipe(new ItemStack(Blocks.jukebox, 1), new Object[] { "###", "#X#", "###", '#', "plankWood", 'X', "gemDiamond" });
@@ -42,7 +42,14 @@ public class SawingManager
 		this.addRecipe(new ItemStack(Items.wooden_door, 1), new Object[] { "##", "##", "##", '#', "plankWood" });
 		this.addRecipe(new ItemStack(Blocks.trapdoor, 2), new Object[] { "###", "###", '#', "plankWood" });
 		this.addRecipe(new ItemStack(Items.sign, 3), new Object[] { "###", "###", " X ", '#', "plankWood", 'X', "stickWood" });
+		this.addRecipe(new ItemStack(Items.item_frame, 1), new Object[] { "###", "#X#", "###", '#', "stickWood", 'X', Items.leather});
+		this.addRecipe(new ItemStack(Items.painting, 1), new Object[] { "###", "#X#", "###", '#', "stickWood", 'X', Blocks.wool});
 		this.addRecipe(new ItemStack(Items.bed, 1), new Object[] { "###", "XXX", '#', Blocks.wool, 'X', "plankWood" });
+		this.addRecipe(new ItemStack(Items.bowl, 4), new Object[] { "# #", " # ", '#', "plankWood" });
+		this.addRecipe(new ItemStack(Blocks.wooden_button, 1), new Object[] { "#", '#', "plankWood"});
+		this.addRecipe(new ItemStack(Blocks.wooden_pressure_plate, 1), new Object[] { "##", '#', "plankWood"});
+		this.addRecipe(new ItemStack(MBlocks.crate, 1), new Object[] { "###", "XXX", "###", '#', "plankWood", 'X', "stickWood" });
+		this.addRecipe(new ItemStack(MBlocks.barrel, 1), new Object[] { "#X#", "# #", "#X#", '#', "plankWood", 'X', "ingotTin" });
 		
 		// Planks
 		this.addRecipe(new ItemStack(Blocks.planks, 6, 0), new Object[] { "#", '#', new ItemStack(Blocks.log, 1, 0) });
