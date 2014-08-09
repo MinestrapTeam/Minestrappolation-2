@@ -12,35 +12,56 @@ public class MOreDictionary
 {
 	public static void load()
 	{
+		OreDictionary.registerOre("blockCopper", MBlocks.copperBlock);
 		OreDictionary.registerOre("ingotCopper", MItems.copperIngot);
 		OreDictionary.registerOre("oreCopper", MBlocks.copperOre);
+		OreDictionary.registerOre("blockTin", MBlocks.tinBlock);
 		OreDictionary.registerOre("ingotTin", MItems.tinIngot);
 		OreDictionary.registerOre("oreTin", MBlocks.tinOre);
 		OreDictionary.registerOre("plateTin", MBlocks.tinPlate);
+		OreDictionary.registerOre("blockBronze", MBlocks.bronzeBlock);
 		OreDictionary.registerOre("ingotBronze", MItems.bronzeIngot);
 		OreDictionary.registerOre("plateBronze", MBlocks.bronzePlate);
+		OreDictionary.registerOre("blockSteel", MBlocks.steelBlock);
 		OreDictionary.registerOre("ingotCoalIron", MItems.coalIronIngot);
 		OreDictionary.registerOre("ingotSteel", MItems.steelIngot);
 		OreDictionary.registerOre("plateSteel", MBlocks.steelPlate);
+		OreDictionary.registerOre("blockMeurodite", MBlocks.meuroditeBlock);
 		OreDictionary.registerOre("oreMeurodite", MBlocks.meuroditeOre);
 		OreDictionary.registerOre("plateMeurodite", MBlocks.meuroditePlate);
+		OreDictionary.registerOre("gemMeurodite", MItems.meuroditeGem);
+		OreDictionary.registerOre("blockTorite", MBlocks.toriteBlock);
 		OreDictionary.registerOre("oreTorite", MBlocks.toriteOre);
 		OreDictionary.registerOre("ingotTorite", MItems.toriteIngot);
+		OreDictionary.registerOre("blockTitanium", MBlocks.titaniumBlock);
 		OreDictionary.registerOre("oreTitanium", MBlocks.titaniumOre);
 		OreDictionary.registerOre("ingotTitanium", MItems.titaniumIngot);
+		OreDictionary.registerOre("blockSunstone", MBlocks.sunstoneBlock);
 		OreDictionary.registerOre("oreSunstone", MBlocks.sunstoneOre);
 		OreDictionary.registerOre("dustSunstone", MItems.sunstoneDust);
+		OreDictionary.registerOre("blockUranium", MBlocks.uraniumBlock);
 		OreDictionary.registerOre("oreUranium", MBlocks.uraniumOre);
+		OreDictionary.registerOre("uranium", MItems.uranium);
 		OreDictionary.registerOre("ingotUranium", MItems.uranium);
+		OreDictionary.registerOre("blockPlutonium", MBlocks.plutoniumBlock);
 		OreDictionary.registerOre("orePlutonium", MBlocks.plutoniumOre);
+		OreDictionary.registerOre("plutonium", MItems.plutonium);
 		OreDictionary.registerOre("ingotPlutonium", MItems.plutonium);
+		OreDictionary.registerOre("blockDesertQuartz", new ItemStack(MBlocks.desertQuartz, 1, 0));
+		OreDictionary.registerOre("gemDesertQuartz", MItems.desertQuartz);
+		OreDictionary.registerOre("blockRadiantQuartz", new ItemStack(MBlocks.radiantQuartz, 1, 0));
 		OreDictionary.registerOre("oreQuartzRadiant", MBlocks.radiantQuartzOre);
 		OreDictionary.registerOre("gemRadiantQuartz", MItems.radiantQuartz);
+		OreDictionary.registerOre("blockBlazium", MBlocks.blaziumBlock);
 		OreDictionary.registerOre("oreBlazium", MBlocks.blaziumOre);
 		OreDictionary.registerOre("gemBlazium", MItems.blazeShard);
 		OreDictionary.registerOre("ingotBlazium", MItems.blaziumIngot);
+		OreDictionary.registerOre("blockSoulGem", MBlocks.soulBlock);
 		OreDictionary.registerOre("oreSoul", MBlocks.soulOre);
 		OreDictionary.registerOre("gemSoul", MItems.soulGem);
+		
+		// Logs
+		OreDictionary.registerOre("logWood", MBlocks.redwoodLog);
 		
 		// Planks
 		OreDictionary.registerOre("plankWood", new ItemStack(MBlocks.redwood, 1, 0));
