@@ -105,9 +105,7 @@ public class Minestrappolation extends BaseMod
 		MLiquids.registerFluidContainers();
 		
 		Capes.addCape("minestrap_dev", new ResourceLocation("minestrappolation", "textures/misc/cape_dev.png"));
-		
 		Capes.setCapeName("SoBiohazardous", "minestrap_dev");
-		Capes.setLocalCape("AdrianKunz", new ResourceLocation("minestrappolation", "textures/misc/cape_clashsoft.png"));
 		Capes.setCapeName("Delocuro", "minestrap_dev");
 		Capes.setCapeName("Thewerty1124", "minestrap_dev");
 	}
