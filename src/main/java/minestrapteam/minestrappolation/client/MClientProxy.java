@@ -1,5 +1,6 @@
 package minestrapteam.minestrappolation.client;
 
+import clashsoft.cslib.minecraft.cape.Capes;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -16,8 +17,10 @@ import minestrapteam.minestrappolation.common.MCommonProxy;
 import minestrapteam.minestrappolation.entity.*;
 import minestrapteam.minestrappolation.lib.MItems;
 import minestrapteam.minestrappolation.tileentity.*;
+
 import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.client.MinecraftForgeClient;
 
@@ -53,6 +56,11 @@ public class MClientProxy extends MCommonProxy
 		RenderingRegistry.registerEntityRenderingHandler(EntityGrenadeImpact.class, new RenderSnowball(MItems.grenadeImpact));
 		RenderingRegistry.registerEntityRenderingHandler(EntityGrenadeSticky.class, new RenderSnowball(MItems.grenadeSticky));
 		RenderingRegistry.registerEntityRenderingHandler(EntityGrenadeNuke.class, new RenderSnowball(MItems.grenadeNuke));
+		
+		Capes.setLocalCape("SoBiohazardous", new ResourceLocation("minestrappolation", "textures/misc/cape_sobiohazardous.png"));
+		Capes.setLocalCape("Clashsoft", new ResourceLocation("minestrappolation", "textures/misc/cape_clashsoft.png"));
+		Capes.setLocalCape("Delocuro", new ResourceLocation("minestrappolation", "textures/misc/cape_delocuro.png"));
+		Capes.setLocalCape("Thewerty1124", new ResourceLocation("minestrappolation", "textures/misc/cape_thewerty.png"));
 	}
 	
 	@Override
