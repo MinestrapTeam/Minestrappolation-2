@@ -60,7 +60,7 @@ public class MClientProxy extends MCommonProxy
 		Capes.setLocalCape("SoBiohazardous", new ResourceLocation("minestrappolation", "textures/misc/cape_sobiohazardous.png"));
 		Capes.setLocalCape("Clashsoft", new ResourceLocation("minestrappolation", "textures/misc/cape_clashsoft.png"));
 		Capes.setLocalCape("Delocuro", new ResourceLocation("minestrappolation", "textures/misc/cape_delocuro.png"));
-		Capes.setLocalCape("Thewerty1124", new ResourceLocation("minestrappolation", "textures/misc/cape_thewerty.png"));
+		Capes.setLocalCape("Thewerty1124", new ResourceLocation("minestrappolation", "textures/misc/cape_thewerty.png"));		
 	}
 	
 	@Override

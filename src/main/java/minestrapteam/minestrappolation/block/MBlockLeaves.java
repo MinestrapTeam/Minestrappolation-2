@@ -3,12 +3,13 @@ package minestrapteam.minestrappolation.block;
 import java.util.Random;
 
 import minestrapteam.minestrappolation.lib.MBlocks;
-
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public class MBlockLeaves extends BlockLeaves
 {
@@ -66,4 +67,9 @@ public class MBlockLeaves extends BlockLeaves
 	{
 		return Item.getItemFromBlock(MBlocks.redwoodSapling);
 	}
+	
+	public boolean isFlammable(IBlockAccess world, int x, int y, int z, ForgeDirection face)
+    {
+    	return true;
+    }
 }

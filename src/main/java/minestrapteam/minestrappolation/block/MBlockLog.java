@@ -3,6 +3,8 @@ package minestrapteam.minestrappolation.block;
 import net.minecraft.block.BlockLog;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public class MBlockLog extends BlockLog
 {
@@ -38,4 +40,9 @@ public class MBlockLog extends BlockLog
 	{
 		return 0;
 	}
+	
+    public boolean isFlammable(IBlockAccess world, int x, int y, int z, ForgeDirection face)
+    {
+    	return true;
+    }
 }

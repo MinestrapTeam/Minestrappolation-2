@@ -108,6 +108,7 @@ public class MBlockHelper
 		stair.setCreativeTab(tab);
 		stair.setStepSound(Block.soundTypeWood);
 		GameRegistry.registerBlock(stair, name1);
+		Blocks.fire.setFireInfo(block, 5, 20);
 		return stair;
 	}
 	
@@ -119,6 +120,7 @@ public class MBlockHelper
 		stair.setCreativeTab(tab);
 		stair.setStepSound(Block.soundTypeWood);
 		GameRegistry.registerBlock(stair, name1);
+		Blocks.fire.setFireInfo(block, 5, 20);
 		return stair;
 	}
 	
