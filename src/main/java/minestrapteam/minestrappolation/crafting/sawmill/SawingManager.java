@@ -113,7 +113,25 @@ public class SawingManager
 		this.addRecipe(new ItemStack(MBlocks.acacia, 8, 5), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.acacia, 1, 2), 'V', Blocks.vine });
 		this.addRecipe(new ItemStack(MBlocks.darkOak, 8, 5), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.darkOak, 1, 2), 'V', Blocks.vine });
 		this.addRecipe(new ItemStack(MBlocks.redwood, 8, 6), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.redwood, 1, 3), 'V', Blocks.vine });
-		
+
+        //Rotten Planks
+        this.addRecipe(new ItemStack(MBlocks.oak, 8, 6), new Object[] {"MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.oak, 1, 3), 'B', Items.water_bucket});
+        this.addRecipe(new ItemStack(MBlocks.spruce, 8, 6), new Object[] {"MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.spruce, 1, 3), 'B', Items.water_bucket});
+        this.addRecipe(new ItemStack(MBlocks.birch, 8, 6), new Object[] {"MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.birch, 1, 3), 'B', Items.water_bucket});
+        this.addRecipe(new ItemStack(MBlocks.jungleWood, 8, 6), new Object[] {"MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.jungleWood, 1, 3), 'B', Items.water_bucket});
+        this.addRecipe(new ItemStack(MBlocks.acacia, 8, 6), new Object[] {"MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.acacia, 1, 3), 'B', Items.water_bucket});
+        this.addRecipe(new ItemStack(MBlocks.darkOak, 8, 6), new Object[] {"MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.darkOak, 1, 3), 'B', Items.water_bucket});
+        this.addRecipe(new ItemStack(MBlocks.redwood, 8, 7), new Object[] {"MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.redwood, 1, 3), 'B', Items.water_bucket});
+
+        //Rotten Boards
+        this.addRecipe(new ItemStack(MBlocks.oak, 8, 7), new Object[] {"MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.oak, 1, 6), 'B', Items.water_bucket});
+        this.addRecipe(new ItemStack(MBlocks.spruce, 8, 7), new Object[] {"MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.spruce, 1, 6), 'B', Items.water_bucket});
+        this.addRecipe(new ItemStack(MBlocks.birch, 8, 7), new Object[] {"MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.birch, 1, 6), 'B', Items.water_bucket});
+        this.addRecipe(new ItemStack(MBlocks.jungleWood, 8, 7), new Object[] {"MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.jungleWood, 1, 6), 'B', Items.water_bucket});
+        this.addRecipe(new ItemStack(MBlocks.acacia, 8, 7), new Object[] {"MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.acacia, 1, 6), 'B', Items.water_bucket});
+        this.addRecipe(new ItemStack(MBlocks.darkOak, 8, 7), new Object[] {"MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.darkOak, 1, 6), 'B', Items.water_bucket});
+        this.addRecipe(new ItemStack(MBlocks.redwood, 8, 8), new Object[] {"MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.redwood, 1, 7), 'B', Items.water_bucket});
+
 		// Planks Slabs
 		this.addRecipe(new ItemStack(Blocks.wooden_slab, 6, 0), new Object[] { "###", '#', new ItemStack(Blocks.planks, 1, 0) });
 		this.addRecipe(new ItemStack(Blocks.wooden_slab, 6, 1), new Object[] { "###", '#', new ItemStack(Blocks.planks, 1, 1) });

@@ -541,7 +541,7 @@ public class MBlocks
 		String[] types_clay_2 = new String[] { "pillar", "raw_slab", null, "tile_slab", "refined_slab" };
 		String[] types_colored_clay = new String[] { null, "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled" };
 		String[] types_colored_clay_2 = new String[] { "pillar", "raw_slab", "brick_slab", "tile_slab", "refined_slab" };
-		String[] types_redwood = new String[] { "planks", "bevel", "boards", "panel", "mossy_planks", "mossy_boards", "mossy_panel" };
+		String[] types_redwood = new String[] { "planks", "bevel", "boards", "panel", "mossy_planks", "mossy_boards", "mossy_panel", "rotten_planks", "rotten_boards" };
 		String[] types_redwood_2 = new String[] { "planks_slab", "boards_slab" };
 		
 		stone = MBlockHelper.createStoneBlock(types_stone, "stone", 1.5F, 10.0F, 0, tab).setIsStone().setRoadWalkSpeed(1.25F);
