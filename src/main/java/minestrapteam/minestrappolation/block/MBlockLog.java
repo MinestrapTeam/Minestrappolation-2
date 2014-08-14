@@ -41,7 +41,8 @@ public class MBlockLog extends BlockLog
 		return 0;
 	}
 	
-    public boolean isFlammable(IBlockAccess world, int x, int y, int z, ForgeDirection face)
+    @Override
+	public boolean isFlammable(IBlockAccess world, int x, int y, int z, ForgeDirection face)
     {
     	return true;
     }

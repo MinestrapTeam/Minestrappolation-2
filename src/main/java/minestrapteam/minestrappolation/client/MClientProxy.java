@@ -44,23 +44,24 @@ public class MClientProxy extends MCommonProxy
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPlate.class, new RenderPlate());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityLocked.class, new RenderLocked());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityWorkbench2.class, new RenderWorkbench2());
-
+		
 		MinecraftForgeClient.registerItemRenderer(MItems.hangGlider, new RenderHangGlider());
+		
+		RenderingRegistry.registerEntityRenderingHandler(EntityGrenade.class, new RenderSnowball(MItems.grenade));
+		RenderingRegistry.registerEntityRenderingHandler(EntityGrenadeImpact.class, new RenderSnowball(MItems.grenadeImpact));
+		RenderingRegistry.registerEntityRenderingHandler(EntityGrenadeSticky.class, new RenderSnowball(MItems.grenadeSticky));
+		RenderingRegistry.registerEntityRenderingHandler(EntityGrenadeNuke.class, new RenderSnowball(MItems.grenadeNuke));
+		RenderingRegistry.registerEntityRenderingHandler(EntityNukePrimed.class, new RenderNukePrimed());
 	}
 	
 	@Override
 	public void init(FMLInitializationEvent event)
 	{
-		RenderingRegistry.registerEntityRenderingHandler(EntityNukePrimed.class, new RenderNukePrimed());
-		RenderingRegistry.registerEntityRenderingHandler(EntityGrenade.class, new RenderSnowball(MItems.grenade));
-		RenderingRegistry.registerEntityRenderingHandler(EntityGrenadeImpact.class, new RenderSnowball(MItems.grenadeImpact));
-		RenderingRegistry.registerEntityRenderingHandler(EntityGrenadeSticky.class, new RenderSnowball(MItems.grenadeSticky));
-		RenderingRegistry.registerEntityRenderingHandler(EntityGrenadeNuke.class, new RenderSnowball(MItems.grenadeNuke));
-		
 		Capes.setLocalCape("SoBiohazardous", new ResourceLocation("minestrappolation", "textures/misc/cape_sobiohazardous.png"));
-		Capes.setLocalCape("Clashsoft", new ResourceLocation("minestrappolation", "textures/misc/cape_clashsoft.png"));
+		Capes.setLocalCape("AdrianKunz", new ResourceLocation("minestrappolation", "textures/misc/cape_clashsoft.png"));
 		Capes.setLocalCape("Delocuro", new ResourceLocation("minestrappolation", "textures/misc/cape_delocuro.png"));
-		Capes.setLocalCape("Thewerty1124", new ResourceLocation("minestrappolation", "textures/misc/cape_thewerty.png"));		
+		Capes.setLocalCape("Thewerty1124", new ResourceLocation("minestrappolation", "textures/misc/cape_thewerty.png"));
+		Capes.setLocalCape("LandKingdom", new ResourceLocation("minestrappolation", "textures/misc/cape_landkingdom.png"));
 	}
 	
 	@Override

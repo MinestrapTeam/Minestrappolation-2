@@ -68,6 +68,7 @@ public class MBlockLeaves extends BlockLeaves
 		return Item.getItemFromBlock(MBlocks.redwoodSapling);
 	}
 	
+	@Override
 	public boolean isFlammable(IBlockAccess world, int x, int y, int z, ForgeDirection face)
     {
     	return true;
