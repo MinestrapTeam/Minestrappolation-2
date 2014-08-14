@@ -29,15 +29,20 @@ public class MClientProxy extends MCommonProxy
 	@Override
 	public void preInit(FMLPreInitializationEvent event)
 	{
+		// Block Renderers
 		custom2RenderID = RenderingRegistry.getNextAvailableRenderId();
-		RenderingRegistry.registerBlockHandler(custom2RenderID, new RenderBlockCustom2());
-		
 		platingRenderID = RenderingRegistry.getNextAvailableRenderId();
-		RenderingRegistry.registerBlockHandler(platingRenderID, new RenderBlockPlating());
-		
 		lockedRenderID = RenderingRegistry.getNextAvailableRenderId();
-		RenderingRegistry.registerBlockHandler(lockedRenderID, new RenderBlockLocked());
 		
+		RenderingRegistry.registerBlockHandler(custom2RenderID, new RenderBlockCustom2());
+		RenderingRegistry.registerBlockHandler(platingRenderID, new RenderBlockPlating());		
+		RenderingRegistry.registerBlockHandler(lockedRenderID, new RenderBlockLocked());
+	}
+	
+	@Override
+	public void init(FMLInitializationEvent event)
+	{
+		// Tile Entity Renderers
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityStonecutter.class, new RenderStonecutter());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntitySawmill.class, new RenderSawmill());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGoblet.class, new RenderGoblet());
@@ -45,18 +50,17 @@ public class MClientProxy extends MCommonProxy
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityLocked.class, new RenderLocked());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityWorkbench2.class, new RenderWorkbench2());
 		
+		// Item Renderers
 		MinecraftForgeClient.registerItemRenderer(MItems.hangGlider, new RenderHangGlider());
 		
+		// Entity Renderers
 		RenderingRegistry.registerEntityRenderingHandler(EntityGrenade.class, new RenderSnowball(MItems.grenade));
 		RenderingRegistry.registerEntityRenderingHandler(EntityGrenadeImpact.class, new RenderSnowball(MItems.grenadeImpact));
 		RenderingRegistry.registerEntityRenderingHandler(EntityGrenadeSticky.class, new RenderSnowball(MItems.grenadeSticky));
 		RenderingRegistry.registerEntityRenderingHandler(EntityGrenadeNuke.class, new RenderSnowball(MItems.grenadeNuke));
 		RenderingRegistry.registerEntityRenderingHandler(EntityNukePrimed.class, new RenderNukePrimed());
-	}
-	
-	@Override
-	public void init(FMLInitializationEvent event)
-	{
+		
+		// Capes
 		Capes.setLocalCape("SoBiohazardous", new ResourceLocation("minestrappolation", "textures/misc/cape_sobiohazardous.png"));
 		Capes.setLocalCape("AdrianKunz", new ResourceLocation("minestrappolation", "textures/misc/cape_clashsoft.png"));
 		Capes.setLocalCape("Delocuro", new ResourceLocation("minestrappolation", "textures/misc/cape_delocuro.png"));
