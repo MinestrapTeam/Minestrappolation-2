@@ -22,13 +22,9 @@ public class EntityGrenadeImpact extends EntityThrowableExplosive
 	}
 	
 	@Override
-	protected void onImpact(MovingObjectPosition par1MovingObjectPosition)
+	protected void onImpact(MovingObjectPosition impact)
 	{
-		if (!this.worldObj.isRemote)
-		{
-			this.worldObj.createExplosion(null, this.posX, this.posY, this.posZ, 2F, true);
-			this.setDead();
-		}
+		this.explode();
 	}
 	
 	@Override

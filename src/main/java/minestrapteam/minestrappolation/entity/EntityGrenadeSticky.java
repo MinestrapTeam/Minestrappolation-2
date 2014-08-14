@@ -7,47 +7,57 @@ import net.minecraft.world.World;
 
 public class EntityGrenadeSticky extends EntityThrowableExplosive
 {
-	private boolean	impacted;
+	private MovingObjectPosition	impact;
 	
 	public EntityGrenadeSticky(World world)
 	{
 		super(world);
+		this.fuse = 120;
 	}
 	
 	public EntityGrenadeSticky(World world, EntityLivingBase living)
 	{
 		super(world, living);
+		this.fuse = 120;
 	}
 	
 	public EntityGrenadeSticky(World world, double x, double y, double z)
 	{
 		super(world, x, y, z);
+		this.fuse = 120;
 	}
 	
 	@Override
 	public void onUpdate()
 	{
-		if (this.impacted)
+		if (this.isImpacted(this.impact))
 		{
+			MovingObjectPosition mop = this.impact;
+			
+			this.posX = mop.hitVec.xCoord + this.motionX;
+			this.posY = mop.hitVec.yCoord + this.motionY;
+			this.posZ = mop.hitVec.zCoord + this.motionZ;
+			
 			this.motionX = 0;
 			this.motionY = 0;
 			this.motionZ = 0;
 			
 			this.updateFuse();
+			
+			return;
 		}
-		else
-		{
-			super.onUpdate();
-		}
+		
+		this.impact = null;
+		super.onUpdate();
 	}
 	
 	@Override
 	protected void onImpact(MovingObjectPosition mop)
 	{
-		this.impacted = true;
-		this.posX = mop.hitVec.xCoord + this.motionX;
-		this.posY = mop.hitVec.yCoord + this.motionY;
-		this.posZ = mop.hitVec.zCoord + this.motionZ;
+		if (this.impact == null)
+		{
+			this.impact = mop;
+		}
 	}
 	
 	@Override
