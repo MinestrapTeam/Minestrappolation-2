@@ -12,7 +12,7 @@ public class MBiomes
 	
 	public static void load()
 	{
-		redwood = new BiomeGenRedwood(115).setBiomeName("redwood");
+		redwood = new BiomeGenRedwood(115).setBiomeName("Redwood Forest");
 		
 		MBiomeManager.addWarmBiome(redwood, 75, Type.FOREST);
 	}
