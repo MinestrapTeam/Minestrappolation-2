@@ -355,7 +355,7 @@ public class MBlocks
 		toriteBlock = new MBlock(Material.iron).setHardness(6F).setResistance(10F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockTextureName(MAssetManager.getMineralTexture("torite_block"));
 		blaziumBlock = new BlockBlazium().setHardness(8F).setResistance(12F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MAssetManager.getMineralTexture("blazium_block")).setLightLevel(0.7F);
 		steelBlock = new BlockSteel().setHardness(6F).setResistance(10F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MAssetManager.getMineralTexture("steel_block_top"));
-		soulBlock = new BlockSoulBlock().setHardness(65F).setResistance(30F).setStepSound(Block.soundTypeGravel).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MAssetManager.getMineralTexture("soul_gem_block"));
+		soulBlock = new BlockSoulBlock().setHardness(65F).setResistance(30F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MAssetManager.getMineralTexture("soul_gem_block"));
 		
 		tinPlate = new BlockPlating().setHardness(0.7F).setStepSound(Block.soundTypeStone).setBlockTextureName(MAssetManager.getMineralTexture("tin_block"));
 		bronzePlate = new BlockPlating().setHardness(0.7F).setStepSound(Block.soundTypeStone).setBlockTextureName(MAssetManager.getMineralTexture("bronze_block"));

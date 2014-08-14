@@ -6,6 +6,7 @@ import minestrapteam.minestrappolation.lib.MItems;
 import minestrapteam.minestrappolation.util.MUtil;
 
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
@@ -23,7 +24,7 @@ public class BlockSoulBlock extends MBlock
 	@Override
 	public void randomDisplayTick(World world, int x, int y, int z, Random random)
 	{
-		for (int var6 = 0; var6 < 3; ++var6)
+		for (int i = 0; i < 3; ++i)
 		{
 			MUtil.spawnParticle(world, x, y, z, random, "portal");
 		}
@@ -42,8 +43,8 @@ public class BlockSoulBlock extends MBlock
 	}
 	
 	@Override
-	public void onBlockDestroyedByPlayer(World world, int x, int y, int z, int metadata)
-	{
+	public void onBlockHarvested(World world, int x, int y, int z, int metadata, EntityPlayer player)
+	{		
 		int amount = MathHelper.getRandomIntegerInRange(world.rand, 140, 220);
 		this.dropXpOnBlockBreak(world, x, y, z, amount);
 	}

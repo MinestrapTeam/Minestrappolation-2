@@ -4,7 +4,6 @@ import java.util.Random;
 
 import cpw.mods.fml.common.registry.VillagerRegistry.IVillageTradeHandler;
 import minestrapteam.minestrappolation.lib.MItems;
-import minestrapteam.minestrappolation.lib.MTools;
 
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.init.Items;
