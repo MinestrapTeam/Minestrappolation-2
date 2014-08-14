@@ -25,7 +25,7 @@ public class MBlockHelper
 	public static final String[]	stoneTypes	= new String[] { "raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", "cracked", "mossy", null, null, null, null, null, "lamp_glowstone", "lamp_sunstone" };
 	public static final String[]	stoneTypes2	= new String[] { "pillar", "raw_slab", "brick_slab", "tile_slab", "refined_slab" };
 	
-	public static final String[]	woodTypes	= new String[] { "bevel", "boards", "panel", "mossy_planks", "mossy_boards", "mossy_panel", "rotten_planks", "rotten_boards" };
+	public static final String[]	woodTypes	= new String[] { "bevel", "boards", "panel", "mossy_planks", "mossy_boards", "mossy_panel", "rotten_planks", "rotten_boards", "rotten_panels" };
 	public static final String[]	woodTypes2	= new String[] { "boards_slab" };
 	
 	public static MBlockCustom createWoodBlock(String name, float hardness, float resistance, CreativeTabs tab)
