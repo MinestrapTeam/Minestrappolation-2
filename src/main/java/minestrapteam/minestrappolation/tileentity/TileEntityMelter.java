@@ -106,9 +106,9 @@ public class TileEntityMelter extends TileEntityInventory implements ISidedInven
 	public void updateEntity()
 	{
 		this.hasPower = this.worldObj.isBlockIndirectlyGettingPowered(this.xCoord, this.yCoord, this.zCoord);
-		boolean var1 = this.burnTime > 0;
+		boolean burning = this.burnTime > 0;
 		
-		if (this.burnTime > 0)
+		if (burning)
 		{
 			if (this.hasPower)
 			{
@@ -116,7 +116,7 @@ public class TileEntityMelter extends TileEntityInventory implements ISidedInven
 			}
 			else
 			{
-				this.burnTime -= 8;
+				this.burnTime -= 4;
 			}
 		}
 		
@@ -146,7 +146,7 @@ public class TileEntityMelter extends TileEntityInventory implements ISidedInven
 			else if (this.isBurning())
 			{
 				++this.meltTime;
-				if (this.meltTime == this.getMaxMeltTime())
+				if (this.meltTime >= this.getMaxMeltTime())
 				{
 					this.meltTime = 0;
 					this.smeltItem();
@@ -163,7 +163,7 @@ public class TileEntityMelter extends TileEntityInventory implements ISidedInven
 			this.meltTime = 0;
 		}
 		
-		if (var1 != this.burnTime > 0)
+		if (burning != this.burnTime > 0)
 		{
 			this.markDirty();
 			this.validate();
