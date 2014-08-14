@@ -15,6 +15,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.VillagerRegistry;
 import minestrapteam.minestrappolation.common.BlacksmithTradeHandler;
+import minestrapteam.minestrappolation.common.LibrarianTradeHandler;
 import minestrapteam.minestrappolation.common.MCommonProxy;
 import minestrapteam.minestrappolation.common.MEventHandler;
 import minestrapteam.minestrappolation.common.PriestTradeHandler;
@@ -116,6 +117,7 @@ public class Minestrappolation extends BaseMod
 		
 		VillagerRegistry.instance().registerVillageTradeHandler(3, new BlacksmithTradeHandler());
 		VillagerRegistry.instance().registerVillageTradeHandler(2, new PriestTradeHandler());
+		VillagerRegistry.instance().registerVillageTradeHandler(1, new LibrarianTradeHandler());
 		
 		GameRegistry.registerFuelHandler((IFuelHandler) this.eventHandler);
 	}
