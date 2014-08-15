@@ -12,6 +12,7 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
+// import net.minecraft.init.Items; Commented until we use it.
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
@@ -207,7 +208,8 @@ public class MBlockCustom extends Block
 	{
 		float f = this.baseHardness;
 		String type = this.getType(metadata);
-		if (type == null || "raw".equals(type))
+
+        if (type == null || "raw".equals(type))
 		{
 			return f;
 		}
@@ -266,12 +268,25 @@ public class MBlockCustom extends Block
 		{
 			return f * 0.8F;
 		}
+        // Not sure if it's all correct. I don't have time to test it, now. Should work, tho.
+        else if (type.contains("rotten")){
+            return f * 0.9F;
+        }
+
 		return f;
 	}
 	
 	public float getResistance(int metadata)
 	{
-		return this.baseResistance;
+        float f = this.baseResistance;
+        String type = this.getType(metadata);
+
+        // Not sure if it's all correct. I don't have time to test it, now. Should work, tho.
+        if (type.contains("rotten")){
+            return f * 0.9F;
+        }
+
+        return this.baseResistance;
 	}
 	
 	@Override
@@ -449,12 +464,20 @@ public class MBlockCustom extends Block
 	public void onEntityWalking(World world, int x, int y, int z, Entity entityWalking)
 	{
 		String type = this.getType(world.getBlockMetadata(x, y, z));
+
 		if ("road".equals(type))
 		{
 			entityWalking.motionX *= this.walkSpeed;
 			entityWalking.motionY *= this.walkSpeed;
 			entityWalking.motionZ *= this.walkSpeed;
 		}
+
+        /** We want to make this drop from 1 to 4 sticks.
+        if (type.contains("rotten"))
+        {
+            dropBlockAsItemWithChance();
+        }
+         */
 	}
 	
 	@Override

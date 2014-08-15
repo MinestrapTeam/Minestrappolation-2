@@ -24,6 +24,8 @@ public class MFuelHandler implements IFuelHandler
 		{
 			return 2000;
 		}
+        // We need to add the rotten wood to have 300
+
 		return 0;
 	}
 }
