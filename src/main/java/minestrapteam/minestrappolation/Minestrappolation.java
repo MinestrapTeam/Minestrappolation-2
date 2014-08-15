@@ -61,6 +61,10 @@ public class Minestrappolation extends BaseMod
 		this.eventHandler = new MEventHandler();
 		this.netHandlerClass = MNetHandler.class;
 		this.hasConfig = true;
+		
+		this.description = "Making Vanilla more vanilla.";
+		this.logoFile = "/assets/minestrappolation/logo.png";
+		this.credits = "The Minestrappolation Team";
 	}
 	
 	@Override
