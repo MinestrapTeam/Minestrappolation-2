@@ -54,7 +54,7 @@ public class BlockPlutoniumInsulated extends BlockInsulatedRadiation
 		}
 		else
 		{
-			living.addPotionEffect(new PotionEffect(Potion.wither.getId(), 40, 2, false));
+			living.addPotionEffect(new PotionEffect(Potion.wither.getId(), 40, 1, false));
 		}
 	}
 	

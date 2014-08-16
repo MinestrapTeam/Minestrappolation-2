@@ -53,7 +53,7 @@ public class BlockUraniumInsulated extends BlockInsulatedRadiation
 		}
 		else
 		{
-			living.addPotionEffect(new PotionEffect(Potion.poison.getId(), 180, 2, false));
+			living.addPotionEffect(new PotionEffect(Potion.poison.getId(), 180, 1, false));
 		}
 		
 	}

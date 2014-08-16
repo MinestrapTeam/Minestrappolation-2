@@ -46,7 +46,7 @@ public class BlockPlutoniumRaw extends BlockRadiation
 		}
 		else
 		{
-			living.addPotionEffect(new PotionEffect(Potion.wither.id, 40, 2, false));
+			living.addPotionEffect(new PotionEffect(Potion.wither.id, 40, 1, false));
 		}
 	}
 	
