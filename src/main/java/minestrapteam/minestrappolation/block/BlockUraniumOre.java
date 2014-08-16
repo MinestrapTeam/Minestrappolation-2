@@ -38,16 +38,18 @@ public class BlockUraniumOre extends BlockRadiation
 	@Override
 	public void addPotionEffect(EntityLivingBase living)
 	{
-		if (Minestrappolation.shouldOresEffect && living instanceof EntityZombie)
+		if (Minestrappolation.shouldOresEffect)
 		{
-			living.addPotionEffect(new PotionEffect(Potion.moveSpeed.getId(), 180, 1, false));
-			living.addPotionEffect(new PotionEffect(Potion.damageBoost.getId(), 180, 0, false));
+			if (living instanceof EntityZombie)
+			{
+				living.addPotionEffect(new PotionEffect(Potion.moveSpeed.getId(), 180, 1, false));
+				living.addPotionEffect(new PotionEffect(Potion.damageBoost.getId(), 180, 0, false));
+			}
+			else
+			{
+				living.addPotionEffect(new PotionEffect(Potion.poison.getId(), 120, 1, false));
+			}
 		}
-		else if (Minestrappolation.shouldOresEffect)
-		{
-			living.addPotionEffect(new PotionEffect(Potion.poison.getId(), 120, 1, false));
-		}
-		
 	}
 	
 	public void spawnParticle(World world, int x, int y, int z)
@@ -70,9 +72,6 @@ public class BlockUraniumOre extends BlockRadiation
 	@Override
 	public void onBlockDestroyedByExplosion(World world, int x, int y, int z, Explosion explosion)
 	{
-		if (!world.isRemote)
-		{
-			world.createExplosion(null, x, y, z, 4F, true);
-		}
+		world.createExplosion(null, x, y, z, 4F, true);
 	}
 }

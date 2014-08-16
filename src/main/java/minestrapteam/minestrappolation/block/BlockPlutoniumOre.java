@@ -39,23 +39,26 @@ public class BlockPlutoniumOre extends BlockRadiation
 	@Override
 	public void addPotionEffect(EntityLivingBase living)
 	{
-		if (Minestrappolation.shouldOresEffect && living instanceof EntitySkeleton)
+		if (Minestrappolation.shouldOresEffect)
 		{
-			living.addPotionEffect(new PotionEffect(Potion.resistance.getId(), 20 * 6, 1, false));
-			living.addPotionEffect(new PotionEffect(Potion.regeneration.getId(), 20 * 6, 0, false));
-			
-		}
-		else if (Minestrappolation.shouldOresEffect)
-		{
-			living.addPotionEffect(new PotionEffect(Potion.wither.getId(), 20, 1, false));
+			if (living instanceof EntitySkeleton)
+			{
+				living.addPotionEffect(new PotionEffect(Potion.resistance.getId(), 20 * 6, 1, false));
+				living.addPotionEffect(new PotionEffect(Potion.regeneration.getId(), 20 * 6, 0, false));
+				
+			}
+			else
+			{
+				living.addPotionEffect(new PotionEffect(Potion.wither.getId(), 20, 1, false));
+			}
 		}
 	}
 	
 	@Override
-	public void onBlockClicked(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer)
+	public void onBlockClicked(World world, int x, int y, int z, EntityPlayer player)
 	{
-		this.spawnParticle(par1World, par2, par3, par4);
-		super.onBlockClicked(par1World, par2, par3, par4, par5EntityPlayer);
+		this.spawnParticle(world, x, y, z);
+		super.onBlockClicked(world, x, y, z, player);
 	}
 	
 	public void spawnParticle(World world, int x, int y, int z)
@@ -78,9 +81,6 @@ public class BlockPlutoniumOre extends BlockRadiation
 	@Override
 	public void onBlockDestroyedByExplosion(World world, int x, int y, int z, Explosion explosion)
 	{
-		if (!world.isRemote)
-		{
-			world.createExplosion(null, x, y, z, 4F, true);
-		}
+		world.createExplosion(null, x, y, z, 4F, true);
 	}
 }

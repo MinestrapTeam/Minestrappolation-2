@@ -1,9 +1,10 @@
 package minestrapteam.minestrappolation.block;
 
+import java.util.Random;
+
 import minestrapteam.minestrappolation.util.MUtil;
 
 import net.minecraft.block.material.Material;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.potion.Potion;
@@ -16,7 +17,23 @@ public class BlockPlutoniumRaw extends BlockRadiation
 	public BlockPlutoniumRaw(Material material)
 	{
 		super(material);
-		this.setCreativeTab(CreativeTabs.tabBlock);
+	}
+	
+	@Override
+	public void updateTick(World world, int x, int y, int z, Random random)
+	{
+		super.updateTick(world, x, y, z, random);
+		
+		if (random.nextInt(500) == 0 && !MUtil.isWaterTouchingAnySide(world, x, y, z))
+		{
+			world.createExplosion(null, x, y, z, 5F, true);
+		}
+	}
+	
+	@Override
+	public void onBlockDestroyedByExplosion(World world, int x, int y, int z, Explosion explosion)
+	{
+		world.createExplosion(null, x, y, z, 5F, true);
 	}
 	
 	@Override
@@ -26,46 +43,16 @@ public class BlockPlutoniumRaw extends BlockRadiation
 		{
 			living.addPotionEffect(new PotionEffect(Potion.resistance.getId(), 180, 2, false));
 			living.addPotionEffect(new PotionEffect(Potion.damageBoost.getId(), 180, 1, false));
-			living.removePotionEffect(Potion.wither.getId());
 		}
 		else
 		{
 			living.addPotionEffect(new PotionEffect(Potion.wither.id, 40, 2, false));
-			// living.addPotionEffect(new
-			// PotionEffect(Potion.poison.getId(),200,10));
 		}
-	}
-	
-	@Override
-	public boolean canBlockStay(World world, int x, int y, int z)
-	{
-		return this.canPlaceBlockAt(world, x, y, z);
-	}
-	
-	@Override
-	public boolean canPlaceBlockAt(World world, int x, int y, int z)
-	{
-		if (!world.isRemote && !MUtil.isWaterTouchingAnySide(world, x, y, z))
-		{
-			world.createExplosion(null, x, y, z, 4F, false);
-		}
-		return true;
-	}
-	
-	public void onNeighborBlockChange(World world, int x, int y, int z, int side)
-	{
-		this.canPlaceBlockAt(world, x, y, z);
-	}
-	
-	@Override
-	public void onBlockDestroyedByExplosion(World world, int x, int y, int z, Explosion explosion)
-	{
-		this.canPlaceBlockAt(world, x, y, z);
 	}
 	
 	@Override
 	public float getRange()
 	{
-		return 1.5F;
+		return 5F;
 	}
 }
