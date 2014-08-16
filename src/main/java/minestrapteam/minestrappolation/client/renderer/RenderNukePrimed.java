@@ -2,8 +2,6 @@ package minestrapteam.minestrappolation.client.renderer;
 
 import org.lwjgl.opengl.GL11;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import minestrapteam.minestrappolation.entity.EntityNukePrimed;
 import minestrapteam.minestrappolation.lib.MBlocks;
 
@@ -13,7 +11,6 @@ import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
-@SideOnly(Side.CLIENT)
 public class RenderNukePrimed extends Render
 {
 	private static RenderBlocks	renderBlocks	= RenderBlocks.getInstance();
@@ -80,6 +77,7 @@ public class RenderNukePrimed extends Render
 	@Override
 	public void doRender(Entity entity, double x, double y, double z, float yaw, float partialTickTime)
 	{
+		System.out.println("nuke render");
 		this.renderPrimedTNT((EntityNukePrimed) entity, x, y, z, yaw, partialTickTime);
 	}
 }

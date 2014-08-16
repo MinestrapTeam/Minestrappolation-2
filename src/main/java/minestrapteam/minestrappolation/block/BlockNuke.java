@@ -56,7 +56,7 @@ public class BlockNuke extends Block
 		
 		if (world.isBlockIndirectlyGettingPowered(x, y, z))
 		{
-			this.onBlockDestroyedByPlayer(world, x, y, z, 1);
+			this.createPrimedEntity(world, x, y, z, null);
 			world.setBlockToAir(x, y, z);
 		}
 	}
@@ -66,7 +66,7 @@ public class BlockNuke extends Block
 	{
 		if (world.isBlockIndirectlyGettingPowered(x, y, z))
 		{
-			this.onBlockDestroyedByPlayer(world, x, y, z, 1);
+			this.createPrimedEntity(world, x, y, z, null);
 			world.setBlockToAir(x, y, z);
 		}
 	}
@@ -74,31 +74,32 @@ public class BlockNuke extends Block
 	@Override
 	public void onBlockDestroyedByExplosion(World world, int x, int y, int z, Explosion explosion)
 	{
-		if (!world.isRemote)
+		EntityNukePrimed entity = this.createPrimedEntity(world, x, y, z, explosion.getExplosivePlacedBy());
+		if (entity != null)
 		{
-			EntityNukePrimed entity = new EntityNukePrimed(world, x + 0.5F, y + 0.5F, z + 0.5F, explosion.getExplosivePlacedBy());
 			entity.fuse = world.rand.nextInt(entity.fuse / 4) + entity.fuse / 8;
-			world.spawnEntityInWorld(entity);
 		}
 	}
 	
 	@Override
 	public void onBlockDestroyedByPlayer(World world, int x, int y, int z, int metadata)
 	{
-		this.createPrimedEntity(world, x, y, z, metadata, (EntityLivingBase) null);
+		if (metadata > 0)
+		{
+			this.createPrimedEntity(world, x, y, z, (EntityLivingBase) null);
+		}
 	}
 	
-	public void createPrimedEntity(World world, int x, int y, int z, int metadata, EntityLivingBase owner)
+	public EntityNukePrimed createPrimedEntity(World world, int x, int y, int z, EntityLivingBase owner)
 	{
 		if (!world.isRemote)
 		{
-			if ((metadata & 1) == 1)
-			{
-				EntityNukePrimed entity = new EntityNukePrimed(world, x + 0.5F, y + 0.5F, z + 0.5F, owner);
-				world.spawnEntityInWorld(entity);
-				world.playSoundAtEntity(entity, "random.fuse", 1.0F, 1.0F);
-			}
+			EntityNukePrimed entity = new EntityNukePrimed(world, x + 0.5F, y + 0.5F, z + 0.5F, owner);
+			world.spawnEntityInWorld(entity);
+			world.playSoundAtEntity(entity, "game.tnt.primed", 1.0F, 1.0F);
+			return entity;
 		}
+		return null;
 	}
 	
 	@Override
@@ -110,7 +111,7 @@ public class BlockNuke extends Block
 			
 			if (arrow.isBurning())
 			{
-				this.createPrimedEntity(world, x, y, z, 1, arrow.shootingEntity instanceof EntityLivingBase ? (EntityLivingBase) arrow.shootingEntity : null);
+				this.createPrimedEntity(world, x, y, z, arrow.shootingEntity instanceof EntityLivingBase ? (EntityLivingBase) arrow.shootingEntity : null);
 				world.setBlockToAir(x, y, z);
 			}
 		}

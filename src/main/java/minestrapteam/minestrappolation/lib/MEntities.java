@@ -12,8 +12,8 @@ public class MEntities
 	{
 		// Entities
 		
-		EntityRegistry.registerModEntity(EntityHangGlider.class, "HangGlider", 0, Minestrappolation.instance, 200, 2, true);
-		EntityRegistry.registerModEntity(EntityNukePrimed.class, "NukePrimed", 1, Minestrappolation.instance, 350, 5, false);
+		EntityRegistry.registerModEntity(EntityHangGlider.class, "HangGlider", 0, Minestrappolation.instance, 50, 2, true);
+		EntityRegistry.registerModEntity(EntityNukePrimed.class, "NukePrimed", 1, Minestrappolation.instance, 50, 5, true);
 		EntityRegistry.registerModEntity(EntityGrenade.class, "Grenade", 2, Minestrappolation.instance, 40, 3, true);
 		EntityRegistry.registerModEntity(EntityGrenadeImpact.class, "GrenadeImpact", 4, Minestrappolation.instance, 40, 3, true);
 		EntityRegistry.registerModEntity(EntityGrenadeSticky.class, "GrenadeSticky", 5, Minestrappolation.instance, 40, 3, true);
