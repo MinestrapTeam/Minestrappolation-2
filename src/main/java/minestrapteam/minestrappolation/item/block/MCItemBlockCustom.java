@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 
 public class MCItemBlockCustom extends ItemBlock
 {
-	private MBlockCustom	theBlock;
+	public MBlockCustom	theBlock;
 	
 	public MCItemBlockCustom(Block block)
 	{

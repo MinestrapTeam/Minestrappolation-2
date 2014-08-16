@@ -12,10 +12,11 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
-// import net.minecraft.init.Items; Commented until we use it.
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
@@ -162,15 +163,43 @@ public class MBlockCustom extends Block
 	}
 	
 	@Override
+	public boolean canSilkHarvest()
+	{
+		return true;
+	}
+	
+	@Override
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
-		return this == MBlocks.endstone && metadata == 0 ? Item.getItemFromBlock(Blocks.end_stone) : super.getItemDropped(metadata, random, fortune);
+		if (this == MBlocks.endstone && metadata == 0)
+		{
+			return Item.getItemFromBlock(Blocks.end_stone);
+		}
+		else if (this.getType(metadata).contains("rotten"))
+		{
+			return Items.stick;
+		}
+		return super.getItemDropped(metadata, random, fortune);
 	}
 	
 	@Override
 	public int damageDropped(int metadata)
 	{
+		if (this.getType(metadata).contains("rotten"))
+		{
+			return 0;
+		}
 		return metadata;
+	}
+	
+	@Override
+	public int quantityDropped(int metadata, int fortune, Random random)
+	{
+		if (this.getType(metadata).contains("rotten"))
+		{
+			return MathHelper.clamp_int(2 + random.nextInt(fortune + 3), 1, 4);
+		}
+		return 1;
 	}
 	
 	@Override
@@ -208,8 +237,8 @@ public class MBlockCustom extends Block
 	{
 		float f = this.baseHardness;
 		String type = this.getType(metadata);
-
-        if (type == null || "raw".equals(type))
+		
+		if (type == null || "raw".equals(type))
 		{
 			return f;
 		}
@@ -268,25 +297,84 @@ public class MBlockCustom extends Block
 		{
 			return f * 0.8F;
 		}
-        // Not sure if it's all correct. I don't have time to test it, now. Should work, tho.
-        else if (type.contains("rotten")){
-            return f * 0.9F;
-        }
-
+		else if (type.contains("rotten"))
+		{
+			return f * 0.9F;
+		}
+		
 		return f;
 	}
 	
 	public float getResistance(int metadata)
 	{
-        float f = this.baseResistance;
-        String type = this.getType(metadata);
-
-        // Not sure if it's all correct. I don't have time to test it, now. Should work, tho.
-        if (type.contains("rotten")){
-            return f * 0.9F;
-        }
-
-        return this.baseResistance;
+		float f = this.baseResistance;
+		String type = this.getType(metadata);
+		
+		if (type == null || "raw".equals(type))
+		{
+			return f;
+		}
+		else if ("bricks".equals(type))
+		{
+			if (this.netherrack)
+			{
+				return f + 1.6F;
+			}
+			else if (this.clay)
+			{
+				return f + 0.75F;
+			}
+		}
+		else if ("pattern_bricks".equals(type))
+		{
+			if (this.netherrack)
+			{
+				return f + 1.6F;
+			}
+			else if (this.clay)
+			{
+				return f + 0.75F;
+			}
+		}
+		else if ("refined".equals(type))
+		{
+			if (this.netherrack)
+			{
+				return (f + 1.6F) * (2F / 3F);
+			}
+			else if (this.clay)
+			{
+				return (f + 0.75F) * (2F / 3F);
+			}
+			else
+			{
+				return f * (2F / 3F);
+			}
+		}
+		else if ("cracked".equals(type))
+		{
+			if (this.stone)
+			{
+				return f * (4F / 3F);
+			}
+		}
+		else if ("mossy".equals(type))
+		{
+			if (this.stone)
+			{
+				return f * (4F / 3F);
+			}
+		}
+		else if (type.contains("lamp"))
+		{
+			return f * 0.8F;
+		}
+		else if (type.contains("rotten"))
+		{
+			return f * 0.9F;
+		}
+		
+		return f;
 	}
 	
 	@Override
@@ -464,20 +552,20 @@ public class MBlockCustom extends Block
 	public void onEntityWalking(World world, int x, int y, int z, Entity entityWalking)
 	{
 		String type = this.getType(world.getBlockMetadata(x, y, z));
-
+		
 		if ("road".equals(type))
 		{
 			entityWalking.motionX *= this.walkSpeed;
 			entityWalking.motionY *= this.walkSpeed;
 			entityWalking.motionZ *= this.walkSpeed;
 		}
-
-        /** We want to make this drop from 1 to 4 sticks.
-        if (type.contains("rotten"))
-        {
-            dropBlockAsItemWithChance();
-        }
-         */
+		else if (type.contains("rotten"))
+		{
+			if (!world.isRemote)
+			{
+				world.func_147480_a(x, y, z, true);
+			}
+		}
 	}
 	
 	@Override
