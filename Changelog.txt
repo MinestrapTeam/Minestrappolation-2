@@ -1,4 +1,23 @@
-﻿1.7.10-3.2.1
+﻿1.7.10-3.2.2
+
+> Update to Clashsoft Lib 1.7.10-2.6.0.
+> Update to Brewing API 1.7.10-3.0.1.
++ Added Dev Capes.
++ Added a new Crafting table model.
++ Added Rotten Wood Planks, Panels and Boards
+* Updated Villager trades.
+* Updated Mod information.
+* Improved Grenade physics.
+* Improved Melters.
+* Fixed some Ore Dictionary recipes.
+* Fixed some Wood milling issues.
+* Fixed Redwood Logs, Leaves and Sapling not being flammable.
+* Fixed Uranium and Plutonium blocks behaving incorrectly.
+* Fixed Soul Block sounds being Dirt sounds.
+* Fixed Barrel crash when it should fall.
+* Fixed Barrels and Crates not dropping items when being destroyed.
+
+1.7.10-3.2.1
 
 + Added Fried variants of just about every food in the game.
 + Small Redwood trees can now rarely generate in other biomes.

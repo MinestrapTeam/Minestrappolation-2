@@ -1,26 +1,23 @@
-version=1.7.10-3.2.1
-version_motd=Minestrappolation 3.2.1 is out! Make sure to also grab latest Clashsoft Lib and Brewing API versions!
+version=1.7.10-3.2.2
+version_motd=Minestrappolation 3.2.2 is ready for download. Lots of bugs have been fixed!
 version_motd_color=gold
 motd=Welcome the new Minestrappolation Team member: LandKingdom!
 motd_color=red
-url=https://github.com/MinestrapTeam/Minestrappolation-2/releases/download/1.7.10-3.2.1/Minestrappolation-1.7.10-3.2.1.jar
+url=https://github.com/MinestrapTeam/Minestrappolation-2/releases/download/1.7.10-3.2.2/Minestrappolation-1.7.10-3.2.2.jar
 
-+ Added Fried variants of just about every food in the game.
-+ Small Redwood trees can now rarely generate in other biomes.
-+ Carpenter's Benches now use OreDictionary recipes.
-+ Replaced Plating System with Item Addon system.
-* Improved Redwood Log textures.
-* Improved and fixed Redwood Sapling growth mechanics.
-* Fixed Poison Sacks not making Swords poisonous.
-* Fixed Platings replacing Horns and vice-versa, making Horned Plated Swords impossible.
-* Fixed Melter NEI 'usage' functionality not working.
-* Fixed Carpenter’s Bench placement behavior.
-* Fixed Tools not losing durability.
-* Fixed Magma fluid displacements and flow length.
-* Fixed Flowing Magma texture resolution.
-* Fixed Magma Bucket duplication glitch.
-* Fixed missing armor textures for Titanium, Blazium and Meurodite Armor.
-* Fixed Cobbled, Gravel, Sand, Red Sand, and Soul Steel Roads’ speed bonuses.
-* Fixed Godstone igniting non-undead mobs.
-* Fixed Fried Foods being crafted with Fat instead of Grease.
-* Fixed Melters and Stonecutters facing the wrong way in the inventory.
+> Update to Clashsoft Lib 1.7.10-2.6.0.
+> Update to Brewing API 1.7.10-3.0.1.
++ Added Dev Capes.
++ Added a new Crafting table model.
++ Added Rotten Wood Planks, Panels and Boards
+* Updated Villager trades.
+* Updated Mod information.
+* Improved Grenade physics.
+* Improved Melters.
+* Fixed some Ore Dictionary recipes.
+* Fixed some Wood milling issues.
+* Fixed Redwood Logs, Leaves and Sapling not being flammable.
+* Fixed Uranium and Plutonium blocks behaving incorrectly.
+* Fixed Soul Block sounds being Dirt sounds.
+* Fixed Barrel crash when it should fall.
+* Fixed Barrels and Crates not dropping items when being destroyed.
