@@ -42,7 +42,7 @@ public class MBlockPane extends BlockPane
 	@Override
 	public int getRenderType()
 	{
-		return this.blockMaterial == Material.cloth ? 41 : this == MBlocks.glowGlassPane ? super.getRenderType() : 18;
+		return this == MBlocks.glowGlassPane ? 41 : 18;
 	}
 	
 	@Override
