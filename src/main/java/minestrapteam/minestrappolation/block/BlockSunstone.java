@@ -7,6 +7,7 @@ import minestrapteam.minestrappolation.lib.MItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
+import net.minecraft.world.IBlockAccess;
 
 public class BlockSunstone extends Block
 {
@@ -32,5 +33,11 @@ public class BlockSunstone extends Block
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
 		return MItems.sunstoneDust;
+	}
+	
+	@Override
+	public boolean isBeaconBase(IBlockAccess world, int x, int y, int z, int beaconX, int beaconY, int beaconZ)
+	{
+		return true;
 	}
 }

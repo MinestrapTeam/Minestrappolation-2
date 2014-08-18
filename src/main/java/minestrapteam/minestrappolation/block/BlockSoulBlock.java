@@ -9,6 +9,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.util.MathHelper;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockSoulBlock extends MBlock
@@ -47,5 +48,11 @@ public class BlockSoulBlock extends MBlock
 	{		
 		int amount = MathHelper.getRandomIntegerInRange(world.rand, 140, 220);
 		this.dropXpOnBlockBreak(world, x, y, z, amount);
+	}
+	
+	@Override
+	public boolean isBeaconBase(IBlockAccess world, int x, int y, int z, int beaconX, int beaconY, int beaconZ)
+	{
+		return true;
 	}
 }

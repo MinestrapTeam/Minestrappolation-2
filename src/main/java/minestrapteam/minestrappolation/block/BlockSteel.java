@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.IBlockAccess;
 
 public class BlockSteel extends Block
 {
@@ -38,5 +39,11 @@ public class BlockSteel extends Block
 		}
 		
 		return this.blockIcon;
+	}
+	
+	@Override
+	public boolean isBeaconBase(IBlockAccess world, int x, int y, int z, int beaconX, int beaconY, int beaconZ)
+	{
+		return true;
 	}
 }

@@ -65,4 +65,10 @@ public class MBlock extends Block
 		}
 		return super.getExpDrop(world, metadata, fortune);
 	}
+	
+	@Override
+	public boolean isBeaconBase(IBlockAccess world, int x, int y, int z, int beaconX, int beaconY, int beaconZ)
+	{
+		return this == MBlocks.bronzeBlock || this == MBlocks.titaniumBlock || this == MBlocks.titaniumBlock || this == MBlocks.toriteBlock;
+	}
 }
