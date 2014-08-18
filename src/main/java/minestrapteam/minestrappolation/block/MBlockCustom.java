@@ -193,6 +193,12 @@ public class MBlockCustom extends Block
 	}
 	
 	@Override
+	public int getDamageValue(World world, int x, int y, int z)
+	{
+		return world.getBlockMetadata(x, y, z);
+	}
+	
+	@Override
 	public int quantityDropped(int metadata, int fortune, Random random)
 	{
 		if (this.getType(metadata).contains("rotten"))
