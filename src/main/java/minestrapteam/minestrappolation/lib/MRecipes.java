@@ -56,10 +56,10 @@ public class MRecipes
 		GameRegistry.addShapelessRecipe(new ItemStack(grenadeImpact), new ItemStack(Items.gunpowder), new ItemStack(grenade), new ItemStack(Items.gunpowder));
 		GameRegistry.addShapelessRecipe(new ItemStack(grenadeSticky), new ItemStack(grenade), new ItemStack(Items.slime_ball));
 		GameRegistry.addRecipe(new ItemStack(grenadeNuke), new Object[] { "SUS", "PGP", "SUS", 'S', plateSteelItem, 'U', uranium, 'P', plutonium, 'G', Items.gunpowder });
-		GameRegistry.addRecipe(new ItemStack(plateTinItem, 4), new Object[] { "ZZZ", "ZZZ", 'Z', tinIngot });
-		GameRegistry.addRecipe(new ItemStack(plateBronzeItem, 4), new Object[] { "ZZZ", "ZZZ", 'Z', bronzeIngot });
-		GameRegistry.addRecipe(new ItemStack(plateSteelItem, 4), new Object[] { "ZZZ", "ZZZ", 'Z', steelIngot });
-		GameRegistry.addRecipe(new ItemStack(plateMeuroditeItem, 4), new Object[] { "MMM", "MMM", 'M', meuroditeGem });
+		GameRegistry.addRecipe(new ItemStack(plateTinItem, 1), new Object[] { "ZZZ", "ZZZ", 'Z', tinIngot });
+		GameRegistry.addRecipe(new ItemStack(plateBronzeItem, 1), new Object[] { "ZZZ", "ZZZ", 'Z', bronzeIngot });
+		GameRegistry.addRecipe(new ItemStack(plateSteelItem, 1), new Object[] { "ZZZ", "ZZZ", 'Z', steelIngot });
+		GameRegistry.addRecipe(new ItemStack(plateMeuroditeItem, 1), new Object[] { "MMM", "MMM", 'M', meuroditeGem });
 		
 		// EO Block Recipes
 		

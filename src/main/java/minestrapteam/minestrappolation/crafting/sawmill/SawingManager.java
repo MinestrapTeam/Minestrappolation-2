@@ -58,7 +58,7 @@ public class SawingManager
 		this.addRecipe(new ItemStack(Blocks.planks, 6, 3), new Object[] { "#", '#', new ItemStack(Blocks.log, 1, 3) });
 		this.addRecipe(new ItemStack(Blocks.planks, 6, 4), new Object[] { "#", '#', new ItemStack(Blocks.log2, 1, 0) });
 		this.addRecipe(new ItemStack(Blocks.planks, 6, 5), new Object[] { "#", '#', new ItemStack(Blocks.log2, 1, 1) });
-		this.addRecipe(new ItemStack(MBlocks.redwood, 4, 0), new Object[] { "#", '#', new ItemStack(MBlocks.redwoodLog, 1, 0) });
+		this.addRecipe(new ItemStack(MBlocks.redwood, 6, 0), new Object[] { "#", '#', new ItemStack(MBlocks.redwoodLog, 1, 0) });
 		
 		// Bevel
 		this.addRecipe(new ItemStack(MBlocks.oak, 4, 0), new Object[] { "PP", "PP", 'P', new ItemStack(MBlocks.oak, 1, 2) });
