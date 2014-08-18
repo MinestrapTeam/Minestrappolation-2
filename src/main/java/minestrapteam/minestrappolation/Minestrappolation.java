@@ -5,7 +5,6 @@ import clashsoft.cslib.minecraft.init.BaseMod;
 import clashsoft.cslib.minecraft.update.CSUpdate;
 import clashsoft.cslib.minecraft.update.reader.SimpleUpdateReader;
 import clashsoft.cslib.minecraft.update.updater.ModUpdater;
-import cpw.mods.fml.common.IFuelHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -14,11 +13,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.VillagerRegistry;
-import minestrapteam.minestrappolation.common.BlacksmithTradeHandler;
-import minestrapteam.minestrappolation.common.LibrarianTradeHandler;
-import minestrapteam.minestrappolation.common.MCommonProxy;
-import minestrapteam.minestrappolation.common.MEventHandler;
-import minestrapteam.minestrappolation.common.PriestTradeHandler;
+import minestrapteam.minestrappolation.common.*;
 import minestrapteam.minestrappolation.crafting.MelterRecipeLoader;
 import minestrapteam.minestrappolation.creativetab.*;
 import minestrapteam.minestrappolation.lib.*;
@@ -123,7 +118,7 @@ public class Minestrappolation extends BaseMod
 		VillagerRegistry.instance().registerVillageTradeHandler(2, new PriestTradeHandler());
 		VillagerRegistry.instance().registerVillageTradeHandler(1, new LibrarianTradeHandler());
 		
-		GameRegistry.registerFuelHandler((IFuelHandler) this.eventHandler);
+		GameRegistry.registerFuelHandler(new MFuelHandler());
 	}
 	
 	@Override

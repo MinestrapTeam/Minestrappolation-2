@@ -2,28 +2,21 @@ package minestrapteam.minestrappolation.common;
 
 import java.util.Random;
 
-import cpw.mods.fml.common.IFuelHandler;
 import cpw.mods.fml.common.eventhandler.Event.Result;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent.Phase;
 import cpw.mods.fml.common.gameevent.TickEvent.PlayerTickEvent;
-import minestrapteam.minestrappolation.block.MBlockCustom;
-import minestrapteam.minestrappolation.block.MBlockCustom2;
-import minestrapteam.minestrappolation.item.block.MCItemBlockCustom;
-import minestrapteam.minestrappolation.item.block.MCItemBlockCustom2;
 import minestrapteam.minestrappolation.lib.MBlocks;
 import minestrapteam.minestrappolation.lib.MItems;
 import minestrapteam.minestrappolation.lib.MTools;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.boss.EntityWither;
 import net.minecraft.entity.monster.*;
 import net.minecraft.entity.passive.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
@@ -32,7 +25,7 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.EntityInteractEvent;
 import net.minecraftforge.event.entity.player.FillBucketEvent;
 
-public class MEventHandler implements IFuelHandler
+public class MEventHandler
 {
 	@SubscribeEvent
 	public void onBucketFill(FillBucketEvent event)
@@ -429,53 +422,5 @@ public class MEventHandler implements IFuelHandler
 				event.entityPlayer.inventory.addItemStackToInventory(new ItemStack(MItems.ghastlySoul, 1));
 			}
 		}
-	}
-	
-	@Override
-	public int getBurnTime(ItemStack fuel)
-	{
-		if (fuel.getItem() == MItems.uranium)
-		{
-			return 24000;
-		}
-		else if (fuel.getItem() == MItems.plutonium)
-		{
-			return 32000;
-		}
-		else if (fuel.getItem() instanceof MCItemBlockCustom)
-		{
-			MCItemBlockCustom item = (MCItemBlockCustom) fuel.getItem();
-			MBlockCustom block = item.theBlock;
-			if (block != null && block.getMaterial() == Material.wood)
-			{
-				return 300;
-			}
-		}
-		else if (fuel.getItem() instanceof MCItemBlockCustom2)
-		{
-			MCItemBlockCustom2 item = (MCItemBlockCustom2) fuel.getItem();
-			MBlockCustom2 block = item.theBlock;
-			if (block != null && block.getMaterial() == Material.wood)
-			{
-				String type = block.getType(fuel.getItemDamage());
-				if ("pillar".equals(type))
-				{
-					return 300;
-				}
-				else
-				{
-					return 150;
-				}
-			}
-		}
-		else if (fuel.getItem() == MItems.cardboardItem)
-		{
-			return 50;
-		}
-		else if (fuel.getItem() == Item.getItemFromBlock(MBlocks.cardboardBlock))
-		{
-			return 200;
-		}
-		return 0;
 	}
 }
