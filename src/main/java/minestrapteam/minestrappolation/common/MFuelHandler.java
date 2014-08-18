@@ -63,6 +63,14 @@ public class MFuelHandler implements IFuelHandler
 		{
 			return 200;
 		}
+		else if (fuel.getItem() == Item.getItemFromBlock(MBlocks.redwoodLog))
+		{
+			return 300;
+		}
+		else if (fuel.getItem() == Item.getItemFromBlock(MBlocks.redwoodSapling))
+		{
+			return 100;
+		}
 		return 0;
 	}
 }

@@ -20,6 +20,7 @@ public class MRecipes
 		// Wood Recipes
 		
 		GameRegistry.addRecipe(new ItemStack(MBlocks.redwood, 4, 0), new Object[] { "L", 'L', MBlocks.redwoodLog });
+		GameRegistry.addSmelting(MBlocks.redwoodLog, new ItemStack(Items.coal, 1, 1), 0.15F);
 		
 		// EO Item Recipes
 		
@@ -80,7 +81,8 @@ public class MRecipes
 		
 		GameRegistry.addRecipe(new ItemStack(godstone, 1), new Object[] { "SSS", "SES", "SSS", 'S', MItems.sunstoneDust, 'E', new ItemStack(MBlocks.endstone, 1, 0) });
 		GameRegistry.addRecipe(new ItemStack(nuke, 1), new Object[] { "UPU", "PUP", "UPU", 'P', plutoniumBlock, 'U', uraniumBlock });
-		// MBlockMachine recipes require the metadata 1 because of the front texture of the item.
+		// MBlockMachine recipes require the metadata 1 because of the front
+		// texture of the item.
 		GameRegistry.addRecipe(new ItemStack(melterIdle, 1, 1), new Object[] { "ZZZ", "ZFZ", "IBI", 'Z', plateMeuroditeItem, 'F', Blocks.furnace, 'B', blaziumBlock, 'I', Blocks.iron_bars });
 		GameRegistry.addRecipe(new ItemStack(stoneCutter, 1, 1), new Object[] { "II", "CC", "CC", 'C', Blocks.cobblestone, 'I', Items.iron_ingot });
 		
