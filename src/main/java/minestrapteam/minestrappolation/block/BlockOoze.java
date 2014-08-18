@@ -5,6 +5,7 @@ import minestrapteam.minestrappolation.lib.MBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
@@ -33,14 +34,7 @@ public class BlockOoze extends Block
 		entity.setInWeb();
 		entity.addVelocity(0D, -0.3D, 0D);
 		
-		/*
-		 * if(blockID == ExtraDecor.oozeSlime.blockID) { ticks++;
-		 * System.out.println(ticks); if(ticks<=10) { par5Entity.setAir(300);
-		 * System.out.println("set"); } if(ticks>=11) {
-		 * par5Entity.setAir(par5Entity.getAir() - 1); } }
-		 */
-		
-		if (world.getBlock(x, y, z) == MBlocks.magmaOoze)
+		if (this == MBlocks.magmaOoze && !(entity instanceof EntityItem))
 		{
 			entity.setFire(1);
 		}
