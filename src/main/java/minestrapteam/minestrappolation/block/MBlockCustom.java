@@ -559,7 +559,11 @@ public class MBlockCustom extends Block
 	{
 		String type = this.getType(world.getBlockMetadata(x, y, z));
 		
-		if ("road".equals(type))
+		if (type == null)
+		{
+			return;
+		}
+		else if ("road".equals(type))
 		{
 			entityWalking.motionX *= this.walkSpeed;
 			entityWalking.motionY *= this.walkSpeed;
@@ -583,7 +587,7 @@ public class MBlockCustom extends Block
 	@Override
 	public boolean isBeaconBase(IBlockAccess worldObj, int x, int y, int z, int beaconX, int beaconY, int beaconZ)
 	{
-		if (worldObj.getBlockMetadata(x, y, z) != 4)
+		if (!"road".equals(this.getType(worldObj.getBlockMetadata(x, y, z))))
 		{
 			return this.beaconBase;
 		}

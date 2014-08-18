@@ -469,13 +469,13 @@ public class MBlockCustom2 extends Block
 	}
 	
 	@Override
-	public boolean isBeaconBase(IBlockAccess worldObj, int x, int y, int z, int beaconX, int beaconY, int beaconZ)
+	public boolean isBeaconBase(IBlockAccess world, int x, int y, int z, int beaconX, int beaconY, int beaconZ)
 	{
-		if (worldObj.getBlockMetadata(x, y, z) != 3 && worldObj.getBlockMetadata(x, y, z) != 4 && worldObj.getBlockMetadata(x, y, z) != 5 && worldObj.getBlockMetadata(x, y, z) != 12 && worldObj.getBlockMetadata(x, y, z) != 13 && worldObj.getBlockMetadata(x, y, z) != 14)
+		int metadata = world.getBlockMetadata(x, y, z);
+		if ("pillar".equals(this.getType(metadata)))
 		{
 			return this.beaconBase;
 		}
-		
 		return false;
 	}
 	
@@ -496,6 +496,7 @@ public class MBlockCustom2 extends Block
 		{
 			return true;
 		}
+		System.out.println(type);
 		return model == 0 && side == ForgeDirection.DOWN || model == 1 && side == ForgeDirection.UP;
 	}
 	
