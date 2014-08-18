@@ -7,10 +7,10 @@ import net.minecraft.world.World;
 public class ItemCalimari extends MItemFood
 {
 	public float healBonus;
+	
 	public ItemCalimari(int healAmount, float saturationModifier)
 	{
-		super(healAmount, saturationModifier);
-		
+		super(healAmount, saturationModifier);	
 	}
 	
 	public ItemCalimari setHealBonus(float healBonus)
@@ -23,7 +23,7 @@ public class ItemCalimari extends MItemFood
 	public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player)
 	{
 		player.heal(this.healBonus);
-		return super.onEaten(stack, world, player);
+		super.onEaten(stack, world, player);
+		return stack.stackSize <= 0 ? null : stack;
 	}
-	
 }

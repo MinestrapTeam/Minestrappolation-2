@@ -17,7 +17,18 @@ public class ItemCookedLambchop extends MItemFood
 	public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player)
 	{
 		super.onEaten(stack, world, player);
-		return stack.stackSize <= 0 ? new ItemStack(MItems.animalBones) : stack;
+		if (stack.stackSize <= 0)
+		{
+			return new ItemStack(MItems.animalBones);
+		}
+		else
+		{
+			ItemStack stack1 = new ItemStack(MItems.animalBones);
+			if (!player.inventory.addItemStackToInventory(stack1))
+			{
+				player.dropPlayerItemWithRandomChoice(stack1, false);
+			}
+			return stack;
+		}
 	}
-	
 }
