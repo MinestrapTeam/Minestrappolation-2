@@ -1,4 +1,19 @@
-﻿1.7.10-3.2.2
+﻿1.7.10-3.2.3
+
+* All mineral blocks can be used as Beacon bases.
+* All Plating recipes now only give 1 Plating per craft in order to balance the gameplay a bit.
+* Fixed pick-block on Rotten Wood Blocks yielding the wrong blocks.
+* Fixed Board Slabs texture rotation.
+* Fixed Magma Ooze burning items.
+* Fixed Cooked Mutton not working correctly.
+* Fixed Calamari creating ghost stacks.
+* Fixed Fried Foods giving hunger effect for too long.
+* Fixed Panes rendering incorrectly.
+* Fixed Crash when walking on Sandstone Brick Stairs.
+* Fixed Redwood Logs not being smeltable into Charcoal.
+* Fixed Redwood Logs and Saplings not being usable as fuel.
+
+1.7.10-3.2.2
 
 > Update to Clashsoft Lib 1.7.10-2.6.0.
 > Update to Brewing API 1.7.10-3.0.1.
