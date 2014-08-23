@@ -169,6 +169,8 @@ public class MItems
 	public static Item	witheredBone;
 	public static Item	horseHairFibre;
 	public static Item	horseHairBow;
+	//TODO Wait for wither system textures
+	//public static Item	witherAsh;
 	
 	public static void init()
 	{
@@ -325,6 +327,7 @@ public class MItems
 		witheredBone = new MItem().setCreativeTab(tabMisc).setTextureName(MAssetManager.getMobTexture("wither_bone"));
 		horseHairFibre = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMobTexture("horse_hair_fibre"));
 		horseHairBow = new ItemHorseHairBow().setCreativeTab(tabCombat);
+		//witherAsh = new ItemWitherAsh().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("wither_ash"));
 	}
 	
 	public static void load()
@@ -479,6 +482,7 @@ public class MItems
 		CSItems.addItem(witheredBone, "withered_bone");
 		CSItems.addItem(horseHairFibre, "horse_hair_fibre");
 		CSItems.addItem(horseHairBow, "horse_hair_bow");
+		//CSItems.addItem(witherAsh, "wither_ash");
 		
 		addItemsToChests();
 		setHarvestLevels();

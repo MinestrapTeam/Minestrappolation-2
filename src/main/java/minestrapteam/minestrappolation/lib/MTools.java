@@ -35,6 +35,7 @@ public class MTools
 	public static ToolMaterial	toolBedrock		= EnumHelper.addToolMaterial("Bedrock", 5, 6247, 7F, 2, 5);
 	public static ToolMaterial	toolGranite		= EnumHelper.addToolMaterial("Granite", 1, 199, 4.3F, 2, 4);
 	public static ToolMaterial	toolSoulsteel	= EnumHelper.addToolMaterial("Soul-Steel", 2, 300, 7.5F, 3, 26);
+	public static ToolMaterial  toolUnholy		= EnumHelper.addToolMaterial("Unholy", 3, 1100, 8.0F, 4.0F, 13);
 	
 	public static Item			meuroditeSword;
 	public static Item			meuroditeShovel;
@@ -129,6 +130,15 @@ public class MTools
 	public static Item			soulsteelAxe;
 	public static Item			soulsteelHoe;
 	
+	/*
+	public static Item			unholySword;
+	public static Item			unholyShovel;
+	public static Item			unholyPickaxe;
+	public static Item			unholyAxe;
+	public static Item			unholyHoe;
+	*/
+	//TODO Wait for wither system textures
+	
 	public static void init()
 	{
 		CSItems.replaceItem(Items.wooden_sword, new MItemSword(ToolMaterial.WOOD).setUnlocalizedName("swordWood").setTextureName("wood_sword"));
@@ -136,21 +146,25 @@ public class MTools
 		CSItems.replaceItem(Items.wooden_pickaxe, new MItemPickaxe(ToolMaterial.WOOD).setUnlocalizedName("pickaxeWood").setTextureName("wood_pickaxe"));
 		CSItems.replaceItem(Items.wooden_axe, new MItemAxe(ToolMaterial.WOOD).setUnlocalizedName("hatchetWood").setTextureName("wood_axe"));
 		CSItems.replaceItem(Items.wooden_hoe, new MItemHoe(ToolMaterial.WOOD).setUnlocalizedName("hoeWood").setTextureName("wood_hoe"));
+		
 		CSItems.replaceItem(Items.stone_sword, new MItemSword(ToolMaterial.STONE).setUnlocalizedName("swordStone").setTextureName("stone_sword"));
 		CSItems.replaceItem(Items.stone_shovel, new MItemShovel(ToolMaterial.STONE).setUnlocalizedName("shovelStone").setTextureName("stone_shovel"));
 		CSItems.replaceItem(Items.stone_pickaxe, new MItemPickaxe(ToolMaterial.STONE).setUnlocalizedName("pickaxeStone").setTextureName("stone_pickaxe"));
 		CSItems.replaceItem(Items.stone_axe, new MItemAxe(ToolMaterial.STONE).setUnlocalizedName("hatchetStone").setTextureName("stone_axe"));
 		CSItems.replaceItem(Items.stone_hoe, new MItemHoe(ToolMaterial.STONE).setUnlocalizedName("hoeStone").setTextureName("stone_hoe"));
+		
 		CSItems.replaceItem(Items.iron_sword, new MItemSword(ToolMaterial.IRON).setUnlocalizedName("swordIron").setTextureName("iron_sword"));
 		CSItems.replaceItem(Items.iron_shovel, new MItemShovel(ToolMaterial.IRON).setUnlocalizedName("shovelIron").setTextureName("iron_shovel"));
 		CSItems.replaceItem(Items.iron_pickaxe, new MItemPickaxe(ToolMaterial.IRON).setUnlocalizedName("pickaxeIron").setTextureName("iron_pickaxe"));
 		CSItems.replaceItem(Items.iron_axe, new MItemAxe(ToolMaterial.IRON).setUnlocalizedName("hatchetIron").setTextureName("iron_axe"));
 		CSItems.replaceItem(Items.iron_hoe, new MItemHoe(ToolMaterial.IRON).setUnlocalizedName("hoeIron").setTextureName("iron_hoe"));
+		
 		CSItems.replaceItem(Items.golden_sword, new MItemSword(ToolMaterial.GOLD).setUnlocalizedName("swordGold").setTextureName("gold_sword"));
 		CSItems.replaceItem(Items.golden_shovel, new MItemShovel(ToolMaterial.GOLD).setUnlocalizedName("shovelGold").setTextureName("gold_shovel"));
 		CSItems.replaceItem(Items.golden_pickaxe, new MItemPickaxe(ToolMaterial.GOLD).setUnlocalizedName("pickaxeGold").setTextureName("gold_pickaxe"));
 		CSItems.replaceItem(Items.golden_axe, new MItemAxe(ToolMaterial.GOLD).setUnlocalizedName("hatchetGold").setTextureName("gold_axe"));
 		CSItems.replaceItem(Items.golden_hoe, new MItemHoe(ToolMaterial.GOLD).setUnlocalizedName("hoeGold").setTextureName("gold_hoe"));
+		
 		CSItems.replaceItem(Items.diamond_sword, new MItemSword(ToolMaterial.EMERALD).setUnlocalizedName("swordDiamond").setTextureName("diamond_sword"));
 		CSItems.replaceItem(Items.diamond_shovel, new MItemShovel(ToolMaterial.EMERALD).setUnlocalizedName("shovelDiamond").setTextureName("diamond_shovel"));
 		CSItems.replaceItem(Items.diamond_pickaxe, new MItemPickaxe(ToolMaterial.EMERALD).setUnlocalizedName("pickaxeDiamond").setTextureName("diamond_pickaxe"));
@@ -249,6 +263,14 @@ public class MTools
 		soulsteelPickaxe = new MItemPickaxe(toolSoulsteel).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("soulsteel_pickaxe"));
 		soulsteelAxe = new MItemAxe(toolSoulsteel).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("soulsteel_axe"));
 		soulsteelHoe = new MItemHoe(toolSoulsteel).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("soulsteel_hoe"));
+		
+		/*
+		unholySword = new MItemSword(toolUnholy).setCreativeTab(Minestrappolation.tabCombat).setTextureName(MAssetManager.getWeaponTexture("unholy_sword"));
+		unholyShovel = new MItemShovel(toolUnholy).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("unholy_shovel"));
+		unholyPickaxe = new MItemPickaxe(toolUnholy).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("unholy_pickaxe"));
+		unholyAxe = new MItemAxe(toolUnholy).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("unholy_axe"));
+		unholyHoe = new MItemHoe(toolUnholy).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("unholy_hoe"));
+		*/
 	}
 	
 	public static void load()
@@ -346,6 +368,14 @@ public class MTools
 		CSItems.addItem(soulsteelAxe, "soulsteel_axe");
 		CSItems.addItem(soulsteelHoe, "soulsteel_hoe");
 		
+		/*
+		CSItems.addItem(unholySword, "unholy_sword");
+		CSItems.addItem(unholyShovel, "unholy_shovel");
+		CSItems.addItem(unholyPickaxe, "unholy_pickaxe");
+		CSItems.addItem(unholyAxe, "unholy_axe");
+		CSItems.addItem(unholyHoe, "unholy_hoe");
+		*/
+		
 		armorMeurodite.customCraftingMaterial = meuroditeGem;
 		armorTitanium.customCraftingMaterial = titaniumIngot;
 		armorTorite.customCraftingMaterial = toriteIngot;
@@ -364,5 +394,6 @@ public class MTools
 		toolBedrock.customCraftingMaterial = Item.getItemFromBlock(Blocks.bedrock);
 		toolGranite.customCraftingMaterial = Item.getItemFromBlock(MBlocks.graniteSlate);
 		toolSoulsteel.customCraftingMaterial = soulGem;
+		//TODO Unholy tool material
 	}
 }
