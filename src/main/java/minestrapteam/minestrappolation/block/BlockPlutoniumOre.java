@@ -49,7 +49,7 @@ public class BlockPlutoniumOre extends BlockRadiation
 			}
 			else
 			{
-				living.addPotionEffect(new PotionEffect(Potion.wither.getId(), 20, 0, false));
+				living.addPotionEffect(new PotionEffect(Potion.wither.getId(), 40, 0, false));
 			}
 		}
 	}

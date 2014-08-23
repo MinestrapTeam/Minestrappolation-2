@@ -47,7 +47,7 @@ public class BlockUraniumOre extends BlockRadiation
 			}
 			else
 			{
-				living.addPotionEffect(new PotionEffect(Potion.poison.getId(), 120, 0, false));
+				living.addPotionEffect(new PotionEffect(Potion.poison.getId(), 200, 0, false));
 			}
 		}
 	}
