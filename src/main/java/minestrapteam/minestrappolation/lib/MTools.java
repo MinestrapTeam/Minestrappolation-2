@@ -130,14 +130,11 @@ public class MTools
 	public static Item			soulsteelAxe;
 	public static Item			soulsteelHoe;
 	
-	/*
 	public static Item			unholySword;
 	public static Item			unholyShovel;
 	public static Item			unholyPickaxe;
 	public static Item			unholyAxe;
 	public static Item			unholyHoe;
-	*/
-	//TODO Wait for wither system textures
 	
 	public static void init()
 	{
@@ -264,13 +261,12 @@ public class MTools
 		soulsteelAxe = new MItemAxe(toolSoulsteel).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("soulsteel_axe"));
 		soulsteelHoe = new MItemHoe(toolSoulsteel).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("soulsteel_hoe"));
 		
-		/*
 		unholySword = new MItemSword(toolUnholy).setCreativeTab(Minestrappolation.tabCombat).setTextureName(MAssetManager.getWeaponTexture("unholy_sword"));
 		unholyShovel = new MItemShovel(toolUnholy).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("unholy_shovel"));
 		unholyPickaxe = new MItemPickaxe(toolUnholy).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("unholy_pickaxe"));
 		unholyAxe = new MItemAxe(toolUnholy).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("unholy_axe"));
 		unholyHoe = new MItemHoe(toolUnholy).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("unholy_hoe"));
-		*/
+	
 	}
 	
 	public static void load()
@@ -368,13 +364,11 @@ public class MTools
 		CSItems.addItem(soulsteelAxe, "soulsteel_axe");
 		CSItems.addItem(soulsteelHoe, "soulsteel_hoe");
 		
-		/*
 		CSItems.addItem(unholySword, "unholy_sword");
 		CSItems.addItem(unholyShovel, "unholy_shovel");
 		CSItems.addItem(unholyPickaxe, "unholy_pickaxe");
 		CSItems.addItem(unholyAxe, "unholy_axe");
 		CSItems.addItem(unholyHoe, "unholy_hoe");
-		*/
 		
 		armorMeurodite.customCraftingMaterial = meuroditeGem;
 		armorTitanium.customCraftingMaterial = titaniumIngot;

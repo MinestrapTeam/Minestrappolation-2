@@ -1,5 +1,6 @@
 package minestrapteam.minestrappolation.lib;
 
+import cpw.mods.fml.common.registry.GameRegistry;
 import clashsoft.cslib.minecraft.block.CSBlocks;
 import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.block.*;
@@ -7,8 +8,9 @@ import minestrapteam.minestrappolation.item.block.MCItemBlockMulti;
 import minestrapteam.minestrappolation.material.MaterialOoze;
 import minestrapteam.minestrappolation.util.MAssetManager;
 import minestrapteam.minestrappolation.util.MBlockHelper;
-
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockSnow;
+import net.minecraft.block.BlockSnowBlock;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -326,6 +328,9 @@ public class MBlocks
 	
 	public static Block			craftingTable2;
 	
+	public static Block			witherLayer;
+	public static Block			witherBlock;
+	
 	public static void init()
 	{
 		addStoneBlocks();
@@ -415,6 +420,9 @@ public class MBlocks
 		glassDoor = new BlockGlassDoor(Material.glass).setHardness(1F);
 		
 		craftingTable2 = new BlockWorkbench2().setHardness(2.5F).setStepSound(Block.soundTypeWood).setBlockName("workbench");
+		
+		witherLayer = new BlockWitherLayer().setHardness(0.1F).setStepSound(Block.soundTypeSnow).setLightOpacity(0).setBlockName("wither_ash_layer");
+		witherBlock = new BlockWitherAsh().setHardness(0.2F).setStepSound(Block.soundTypeSnow).setBlockName("wither_ash").setBlockTextureName(MAssetManager.getMineralTexture("wither_ash_block"));
 	}
 	
 	public static void load()
@@ -503,6 +511,9 @@ public class MBlocks
 		
 		CSBlocks.replaceBlock(Blocks.crafting_table, craftingTable2);
 		
+		CSBlocks.addBlock(witherBlock);
+		CSBlocks.addBlock(witherLayer);
+
 		setFlammability();
 	}
 	
