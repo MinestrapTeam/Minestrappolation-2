@@ -269,7 +269,7 @@ public class MRecipes
 		GameRegistry.addSmelting(horseHaunchRaw, new ItemStack(horseHaunchCooked), 0.8F);
 		GameRegistry.addRecipe(new ItemStack(wingSegment, 1, 0), new Object[] { "FSF", "SLS", "FSF", 'F', Items.feather, 'S', wingSinew, 'L', Items.leather });
 		// GameRegistry.addRecipe(new ItemStack(hangGlider, 1, 0), new Object[]
-		// { "PPP", "W W", "W W", 'P', Blocks.planks, 'W', wingSegment });
+		// { "PPP", "W W", "W W", 'P', Blocks.planks, 'W', wingSegment });	
 	}
 	
 	public static void removeRecipes()
@@ -324,5 +324,8 @@ public class MRecipes
 		MUtil.removeRecipe(new ItemStack(Blocks.acacia_stairs, 4));
 		MUtil.removeRecipe(new ItemStack(Blocks.dark_oak_stairs, 4));
 		MUtil.removeRecipe(new ItemStack(Items.bed, 1));
+		
+		MUtil.removeRecipe(new ItemStack(Items.flint_and_steel, 1));
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.flint_and_steel), new Object[]{ MItems.steelIngot, Items.flint});
 	}
 }
