@@ -330,8 +330,14 @@ public class MBlocks
 	
 	public static Block			witherLayer;
 	public static Block			witherBlock;
+		
+	public static Block			deepStones;
 	
-	public static Block			biomeStone;
+	//World generator doesn't like metadata.
+	public static Block			coldstone;
+	public static Block			redrock;
+	public static Block			icestone;
+	public static Block			oceanstone;
 	
 	public static void init()
 	{
@@ -426,8 +432,13 @@ public class MBlocks
 		witherLayer = new BlockWitherLayer().setHardness(0.1F).setStepSound(Block.soundTypeSnow).setLightOpacity(0).setBlockName("wither_ash_layer");
 		witherBlock = new BlockWitherAsh().setHardness(0.2F).setStepSound(Block.soundTypeSnow).setBlockName("wither_ash").setBlockTextureName(MAssetManager.getMineralTexture("wither_ash_block"));
 	
-		String[] biomeStones = new String[]{"deepstone", "coldstone", "deepcoldstone", "redrock", "deepredrock", "icestone", "deepicestone", "oceanstone", "pressurizedoceanstone"};
-		biomeStone = new BlockBiomeStone(biomeStones).setHardness(1.5F).setResistance(10.0F).setStepSound(Block.soundTypePiston);
+		String[] biomeStones = new String[]{"deepstone", "deepcoldstone", "deepredrock","deepicestone", "pressurizedoceanstone"};
+		deepStones = new BlockDeepStones(biomeStones).setHardness(1.5F).setResistance(10.0F).setStepSound(Block.soundTypePiston);
+		
+		coldstone = new MBlock(Material.rock).setHardness(1.5F).setResistance(10.0F).setBlockTextureName(MAssetManager.getStonecutterTexture("coldstone")).setCreativeTab(Minestrappolation.tabStoneDecor);
+		redrock = new MBlock(Material.rock).setHardness(1.5F).setResistance(10.0F).setBlockTextureName(MAssetManager.getStonecutterTexture("redrock")).setCreativeTab(Minestrappolation.tabStoneDecor);
+		icestone = new MBlock(Material.rock).setHardness(1.5F).setResistance(10.0F).setBlockTextureName(MAssetManager.getStonecutterTexture("icestone")).setCreativeTab(Minestrappolation.tabStoneDecor);
+		oceanstone = new MBlock(Material.rock).setHardness(1.5F).setResistance(10.0F).setBlockTextureName(MAssetManager.getStonecutterTexture("oceanstone")).setCreativeTab(Minestrappolation.tabStoneDecor);
 	}
 	
 	public static void load()
@@ -519,7 +530,12 @@ public class MBlocks
 		CSBlocks.addBlock(witherBlock);
 		CSBlocks.addBlock(witherLayer);
 		
-		CSBlocks.addBlock(biomeStone, MCItemBlockMulti.class, "biome_stone");
+		CSBlocks.addBlock(deepStones, MCItemBlockMulti.class, "deep_stone");
+		
+		CSBlocks.addBlock(coldstone, "coldstone");
+		CSBlocks.addBlock(redrock,"redrock");
+		CSBlocks.addBlock(icestone, "icestone");
+		CSBlocks.addBlock(oceanstone, "oceanstone");
 
 		setFlammability();
 	}

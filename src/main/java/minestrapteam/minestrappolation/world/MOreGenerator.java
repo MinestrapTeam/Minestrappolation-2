@@ -2,15 +2,16 @@ package minestrapteam.minestrappolation.world;
 
 import java.util.Random;
 
+import scala.xml.dtd.impl.WordBerrySethi;
 import cpw.mods.fml.common.IWorldGenerator;
 import minestrapteam.minestrappolation.lib.MBlocks;
 import minestrapteam.minestrappolation.world.gen.WorldGenDesertQuartz;
 import minestrapteam.minestrappolation.world.gen.WorldGenRedSandstone;
 import minestrapteam.minestrappolation.world.gen.WorldGenRedWoodTreeSmall;
-
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.biome.BiomeGenBase.TempCategory;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.ChunkProviderEnd;
 import net.minecraft.world.gen.ChunkProviderGenerate;
@@ -72,6 +73,42 @@ public class MOreGenerator implements IWorldGenerator
 		int z1;
 		
 		BiomeGenBase biome = world.getBiomeGenForCoords(chunkX, chunkZ);
+		
+		for (x1 = 0; x1 < 16; x1++)
+		{
+			for(y1 = 0; y1 < rand.nextInt(5) + 30; y1++) // spawn height
+			{
+				for (z1 = 0; z1 < 16; z1++)
+				{
+					if(world.getBlock(chunkX + x1, y1, chunkZ + z1) == Blocks.stone)
+					{
+						if(biome.getTempCategory() == TempCategory.MEDIUM)
+						{
+							world.setBlock(chunkX + x1, y1, chunkZ + z1, MBlocks.deepStones, 0, 0);
+						}
+						
+						if(biome == BiomeGenBase.frozenRiver || biome == BiomeGenBase.frozenOcean || biome == BiomeGenBase.icePlains || biome == BiomeGenBase.coldBeach || biome == BiomeGenBase.coldTaiga || biome == BiomeGenBase.coldTaigaHills)
+						{
+							world.setBlock(chunkX + x1, y1, chunkZ + z1, MBlocks.deepStones, 3, 0);
+						}
+						if(biome.getTempCategory() == TempCategory.WARM)
+						{
+							world.setBlock(chunkX + x1, y1, chunkZ + z1, MBlocks.deepStones, 2, 0);
+						}
+						
+						if(biome.getTempCategory() == TempCategory.COLD && !(biome == BiomeGenBase.frozenRiver || biome == BiomeGenBase.frozenOcean || biome == BiomeGenBase.icePlains || biome == BiomeGenBase.coldBeach || biome == BiomeGenBase.coldTaiga || biome == BiomeGenBase.coldTaigaHills))
+						{
+							world.setBlock(chunkX + x1, y1, chunkZ + z1, MBlocks.deepStones, 1, 0);
+						}
+						if(biome.getTempCategory() == TempCategory.OCEAN)
+						{
+							world.setBlock(chunkX + x1, y1, chunkZ + z1, MBlocks.deepStones, 4, 0);
+						}
+					}
+					
+				}
+			}
+		}
 				
 		// Red Sandstone
 		if (biome instanceof BiomeGenDesert)
