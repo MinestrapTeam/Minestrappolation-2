@@ -9,24 +9,68 @@ import cpw.mods.fml.common.gameevent.TickEvent.PlayerTickEvent;
 import minestrapteam.minestrappolation.lib.MBlocks;
 import minestrapteam.minestrappolation.lib.MItems;
 import minestrapteam.minestrappolation.lib.MTools;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.boss.EntityWither;
 import net.minecraft.entity.monster.*;
 import net.minecraft.entity.passive.*;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.world.chunk.Chunk;
+import net.minecraft.world.chunk.storage.ExtendedBlockStorage;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.EntityInteractEvent;
 import net.minecraftforge.event.entity.player.FillBucketEvent;
+import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 
 public class MEventHandler
 {
+	@SubscribeEvent
+	public void populateChunk(PopulateChunkEvent.Pre event) 
+	{
+		final Chunk chunk = event.world.getChunkFromChunkCoords(event.chunkX, event.chunkZ);
+		final ExtendedBlockStorage[] storageArray = chunk.getBlockStorageArray();
+		for (int x = 0; x < 16; x++) 
+		{
+			for (int z = 0; z < 16; z++) 
+			{
+				ExtendedBlockStorage storage = storageArray[0]; // 0 <= y < 16
+				if (storage != null) 
+				{
+					for (int y = 0; y < 16; y++) 
+					{
+						final Block block = storage.getBlockByExtId(x, y, z);
+						
+						if (block == Blocks.coal_ore) {
+							storage.setExtBlockMetadata(x, 0, z, MBlocks.biomeStone.damageDropped(0));
+						}
+					}
+				}
+				
+				storage = storageArray[1]; // 16 <= y < 32
+				
+				if (storage != null)
+				{
+					for (int y = 0; y < 16; y++) 
+					{
+						if (storage != null) 
+						{
+							if (storage.getBlockByExtId(x, y, z) == Blocks.coal_ore) 
+							{
+								storage.setExtBlockMetadata(x, y, z,MBlocks.biomeStone.damageDropped(0));
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
 	@SubscribeEvent
 	public void onBucketFill(FillBucketEvent event)
 	{

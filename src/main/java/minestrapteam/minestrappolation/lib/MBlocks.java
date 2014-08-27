@@ -331,6 +331,8 @@ public class MBlocks
 	public static Block			witherLayer;
 	public static Block			witherBlock;
 	
+	public static Block			biomeStone;
+	
 	public static void init()
 	{
 		addStoneBlocks();
@@ -423,6 +425,9 @@ public class MBlocks
 		
 		witherLayer = new BlockWitherLayer().setHardness(0.1F).setStepSound(Block.soundTypeSnow).setLightOpacity(0).setBlockName("wither_ash_layer");
 		witherBlock = new BlockWitherAsh().setHardness(0.2F).setStepSound(Block.soundTypeSnow).setBlockName("wither_ash").setBlockTextureName(MAssetManager.getMineralTexture("wither_ash_block"));
+	
+		String[] biomeStones = new String[]{"deepstone", "coldstone", "deepcoldstone", "redrock", "deepredrock", "icestone", "deepicestone", "oceanstone", "pressurizedoceanstone"};
+		biomeStone = new BlockBiomeStone(biomeStones).setHardness(1.5F).setResistance(10.0F).setStepSound(Block.soundTypePiston);
 	}
 	
 	public static void load()
@@ -513,6 +518,8 @@ public class MBlocks
 		
 		CSBlocks.addBlock(witherBlock);
 		CSBlocks.addBlock(witherLayer);
+		
+		CSBlocks.addBlock(biomeStone, MCItemBlockMulti.class, "biome_stone");
 
 		setFlammability();
 	}

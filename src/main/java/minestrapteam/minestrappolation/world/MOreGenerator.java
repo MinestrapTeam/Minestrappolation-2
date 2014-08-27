@@ -72,7 +72,7 @@ public class MOreGenerator implements IWorldGenerator
 		int z1;
 		
 		BiomeGenBase biome = world.getBiomeGenForCoords(chunkX, chunkZ);
-		
+				
 		// Red Sandstone
 		if (biome instanceof BiomeGenDesert)
 		{
@@ -302,4 +302,5 @@ public class MOreGenerator implements IWorldGenerator
 			}
 		}
 	}
+	
 }
