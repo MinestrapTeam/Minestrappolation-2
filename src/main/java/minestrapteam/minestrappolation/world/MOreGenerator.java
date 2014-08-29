@@ -76,33 +76,31 @@ public class MOreGenerator implements IWorldGenerator
 		
 		for (x1 = 0; x1 < 16; x1++)
 		{
-			for(y1 = 0; y1 < rand.nextInt(5) + 30; y1++) // spawn height
+			for(y1 = 0; y1 < rand.nextInt(5) + 45; y1++) // spawn height
 			{
 				for (z1 = 0; z1 < 16; z1++)
 				{
 					if(world.getBlock(chunkX + x1, y1, chunkZ + z1) == Blocks.stone)
 					{
-						if(biome.getTempCategory() == TempCategory.MEDIUM)
+						if(biome.getTempCategory() == TempCategory.MEDIUM && !(biome == BiomeGenBase.mushroomIsland || biome == BiomeGenBase.mushroomIslandShore))
 						{
-							world.setBlock(chunkX + x1, y1, chunkZ + z1, MBlocks.deepStones, 0, 0);
+							world.setBlock(chunkX + x1, y1, chunkZ + z1, MBlocks.deepstone, 0, 0);
 						}
-						
-						if(biome == BiomeGenBase.frozenRiver || biome == BiomeGenBase.frozenOcean || biome == BiomeGenBase.icePlains || biome == BiomeGenBase.coldBeach || biome == BiomeGenBase.coldTaiga || biome == BiomeGenBase.coldTaigaHills)
+						else if(biome == BiomeGenBase.frozenRiver || biome == BiomeGenBase.frozenOcean || biome == BiomeGenBase.icePlains || biome == BiomeGenBase.coldBeach || biome == BiomeGenBase.coldTaiga || biome == BiomeGenBase.coldTaigaHills)
 						{
-							world.setBlock(chunkX + x1, y1, chunkZ + z1, MBlocks.deepStones, 3, 0);
+							world.setBlock(chunkX + x1, y1, chunkZ + z1, MBlocks.glacierrock, 0, 0);
 						}
-						if(biome.getTempCategory() == TempCategory.WARM)
+						else if(biome.getTempCategory() == TempCategory.WARM)
 						{
-							world.setBlock(chunkX + x1, y1, chunkZ + z1, MBlocks.deepStones, 2, 0);
+							world.setBlock(chunkX + x1, y1, chunkZ + z1, MBlocks.deepredrock, 0, 0);
 						}
-						
-						if(biome.getTempCategory() == TempCategory.COLD && !(biome == BiomeGenBase.frozenRiver || biome == BiomeGenBase.frozenOcean || biome == BiomeGenBase.icePlains || biome == BiomeGenBase.coldBeach || biome == BiomeGenBase.coldTaiga || biome == BiomeGenBase.coldTaigaHills))
+						else if(biome.getTempCategory() == TempCategory.COLD && !(biome == BiomeGenBase.frozenRiver || biome == BiomeGenBase.frozenOcean || biome == BiomeGenBase.icePlains || biome == BiomeGenBase.coldBeach || biome == BiomeGenBase.coldTaiga || biome == BiomeGenBase.coldTaigaHills))
 						{
-							world.setBlock(chunkX + x1, y1, chunkZ + z1, MBlocks.deepStones, 1, 0);
+							world.setBlock(chunkX + x1, y1, chunkZ + z1, MBlocks.deepcoldstone, 0, 0);
 						}
-						if(biome.getTempCategory() == TempCategory.OCEAN)
+						else if(biome.getTempCategory() == TempCategory.OCEAN || biome == BiomeGenBase.mushroomIsland || biome == BiomeGenBase.mushroomIslandShore)
 						{
-							world.setBlock(chunkX + x1, y1, chunkZ + z1, MBlocks.deepStones, 4, 0);
+							world.setBlock(chunkX + x1, y1, chunkZ + z1, MBlocks.pressurizedoceanstone, 0, 0);
 						}
 					}
 					

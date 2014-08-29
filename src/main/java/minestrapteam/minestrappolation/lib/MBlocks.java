@@ -51,6 +51,60 @@ public class MBlocks
 	public static Block			stoneMeuroditeStairsCracked;
 	public static Block			stoneMeurodite2;
 	
+	public static MBlockCustom	deepstone;
+	public static Block			deepstoneStairsRaw;
+	public static Block			deepstoneStairsBricks;
+	public static Block			deepstoneStairsTiles;
+	public static Block			deepstone2;
+	
+	public static MBlockCustom	coldstone;
+	public static Block			coldstoneStairsRaw;
+	public static Block			coldstoneStairsBricks;
+	public static Block			coldstoneStairsTiles;
+	public static Block			coldstone2;
+	
+	public static MBlockCustom	deepcoldstone;
+	public static Block			deepcoldstoneStairsRaw;
+	public static Block			deepcoldstoneStairsBricks;
+	public static Block			deepcoldstoneStairsTiles;
+	public static Block			deepcoldstone2;
+	
+	public static MBlockCustom	redrock;
+	public static Block			redrockStairsRaw;
+	public static Block			redrockStairsBricks;
+	public static Block			redrockStairsTiles;
+	public static Block			redrock2;
+	
+	public static MBlockCustom	deepredrock;
+	public static Block			deepredrockStairsRaw;
+	public static Block			deepredrockStairsBricks;
+	public static Block			deepredrockStairsTiles;
+	public static Block			deepredrock2;
+	
+	public static MBlockCustom	icestone;
+	public static Block			icestoneStairsRaw;
+	public static Block			icestoneStairsBricks;
+	public static Block			icestoneStairsTiles;
+	public static Block			icestone2;
+	
+	public static MBlockCustom	glacierrock;
+	public static Block			glacierrockStairsRaw;
+	public static Block			glacierrockStairsBricks;
+	public static Block			glacierrockStairsTiles;
+	public static Block			glacierrock2;
+	
+	public static MBlockCustom	oceanstone;
+	public static Block			oceanstoneStairsRaw;
+	public static Block			oceanstoneStairsBricks;
+	public static Block			oceanstoneStairsTiles;
+	public static Block			oceanstone2;
+	
+	public static MBlockCustom	pressurizedoceanstone;
+	public static Block			pressurizedoceanstoneStairsRaw;
+	public static Block			pressurizedoceanstoneStairsBricks;
+	public static Block			pressurizedoceanstoneStairsTiles;
+	public static Block			pressurizedoceanstone2;
+	
 	public static MBlockCustom	graniteSlate;
 	public static Block			graniteSlateStairsRaw;
 	public static Block			graniteSlateStairsBricks;
@@ -330,15 +384,16 @@ public class MBlocks
 	
 	public static Block			witherLayer;
 	public static Block			witherBlock;
-		
+	/*	
 	public static Block			deepStones;
 	
 	//World generator doesn't like metadata.
+	
 	public static Block			coldstone;
 	public static Block			redrock;
 	public static Block			icestone;
 	public static Block			oceanstone;
-	
+	*/
 	public static void init()
 	{
 		addStoneBlocks();
@@ -431,7 +486,7 @@ public class MBlocks
 		
 		witherLayer = new BlockWitherLayer().setHardness(0.1F).setStepSound(Block.soundTypeSnow).setLightOpacity(0).setBlockName("wither_ash_layer");
 		witherBlock = new BlockWitherAsh().setHardness(0.2F).setStepSound(Block.soundTypeSnow).setBlockName("wither_ash").setBlockTextureName(MAssetManager.getMineralTexture("wither_ash_block"));
-	
+		/*
 		String[] biomeStones = new String[]{"deepstone", "deepcoldstone", "deepredrock","deepicestone", "pressurizedoceanstone"};
 		deepStones = new BlockDeepStones(biomeStones).setHardness(1.5F).setResistance(10.0F).setStepSound(Block.soundTypePiston);
 		
@@ -439,6 +494,7 @@ public class MBlocks
 		redrock = new MBlock(Material.rock).setHardness(1.5F).setResistance(10.0F).setBlockTextureName(MAssetManager.getStonecutterTexture("redrock")).setCreativeTab(Minestrappolation.tabStoneDecor);
 		icestone = new MBlock(Material.rock).setHardness(1.5F).setResistance(10.0F).setBlockTextureName(MAssetManager.getStonecutterTexture("icestone")).setCreativeTab(Minestrappolation.tabStoneDecor);
 		oceanstone = new MBlock(Material.rock).setHardness(1.5F).setResistance(10.0F).setBlockTextureName(MAssetManager.getStonecutterTexture("oceanstone")).setCreativeTab(Minestrappolation.tabStoneDecor);
+		*/
 	}
 	
 	public static void load()
@@ -529,14 +585,14 @@ public class MBlocks
 		
 		CSBlocks.addBlock(witherBlock);
 		CSBlocks.addBlock(witherLayer);
-		
+		/*
 		CSBlocks.addBlock(deepStones, MCItemBlockMulti.class, "deep_stone");
 		
 		CSBlocks.addBlock(coldstone, "coldstone");
 		CSBlocks.addBlock(redrock,"redrock");
 		CSBlocks.addBlock(icestone, "icestone");
 		CSBlocks.addBlock(oceanstone, "oceanstone");
-
+		*/
 		setFlammability();
 	}
 	
@@ -553,6 +609,16 @@ public class MBlocks
 		
 		String[] types_stone = new String[] { null, null, "pattern_bricks", "tiles", "road", "refined", null, null, null, null, null, null, null, null, "lamp_glowstone", "lamp_sunstone" };
 		String[] types_stone_2 = new String[] { "pillar", null, null, "tile_slab", "refined_slab" };
+		String[] types_deepstone = new String[] { "raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", "cracked", "mossy", "bricks_cracked", "bricks_mossy", null, null, null, "lamp_glowstone", "lamp_sunstone" };
+		String[] types_deepstone_2 = new String[] { "pillar", "raw_slab", "brick_slab", "tile_slab", "refined_slab" };
+		String[] types_coldstone = new String[] { "raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", "cracked", "mossy", "bricks_cracked", "bricks_mossy", null, null, null, "lamp_glowstone", "lamp_sunstone" };
+		String[] types_coldstone_2 = new String[] { "pillar", "raw_slab", "brick_slab", "tile_slab", "refined_slab" };
+		String[] types_redrock = new String[] { "raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", "cracked", "mossy", "bricks_cracked", "bricks_mossy", null, null, null, "lamp_glowstone", "lamp_sunstone" };
+		String[] types_redrock_2 = new String[] { "pillar", "raw_slab", "brick_slab", "tile_slab", "refined_slab" };
+		String[] types_icestone = new String[] { "raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", "cracked", "mossy", "bricks_cracked", "bricks_mossy", null, null, null, "lamp_glowstone", "lamp_sunstone" };
+		String[] types_icestone_2 = new String[] { "pillar", "raw_slab", "brick_slab", "tile_slab", "refined_slab" };
+		String[] types_oceanstone = new String[] { "raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", "cracked", "mossy", "bricks_cracked", "bricks_mossy", null, null, null, "lamp_glowstone", "lamp_sunstone" };
+		String[] types_oceanstone_2 = new String[] { "pillar", "raw_slab", "brick_slab", "tile_slab", "refined_slab" };
 		String[] types_granite = new String[] { "raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled" };
 		String[] types_sandstone = new String[] { null, "bricks", "pattern_bricks", "tiles", "road", null, "chiseled", "chiseled_2", "mossy" };
 		String[] types_sandstone_2 = new String[] { "pillar", null, "brick_slab", "tile_slab", "refined_slab" };
@@ -582,6 +648,51 @@ public class MBlocks
 		stone2 = MBlockHelper.createStoneBlock2(types_stone_2, "stone", 1.5F, 10.0F, 0, tab);
 		stoneStairsRaw = MBlockHelper.createStoneStair(Blocks.stone, "stone", 0, tab);
 		stoneStairsTiles = MBlockHelper.createStoneStair(stone, 3, tab);
+		deepstone = MBlockHelper.createStoneBlock(types_deepstone, "deepstone", 3F, 13.0F, 2, tab).setIsStone().setRoadWalkSpeed(1.25F);
+		deepstone2 = MBlockHelper.createStoneBlock2(types_deepstone_2, "deepstone", 3F, 13.0F, 2, tab);
+		deepstoneStairsRaw = MBlockHelper.createStoneStair(deepstone, 0, tab);
+		deepstoneStairsBricks = MBlockHelper.createStoneStair(deepstone, 1, tab);
+		deepstoneStairsTiles = MBlockHelper.createStoneStair(deepstone, 3, tab);
+		coldstone = MBlockHelper.createStoneBlock(types_coldstone, "coldstone", 1.5F, 10.0F, 0, tab).setIsStone().setRoadWalkSpeed(1.25F);
+		coldstone2 = MBlockHelper.createStoneBlock2(types_coldstone_2, "coldstone", 1.5F, 10.0F, 0, tab);
+		coldstoneStairsRaw = MBlockHelper.createStoneStair(coldstone, 0, tab);
+		coldstoneStairsBricks = MBlockHelper.createStoneStair(coldstone, 1, tab);
+		coldstoneStairsTiles = MBlockHelper.createStoneStair(coldstone, 3, tab);
+		deepcoldstone = MBlockHelper.createStoneBlock(types_coldstone, "deepcoldstone", 3F, 13.0F, 2, tab).setIsStone().setRoadWalkSpeed(1.25F);
+		deepcoldstone2 = MBlockHelper.createStoneBlock2(types_coldstone_2, "deepcoldstone", 3F, 13.0F, 2, tab);
+		deepcoldstoneStairsRaw = MBlockHelper.createStoneStair(deepcoldstone, 0, tab);
+		deepcoldstoneStairsBricks = MBlockHelper.createStoneStair(deepcoldstone, 1, tab);
+		deepcoldstoneStairsTiles = MBlockHelper.createStoneStair(deepcoldstone, 3, tab);
+		redrock = MBlockHelper.createStoneBlock(types_redrock, "redrock", 1.1F, 8.0F, 0, tab).setIsStone().setRoadWalkSpeed(1.25F);
+		redrock2 = MBlockHelper.createStoneBlock2(types_redrock_2, "redrock", 1.1F, 8.0F, 0, tab);
+		redrockStairsRaw = MBlockHelper.createStoneStair(redrock, 0, tab);
+		redrockStairsBricks = MBlockHelper.createStoneStair(redrock, 1, tab);
+		redrockStairsTiles = MBlockHelper.createStoneStair(redrock, 3, tab);
+		deepredrock = MBlockHelper.createStoneBlock(types_redrock, "deepredrock", 2.2F, 11.0F, 2, tab).setIsStone().setRoadWalkSpeed(1.25F);
+		deepredrock2 = MBlockHelper.createStoneBlock2(types_redrock_2, "deepredrock", 2.2F, 11.0F, 2, tab);
+		deepredrockStairsRaw = MBlockHelper.createStoneStair(deepredrock, 0, tab);
+		deepredrockStairsBricks = MBlockHelper.createStoneStair(deepredrock, 1, tab);
+		deepredrockStairsTiles = MBlockHelper.createStoneStair(deepredrock, 3, tab);
+		icestone = MBlockHelper.createStoneBlock(types_icestone, "icestone", 1.7F, 10.0F, 0, tab).setIsStone().setRoadWalkSpeed(1.25F);
+		icestone2 = MBlockHelper.createStoneBlock2(types_icestone_2, "icestone", 1.7F, 10.0F, 0, tab);
+		icestoneStairsRaw = MBlockHelper.createStoneStair(icestone, 0, tab);
+		icestoneStairsBricks = MBlockHelper.createStoneStair(icestone, 1, tab);
+		icestoneStairsTiles = MBlockHelper.createStoneStair(icestone, 3, tab);
+		glacierrock = MBlockHelper.createStoneBlock(types_icestone, "glacierrock", 3.4F, 13.0F, 2, tab).setIsStone().setRoadWalkSpeed(1.25F);
+		glacierrock2 = MBlockHelper.createStoneBlock2(types_icestone_2, "glacierrock", 3.4F, 13.0F, 2, tab);
+		glacierrockStairsRaw = MBlockHelper.createStoneStair(glacierrock, 0, tab);
+		glacierrockStairsBricks = MBlockHelper.createStoneStair(glacierrock, 1, tab);
+		glacierrockStairsTiles = MBlockHelper.createStoneStair(glacierrock, 3, tab);
+		oceanstone = MBlockHelper.createStoneBlock(types_oceanstone, "oceanstone", 1.3F, 12.0F, 0, tab).setIsStone().setRoadWalkSpeed(1.25F);
+		oceanstone2 = MBlockHelper.createStoneBlock2(types_oceanstone_2, "oceanstone", 1.3F, 12.0F, 0, tab);
+		oceanstoneStairsRaw = MBlockHelper.createStoneStair(oceanstone, 0, tab);
+		oceanstoneStairsBricks = MBlockHelper.createStoneStair(oceanstone, 1, tab);
+		oceanstoneStairsTiles = MBlockHelper.createStoneStair(oceanstone, 3, tab);
+		pressurizedoceanstone = MBlockHelper.createStoneBlock(types_oceanstone, "pressurizedoceanstone", 2.6F, 15.0F, 2, tab).setIsStone().setRoadWalkSpeed(1.25F);
+		pressurizedoceanstone2 = MBlockHelper.createStoneBlock2(types_oceanstone_2, "pressurizedoceanstone", 2.6F, 15.0F, 2, tab);
+		pressurizedoceanstoneStairsRaw = MBlockHelper.createStoneStair(pressurizedoceanstone, 0, tab);
+		pressurizedoceanstoneStairsBricks = MBlockHelper.createStoneStair(pressurizedoceanstone, 1, tab);
+		pressurizedoceanstoneStairsTiles = MBlockHelper.createStoneStair(pressurizedoceanstone, 3, tab);
 		stoneTin = MBlockHelper.createStoneBlock("stone_tin", 1.7F, 11.0F, 0, tab).setIsStone().setRoadWalkSpeed(1.33F);
 		stoneTin2 = MBlockHelper.createStoneBlock2("stone_tin", 1.7F, 11.0F, 0, tab);
 		stoneTinStairsRaw = MBlockHelper.createStoneStair(stoneTin, 0, tab);
