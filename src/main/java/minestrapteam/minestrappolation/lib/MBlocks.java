@@ -384,16 +384,7 @@ public class MBlocks
 	
 	public static Block			witherLayer;
 	public static Block			witherBlock;
-	/*	
-	public static Block			deepStones;
-	
-	//World generator doesn't like metadata.
-	
-	public static Block			coldstone;
-	public static Block			redrock;
-	public static Block			icestone;
-	public static Block			oceanstone;
-	*/
+
 	public static void init()
 	{
 		addStoneBlocks();

@@ -33,49 +33,6 @@ import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 public class MEventHandler
 {
 	@SubscribeEvent
-	public void populateChunk(PopulateChunkEvent.Pre event)
-	{
-		Chunk chunk = event.world.getChunkFromChunkCoords(event.chunkX, event.chunkZ);
-		for (ExtendedBlockStorage storage : chunk.getBlockStorageArray())
-		{
-			if (storage != null)
-			{
-				for (int x = 0; x < 16; ++x)
-				{
-					for (int y = 0; y < 16; ++y)
-					{
-						for (int z = 0; z < 16; ++z)
-						{
-							BiomeGenBase biome = event.world.getBiomeGenForCoords(x, z);
-
-							if (storage.getBlockByExtId(x, y, z) == Blocks.stone)
-							{
-								if(biome == BiomeGenBase.frozenRiver || biome == BiomeGenBase.frozenOcean || biome == BiomeGenBase.icePlains || biome == BiomeGenBase.coldBeach || biome == BiomeGenBase.coldTaiga || biome == BiomeGenBase.coldTaigaHills)
-								{
-									storage.func_150818_a(x, y, z, MBlocks.icestone);
-								}
-								if(biome.getTempCategory() == TempCategory.WARM)
-								{
-									storage.func_150818_a(x, y, z, MBlocks.redrock);
-								}
-								
-								if(biome.getTempCategory() == TempCategory.COLD && !(biome == BiomeGenBase.frozenRiver || biome == BiomeGenBase.frozenOcean || biome == BiomeGenBase.icePlains || biome == BiomeGenBase.coldBeach || biome == BiomeGenBase.coldTaiga || biome == BiomeGenBase.coldTaigaHills))
-								{
-									storage.func_150818_a(x, y, z, MBlocks.coldstone);
-								}
-								if(biome.getTempCategory() == TempCategory.OCEAN)
-								{
-									storage.func_150818_a(x, y, z, MBlocks.oceanstone);
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-
-	@SubscribeEvent
 	public void onBucketFill(FillBucketEvent event)
 	{
 		Block block = event.world.getBlock(event.target.blockX, event.target.blockY, event.target.blockZ);
