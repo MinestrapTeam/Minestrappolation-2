@@ -74,7 +74,7 @@ public class BlockNuke extends Block
 	@Override
 	public void onBlockDestroyedByExplosion(World world, int x, int y, int z, Explosion explosion)
 	{
-		EntityNukePrimed entity = this.createPrimedEntity(world, x, y, z,  explosion.getExplosivePlacedBy());
+		EntityNukePrimed entity = this.createPrimedEntity(world, x, y, z, explosion.getExplosivePlacedBy());
 		if (entity != null)
 		{
 			entity.fuse = world.rand.nextInt(entity.fuse / 4) + entity.fuse / 8;
@@ -86,23 +86,8 @@ public class BlockNuke extends Block
 	{
 		if (metadata > 0)
 		{
-			this.createPrimedEntity(world, x, y, z, metadata, (EntityLivingBase) null);
+			this.createPrimedEntity(world, x, y, z, (EntityLivingBase) null);
 		}
-	}
-	
-	public EntityNukePrimed createPrimedEntity(World world, int x, int y, int z, int metadata, EntityLivingBase owner)
-	{
-		if (!world.isRemote)
-		{
-			if ((metadata & 1) == 1)
-			{
-				EntityNukePrimed entity = new EntityNukePrimed(world, x + 0.5F, y + 0.5F, z + 0.5F, owner);
-				world.spawnEntityInWorld(entity);
-				world.playSoundAtEntity(entity, "game.tnt.primed", 1.0F, 1.0F);
-				return entity;
-			}
-		}
-		return null;
 	}
 	
 	public EntityNukePrimed createPrimedEntity(World world, int x, int y, int z, EntityLivingBase owner)
@@ -112,7 +97,7 @@ public class BlockNuke extends Block
 			EntityNukePrimed entity = new EntityNukePrimed(world, x + 0.5F, y + 0.5F, z + 0.5F, owner);
 			world.spawnEntityInWorld(entity);
 			world.playSoundAtEntity(entity, "game.tnt.primed", 1.0F, 1.0F);
-			return entity;			
+			return entity;
 		}
 		return null;
 	}
