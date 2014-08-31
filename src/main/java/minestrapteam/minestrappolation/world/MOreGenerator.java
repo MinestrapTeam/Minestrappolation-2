@@ -8,9 +8,11 @@ import minestrapteam.minestrappolation.world.gen.WorldGenDesertQuartz;
 import minestrapteam.minestrappolation.world.gen.WorldGenRedSandstone;
 import minestrapteam.minestrappolation.world.gen.WorldGenRedWoodTreeSmall;
 
+import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.biome.BiomeGenBase.TempCategory;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.ChunkProviderEnd;
 import net.minecraft.world.gen.ChunkProviderGenerate;
@@ -72,8 +74,6 @@ public class MOreGenerator implements IWorldGenerator
 		int z1;
 		
 		BiomeGenBase biome = world.getBiomeGenForCoords(chunkX, chunkZ);
-		
-		generateBiomeStone(world, rand, chunkX, chunkZ, biome);
 		
 		// Red Sandstone
 		if (biome instanceof BiomeGenDesert)
@@ -305,68 +305,57 @@ public class MOreGenerator implements IWorldGenerator
 		}
 	}
 	
-	private void generateBiomeStone(World world, Random rand, int chunkX, int chunkZ, BiomeGenBase biome)
+	public static void genBiomeStone(BiomeGenBase biome, World world, Random random, Block[] blocks, byte[] metadata, int chunkX, int chunkZ)
 	{
-		for (int x0 = 0; x0 < 16; x0++)
+		Block stoneBlock = null;
+		Block deepStoneBlock = null;
+		int deepStoneDepth = 0;
+		if (biome.temperature < 0.2F)
 		{
-			int x = chunkX + x0;
-			for (int z0 = 0; z0 < 16; z0++)
+			stoneBlock = MBlocks.icestone;
+			deepStoneBlock = MBlocks.glacierrock;
+			deepStoneDepth = random.nextInt(5) + 30;
+		}
+		else if (biome.temperature < 0.4F)
+		{
+			stoneBlock = MBlocks.coldstone;
+			deepStoneBlock = MBlocks.deepColdstone;
+			deepStoneDepth = random.nextInt(5) + 35;
+		}
+		else if (biome.getTempCategory() == TempCategory.OCEAN)
+		{
+			stoneBlock = MBlocks.oceanstone;
+			deepStoneBlock = MBlocks.pressurizedOceanstone;
+			deepStoneDepth = random.nextInt(5) + 20;
+		}
+		else if (biome.temperature >= 1.0F)
+		{
+			stoneBlock = MBlocks.redrock;
+			deepStoneBlock = MBlocks.deepRedrock;
+			deepStoneDepth = random.nextInt(5) + 35;
+		}
+		
+		if (stoneBlock == null)
+		{
+			return;
+		}
+		
+		int x = chunkX & 15;
+		int z = chunkZ & 15;
+		int count = blocks.length / 256;
+		
+		for (int y = 128; y >= 0; y--)
+		{
+			int index = (z * 16 + x) * count + y;
+			if (blocks[index] == Blocks.stone)
 			{
-				int z = chunkZ + z0;
-				
-				for (int y = 0; y < 128; y++)
+				if (y < deepStoneDepth)
 				{
-					if (world.getBlock(x, y, z) != Blocks.stone)
-					{
-						continue;
-					}
-					
-					if (y < rand.nextInt(5) + 35)
-					{
-						if (biome.temperature < 0.19)
-						{
-							world.setBlock(x, y, z, MBlocks.glacierrock, 0, 0);
-						}
-						else if (biome.temperature < 0.4)
-						{
-							world.setBlock(x, y, z, MBlocks.deepcoldstone, 0, 0);
-						}
-						else if (biome == BiomeGenBase.ocean || biome == BiomeGenBase.beach || biome == BiomeGenBase.mushroomIsland || biome == BiomeGenBase.mushroomIslandShore || biome == BiomeGenBase.stoneBeach || biome == BiomeGenBase.ocean || biome == BiomeGenBase.deepOcean)
-						{
-							world.setBlock(x, y, z, MBlocks.pressurizedoceanstone, 0, 0);
-						}
-						else if (biome.temperature < 1.0)
-						{
-							world.setBlock(x, y, z, MBlocks.deepstone, 0, 0);
-						}
-						else
-						{
-							world.setBlock(x, y, z, MBlocks.deepredrock, 0, 0);
-						}
-					}
-					else
-					{
-						if (biome.temperature < 0.19)
-						{
-							world.setBlock(x, y, z, MBlocks.icestone, 0, 0);
-						}
-						else if (biome.temperature < 0.4)
-						{
-							world.setBlock(x, y, z, MBlocks.coldstone, 0, 0);
-						}
-						else if (biome == BiomeGenBase.ocean || biome == BiomeGenBase.beach || biome == BiomeGenBase.mushroomIsland || biome == BiomeGenBase.mushroomIslandShore || biome == BiomeGenBase.stoneBeach || biome == BiomeGenBase.ocean || biome == BiomeGenBase.deepOcean)
-						{
-							world.setBlock(x, y, z, MBlocks.oceanstone, 0, 0);
-						}
-						else if (biome.temperature < 1.0)
-						{
-							world.setBlock(x, y, z, Blocks.stone, 0, 0);
-						}
-						else
-						{
-							world.setBlock(x, y, z, MBlocks.redrock, 0, 0);
-						}
-					}
+					blocks[index] = deepStoneBlock;
+				}
+				else
+				{
+					blocks[index] = stoneBlock;
 				}
 			}
 		}

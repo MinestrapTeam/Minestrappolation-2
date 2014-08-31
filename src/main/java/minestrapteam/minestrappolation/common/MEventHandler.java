@@ -9,6 +9,7 @@ import cpw.mods.fml.common.gameevent.TickEvent.PlayerTickEvent;
 import minestrapteam.minestrappolation.lib.MBlocks;
 import minestrapteam.minestrappolation.lib.MItems;
 import minestrapteam.minestrappolation.lib.MTools;
+import minestrapteam.minestrappolation.world.MOreGenerator;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
@@ -20,10 +21,12 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.EntityInteractEvent;
 import net.minecraftforge.event.entity.player.FillBucketEvent;
+import net.minecraftforge.event.terraingen.ChunkProviderEvent.ReplaceBiomeBlocks;
 
 public class MEventHandler
 {
@@ -422,5 +425,19 @@ public class MEventHandler
 				event.entityPlayer.inventory.addItemStackToInventory(new ItemStack(MItems.ghastlySoul, 1));
 			}
 		}
+	}
+	
+	@SubscribeEvent
+	public void genBiomeTerrain(ReplaceBiomeBlocks event)
+	{
+		Random random = new Random(event.world.getSeed());
+		for (int k = 0; k < 16; ++k)
+        {
+            for (int l = 0; l < 16; ++l)
+            {
+                BiomeGenBase biome = event.biomeArray[l + k * 16];
+                MOreGenerator.genBiomeStone(biome, event.world, random, event.blockArray, event.metaArray, event.chunkX * 16 + k, event.chunkZ * 16 + l);
+            }
+        }
 	}
 }
