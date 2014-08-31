@@ -307,9 +307,10 @@ public class MOreGenerator implements IWorldGenerator
 	
 	public static void genBiomeStone(BiomeGenBase biome, World world, Random random, Block[] blocks, byte[] metadata, int chunkX, int chunkZ)
 	{
-		Block stoneBlock = null;
+		Block stoneBlock = Blocks.stone;
 		Block deepStoneBlock = null;
 		int deepStoneDepth = 0;
+		
 		if (biome.temperature < 0.2F)
 		{
 			stoneBlock = MBlocks.icestone;
@@ -334,10 +335,10 @@ public class MOreGenerator implements IWorldGenerator
 			deepStoneBlock = MBlocks.deepRedrock;
 			deepStoneDepth = random.nextInt(5) + 35;
 		}
-		
-		if (stoneBlock == null)
+		else
 		{
-			return;
+			deepStoneBlock = MBlocks.deepstone;
+			deepStoneDepth = random.nextInt(5) + 35;
 		}
 		
 		int x = chunkX & 15;

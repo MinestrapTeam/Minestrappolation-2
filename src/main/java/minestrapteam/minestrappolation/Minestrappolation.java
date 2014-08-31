@@ -1,6 +1,7 @@
 package minestrapteam.minestrappolation;
 
 import clashsoft.cslib.config.CSConfig;
+import clashsoft.cslib.minecraft.block.ore.OreBase;
 import clashsoft.cslib.minecraft.init.BaseMod;
 import clashsoft.cslib.minecraft.update.CSUpdate;
 import clashsoft.cslib.minecraft.update.reader.SimpleUpdateReader;
@@ -18,6 +19,7 @@ import minestrapteam.minestrappolation.crafting.MelterRecipeLoader;
 import minestrapteam.minestrappolation.creativetab.*;
 import minestrapteam.minestrappolation.lib.*;
 import minestrapteam.minestrappolation.network.MNetHandler;
+import minestrapteam.minestrappolation.util.MAssetManager;
 import minestrapteam.minestrappolation.world.MOreGenerator;
 
 import net.minecraft.creativetab.CreativeTabs;
@@ -42,7 +44,17 @@ public class Minestrappolation extends BaseMod
 	public static CreativeTabs			tabMaterials		= new MTabMaterials("minestrap_materials");
 	
 	public static MelterRecipeLoader	melter				= new MelterRecipeLoader("melter");
-		
+	
+	public static OreBase				deepStone			= new OreBase(5, "deepstone").setIconName(MAssetManager.getStonecutterTexture("deepstone")).register();
+	public static OreBase				redrock				= new OreBase(6, "redrock").setIconName(MAssetManager.getStonecutterTexture("redrock")).register();
+	public static OreBase				deepRedrock			= new OreBase(7, "deepredrock").setIconName(MAssetManager.getStonecutterTexture("deepredrock")).register();
+	public static OreBase				oceanstone			= new OreBase(8, "oceanstone").setIconName(MAssetManager.getStonecutterTexture("oceanstone")).register();
+	public static OreBase				deepOceanstone		= new OreBase(9, "pressurizedoceanstone").setIconName(MAssetManager.getStonecutterTexture("pressurizedoceanstone")).register();
+	public static OreBase				icestone			= new OreBase(10, "icestone").setIconName(MAssetManager.getStonecutterTexture("icestone")).register();
+	public static OreBase				glacierrock			= new OreBase(11, "glacierrock").setIconName(MAssetManager.getStonecutterTexture("glacierrock")).register();
+	public static OreBase				coldstone			= new OreBase(12, "coldstone").setIconName(MAssetManager.getStonecutterTexture("coldstone")).register();
+	public static OreBase				deepColdstone		= new OreBase(13, "deepcoldstone").setIconName(MAssetManager.getStonecutterTexture("deepcoldstone")).register();
+	
 	public static boolean				showDurability;
 	public static boolean				shouldOresEffect	= true;
 	public static int					daysUntilTarnish;
@@ -84,7 +96,7 @@ public class Minestrappolation extends BaseMod
 	public void preInit(FMLPreInitializationEvent event)
 	{
 		super.preInit(event);
-				
+		
 		MLiquids.init();
 		MLiquids.load();
 		
