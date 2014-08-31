@@ -443,7 +443,7 @@ public class MBlocks
 		roads = new BlockRoads().setCreativeTab(Minestrappolation.tabStoneDecor).setStepSound(Block.soundTypeStone);
 		
 		glowGlass = new BlockGlowGlass(Material.glass, true).setHardness(0.8F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeGlass).setBlockTextureName(MAssetManager.getTexture("glow_glass"));
-		glowGlassPane = new MBlockPane(Material.glass, MAssetManager.getTexture("glow_glass"), MAssetManager.getTexture("glass_refined_pane"), false).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(Minestrappolation.tabDecorationBlocks);
+		glowGlassPane = new MBlockPane(Material.glass, MAssetManager.getTexture("glow_glass"), MAssetManager.getTexture("glass_refined_pane"), false).setHardness(0.3F).setLightLevel(1F).setStepSound(Block.soundTypeGlass).setCreativeTab(Minestrappolation.tabDecorationBlocks);
 		refinedGlass = new BlockGlassRefined(Material.glass, false).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MAssetManager.getTexture("glass_refined"));
 		refinedGlassPane = new MBlockPane(Material.glass, MAssetManager.getTexture("glass_refined"), MAssetManager.getTexture("glass_refined_pane"), false).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(Minestrappolation.tabDecorationBlocks);
 		slowGlass = new BlockSlowGlass(Material.glass, true).setHardness(0.5F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeGlass).setBlockTextureName(MAssetManager.getTexture("slow_glass"));
