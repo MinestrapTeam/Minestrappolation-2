@@ -12,7 +12,12 @@ import net.minecraft.world.World;
 
 public abstract class EntityThrowableExplosive extends EntityThrowable
 {
+	/**
+	 * The fuse of the grenade. Gets decreased each tick. If this variable is
+	 * less than 0, the grenade has no fuse.
+	 */
 	protected int		fuse			= 60;
+	
 	protected double	bounceFactor	= 0.5D;
 	protected float		explosionRange	= 4F;
 	
@@ -78,7 +83,7 @@ public abstract class EntityThrowableExplosive extends EntityThrowable
 		this.worldObj.spawnParticle("smoke", this.posX, this.posY + 0.5D, this.posZ, 0.0D, 0.0F, 0.0D);
 		
 		// Are we going to explode?
-		if (this.fuse-- <= 0 && !this.worldObj.isRemote)
+		if (this.fuse-- == 0 && !this.worldObj.isRemote)
 		{
 			this.explode();
 		}
