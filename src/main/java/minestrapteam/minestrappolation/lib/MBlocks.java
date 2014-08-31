@@ -1,6 +1,5 @@
 package minestrapteam.minestrappolation.lib;
 
-import cpw.mods.fml.common.registry.GameRegistry;
 import clashsoft.cslib.minecraft.block.CSBlocks;
 import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.block.*;
@@ -8,9 +7,8 @@ import minestrapteam.minestrappolation.item.block.MCItemBlockMulti;
 import minestrapteam.minestrappolation.material.MaterialOoze;
 import minestrapteam.minestrappolation.util.MAssetManager;
 import minestrapteam.minestrappolation.util.MBlockHelper;
+
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockSnow;
-import net.minecraft.block.BlockSnowBlock;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -477,15 +475,6 @@ public class MBlocks
 		
 		witherLayer = new BlockWitherLayer().setHardness(0.1F).setStepSound(Block.soundTypeSnow).setLightOpacity(0).setBlockName("wither_ash_layer");
 		witherBlock = new BlockWitherAsh().setHardness(0.2F).setStepSound(Block.soundTypeSnow).setBlockName("wither_ash").setBlockTextureName(MAssetManager.getMineralTexture("wither_ash_block"));
-		/*
-		String[] biomeStones = new String[]{"deepstone", "deepcoldstone", "deepredrock","deepicestone", "pressurizedoceanstone"};
-		deepStones = new BlockDeepStones(biomeStones).setHardness(1.5F).setResistance(10.0F).setStepSound(Block.soundTypePiston);
-		
-		coldstone = new MBlock(Material.rock).setHardness(1.5F).setResistance(10.0F).setBlockTextureName(MAssetManager.getStonecutterTexture("coldstone")).setCreativeTab(Minestrappolation.tabStoneDecor);
-		redrock = new MBlock(Material.rock).setHardness(1.5F).setResistance(10.0F).setBlockTextureName(MAssetManager.getStonecutterTexture("redrock")).setCreativeTab(Minestrappolation.tabStoneDecor);
-		icestone = new MBlock(Material.rock).setHardness(1.5F).setResistance(10.0F).setBlockTextureName(MAssetManager.getStonecutterTexture("icestone")).setCreativeTab(Minestrappolation.tabStoneDecor);
-		oceanstone = new MBlock(Material.rock).setHardness(1.5F).setResistance(10.0F).setBlockTextureName(MAssetManager.getStonecutterTexture("oceanstone")).setCreativeTab(Minestrappolation.tabStoneDecor);
-		*/
 	}
 	
 	public static void load()

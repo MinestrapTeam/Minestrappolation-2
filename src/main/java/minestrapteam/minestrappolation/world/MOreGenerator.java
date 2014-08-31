@@ -2,16 +2,15 @@ package minestrapteam.minestrappolation.world;
 
 import java.util.Random;
 
-import scala.xml.dtd.impl.WordBerrySethi;
 import cpw.mods.fml.common.IWorldGenerator;
 import minestrapteam.minestrappolation.lib.MBlocks;
 import minestrapteam.minestrappolation.world.gen.WorldGenDesertQuartz;
 import minestrapteam.minestrappolation.world.gen.WorldGenRedSandstone;
 import minestrapteam.minestrappolation.world.gen.WorldGenRedWoodTreeSmall;
+
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.*;
-import net.minecraft.world.biome.BiomeGenBase.TempCategory;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.ChunkProviderEnd;
 import net.minecraft.world.gen.ChunkProviderGenerate;
@@ -73,9 +72,9 @@ public class MOreGenerator implements IWorldGenerator
 		int z1;
 		
 		BiomeGenBase biome = world.getBiomeGenForCoords(chunkX, chunkZ);
-	
+		
 		generateBiomeStone(world, rand, chunkX, chunkZ, biome);
-				
+		
 		// Red Sandstone
 		if (biome instanceof BiomeGenDesert)
 		{
@@ -308,73 +307,66 @@ public class MOreGenerator implements IWorldGenerator
 	
 	private void generateBiomeStone(World world, Random rand, int chunkX, int chunkZ, BiomeGenBase biome)
 	{
-		int x1;
-		int y1;
-		int z1;
-		
-		for (x1 = 0; x1 < 16; x1++)
+		for (int x0 = 0; x0 < 16; x0++)
 		{
-			for(y1 = 0; y1 < rand.nextInt(5) + 35; y1++) // spawn height
+			int x = chunkX + x0;
+			for (int z0 = 0; z0 < 16; z0++)
 			{
-				for (z1 = 0; z1 < 16; z1++)
+				int z = chunkZ + z0;
+				
+				for (int y = 0; y < 128; y++)
 				{
-					if(world.getBlock(chunkX + x1, y1, chunkZ + z1) == Blocks.stone)
+					if (world.getBlock(x, y, z) != Blocks.stone)
 					{
-						if(biome.temperature < 0.19)
+						continue;
+					}
+					
+					if (y < rand.nextInt(5) + 35)
+					{
+						if (biome.temperature < 0.19)
 						{
-							world.setBlock(chunkX + x1, y1, chunkZ + z1, MBlocks.glacierrock, 0, 0);
+							world.setBlock(x, y, z, MBlocks.glacierrock, 0, 0);
 						}
-						else if(biome.temperature < 0.4)
+						else if (biome.temperature < 0.4)
 						{
-							world.setBlock(chunkX + x1, y1, chunkZ + z1, MBlocks.deepcoldstone, 0, 0);
+							world.setBlock(x, y, z, MBlocks.deepcoldstone, 0, 0);
 						}
-						else if(biome == BiomeGenBase.ocean || biome == BiomeGenBase.beach || biome == BiomeGenBase.mushroomIsland || biome == BiomeGenBase.mushroomIslandShore || biome == BiomeGenBase.stoneBeach || biome == BiomeGenBase.ocean || biome == BiomeGenBase.deepOcean)
+						else if (biome == BiomeGenBase.ocean || biome == BiomeGenBase.beach || biome == BiomeGenBase.mushroomIsland || biome == BiomeGenBase.mushroomIslandShore || biome == BiomeGenBase.stoneBeach || biome == BiomeGenBase.ocean || biome == BiomeGenBase.deepOcean)
 						{
-							world.setBlock(chunkX + x1, y1, chunkZ + z1, MBlocks.pressurizedoceanstone, 0, 0);
+							world.setBlock(x, y, z, MBlocks.pressurizedoceanstone, 0, 0);
 						}
-						else if(biome.temperature < 1.0)
+						else if (biome.temperature < 1.0)
 						{
-							world.setBlock(chunkX + x1, y1, chunkZ + z1, MBlocks.deepstone, 0, 0);
+							world.setBlock(x, y, z, MBlocks.deepstone, 0, 0);
 						}
 						else
 						{
-							world.setBlock(chunkX + x1, y1, chunkZ + z1, MBlocks.deepredrock, 0, 0);
+							world.setBlock(x, y, z, MBlocks.deepredrock, 0, 0);
 						}
-						
-					}			
-				}
-			}
-		}
-		for (x1 = 0; x1 < 16; x1++)
-		{
-			for(y1 = 0; y1 < 256; y1++) // spawn height
-			{
-				for (z1 = 0; z1 < 16; z1++)
-				{
-					if(world.getBlock(chunkX + x1, y1, chunkZ + z1) == Blocks.stone)
+					}
+					else
 					{
-						if(biome.temperature < 0.19)
+						if (biome.temperature < 0.19)
 						{
-							world.setBlock(chunkX + x1, y1, chunkZ + z1, MBlocks.icestone, 0, 0);
+							world.setBlock(x, y, z, MBlocks.icestone, 0, 0);
 						}
-						else if(biome.temperature < 0.4)
+						else if (biome.temperature < 0.4)
 						{
-							world.setBlock(chunkX + x1, y1, chunkZ + z1, MBlocks.coldstone, 0, 0);
+							world.setBlock(x, y, z, MBlocks.coldstone, 0, 0);
 						}
-						else if(biome == BiomeGenBase.ocean || biome == BiomeGenBase.beach || biome == BiomeGenBase.mushroomIsland || biome == BiomeGenBase.mushroomIslandShore || biome == BiomeGenBase.stoneBeach || biome == BiomeGenBase.ocean || biome == BiomeGenBase.deepOcean)
+						else if (biome == BiomeGenBase.ocean || biome == BiomeGenBase.beach || biome == BiomeGenBase.mushroomIsland || biome == BiomeGenBase.mushroomIslandShore || biome == BiomeGenBase.stoneBeach || biome == BiomeGenBase.ocean || biome == BiomeGenBase.deepOcean)
 						{
-							world.setBlock(chunkX + x1, y1, chunkZ + z1, MBlocks.oceanstone, 0, 0);
+							world.setBlock(x, y, z, MBlocks.oceanstone, 0, 0);
 						}
-						else if(biome.temperature < 1.0)
+						else if (biome.temperature < 1.0)
 						{
-							world.setBlock(chunkX + x1, y1, chunkZ + z1, Blocks.stone, 0, 0);
+							world.setBlock(x, y, z, Blocks.stone, 0, 0);
 						}
 						else
 						{
-							world.setBlock(chunkX + x1, y1, chunkZ + z1, MBlocks.redrock, 0, 0);
+							world.setBlock(x, y, z, MBlocks.redrock, 0, 0);
 						}
-						
-					}			
+					}
 				}
 			}
 		}

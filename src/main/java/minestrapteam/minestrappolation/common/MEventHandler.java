@@ -9,26 +9,21 @@ import cpw.mods.fml.common.gameevent.TickEvent.PlayerTickEvent;
 import minestrapteam.minestrappolation.lib.MBlocks;
 import minestrapteam.minestrappolation.lib.MItems;
 import minestrapteam.minestrappolation.lib.MTools;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.boss.EntityWither;
 import net.minecraft.entity.monster.*;
 import net.minecraft.entity.passive.*;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.BiomeGenBase.TempCategory;
-import net.minecraft.world.chunk.Chunk;
-import net.minecraft.world.chunk.storage.ExtendedBlockStorage;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.EntityInteractEvent;
 import net.minecraftforge.event.entity.player.FillBucketEvent;
-import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 
 public class MEventHandler
 {
@@ -43,7 +38,7 @@ public class MEventHandler
 			event.setResult(Result.ALLOW);
 		}
 	}
-
+	
 	@SubscribeEvent
 	public void onDamage(LivingHurtEvent event)
 	{
@@ -51,18 +46,20 @@ public class MEventHandler
 		{
 			EntityPlayer player = (EntityPlayer) event.entityLiving;
 			ItemStack stack = player.getHeldItem();
-
+			
 			if (stack == null)
 			{
 				return;
-			} else if (stack.getItem() == MItems.amuletOves)
+			}
+			else if (stack.getItem() == MItems.amuletOves)
 			{
 				if (player.getRNG().nextInt(8) == 0)
 				{
 					event.setCanceled(true);
 					stack.damageItem(1, player);
 				}
-			} else if (stack.getItem() == MItems.amuletPullum)
+			}
+			else if (stack.getItem() == MItems.amuletPullum)
 			{
 				if ("fall".equals(event.source.getDamageType()))
 				{
@@ -72,41 +69,43 @@ public class MEventHandler
 			}
 		}
 	}
-
+	
 	@SubscribeEvent
 	public void playerUpdate(PlayerTickEvent evt)
 	{
 		EntityPlayer player = evt.player;
-
+		
 		if (evt.phase == Phase.START)
 		{
 			ItemStack helmet = player.getCurrentArmor(3);
 			ItemStack chest = player.getCurrentArmor(2);
 			ItemStack pants = player.getCurrentArmor(1);
 			ItemStack boots = player.getCurrentArmor(0);
-
+			
 			if (helmet != null && chest != null && pants != null && boots != null)
 			{
 				if (helmet.getItem() == MTools.meuroditeHelmet && chest.getItem() == MTools.meuroditeChestplate && pants.getItem() == MTools.meuroditeLeggings && boots.getItem() == MTools.meuroditeBoots)
 				{
 					player.addPotionEffect(new PotionEffect(Potion.fireResistance.id, 2, 0, true));
-				} else if (helmet.getItem() == MTools.toriteHelmet && chest.getItem() == MTools.toriteChestplate && pants.getItem() == MTools.toriteLeggings && boots.getItem() == MTools.toriteBoots)
+				}
+				else if (helmet.getItem() == MTools.toriteHelmet && chest.getItem() == MTools.toriteChestplate && pants.getItem() == MTools.toriteLeggings && boots.getItem() == MTools.toriteBoots)
 				{
 					player.addPotionEffect(new PotionEffect(Potion.regeneration.id, 2, 0, true));
-				} else if (helmet.getItem() == MTools.titaniumHelmet && chest.getItem() == MTools.titaniumChestplate && pants.getItem() == MTools.titaniumLeggings && boots.getItem() == MTools.titaniumBoots)
+				}
+				else if (helmet.getItem() == MTools.titaniumHelmet && chest.getItem() == MTools.titaniumChestplate && pants.getItem() == MTools.titaniumLeggings && boots.getItem() == MTools.titaniumBoots)
 				{
 					player.addPotionEffect(new PotionEffect(Potion.resistance.id, 2, 1, true));
 				}
 			}
 		}
 	}
-
+	
 	@SubscribeEvent
 	public void onMobDrops(LivingDropsEvent event)
 	{
 		EntityLivingBase living = event.entityLiving;
 		String damageType = event.source.getDamageType();
-
+		
 		if ("player".equals(damageType))
 		{
 			Random random = living.getRNG();
@@ -118,7 +117,7 @@ public class MEventHandler
 			double rand3 = random.nextDouble() / looting1;
 			double rand4 = random.nextDouble() / looting1;
 			double rand5 = random.nextDouble() / looting1;
-
+			
 			if (living instanceof EntityPig)
 			{
 				if (rand1 < 0.15D)
@@ -137,7 +136,8 @@ public class MEventHandler
 				{
 					living.dropItem(onFire ? MItems.grease : MItems.fat, random.nextInt(5 + looting));
 				}
-			} else if (living instanceof EntityCow)
+			}
+			else if (living instanceof EntityCow)
 			{
 				if (rand1 < 0.15D)
 				{
@@ -155,7 +155,8 @@ public class MEventHandler
 				{
 					living.dropItem(MItems.horn, random.nextInt(2 + looting));
 				}
-			} else if (living instanceof EntityMooshroom)
+			}
+			else if (living instanceof EntityMooshroom)
 			{
 				if (rand1 < 0.15D)
 				{
@@ -177,7 +178,8 @@ public class MEventHandler
 				{
 					living.dropItem(MItems.infectiousFungus, random.nextInt(3 + looting));
 				}
-			} else if (living instanceof EntityHorse)
+			}
+			else if (living instanceof EntityHorse)
 			{
 				if (rand1 < 0.15D)
 				{
@@ -199,7 +201,8 @@ public class MEventHandler
 				{
 					living.dropItem(MItems.horseHair, random.nextInt(4 + looting));
 				}
-			} else if (living instanceof EntityWolf)
+			}
+			else if (living instanceof EntityWolf)
 			{
 				if (rand1 < 0.1D)
 				{
@@ -209,39 +212,41 @@ public class MEventHandler
 				{
 					living.dropItem(MItems.wolfHide, random.nextInt(3 + looting));
 				}
-			} else if (living instanceof EntityPigZombie)
+			}
+			else if (living instanceof EntityPigZombie)
 			{
 				if (rand1 < 0.1D)
 				{
 					living.dropItem(MItems.snout, random.nextInt(1 + looting));
 				}
-
+				
 				if (rand2 < 0.1D)
 				{
 					living.dropItem(MItems.pigHoof, random.nextInt(2 + looting));
 				}
-
+				
 				if (rand3 < 0.15D)
 				{
 					living.dropItem(onFire ? MItems.grease : MItems.fat, random.nextInt(2 + looting));
 				}
-
+				
 				if (rand4 < 0.1D)
 				{
 					living.dropItem(MItems.animalBones, random.nextInt(2 + looting));
 				}
-
+				
 				if (rand5 < 0.1D)
 				{
 					living.dropItem(MItems.marrow, random.nextInt(3 + looting));
 				}
-			} else if (living instanceof EntitySheep)
+			}
+			else if (living instanceof EntitySheep)
 			{
 				if (rand1 < 0.3D)
 				{
 					living.dropItem(MItems.animalBones, random.nextInt(4 + looting));
 				}
-
+				
 				if (rand2 < 0.7D)
 				{
 					living.dropItem(onFire ? MItems.lambchopCooked : MItems.lambchopRaw, random.nextInt(3 + looting));
@@ -250,7 +255,8 @@ public class MEventHandler
 				{
 					living.dropItem(MItems.sheepHoof, random.nextInt(3 + looting));
 				}
-			} else if (living instanceof EntityChicken)
+			}
+			else if (living instanceof EntityChicken)
 			{
 				if (rand1 < 0.2D)
 				{
@@ -268,7 +274,8 @@ public class MEventHandler
 				{
 					living.dropItem(onFire ? MItems.chickenWingCooked : MItems.chickenWingRaw, random.nextInt(2 + looting));
 				}
-			} else if (living instanceof EntitySpider)
+			}
+			else if (living instanceof EntitySpider)
 			{
 				if (rand1 < 0.05D)
 				{
@@ -278,29 +285,31 @@ public class MEventHandler
 				{
 					living.dropItem(MItems.legSpider, random.nextInt(4 + looting));
 				}
-			} else if (living instanceof EntityCaveSpider)
+			}
+			else if (living instanceof EntityCaveSpider)
 			{
 				if (rand1 < 0.05D)
 				{
 					living.dropItem(MItems.animalBones, random.nextInt(1 + looting));
 				}
-
+				
 				if (rand2 < 0.3D)
 				{
 					living.dropItem(MItems.poisonSack, random.nextInt(2 + looting));
 				}
-
+				
 				if (rand3 < 0.15D)
 				{
 					living.dropItem(MItems.legSpider, random.nextInt(4 + looting));
 				}
-			} else if (living instanceof EntityOcelot)
+			}
+			else if (living instanceof EntityOcelot)
 			{
 				if (rand1 < 0.05D)
 				{
 					living.dropItem(MItems.footChicken, random.nextInt(1 + looting));
 				}
-
+				
 				if (rand2 < 0.25D)
 				{
 					living.dropItem(MItems.whisker, random.nextInt(4 + looting));
@@ -309,24 +318,27 @@ public class MEventHandler
 				{
 					living.dropItem(MItems.catEye, random.nextInt(2 + looting));
 				}
-			} else if (living instanceof EntitySquid)
+			}
+			else if (living instanceof EntitySquid)
 			{
 				if (rand1 < 0.4D)
 				{
 					living.dropItem(MItems.squidTentacle, random.nextInt(4 + looting));
 				}
-
+				
 				if (rand2 < 0.2D)
 				{
 					living.dropItem(MItems.airSack, random.nextInt(1 + looting));
 				}
-			} else if (living instanceof EntityVillager)
+			}
+			else if (living instanceof EntityVillager)
 			{
 				if (rand1 < 0.2D)
 				{
 					living.dropItem(MItems.flesh, random.nextInt(3 + looting));
 				}
-			} else if (living instanceof EntitySkeleton)
+			}
+			else if (living instanceof EntitySkeleton)
 			{
 				EntitySkeleton skeleton = (EntitySkeleton) living;
 				if (skeleton.getSkeletonType() == 1)
@@ -335,11 +347,13 @@ public class MEventHandler
 					{
 						living.dropItem(MItems.witheredBone, random.nextInt(3 + looting));
 					}
-				} else if (rand1 < 0.15D)
+				}
+				else if (rand1 < 0.15D)
 				{
 					living.dropItem(MItems.marrow, random.nextInt(3 + looting));
 				}
-			} else if (living instanceof EntityBat)
+			}
+			else if (living instanceof EntityBat)
 			{
 				if (rand1 < 0.5)
 				{
@@ -349,25 +363,29 @@ public class MEventHandler
 				{
 					living.dropItem(MItems.wingSinew, random.nextInt(2 + looting));
 				}
-			} else if (living instanceof EntitySilverfish)
+			}
+			else if (living instanceof EntitySilverfish)
 			{
 				if (rand1 < 0.5)
 				{
 					living.dropItem(MItems.carcassSilverfish, 1);
 				}
-			} else if (living instanceof EntityCreeper)
+			}
+			else if (living instanceof EntityCreeper)
 			{
 				if (rand1 < 0.1)
 				{
 					living.dropItem(MItems.hideCreeper, random.nextInt(2 + looting));
 				}
-			} else if (living instanceof EntitySlime)
+			}
+			else if (living instanceof EntitySlime)
 			{
 				if (rand1 < 0.1)
 				{
 					living.dropItem(MItems.slimeCore, 1);
 				}
-			} else if (living instanceof EntityEnderman)
+			}
+			else if (living instanceof EntityEnderman)
 			{
 				if (rand1 < 0.25)
 				{
@@ -377,19 +395,21 @@ public class MEventHandler
 				{
 					living.dropItem(MItems.enderAura, random.nextInt(2 + looting));
 				}
-			} else if (living instanceof EntityGhast)
+			}
+			else if (living instanceof EntityGhast)
 			{
 				if (rand1 < 0.15)
 				{
 					living.dropItem(MItems.ghastTentacle, random.nextInt(4 + looting));
 				}
-			} else if (living instanceof EntityWither)
+			}
+			else if (living instanceof EntityWither)
 			{
 				living.dropItem(MItems.witheredBone, random.nextInt(15 + looting));
 			}
 		}
 	}
-
+	
 	@SubscribeEvent
 	public void entityInteract(EntityInteractEvent event)
 	{
