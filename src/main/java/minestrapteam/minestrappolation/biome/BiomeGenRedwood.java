@@ -2,6 +2,7 @@ package minestrapteam.minestrappolation.biome;
 
 import java.util.Random;
 
+import minestrapteam.minestrappolation.lib.MBlocks;
 import minestrapteam.minestrappolation.world.gen.WorldGenRedWoodTree;
 import minestrapteam.minestrappolation.world.gen.WorldGenRedWoodTreeSmall;
 
@@ -66,8 +67,21 @@ public class BiomeGenRedwood extends BiomeGenBase
 		{
 			int x1 = x + random.nextInt(16) + 8;
 			int z1 = z + random.nextInt(16) + 8;
-			int y1 = world.getHeightValue(x1, z1) + random.nextInt(16);
+			int y1 = world.getHeightValue(x1, z1);
+			
 			genTallFlowers.generate(world, random, x1, y1, z1);
+		}
+		
+		for (int k = 0; k < 4; ++k)
+		{
+			int x1 = x + random.nextInt(16) + 8;
+			int z1 = z + random.nextInt(16) + 8;
+			int y1 = world.getHeightValue(x1, z1);
+			
+			if (MBlocks.mossCover.canPlaceBlockAt(world, x1, y1, z1))
+			{
+				world.setBlock(x1, y1, z1, MBlocks.mossCover);
+			}
 		}
 		
 		super.decorate(world, random, x, z);
