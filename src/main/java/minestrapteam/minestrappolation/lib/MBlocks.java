@@ -384,6 +384,7 @@ public class MBlocks
 	
 	public static Block			witherLayer;
 	public static Block			witherBlock;
+	public static Block			mossCover;
 
 	public static void init()
 	{
@@ -483,6 +484,7 @@ public class MBlocks
 		
 		witherLayer = new BlockWitherLayer().setHardness(0.1F).setStepSound(Block.soundTypeSnow).setBlockTextureName(MAssetManager.getMineralTexture("wither_ash_block"));
 		witherBlock = new BlockWitherAsh().setHardness(0.2F).setStepSound(Block.soundTypeSnow).setBlockTextureName(MAssetManager.getMineralTexture("wither_ash_block"));
+		mossCover = new BlockMossCover().setHardness(0.2F).setStepSound(Block.soundTypeSnow).setBlockTextureName(MAssetManager.getPlantTexture("moss_cover"));
 	}
 	
 	public static void load()
@@ -573,6 +575,7 @@ public class MBlocks
 		
 		CSBlocks.addBlock(witherBlock, "wither_block");
 		CSBlocks.addBlock(witherLayer, "wither_layer");
+		CSBlocks.addBlock(mossCover, "moss_cover");
 		
 		setFlammability();
 	}

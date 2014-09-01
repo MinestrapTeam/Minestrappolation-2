@@ -85,6 +85,10 @@ public class MItems
 	public static Item	cardboardItem;
 	public static Item	glassDoorItem;
 	
+	/* / {----- EE Items -----} / */
+	
+	public static Item mossLump;
+	
 	/* / {----- EMD Items -----} / */
 	
 	public static Item	snout;
@@ -241,6 +245,10 @@ public class MItems
 		ropeItem = new ItemReed(MBlocks.rope).setCreativeTab(tabDecorationBlocks).setTextureName(MAssetManager.getTexture("rope"));
 		cardboardItem = new ItemReed(MBlocks.cardboard).setCreativeTab(tabDecorationBlocks).setTextureName(MAssetManager.getTexture("cardboard"));
 		glassDoorItem = new MItemDoor(MBlocks.glassDoor).setCreativeTab(tabDecorationBlocks).setTextureName(MAssetManager.getTexture("glass_door"));
+		
+		// EE Items
+		
+		mossLump = new ItemReed(MBlocks.mossCover).setCreativeTab(tabMaterials).setTextureName(MAssetManager.getTexture("moss_lump"));
 		
 		// EMD Items
 		
@@ -399,6 +407,10 @@ public class MItems
 		CSItems.addItem(ropeItem, "rope");
 		CSItems.addItem(cardboardItem, "cardboard");
 		CSItems.addItem(glassDoorItem, "glass_door");
+		
+		// EE Items
+		
+		CSItems.addItem(mossLump, "moss_lump");
 		
 		// EMD Items
 		
