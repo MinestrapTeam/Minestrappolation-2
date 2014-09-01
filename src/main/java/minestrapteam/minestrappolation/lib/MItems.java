@@ -169,10 +169,8 @@ public class MItems
 	public static Item	witheredBone;
 	public static Item	horseHairFibre;
 	public static Item	horseHairBow;
-	//TODO Wait for wither system textures
-	public static Item deathMeal;
+	public static Item	deathMeal;
 	public static Item	witherAsh;
-	public static Item blackDiamonds;
 	
 	public static void init()
 	{
@@ -434,6 +432,7 @@ public class MItems
 		CSItems.addItem(friedRawChicken, "fried_raw_chicken");
 		CSItems.addItem(friedRawChickenWing, "fried_raw_chicken_wing");
 		CSItems.addItem(friedRawFish, "fried_raw_fish");
+		CSItems.addItem(friedRawHorseHaunch, "fried_raw_horse_haunch");
 		CSItems.addItem(friedRawLambChop, "fried_raw_lamb_chop");
 		CSItems.addItem(friedRawPorkChop, "fried_raw_porkchop");
 		CSItems.addItem(friedRawSalmon, "fried_raw_salmon");
