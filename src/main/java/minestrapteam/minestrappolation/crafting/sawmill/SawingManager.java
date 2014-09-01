@@ -6,6 +6,7 @@ import java.util.Comparator;
 import java.util.List;
 
 import minestrapteam.minestrappolation.lib.MBlocks;
+import minestrapteam.minestrappolation.lib.MItems;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -88,31 +89,31 @@ public class SawingManager
 		this.addRecipe(new ItemStack(MBlocks.redwood, 9, 3), new Object[] { "WWW", "WWW", "WWW", 'W', new ItemStack(MBlocks.redwood, 1, 0) });
 		
 		// Mossy Planks
-		this.addRecipe(new ItemStack(MBlocks.oak, 8, 3), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(Blocks.planks, 1, 0), 'V', Blocks.vine });
-		this.addRecipe(new ItemStack(MBlocks.spruce, 8, 3), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(Blocks.planks, 1, 1), 'V', Blocks.vine });
-		this.addRecipe(new ItemStack(MBlocks.birch, 8, 3), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(Blocks.planks, 1, 2), 'V', Blocks.vine });
-		this.addRecipe(new ItemStack(MBlocks.jungleWood, 8, 3), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(Blocks.planks, 1, 3), 'V', Blocks.vine });
-		this.addRecipe(new ItemStack(MBlocks.acacia, 8, 3), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(Blocks.planks, 1, 4), 'V', Blocks.vine });
-		this.addRecipe(new ItemStack(MBlocks.darkOak, 8, 3), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(Blocks.planks, 1, 5), 'V', Blocks.vine });
-		this.addRecipe(new ItemStack(MBlocks.redwood, 8, 4), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.redwood, 1, 0), 'V', Blocks.vine });
+		this.addRecipe(new ItemStack(MBlocks.oak, 8, 3), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(Blocks.planks, 1, 0), 'V', MItems.mossLump });
+		this.addRecipe(new ItemStack(MBlocks.spruce, 8, 3), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(Blocks.planks, 1, 1), 'V', MItems.mossLump });
+		this.addRecipe(new ItemStack(MBlocks.birch, 8, 3), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(Blocks.planks, 1, 2), 'V', MItems.mossLump });
+		this.addRecipe(new ItemStack(MBlocks.jungleWood, 8, 3), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(Blocks.planks, 1, 3), 'V', MItems.mossLump });
+		this.addRecipe(new ItemStack(MBlocks.acacia, 8, 3), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(Blocks.planks, 1, 4), 'V', MItems.mossLump });
+		this.addRecipe(new ItemStack(MBlocks.darkOak, 8, 3), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(Blocks.planks, 1, 5), 'V', MItems.mossLump });
+		this.addRecipe(new ItemStack(MBlocks.redwood, 8, 4), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.redwood, 1, 0), 'V', MItems.mossLump });
 		
 		// Mossy Boards
-		this.addRecipe(new ItemStack(MBlocks.oak, 8, 4), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.oak, 1, 1), 'V', Blocks.vine });
-		this.addRecipe(new ItemStack(MBlocks.spruce, 8, 4), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.spruce, 1, 1), 'V', Blocks.vine });
-		this.addRecipe(new ItemStack(MBlocks.birch, 8, 4), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.birch, 1, 1), 'V', Blocks.vine });
-		this.addRecipe(new ItemStack(MBlocks.jungleWood, 8, 4), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.jungleWood, 1, 1), 'V', Blocks.vine });
-		this.addRecipe(new ItemStack(MBlocks.acacia, 8, 4), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.acacia, 1, 1), 'V', Blocks.vine });
-		this.addRecipe(new ItemStack(MBlocks.darkOak, 8, 4), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.darkOak, 1, 1), 'V', Blocks.vine });
-		this.addRecipe(new ItemStack(MBlocks.redwood, 8, 5), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.redwood, 1, 2), 'V', Blocks.vine });
+		this.addRecipe(new ItemStack(MBlocks.oak, 8, 4), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.oak, 1, 1), 'V', MItems.mossLump });
+		this.addRecipe(new ItemStack(MBlocks.spruce, 8, 4), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.spruce, 1, 1), 'V', MItems.mossLump });
+		this.addRecipe(new ItemStack(MBlocks.birch, 8, 4), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.birch, 1, 1), 'V', MItems.mossLump });
+		this.addRecipe(new ItemStack(MBlocks.jungleWood, 8, 4), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.jungleWood, 1, 1), 'V', MItems.mossLump });
+		this.addRecipe(new ItemStack(MBlocks.acacia, 8, 4), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.acacia, 1, 1), 'V', MItems.mossLump });
+		this.addRecipe(new ItemStack(MBlocks.darkOak, 8, 4), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.darkOak, 1, 1), 'V', MItems.mossLump });
+		this.addRecipe(new ItemStack(MBlocks.redwood, 8, 5), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.redwood, 1, 2), 'V', MItems.mossLump });
 		
 		// Mossy Panels
-		this.addRecipe(new ItemStack(MBlocks.oak, 8, 5), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.oak, 1, 2), 'V', Blocks.vine });
-		this.addRecipe(new ItemStack(MBlocks.spruce, 8, 5), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.spruce, 1, 2), 'V', Blocks.vine });
-		this.addRecipe(new ItemStack(MBlocks.birch, 8, 5), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.birch, 1, 2), 'V', Blocks.vine });
-		this.addRecipe(new ItemStack(MBlocks.jungleWood, 8, 5), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.jungleWood, 1, 2), 'V', Blocks.vine });
-		this.addRecipe(new ItemStack(MBlocks.acacia, 8, 5), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.acacia, 1, 2), 'V', Blocks.vine });
-		this.addRecipe(new ItemStack(MBlocks.darkOak, 8, 5), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.darkOak, 1, 2), 'V', Blocks.vine });
-		this.addRecipe(new ItemStack(MBlocks.redwood, 8, 6), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.redwood, 1, 3), 'V', Blocks.vine });
+		this.addRecipe(new ItemStack(MBlocks.oak, 8, 5), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.oak, 1, 2), 'V', MItems.mossLump });
+		this.addRecipe(new ItemStack(MBlocks.spruce, 8, 5), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.spruce, 1, 2), 'V', MItems.mossLump });
+		this.addRecipe(new ItemStack(MBlocks.birch, 8, 5), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.birch, 1, 2), 'V', MItems.mossLump });
+		this.addRecipe(new ItemStack(MBlocks.jungleWood, 8, 5), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.jungleWood, 1, 2), 'V', MItems.mossLump });
+		this.addRecipe(new ItemStack(MBlocks.acacia, 8, 5), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.acacia, 1, 2), 'V', MItems.mossLump });
+		this.addRecipe(new ItemStack(MBlocks.darkOak, 8, 5), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.darkOak, 1, 2), 'V', MItems.mossLump });
+		this.addRecipe(new ItemStack(MBlocks.redwood, 8, 6), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.redwood, 1, 3), 'V', MItems.mossLump });
 
         //Rotten Planks
         this.addRecipe(new ItemStack(MBlocks.oak, 8, 6), new Object[] {"MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.oak, 1, 3), 'B', Items.water_bucket});

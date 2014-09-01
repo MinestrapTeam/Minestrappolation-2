@@ -49,8 +49,8 @@ public class StonecuttingManager
 		this.addRecipe(new ItemStack(Blocks.stone_stairs, 4, 0), null, new Object[] { "S  ", "SS ", "SSS", 'S', Blocks.cobblestone });
 		this.addRecipe(new ItemStack(Blocks.cobblestone_wall, 6, 0), null, new Object[] { "CCC", "CCC", 'C', Blocks.cobblestone });
 		this.addRecipe(new ItemStack(Blocks.cobblestone_wall, 6, 1), null, new Object[] { "CCC", "CCC", 'C', Blocks.mossy_cobblestone });
-		this.addRecipe(new ItemStack(Blocks.mossy_cobblestone, 9, 0), new ItemStack(Blocks.vine, 1, 0), new Object[] { "CCC", "CCC", "CCC", 'C', Blocks.cobblestone });
-		this.addRecipe(new ItemStack(Blocks.stonebrick, 9, 1), new ItemStack(Blocks.vine, 1, 0), new Object[] { "BBB", "BBB", "BBB", 'B', new ItemStack(Blocks.stonebrick, 1, 0) });
+		this.addRecipe(new ItemStack(Blocks.mossy_cobblestone, 9, 0), new ItemStack(MItems.mossLump, 1, 0), new Object[] { "CCC", "CCC", "CCC", 'C', Blocks.cobblestone });
+		this.addRecipe(new ItemStack(Blocks.stonebrick, 9, 1), new ItemStack(MItems.mossLump, 1, 0), new Object[] { "BBB", "BBB", "BBB", 'B', new ItemStack(Blocks.stonebrick, 1, 0) });
 		this.addRecipe(new ItemStack(MBlocks.stoneStairsRaw, 4, 0), null, new Object[] { "M  ", "MM ", "MMM", 'M', new ItemStack(Blocks.stone, 1, 0) });
 		this.addRecipe(new ItemStack(MBlocks.stoneStairsTiles, 4, 0), null, new Object[] { "M  ", "MM ", "MMM", 'M', new ItemStack(MBlocks.stone, 1, 3) });
 		
@@ -69,7 +69,7 @@ public class StonecuttingManager
 		this.addRecipe(new ItemStack(MBlocks.stoneTin, 1, 6), null, new Object[] { "S", "S", 'S', new ItemStack(MBlocks.stoneTin2, 1, 12) });
 		this.addRecipe(new ItemStack(MBlocks.stoneTin, 8, 14), null, new Object[] { "CCC", "CGC", "CCC", 'C', new ItemStack(MBlocks.stoneTin, 1, 6), 'G', Blocks.glowstone });
 		this.addRecipe(new ItemStack(MBlocks.stoneTin, 8, 15), null, new Object[] { "CCC", "CSC", "CCC", 'C', new ItemStack(MBlocks.stoneTin, 1, 6), 'S', MBlocks.sunstoneBlock });
-		this.addRecipe(new ItemStack(MBlocks.stoneTin, 9, 8), new ItemStack(Blocks.vine, 1, 0), new Object[] { "CCC", "CCC", "CCC", 'C', new ItemStack(MBlocks.stoneTin, 1, 7) });
+		this.addRecipe(new ItemStack(MBlocks.stoneTin, 9, 8), new ItemStack(MItems.mossLump, 1, 0), new Object[] { "CCC", "CCC", "CCC", 'C', new ItemStack(MBlocks.stoneTin, 1, 7) });
 		this.addRecipe(new ItemStack(MBlocks.stoneTinStairsRaw, 4, 0), null, new Object[] { "M  ", "MM ", "MMM", 'M', new ItemStack(MBlocks.stoneTin, 1, 0) });
 		this.addRecipe(new ItemStack(MBlocks.stoneTinStairsBricks, 4, 0), null, new Object[] { "M  ", "MM ", "MMM", 'M', new ItemStack(MBlocks.stoneTin, 1, 1) });
 		this.addRecipe(new ItemStack(MBlocks.stoneTinStairsTiles, 4, 0), null, new Object[] { "M  ", "MM ", "MMM", 'M', new ItemStack(MBlocks.stoneTin, 1, 3) });
@@ -90,7 +90,7 @@ public class StonecuttingManager
 		this.addRecipe(new ItemStack(MBlocks.stoneBronze, 1, 6), null, new Object[] { "S", "S", 'S', new ItemStack(MBlocks.stoneBronze2, 1, 12) });
 		this.addRecipe(new ItemStack(MBlocks.stoneBronze, 8, 14), null, new Object[] { "CCC", "CGC", "CCC", 'C', new ItemStack(MBlocks.stoneBronze, 1, 6), 'G', Blocks.glowstone });
 		this.addRecipe(new ItemStack(MBlocks.stoneBronze, 8, 15), null, new Object[] { "CCC", "CSC", "CCC", 'C', new ItemStack(MBlocks.stoneBronze, 1, 6), 'S', MBlocks.sunstoneBlock });
-		this.addRecipe(new ItemStack(MBlocks.stoneBronze, 9, 8), new ItemStack(Blocks.vine, 1, 0), new Object[] { "CCC", "CCC", "CCC", 'C', new ItemStack(MBlocks.stoneBronze, 1, 7) });
+		this.addRecipe(new ItemStack(MBlocks.stoneBronze, 9, 8), new ItemStack(MItems.mossLump, 1, 0), new Object[] { "CCC", "CCC", "CCC", 'C', new ItemStack(MBlocks.stoneBronze, 1, 7) });
 		this.addRecipe(new ItemStack(MBlocks.stoneBronzeStairsRaw, 4, 0), null, new Object[] { "M  ", "MM ", "MMM", 'M', new ItemStack(MBlocks.stoneBronze, 1, 0) });
 		this.addRecipe(new ItemStack(MBlocks.stoneBronzeStairsBricks, 4, 0), null, new Object[] { "M  ", "MM ", "MMM", 'M', new ItemStack(MBlocks.stoneBronze, 1, 1) });
 		this.addRecipe(new ItemStack(MBlocks.stoneBronzeStairsTiles, 4, 0), null, new Object[] { "M  ", "MM ", "MMM", 'M', new ItemStack(MBlocks.stoneBronze, 1, 3) });
@@ -111,7 +111,7 @@ public class StonecuttingManager
 		this.addRecipe(new ItemStack(MBlocks.stoneSteel, 1, 6), null, new Object[] { "S", "S", 'S', new ItemStack(MBlocks.stoneSteel2, 1, 12) });
 		this.addRecipe(new ItemStack(MBlocks.stoneSteel, 8, 14), null, new Object[] { "CCC", "CGC", "CCC", 'C', new ItemStack(MBlocks.stoneSteel, 1, 6), 'G', Blocks.glowstone });
 		this.addRecipe(new ItemStack(MBlocks.stoneSteel, 8, 15), null, new Object[] { "CCC", "CSC", "CCC", 'C', new ItemStack(MBlocks.stoneSteel, 1, 6), 'S', MBlocks.sunstoneBlock });
-		this.addRecipe(new ItemStack(MBlocks.stoneSteel, 9, 8), new ItemStack(Blocks.vine, 1, 0), new Object[] { "CCC", "CCC", "CCC", 'C', new ItemStack(MBlocks.stoneSteel, 1, 7) });
+		this.addRecipe(new ItemStack(MBlocks.stoneSteel, 9, 8), new ItemStack(MItems.mossLump, 1, 0), new Object[] { "CCC", "CCC", "CCC", 'C', new ItemStack(MBlocks.stoneSteel, 1, 7) });
 		this.addRecipe(new ItemStack(MBlocks.stoneSteelStairsRaw, 4, 0), null, new Object[] { "M  ", "MM ", "MMM", 'M', new ItemStack(MBlocks.stoneSteel, 1, 0) });
 		this.addRecipe(new ItemStack(MBlocks.stoneSteelStairsBricks, 4, 0), null, new Object[] { "M  ", "MM ", "MMM", 'M', new ItemStack(MBlocks.stoneSteel, 1, 1) });
 		this.addRecipe(new ItemStack(MBlocks.stoneSteelStairsTiles, 4, 0), null, new Object[] { "M  ", "MM ", "MMM", 'M', new ItemStack(MBlocks.stoneSteel, 1, 3) });
@@ -132,7 +132,7 @@ public class StonecuttingManager
 		this.addRecipe(new ItemStack(MBlocks.stoneMeurodite, 1, 6), null, new Object[] { "S", "S", 'S', new ItemStack(MBlocks.stoneMeurodite2, 1, 12) });
 		this.addRecipe(new ItemStack(MBlocks.stoneMeurodite, 8, 14), null, new Object[] { "CCC", "CGC", "CCC", 'C', new ItemStack(MBlocks.stoneMeurodite, 1, 6), 'G', Blocks.glowstone });
 		this.addRecipe(new ItemStack(MBlocks.stoneMeurodite, 8, 15), null, new Object[] { "CCC", "CSC", "CCC", 'C', new ItemStack(MBlocks.stoneMeurodite, 1, 6), 'S', MBlocks.sunstoneBlock });
-		this.addRecipe(new ItemStack(MBlocks.stoneMeurodite, 9, 8), new ItemStack(Blocks.vine, 1, 0), new Object[] { "CCC", "CCC", "CCC", 'C', new ItemStack(MBlocks.stoneMeurodite, 1, 7) });
+		this.addRecipe(new ItemStack(MBlocks.stoneMeurodite, 9, 8), new ItemStack(MItems.mossLump, 1, 0), new Object[] { "CCC", "CCC", "CCC", 'C', new ItemStack(MBlocks.stoneMeurodite, 1, 7) });
 		this.addRecipe(new ItemStack(MBlocks.stoneMeuroditeStairsRaw, 4, 0), null, new Object[] { "M  ", "MM ", "MMM", 'M', new ItemStack(MBlocks.stoneMeurodite, 1, 0) });
 		this.addRecipe(new ItemStack(MBlocks.stoneMeuroditeStairsBricks, 4, 0), null, new Object[] { "M  ", "MM ", "MMM", 'M', new ItemStack(MBlocks.stoneMeurodite, 1, 1) });
 		this.addRecipe(new ItemStack(MBlocks.stoneMeuroditeStairsTiles, 4, 0), null, new Object[] { "M  ", "MM ", "MMM", 'M', new ItemStack(MBlocks.stoneMeurodite, 1, 3) });
@@ -269,7 +269,7 @@ public class StonecuttingManager
 		this.addRecipe(new ItemStack(MBlocks.sandstone2, 6, 9), null, new Object[] { "TTT", 'T', new ItemStack(MBlocks.sandstone, 1, 3) });
 		this.addRecipe(new ItemStack(MBlocks.sandstone2, 2, 0), null, new Object[] { "R", "R", 'R', new ItemStack(Blocks.sandstone, 1, 2) });
 		this.addRecipe(new ItemStack(Blocks.sandstone, 1, 1), null, new Object[] { "S", "S", 'S', new ItemStack(MBlocks.sandstone2, 1, 12) });
-		this.addRecipe(new ItemStack(MBlocks.sandstone, 9, 8), new ItemStack(Blocks.vine, 1, 0), new Object[] { "CCC", "CCC", "CCC", 'C', new ItemStack(MBlocks.sandstone, 1, 1) });
+		this.addRecipe(new ItemStack(MBlocks.sandstone, 9, 8), new ItemStack(MItems.mossLump, 1, 0), new Object[] { "CCC", "CCC", "CCC", 'C', new ItemStack(MBlocks.sandstone, 1, 1) });
 		this.addRecipe(new ItemStack(MBlocks.sandstoneStairsBricks, 4, 0), null, new Object[] { "M  ", "MM ", "MMM", 'M', new ItemStack(MBlocks.sandstone, 1, 1) });
 		this.addRecipe(new ItemStack(MBlocks.sandstoneStairsTiles, 4, 0), null, new Object[] { "M  ", "MM ", "MMM", 'M', new ItemStack(MBlocks.sandstone, 1, 3) });
 		
@@ -286,7 +286,7 @@ public class StonecuttingManager
 		this.addRecipe(new ItemStack(MBlocks.redSandstone2, 6, 9), null, new Object[] { "TTT", 'T', new ItemStack(MBlocks.redSandstone, 1, 3) });
 		this.addRecipe(new ItemStack(MBlocks.redSandstone2, 2, 0), null, new Object[] { "R", "R", 'R', new ItemStack(MBlocks.redSandstone, 1, 5) });
 		this.addRecipe(new ItemStack(MBlocks.redSandstone, 1, 6), null, new Object[] { "S", "S", 'S', new ItemStack(MBlocks.redSandstone2, 1, 12) });
-		this.addRecipe(new ItemStack(MBlocks.redSandstone, 9, 8), new ItemStack(Blocks.vine, 1, 0), new Object[] { "CCC", "CCC", "CCC", 'C', new ItemStack(MBlocks.redSandstone, 1, 1) });
+		this.addRecipe(new ItemStack(MBlocks.redSandstone, 9, 8), new ItemStack(MItems.mossLump, 1, 0), new Object[] { "CCC", "CCC", "CCC", 'C', new ItemStack(MBlocks.redSandstone, 1, 1) });
 		this.addRecipe(new ItemStack(MBlocks.redSandstoneStairsRaw, 4, 0), null, new Object[] { "M  ", "MM ", "MMM", 'M', new ItemStack(MBlocks.redSandstone, 1, 0) });
 		this.addRecipe(new ItemStack(MBlocks.redSandstoneStairsBricks, 4, 0), null, new Object[] { "M  ", "MM ", "MMM", 'M', new ItemStack(MBlocks.redSandstone, 1, 1) });
 		this.addRecipe(new ItemStack(MBlocks.redSandstoneStairsTiles, 4, 0), null, new Object[] { "M  ", "MM ", "MMM", 'M', new ItemStack(MBlocks.redSandstone, 1, 3) });
