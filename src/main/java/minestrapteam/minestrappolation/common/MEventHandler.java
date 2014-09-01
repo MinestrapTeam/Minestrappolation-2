@@ -12,8 +12,10 @@ import minestrapteam.minestrappolation.lib.MTools;
 import minestrapteam.minestrappolation.world.MOreGenerator;
 
 import net.minecraft.block.Block;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.boss.EntityWither;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.*;
 import net.minecraft.entity.passive.*;
 import net.minecraft.entity.player.EntityPlayer;
@@ -341,6 +343,18 @@ public class MEventHandler
 					living.dropItem(MItems.flesh, random.nextInt(3 + looting));
 				}
 			}
+			else if (living instanceof EntityWitch)
+			{
+				for (EntityItem item : event.drops)
+				{
+					ItemStack stack = item.getEntityItem();
+					if (stack.getItem() == Items.stick)
+					{
+						enchantStick(stack, random, rand1, rand2, rand3, rand4, rand5);
+						break;
+					}
+				}
+			}
 			else if (living instanceof EntitySkeleton)
 			{
 				EntitySkeleton skeleton = (EntitySkeleton) living;
@@ -413,6 +427,95 @@ public class MEventHandler
 		}
 	}
 	
+	public static void enchantStick(ItemStack stack, Random random, double rand1, double rand2, double rand3, double rand4, double rand5)
+	{
+		if (rand1 < 0.3D)
+		{
+			int level = -1;
+			
+			// Knockback
+			if (rand2 < 0.7D)
+			{
+				if (rand3 < 0.01D)
+				{
+					level = 7 + random.nextInt(3);
+				}
+				else if (rand3 < 0.02D)
+				{
+					level = 6;
+				}
+				else if (rand3 < 0.05D)
+				{
+					level = 2 + random.nextInt(4);
+				}
+				else if (rand3 < 0.25D)
+				{
+					level = 1;
+				}
+				else
+				{
+					level = 0;
+				}
+				
+				stack.addEnchantment(Enchantment.knockback, level);
+			}
+			
+			// Fire Aspect
+			if (rand2 < 0.2D)
+			{
+				if (rand3 < 0.01D)
+				{
+					level = 4;
+				}
+				if (rand3 < 0.09D)
+				{
+					level = 3;
+				}
+				if (rand3 < 0.15D)
+				{
+					level = 2;
+				}
+				if (rand3 < 0.25D)
+				{
+					level = 1;
+				}
+				else if (rand3 < 0.5D)
+				{
+					level = 0;
+				}
+				
+				stack.addEnchantment(Enchantment.fireAspect, level);
+			}
+			
+			// Looting
+			if (rand2 < 0.1D)
+			{
+				if (rand3 < 0.01D)
+				{
+					level = 7 + random.nextInt(3);
+				}
+				else if (rand3 < 0.02D)
+				{
+					level = 6;
+				}
+				else if (rand3 < 0.05D)
+				{
+					level = 2 + random.nextInt(4);
+				}
+				else if (rand3 < 0.25D)
+				{
+					level = 1;
+				}
+				else
+				{
+					level = 0;
+				}
+				
+				stack.addEnchantment(Enchantment.looting, level);
+			}
+		}
+	}
+	
 	@SubscribeEvent
 	public void entityInteract(EntityInteractEvent event)
 	{
@@ -432,12 +535,12 @@ public class MEventHandler
 	{
 		Random random = new Random(event.world.getSeed());
 		for (int k = 0; k < 16; ++k)
-        {
-            for (int l = 0; l < 16; ++l)
-            {
-                BiomeGenBase biome = event.biomeArray[l + k * 16];
-                MOreGenerator.genBiomeStone(biome, event.world, random, event.blockArray, event.metaArray, event.chunkX * 16 + k, event.chunkZ * 16 + l);
-            }
-        }
+		{
+			for (int l = 0; l < 16; ++l)
+			{
+				BiomeGenBase biome = event.biomeArray[l + k * 16];
+				MOreGenerator.genBiomeStone(biome, event.world, random, event.blockArray, event.metaArray, event.chunkX * 16 + k, event.chunkZ * 16 + l);
+			}
+		}
 	}
 }
