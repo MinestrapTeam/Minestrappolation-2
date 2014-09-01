@@ -32,53 +32,50 @@ public class BiomeGenRedwood extends BiomeGenBase
 	}
 	
 	@Override
-	public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
+	public WorldGenerator getRandomWorldGenForGrass(Random random)
 	{
-		return par1Random.nextInt(4) == 0 ? new WorldGenTallGrass(Blocks.tallgrass, 2) : new WorldGenTallGrass(Blocks.tallgrass, 1);
+		return random.nextInt(4) == 0 ? new WorldGenTallGrass(Blocks.tallgrass, 2) : new WorldGenTallGrass(Blocks.tallgrass, 1);
 	}
 	
 	@Override
-	public void genTerrainBlocks(World world, Random rand, Block[] p_150573_3_, byte[] p_150573_4_, int p_150573_5_, int p_150573_6_, double p_150573_7_)
+	public void genTerrainBlocks(World world, Random rand, Block[] block, byte[] metadata, int x, int z, double noise)
 	{
+		this.fillerBlock = Blocks.dirt;
 		this.topBlock = Blocks.grass;
 		this.field_150604_aj = 0;
-		this.fillerBlock = Blocks.dirt;
 		
-		if (p_150573_7_ > -0.95D)
+		if (noise > 2.5D)
+		{
+			this.topBlock = Blocks.sand;
+			this.field_150604_aj = 0;
+			this.fillerBlock = Blocks.sand;
+		}
+		else if (noise > -0.95D)
 		{
 			this.topBlock = Blocks.dirt;
 			this.field_150604_aj = 2;
 		}
-		if (p_150573_7_ > 2.5D)
-		{
-			this.topBlock = Blocks.sand;
-		}
 		
-		this.genBiomeTerrain(world, rand, p_150573_3_, p_150573_4_, p_150573_5_, p_150573_6_, p_150573_7_);
+		this.genBiomeTerrain(world, rand, block, metadata, x, z, noise);
 	}
 	
 	@Override
-	public void decorate(World par1World, Random par2Random, int par3, int par4)
+	public void decorate(World world, Random random, int x, int z)
 	{
-		int k;
-		int l;
-		int i1;
-		int j1;
-		
-		for (k = 0; k < 7; ++k)
+		for (int k = 0; k < 7; ++k)
 		{
-			l = par3 + par2Random.nextInt(16) + 8;
-			i1 = par4 + par2Random.nextInt(16) + 8;
-			j1 = par2Random.nextInt(par1World.getHeightValue(l, i1) + 32);
-			genTallFlowers.generate(par1World, par2Random, l, j1, i1);
+			int x1 = x + random.nextInt(16) + 8;
+			int z1 = z + random.nextInt(16) + 8;
+			int y1 = world.getHeightValue(x1, z1) + random.nextInt(16);
+			genTallFlowers.generate(world, random, x1, y1, z1);
 		}
 		
-		super.decorate(par1World, par2Random, par3, par4);
+		super.decorate(world, random, x, z);
 	}
 	
 	@Override
-	public WorldGenAbstractTree func_150567_a(Random rand)
+	public WorldGenAbstractTree func_150567_a(Random random)
 	{
-		return rand.nextInt(4) == 0 ? new WorldGenRedWoodTree() : rand.nextInt(8) < 2 ? this.worldGeneratorTrees : new WorldGenRedWoodTreeSmall();
+		return random.nextInt(4) == 0 ? new WorldGenRedWoodTree() : random.nextInt(8) < 2 ? this.worldGeneratorTrees : new WorldGenRedWoodTreeSmall();
 	}
 }

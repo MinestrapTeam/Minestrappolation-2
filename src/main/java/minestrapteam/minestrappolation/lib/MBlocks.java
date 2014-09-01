@@ -380,12 +380,16 @@ public class MBlocks
 	
 	public static Block			craftingTable2;
 	
+	/* / {----- EE Blocks -----} / */
+	
 	public static Block			witherLayer;
 	public static Block			witherBlock;
 
 	public static void init()
 	{
 		addStoneBlocks();
+		
+		// EO Blocks
 		
 		copperOre = new MBlock(Material.rock).setHardness(3F).setResistance(5F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MAssetManager.getMineralTexture("copper_ore"));
 		tinOre = new MBlock(Material.rock).setHardness(3F).setResistance(4F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MAssetManager.getMineralTexture("tin_ore"));
@@ -432,6 +436,8 @@ public class MBlocks
 		stoneCutter = new BlockStonecutter().setCreativeTab(Minestrappolation.tabTech).setHardness(3.5F).setStepSound(Block.soundTypeStone);
 		sawmill = new BlockSawmill().setCreativeTab(Minestrappolation.tabTech).setHardness(2.5F).setStepSound(Block.soundTypeWood);
 		
+		// ED Blocks
+		
 		checkerTiles = new BlockTiles().setCreativeTab(Minestrappolation.tabStoneDecor).setStepSound(Block.soundTypeStone);
 		flintEndstoneStairs = new MBlockStairs(checkerTiles, 0).setCreativeTab(Minestrappolation.tabStoneDecor).setBlockName("stairs_flint_endstone");
 		flintQuartzStairs = new MBlockStairs(checkerTiles, 1).setCreativeTab(Minestrappolation.tabStoneDecor).setBlockName("stairs_flint_quartz");
@@ -473,8 +479,10 @@ public class MBlocks
 		
 		craftingTable2 = new BlockWorkbench2().setHardness(2.5F).setStepSound(Block.soundTypeWood).setBlockName("workbench");
 		
-		witherLayer = new BlockWitherLayer().setHardness(0.1F).setStepSound(Block.soundTypeSnow).setLightOpacity(0).setBlockName("wither_ash_layer");
-		witherBlock = new BlockWitherAsh().setHardness(0.2F).setStepSound(Block.soundTypeSnow).setBlockName("wither_ash").setBlockTextureName(MAssetManager.getMineralTexture("wither_ash_block"));
+		// EE Blocks
+		
+		witherLayer = new BlockWitherLayer().setHardness(0.1F).setStepSound(Block.soundTypeSnow).setBlockTextureName(MAssetManager.getMineralTexture("wither_ash_block"));
+		witherBlock = new BlockWitherAsh().setHardness(0.2F).setStepSound(Block.soundTypeSnow).setBlockTextureName(MAssetManager.getMineralTexture("wither_ash_block"));
 	}
 	
 	public static void load()
@@ -563,8 +571,9 @@ public class MBlocks
 		
 		CSBlocks.replaceBlock(Blocks.crafting_table, craftingTable2);
 		
-		CSBlocks.addBlock(witherBlock);
-		CSBlocks.addBlock(witherLayer);
+		CSBlocks.addBlock(witherBlock, "wither_block");
+		CSBlocks.addBlock(witherLayer, "wither_layer");
+		
 		setFlammability();
 	}
 	
