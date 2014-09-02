@@ -225,7 +225,7 @@ public class MRecipes
 		
 		GameRegistry.addSmelting(fat, new ItemStack(grease, 1), 0.7F);
 		
-		GameRegistry.addShapelessRecipe(new ItemStack(friedApple, 2), new Object[] { grease, Items.apple, Items.apple });
+		/*GameRegistry.addShapelessRecipe(new ItemStack(friedApple, 2), new Object[] { grease, Items.apple, Items.apple });
 		GameRegistry.addShapelessRecipe(new ItemStack(friedBakedPotato, 2), new Object[] { grease, Items.baked_potato, Items.baked_potato });
 		GameRegistry.addShapelessRecipe(new ItemStack(friedBeef, 2), new Object[] { grease, Items.cooked_beef, Items.cooked_beef });
 		GameRegistry.addShapelessRecipe(new ItemStack(friedBread, 2), new Object[] { grease, Items.bread, Items.bread });
@@ -255,7 +255,7 @@ public class MRecipes
 		GameRegistry.addShapelessRecipe(new ItemStack(friedRawPorkChop, 2), new Object[] { grease, Items.porkchop, Items.porkchop });
 		GameRegistry.addShapelessRecipe(new ItemStack(friedRawSalmon, 2), new Object[] { grease, new ItemStack(Items.fish, 1, 1), new ItemStack(Items.fish, 1, 1) });
 		GameRegistry.addShapelessRecipe(new ItemStack(friedRottenFlesh, 2), new Object[] { grease, Items.rotten_flesh, Items.rotten_flesh });
-		GameRegistry.addShapelessRecipe(new ItemStack(friedSquidTentacle, 2), new Object[] { grease, squidTentacle, squidTentacle });
+		GameRegistry.addShapelessRecipe(new ItemStack(friedSquidTentacle, 2), new Object[] { grease, squidTentacle, squidTentacle });*/
 		
 		GameRegistry.addRecipe(new ItemStack(Items.dye, 1, 15), new Object[] { "AA", "AA", 'A', animalBones });
 		GameRegistry.addSmelting(chickenWingRaw, new ItemStack(chickenWingCooked, 1), 0.7F);
