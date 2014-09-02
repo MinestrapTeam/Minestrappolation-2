@@ -1,6 +1,8 @@
 package minestrapteam.minestrappolation.lib;
 
+import clashsoft.cslib.minecraft.block.BlockCustomLamp;
 import clashsoft.cslib.minecraft.block.CSBlocks;
+import clashsoft.cslib.util.CSString;
 import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.block.*;
 import minestrapteam.minestrappolation.item.block.MCItemBlockMulti;
@@ -13,6 +15,7 @@ import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemDye;
 
 public class MBlocks
 {
@@ -377,6 +380,8 @@ public class MBlocks
 	public static Block			cardboardBlock;
 	
 	public static Block			glassDoor;
+	public static BlockCustomLamp coloredLampOff;
+	public static BlockCustomLamp coloredLampOn;
 	
 	public static Block			craftingTable2;
 	
@@ -478,6 +483,12 @@ public class MBlocks
 		
 		glassDoor = new BlockGlassDoor(Material.glass).setHardness(1F);
 		
+		String[] icons1 = CSString.concatAll(ItemDye.field_150921_b, MAssetManager.getLampTexture(""), "_lamp_off");
+		String[] icons2 = CSString.concatAll(ItemDye.field_150921_b, MAssetManager.getLampTexture(""), "_lamp_on");
+		coloredLampOff = (BlockCustomLamp) new BlockCustomLamp(ItemDye.field_150921_b, icons1, false).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(Minestrappolation.tabTech);
+		coloredLampOn = (BlockCustomLamp) new BlockCustomLamp(ItemDye.field_150921_b, icons2, true).setHardness(0.3F).setStepSound(Block.soundTypeGlass);
+		BlockCustomLamp.bind(coloredLampOff, coloredLampOn);
+		
 		craftingTable2 = new BlockWorkbench2().setHardness(2.5F).setStepSound(Block.soundTypeWood).setBlockName("workbench");
 		
 		// EE Blocks
@@ -489,6 +500,8 @@ public class MBlocks
 	
 	public static void load()
 	{
+		// EO Blocks
+		
 		CSBlocks.addBlock(copperOre, "copper_ore");
 		CSBlocks.addBlock(tinOre, "tin_ore");
 		CSBlocks.addBlock(titaniumOre, "titanium_ore");
@@ -533,6 +546,8 @@ public class MBlocks
 		
 		CSBlocks.addBlock(lockedBlock, "locked_block");
 		
+		// ED Blocks
+		
 		CSBlocks.addBlock(checkerTiles, MCItemBlockMulti.class, "checker_tiles");
 		CSBlocks.addBlock(flintQuartzStairs);
 		CSBlocks.addBlock(flintEndstoneStairs);
@@ -570,8 +585,12 @@ public class MBlocks
 		CSBlocks.addBlock(cardboardBlock, MCItemBlockMulti.class, "cardboard_block");
 		
 		CSBlocks.addBlock(glassDoor, "glass_door_block");
+		CSBlocks.addBlock(coloredLampOff, "colored_lamp");
+		CSBlocks.addBlock(coloredLampOn, "lit_colored_lamp");
 		
 		CSBlocks.replaceBlock(Blocks.crafting_table, craftingTable2);
+		
+		// EE Blocks
 		
 		CSBlocks.addBlock(witherBlock, "wither_block");
 		CSBlocks.addBlock(witherLayer, "wither_layer");

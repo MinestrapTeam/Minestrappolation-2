@@ -207,6 +207,11 @@ public class MRecipes
 		GameRegistry.addRecipe(new ItemStack(cardboardBlock, 2), new Object[] { "CCC", " C ", " CC", 'C', cardboardItem });
 		GameRegistry.addShapelessRecipe(new ItemStack(cardboardBlock, 1, 2), new ItemStack(cardboardBlock), new ItemStack(Items.glowstone_dust));
 		
+		for (int i = 0; i < 16; i++)
+		{
+			GameRegistry.addShapedRecipe(new ItemStack(MBlocks.coloredLampOff, 1, i), new Object[] { " D ", "DLD", " D ", 'L', Blocks.redstone_lamp, 'D', new ItemStack(Items.dye, 1, i)});
+		}
+		
 		// Misc Stone Block Recipes
 		
 		GameRegistry.addRecipe(new ItemStack(MBlocks.redSandstone, 1, 0), new Object[] { "SS", "SS", 'S', new ItemStack(Blocks.sand, 1, 1) });
