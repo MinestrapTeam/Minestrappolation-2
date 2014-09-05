@@ -1,5 +1,7 @@
 package minestrapteam.minestrappolation.network;
 
+import java.io.IOException;
+
 import clashsoft.cslib.minecraft.network.CSPacket;
 import minestrapteam.minestrappolation.tileentity.TileEntityGoblet;
 
@@ -45,7 +47,7 @@ public class GobletPacket extends CSPacket
 	}
 	
 	@Override
-	public void read(PacketBuffer buf)
+	public void read(PacketBuffer buf) throws IOException
 	{
 		this.world = readWorld(buf);
 		this.x = buf.readInt();
@@ -55,7 +57,7 @@ public class GobletPacket extends CSPacket
 	}
 	
 	@Override
-	public void write(PacketBuffer buf)
+	public void write(PacketBuffer buf) throws IOException
 	{
 		writeWorld(buf, this.world);
 		buf.writeInt(this.x);

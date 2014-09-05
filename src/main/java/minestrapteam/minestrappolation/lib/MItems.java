@@ -2,6 +2,8 @@ package minestrapteam.minestrappolation.lib;
 
 import static minestrapteam.minestrappolation.Minestrappolation.*;
 import clashsoft.cslib.minecraft.item.CSItems;
+import clashsoft.cslib.minecraft.item.ItemCustomBucket;
+import clashsoft.cslib.minecraft.item.ItemCustomDoor;
 import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.item.*;
 import minestrapteam.minestrappolation.util.MAssetManager;
@@ -223,7 +225,7 @@ public class MItems
 		toriteIngot = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("torite_ingot"));
 		blaziumIngot = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("blazium_ingot"));
 		
-		magmaBucket = new MItemBucket(MBlocks.magma).setCreativeTab(tabMisc).setTextureName(MAssetManager.getTexture("magma_bucket"));
+		magmaBucket = new ItemCustomBucket(MBlocks.magma).setCreativeTab(tabMisc).setTextureName(MAssetManager.getTexture("magma_bucket"));
 		
 		steelKey = new ItemKey().setCreativeTab(tabMisc).setTextureName(MAssetManager.getTexture("steel_key"));
 		steelLock = new ItemLock().setCreativeTab(tabMisc).setTextureName(MAssetManager.getTexture("steel_lock"));
@@ -244,7 +246,7 @@ public class MItems
 		
 		ropeItem = new ItemReed(MBlocks.rope).setCreativeTab(tabDecorationBlocks).setTextureName(MAssetManager.getTexture("rope"));
 		cardboardItem = new ItemReed(MBlocks.cardboard).setCreativeTab(tabDecorationBlocks).setTextureName(MAssetManager.getTexture("cardboard"));
-		glassDoorItem = new MItemDoor(MBlocks.glassDoor).setCreativeTab(tabDecorationBlocks).setTextureName(MAssetManager.getTexture("glass_door"));
+		glassDoorItem = new ItemCustomDoor(MBlocks.glassDoor).setCreativeTab(tabDecorationBlocks).setTextureName(MAssetManager.getTexture("glass_door"));
 		
 		// EE Items
 		
