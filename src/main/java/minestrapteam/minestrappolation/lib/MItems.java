@@ -10,10 +10,7 @@ import minestrapteam.minestrappolation.util.MAssetManager;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemFood;
-import net.minecraft.item.ItemReed;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.*;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionHelper;
 import net.minecraft.util.WeightedRandomChestContent;
@@ -552,8 +549,8 @@ public class MItems
 		CSItems.replaceItem(Items.cooked_chicken, (new MItemFood(FoodType.COOKED_MEAT, 6, 0.6F)).setUnlocalizedName("chickenCooked").setTextureName("chicken_cooked"));
 		CSItems.replaceItem(Items.rotten_flesh, (new MItemFood(FoodType.RAW_MEAT, 4, 0.1F)).setPotionEffect(Potion.hunger.id, 30, 0, 0.8F).setUnlocalizedName("rottenFlesh").setTextureName("rotten_flesh"));
 		CSItems.replaceItem(Items.spider_eye, (new MItemFood(FoodType.MISC, 2, 0.8F)).setPotionEffect(Potion.poison.id, 5, 0, 1.0F).setUnlocalizedName("spiderEye").setPotionEffect(PotionHelper.spiderEyeEffect).setTextureName("spider_eye"));
-		// TODO carrot
-		// TODO potato
+		CSItems.replaceItem(Items.carrot, (new MItemSeedFood(FoodType.VEGETABLE, 4, 0.6F, Blocks.carrots, Blocks.farmland)).setUnlocalizedName("carrots").setTextureName("carrot"));
+		CSItems.replaceItem(Items.potato, (new MItemSeedFood(FoodType.VEGETABLE, 1, 0.3F, Blocks.potatoes, Blocks.farmland)).setUnlocalizedName("potato").setTextureName("potato"));
 		CSItems.replaceItem(Items.baked_potato, (new MItemFood(FoodType.COOKED_VEGETABLE, 6, 0.6F)).setUnlocalizedName("potatoBaked").setTextureName("potato_baked"));
 		CSItems.replaceItem(Items.poisonous_potato, (new MItemFood(FoodType.MISC, 2, 0.3F)).setPotionEffect(Potion.poison.id, 5, 0, 0.6F).setUnlocalizedName("potatoPoisonous").setTextureName("potato_poisonous"));
 		CSItems.replaceItem(Items.pumpkin_pie, (new MItemFood(FoodType.BAKED, 8, 0.3F)).setUnlocalizedName("pumpkinPie").setCreativeTab(CreativeTabs.tabFood).setTextureName("pumpkin_pie"));
