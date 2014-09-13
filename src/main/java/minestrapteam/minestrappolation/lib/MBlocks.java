@@ -554,7 +554,7 @@ public class MBlocks
 		CSBlocks.addBlock(obsidianEndstoneStairs);
 		CSBlocks.addBlock(obsidianQuartzStairs);
 		
-		CSBlocks.addBlock(edgeStoneBrick, MCItemBlockMulti.class, "edge_stone_brick");
+		CSBlocks.addBlock(edgeStoneBrick, "edge_stone_brick");
 		CSBlocks.addBlock(snowBrick, "snow_brick");
 		CSBlocks.addBlock(roads, MCItemBlockMulti.class, "roads");
 		

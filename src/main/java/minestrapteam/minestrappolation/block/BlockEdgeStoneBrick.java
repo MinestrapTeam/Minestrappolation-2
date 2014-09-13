@@ -2,42 +2,68 @@ package minestrapteam.minestrappolation.block;
 
 import java.util.List;
 
+import clashsoft.cslib.minecraft.block.CustomBlock;
+import clashsoft.cslib.minecraft.block.ICustomBlock;
 import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 
-public class BlockEdgeStoneBrick extends Block
+public class BlockEdgeStoneBrick extends Block implements ICustomBlock
 {
-	private IIcon[]	icons1;
-	private IIcon[]	icons2;
+	public static String[]	TYPES	= new String[] { "edgestone", "dark_edgestone" };
+	public static Block[]	BLOCKS	= new Block[] { Blocks.stonebrick, Blocks.stonebrick };
+	
+	public String[]			types;
+	public Block[]			blocks;
+	public int[]			metadata;
+	
+	private IIcon[]			icons;
+	private IIcon[]			leftIcons;
+	private IIcon[]			rightIcons;
+	private IIcon[]			halfIcons;
 	
 	public BlockEdgeStoneBrick()
 	{
+		this(TYPES, BLOCKS, new int[] { -1, -1 });
+	}
+	
+	public BlockEdgeStoneBrick(String[] types, Block[] blocks, int[] metadata)
+	{
 		super(Material.rock);
+		this.types = types;
+		this.blocks = blocks;
+		this.metadata = metadata;
 	}
 	
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.icons1 = new IIcon[4];
-		this.icons2 = new IIcon[4];
+		int len = this.types.length;
+		this.icons = new IIcon[len];
+		this.leftIcons = new IIcon[len];
+		this.rightIcons = new IIcon[len];
+		this.halfIcons = new IIcon[len];
 		
-		this.icons1[0] = iconRegister.registerIcon(MAssetManager.getStonecutterTexture("edgestone"));
-		this.icons1[1] = iconRegister.registerIcon(MAssetManager.getStonecutterTexture("edgestone_left"));
-		this.icons1[2] = iconRegister.registerIcon(MAssetManager.getStonecutterTexture("edgestone_right"));
-		this.icons1[3] = iconRegister.registerIcon(MAssetManager.getStonecutterTexture("edgestone_half"));
-		this.icons2[0] = iconRegister.registerIcon(MAssetManager.getStonecutterTexture("dark_edgestone"));
-		this.icons2[1] = iconRegister.registerIcon(MAssetManager.getStonecutterTexture("dark_edgestone_left"));
-		this.icons2[2] = iconRegister.registerIcon(MAssetManager.getStonecutterTexture("dark_edgestone_right"));
-		this.icons2[3] = iconRegister.registerIcon(MAssetManager.getStonecutterTexture("dark_edgestone_half"));
+		for (int i = 0; i < len; i++)
+		{
+			String s = this.types[i];
+			if (s != null)
+			{
+				this.icons[i] = iconRegister.registerIcon(MAssetManager.getEdgestoneTexture(s));
+				this.leftIcons[i] = iconRegister.registerIcon(MAssetManager.getEdgestoneTexture(s + "_left"));
+				this.rightIcons[i] = iconRegister.registerIcon(MAssetManager.getEdgestoneTexture(s + "_right"));
+				this.halfIcons[i] = iconRegister.registerIcon(MAssetManager.getEdgestoneTexture(s + "_half"));
+			}
+		}
 	}
 	
 	@Override
@@ -49,13 +75,26 @@ public class BlockEdgeStoneBrick extends Block
 	@Override
 	public IIcon getIcon(int side, int metadata)
 	{
-		if (metadata == 0)
+		return this.getIcon(metadata, (byte) 0);
+	}
+	
+	public IIcon getIcon(int metadata, byte type)
+	{
+		if (type == 0)
 		{
-			return this.icons1[0];
+			return this.icons[metadata];
 		}
-		else if (metadata == 1)
+		else if (type == 1)
 		{
-			return this.icons2[0];
+			return this.leftIcons[metadata];
+		}
+		else if (type == 2)
+		{
+			return this.rightIcons[metadata];
+		}
+		else if (type == 3)
+		{
+			return this.halfIcons[metadata];
 		}
 		return this.blockIcon;
 	}
@@ -64,10 +103,10 @@ public class BlockEdgeStoneBrick extends Block
 	public IIcon getIcon(IBlockAccess world, int x, int y, int z, int side)
 	{
 		int metadata = world.getBlockMetadata(x, y, z);
-		boolean xp = this.isBrick(world, x + 1, y, z);
-		boolean zp = this.isBrick(world, x, y, z + 1);
-		boolean xn = this.isBrick(world, x - 1, y, z);
-		boolean zn = this.isBrick(world, x, y, z - 1);
+		boolean xp = this.isBrick(metadata, world, x + 1, y, z);
+		boolean zp = this.isBrick(metadata, world, x, y, z + 1);
+		boolean xn = this.isBrick(metadata, world, x - 1, y, z);
+		boolean zn = this.isBrick(metadata, world, x, y, z - 1);
 		byte b = 0;
 		if (side == 2) // NORTH
 		{
@@ -91,7 +130,7 @@ public class BlockEdgeStoneBrick extends Block
 				b |= 2;
 			}
 		}
-		else if (side == 4)
+		else if (side == 4) // WEST
 		{
 			if (zp)
 			{
@@ -102,7 +141,7 @@ public class BlockEdgeStoneBrick extends Block
 				b |= 2;
 			}
 		}
-		else if (side == 5)
+		else if (side == 5) // EAST
 		{
 			if (zp)
 			{
@@ -114,27 +153,47 @@ public class BlockEdgeStoneBrick extends Block
 			}
 		}
 		
-		if (metadata == 0)
-		{
-			return this.icons1[b];
-		}
-		else if (metadata == 1)
-		{
-			return this.icons2[b];
-		}
-		return this.blockIcon;
+		return this.getIcon(metadata, b);
 	}
 	
-	public boolean isBrick(IBlockAccess world, int x, int y, int z)
+	public boolean isBrick(int metadata, IBlockAccess world, int x, int y, int z)
 	{
-		Block block = world.getBlock(x, y, z);
-		return block == Blocks.stonebrick;
+		if (this.blocks[metadata] != world.getBlock(x, y, z))
+		{
+			return false;
+		}
+		
+		int m = this.metadata[metadata];
+		if (m != -1 && m != world.getBlockMetadata(x, y, z))
+		{
+			return false;
+		}
+		return true;
 	}
 	
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list)
 	{
-		list.add(new ItemStack(item, 1, 0));
-		list.add(new ItemStack(item, 1, 1));
+		for (int i = 0; i < this.types.length; i++)
+		{
+			if (this.types[i] != null)
+			{
+				list.add(new ItemStack(item, 1, i));
+			}
+		}
+	}
+	
+	@Override
+	public void addInformation(ItemStack stack, EntityPlayer player, List<String> list)
+	{
+		int metadata = stack.getItemDamage();
+		ItemStack s = new ItemStack(this.blocks[metadata], 1, this.metadata[metadata]);
+		list.add("Connects to: " + s.getDisplayName());
+	}
+	
+	@Override
+	public String getUnlocalizedName(ItemStack stack)
+	{
+		return CustomBlock.getUnlocalizedName(this, stack, this.types);
 	}
 }

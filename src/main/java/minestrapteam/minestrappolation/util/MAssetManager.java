@@ -75,7 +75,7 @@ public class MAssetManager
 	 */
 	public static String getEdgestoneTexture(String name)
 	{
-		return MReference.MODID + ":edgesone/" + name;
+		return MReference.MODID + ":edgestone/" + name;
 	}
 	
 	public static String getFoodTexture(String name)
