@@ -1,7 +1,5 @@
 package minestrapteam.minestrappolation.item;
 
-import java.util.List;
-
 import clashsoft.cslib.minecraft.lang.I18n;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -205,14 +203,5 @@ public class MItemFood extends ItemFood
 		builder.append(I18n.getString(this.getUnlocalizedName(stack) + ".name"));
 		
 		return builder.toString();
-	}
-	
-	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean flag)
-	{
-		if (isFried(stack))
-		{
-			list.add("\u00a76" + I18n.getString("item.food.fried"));
-		}
 	}
 }

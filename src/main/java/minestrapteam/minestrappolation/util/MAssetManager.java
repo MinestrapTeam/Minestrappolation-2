@@ -75,6 +75,11 @@ public class MAssetManager
 		return MReference.MODID + ":food/" + name;
 	}
 	
+	public static String getGlassTexture(String name)
+	{
+		return MReference.MODID + ":glass/" + name;
+	}
+	
 	/**
 	 * Only for blocks.
 	 */
