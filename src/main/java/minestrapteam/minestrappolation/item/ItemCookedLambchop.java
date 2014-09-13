@@ -8,9 +8,9 @@ import net.minecraft.world.World;
 
 public class ItemCookedLambchop extends MItemFood
 {
-	public ItemCookedLambchop(int healAmount, float saturationModifier)
+	public ItemCookedLambchop(FoodType type, int healAmount, float saturationModifier)
 	{
-		super(FoodType.COOKED_MEAT, healAmount, saturationModifier);
+		super(type, healAmount, saturationModifier);
 	}
 	
 	@Override
