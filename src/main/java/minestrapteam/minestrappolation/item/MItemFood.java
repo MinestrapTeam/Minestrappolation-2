@@ -10,6 +10,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
@@ -17,7 +19,7 @@ public class MItemFood extends ItemFood
 {
 	public static enum FoodType
 	{
-		RAW_MEAT(1000, false), COOKED_MEAT(2000, true), RAW_FISH(400, false), COOKED_FISH(800, true), VEGETABLE(1200, false), FRUIT(1000, false), MISC(600, false);
+		BAKED(600, false), RAW_MEAT(1000, false), COOKED_MEAT(2000, true), RAW_FISH(400, false), COOKED_FISH(800, true), VEGETABLE(1200, false), COOKED_VEGETABLE(1600, false), FRUIT(1000, false), MISC(600, false);
 		
 		private int		maxSpoiling;
 		private boolean	isCooked;
@@ -45,7 +47,7 @@ public class MItemFood extends ItemFood
 		
 		public boolean isFriable()
 		{
-			return this == COOKED_MEAT || this == COOKED_FISH || this == VEGETABLE;
+			return this == COOKED_MEAT || this == COOKED_FISH || this == VEGETABLE || this == FRUIT;
 		}
 	}
 	
@@ -58,6 +60,11 @@ public class MItemFood extends ItemFood
 	{
 		super(healAmount, saturationModifier, type.isWolfMeat());
 		this.foodType = type;
+	}
+	
+	public FoodType getType(ItemStack stack)
+	{
+		return this.foodType;
 	}
 	
 	public static boolean isFried(ItemStack stack)
@@ -114,7 +121,7 @@ public class MItemFood extends ItemFood
 		{
 			return this.friedIcon;
 		}
-		if (getSpoilingLevel(stack) >= this.getMaxDamage(stack) / 2)
+		if (getSpoilingLevel(stack) >= this.getMaxDamage(stack))
 		{
 			return this.spoiledIcon;
 		}
@@ -162,7 +169,42 @@ public class MItemFood extends ItemFood
 		if (isFried(stack))
 		{
 			player.getFoodStats().addStats(3, 0.05F);
+			player.addPotionEffect(new PotionEffect(Potion.hunger.id, 15, 0));
 		}
+		
+		int spoiling = getSpoilingLevel(stack);
+		int maxSpoiling = this.getMaxDamage(stack);
+		int duration = spoiling - maxSpoiling;
+		
+		if (duration > 0)
+		{
+			duration /= 2;
+			int amplifier = 0;
+			if (duration >= 60)
+			{
+				amplifier = duration / 60;
+				duration = 60;
+			}
+			player.addPotionEffect(new PotionEffect(Potion.poison.id, duration, amplifier));
+		}
+	}
+	
+	@Override
+	public String getItemStackDisplayName(ItemStack stack)
+	{
+		StringBuilder builder = new StringBuilder();
+		
+		if (isFried(stack))
+		{
+			builder.append(I18n.getString("item.food.fried")).append(' ');
+		}
+		if (getSpoilingLevel(stack) > this.getMaxDamage(stack))
+		{
+			builder.append(I18n.getString("item.food.spoiled")).append(' ');
+		}
+		builder.append(I18n.getString(this.getUnlocalizedName(stack) + ".name"));
+		
+		return builder.toString();
 	}
 	
 	@Override
