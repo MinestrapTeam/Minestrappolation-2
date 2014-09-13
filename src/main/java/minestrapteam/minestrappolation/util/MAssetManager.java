@@ -70,6 +70,14 @@ public class MAssetManager
 		return MReference.MODID + ":drinks/" + name;
 	}
 	
+	/**
+	 * Only for blocks.
+	 */
+	public static String getEdgestoneTexture(String name)
+	{
+		return MReference.MODID + ":edgesone/" + name;
+	}
+	
 	public static String getFoodTexture(String name)
 	{
 		return MReference.MODID + ":food/" + name;
