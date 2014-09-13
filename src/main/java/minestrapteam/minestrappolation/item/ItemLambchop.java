@@ -6,11 +6,11 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class ItemCookedLambchop extends MItemFood
+public class ItemLambchop extends MItemFood
 {
-	public ItemCookedLambchop(int healAmount, float saturationModifier)
+	public ItemLambchop(FoodType type, int healAmount, float saturationModifier)
 	{
-		super(healAmount, saturationModifier);
+		super(type, healAmount, saturationModifier);
 	}
 	
 	@Override

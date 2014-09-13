@@ -225,38 +225,6 @@ public class MRecipes
 		
 		GameRegistry.addSmelting(fat, new ItemStack(grease, 1), 0.7F);
 		
-		GameRegistry.addShapelessRecipe(new ItemStack(friedApple, 2), new Object[] { grease, Items.apple, Items.apple });
-		GameRegistry.addShapelessRecipe(new ItemStack(friedBakedPotato, 2), new Object[] { grease, Items.baked_potato, Items.baked_potato });
-		GameRegistry.addShapelessRecipe(new ItemStack(friedBeef, 2), new Object[] { grease, Items.cooked_beef, Items.cooked_beef });
-		GameRegistry.addShapelessRecipe(new ItemStack(friedBread, 2), new Object[] { grease, Items.bread, Items.bread });
-		GameRegistry.addShapelessRecipe(new ItemStack(friedCalimari, 2), new Object[] { grease, calimari, calimari });
-		GameRegistry.addShapelessRecipe(new ItemStack(friedCarrot, 2), new Object[] { grease, Items.carrot, Items.carrot });
-		GameRegistry.addShapelessRecipe(new ItemStack(friedClownfish, 2), new Object[] { grease, new ItemStack(Items.fish, 1, 2), new ItemStack(Items.fish, 1, 2) });
-		GameRegistry.addShapelessRecipe(new ItemStack(friedCookedChicken, 2), new Object[] { grease, Items.cooked_chicken, Items.cooked_chicken });
-		GameRegistry.addShapelessRecipe(new ItemStack(friedCookedChickenWing, 2), new Object[] { grease, chickenWingCooked, chickenWingCooked });
-		GameRegistry.addShapelessRecipe(new ItemStack(friedCookedFish, 2), new Object[] { grease, new ItemStack(Items.cooked_fished, 1, 0), new ItemStack(Items.cooked_fished, 1, 0) });
-		GameRegistry.addShapelessRecipe(new ItemStack(friedCookedHorseHaunch, 1), new Object[] { grease, horseHaunchCooked });
-		GameRegistry.addShapelessRecipe(new ItemStack(friedCookedLambChop, 2), new Object[] { grease, lambchopCooked, lambchopCooked });
-		GameRegistry.addShapelessRecipe(new ItemStack(friedCookedPorkChop, 2), new Object[] { grease, Items.cooked_porkchop, Items.cooked_porkchop });
-		GameRegistry.addShapelessRecipe(new ItemStack(friedCookedSalmon, 2), new Object[] { grease, new ItemStack(Items.cooked_fished, 1, 1), new ItemStack(Items.cooked_fished, 1, 1) });
-		GameRegistry.addShapelessRecipe(new ItemStack(friedCookie, 2), new Object[] { grease, Items.cookie, Items.cookie });
-		GameRegistry.addShapelessRecipe(new ItemStack(friedFlesh, 2), new Object[] { grease, flesh, flesh });
-		GameRegistry.addShapelessRecipe(new ItemStack(friedMelon, 2), new Object[] { grease, Items.melon, Items.melon });
-		GameRegistry.addShapelessRecipe(new ItemStack(friedPotato, 2), new Object[] { grease, Items.potato, Items.potato });
-		GameRegistry.addShapelessRecipe(new ItemStack(friedPoisonousPotato, 2), new Object[] { grease, Items.poisonous_potato, Items.poisonous_potato });
-		GameRegistry.addShapelessRecipe(new ItemStack(friedPufferFish, 2), new Object[] { grease, new ItemStack(Items.fish, 1, 3), new ItemStack(Items.fish, 1, 3) });
-		GameRegistry.addShapelessRecipe(new ItemStack(friedPumpkinPie, 2), new Object[] { grease, Items.pumpkin_pie, Items.pumpkin_pie });
-		GameRegistry.addShapelessRecipe(new ItemStack(friedRawBeef, 2), new Object[] { grease, Items.beef, Items.beef });
-		GameRegistry.addShapelessRecipe(new ItemStack(friedRawChicken, 2), new Object[] { grease, Items.chicken, Items.chicken });
-		GameRegistry.addShapelessRecipe(new ItemStack(friedRawChickenWing, 2), new Object[] { grease, chickenWingRaw, chickenWingRaw });
-		GameRegistry.addShapelessRecipe(new ItemStack(friedRawFish, 2), new Object[] { grease, new ItemStack(Items.fish, 1, 0), new ItemStack(Items.fish, 1, 0) });
-		GameRegistry.addShapelessRecipe(new ItemStack(friedRawHorseHaunch, 1), new Object[] { grease, horseHaunchRaw });
-		GameRegistry.addShapelessRecipe(new ItemStack(friedRawLambChop, 2), new Object[] { grease, lambchopRaw, lambchopRaw });
-		GameRegistry.addShapelessRecipe(new ItemStack(friedRawPorkChop, 2), new Object[] { grease, Items.porkchop, Items.porkchop });
-		GameRegistry.addShapelessRecipe(new ItemStack(friedRawSalmon, 2), new Object[] { grease, new ItemStack(Items.fish, 1, 1), new ItemStack(Items.fish, 1, 1) });
-		GameRegistry.addShapelessRecipe(new ItemStack(friedRottenFlesh, 2), new Object[] { grease, Items.rotten_flesh, Items.rotten_flesh });
-		GameRegistry.addShapelessRecipe(new ItemStack(friedSquidTentacle, 2), new Object[] { grease, squidTentacle, squidTentacle });
-		
 		GameRegistry.addRecipe(new ItemStack(Items.dye, 1, 15), new Object[] { "AA", "AA", 'A', animalBones });
 		GameRegistry.addSmelting(chickenWingRaw, new ItemStack(chickenWingCooked, 1), 0.7F);
 		GameRegistry.addSmelting(lambchopRaw, new ItemStack(lambchopCooked, 1), 0.7F);

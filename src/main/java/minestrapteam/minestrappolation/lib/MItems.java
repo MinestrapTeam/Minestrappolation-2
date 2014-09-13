@@ -6,14 +6,15 @@ import clashsoft.cslib.minecraft.item.ItemCustomBucket;
 import clashsoft.cslib.minecraft.item.ItemCustomDoor;
 import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.item.*;
+import minestrapteam.minestrappolation.item.MItemFood.FoodType;
 import minestrapteam.minestrappolation.util.MAssetManager;
 
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemReed;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.*;
 import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionHelper;
 import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraftforge.common.ChestGenHooks;
 
@@ -89,7 +90,7 @@ public class MItems
 	
 	/* / {----- EE Items -----} / */
 	
-	public static Item mossLump;
+	public static Item	mossLump;
 	
 	/* / {----- EMD Items -----} / */
 	
@@ -97,38 +98,6 @@ public class MItems
 	public static Item	pigHoof;
 	public static Item	fat;
 	public static Item	grease;
-	
-	public static Item	friedApple;
-	public static Item	friedBakedPotato;
-	public static Item	friedBeef;
-	public static Item	friedBread;
-	public static Item	friedCalimari;
-	public static Item	friedCarrot;
-	public static Item	friedClownfish;
-	public static Item	friedCookedChicken;
-	public static Item	friedCookedChickenWing;
-	public static Item	friedCookedFish;
-	public static Item	friedCookedHorseHaunch;
-	public static Item	friedCookedLambChop;
-	public static Item	friedCookedPorkChop;
-	public static Item	friedCookedSalmon;
-	public static Item	friedCookie;
-	public static Item	friedFlesh;
-	public static Item	friedMelon;
-	public static Item	friedPotato;
-	public static Item	friedPoisonousPotato;
-	public static Item	friedPufferFish;
-	public static Item	friedPumpkinPie;
-	public static Item	friedRawBeef;
-	public static Item	friedRawChicken;
-	public static Item	friedRawChickenWing;
-	public static Item	friedRawFish;
-	public static Item	friedRawHorseHaunch;
-	public static Item	friedRawLambChop;
-	public static Item	friedRawPorkChop;
-	public static Item	friedRawSalmon;
-	public static Item	friedRottenFlesh;
-	public static Item	friedSquidTentacle;
 	
 	public static Item	animalBones;
 	public static Item	cowHoof;
@@ -254,63 +223,162 @@ public class MItems
 		
 		// EMD Items
 		
-		snout = new MItemFood(3, 0.4F).setPotionEffect(Potion.hunger.id, 10, 1, 0.25F).setCreativeTab(tabFood).setTextureName(MAssetManager.getMobTexture("snout"));
+		snout = new MItemFood(FoodType.MISC, 3, 0.4F).setPotionEffect(Potion.hunger.id, 10, 1, 0.25F).setCreativeTab(tabFood).setTextureName(MAssetManager.getMobTexture("snout"));
 		pigHoof = new MItem().setCreativeTab(tabBrewing).setTextureName(MAssetManager.getMobTexture("pig_foot"));
-		fat = new MItemFood(8, 0.1F).setPotionEffect(Potion.hunger.id, 25, 1, 1.0F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("fat"));
-		grease = new MItem().setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("grease"));
+		fat = new ItemFood(8, 0.1F, false).setPotionEffect(Potion.hunger.id, 25, 1, 1.0F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("fat"));
+		grease = new ItemGrease().setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("grease"));
 		
 		// Durations in seconds, not in ticks here. So no "* 20".
-		friedApple = new MItemFood(8, 0.135F).setPotionEffect(Potion.hunger.id, 15, 0, 0.4F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("fried_apple"));
-		friedBakedPotato = new MItemFood(12, 0.27F).setPotionEffect(Potion.hunger.id, 15, 0, 0.4F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("fried_potato_cooked"));
-		friedBeef = new MItemFood(16, 0.36F).setPotionEffect(Potion.hunger.id, 15, 0, 0.4F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("fried_porkchop"));
-		friedBread = new MItemFood(10, 0.27F).setPotionEffect(Potion.hunger.id, 15, 0, 0.4F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("fried_bread"));
-		friedCalimari = new ItemCalimari(8, 0.3825F).setHealBonus(3F).setPotionEffect(Potion.hunger.id, 15, 0, 0.4F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("fried_tentacle"));
-		friedCarrot = new MItemFood(8, 0.27F).setPotionEffect(Potion.hunger.id, 15, 0, 0.4F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("fried_carrot"));
-		friedClownfish = new MItemFood(2, 0.045F).setPotionEffect(Potion.hunger.id, 15, 0, 0.4F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("fried_clownfish"));
-		friedCookedChicken = new MItemFood(12, 0.27F).setPotionEffect(Potion.hunger.id, 15, 0, 0.4F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("fried_chicken"));
-		friedCookedChickenWing = new MItemFood(6, 0.3375F).setPotionEffect(Potion.hunger.id, 15, 0, 0.4F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("fried_chicken_wing"));
-		friedCookedFish = new MItemFood(10, 0.27F).setPotionEffect(Potion.hunger.id, 15, 0, 0.4F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("fried_fish_cooked"));
-		friedCookedHorseHaunch = new MItemFood(20, 0.3375F).setPotionEffect(Potion.hunger.id, 15, 0, 0.4F).setPotionEffect(Potion.digSpeed.id, 30, 0, 0.3F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("fried_horse_haunch"));
-		friedCookedLambChop = new ItemCookedLambchop(12, 0.36F).setPotionEffect(Potion.hunger.id, 15, 0, 0.4F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("fried_lamb_chop"));
-		friedCookedPorkChop = new MItemFood(16, 0.36F).setPotionEffect(Potion.hunger.id, 15, 0, 0.4F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("fried_porkchop"));
-		friedCookedSalmon = new MItemFood(12, 0.36F).setPotionEffect(Potion.hunger.id, 15, 0, 0.4F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("fried_salmon_cooked"));
-		friedCookie = new MItemFood(4, 0.045F).setPotionEffect(Potion.hunger.id, 15, 0, 0.4F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("fried_cookie"));
-		friedFlesh = new MItemFood(8, 0.0196875F).setPotionEffect(Potion.hunger.id, 15, 0, 0.4F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("fried_flesh"));
-		friedMelon = new MItemFood(4, 0.135F).setPotionEffect(Potion.hunger.id, 15, 0, 0.4F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("fried_melon"));
-		friedPotato = new MItemFood(8, 0.0625F).setPotionEffect(Potion.hunger.id, 10, 0, 0.1F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("fries"));
-		friedPoisonousPotato = new MItemFood(4, 0.135F).setPotionEffect(Potion.hunger.id, 15, 0, 0.4F).setPotionEffect(Potion.poison.id, 4, 0, 0.6F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("fried_potato_poison"));
-		friedPufferFish = new MItemFood(2, 0.045F).setPotionEffect(Potion.hunger.id, 15, 3, 1F).setPotionEffect(Potion.confusion.id, 15, 2, 1F).setPotionEffect(Potion.poison.id, 60, 4, 1F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("fried_pufferfish"));
-		friedPumpkinPie = new MItemFood(16, 0.135F).setPotionEffect(Potion.hunger.id, 15, 0, 0.4F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("fried_pie"));
-		friedRawBeef = new MItemFood(6, 0.135F).setPotionEffect(Potion.hunger.id, 15, 0, 0.4F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("fried_porkchop"));
-		friedRawChicken = new MItemFood(4, 0.135F).setPotionEffect(Potion.hunger.id, 25, 0, 0.6F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("fried_chicken"));
-		friedRawChickenWing = new MItemFood(2, 0.135F).setPotionEffect(Potion.hunger.id, 20, 0, 0.6F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("fried_chicken_wing"));
-		friedRawFish = new MItemFood(4, 0.045F).setPotionEffect(Potion.hunger.id, 15, 0, 0.4F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("fried_fish_raw"));
-		friedRawHorseHaunch = new MItemFood(8, 0.135F).setPotionEffect(Potion.hunger.id, 15, 0, 0.7F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("fried_horse_haunch"));
-		friedRawLambChop = new ItemCookedLambchop(4, 0.135F).setPotionEffect(Potion.hunger.id, 15, 0, 0.4F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("fried_lamb_chop"));
-		friedRawPorkChop = new MItemFood(6, 0.135F).setPotionEffect(Potion.hunger.id, 15, 0, 0.4F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("fried_porkchop"));
-		friedRawSalmon = new MItemFood(4, 0.045F).setPotionEffect(Potion.hunger.id, 15, 0, 0.4F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("fried_salmon_raw"));
-		friedRottenFlesh = new MItemFood(8, 0.045F).setPotionEffect(Potion.hunger.id, 30, 0, 1F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("fried_flesh"));
-		friedSquidTentacle = new MItemFood(4, 0.0675F).setPotionEffect(Potion.hunger.id, 20, 0, 1F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("fried_tentacle"));
+		/*
+		 * friedApple = new MItemFood(8,
+		 * 0.135F).setPotionEffect(Potion.hunger.id, 15, 0,
+		 * 0.4F).setCreativeTab(
+		 * tabFood).setTextureName(MAssetManager.getFoodTexture("fried_apple"));
+		 * friedBakedPotato = new MItemFood(12,
+		 * 0.27F).setPotionEffect(Potion.hunger.id, 15, 0,
+		 * 0.4F).setCreativeTab(tabFood
+		 * ).setTextureName(MAssetManager.getFoodTexture
+		 * ("fried_potato_cooked")); friedBeef = new MItemFood(16,
+		 * 0.36F).setPotionEffect(Potion.hunger.id, 15, 0,
+		 * 0.4F).setCreativeTab(tabFood
+		 * ).setTextureName(MAssetManager.getFoodTexture("fried_porkchop"));
+		 * friedBread = new MItemFood(10,
+		 * 0.27F).setPotionEffect(Potion.hunger.id, 15, 0,
+		 * 0.4F).setCreativeTab(tabFood
+		 * ).setTextureName(MAssetManager.getFoodTexture("fried_bread"));
+		 * friedCalimari = new ItemCalimari(8,
+		 * 0.3825F).setHealBonus(3F).setPotionEffect(Potion.hunger.id, 15, 0,
+		 * 0.4F
+		 * ).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture
+		 * ("fried_tentacle")); friedCarrot = new MItemFood(8,
+		 * 0.27F).setPotionEffect(Potion.hunger.id, 15, 0,
+		 * 0.4F).setCreativeTab(tabFood
+		 * ).setTextureName(MAssetManager.getFoodTexture("fried_carrot"));
+		 * friedClownfish = new MItemFood(2,
+		 * 0.045F).setPotionEffect(Potion.hunger.id, 15, 0,
+		 * 0.4F).setCreativeTab(
+		 * tabFood).setTextureName(MAssetManager.getFoodTexture
+		 * ("fried_clownfish")); friedCookedChicken = new MItemFood(12,
+		 * 0.27F).setPotionEffect(Potion.hunger.id, 15, 0,
+		 * 0.4F).setCreativeTab(tabFood
+		 * ).setTextureName(MAssetManager.getFoodTexture("fried_chicken"));
+		 * friedCookedChickenWing = new MItemFood(6,
+		 * 0.3375F).setPotionEffect(Potion.hunger.id, 15, 0,
+		 * 0.4F).setCreativeTab
+		 * (tabFood).setTextureName(MAssetManager.getFoodTexture
+		 * ("fried_chicken_wing")); friedCookedFish = new MItemFood(10,
+		 * 0.27F).setPotionEffect(Potion.hunger.id, 15, 0,
+		 * 0.4F).setCreativeTab(tabFood
+		 * ).setTextureName(MAssetManager.getFoodTexture("fried_fish_cooked"));
+		 * friedCookedHorseHaunch = new MItemFood(20,
+		 * 0.3375F).setPotionEffect(Potion.hunger.id, 15, 0,
+		 * 0.4F).setPotionEffect(Potion.digSpeed.id, 30, 0,
+		 * 0.3F).setCreativeTab(
+		 * tabFood).setTextureName(MAssetManager.getFoodTexture
+		 * ("fried_horse_haunch")); friedCookedLambChop = new
+		 * ItemCookedLambchop(12, 0.36F).setPotionEffect(Potion.hunger.id, 15,
+		 * 0,
+		 * 0.4F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture
+		 * ("fried_lamb_chop")); friedCookedPorkChop = new MItemFood(16,
+		 * 0.36F).setPotionEffect(Potion.hunger.id, 15, 0,
+		 * 0.4F).setCreativeTab(tabFood
+		 * ).setTextureName(MAssetManager.getFoodTexture("fried_porkchop"));
+		 * friedCookedSalmon = new MItemFood(12,
+		 * 0.36F).setPotionEffect(Potion.hunger.id, 15, 0,
+		 * 0.4F).setCreativeTab(tabFood
+		 * ).setTextureName(MAssetManager.getFoodTexture
+		 * ("fried_salmon_cooked")); friedCookie = new MItemFood(4,
+		 * 0.045F).setPotionEffect(Potion.hunger.id, 15, 0,
+		 * 0.4F).setCreativeTab(
+		 * tabFood).setTextureName(MAssetManager.getFoodTexture
+		 * ("fried_cookie")); friedFlesh = new MItemFood(8,
+		 * 0.0196875F).setPotionEffect(Potion.hunger.id, 15, 0,
+		 * 0.4F).setCreativeTab
+		 * (tabFood).setTextureName(MAssetManager.getFoodTexture
+		 * ("fried_flesh")); friedMelon = new MItemFood(4,
+		 * 0.135F).setPotionEffect(Potion.hunger.id, 15, 0,
+		 * 0.4F).setCreativeTab(
+		 * tabFood).setTextureName(MAssetManager.getFoodTexture("fried_melon"));
+		 * friedPotato = new MItemFood(8,
+		 * 0.0625F).setPotionEffect(Potion.hunger.id, 10, 0,
+		 * 0.1F).setCreativeTab
+		 * (tabFood).setTextureName(MAssetManager.getFoodTexture("fries"));
+		 * friedPoisonousPotato = new MItemFood(4,
+		 * 0.135F).setPotionEffect(Potion.hunger.id, 15, 0,
+		 * 0.4F).setPotionEffect(Potion.poison.id, 4, 0,
+		 * 0.6F).setCreativeTab(tabFood
+		 * ).setTextureName(MAssetManager.getFoodTexture
+		 * ("fried_potato_poison")); friedPufferFish = new MItemFood(2,
+		 * 0.045F).setPotionEffect(Potion.hunger.id, 15, 3,
+		 * 1F).setPotionEffect(Potion.confusion.id, 15, 2,
+		 * 1F).setPotionEffect(Potion.poison.id, 60, 4,
+		 * 1F).setCreativeTab(tabFood
+		 * ).setTextureName(MAssetManager.getFoodTexture("fried_pufferfish"));
+		 * friedPumpkinPie = new MItemFood(16,
+		 * 0.135F).setPotionEffect(Potion.hunger.id, 15, 0,
+		 * 0.4F).setCreativeTab(
+		 * tabFood).setTextureName(MAssetManager.getFoodTexture("fried_pie"));
+		 * friedRawBeef = new MItemFood(6,
+		 * 0.135F).setPotionEffect(Potion.hunger.id, 15, 0,
+		 * 0.4F).setCreativeTab(
+		 * tabFood).setTextureName(MAssetManager.getFoodTexture
+		 * ("fried_porkchop")); friedRawChicken = new MItemFood(4,
+		 * 0.135F).setPotionEffect(Potion.hunger.id, 25, 0,
+		 * 0.6F).setCreativeTab(
+		 * tabFood).setTextureName(MAssetManager.getFoodTexture
+		 * ("fried_chicken")); friedRawChickenWing = new MItemFood(2,
+		 * 0.135F).setPotionEffect(Potion.hunger.id, 20, 0,
+		 * 0.6F).setCreativeTab(
+		 * tabFood).setTextureName(MAssetManager.getFoodTexture
+		 * ("fried_chicken_wing")); friedRawFish = new MItemFood(4,
+		 * 0.045F).setPotionEffect(Potion.hunger.id, 15, 0,
+		 * 0.4F).setCreativeTab(
+		 * tabFood).setTextureName(MAssetManager.getFoodTexture
+		 * ("fried_fish_raw")); friedRawHorseHaunch = new MItemFood(8,
+		 * 0.135F).setPotionEffect(Potion.hunger.id, 15, 0,
+		 * 0.7F).setCreativeTab(
+		 * tabFood).setTextureName(MAssetManager.getFoodTexture
+		 * ("fried_horse_haunch")); friedRawLambChop = new ItemCookedLambchop(4,
+		 * 0.135F).setPotionEffect(Potion.hunger.id, 15, 0,
+		 * 0.4F).setCreativeTab(
+		 * tabFood).setTextureName(MAssetManager.getFoodTexture
+		 * ("fried_lamb_chop")); friedRawPorkChop = new MItemFood(6,
+		 * 0.135F).setPotionEffect(Potion.hunger.id, 15, 0,
+		 * 0.4F).setCreativeTab(
+		 * tabFood).setTextureName(MAssetManager.getFoodTexture
+		 * ("fried_porkchop")); friedRawSalmon = new MItemFood(4,
+		 * 0.045F).setPotionEffect(Potion.hunger.id, 15, 0,
+		 * 0.4F).setCreativeTab(
+		 * tabFood).setTextureName(MAssetManager.getFoodTexture
+		 * ("fried_salmon_raw")); friedRottenFlesh = new MItemFood(8,
+		 * 0.045F).setPotionEffect(Potion.hunger.id, 30, 0,
+		 * 1F).setCreativeTab(tabFood
+		 * ).setTextureName(MAssetManager.getFoodTexture("fried_flesh"));
+		 * friedSquidTentacle = new MItemFood(4,
+		 * 0.0675F).setPotionEffect(Potion.hunger.id, 20, 0,
+		 * 1F).setCreativeTab(tabFood
+		 * ).setTextureName(MAssetManager.getFoodTexture("fried_tentacle"));
+		 */
 		
 		animalBones = new MItem().setCreativeTab(tabMisc).setTextureName(MAssetManager.getMobTexture("animal_bones"));
 		cowHoof = new MItem().setCreativeTab(tabBrewing).setTextureName(MAssetManager.getMobTexture("cow_foot"));
 		horn = new ItemHorn().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMobTexture("horn"));
 		beakChicken = new MItem().setCreativeTab(tabBrewing).setTextureName(MAssetManager.getFoodTexture("chicken_beak"));
 		footChicken = new MItem().setCreativeTab(tabBrewing).setTextureName(MAssetManager.getMobTexture("chicken_foot"));
-		chickenWingRaw = new MItemFood(1, 0.3F).setPotionEffect(Potion.hunger.id, 15, 1, 0.3F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("chicken_wing_raw"));
-		chickenWingCooked = new MItemFood(3, 0.75F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("chicken_wing_cooked"));
-		lambchopRaw = new ItemCookedLambchop(2, 0.3F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("lamb_chop_raw"));
-		lambchopCooked = new ItemCookedLambchop(6, 0.8F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("lamb_chop_cooked"));
+		chickenWingRaw = new MItemFood(FoodType.RAW_MEAT, 1, 0.3F).setPotionEffect(Potion.hunger.id, 15, 1, 0.3F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("chicken_wing_raw"));
+		chickenWingCooked = new MItemFood(FoodType.COOKED_FISH, 3, 0.75F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("chicken_wing_cooked"));
+		lambchopRaw = new ItemLambchop(FoodType.RAW_MEAT, 2, 0.3F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("lamb_chop_raw"));
+		lambchopCooked = new ItemLambchop(FoodType.COOKED_MEAT, 6, 0.8F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("lamb_chop_cooked"));
 		sheepHoof = new MItem().setCreativeTab(tabBrewing).setTextureName(MAssetManager.getMobTexture("sheep_hoof"));
-		squidTentacle = new MItemFood(2, 0.15F).setPotionEffect(Potion.hunger.id, 10, 1, 1F).setCreativeTab(tabFood).setTextureName(MAssetManager.getMobTexture("squid_tentacle"));
-		calimari = new ItemCalimari(4, 0.85F).setHealBonus(2F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("calimari_cooked"));
+		squidTentacle = new MItemFood(FoodType.RAW_FISH, 2, 0.15F).setPotionEffect(Potion.hunger.id, 10, 1, 1F).setCreativeTab(tabFood).setTextureName(MAssetManager.getMobTexture("squid_tentacle"));
+		calimari = new ItemCalimari(4, 0.85F).setHealBonus(2F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("calimari"));
 		infectiousFungus = new ItemInfectiousFungus(0, 0F).setCreativeTab(tabMisc).setTextureName(MAssetManager.getMobTexture("infectious_fungus"));
 		airSack = new ItemAirSack().setCreativeTab(tabBrewing).setTextureName(MAssetManager.getMobTexture("air_sack"));
 		whisker = new MItem().setCreativeTab(tabMisc).setTextureName(MAssetManager.getMobTexture("whisker"));
 		catEye = new ItemCatEye(0, 0.0F).setCreativeTab(tabBrewing).setTextureName(MAssetManager.getMobTexture("cat_eye"));
 		wolfHide = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMobTexture("wolf_hide"));
-		flesh = new MItemFood(4, 0.35F).setPotionEffect(Potion.hunger.id, 20, 0, 0.05F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("flesh"));
-		marrow = new MItemFood(5, 0.32F).setCreativeTab(tabBrewing).setTextureName(MAssetManager.getFoodTexture("marrow_bowl"));
+		flesh = new MItemFood(FoodType.RAW_MEAT, 4, 0.35F).setPotionEffect(Potion.hunger.id, 20, 0, 0.05F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("flesh"));
+		marrow = new MItemFood(FoodType.MISC, 5, 0.32F).setCreativeTab(tabBrewing).setTextureName(MAssetManager.getFoodTexture("marrow_bowl"));
 		legSpider = new MItem().setCreativeTab(tabBrewing).setTextureName(MAssetManager.getMobTexture("spider_leg"));
 		poisonSack = new ItemPoisonSack().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMobTexture("poison_sack"));
 		guano = new ItemGuano().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getTexture("guano"));
@@ -320,8 +388,8 @@ public class MItems
 		enderCore = new ItemEnderCore(0, 0).setCreativeTab(tabBrewing).setTextureName(MAssetManager.getMobTexture("ender_core"));
 		ghastTentacle = new ItemGhastTentacle().setCreativeTab(tabFood).setTextureName(MAssetManager.getMobTexture("ghast_tentacle"));
 		horseHoof = new MItem().setCreativeTab(tabBrewing).setTextureName(MAssetManager.getMobTexture("horse_foot"));
-		horseHaunchRaw = new MItemFood(4, 0.3F).setPotionEffect(Potion.hunger.id, 12, 1, 0.4F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("horse_haunch_raw"));
-		horseHaunchCooked = new MItemFood(10, 0.75F).setPotionEffect(Potion.digSpeed.id, 30, 1, 0.3F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("horse_haunch_cooked"));
+		horseHaunchRaw = new MItemFood(FoodType.RAW_MEAT, 4, 0.3F).setPotionEffect(Potion.hunger.id, 12, 1, 0.4F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("horse_haunch_raw"));
+		horseHaunchCooked = new MItemFood(FoodType.COOKED_MEAT, 10, 0.75F).setPotionEffect(Potion.digSpeed.id, 30, 1, 0.3F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("horse_haunch_cooked"));
 		horseHair = new MItem().setCreativeTab(tabMisc).setTextureName(MAssetManager.getMobTexture("horse_hair"));
 		genes = new ItemGene().setCreativeTab(tabMisc);
 		charms = new ItemCharm().setCreativeTab(tabMisc);
@@ -422,38 +490,6 @@ public class MItems
 		CSItems.addItem(fat, "fat");
 		CSItems.addItem(grease, "grease");
 		
-		CSItems.addItem(friedApple, "fried_apple");
-		CSItems.addItem(friedBakedPotato, "fried_baked_potato");
-		CSItems.addItem(friedBeef, "fried_beef");
-		CSItems.addItem(friedBread, "fried_bread");
-		CSItems.addItem(friedCalimari, "fried_calimari");
-		CSItems.addItem(friedCarrot, "fried_carrot");
-		CSItems.addItem(friedClownfish, "fried_clownfish");
-		CSItems.addItem(friedCookedChicken, "fried_cooked_chicken");
-		CSItems.addItem(friedCookedChickenWing, "fried_cooked_chicken_wing");
-		CSItems.addItem(friedCookedFish, "fried_cooked_fish");
-		CSItems.addItem(friedCookedHorseHaunch, "fried_cooked_horse_haunch");
-		CSItems.addItem(friedCookedLambChop, "fried_cooked_lamb_chop");
-		CSItems.addItem(friedCookedPorkChop, "fried_cooked_porkchop");
-		CSItems.addItem(friedCookedSalmon, "fried_cooked_salmon");
-		CSItems.addItem(friedCookie, "fried_cookie");
-		CSItems.addItem(friedFlesh, "fried_flesh");
-		CSItems.addItem(friedMelon, "fried_melon");
-		CSItems.addItem(friedPotato, "fried_potato");
-		CSItems.addItem(friedPoisonousPotato, "fried_poisonous_potato");
-		CSItems.addItem(friedPufferFish, "fried_pufferfish");
-		CSItems.addItem(friedPumpkinPie, "fried_pumpkin_pie");
-		CSItems.addItem(friedRawBeef, "fried_raw_beef");
-		CSItems.addItem(friedRawChicken, "fried_raw_chicken");
-		CSItems.addItem(friedRawChickenWing, "fried_raw_chicken_wing");
-		CSItems.addItem(friedRawFish, "fried_raw_fish");
-		CSItems.addItem(friedRawHorseHaunch, "fried_raw_horse_haunch");
-		CSItems.addItem(friedRawLambChop, "fried_raw_lamb_chop");
-		CSItems.addItem(friedRawPorkChop, "fried_raw_porkchop");
-		CSItems.addItem(friedRawSalmon, "fried_raw_salmon");
-		CSItems.addItem(friedRottenFlesh, "fried_rotten_flesh");
-		CSItems.addItem(friedSquidTentacle, "fried_squid_tentacle");
-		
 		CSItems.addItem(animalBones, "animal_bones");
 		CSItems.addItem(cowHoof, "cow_hoof");
 		CSItems.addItem(horn, "horn");
@@ -502,6 +538,26 @@ public class MItems
 		
 		CSItems.addItem(deathMeal, "deathmeal");
 		CSItems.addItem(witherAsh, "wither_ash");
+		
+		CSItems.replaceItem(Items.apple, (new MItemFood(FoodType.FRUIT, 4, 0.3F)).setUnlocalizedName("apple").setTextureName("apple"));
+		CSItems.replaceItem(Items.bread, (new MItemFood(FoodType.BAKED, 5, 0.6F)).setUnlocalizedName("bread").setTextureName("bread"));
+		CSItems.replaceItem(Items.porkchop, (new MItemFood(FoodType.RAW_MEAT, 3, 0.3F)).setUnlocalizedName("porkchopRaw").setTextureName("porkchop_raw"));
+		CSItems.replaceItem(Items.cooked_porkchop, (new MItemFood(FoodType.COOKED_MEAT, 8, 0.8F)).setUnlocalizedName("porkchopCooked").setTextureName("porkchop_cooked"));
+		// TODO raw fish
+		// TODO cooked fish
+		CSItems.replaceItem(Items.cookie, (new MItemFood(FoodType.BAKED, 2, 0.1F)).setUnlocalizedName("cookie").setTextureName("cookie"));
+		CSItems.replaceItem(Items.melon, (new MItemFood(FoodType.FRUIT, 2, 0.3F)).setUnlocalizedName("melon").setTextureName("melon"));
+		CSItems.replaceItem(Items.beef, (new MItemFood(FoodType.RAW_MEAT, 3, 0.3F)).setUnlocalizedName("beefRaw").setTextureName("beef_raw"));
+		CSItems.replaceItem(Items.cooked_beef, (new MItemFood(FoodType.COOKED_MEAT, 8, 0.8F)).setUnlocalizedName("beefCooked").setTextureName("beef_cooked"));
+		CSItems.replaceItem(Items.chicken, (new MItemFood(FoodType.RAW_MEAT, 2, 0.3F)).setPotionEffect(Potion.hunger.id, 30, 0, 0.3F).setUnlocalizedName("chickenRaw").setTextureName("chicken_raw"));
+		CSItems.replaceItem(Items.cooked_chicken, (new MItemFood(FoodType.COOKED_MEAT, 6, 0.6F)).setUnlocalizedName("chickenCooked").setTextureName("chicken_cooked"));
+		CSItems.replaceItem(Items.rotten_flesh, (new MItemFood(FoodType.RAW_MEAT, 4, 0.1F)).setPotionEffect(Potion.hunger.id, 30, 0, 0.8F).setUnlocalizedName("rottenFlesh").setTextureName("rotten_flesh"));
+		CSItems.replaceItem(Items.spider_eye, (new MItemFood(FoodType.MISC, 2, 0.8F)).setPotionEffect(Potion.poison.id, 5, 0, 1.0F).setUnlocalizedName("spiderEye").setPotionEffect(PotionHelper.spiderEyeEffect).setTextureName("spider_eye"));
+		CSItems.replaceItem(Items.carrot, (new MItemSeedFood(FoodType.VEGETABLE, 4, 0.6F, Blocks.carrots, Blocks.farmland)).setUnlocalizedName("carrots").setTextureName("carrot"));
+		CSItems.replaceItem(Items.potato, (new MItemSeedFood(FoodType.VEGETABLE, 1, 0.3F, Blocks.potatoes, Blocks.farmland)).setUnlocalizedName("potato").setTextureName("potato"));
+		CSItems.replaceItem(Items.baked_potato, (new MItemFood(FoodType.COOKED_VEGETABLE, 6, 0.6F)).setUnlocalizedName("potatoBaked").setTextureName("potato_baked"));
+		CSItems.replaceItem(Items.poisonous_potato, (new MItemFood(FoodType.MISC, 2, 0.3F)).setPotionEffect(Potion.poison.id, 5, 0, 0.6F).setUnlocalizedName("potatoPoisonous").setTextureName("potato_poisonous"));
+		CSItems.replaceItem(Items.pumpkin_pie, (new MItemFood(FoodType.BAKED, 8, 0.3F)).setUnlocalizedName("pumpkinPie").setCreativeTab(CreativeTabs.tabFood).setTextureName("pumpkin_pie"));
 		
 		addItemsToChests();
 		setHarvestLevels();

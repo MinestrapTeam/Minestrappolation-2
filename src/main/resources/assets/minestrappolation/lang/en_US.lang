@@ -1027,6 +1027,9 @@ item.plating.meurodite.desc=Meurodite-Plated
 item.horned_sword.desc=Horned
 item.poison_sword.desc=§aPoisoned: %.1d
 
+item.food.fried=Fried
+item.food.spoiling=Spoiling: %s
+
 lock.locked=This block has been locked by %1$s. You need the key to open it!
 lock.locked.no_owner=This block is locked. You need a key to open it.
 lock.added=This block has been locked!

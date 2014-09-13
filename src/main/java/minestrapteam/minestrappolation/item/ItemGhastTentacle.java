@@ -12,7 +12,7 @@ public class ItemGhastTentacle extends MItemFood
 {
 	public ItemGhastTentacle()
 	{
-		super(0, 0F);
+		super(FoodType.MISC, 0, 0F);
 		this.setAlwaysEdible();
 	}
 	

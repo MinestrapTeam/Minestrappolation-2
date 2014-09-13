@@ -10,7 +10,7 @@ public class ItemCalimari extends MItemFood
 	
 	public ItemCalimari(int healAmount, float saturationModifier)
 	{
-		super(healAmount, saturationModifier);	
+		super(FoodType.COOKED_FISH, healAmount, saturationModifier);	
 	}
 	
 	public ItemCalimari setHealBonus(float healBonus)
