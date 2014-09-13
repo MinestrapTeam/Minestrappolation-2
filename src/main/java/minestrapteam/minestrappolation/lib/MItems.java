@@ -389,7 +389,7 @@ public class MItems
 		lambchopCooked = new ItemCookedLambchop(6, 0.8F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("lamb_chop_cooked"));
 		sheepHoof = new MItem().setCreativeTab(tabBrewing).setTextureName(MAssetManager.getMobTexture("sheep_hoof"));
 		squidTentacle = new MItemFood(FoodType.RAW_FISH, 2, 0.15F).setPotionEffect(Potion.hunger.id, 10, 1, 1F).setCreativeTab(tabFood).setTextureName(MAssetManager.getMobTexture("squid_tentacle"));
-		calimari = new ItemCalimari(4, 0.85F).setHealBonus(2F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("calimari_cooked"));
+		calimari = new ItemCalimari(4, 0.85F).setHealBonus(2F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("calimari"));
 		infectiousFungus = new ItemInfectiousFungus(0, 0F).setCreativeTab(tabMisc).setTextureName(MAssetManager.getMobTexture("infectious_fungus"));
 		airSack = new ItemAirSack().setCreativeTab(tabBrewing).setTextureName(MAssetManager.getMobTexture("air_sack"));
 		whisker = new MItem().setCreativeTab(tabMisc).setTextureName(MAssetManager.getMobTexture("whisker"));

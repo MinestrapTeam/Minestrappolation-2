@@ -100,8 +100,11 @@ public class MItemFood extends ItemFood
 	public void registerIcons(IIconRegister iconRegister)
 	{
 		this.itemIcon = iconRegister.registerIcon(this.iconString);
-		this.friedIcon = iconRegister.registerIcon(this.iconString + "_fried");
 		this.spoiledIcon = iconRegister.registerIcon(this.iconString + "_spoiled");
+		if (this.foodType.isFriable())
+		{
+			this.friedIcon = iconRegister.registerIcon(this.iconString + "_fried");
+		}
 	}
 	
 	@Override
