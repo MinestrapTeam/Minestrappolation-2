@@ -368,8 +368,8 @@ public class MItems
 		footChicken = new MItem().setCreativeTab(tabBrewing).setTextureName(MAssetManager.getMobTexture("chicken_foot"));
 		chickenWingRaw = new MItemFood(FoodType.RAW_MEAT, 1, 0.3F).setPotionEffect(Potion.hunger.id, 15, 1, 0.3F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("chicken_wing_raw"));
 		chickenWingCooked = new MItemFood(FoodType.COOKED_FISH, 3, 0.75F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("chicken_wing_cooked"));
-		lambchopRaw = new ItemCookedLambchop(FoodType.RAW_MEAT, 2, 0.3F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("lamb_chop_raw"));
-		lambchopCooked = new ItemCookedLambchop(FoodType.COOKED_MEAT, 6, 0.8F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("lamb_chop_cooked"));
+		lambchopRaw = new ItemLambchop(FoodType.RAW_MEAT, 2, 0.3F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("lamb_chop_raw"));
+		lambchopCooked = new ItemLambchop(FoodType.COOKED_MEAT, 6, 0.8F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("lamb_chop_cooked"));
 		sheepHoof = new MItem().setCreativeTab(tabBrewing).setTextureName(MAssetManager.getMobTexture("sheep_hoof"));
 		squidTentacle = new MItemFood(FoodType.RAW_FISH, 2, 0.15F).setPotionEffect(Potion.hunger.id, 10, 1, 1F).setCreativeTab(tabFood).setTextureName(MAssetManager.getMobTexture("squid_tentacle"));
 		calimari = new ItemCalimari(4, 0.85F).setHealBonus(2F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("calimari"));
