@@ -1,8 +1,10 @@
 package minestrapteam.minestrappolation.block;
 
+import minestrapteam.minestrappolation.lib.MBlocks;
 import minestrapteam.minestrappolation.lib.MLiquids;
 import minestrapteam.minestrappolation.util.MAssetManager;
 import minestrapteam.minestrappolation.util.MUtil;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -66,8 +68,7 @@ public class BlockMagma extends BlockFluidClassic
 		Block block = world.getBlock(x, y, z);
 		if (block == Blocks.flowing_water)
 		{
-			// TODO Replace with Deep Cobblestone
-			world.setBlock(x, y, z, Blocks.stone);
+			world.setBlock(x, y, z, MBlocks.deepstone, 7, 3);
 		}
 		else if (block == Blocks.water)
 		{
