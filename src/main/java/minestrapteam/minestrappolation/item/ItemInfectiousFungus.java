@@ -12,7 +12,7 @@ public class ItemInfectiousFungus extends MItemFood
 {
 	public ItemInfectiousFungus(int healAmount, float saturationModifier)
 	{
-		super(healAmount, saturationModifier);
+		super(FoodType.MISC, healAmount, saturationModifier);
 	}
 	
 	@Override

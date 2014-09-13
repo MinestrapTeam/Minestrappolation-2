@@ -10,7 +10,7 @@ public class ItemCookedLambchop extends MItemFood
 {
 	public ItemCookedLambchop(int healAmount, float saturationModifier)
 	{
-		super(healAmount, saturationModifier);
+		super(FoodType.COOKED_MEAT, healAmount, saturationModifier);
 	}
 	
 	@Override

@@ -4,6 +4,7 @@ import static minestrapteam.minestrappolation.Minestrappolation.*;
 import clashsoft.cslib.minecraft.item.CSItems;
 import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.item.*;
+import minestrapteam.minestrappolation.item.MItemFood.FoodType;
 import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.init.Blocks;
@@ -240,7 +241,7 @@ public class MItems
 		
 		// EMD Items
 		
-		snout = new MItemFood(3, 0.4F).setPotionEffect(Potion.hunger.id, 10, 1, 0.25F).setCreativeTab(tabFood).setTextureName(MAssetManager.getMobTexture("snout"));
+		snout = new MItemFood(FoodType.MISC, 3, 0.4F).setPotionEffect(Potion.hunger.id, 10, 1, 0.25F).setCreativeTab(tabFood).setTextureName(MAssetManager.getMobTexture("snout"));
 		pigHoof = new MItem().setCreativeTab(tabBrewing).setTextureName(MAssetManager.getMobTexture("pig_foot"));
 		fat = new ItemFood(8, 0.1F, false).setPotionEffect(Potion.hunger.id, 25, 1, 1.0F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("fat"));
 		grease = new ItemGrease().setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("grease"));
@@ -382,20 +383,20 @@ public class MItems
 		horn = new ItemHorn().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMobTexture("horn"));
 		beakChicken = new MItem().setCreativeTab(tabBrewing).setTextureName(MAssetManager.getFoodTexture("chicken_beak"));
 		footChicken = new MItem().setCreativeTab(tabBrewing).setTextureName(MAssetManager.getMobTexture("chicken_foot"));
-		chickenWingRaw = new MItemFood(1, 0.3F).setPotionEffect(Potion.hunger.id, 15, 1, 0.3F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("chicken_wing_raw"));
-		chickenWingCooked = new MItemFood(3, 0.75F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("chicken_wing_cooked"));
+		chickenWingRaw = new MItemFood(FoodType.RAW_MEAT, 1, 0.3F).setPotionEffect(Potion.hunger.id, 15, 1, 0.3F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("chicken_wing_raw"));
+		chickenWingCooked = new MItemFood(FoodType.COOKED_FISH, 3, 0.75F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("chicken_wing_cooked"));
 		lambchopRaw = new ItemCookedLambchop(2, 0.3F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("lamb_chop_raw"));
 		lambchopCooked = new ItemCookedLambchop(6, 0.8F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("lamb_chop_cooked"));
 		sheepHoof = new MItem().setCreativeTab(tabBrewing).setTextureName(MAssetManager.getMobTexture("sheep_hoof"));
-		squidTentacle = new MItemFood(2, 0.15F).setPotionEffect(Potion.hunger.id, 10, 1, 1F).setCreativeTab(tabFood).setTextureName(MAssetManager.getMobTexture("squid_tentacle"));
+		squidTentacle = new MItemFood(FoodType.RAW_FISH, 2, 0.15F).setPotionEffect(Potion.hunger.id, 10, 1, 1F).setCreativeTab(tabFood).setTextureName(MAssetManager.getMobTexture("squid_tentacle"));
 		calimari = new ItemCalimari(4, 0.85F).setHealBonus(2F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("calimari_cooked"));
 		infectiousFungus = new ItemInfectiousFungus(0, 0F).setCreativeTab(tabMisc).setTextureName(MAssetManager.getMobTexture("infectious_fungus"));
 		airSack = new ItemAirSack().setCreativeTab(tabBrewing).setTextureName(MAssetManager.getMobTexture("air_sack"));
 		whisker = new MItem().setCreativeTab(tabMisc).setTextureName(MAssetManager.getMobTexture("whisker"));
 		catEye = new ItemCatEye(0, 0.0F).setCreativeTab(tabBrewing).setTextureName(MAssetManager.getMobTexture("cat_eye"));
 		wolfHide = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMobTexture("wolf_hide"));
-		flesh = new MItemFood(4, 0.35F).setPotionEffect(Potion.hunger.id, 20, 0, 0.05F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("flesh"));
-		marrow = new MItemFood(5, 0.32F).setCreativeTab(tabBrewing).setTextureName(MAssetManager.getFoodTexture("marrow_bowl"));
+		flesh = new MItemFood(FoodType.RAW_MEAT, 4, 0.35F).setPotionEffect(Potion.hunger.id, 20, 0, 0.05F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("flesh"));
+		marrow = new MItemFood(FoodType.MISC, 5, 0.32F).setCreativeTab(tabBrewing).setTextureName(MAssetManager.getFoodTexture("marrow_bowl"));
 		legSpider = new MItem().setCreativeTab(tabBrewing).setTextureName(MAssetManager.getMobTexture("spider_leg"));
 		poisonSack = new ItemPoisonSack().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMobTexture("poison_sack"));
 		guano = new ItemGuano().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getTexture("guano"));
@@ -405,8 +406,8 @@ public class MItems
 		enderCore = new ItemEnderCore(0, 0).setCreativeTab(tabBrewing).setTextureName(MAssetManager.getMobTexture("ender_core"));
 		ghastTentacle = new ItemGhastTentacle().setCreativeTab(tabFood).setTextureName(MAssetManager.getMobTexture("ghast_tentacle"));
 		horseHoof = new MItem().setCreativeTab(tabBrewing).setTextureName(MAssetManager.getMobTexture("horse_foot"));
-		horseHaunchRaw = new MItemFood(4, 0.3F).setPotionEffect(Potion.hunger.id, 12, 1, 0.4F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("horse_haunch_raw"));
-		horseHaunchCooked = new MItemFood(10, 0.75F).setPotionEffect(Potion.digSpeed.id, 30, 1, 0.3F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("horse_haunch_cooked"));
+		horseHaunchRaw = new MItemFood(FoodType.RAW_MEAT, 4, 0.3F).setPotionEffect(Potion.hunger.id, 12, 1, 0.4F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("horse_haunch_raw"));
+		horseHaunchCooked = new MItemFood(FoodType.COOKED_MEAT, 10, 0.75F).setPotionEffect(Potion.digSpeed.id, 30, 1, 0.3F).setCreativeTab(tabFood).setTextureName(MAssetManager.getFoodTexture("horse_haunch_cooked"));
 		horseHair = new MItem().setCreativeTab(tabMisc).setTextureName(MAssetManager.getMobTexture("horse_hair"));
 		genes = new ItemGene().setCreativeTab(tabMisc);
 		charms = new ItemCharm().setCreativeTab(tabMisc);

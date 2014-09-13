@@ -8,7 +8,7 @@ public class ItemAirSack extends MItemFood
 {
 	public ItemAirSack()
 	{
-		super(0, 0);
+		super(FoodType.MISC, 0, 0);
 	}
 	
 	@Override

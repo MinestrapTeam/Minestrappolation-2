@@ -12,7 +12,7 @@ public class ItemEnderCore extends MItemFood
 {
 	public ItemEnderCore(int healAmount, float saturationModifier)
 	{
-		super(healAmount, saturationModifier);
+		super(FoodType.MISC, healAmount, saturationModifier);
 		this.setMaxStackSize(16);
 		this.setAlwaysEdible();
 	}

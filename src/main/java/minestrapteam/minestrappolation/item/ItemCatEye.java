@@ -10,7 +10,7 @@ public class ItemCatEye extends MItemFood
 {
 	public ItemCatEye(int healAmount, float saturationModifier)
 	{
-		super(healAmount, saturationModifier);
+		super(FoodType.MISC, healAmount, saturationModifier);
 	}
 	
 	@Override
