@@ -4,6 +4,7 @@ import java.util.List;
 
 import clashsoft.cslib.minecraft.block.CustomBlock;
 import clashsoft.cslib.minecraft.block.ICustomBlock;
+import clashsoft.cslib.minecraft.lang.I18n;
 import minestrapteam.minestrappolation.lib.MBlocks;
 import minestrapteam.minestrappolation.util.MAssetManager;
 
@@ -217,7 +218,7 @@ public class BlockEdgeBrick extends Block implements ICustomBlock
 	{
 		int metadata = stack.getItemDamage();
 		ItemStack s = new ItemStack(this.blocks[metadata], 1, this.metadata[metadata]);
-		list.add("Connects to: " + s.getDisplayName());
+		list.add(I18n.getString("tile.edge_bricks.connects_to", s.getDisplayName()));
 	}
 	
 	@Override

@@ -54,8 +54,31 @@ tile.stairs_flint_quartz.name=Flint and Nether Quartz Checkered Tile Stairs
 tile.stairs_flint_endstone.name=Flint and End Stone Checkered Tile Stairs
 tile.stairs_obsidian_endstone.name=Obsidian and End Stone Checkered Tile Stairs
 tile.stairs_obsidan_quartz.name=Obsidian and Nether Quartz Checkered Tile Stairs
-tile.edge_stone_brick.0.name=White Edge Stone Bricks
-tile.edge_stone_brick.1.name=Black Edge Stone Bricks
+
+tile.edge_bricks.stone.name=Edge Stone Bricks
+tile.edge_bricks.deepstone.name=Edge Deep Stone Bricks
+tile.edge_bricks.redrock.name=Edge Redrock Bricks
+tile.edge_bricks.deep_redrock.name=Edge Deep Redrock Bricks
+tile.edge_bricks.coldstone.name=Edge Coldstone Bricks
+tile.edge_bricks.deep_coldstone.name=Edge Deep Coldstone Bricks
+tile.edge_bricks.icestone.name=Edge Icestone Bricks
+tile.edge_bricks.glacierrock.name=Edge Glacierrock Bricks
+tile.edge_bricks.oceanstone.name=Edge Oceanstone Bricks
+tile.edge_bricks.pressurized_oceanstone.name=Edge Pressurized Oceanstone Bricks
+tile.edge_bricks.slate.name=Edge Slate Bricks
+
+tile.dark_edge_bricks.dark_stone.name=Dark Edge Stone Bricks
+tile.dark_edge_bricks.dark_deepstone.name=Dark Edge Deep Stone Bricks
+tile.dark_edge_bricks.dark_redrock.name=Dark Edge Redrock Bricks
+tile.dark_edge_bricks.dark_deep_redrock.name=Dark Edge Deep Redrock Bricks
+tile.dark_edge_bricks.dark_coldstone.name=Dark Edge Coldstone Bricks
+tile.dark_edge_bricks.dark_deep_coldstone.name=Dark Edge Deep Coldstone Bricks
+tile.dark_edge_bricks.dark_icestone.name=Dark Edge Icestone Bricks
+tile.dark_edge_bricks.dark_glacierrock.name=Dark Edge Glacierrock Bricks
+tile.dark_edge_bricks.dark_oceanstone.name=Dark Edge Oceanstone Bricks
+tile.dark_edge_bricks.dark_pressurized_oceanstone.name=Dark Edge Pressurized Oceanstone Bricks
+tile.dark_edge_bricks.dark_slate.name=Dark Edge Slate Bricks
+
 tile.snow_brick.name=Snow Tiles
 tile.roads.0.name=Cobbled Road
 tile.roads.1.name=Gravel Road
@@ -1073,6 +1096,8 @@ item.hangglider.name=Hang Glider
 item.ghastly_soul.name=Ghastly Soul
 
 #Descriptions
+tile.edge_bricks.connects_to=Connects to: %s
+
 item.plating.tin.desc=Tin-Plated
 item.plating.bronze.desc=Bronze-Plated
 item.plating.steel.desc=Steel-Plated
