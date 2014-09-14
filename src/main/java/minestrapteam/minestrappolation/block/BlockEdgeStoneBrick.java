@@ -4,6 +4,7 @@ import java.util.List;
 
 import clashsoft.cslib.minecraft.block.CustomBlock;
 import clashsoft.cslib.minecraft.block.ICustomBlock;
+import minestrapteam.minestrappolation.lib.MBlocks;
 import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.block.Block;
@@ -19,8 +20,9 @@ import net.minecraft.world.IBlockAccess;
 
 public class BlockEdgeStoneBrick extends Block implements ICustomBlock
 {
-	public static String[]	TYPES	= new String[] { "stone", "dark_stone" };
-	public static Block[]	BLOCKS	= new Block[] { Blocks.stonebrick, Blocks.stonebrick };
+	public static String[]	TYPES		= new String[] { "stone", "deepstone", "coldstone", "deep_coldstone", "redrock", "deep_redrock", "icestone", "glacierrock", "oceanstone", "pressurized_oceanstone", "slate" };
+	public static Block[]	BLOCKS		= new Block[] { Blocks.stonebrick, MBlocks.deepstone, MBlocks.coldstone, MBlocks.deepColdstone, MBlocks.redrock, MBlocks.deepRedrock, MBlocks.icestone, MBlocks.glacierrock, MBlocks.oceanstone, MBlocks.pressurizedOceanstone, MBlocks.graniteSlate };
+	public static int[]		METADATA	= new int[] { 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
 	
 	public String[]			types;
 	public Block[]			blocks;
@@ -33,7 +35,7 @@ public class BlockEdgeStoneBrick extends Block implements ICustomBlock
 	
 	public BlockEdgeStoneBrick()
 	{
-		this(TYPES, BLOCKS, new int[] { -1, -1 });
+		this(TYPES, BLOCKS, METADATA);
 	}
 	
 	public BlockEdgeStoneBrick(String[] types, Block[] blocks, int[] metadata)
