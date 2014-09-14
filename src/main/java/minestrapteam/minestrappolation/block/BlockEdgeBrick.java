@@ -188,7 +188,13 @@ public class BlockEdgeBrick extends Block implements ICustomBlock
 	
 	public boolean isBrick(int metadata, IBlockAccess world, int x, int y, int z)
 	{
-		if (this.blocks[metadata] != world.getBlock(x, y, z))
+		Block block = world.getBlock(x, y, z);
+		if (block == this)
+		{
+			return metadata == world.getBlockMetadata(x, y, z);
+		}
+		
+		if (this.blocks[metadata] != block)
 		{
 			return false;
 		}
