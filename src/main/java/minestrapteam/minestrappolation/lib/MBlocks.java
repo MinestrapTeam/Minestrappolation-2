@@ -612,13 +612,13 @@ public class MBlocks
 		
 		String[] types_stone = new String[] { null, null, "pattern_bricks", "tiles", "road", "refined", null, null, null, null, null, null, null, null, "lamp_glowstone", "lamp_sunstone" };
 		String[] types_stone_2 = new String[] { "pillar", null, null, "tile_slab", "refined_slab" };
+		String[] types_redrock = new String[] { "raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", "cracked", "mossy", "bricks_cracked", "bricks_mossy", null, null, null, "lamp_glowstone", "lamp_sunstone" };
+		String[] types_redrock_2 = new String[] { "pillar", "raw_slab", "brick_slab", "tile_slab", "refined_slab" };
 		String[] types_deepstone = new String[] { "raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", "cracked", "mossy", "bricks_cracked", "bricks_mossy", null, null, null, "lamp_glowstone", "lamp_sunstone" };
 		String[] types_deepstone_2 = new String[] { "pillar", "raw_slab", "brick_slab", "tile_slab", "refined_slab" };
 		String[] types_coldstone = new String[] { "raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", "cracked", "mossy", "bricks_cracked", "bricks_mossy", null, null, null, "lamp_glowstone", "lamp_sunstone" };
 		String[] types_coldstone_2 = new String[] { "pillar", "raw_slab", "brick_slab", "tile_slab", "refined_slab" };
-		String[] types_redrock = new String[] { "raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", "cracked", "mossy", "bricks_cracked", "bricks_mossy", null, null, null, "lamp_glowstone", "lamp_sunstone" };
-		String[] types_redrock_2 = new String[] { "pillar", "raw_slab", "brick_slab", "tile_slab", "refined_slab" };
-		String[] types_icestone = new String[] { "raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", "cracked", "mossy", "bricks_cracked", "bricks_mossy", null, null, null, "lamp_glowstone", "lamp_sunstone" };
+		String[] types_icestone = new String[] { "raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", "cracked", "wet", "bricks_cracked", "bricks_wet", null, null, null, "lamp_glowstone", "lamp_sunstone" };
 		String[] types_icestone_2 = new String[] { "pillar", "raw_slab", "brick_slab", "tile_slab", "refined_slab" };
 		String[] types_oceanstone = new String[] { "raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", "cracked", "mossy", "bricks_cracked", "bricks_mossy", null, null, null, "lamp_glowstone", "lamp_sunstone" };
 		String[] types_oceanstone_2 = new String[] { "pillar", "raw_slab", "brick_slab", "tile_slab", "refined_slab" };
