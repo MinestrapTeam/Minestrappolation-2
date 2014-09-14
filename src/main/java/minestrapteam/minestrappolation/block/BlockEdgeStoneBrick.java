@@ -20,8 +20,8 @@ import net.minecraft.world.IBlockAccess;
 
 public class BlockEdgeStoneBrick extends Block implements ICustomBlock
 {
-	public static String[]	TYPES		= new String[] { "stone", "deepstone", "coldstone", "deep_coldstone", "redrock", "deep_redrock", "icestone", "glacierrock", "oceanstone", "pressurized_oceanstone", "slate" };
-	public static Block[]	BLOCKS		= new Block[] { Blocks.stonebrick, MBlocks.deepstone, MBlocks.coldstone, MBlocks.deepColdstone, MBlocks.redrock, MBlocks.deepRedrock, MBlocks.icestone, MBlocks.glacierrock, MBlocks.oceanstone, MBlocks.pressurizedOceanstone, MBlocks.graniteSlate };
+	public static String[]	TYPES		= new String[] { "stone", "deepstone", "redrock", "deep_redrock", "coldstone", "deep_coldstone", "icestone", "glacierrock", "oceanstone", "pressurized_oceanstone", "slate" };
+	public static Block[]	BLOCKS		= new Block[] { Blocks.stonebrick, MBlocks.deepstone, MBlocks.redrock, MBlocks.deepRedrock, MBlocks.coldstone, MBlocks.deepColdstone, MBlocks.icestone, MBlocks.glacierrock, MBlocks.oceanstone, MBlocks.pressurizedOceanstone, MBlocks.graniteSlate };
 	public static int[]		METADATA	= new int[] { 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
 	
 	public String[]			types;
