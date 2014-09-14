@@ -27,17 +27,29 @@ public class MItems
 	public static Item	brickStoneBronze;
 	public static Item	brickStoneSteel;
 	public static Item	brickStoneMeurodite;
+	
+	public static Item	brickDeepstone;
+	public static Item	brickRedrock;
+	public static Item	brickDeepRedrock;
+	public static Item	brickColdstone;
+	public static Item	brickDeepColdstone;
+	public static Item	brickIcestone;
+	public static Item	brickGlacierrock;
+	public static Item	brickOceanstone;
+	public static Item	brickPressurizedOceanstone;
+	
+	public static Item	brickSlate;
+	public static Item	brickSlateTin;
+	public static Item	brickSlateBronze;
+	public static Item	brickSlateSteel;
+	public static Item	brickSlateMeurodite;
+	
 	public static Item	brickSandstone;
 	public static Item	brickRedSandstone;
 	public static Item	brickClay;
 	public static Item	brickColoredClay;
 	public static Item	brickFlint;
 	public static Item	brickLapis;
-	public static Item	brickSlate;
-	public static Item	brickSlateTin;
-	public static Item	brickSlateBronze;
-	public static Item	brickSlateSteel;
-	public static Item	brickSlateMeurodite;
 	public static Item	brickDesertQuartz;
 	public static Item	brickNetherQuartz;
 	public static Item	brickObsidian;
@@ -156,17 +168,29 @@ public class MItems
 		brickStoneBronze = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("stone_brick_bronze"));
 		brickStoneSteel = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("stone_brick_steel"));
 		brickStoneMeurodite = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("stone_brick_meurodite"));
+		
+		brickDeepstone = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("deepstone_brick"));
+		brickRedrock = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("redrock_brick"));
+		brickDeepRedrock = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("deepredrock_brick"));
+		brickColdstone = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("coldstone_brick"));
+		brickDeepColdstone = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("deepcoldstone_brick"));
+		brickIcestone = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("icestone_brick"));
+		brickGlacierrock = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("glacierrock_brick"));
+		brickOceanstone = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("oceanstone_brick"));
+		brickPressurizedOceanstone = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("pressurizedoceanstone_brick"));
+		
+		brickSlate = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("granite_brick"));
+		brickSlateTin = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("granite_brick_tin"));
+		brickSlateBronze = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("granite_brick_bronze"));
+		brickSlateSteel = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("granite_brick_steel"));
+		brickSlateMeurodite = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("granite_brick_meurodite"));
+		
 		brickSandstone = new MItem().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("sandstone_brick"));
 		brickRedSandstone = new MItem().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("red_sandstone_brick"));
 		brickColoredClay = new MItemMulti(null, new String[] { MAssetManager.getStonecutterTexture("black_clay_brick"), MAssetManager.getStonecutterTexture("blue_clay_brick"), MAssetManager.getStonecutterTexture("brown_clay_brick"), MAssetManager.getStonecutterTexture("cyan_clay_brick"), MAssetManager.getStonecutterTexture("grey_clay_brick"), MAssetManager.getStonecutterTexture("green_clay_brick"), MAssetManager.getStonecutterTexture("lightblue_clay_brick"), MAssetManager.getStonecutterTexture("lime_clay_brick"), MAssetManager.getStonecutterTexture("magenta_clay_brick"), MAssetManager.getStonecutterTexture("orange_clay_brick"), MAssetManager.getStonecutterTexture("pink_clay_brick"), MAssetManager.getStonecutterTexture("purple_clay_brick"), MAssetManager.getStonecutterTexture("red_clay_brick"), MAssetManager.getStonecutterTexture("silver_clay_brick"), MAssetManager.getStonecutterTexture("white_clay_brick"), MAssetManager.getStonecutterTexture("yellow_clay_brick") }).setUnlocalizedName(
 				"clay_brick").setCreativeTab(Minestrappolation.tabStoneDecor);
 		brickFlint = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("flint_brick"));
 		brickLapis = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("lapis_brick"));
-		brickSlate = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("granite_brick"));
-		brickSlateTin = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("granite_brick_tin"));
-		brickSlateBronze = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("granite_brick_bronze"));
-		brickSlateSteel = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("granite_brick_steel"));
-		brickSlateMeurodite = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("granite_brick_meurodite"));
 		brickDesertQuartz = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("desertquartz_brick"));
 		brickNetherQuartz = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("netherquartz_brick"));
 		brickObsidian = new Item().setCreativeTab(Minestrappolation.tabStoneDecor).setTextureName(MAssetManager.getStonecutterTexture("obsidian_brick"));
@@ -419,16 +443,28 @@ public class MItems
 		CSItems.addItem(brickStoneBronze, "stone_brick_bronze");
 		CSItems.addItem(brickStoneSteel, "stone_brick_steel");
 		CSItems.addItem(brickStoneMeurodite, "stone_brick_meurodite");
-		CSItems.addItem(brickSandstone, "sandstone_brick");
-		CSItems.addItem(brickRedSandstone, "red_sandstone_brick");
-		CSItems.addItem(brickColoredClay, "clay_brick");
-		CSItems.addItem(brickFlint, "flint_brick");
-		CSItems.addItem(brickLapis, "lapis_brick");
+		
+		CSItems.addItem(brickDeepstone, "deepstone_brick");
+		CSItems.addItem(brickRedrock, "redrock_brick");
+		CSItems.addItem(brickDeepRedrock, "deepredrock_brick");
+		CSItems.addItem(brickColdstone, "coldstone_brick");
+		CSItems.addItem(brickDeepColdstone, "deep_coldstone_brick");
+		CSItems.addItem(brickIcestone, "icestone_brick");
+		CSItems.addItem(brickGlacierrock, "glacierrock_brick");
+		CSItems.addItem(brickOceanstone, "oceanstone_brick");
+		CSItems.addItem(brickPressurizedOceanstone, "pressurizedoceanstone_brick");
+		
 		CSItems.addItem(brickSlate, "granite_brick");
 		CSItems.addItem(brickSlateTin, "granite_brick_tin");
 		CSItems.addItem(brickSlateBronze, "granite_brick_bronze");
 		CSItems.addItem(brickSlateSteel, "granite_brick_steel");
 		CSItems.addItem(brickSlateMeurodite, "granite_brick_meurodite");
+		
+		CSItems.addItem(brickSandstone, "sandstone_brick");
+		CSItems.addItem(brickRedSandstone, "red_sandstone_brick");
+		CSItems.addItem(brickColoredClay, "clay_brick");
+		CSItems.addItem(brickFlint, "flint_brick");
+		CSItems.addItem(brickLapis, "lapis_brick");
 		CSItems.addItem(brickDesertQuartz, "desertquartz_brick");
 		CSItems.addItem(brickNetherQuartz, "netherquartz_brick");
 		CSItems.addItem(brickObsidian, "obsidian_brick");
