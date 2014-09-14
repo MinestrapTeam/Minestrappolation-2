@@ -1,7 +1,10 @@
 package minestrapteam.minestrappolation.block;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
+import clashsoft.cslib.collections.ArraySet;
 import clashsoft.cslib.minecraft.block.CustomBlock;
 import clashsoft.cslib.minecraft.block.ICustomBlock;
 import clashsoft.cslib.minecraft.lang.I18n;
@@ -33,6 +36,8 @@ public class BlockEdgeBrick extends Block implements ICustomBlock
 	private IIcon[]			leftIcons;
 	private IIcon[]			rightIcons;
 	private IIcon[]			halfIcons;
+	
+	private Set<Block>		edgeBrickCache = new ArraySet();
 	
 	public BlockEdgeBrick()
 	{
@@ -189,7 +194,7 @@ public class BlockEdgeBrick extends Block implements ICustomBlock
 	public boolean isBrick(int metadata, IBlockAccess world, int x, int y, int z)
 	{
 		Block block = world.getBlock(x, y, z);
-		if (block == this)
+		if (this.isEdgeBrick(block))
 		{
 			return metadata == world.getBlockMetadata(x, y, z);
 		}
@@ -205,6 +210,29 @@ public class BlockEdgeBrick extends Block implements ICustomBlock
 			return false;
 		}
 		return true;
+	}
+	
+	public boolean isEdgeBrick(Block block)
+	{
+		if (block == this)
+		{
+			return true;
+		}
+		else if (block instanceof BlockEdgeBrick)
+		{
+			if (this.edgeBrickCache.contains(block))
+			{
+				return true;
+			}
+			
+			BlockEdgeBrick edgeBrick = (BlockEdgeBrick) block;
+			if (Arrays.equals(this.blocks, edgeBrick.blocks) && Arrays.equals(this.metadata, edgeBrick.metadata))
+			{
+				this.edgeBrickCache.add(edgeBrick);
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	@Override
