@@ -18,7 +18,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 
-public class BlockEdgeStoneBrick extends Block implements ICustomBlock
+public class BlockEdgeBrick extends Block implements ICustomBlock
 {
 	public static String[]	TYPES		= new String[] { "stone", "deepstone", "redrock", "deep_redrock", "coldstone", "deep_coldstone", "icestone", "glacierrock", "oceanstone", "pressurized_oceanstone", "slate" };
 	public static Block[]	BLOCKS		= new Block[] { Blocks.stonebrick, MBlocks.deepstone, MBlocks.redrock, MBlocks.deepRedrock, MBlocks.coldstone, MBlocks.deepColdstone, MBlocks.icestone, MBlocks.glacierrock, MBlocks.oceanstone, MBlocks.pressurizedOceanstone, MBlocks.graniteSlate };
@@ -33,12 +33,12 @@ public class BlockEdgeStoneBrick extends Block implements ICustomBlock
 	private IIcon[]			rightIcons;
 	private IIcon[]			halfIcons;
 	
-	public BlockEdgeStoneBrick()
+	public BlockEdgeBrick()
 	{
 		this(TYPES, BLOCKS, METADATA);
 	}
 	
-	public BlockEdgeStoneBrick(String[] types, Block[] blocks, int[] metadata)
+	public BlockEdgeBrick(String[] types, Block[] blocks, int[] metadata)
 	{
 		super(Material.rock);
 		this.types = types;

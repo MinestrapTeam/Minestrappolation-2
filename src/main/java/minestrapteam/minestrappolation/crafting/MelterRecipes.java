@@ -93,7 +93,7 @@ public class MelterRecipes extends ExperienceRecipeManager
 		this.addRecipe(MBlocks.desertQuartzStairsBricks, new ItemStack(Items.lava_bucket, 1, 0), 0.6F);
 		this.addRecipe(MBlocks.desertQuartzStairsTiles, new ItemStack(Items.lava_bucket, 1, 0), 0.6F);
 		
-		this.addRecipe(MBlocks.edgeStoneBrick, new ItemStack(Items.lava_bucket, 1, 0), 0.5F);
+		this.addRecipe(MBlocks.edgeBricks, new ItemStack(Items.lava_bucket, 1, 0), 0.5F);
 		
 		this.addRecipe(Blocks.snow, new ItemStack(Items.water_bucket, 1, 0), 0.4F);
 		this.addRecipe(Blocks.ice, new ItemStack(Items.water_bucket, 1, 0), 0.7F);

@@ -353,7 +353,8 @@ public class MBlocks
 	public static Block				flintQuartzStairs;
 	public static Block				obsidianEndstoneStairs;
 	public static Block				obsidianQuartzStairs;
-	public static Block				edgeStoneBrick;
+	public static Block				edgeBricks;
+	public static Block darkEdgeBricks;
 	public static Block				snowBrick;
 	public static Block				roads;
 	
@@ -450,7 +451,8 @@ public class MBlocks
 		obsidianEndstoneStairs = new MBlockStairs(checkerTiles, 2).setCreativeTab(Minestrappolation.tabStoneDecor).setBlockName("stairs_obsidian_endstone");
 		obsidianQuartzStairs = new MBlockStairs(checkerTiles, 3).setCreativeTab(Minestrappolation.tabStoneDecor).setBlockName("stairs_obsidan_quartz");
 		
-		edgeStoneBrick = new BlockEdgeStoneBrick().setHardness(1.5F).setResistance(10F).setCreativeTab(Minestrappolation.tabStoneDecor).setStepSound(Block.soundTypeStone);
+		edgeBricks = new BlockEdgeBrick().setHardness(1.5F).setResistance(10F).setCreativeTab(Minestrappolation.tabStoneDecor).setStepSound(Block.soundTypeStone);
+		darkEdgeBricks = new BlockEdgeBrick().setHardness(1.6F).setResistance(11F).setCreativeTab(Minestrappolation.tabStoneDecor).setStepSound(Block.soundTypeStone);
 		snowBrick = new BlockSnowBrick().setHardness(0.2F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeSnow).setBlockTextureName(MAssetManager.getTexture("snow_tiles"));
 		roads = new BlockRoads().setCreativeTab(Minestrappolation.tabStoneDecor).setStepSound(Block.soundTypeStone);
 		
@@ -554,7 +556,8 @@ public class MBlocks
 		CSBlocks.addBlock(obsidianEndstoneStairs);
 		CSBlocks.addBlock(obsidianQuartzStairs);
 		
-		CSBlocks.addBlock(edgeStoneBrick, "edge_stone_brick");
+		CSBlocks.addBlock(edgeBricks, "edge_bricks");
+		CSBlocks.addBlock(darkEdgeBricks, "dark_edge_bricks");
 		CSBlocks.addBlock(snowBrick, "snow_brick");
 		CSBlocks.addBlock(roads, MCItemBlockMulti.class, "roads");
 		

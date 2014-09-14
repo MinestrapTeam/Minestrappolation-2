@@ -1178,8 +1178,8 @@ public class StonecuttingManager
 		this.addRecipe(new ItemStack(MBlocks.obsidianQuartzStairs, 4, 0), null, new Object[] { "M  ", "MM ", "MMM", 'M', new ItemStack(MBlocks.checkerTiles, 1, 3) });
 		
 		// Edge Stone Brick
-		this.addRecipe(new ItemStack(MBlocks.edgeStoneBrick, 1, 0), null, new Object[] { "SQ", "SQ", 'S', MItems.brickStone, 'Q', MItems.brickNetherQuartz });
-		this.addRecipe(new ItemStack(MBlocks.edgeStoneBrick, 1, 1), null, new Object[] { "SQ", "SQ", 'S', MItems.brickStone, 'Q', MItems.brickFlint });
+		this.addRecipe(new ItemStack(MBlocks.edgeBricks, 1, 0), null, new Object[] { "SQ", "SQ", 'S', MItems.brickStone, 'Q', MItems.brickNetherQuartz });
+		this.addRecipe(new ItemStack(MBlocks.edgeBricks, 1, 1), null, new Object[] { "SQ", "SQ", 'S', MItems.brickStone, 'Q', MItems.brickFlint });
 		
 		// Misc Roads
 		this.addRecipe(new ItemStack(MBlocks.roads, 6, 0), null, new Object[] { "CCC", "CCC", "DDD", 'C', MItems.stoneChunk, 'D', Blocks.dirt });
