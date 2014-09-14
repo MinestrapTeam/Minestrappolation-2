@@ -122,7 +122,22 @@ public class BlockEdgeStoneBrick extends Block implements ICustomBlock
 		boolean xn = this.isBrick(metadata, world, x - 1, y, z);
 		boolean zn = this.isBrick(metadata, world, x, y, z - 1);
 		byte b = 0;
-		if (side == 2) // NORTH
+		if (side == 0 || side == 1)
+		{
+			if (xp)
+			{
+				b |= 1;
+			}
+			if (xn)
+			{
+				b |= 2;
+			}
+			if (zp || zn)
+			{
+				b = 3;
+			}
+		}
+		else if (side == 2) // NORTH
 		{
 			if (xp)
 			{
