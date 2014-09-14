@@ -71,12 +71,54 @@ tile.slow_glass.name=Slow Glass
 tile.slime_ooze.name=Slime Ooze
 tile.magma_ooze.name=Magma Ooze
 tile.plate_block.name=Plate
+tile.rope_block.name=Rope
 tile.rope_coil.name=Rope Coil
+tile.glass_door_block.name=Glass Door
 tile.crate.name=Crate
 tile.barrel.name=Barrel
+tile.cardboard_pane.name=Cardboard Pane
 tile.cardboard_block.0.name=Cardboard Block
 tile.cardboard_block.1.name=Wet Cardboard Block
 tile.cardboard_block.2.name=Cardboard Lamp
+
+tile.colored_lamp.black.name=Black Colored Lamp
+tile.colored_lamp.red.name=Red Colored Lamp
+tile.colored_lamp.green.name=Green Colored Lamp
+tile.colored_lamp.brown.name=Brown Colored Lamp
+tile.colored_lamp.blue.name=Blue Colored Lamp
+tile.colored_lamp.purple.name=Purple Colored Lamp
+tile.colored_lamp.cyan.name=Cyan Colored Lamp
+tile.colored_lamp.silver.name=Silver Colored Lamp
+tile.colored_lamp.gray.name=Gray Colored Lamp
+tile.colored_lamp.pink.name=Pink Colored Lamp
+tile.colored_lamp.lime.name=Lime Colored Lamp
+tile.colored_lamp.yellow.name=Yellow Colored Lamp
+tile.colored_lamp.light_blue.name=Light Blue Colored Lamp
+tile.colored_lamp.magenta.name=Magenta Colored Lamp
+tile.colored_lamp.orange.name=Orange Colored Lamp
+tile.colored_lamp.white.name=White Colored Lamp
+
+tile.lit_colored_lamp.black.name=Black Colored Lamp (On)
+tile.lit_colored_lamp.red.name=Red Colored Lamp (On)
+tile.lit_colored_lamp.green.name=Green Colored Lamp (On)
+tile.lit_colored_lamp.brown.name=Brown Colored Lamp (On)
+tile.lit_colored_lamp.blue.name=Blue Colored Lamp (On)
+tile.lit_colored_lamp.purple.name=Purple Colored Lamp (On)
+tile.lit_colored_lamp.cyan.name=Cyan Colored Lamp (On)
+tile.lit_colored_lamp.silver.name=Silver Colored Lamp (On)
+tile.lit_colored_lamp.gray.name=Gray Colored Lamp (On)
+tile.lit_colored_lamp.pink.name=Pink Colored Lamp (On)
+tile.lit_colored_lamp.lime.name=Lime Colored Lamp (On)
+tile.lit_colored_lamp.yellow.name=Yellow Colored Lamp (On)
+tile.lit_colored_lamp.light_blue.name=Light Blue Colored Lamp (On)
+tile.lit_colored_lamp.magenta.name=Magenta Colored Lamp (On)
+tile.lit_colored_lamp.orange.name=Orange Colored Lamp (On)
+tile.lit_colored_lamp.white.name=White Colored Lamp (On)
+
+tile.wither_block.name=Wither Block
+tile.wither_layer.name=Wither Layer
+tile.moss_cover.name=Moss Cover
+
 item.glass_door.name=Glass Door
 
 #Stone Blocks
@@ -657,6 +699,23 @@ item.stone_brick_tin.name=Tin-Plated Stone Brick
 item.stone_brick_bronze.name=Bronze-Plated Stone Brick
 item.stone_brick_steel.name=Steel-Plated Stone Brick
 item.stone_brick_meurodite.name=Meurodite-Plated Stone Brick
+
+item.granite_brick.name=Slate Brick
+item.granite_brick_tin.name=Tin-Plated Slate Brick
+item.granite_brick_bronze.name=Bronze-Plated Slate Brick
+item.granite_brick_steel.name=Steel-Plated Slate Brick
+item.granite_brick_meurodite.name=Meurodite-Plated Slate Brick
+
+item.deepstone_brick.name=Deepstone Brick
+item.redrock_brick.name=Redrock Brick
+item.deepredrock_brick.name=Deep Redrock Brick
+item.coldstone_brick.name=Coldstone Brick
+item.deepcoldstone_brick.name=Deep Coldstone Brick
+item.icestone_brick.name=Icestone Brick
+item.glacierrock_brick.name=Glacierrock Brick
+item.oceanstone_brick.name=Oceanstone Brick
+item.pressurizedoceanstone_brick.name=Pressurized Oceanstone Brick
+
 item.sandstone_brick.name=Sandstone Brick
 item.red_sandstone_brick.name=Red Sandstone Brick
 item.clay_brick.0.name=Black Stained Clay Brick
@@ -677,11 +736,6 @@ item.clay_brick.14.name=White Stained Clay Brick
 item.clay_brick.15.name=Yellow Stained Clay Brick
 item.flint_brick.name=Flint Brick
 item.lapis_brick.name=Lapis Lazuli Brick
-item.granite_brick.name=Slate Brick
-item.granite_brick_tin.name=Tin-Plated Slate Brick
-item.granite_brick_bronze.name=Bronze-Plated Slate Brick
-item.granite_brick_steel.name=Steel-Plated Slate Brick
-item.granite_brick_meurodite.name=Meurodite-Plated Slate Brick
 item.desertquartz_brick.name=Desert Quartz Brick
 item.netherquartz_brick.name=Nether Quartz Brick
 item.obsidian_brick.name=Obsidian Brick

@@ -448,7 +448,7 @@ public class MItems
 		CSItems.addItem(brickRedrock, "redrock_brick");
 		CSItems.addItem(brickDeepRedrock, "deepredrock_brick");
 		CSItems.addItem(brickColdstone, "coldstone_brick");
-		CSItems.addItem(brickDeepColdstone, "deep_coldstone_brick");
+		CSItems.addItem(brickDeepColdstone, "deepcoldstone_brick");
 		CSItems.addItem(brickIcestone, "icestone_brick");
 		CSItems.addItem(brickGlacierrock, "glacierrock_brick");
 		CSItems.addItem(brickOceanstone, "oceanstone_brick");
