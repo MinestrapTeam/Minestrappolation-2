@@ -19,7 +19,7 @@ import net.minecraft.world.IBlockAccess;
 
 public class BlockEdgeStoneBrick extends Block implements ICustomBlock
 {
-	public static String[]	TYPES	= new String[] { "edgestone", "dark_edgestone" };
+	public static String[]	TYPES	= new String[] { "stone", "dark_stone" };
 	public static Block[]	BLOCKS	= new Block[] { Blocks.stonebrick, Blocks.stonebrick };
 	
 	public String[]			types;
@@ -75,7 +75,19 @@ public class BlockEdgeStoneBrick extends Block implements ICustomBlock
 	@Override
 	public IIcon getIcon(int side, int metadata)
 	{
-		return this.getIcon(metadata, (byte) 0);
+		if (side == 0 || side == 1)
+		{
+			return this.icons[metadata];
+		}
+		else if (side == 2 || side == 3)
+		{
+			return this.leftIcons[metadata];
+		}
+		else if (side == 4 || side == 5)
+		{
+			return this.rightIcons[metadata];
+		}
+		return this.icons[metadata];
 	}
 	
 	public IIcon getIcon(int metadata, byte type)
