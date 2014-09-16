@@ -2,6 +2,7 @@ package minestrapteam.minestrappolation.world;
 
 import java.util.Random;
 
+import clashsoft.cslib.minecraft.block.ore.BlockOre2;
 import cpw.mods.fml.common.IWorldGenerator;
 import minestrapteam.minestrappolation.lib.MBlocks;
 import minestrapteam.minestrappolation.world.gen.WorldGenDesertQuartz;
@@ -13,6 +14,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.biome.BiomeGenBase.TempCategory;
+import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.ChunkProviderEnd;
 import net.minecraft.world.gen.ChunkProviderGenerate;
@@ -55,6 +57,7 @@ public class MOreGenerator implements IWorldGenerator
 		chunkZ <<= 4;
 		if (chunkGenerator instanceof ChunkProviderGenerate)
 		{
+			this.genBiomeStone(world, chunkX, chunkZ, random);
 			this.generateSurface(world, random, chunkX, chunkZ);
 		}
 		else if (chunkGenerator instanceof ChunkProviderHell)
@@ -305,7 +308,92 @@ public class MOreGenerator implements IWorldGenerator
 		}
 	}
 	
-	public static void genBiomeStone(BiomeGenBase biome, World world, Random random, Block[] blocks, byte[] metadata, int chunkX, int chunkZ)
+	public void genBiomeStone(World world, int chunkX, int chunkZ, Random random)
+	{
+		Chunk chunk = world.getChunkFromBlockCoords(chunkX, chunkZ);
+		WorldChunkManager chunkManager = world.getWorldChunkManager();
+		
+		for (int x = 0; x < 16; x++)
+		{
+			for (int z = 0; z < 16; z++)
+			{
+				BiomeGenBase biome = chunk.getBiomeGenForWorldCoords(x, z, chunkManager);
+				Block stoneBlock = Blocks.stone;
+				Block deepStoneBlock = null;
+				int oreMetadata = 0;
+				int deepOreMetadata = 0;
+				int deepStoneDepth = 0;
+				
+				if (biome.temperature < 0.2F)
+				{
+					stoneBlock = MBlocks.icestone;
+					deepStoneBlock = MBlocks.glacierrock;
+					deepStoneDepth = random.nextInt(5) + 30;
+					oreMetadata = 10;
+					deepOreMetadata = 11;
+				}
+				else if (biome.temperature < 0.4F)
+				{
+					stoneBlock = MBlocks.coldstone;
+					deepStoneBlock = MBlocks.deepColdstone;
+					deepStoneDepth = random.nextInt(5) + 35;
+					oreMetadata = 8;
+					deepOreMetadata = 9;
+				}
+				else if (biome.getTempCategory() == TempCategory.OCEAN)
+				{
+					stoneBlock = MBlocks.oceanstone;
+					deepStoneBlock = MBlocks.pressurizedOceanstone;
+					deepStoneDepth = random.nextInt(5) + 20;
+					oreMetadata = 12;
+					deepOreMetadata = 13;
+				}
+				else if (biome.temperature >= 1.0F)
+				{
+					stoneBlock = MBlocks.redrock;
+					deepStoneBlock = MBlocks.deepRedrock;
+					deepStoneDepth = random.nextInt(5) + 35;
+					oreMetadata = 6;
+					deepOreMetadata = 7;
+				}
+				else
+				{
+					deepStoneBlock = MBlocks.deepstone;
+					deepStoneDepth = random.nextInt(5) + 35;
+					deepOreMetadata = 5;
+				}
+				
+				for (int y = 128; y >= 0; y--)
+				{
+					Block block = chunk.getBlock(x, y, z);
+					if (block == Blocks.stone)
+					{
+						if (y < deepStoneDepth)
+						{
+							chunk.func_150807_a(x, y, z, deepStoneBlock, 0);
+						}
+						else
+						{
+							chunk.func_150807_a(x, y, z, stoneBlock, 0);
+						}
+					}  
+					else if (block instanceof BlockOre2)
+					{
+						if (y < deepStoneDepth)
+						{
+							chunk.func_150807_a(x, y, z, block, deepOreMetadata);
+						}
+						else
+						{
+							chunk.func_150807_a(x, y, z, block, oreMetadata);
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	private static void genBiomeStone(BiomeGenBase biome, World world, Random random, Block[] blocks, byte[] metadata, int chunkX, int chunkZ)
 	{
 		Block stoneBlock = Blocks.stone;
 		Block deepStoneBlock = null;

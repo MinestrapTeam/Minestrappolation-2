@@ -10,7 +10,6 @@ import minestrapteam.minestrappolation.lib.MBlocks;
 import minestrapteam.minestrappolation.lib.MDrops;
 import minestrapteam.minestrappolation.lib.MItems;
 import minestrapteam.minestrappolation.lib.MTools;
-import minestrapteam.minestrappolation.world.MOreGenerator;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.monster.EntityGhast;
@@ -125,7 +124,7 @@ public class MEventHandler
 		}
 	}
 	
-	@SubscribeEvent
+	// @SubscribeEvent
 	public void genBiomeTerrain(ReplaceBiomeBlocks event)
 	{
 		Random random = new Random(event.world.getSeed());
@@ -134,7 +133,7 @@ public class MEventHandler
 			for (int l = 0; l < 16; ++l)
 			{
 				BiomeGenBase biome = event.biomeArray[l + k * 16];
-				MOreGenerator.genBiomeStone(biome, event.world, random, event.blockArray, event.metaArray, event.chunkX * 16 + k, event.chunkZ * 16 + l);
+				// MOreGenerator.genBiomeStone(biome, event.world, random, event.blockArray, event.metaArray, event.chunkX * 16 + k, event.chunkZ * 16 + l);
 			}
 		}
 	}
