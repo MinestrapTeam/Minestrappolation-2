@@ -457,9 +457,9 @@ public class MBlocks
 		roads = new BlockRoads().setCreativeTab(Minestrappolation.tabStoneDecor).setStepSound(Block.soundTypeStone);
 		
 		glowGlass = new BlockGlowGlass(Material.glass, true).setHardness(0.8F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeGlass).setBlockTextureName(MAssetManager.getGlassTexture("glow_glass"));
-		glowGlassPane = new MBlockPane(Material.glass, MAssetManager.getTexture("glow_glass"), MAssetManager.getGlassTexture("glass_refined_pane"), false).setHardness(0.3F).setLightLevel(1F).setStepSound(Block.soundTypeGlass).setCreativeTab(Minestrappolation.tabDecorationBlocks);
+		glowGlassPane = new MBlockPane(Material.glass, MAssetManager.getGlassTexture("glow_glass"), MAssetManager.getGlassTexture("glass_refined_pane"), false).setHardness(0.3F).setLightLevel(1F).setStepSound(Block.soundTypeGlass).setCreativeTab(Minestrappolation.tabDecorationBlocks);
 		refinedGlass = new BlockGlassRefined(Material.glass, false).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MAssetManager.getGlassTexture("glass_refined"));
-		refinedGlassPane = new MBlockPane(Material.glass, MAssetManager.getGlassTexture("glass_refined"), MAssetManager.getTexture("glass_refined_pane"), false).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(Minestrappolation.tabDecorationBlocks);
+		refinedGlassPane = new MBlockPane(Material.glass, MAssetManager.getGlassTexture("glass_refined"), MAssetManager.getGlassTexture("glass_refined_pane"), false).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(Minestrappolation.tabDecorationBlocks);
 		slowGlass = new BlockSlowGlass(Material.glass, true).setHardness(0.5F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeGlass).setBlockTextureName(MAssetManager.getGlassTexture("slow_glass"));
 		
 		gunpowderBlock = new BlockGunpowderBlock(Material.ground).setHardness(0.6F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeGravel).setBlockTextureName(MAssetManager.getMineralTexture("gunpowder_block"));
