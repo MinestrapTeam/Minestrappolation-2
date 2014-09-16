@@ -45,15 +45,15 @@ public class Minestrappolation extends BaseMod
 	
 	public static MelterRecipeLoader	melter				= new MelterRecipeLoader("melter");
 	
-	public static OreBase				deepStone			= new OreBase(5, "deepstone").setIconName(MAssetManager.getStonecutterTexture("deepstone")).register();
-	public static OreBase				redrock				= new OreBase(6, "redrock").setIconName(MAssetManager.getStonecutterTexture("redrock")).register();
-	public static OreBase				deepRedrock			= new OreBase(7, "deepredrock").setIconName(MAssetManager.getStonecutterTexture("deepredrock")).register();
-	public static OreBase				coldstone			= new OreBase(8, "coldstone").setIconName(MAssetManager.getStonecutterTexture("coldstone")).register();
-	public static OreBase				deepColdstone		= new OreBase(9, "deepcoldstone").setIconName(MAssetManager.getStonecutterTexture("deepcoldstone")).register();
-	public static OreBase				icestone			= new OreBase(10, "icestone").setIconName(MAssetManager.getStonecutterTexture("icestone")).register();
-	public static OreBase				glacierrock			= new OreBase(11, "glacierrock").setIconName(MAssetManager.getStonecutterTexture("glacierrock")).register();
-	public static OreBase				oceanstone			= new OreBase(12, "oceanstone").setIconName(MAssetManager.getStonecutterTexture("oceanstone")).register();
-	public static OreBase				deepOceanstone		= new OreBase(13, "pressurizedoceanstone").setIconName(MAssetManager.getStonecutterTexture("pressurizedoceanstone")).register();
+	public static OreBase				deepStone			= new OreBase("deepstone").setIconName(MAssetManager.getStonecutterTexture("deepstone")).register(OreBase.TYPE_OVERWORLD, 5);
+	public static OreBase				redrock				= new OreBase("redrock").setIconName(MAssetManager.getStonecutterTexture("redrock")).register(OreBase.TYPE_OVERWORLD, 6);
+	public static OreBase				deepRedrock			= new OreBase("deepredrock").setIconName(MAssetManager.getStonecutterTexture("deepredrock")).register(OreBase.TYPE_OVERWORLD, 7);
+	public static OreBase				coldstone			= new OreBase("coldstone").setIconName(MAssetManager.getStonecutterTexture("coldstone")).register(OreBase.TYPE_OVERWORLD, 8);
+	public static OreBase				deepColdstone		= new OreBase("deepcoldstone").setIconName(MAssetManager.getStonecutterTexture("deepcoldstone")).register(OreBase.TYPE_OVERWORLD, 9);
+	public static OreBase				icestone			= new OreBase("icestone").setIconName(MAssetManager.getStonecutterTexture("icestone")).register(OreBase.TYPE_OVERWORLD, 10);
+	public static OreBase				glacierrock			= new OreBase("glacierrock").setIconName(MAssetManager.getStonecutterTexture("glacierrock")).register(OreBase.TYPE_OVERWORLD, 11);
+	public static OreBase				oceanstone			= new OreBase("oceanstone").setIconName(MAssetManager.getStonecutterTexture("oceanstone")).register(OreBase.TYPE_OVERWORLD, 12);
+	public static OreBase				deepOceanstone		= new OreBase("pressurizedoceanstone").setIconName(MAssetManager.getStonecutterTexture("pressurizedoceanstone")).register(OreBase.TYPE_OVERWORLD, 13);
 	
 	public static boolean				showDurability;
 	public static boolean				shouldOresEffect	= true;

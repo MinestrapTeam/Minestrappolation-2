@@ -2,7 +2,8 @@ package minestrapteam.minestrappolation.item;
 
 import java.util.List;
 
-import net.minecraft.client.renderer.texture.IIconRegister;
+import minestrapteam.minestrappolation.item.MItemFood.FoodType;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
@@ -16,49 +17,7 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 
 public class ItemFoodSpoilable extends ItemFood
-{
-	public static enum FoodType
-	{
-		BAKED(600, false), 
-		RAW_MEAT(1000, false), 
-		COOKED_MEAT(2000, true), 
-		RAW_FISH(400, false), 
-		COOKED_FISH(800, true), 
-		VEGETABLE(1200, false), 
-		COOKED_VEGETABLE(1600, false), 
-		FRUIT(1000, false),
-		MISC(600, false);
-		
-		private int		ticksToSpoil;
-		private boolean	isCooked;
-		
-		private FoodType(int ticksToSpoil, boolean cooked)
-		{
-			this.ticksToSpoil = ticksToSpoil;
-			this.isCooked = cooked;
-		}
-		
-		public boolean isCooked()
-		{
-			return this.isCooked;
-		}
-		
-		public int getTicksToSpoils()
-		{
-			return this.ticksToSpoil;
-		}
-		
-		public boolean isWolfMeat()
-		{
-			return this == RAW_MEAT || this == COOKED_MEAT;
-		}
-		
-		public boolean isFriable()
-		{
-			return this == COOKED_MEAT || this == COOKED_FISH || this == VEGETABLE || this == FRUIT;
-		}
-	}
-	
+{	
 	private ItemStack spoiledItem;
 	
 	private FoodType foodType;
@@ -71,109 +30,110 @@ public class ItemFoodSpoilable extends ItemFood
 		this.setMaxStackSize(1);
 	}
 
-	public static void setFrozen(ItemStack par1ItemStack, boolean frozen)
+	public static void setFrozen(ItemStack stack, boolean frozen)
 	{
-		boolean flag = isFrozen(par1ItemStack);
-		if (flag ^ frozen)
+		boolean flag = isFrozen(stack);
+		if (flag != frozen)
 		{
-			setUpdateTicks(par1ItemStack, 0L);
+			setUpdateTicks(stack, 0L);
 		}
-		par1ItemStack.setTagInfo("frozen", new NBTTagByte(frozen ? (byte) 1 : (byte) 0));
+		stack.setTagInfo("frozen", new NBTTagByte(frozen ? (byte) 1 : (byte) 0));
 	}
 
-	public static boolean isFrozen(ItemStack par1ItemStack)
+	public static boolean isFrozen(ItemStack stack)
 	{
-		return par1ItemStack.hasTagCompound() && par1ItemStack.getTagCompound().getByte("frozen") != 0;
+		return stack.hasTagCompound() && stack.getTagCompound().getByte("frozen") != 0;
 	}
 
 	@Override
-	public void onCreated(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
+	public void onCreated(ItemStack stack, World world, EntityPlayer player)
 	{
-		par1ItemStack.setTagInfo("updateTicks", new NBTTagLong(0L));
-		par1ItemStack.setTagInfo("lastDimension", new NBTTagInt(par3EntityPlayer.dimension));
-		par1ItemStack.setTagInfo("lastWorldTime", new NBTTagLong(par2World.getTotalWorldTime()));
+		stack.setTagInfo("updateTicks", new NBTTagLong(0L));
+		stack.setTagInfo("lastDimension", new NBTTagInt(player.dimension));
+		stack.setTagInfo("lastWorldTime", new NBTTagLong(world.getTotalWorldTime()));
 	}
 
-	public static long getUpdateTicks(ItemStack par1ItemStack)
+	public static long getUpdateTicks(ItemStack stack)
 	{
-		return par1ItemStack.hasTagCompound() ? par1ItemStack.getTagCompound().getLong("updateTicks") : 0L;
+		return stack.hasTagCompound() ? stack.getTagCompound().getLong("updateTicks") : 0L;
 	}
 
-	public static void setUpdateTicks(ItemStack par1ItemStack, long ticks)
+	public static void setUpdateTicks(ItemStack stack, long ticks)
 	{
-		par1ItemStack.setTagInfo("updateTicks", new NBTTagLong(ticks));
+		stack.setTagInfo("updateTicks", new NBTTagLong(ticks));
 	}
 
-	public static long incrementTick(ItemStack par1ItemStack)
+	public static long incrementTick(ItemStack stack)
 	{
-		long ticks = getUpdateTicks(par1ItemStack);
-		setUpdateTicks(par1ItemStack, ++ticks);
+		long ticks = getUpdateTicks(stack);
+		setUpdateTicks(stack, ++ticks);
 		return ticks;
 	}
 
-	public static long getExtraTicks(ItemStack par1ItemStack, World par2World, int dimension)
+	public static long getExtraTicks(ItemStack stack, World world, int dimension)
 	{
 		long extraTicks = 0L;
-		NBTTagCompound tagCompound = par1ItemStack.getTagCompound();
+		NBTTagCompound tagCompound = stack.getTagCompound();
 		if (tagCompound != null)
 		{
 			if (tagCompound.hasKey("lastDimension") && tagCompound.hasKey("lastWorldTime") && tagCompound.getInteger("lastDimension") == dimension)
 			{
-				extraTicks = par2World.getTotalWorldTime() - tagCompound.getLong("lastWorldTime");
+				extraTicks = world.getTotalWorldTime() - tagCompound.getLong("lastWorldTime");
 			}
 		}
-		par1ItemStack.setTagInfo("lastDimension", new NBTTagInt(dimension));
-		par1ItemStack.setTagInfo("lastWorldTime", new NBTTagLong(par2World.getTotalWorldTime()));
+		stack.setTagInfo("lastDimension", new NBTTagInt(dimension));
+		stack.setTagInfo("lastWorldTime", new NBTTagLong(world.getTotalWorldTime()));
 		return extraTicks;
 	}
 
 	@Override
-	public void onUpdate(ItemStack par1ItemStack, World par2World, Entity par3Entity, int par4, boolean par5)
+	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean held)
 	{
-		if (!(par3Entity instanceof EntityPlayer))
+		if (!(entity instanceof EntityPlayer))
 		{
 			return;
 		}
 
-		boolean frozen = isFrozen(par1ItemStack);
-		long ticks = !frozen || par2World.rand.nextInt(20) == 0 ? incrementTick(par1ItemStack) : getUpdateTicks(par1ItemStack);
-		long extraTicks = getExtraTicks(par1ItemStack, par2World, par3Entity.dimension);
+		boolean frozen = isFrozen(stack);
+		long ticks = !frozen || world.rand.nextInt(20) == 0 ? incrementTick(stack) : getUpdateTicks(stack);
+		long extraTicks = getExtraTicks(stack, world, entity.dimension);
 		if (frozen)
 			extraTicks /= 20L;
 		if (extraTicks > 0)
 		{
 			ticks += extraTicks;
-			setUpdateTicks(par1ItemStack, ticks);
+			setUpdateTicks(stack, ticks);
 		}
 		
-		if (ticks >= foodType.getTicksToSpoils())
+		if (ticks >= this.foodType.getMaxSpoiling())
 		{
-			EntityPlayer player = (EntityPlayer) par3Entity;
+			EntityPlayer player = (EntityPlayer) entity;
 			IInventory inventory = player.inventory;
-			inventory.setInventorySlotContents(par4, this.spoiledItem.copy());
+			inventory.setInventorySlotContents(slot, this.spoiledItem.copy());
 		}
 
-		if (this.isFrozen(par1ItemStack) && par4 >= 0)
+		if (isFrozen(stack) && slot >= 0)
 		{
-			this.setFrozen(par1ItemStack, false);
+			setFrozen(stack, false);
 		}
 	}
 
 	@Override
-	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean flag)
 	{
-		boolean frozen = isFrozen(par1ItemStack);
+		boolean frozen = isFrozen(stack);
 
-		if (getUpdateTicks(par1ItemStack) >= 0)
+		if (getUpdateTicks(stack) >= 0)
 		{
-			par3List.add(EnumChatFormatting.RED + "Spoils in: " + Integer.toString(((int)foodType.getTicksToSpoils()/20) - ((int)getUpdateTicks(par1ItemStack)/20)) + " Seconds");
+			int seconds = (int) ((this.foodType.getMaxSpoiling() - getUpdateTicks(stack)) / 20);
+			list.add(EnumChatFormatting.RED + "Spoils in: " + seconds + " Seconds");
 			if (frozen)
 			{
-				par3List.add(EnumChatFormatting.BLUE + "Frozen");
+				list.add(EnumChatFormatting.BLUE + "Frozen");
 			}
 			if (!frozen)
 			{
-				par3List.add(EnumChatFormatting.BLUE + "Not Frozen");
+				list.add(EnumChatFormatting.BLUE + "Not Frozen");
 			}
 		}
 	}
