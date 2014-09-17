@@ -1,15 +1,21 @@
 package minestrapteam.minestrappolation.item;
 
-import clashsoft.cslib.minecraft.lang.I18n;
+import java.util.List;
 
+import clashsoft.cslib.minecraft.lang.I18n;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagByte;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagInt;
+import net.minecraft.nbt.NBTTagLong;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
@@ -21,6 +27,7 @@ public class MItemFood extends ItemFood
 		
 		private int		maxSpoiling;
 		private boolean	isCooked;
+		private int	poisonDuration = 20 * 45;
 		
 		private FoodType(int maxSpoiling, boolean cooked)
 		{
@@ -47,12 +54,19 @@ public class MItemFood extends ItemFood
 		{
 			return this == COOKED_MEAT || this == COOKED_FISH || this == VEGETABLE || this == FRUIT;
 		}
+		
+		public void setPoisonDuration(int duration)
+		{
+			this.poisonDuration = duration;
+		}
 	}
 	
 	public FoodType	foodType;
 	
 	public IIcon	spoiledIcon;
 	public IIcon	friedIcon;
+	
+	//public boolean	spoiled = false;
 	
 	public MItemFood(FoodType type, int healAmount, float saturationModifier)
 	{
@@ -74,15 +88,6 @@ public class MItemFood extends ItemFood
 		return false;
 	}
 	
-	public static int getSpoilingLevel(ItemStack stack)
-	{
-		if (stack.stackTagCompound != null)
-		{
-			return stack.stackTagCompound.getInteger("Spoiling");
-		}
-		return 0;
-	}
-	
 	public static void setFried(ItemStack stack, boolean fried)
 	{
 		if (stack.stackTagCompound == null)
@@ -90,15 +95,6 @@ public class MItemFood extends ItemFood
 			stack.stackTagCompound = new NBTTagCompound();
 		}
 		stack.stackTagCompound.setBoolean("Fried", fried);
-	}
-	
-	public static void setSpoilingLevel(ItemStack stack, int spoiling)
-	{
-		if (stack.stackTagCompound == null)
-		{
-			stack.stackTagCompound = new NBTTagCompound();
-		}
-		stack.stackTagCompound.setInteger("Spoiling", spoiling);
 	}
 	
 	@Override
@@ -119,7 +115,7 @@ public class MItemFood extends ItemFood
 		{
 			return this.friedIcon;
 		}
-		if (getSpoilingLevel(stack) >= this.getMaxDamage(stack))
+		if (stack.getTagCompound() != null && stack.getTagCompound().getInteger("spoiled") == 1)
 		{
 			return this.spoiledIcon;
 		}
@@ -133,34 +129,6 @@ public class MItemFood extends ItemFood
 	}
 	
 	@Override
-	public boolean showDurabilityBar(ItemStack stack)
-	{
-		return true;
-	}
-	
-	@Override
-	public int getDisplayDamage(ItemStack stack)
-	{
-		return getSpoilingLevel(stack);
-	}
-	
-	@Override
-	public int getMaxDamage(ItemStack stack)
-	{
-		return this.foodType.getMaxSpoiling();
-	}
-	
-	@Override
-	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean held)
-	{
-		int spoiling = getSpoilingLevel(stack);
-		if (spoiling < this.getMaxDamage(stack))
-		{
-			setSpoilingLevel(stack, ++spoiling);
-		}
-	}
-	
-	@Override
 	protected void onFoodEaten(ItemStack stack, World world, EntityPlayer player)
 	{
 		super.onFoodEaten(stack, world, player);
@@ -170,20 +138,9 @@ public class MItemFood extends ItemFood
 			player.addPotionEffect(new PotionEffect(Potion.hunger.id, 15, 0));
 		}
 		
-		int spoiling = getSpoilingLevel(stack);
-		int maxSpoiling = this.getMaxDamage(stack);
-		int duration = spoiling - maxSpoiling;
-		
-		if (duration > 0)
+		if (stack.getTagCompound().getInteger("spoiled") == 1)
 		{
-			duration /= 2;
-			int amplifier = 0;
-			if (duration >= 60)
-			{
-				amplifier = duration / 60;
-				duration = 60;
-			}
-			player.addPotionEffect(new PotionEffect(Potion.poison.id, duration, amplifier));
+			player.addPotionEffect(new PotionEffect(Potion.poison.id, foodType.poisonDuration, 0));
 		}
 	}
 	
@@ -196,7 +153,7 @@ public class MItemFood extends ItemFood
 		{
 			builder.append(I18n.getString("item.food.fried")).append(' ');
 		}
-		if (getSpoilingLevel(stack) > this.getMaxDamage(stack))
+		if (stack.getTagCompound() != null && stack.getTagCompound().getInteger("spoiled") == 1)
 		{
 			builder.append(I18n.getString("item.food.spoiled")).append(' ');
 		}
@@ -204,4 +161,120 @@ public class MItemFood extends ItemFood
 		
 		return builder.toString();
 	}
+	
+	public static void setFrozen(ItemStack stack, boolean frozen)
+	{
+		boolean flag = isFrozen(stack);
+		if (flag != frozen)
+		{
+			setUpdateTicks(stack, 0L);
+		}
+		stack.setTagInfo("frozen", new NBTTagByte(frozen ? (byte) 1 : (byte) 0));
+	}
+
+	public static boolean isFrozen(ItemStack stack)
+	{
+		return stack.hasTagCompound() && stack.getTagCompound().getInteger("frozen") != 0;
+	}
+
+	@Override
+	public void onCreated(ItemStack stack, World world, EntityPlayer player)
+	{
+		stack.setTagInfo("updateTicks", new NBTTagLong(0L));
+		stack.setTagInfo("lastDimension", new NBTTagInt(player.dimension));
+		stack.setTagInfo("lastWorldTime", new NBTTagLong(world.getTotalWorldTime()));
+		//0 Not spoiled, 1 spoiled. I guess no boolean tag?
+		stack.setTagInfo("spoiled", new NBTTagInt(0));
+	}
+
+	public static long getUpdateTicks(ItemStack stack)
+	{
+		return stack.hasTagCompound() ? stack.getTagCompound().getLong("updateTicks") : 0L;
+	}
+
+	public static void setUpdateTicks(ItemStack stack, long ticks)
+	{
+		stack.setTagInfo("updateTicks", new NBTTagLong(ticks));
+	}
+
+	public static long incrementTick(ItemStack stack)
+	{
+		long ticks = getUpdateTicks(stack);
+		setUpdateTicks(stack, ++ticks);
+		return ticks;
+	}
+
+	public static long getExtraTicks(ItemStack stack, World world, int dimension)
+	{
+		long extraTicks = 0L;
+		NBTTagCompound tagCompound = stack.getTagCompound();
+		if (tagCompound != null)
+		{
+			if (tagCompound.hasKey("lastDimension") && tagCompound.hasKey("lastWorldTime") && tagCompound.getInteger("lastDimension") == dimension)
+			{
+				extraTicks = world.getTotalWorldTime() - tagCompound.getLong("lastWorldTime");
+			}
+		}
+		stack.setTagInfo("lastDimension", new NBTTagInt(dimension));
+		stack.setTagInfo("lastWorldTime", new NBTTagLong(world.getTotalWorldTime()));
+		return extraTicks;
+	}
+
+	@Override
+	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean held)
+	{
+		if (!(entity instanceof EntityPlayer))
+		{
+			return;
+		}
+
+		boolean frozen = isFrozen(stack);
+		long ticks = !frozen || world.rand.nextInt(20) == 0 ? incrementTick(stack) : getUpdateTicks(stack);
+		long extraTicks = getExtraTicks(stack, world, entity.dimension);
+		if (frozen)
+			extraTicks /= 20L;
+		if (extraTicks > 0 && stack.getTagCompound().getInteger("spoiled") == 0)
+		{
+			ticks += extraTicks;
+			setUpdateTicks(stack, ticks);
+		}
+		
+		if (ticks >= this.foodType.getMaxSpoiling())
+		{
+			stack.setTagInfo("spoiled", new NBTTagInt(1));
+		}
+
+		if (isFrozen(stack) && slot >= 0)
+		{
+			setFrozen(stack, false);
+		}
+	}
+
+	@Override
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean flag)
+	{
+		boolean frozen = isFrozen(stack);
+
+		if (getUpdateTicks(stack) >= 0 && stack.getTagCompound() != null)
+		{
+			int seconds = (int) ((this.foodType.getMaxSpoiling() - getUpdateTicks(stack)) / 20);
+			if(stack.getTagCompound().getInteger("spoiled") == 0)
+			{
+				list.add(EnumChatFormatting.RED + "Spoils in: " + seconds + " Seconds");
+			}
+			else if(stack.getTagCompound().getInteger("spoiled") == 1)
+			{
+				list.add(EnumChatFormatting.RED + "Spoiled.");
+			}
+			if (frozen)
+			{
+				list.add(EnumChatFormatting.BLUE + "Frozen");
+			}
+			else if (!frozen)
+			{
+				list.add(EnumChatFormatting.BLUE + "Not Frozen");
+			}
+		}			
+	}
+
 }
