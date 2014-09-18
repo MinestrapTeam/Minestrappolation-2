@@ -1177,9 +1177,31 @@ public class StonecuttingManager
 		this.addRecipe(new ItemStack(MBlocks.obsidianEndstoneStairs, 4, 0), null, new Object[] { "M  ", "MM ", "MMM", 'M', new ItemStack(MBlocks.checkerTiles, 1, 2) });
 		this.addRecipe(new ItemStack(MBlocks.obsidianQuartzStairs, 4, 0), null, new Object[] { "M  ", "MM ", "MMM", 'M', new ItemStack(MBlocks.checkerTiles, 1, 3) });
 		
-		// Edge Stone Brick
+		// Edge Bricks
 		this.addRecipe(new ItemStack(MBlocks.edgeBricks, 1, 0), null, new Object[] { "SQ", "SQ", 'S', MItems.brickStone, 'Q', MItems.brickNetherQuartz });
-		this.addRecipe(new ItemStack(MBlocks.edgeBricks, 1, 1), null, new Object[] { "SQ", "SQ", 'S', MItems.brickStone, 'Q', MItems.brickFlint });
+		this.addRecipe(new ItemStack(MBlocks.edgeBricks, 1, 1), null, new Object[] { "SQ", "SQ", 'S', MItems.brickDeepstone, 'Q', MItems.brickNetherQuartz });
+		this.addRecipe(new ItemStack(MBlocks.edgeBricks, 1, 2), null, new Object[] { "SQ", "SQ", 'S', MItems.brickRedrock, 'Q', MItems.brickNetherQuartz });
+		this.addRecipe(new ItemStack(MBlocks.edgeBricks, 1, 3), null, new Object[] { "SQ", "SQ", 'S', MItems.brickDeepRedrock, 'Q', MItems.brickNetherQuartz });
+		this.addRecipe(new ItemStack(MBlocks.edgeBricks, 1, 4), null, new Object[] { "SQ", "SQ", 'S', MItems.brickColdstone, 'Q', MItems.brickNetherQuartz });
+		this.addRecipe(new ItemStack(MBlocks.edgeBricks, 1, 5), null, new Object[] { "SQ", "SQ", 'S', MItems.brickDeepColdstone, 'Q', MItems.brickNetherQuartz });
+		this.addRecipe(new ItemStack(MBlocks.edgeBricks, 1, 6), null, new Object[] { "SQ", "SQ", 'S', MItems.brickIcestone, 'Q', MItems.brickNetherQuartz });
+		this.addRecipe(new ItemStack(MBlocks.edgeBricks, 1, 7), null, new Object[] { "SQ", "SQ", 'S', MItems.brickGlacierrock, 'Q', MItems.brickNetherQuartz });
+		this.addRecipe(new ItemStack(MBlocks.edgeBricks, 1, 8), null, new Object[] { "SQ", "SQ", 'S', MItems.brickOceanstone, 'Q', MItems.brickNetherQuartz });
+		this.addRecipe(new ItemStack(MBlocks.edgeBricks, 1, 9), null, new Object[] { "SQ", "SQ", 'S', MItems.brickPressurizedOceanstone, 'Q', MItems.brickNetherQuartz });
+		this.addRecipe(new ItemStack(MBlocks.edgeBricks, 1, 10), null, new Object[] { "SQ", "SQ", 'S', MItems.brickSlate, 'Q', MItems.brickNetherQuartz });
+		
+		// Dark Edge Bricks
+		this.addRecipe(new ItemStack(MBlocks.darkEdgeBricks, 1, 0), null, new Object[] { "SQ", "SQ", 'S', MItems.brickStone, 'Q', MItems.brickFlint });
+		this.addRecipe(new ItemStack(MBlocks.darkEdgeBricks, 1, 1), null, new Object[] { "SQ", "SQ", 'S', MItems.brickDeepstone, 'Q', MItems.brickFlint });
+		this.addRecipe(new ItemStack(MBlocks.darkEdgeBricks, 1, 2), null, new Object[] { "SQ", "SQ", 'S', MItems.brickRedrock, 'Q', MItems.brickFlint });
+		this.addRecipe(new ItemStack(MBlocks.darkEdgeBricks, 1, 3), null, new Object[] { "SQ", "SQ", 'S', MItems.brickDeepRedrock, 'Q', MItems.brickFlint });
+		this.addRecipe(new ItemStack(MBlocks.darkEdgeBricks, 1, 4), null, new Object[] { "SQ", "SQ", 'S', MItems.brickColdstone, 'Q', MItems.brickFlint });
+		this.addRecipe(new ItemStack(MBlocks.darkEdgeBricks, 1, 5), null, new Object[] { "SQ", "SQ", 'S', MItems.brickDeepColdstone, 'Q', MItems.brickFlint });
+		this.addRecipe(new ItemStack(MBlocks.darkEdgeBricks, 1, 6), null, new Object[] { "SQ", "SQ", 'S', MItems.brickIcestone, 'Q', MItems.brickFlint });
+		this.addRecipe(new ItemStack(MBlocks.darkEdgeBricks, 1, 7), null, new Object[] { "SQ", "SQ", 'S', MItems.brickGlacierrock, 'Q', MItems.brickFlint });
+		this.addRecipe(new ItemStack(MBlocks.darkEdgeBricks, 1, 8), null, new Object[] { "SQ", "SQ", 'S', MItems.brickOceanstone, 'Q', MItems.brickFlint });
+		this.addRecipe(new ItemStack(MBlocks.darkEdgeBricks, 1, 9), null, new Object[] { "SQ", "SQ", 'S', MItems.brickPressurizedOceanstone, 'Q', MItems.brickFlint });
+		this.addRecipe(new ItemStack(MBlocks.darkEdgeBricks, 1, 10), null, new Object[] { "SQ", "SQ", 'S', MItems.brickSlate, 'Q', MItems.brickFlint });
 		
 		// Misc Roads
 		this.addRecipe(new ItemStack(MBlocks.roads, 6, 0), null, new Object[] { "CCC", "CCC", "DDD", 'C', MItems.stoneChunk, 'D', Blocks.dirt });
