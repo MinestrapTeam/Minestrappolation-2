@@ -20,9 +20,12 @@ import net.minecraft.world.World;
 
 public class MItemFood extends ItemFood
 {
+	private static int HOURS = 1000;
+	private static int DAYS = 24000;
+	
 	public static enum FoodType
 	{
-		BAKED(600, false), RAW_MEAT(1000, false), COOKED_MEAT(2000, true), RAW_FISH(400, false), COOKED_FISH(800, true), VEGETABLE(1200, false), COOKED_VEGETABLE(1600, false), FRUIT(1000, false), MISC(600, false);
+		BAKED(3 * DAYS, false), RAW_MEAT(1 * DAYS, false), COOKED_MEAT(3 * DAYS, true), RAW_FISH(18 * HOURS, false), COOKED_FISH(2 * DAYS, true), VEGETABLE(4 * DAYS, false), COOKED_VEGETABLE(5 * DAYS, false), FRUIT(4 * DAYS, false), MISC(0, false);
 		
 		private int		maxSpoiling;
 		private boolean	isCooked;
@@ -42,6 +45,11 @@ public class MItemFood extends ItemFood
 		public int getMaxSpoiling()
 		{
 			return this.maxSpoiling;
+		}
+		
+		public boolean isSpoilable()
+		{
+			return this != MISC;
 		}
 		
 		public boolean isWolfMeat()
@@ -116,7 +124,11 @@ public class MItemFood extends ItemFood
 	
 	public boolean isSpoiled(ItemStack stack, World world)
 	{
-		return getSpoilTime(stack, world) >= this.foodType.maxSpoiling;
+		if (this.foodType.isSpoilable())
+		{
+			return getSpoilTime(stack, world) >= this.foodType.maxSpoiling;
+		}
+		return false;
 	}
 	
 	public static long getSpoilTime(ItemStack stack, World world)
@@ -141,17 +153,20 @@ public class MItemFood extends ItemFood
 	
 	@Override
 	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean flag)
-	{		
-		if (stack.stackTagCompound == null)
+	{
+		if (this.foodType.isSpoilable())
 		{
-			stack.stackTagCompound = new NBTTagCompound();
+			if (stack.stackTagCompound == null)
+			{
+				stack.stackTagCompound = new NBTTagCompound();
+			}
+			else if (stack.stackTagCompound.hasKey("SpoilTime"))
+			{
+				return;
+			}
+			
+			stack.stackTagCompound.setLong("SpoilTime", world.getTotalWorldTime());
 		}
-		else if (stack.stackTagCompound.hasKey("SpoilTime"))
-		{
-			return;
-		}
-		
-		stack.stackTagCompound.setLong("SpoilTime", world.getTotalWorldTime());
 	}
 	
 	// ICONS
@@ -160,7 +175,10 @@ public class MItemFood extends ItemFood
 	public void registerIcons(IIconRegister iconRegister)
 	{
 		this.itemIcon = iconRegister.registerIcon(this.iconString);
-		this.spoiledIcon = iconRegister.registerIcon(this.iconString + "_spoiled");
+		if (this.foodType.isSpoilable())
+		{
+			this.spoiledIcon = iconRegister.registerIcon(this.iconString + "_spoiled");
+		}
 		if (this.foodType.isFriable())
 		{
 			this.friedIcon = iconRegister.registerIcon(this.iconString + "_fried");
@@ -226,14 +244,17 @@ public class MItemFood extends ItemFood
 	{
 		boolean frozen = isFrozen(stack);
 		
-		int ticks = (int) (this.foodType.maxSpoiling - getSpoilTime(stack, player.worldObj));
-		if (ticks > 0)
+		if (this.foodType.isSpoilable())
 		{
-			list.add(EnumChatFormatting.GREEN + "Spoils in: " + StringUtils.ticksToElapsedTime(ticks));
-		}
-		else
-		{
-			list.add(EnumChatFormatting.DARK_GREEN + "Spoiled");
+			int ticks = (int) (this.foodType.maxSpoiling - getSpoilTime(stack, player.worldObj));
+			if (ticks > 0)
+			{
+				list.add(EnumChatFormatting.GREEN + "Spoils in: " + StringUtils.ticksToElapsedTime(ticks));
+			}
+			else
+			{
+				list.add(EnumChatFormatting.DARK_GREEN + "Spoiled");
+			}
 		}
 		
 		if (frozen)
