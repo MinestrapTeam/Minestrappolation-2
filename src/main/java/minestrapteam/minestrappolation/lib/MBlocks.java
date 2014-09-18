@@ -398,17 +398,17 @@ public class MBlocks
 		
 		// EO Blocks
 		
-		copperOre = new MBlock(Material.rock).setHardness(3F).setResistance(5F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MAssetManager.getMineralTexture("copper_ore"));
-		tinOre = new MBlock(Material.rock).setHardness(3F).setResistance(4F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MAssetManager.getMineralTexture("tin_ore"));
-		titaniumOre = new MBlock(Material.rock).setHardness(6F).setResistance(6000000.0F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MAssetManager.getMineralTexture("titanium_ore"));
+		copperOre = new MBlockOre().setHardness(3F).setResistance(5F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MAssetManager.getMineralTexture("copper_ore"));
+		tinOre = new MBlockOre().setHardness(3F).setResistance(4F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MAssetManager.getMineralTexture("tin_ore"));
+		titaniumOre = new MBlockOre().setHardness(6F).setResistance(6000000.0F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MAssetManager.getMineralTexture("titanium_ore"));
 		uraniumOre = new BlockUraniumOre(Material.rock).setHardness(3F).setResistance(5F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MAssetManager.getMineralTexture("uranium_ore"));
 		plutoniumOre = new BlockPlutoniumOre(Material.rock).setHardness(3F).setResistance(5F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MAssetManager.getMineralTexture("plutonium_ore"));
-		meuroditeOre = new MBlock(Material.rock).setHardness(3F).setResistance(5F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MAssetManager.getMineralTexture("meurodite_ore"));
+		meuroditeOre = new MBlockOre().setHardness(3F).setResistance(5F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MAssetManager.getMineralTexture("meurodite_ore"));
 		sunstoneOre = new BlockSunstoneOre().setHardness(3F).setResistance(5F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MAssetManager.getMineralTexture("sunstone_ore"));
-		toriteOre = new MBlock(Material.rock).setHardness(3F).setResistance(5F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MAssetManager.getMineralTexture("torite_ore"));
+		toriteOre = new MBlockOre().setHardness(3F).setResistance(5F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MAssetManager.getMineralTexture("torite_ore"));
 		blaziumOre = new BlockBlaziumOre().setHardness(3F).setResistance(5F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MAssetManager.getMineralTexture("blazium_ore"));
 		soulOre = new BlockSoulOre().setHardness(0.8F).setResistance(1F).setStepSound(Block.soundTypeSand).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MAssetManager.getMineralTexture("soul_gem_ore"));
-		radiantQuartzOre = new MBlock(Material.rock).setHardness(3F).setResistance(6F).setLightLevel(0.3F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MAssetManager.getMineralTexture("radiant_quartz_ore"));
+		radiantQuartzOre = new MBlockOre().setHardness(3F).setResistance(6F).setLightLevel(0.3F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MAssetManager.getMineralTexture("radiant_quartz_ore"));
 		
 		copperBlock = new BlockCopper(Material.iron).setHardness(5F).setResistance(10F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockName("blockCopper");
 		tinBlock = new BlockTin(Material.iron).setHardness(3F).setResistance(2F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockTextureName(MAssetManager.getMineralTexture("tin_block"));

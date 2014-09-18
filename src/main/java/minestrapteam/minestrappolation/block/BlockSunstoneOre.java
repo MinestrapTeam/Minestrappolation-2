@@ -2,18 +2,18 @@ package minestrapteam.minestrappolation.block;
 
 import java.util.Random;
 
+import clashsoft.cslib.minecraft.block.ore.BlockOre2;
+import clashsoft.cslib.minecraft.block.ore.OreBase;
 import minestrapteam.minestrappolation.lib.MItems;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.world.IBlockAccess;
 
-public class BlockSunstoneOre extends Block
+public class BlockSunstoneOre extends BlockOre2
 {
 	public BlockSunstoneOre()
 	{
-		super(Material.rock);
+		super(OreBase.TYPE_OVERWORLD);
 		this.setLightLevel(1F);
 	}
 	
