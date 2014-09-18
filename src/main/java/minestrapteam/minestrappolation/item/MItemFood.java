@@ -3,20 +3,19 @@ package minestrapteam.minestrappolation.item;
 import java.util.List;
 
 import clashsoft.cslib.minecraft.lang.I18n;
+
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagByte;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagInt;
-import net.minecraft.nbt.NBTTagLong;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
+import net.minecraft.util.StringUtils;
 import net.minecraft.world.World;
 
 public class MItemFood extends ItemFood
@@ -27,7 +26,7 @@ public class MItemFood extends ItemFood
 		
 		private int		maxSpoiling;
 		private boolean	isCooked;
-		private int	poisonDuration = 20 * 45;
+		private int		poisonDuration	= 20 * 45;
 		
 		private FoodType(int maxSpoiling, boolean cooked)
 		{
@@ -66,8 +65,6 @@ public class MItemFood extends ItemFood
 	public IIcon	spoiledIcon;
 	public IIcon	friedIcon;
 	
-	//public boolean	spoiled = false;
-	
 	public MItemFood(FoodType type, int healAmount, float saturationModifier)
 	{
 		super(healAmount, saturationModifier, type.isWolfMeat());
@@ -78,6 +75,8 @@ public class MItemFood extends ItemFood
 	{
 		return this.foodType;
 	}
+	
+	// NBT ACCESS
 	
 	public static boolean isFried(ItemStack stack)
 	{
@@ -97,6 +96,66 @@ public class MItemFood extends ItemFood
 		stack.stackTagCompound.setBoolean("Fried", fried);
 	}
 	
+	public static boolean isFrozen(ItemStack stack)
+	{
+		if (stack.stackTagCompound != null)
+		{
+			return stack.stackTagCompound.getBoolean("Frozen");
+		}
+		return false;
+	}
+	
+	public static void setFrozen(ItemStack stack, boolean frozen)
+	{
+		if (stack.stackTagCompound == null)
+		{
+			stack.stackTagCompound = new NBTTagCompound();
+		}
+		stack.stackTagCompound.setBoolean("Frozen", frozen);
+	}
+	
+	public boolean isSpoiled(ItemStack stack, World world)
+	{
+		return getSpoilTime(stack, world) >= this.foodType.maxSpoiling;
+	}
+	
+	public static long getSpoilTime(ItemStack stack, World world)
+	{
+		if (stack.stackTagCompound != null)
+		{
+			long l = stack.stackTagCompound.getLong("SpoilTime");
+			if (l != 0)
+			{
+				l = world.getTotalWorldTime() - l;
+				
+				if (isFrozen(stack))
+				{
+					l /= 20L;
+				}
+				
+				return l;
+			}
+		}
+		return 0L;
+	}
+	
+	@Override
+	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean flag)
+	{		
+		if (stack.stackTagCompound == null)
+		{
+			stack.stackTagCompound = new NBTTagCompound();
+		}
+		else if (stack.stackTagCompound.hasKey("SpoilTime"))
+		{
+			return;
+		}
+		
+		stack.stackTagCompound.setLong("SpoilTime", world.getTotalWorldTime());
+	}
+	
+	// ICONS
+	
 	@Override
 	public void registerIcons(IIconRegister iconRegister)
 	{
@@ -115,7 +174,7 @@ public class MItemFood extends ItemFood
 		{
 			return this.friedIcon;
 		}
-		if (stack.getTagCompound() != null && stack.getTagCompound().getInteger("spoiled") == 1)
+		if (this.isSpoiled(stack, Minecraft.getMinecraft().theWorld))
 		{
 			return this.spoiledIcon;
 		}
@@ -128,6 +187,8 @@ public class MItemFood extends ItemFood
 		return this.getIconIndex(stack);
 	}
 	
+	// FOOD
+	
 	@Override
 	protected void onFoodEaten(ItemStack stack, World world, EntityPlayer player)
 	{
@@ -138,11 +199,13 @@ public class MItemFood extends ItemFood
 			player.addPotionEffect(new PotionEffect(Potion.hunger.id, 15, 0));
 		}
 		
-		if (stack.getTagCompound().getInteger("spoiled") == 1)
+		if (this.isSpoiled(stack, world))
 		{
-			player.addPotionEffect(new PotionEffect(Potion.poison.id, foodType.poisonDuration, 0));
+			player.addPotionEffect(new PotionEffect(Potion.poison.id, this.foodType.poisonDuration, 0));
 		}
 	}
+	
+	// TOOLTIP
 	
 	@Override
 	public String getItemStackDisplayName(ItemStack stack)
@@ -153,128 +216,29 @@ public class MItemFood extends ItemFood
 		{
 			builder.append(I18n.getString("item.food.fried")).append(' ');
 		}
-		if (stack.getTagCompound() != null && stack.getTagCompound().getInteger("spoiled") == 1)
-		{
-			builder.append(I18n.getString("item.food.spoiled")).append(' ');
-		}
 		builder.append(I18n.getString(this.getUnlocalizedName(stack) + ".name"));
 		
 		return builder.toString();
 	}
 	
-	public static void setFrozen(ItemStack stack, boolean frozen)
-	{
-		boolean flag = isFrozen(stack);
-		if (flag != frozen)
-		{
-			setUpdateTicks(stack, 0L);
-		}
-		stack.setTagInfo("frozen", new NBTTagByte(frozen ? (byte) 1 : (byte) 0));
-	}
-
-	public static boolean isFrozen(ItemStack stack)
-	{
-		return stack.hasTagCompound() && stack.getTagCompound().getInteger("frozen") != 0;
-	}
-
-	@Override
-	public void onCreated(ItemStack stack, World world, EntityPlayer player)
-	{
-		stack.setTagInfo("updateTicks", new NBTTagLong(0L));
-		stack.setTagInfo("lastDimension", new NBTTagInt(player.dimension));
-		stack.setTagInfo("lastWorldTime", new NBTTagLong(world.getTotalWorldTime()));
-		//0 Not spoiled, 1 spoiled. I guess no boolean tag?
-		stack.setTagInfo("spoiled", new NBTTagInt(0));
-	}
-
-	public static long getUpdateTicks(ItemStack stack)
-	{
-		return stack.hasTagCompound() ? stack.getTagCompound().getLong("updateTicks") : 0L;
-	}
-
-	public static void setUpdateTicks(ItemStack stack, long ticks)
-	{
-		stack.setTagInfo("updateTicks", new NBTTagLong(ticks));
-	}
-
-	public static long incrementTick(ItemStack stack)
-	{
-		long ticks = getUpdateTicks(stack);
-		setUpdateTicks(stack, ++ticks);
-		return ticks;
-	}
-
-	public static long getExtraTicks(ItemStack stack, World world, int dimension)
-	{
-		long extraTicks = 0L;
-		NBTTagCompound tagCompound = stack.getTagCompound();
-		if (tagCompound != null)
-		{
-			if (tagCompound.hasKey("lastDimension") && tagCompound.hasKey("lastWorldTime") && tagCompound.getInteger("lastDimension") == dimension)
-			{
-				extraTicks = world.getTotalWorldTime() - tagCompound.getLong("lastWorldTime");
-			}
-		}
-		stack.setTagInfo("lastDimension", new NBTTagInt(dimension));
-		stack.setTagInfo("lastWorldTime", new NBTTagLong(world.getTotalWorldTime()));
-		return extraTicks;
-	}
-
-	@Override
-	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean held)
-	{
-		if (!(entity instanceof EntityPlayer))
-		{
-			return;
-		}
-
-		boolean frozen = isFrozen(stack);
-		long ticks = !frozen || world.rand.nextInt(20) == 0 ? incrementTick(stack) : getUpdateTicks(stack);
-		long extraTicks = getExtraTicks(stack, world, entity.dimension);
-		if (frozen)
-			extraTicks /= 20L;
-		if (extraTicks > 0 && stack.getTagCompound().getInteger("spoiled") == 0)
-		{
-			ticks += extraTicks;
-			setUpdateTicks(stack, ticks);
-		}
-		
-		if (ticks >= this.foodType.getMaxSpoiling())
-		{
-			stack.setTagInfo("spoiled", new NBTTagInt(1));
-		}
-
-		if (isFrozen(stack) && slot >= 0)
-		{
-			setFrozen(stack, false);
-		}
-	}
-
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean flag)
 	{
 		boolean frozen = isFrozen(stack);
-
-		if (getUpdateTicks(stack) >= 0 && stack.getTagCompound() != null)
+		
+		int ticks = (int) (this.foodType.maxSpoiling - getSpoilTime(stack, player.worldObj));
+		if (ticks > 0)
 		{
-			int seconds = (int) ((this.foodType.getMaxSpoiling() - getUpdateTicks(stack)) / 20);
-			if(stack.getTagCompound().getInteger("spoiled") == 0)
-			{
-				list.add(EnumChatFormatting.RED + "Spoils in: " + seconds + " Seconds");
-			}
-			else if(stack.getTagCompound().getInteger("spoiled") == 1)
-			{
-				list.add(EnumChatFormatting.RED + "Spoiled.");
-			}
-			if (frozen)
-			{
-				list.add(EnumChatFormatting.BLUE + "Frozen");
-			}
-			else if (!frozen)
-			{
-				list.add(EnumChatFormatting.BLUE + "Not Frozen");
-			}
-		}			
+			list.add(EnumChatFormatting.GREEN + "Spoils in: " + StringUtils.ticksToElapsedTime(ticks));
+		}
+		else
+		{
+			list.add(EnumChatFormatting.DARK_GREEN + "Spoiled");
+		}
+		
+		if (frozen)
+		{
+			list.add(EnumChatFormatting.BLUE + "Frozen");
+		}
 	}
-
 }
