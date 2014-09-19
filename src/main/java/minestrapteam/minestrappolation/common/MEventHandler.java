@@ -103,7 +103,7 @@ public class MEventHandler
 	@SubscribeEvent
 	public void onMobDrops(LivingDropsEvent event)
 	{
-		String damageType = event.source.getDamageType();	
+		String damageType = event.source.getDamageType();
 		if ("player".equals(damageType))
 		{
 			MDrops.onMobDrops(event);
@@ -133,7 +133,9 @@ public class MEventHandler
 			for (int l = 0; l < 16; ++l)
 			{
 				BiomeGenBase biome = event.biomeArray[l + k * 16];
-				// MOreGenerator.genBiomeStone(biome, event.world, random, event.blockArray, event.metaArray, event.chunkX * 16 + k, event.chunkZ * 16 + l);
+				// MOreGenerator.genBiomeStone(biome, event.world, random,
+				// event.blockArray, event.metaArray, event.chunkX * 16 + k,
+				// event.chunkZ * 16 + l);
 			}
 		}
 	}

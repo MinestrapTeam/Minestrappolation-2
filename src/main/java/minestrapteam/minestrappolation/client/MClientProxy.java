@@ -35,7 +35,7 @@ public class MClientProxy extends MCommonProxy
 		lockedRenderID = RenderingRegistry.getNextAvailableRenderId();
 		
 		RenderingRegistry.registerBlockHandler(custom2RenderID, new RenderBlockCustom2());
-		RenderingRegistry.registerBlockHandler(platingRenderID, new RenderBlockPlating());		
+		RenderingRegistry.registerBlockHandler(platingRenderID, new RenderBlockPlating());
 		RenderingRegistry.registerBlockHandler(lockedRenderID, new RenderBlockLocked());
 	}
 	

@@ -178,7 +178,7 @@ public class BlockMelter extends MBlockMachine
 	{
 		return this.isActive;
 	}
-
+	
 	@Override
 	public void openGUI(EntityPlayer player, World world, int x, int y, int z)
 	{

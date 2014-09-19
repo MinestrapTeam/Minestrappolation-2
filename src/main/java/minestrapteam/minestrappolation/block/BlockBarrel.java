@@ -59,50 +59,50 @@ public class BlockBarrel extends BlockFalling implements ITileEntityProvider
 	
 	@Override
 	public void breakBlock(World world, int x, int y, int z, Block block, int metadata)
-    {
-        TileEntity te = world.getTileEntity(x, y, z);
-
-        if (te instanceof IInventory)
-        {
-        	IInventory inventory = (IInventory) te;
-            for (int i1 = 0; i1 < inventory.getSizeInventory(); ++i1)
-            {
-                ItemStack itemstack = inventory.getStackInSlot(i1);
-
-                if (itemstack != null)
-                {
-                    float f = world.rand.nextFloat() * 0.8F + 0.1F;
-                    float f1 = world.rand.nextFloat() * 0.8F + 0.1F;
-                    EntityItem entityitem;
-
-                    for (float f2 = world.rand.nextFloat() * 0.8F + 0.1F; itemstack.stackSize > 0; world.spawnEntityInWorld(entityitem))
-                    {
-                        int j1 = world.rand.nextInt(21) + 10;
-
-                        if (j1 > itemstack.stackSize)
-                        {
-                            j1 = itemstack.stackSize;
-                        }
-
-                        itemstack.stackSize -= j1;
-                        entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));
-                        entityitem.motionX = world.rand.nextGaussian() * 0.05F;
-                        entityitem.motionY = world.rand.nextGaussian() * 0.05F + 0.2F;
-                        entityitem.motionZ = world.rand.nextGaussian() * 0.05F;
-
-                        if (itemstack.hasTagCompound())
-                        {
-                            entityitem.getEntityItem().setTagCompound((NBTTagCompound)itemstack.getTagCompound().copy());
-                        }
-                    }
-                }
-            }
-
-            world.func_147453_f(x, y, z, block);
-        }
-
-        super.breakBlock(world, x, y, z, block, metadata);
-    }
+	{
+		TileEntity te = world.getTileEntity(x, y, z);
+		
+		if (te instanceof IInventory)
+		{
+			IInventory inventory = (IInventory) te;
+			for (int i1 = 0; i1 < inventory.getSizeInventory(); ++i1)
+			{
+				ItemStack itemstack = inventory.getStackInSlot(i1);
+				
+				if (itemstack != null)
+				{
+					float f = world.rand.nextFloat() * 0.8F + 0.1F;
+					float f1 = world.rand.nextFloat() * 0.8F + 0.1F;
+					EntityItem entityitem;
+					
+					for (float f2 = world.rand.nextFloat() * 0.8F + 0.1F; itemstack.stackSize > 0; world.spawnEntityInWorld(entityitem))
+					{
+						int j1 = world.rand.nextInt(21) + 10;
+						
+						if (j1 > itemstack.stackSize)
+						{
+							j1 = itemstack.stackSize;
+						}
+						
+						itemstack.stackSize -= j1;
+						entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));
+						entityitem.motionX = world.rand.nextGaussian() * 0.05F;
+						entityitem.motionY = world.rand.nextGaussian() * 0.05F + 0.2F;
+						entityitem.motionZ = world.rand.nextGaussian() * 0.05F;
+						
+						if (itemstack.hasTagCompound())
+						{
+							entityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());
+						}
+					}
+				}
+			}
+			
+			world.func_147453_f(x, y, z, block);
+		}
+		
+		super.breakBlock(world, x, y, z, block, metadata);
+	}
 	
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ)

@@ -21,10 +21,9 @@ public class BlockWorkbench2 extends BlockContainer
 	public BlockWorkbench2()
 	{
 		super(Material.wood);
-        this.setCreativeTab(CreativeTabs.tabDecorations);
+		this.setCreativeTab(CreativeTabs.tabDecorations);
 		this.setBlockTextureName(MAssetManager.getMachineTexture("crafting_table"));
 	}
-	
 	
 	@Override
 	public IIcon getIcon(int side, int metadata)
@@ -44,7 +43,6 @@ public class BlockWorkbench2 extends BlockContainer
 		return this.blockIcon;
 	}
 	
-
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
@@ -66,20 +64,20 @@ public class BlockWorkbench2 extends BlockContainer
 		return false;
 	}
 	
-    @Override
+	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ)
-    {
-        if (world.isRemote)
-        {
-            return true;
-        }
-        else
-        {
-            player.displayGUIWorkbench(x, y, z);
-            return true;
-        }
-    }
-
+	{
+		if (world.isRemote)
+		{
+			return true;
+		}
+		else
+		{
+			player.displayGUIWorkbench(x, y, z);
+			return true;
+		}
+	}
+	
 	@Override
 	public TileEntity createNewTileEntity(World world, int metadata)
 	{

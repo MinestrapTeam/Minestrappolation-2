@@ -31,7 +31,7 @@ public class ItemPlating extends ItemReed implements IPlating
 	@Override
 	public boolean canApply(ItemStack platable)
 	{
-		return platable.getItem() instanceof IPlatable && !isApplied(platable);
+		return platable.getItem() instanceof IPlatable && !this.isApplied(platable);
 	}
 	
 	@Override
@@ -90,6 +90,6 @@ public class ItemPlating extends ItemReed implements IPlating
 	@Override
 	public int getCount(ItemStack platable)
 	{
-		return ((IPlatable)platable.getItem()).getPlatingCount(platable);
+		return ((IPlatable) platable.getItem()).getPlatingCount(platable);
 	}
 }

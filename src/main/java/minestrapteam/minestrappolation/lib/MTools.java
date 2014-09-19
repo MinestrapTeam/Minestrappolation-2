@@ -35,7 +35,7 @@ public class MTools
 	public static ToolMaterial	toolBedrock		= EnumHelper.addToolMaterial("Bedrock", 5, 6247, 7F, 2, 5);
 	public static ToolMaterial	toolGranite		= EnumHelper.addToolMaterial("Granite", 1, 199, 4.3F, 2, 4);
 	public static ToolMaterial	toolSoulsteel	= EnumHelper.addToolMaterial("Soul-Steel", 2, 300, 7.5F, 3, 26);
-	public static ToolMaterial  toolUnholy		= EnumHelper.addToolMaterial("Unholy", 3, 1100, 8.0F, 4.0F, 13);
+	public static ToolMaterial	toolUnholy		= EnumHelper.addToolMaterial("Unholy", 3, 1100, 8.0F, 4.0F, 13);
 	
 	public static Item			meuroditeSword;
 	public static Item			meuroditeShovel;
@@ -266,7 +266,7 @@ public class MTools
 		unholyPickaxe = new MItemPickaxe(toolUnholy).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("unholy_pickaxe"));
 		unholyAxe = new MItemAxe(toolUnholy).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("unholy_axe"));
 		unholyHoe = new MItemHoe(toolUnholy).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("unholy_hoe"));
-	
+		
 	}
 	
 	public static void load()
@@ -388,6 +388,6 @@ public class MTools
 		toolBedrock.customCraftingMaterial = Item.getItemFromBlock(Blocks.bedrock);
 		toolGranite.customCraftingMaterial = Item.getItemFromBlock(MBlocks.graniteSlate);
 		toolSoulsteel.customCraftingMaterial = soulGem;
-		//TODO Unholy tool material
+		// TODO Unholy tool material
 	}
 }

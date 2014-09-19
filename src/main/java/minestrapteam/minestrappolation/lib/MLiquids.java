@@ -7,8 +7,8 @@ import net.minecraftforge.fluids.FluidRegistry;
 
 public class MLiquids
 {
-	public static Fluid					magmaFluid;
-
+	public static Fluid	magmaFluid;
+	
 	public static void init()
 	{
 		magmaFluid = new Fluid("Magma").setLuminosity(10).setViscosity(6500).setDensity(4000).setTemperature(1500);

@@ -49,7 +49,7 @@ public class BlockUraniumRaw extends BlockRadiation
 			living.addPotionEffect(new PotionEffect(Potion.poison.getId(), 180, 1, false));
 		}
 	}
-
+	
 	@Override
 	public float getRange()
 	{

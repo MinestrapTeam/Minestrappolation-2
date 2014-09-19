@@ -25,7 +25,7 @@ public class SawingManager
 	public static final SawingManager	instance	= new SawingManager();
 	
 	/** A list of all the recipes added */
-	private List<IRecipe>			recipes		= new ArrayList();
+	private List<IRecipe>				recipes		= new ArrayList();
 	private boolean						listSorted;
 	
 	private SawingManager()
@@ -43,12 +43,12 @@ public class SawingManager
 		this.addRecipe(new ItemStack(Items.wooden_door, 1), new Object[] { "##", "##", "##", '#', "plankWood" });
 		this.addRecipe(new ItemStack(Blocks.trapdoor, 2), new Object[] { "###", "###", '#', "plankWood" });
 		this.addRecipe(new ItemStack(Items.sign, 3), new Object[] { "###", "###", " X ", '#', "plankWood", 'X', "stickWood" });
-		this.addRecipe(new ItemStack(Items.item_frame, 1), new Object[] { "###", "#X#", "###", '#', "stickWood", 'X', Items.leather});
-		this.addRecipe(new ItemStack(Items.painting, 1), new Object[] { "###", "#X#", "###", '#', "stickWood", 'X', Blocks.wool});
+		this.addRecipe(new ItemStack(Items.item_frame, 1), new Object[] { "###", "#X#", "###", '#', "stickWood", 'X', Items.leather });
+		this.addRecipe(new ItemStack(Items.painting, 1), new Object[] { "###", "#X#", "###", '#', "stickWood", 'X', Blocks.wool });
 		this.addRecipe(new ItemStack(Items.bed, 1), new Object[] { "###", "XXX", '#', Blocks.wool, 'X', "plankWood" });
 		this.addRecipe(new ItemStack(Items.bowl, 4), new Object[] { "# #", " # ", '#', "plankWood" });
-		this.addRecipe(new ItemStack(Blocks.wooden_button, 1), new Object[] { "#", '#', "plankWood"});
-		this.addRecipe(new ItemStack(Blocks.wooden_pressure_plate, 1), new Object[] { "##", '#', "plankWood"});
+		this.addRecipe(new ItemStack(Blocks.wooden_button, 1), new Object[] { "#", '#', "plankWood" });
+		this.addRecipe(new ItemStack(Blocks.wooden_pressure_plate, 1), new Object[] { "##", '#', "plankWood" });
 		this.addRecipe(new ItemStack(MBlocks.crate, 1), new Object[] { "###", "XXX", "###", '#', "plankWood", 'X', "stickWood" });
 		this.addRecipe(new ItemStack(MBlocks.barrel, 1), new Object[] { "#X#", "# #", "#X#", '#', "plankWood", 'X', "ingotTin" });
 		
@@ -114,34 +114,34 @@ public class SawingManager
 		this.addRecipe(new ItemStack(MBlocks.acacia, 8, 5), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.acacia, 1, 2), 'V', MItems.mossLump });
 		this.addRecipe(new ItemStack(MBlocks.darkOak, 8, 5), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.darkOak, 1, 2), 'V', MItems.mossLump });
 		this.addRecipe(new ItemStack(MBlocks.redwood, 8, 6), new Object[] { "PPP", "PVP", "PPP", 'P', new ItemStack(MBlocks.redwood, 1, 3), 'V', MItems.mossLump });
-
-        //Rotten Planks
-        this.addRecipe(new ItemStack(MBlocks.oak, 8, 6), new Object[] {"MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.oak, 1, 3), 'B', Items.water_bucket});
-        this.addRecipe(new ItemStack(MBlocks.spruce, 8, 6), new Object[] {"MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.spruce, 1, 3), 'B', Items.water_bucket});
-        this.addRecipe(new ItemStack(MBlocks.birch, 8, 6), new Object[] {"MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.birch, 1, 3), 'B', Items.water_bucket});
-        this.addRecipe(new ItemStack(MBlocks.jungleWood, 8, 6), new Object[] {"MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.jungleWood, 1, 3), 'B', Items.water_bucket});
-        this.addRecipe(new ItemStack(MBlocks.acacia, 8, 6), new Object[] {"MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.acacia, 1, 3), 'B', Items.water_bucket});
-        this.addRecipe(new ItemStack(MBlocks.darkOak, 8, 6), new Object[] {"MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.darkOak, 1, 3), 'B', Items.water_bucket});
-        this.addRecipe(new ItemStack(MBlocks.redwood, 8, 7), new Object[] {"MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.redwood, 1, 3), 'B', Items.water_bucket});
-
-        //Rotten Boards
-        this.addRecipe(new ItemStack(MBlocks.oak, 8, 7), new Object[] {"MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.oak, 1, 4), 'B', Items.water_bucket});
-        this.addRecipe(new ItemStack(MBlocks.spruce, 8, 7), new Object[] {"MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.spruce, 1, 4), 'B', Items.water_bucket});
-        this.addRecipe(new ItemStack(MBlocks.birch, 8, 7), new Object[] {"MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.birch, 1, 4), 'B', Items.water_bucket});
-        this.addRecipe(new ItemStack(MBlocks.jungleWood, 8, 7), new Object[] {"MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.jungleWood, 1, 4), 'B', Items.water_bucket});
-        this.addRecipe(new ItemStack(MBlocks.acacia, 8, 7), new Object[] {"MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.acacia, 1, 4), 'B', Items.water_bucket});
-        this.addRecipe(new ItemStack(MBlocks.darkOak, 8, 7), new Object[] {"MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.darkOak, 1, 4), 'B', Items.water_bucket});
-        this.addRecipe(new ItemStack(MBlocks.redwood, 8, 8), new Object[] {"MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.redwood, 1, 5), 'B', Items.water_bucket});
-
-		//Rotten Panels
-        this.addRecipe(new ItemStack(MBlocks.oak, 8, 8), new Object[] {"MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.oak, 1, 5), 'B', Items.water_bucket});
-        this.addRecipe(new ItemStack(MBlocks.spruce, 8, 8), new Object[] {"MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.spruce, 1, 5), 'B', Items.water_bucket});
-        this.addRecipe(new ItemStack(MBlocks.birch, 8, 8), new Object[] {"MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.birch, 1, 5), 'B', Items.water_bucket});
-        this.addRecipe(new ItemStack(MBlocks.jungleWood, 8, 8), new Object[] {"MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.jungleWood, 1, 5), 'B', Items.water_bucket});
-        this.addRecipe(new ItemStack(MBlocks.acacia, 8, 8), new Object[] {"MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.acacia, 1, 5), 'B', Items.water_bucket});
-        this.addRecipe(new ItemStack(MBlocks.darkOak, 8, 8), new Object[] {"MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.darkOak, 1, 5), 'B', Items.water_bucket});
-        this.addRecipe(new ItemStack(MBlocks.redwood, 8, 9), new Object[] {"MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.redwood, 1, 6), 'B', Items.water_bucket});
-
+		
+		// Rotten Planks
+		this.addRecipe(new ItemStack(MBlocks.oak, 8, 6), new Object[] { "MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.oak, 1, 3), 'B', Items.water_bucket });
+		this.addRecipe(new ItemStack(MBlocks.spruce, 8, 6), new Object[] { "MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.spruce, 1, 3), 'B', Items.water_bucket });
+		this.addRecipe(new ItemStack(MBlocks.birch, 8, 6), new Object[] { "MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.birch, 1, 3), 'B', Items.water_bucket });
+		this.addRecipe(new ItemStack(MBlocks.jungleWood, 8, 6), new Object[] { "MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.jungleWood, 1, 3), 'B', Items.water_bucket });
+		this.addRecipe(new ItemStack(MBlocks.acacia, 8, 6), new Object[] { "MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.acacia, 1, 3), 'B', Items.water_bucket });
+		this.addRecipe(new ItemStack(MBlocks.darkOak, 8, 6), new Object[] { "MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.darkOak, 1, 3), 'B', Items.water_bucket });
+		this.addRecipe(new ItemStack(MBlocks.redwood, 8, 7), new Object[] { "MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.redwood, 1, 3), 'B', Items.water_bucket });
+		
+		// Rotten Boards
+		this.addRecipe(new ItemStack(MBlocks.oak, 8, 7), new Object[] { "MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.oak, 1, 4), 'B', Items.water_bucket });
+		this.addRecipe(new ItemStack(MBlocks.spruce, 8, 7), new Object[] { "MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.spruce, 1, 4), 'B', Items.water_bucket });
+		this.addRecipe(new ItemStack(MBlocks.birch, 8, 7), new Object[] { "MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.birch, 1, 4), 'B', Items.water_bucket });
+		this.addRecipe(new ItemStack(MBlocks.jungleWood, 8, 7), new Object[] { "MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.jungleWood, 1, 4), 'B', Items.water_bucket });
+		this.addRecipe(new ItemStack(MBlocks.acacia, 8, 7), new Object[] { "MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.acacia, 1, 4), 'B', Items.water_bucket });
+		this.addRecipe(new ItemStack(MBlocks.darkOak, 8, 7), new Object[] { "MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.darkOak, 1, 4), 'B', Items.water_bucket });
+		this.addRecipe(new ItemStack(MBlocks.redwood, 8, 8), new Object[] { "MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.redwood, 1, 5), 'B', Items.water_bucket });
+		
+		// Rotten Panels
+		this.addRecipe(new ItemStack(MBlocks.oak, 8, 8), new Object[] { "MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.oak, 1, 5), 'B', Items.water_bucket });
+		this.addRecipe(new ItemStack(MBlocks.spruce, 8, 8), new Object[] { "MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.spruce, 1, 5), 'B', Items.water_bucket });
+		this.addRecipe(new ItemStack(MBlocks.birch, 8, 8), new Object[] { "MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.birch, 1, 5), 'B', Items.water_bucket });
+		this.addRecipe(new ItemStack(MBlocks.jungleWood, 8, 8), new Object[] { "MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.jungleWood, 1, 5), 'B', Items.water_bucket });
+		this.addRecipe(new ItemStack(MBlocks.acacia, 8, 8), new Object[] { "MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.acacia, 1, 5), 'B', Items.water_bucket });
+		this.addRecipe(new ItemStack(MBlocks.darkOak, 8, 8), new Object[] { "MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.darkOak, 1, 5), 'B', Items.water_bucket });
+		this.addRecipe(new ItemStack(MBlocks.redwood, 8, 9), new Object[] { "MMM", "MBM", "MMM", 'M', new ItemStack(MBlocks.redwood, 1, 6), 'B', Items.water_bucket });
+		
 		// Planks Slabs
 		this.addRecipe(new ItemStack(Blocks.wooden_slab, 6, 0), new Object[] { "###", '#', new ItemStack(Blocks.planks, 1, 0) });
 		this.addRecipe(new ItemStack(Blocks.wooden_slab, 6, 1), new Object[] { "###", '#', new ItemStack(Blocks.planks, 1, 1) });
@@ -150,7 +150,7 @@ public class SawingManager
 		this.addRecipe(new ItemStack(Blocks.wooden_slab, 6, 4), new Object[] { "###", '#', new ItemStack(Blocks.planks, 1, 4) });
 		this.addRecipe(new ItemStack(Blocks.wooden_slab, 6, 5), new Object[] { "###", '#', new ItemStack(Blocks.planks, 1, 5) });
 		this.addRecipe(new ItemStack(MBlocks.redwood2, 6, 0), new Object[] { "###", '#', new ItemStack(MBlocks.redwood, 1, 0) });
-
+		
 		// Boards Slabs
 		this.addRecipe(new ItemStack(MBlocks.oak2, 6, 0), new Object[] { "BBB", 'B', new ItemStack(MBlocks.oak, 1, 1) });
 		this.addRecipe(new ItemStack(MBlocks.spruce2, 6, 0), new Object[] { "BBB", 'B', new ItemStack(MBlocks.spruce, 1, 1) });

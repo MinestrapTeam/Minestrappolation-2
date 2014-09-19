@@ -376,7 +376,7 @@ public class MOreGenerator implements IWorldGenerator
 						{
 							chunk.func_150807_a(x, y, z, stoneBlock, 0);
 						}
-					}  
+					}
 					else if (block instanceof BlockOre2)
 					{
 						if (y < deepStoneDepth)

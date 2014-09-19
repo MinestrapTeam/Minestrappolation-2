@@ -164,6 +164,6 @@ public class MOreDictionary
 		GameRegistry.addRecipe(new ShapedOreRecipe(MItems.steelLock, new Object[] { " I ", "SSS", " S ", 'I', Items.iron_ingot, 'S', "ingotSteel" }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(MItems.steelKey, new Object[] { "SSS", "GG ", 'G', Items.gold_ingot, 'S', "ingotSteel" }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MBlocks.sawmill, 1, 1), new Object[] { "II", "WW", "WW", 'W', "plankWood", 'I', "ingotCopper" }));
-		GameRegistry.addRecipe(new ShapedOreRecipe(Blocks.daylight_detector, new Object[] { "GGG", "QQQ", "SSS", 'G', "blockGlassColorless", 'Q', "gemQuartz", 'S', "slabWood"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(Blocks.daylight_detector, new Object[] { "GGG", "QQQ", "SSS", 'G', "blockGlassColorless", 'Q', "gemQuartz", 'S', "slabWood" }));
 	}
 }

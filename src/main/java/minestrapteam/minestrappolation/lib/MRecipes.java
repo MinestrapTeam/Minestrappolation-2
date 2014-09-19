@@ -209,7 +209,7 @@ public class MRecipes
 		
 		for (int i = 0; i < 16; i++)
 		{
-			GameRegistry.addShapedRecipe(new ItemStack(MBlocks.coloredLampOff, 1, i), new Object[] { " D ", "DLD", " D ", 'L', Blocks.redstone_lamp, 'D', new ItemStack(Items.dye, 1, i)});
+			GameRegistry.addShapedRecipe(new ItemStack(MBlocks.coloredLampOff, 1, i), new Object[] { " D ", "DLD", " D ", 'L', Blocks.redstone_lamp, 'D', new ItemStack(Items.dye, 1, i) });
 		}
 		
 		// Misc Stone Block Recipes
@@ -242,7 +242,7 @@ public class MRecipes
 		GameRegistry.addSmelting(horseHaunchRaw, new ItemStack(horseHaunchCooked), 0.8F);
 		GameRegistry.addRecipe(new ItemStack(wingSegment, 1, 0), new Object[] { "FSF", "SLS", "FSF", 'F', Items.feather, 'S', wingSinew, 'L', Items.leather });
 		// GameRegistry.addRecipe(new ItemStack(hangGlider, 1, 0), new Object[]
-		// { "PPP", "W W", "W W", 'P', Blocks.planks, 'W', wingSegment });	
+		// { "PPP", "W W", "W W", 'P', Blocks.planks, 'W', wingSegment });
 	}
 	
 	public static void removeRecipes()
@@ -299,6 +299,6 @@ public class MRecipes
 		MUtil.removeRecipe(new ItemStack(Items.bed, 1));
 		
 		MUtil.removeRecipe(new ItemStack(Items.flint_and_steel, 1));
-		GameRegistry.addShapelessRecipe(new ItemStack(Items.flint_and_steel), new Object[]{ MItems.steelIngot, Items.flint});
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.flint_and_steel), new Object[] { MItems.steelIngot, Items.flint });
 	}
 }

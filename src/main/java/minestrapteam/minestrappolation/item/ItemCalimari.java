@@ -6,11 +6,11 @@ import net.minecraft.world.World;
 
 public class ItemCalimari extends MItemFood
 {
-	public float healBonus;
+	public float	healBonus;
 	
 	public ItemCalimari(int healAmount, float saturationModifier)
 	{
-		super(FoodType.COOKED_FISH, healAmount, saturationModifier);	
+		super(FoodType.COOKED_FISH, healAmount, saturationModifier);
 	}
 	
 	public ItemCalimari setHealBonus(float healBonus)

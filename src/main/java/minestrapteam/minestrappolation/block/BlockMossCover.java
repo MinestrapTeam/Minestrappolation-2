@@ -20,7 +20,7 @@ public class BlockMossCover extends Block
 		this.setLightOpacity(0);
 		this.setTickRandomly(true);
 	}
-
+	
 	@Override
 	public boolean isOpaqueCube()
 	{
@@ -43,13 +43,13 @@ public class BlockMossCover extends Block
 		}
 		
 		int x1 = x + random.nextInt(3) - 1;
-        int y1 = y + random.nextInt(2) - random.nextInt(2);
-        int z1 = z + random.nextInt(3) - 1;
-        
-        if (world.isAirBlock(x1, y1, z1) && this.canBlockStay(world, x1, y1, z1))
-        {
-        	world.setBlock(x1, y1, z1, this);
-        }
+		int y1 = y + random.nextInt(2) - random.nextInt(2);
+		int z1 = z + random.nextInt(3) - 1;
+		
+		if (world.isAirBlock(x1, y1, z1) && this.canBlockStay(world, x1, y1, z1))
+		{
+			world.setBlock(x1, y1, z1, this);
+		}
 	}
 	
 	@Override

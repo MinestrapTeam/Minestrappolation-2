@@ -20,8 +20,8 @@ import net.minecraft.world.World;
 
 public class MItemFood extends ItemFood
 {
-	private static int HOURS = 1000;
-	private static int DAYS = 24000;
+	private static int	HOURS	= 1000;
+	private static int	DAYS	= 24000;
 	
 	public static enum FoodType
 	{

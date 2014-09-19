@@ -15,25 +15,25 @@ public class ItemPoisonSack extends Item implements IItemAddon
 	{
 		return platable.getItem() instanceof MItemSword && MItemTool.getPoisonLevel(platable) < 4F;
 	}
-
+	
 	@Override
 	public void apply(ItemStack platable)
 	{
 		MItemTool.setPoisonLevel(platable, 4F);
 	}
-
+	
 	@Override
 	public void unapply(ItemStack platable)
 	{
 		MItemTool.setPoisonLevel(platable, 0F);
 	}
-
+	
 	@Override
 	public boolean isApplied(ItemStack platable)
 	{
 		return MItemTool.getPoisonLevel(platable) == 4F;
 	}
-
+	
 	@Override
 	public int getCount(ItemStack platable)
 	{

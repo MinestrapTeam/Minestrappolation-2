@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 
 public interface IItemAddon
 {
-	public static final List<IItemAddon> addons = new ArrayList();
+	public static final List<IItemAddon>	addons	= new ArrayList();
 	
 	public boolean canApply(ItemStack platable);
 	

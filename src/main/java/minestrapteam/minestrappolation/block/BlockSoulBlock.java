@@ -45,7 +45,7 @@ public class BlockSoulBlock extends MBlock
 	
 	@Override
 	public void onBlockHarvested(World world, int x, int y, int z, int metadata, EntityPlayer player)
-	{		
+	{
 		int amount = MathHelper.getRandomIntegerInRange(world.rand, 140, 220);
 		this.dropXpOnBlockBreak(world, x, y, z, amount);
 	}

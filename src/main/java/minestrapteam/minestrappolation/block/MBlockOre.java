@@ -17,7 +17,7 @@ public class MBlockOre extends BlockOre2
 	{
 		super(OreBase.TYPE_OVERWORLD);
 	}
-
+	
 	@Override
 	public int quantityDropped(int meta, int fortune, Random random)
 	{

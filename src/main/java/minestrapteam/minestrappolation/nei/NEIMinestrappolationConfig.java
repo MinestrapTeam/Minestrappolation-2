@@ -16,7 +16,7 @@ public class NEIMinestrappolationConfig implements IConfigureNEI
 	public static ShapelessSawingHandler		shapelessSawingManager			= new ShapelessSawingHandler();
 	public static MelterRecipeHandler			melterManager					= new MelterRecipeHandler();
 	public static MelterFuelHandler				melterFuelManager				= new MelterFuelHandler();
-	public static ItemAddonRecipeHandler			platingManager					= new ItemAddonRecipeHandler();
+	public static ItemAddonRecipeHandler		platingManager					= new ItemAddonRecipeHandler();
 	
 	@Override
 	public void loadConfig()
