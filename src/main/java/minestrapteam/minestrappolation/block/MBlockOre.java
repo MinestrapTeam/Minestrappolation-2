@@ -5,17 +5,17 @@ import java.util.Random;
 import minestrapteam.minestrappolation.lib.MBlocks;
 import minestrapteam.minestrappolation.lib.MItems;
 
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.world.IBlockAccess;
 
-import clashsoft.cslib.minecraft.block.ore.BlockOre2;
-import clashsoft.cslib.minecraft.block.ore.OreBase;
-
-public class MBlockOre extends BlockOre2
+// FIXME extends BlockOre2
+public class MBlockOre extends Block
 {
 	public MBlockOre()
 	{
-		super(OreBase.TYPE_OVERWORLD);
+		super(Material.rock);
 	}
 	
 	@Override
