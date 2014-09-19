@@ -1,4 +1,27 @@
-﻿1.7.10-3.2.3
+﻿1.7.10-3.3.0
+
+> Update to Clashsoft Lib 1.7.10-2.7.0.
+> Update to Brewing API 1.7.10-3.0.2.
++ Added Deepstone and it’s Stonecutter blocks.
++ Added Oceanstone and Pressurized Oceanstone and their Stonecutter blocks.
++ Added Coldstone and Deep Coldstone and their Stonecutter blocks.
++ Added Icestone and Glacierrock and their Stonecutter blocks.
++ Added Redrock and Deep Redrock and their Stonecutter blocks.
++ Added Edge Bricks and Dark Edge Bricks for most Stone Types.
++ Added Colored Lamps.
++ Added Deathmeal and Wither Dust.
++ Added Wither Blocks and Wither Layers.
++ Added Moss Cover and Moss Lump.
++ Added Enchanted Stick drops from Witches.
++ Added Food Spoiling.
+* Moved all Fried Food Items to NBT data.
+* Improved Redwood Biome spawn weight.
+* Improved the Flint and Steel recipe and texture.
+* Fixed Fried Raw Horse Haunches not being craftable.
+* Fixed Impact Grenades having a Fuse.
+* Fixed various Food Item potion effect durations.
+
+1.7.10-3.2.3
 
 * All mineral blocks can be used as Beacon bases.
 * All Plating recipes now only give 1 Plating per craft in order to balance the gameplay a bit.
