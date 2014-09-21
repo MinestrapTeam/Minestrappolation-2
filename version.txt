@@ -1,15 +1,9 @@
-﻿version=1.7.10-3.3.1
-version_motd=Get your Minestrappolation 3.3.1 copy while it is hot!
+﻿version=1.7.10-3.3.1.1
+version_motd=Get your Minestrappolation 3.3.1.1 copy while it is hot!
 version_motd_color=red
-motd=@MinestrapDev, @SoBiohazardous, @Clashsoft
+motd=Our Twitters: @MinestrapDev, @SoBiohazardous, @Clashsoft
 motd_color=light_blue
-url=https://github.com/MinestrapTeam/Minestrappolation-2/releases/download/1.7.10-3.3.1/Minestrappolation-1.7.10-3.3.1.jar
-
-+ Added cobblestone stairs for each new stone type.
-+ Added various recipes
-+ Added more ore dictionary support
-* Fixed structures (Dungeons, villages, strongholds) generating in right stone
-* Minestrap ores now have variant textures
-* Fixed various recipes
-* Various tweaks
-* Cobblestone variants can now be smelted into respective Stone types
+url=https://github.com/MinestrapTeam/Minestrappolation-2/releases/download/1.7.10-3.3.1.1/Minestrappolation-1.7.10-3.3.1.1.jar
++ Added easter egg
++ Added new title logo
+* Fixed missing textures

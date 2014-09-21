@@ -1,4 +1,10 @@
-﻿1.7.10-3.3.1
+﻿1.7.10-3.3.1.1
+
++ Added easter egg
++ Added new title logo
+* Fixed missing textures
+
+1.7.10-3.3.1
 
 + Added cobblestone stairs for each new stone type.
 + Added various recipes
