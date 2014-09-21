@@ -1,5 +1,6 @@
 package minestrapteam.minestrappolation.lib;
 
+import static minestrapteam.minestrappolation.lib.MBlocks.stoneCutter;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 import net.minecraft.init.Blocks;
@@ -138,9 +139,31 @@ public class MOreDictionary
 		OreDictionary.registerOre("slabWood", new ItemStack(MBlocks.darkOak2, 1, 0));
 		OreDictionary.registerOre("slabWood", new ItemStack(MBlocks.redwood2, 1, 1));
 		
+		// Stone and Sandstone
 		OreDictionary.registerOre("sandstone", MBlocks.sandstone);
 		OreDictionary.registerOre("sandstone", MBlocks.redSandstone);
 		
+		OreDictionary.registerOre("stone", new ItemStack(MBlocks.deepstone, 1, 0));
+		OreDictionary.registerOre("stone", new ItemStack(MBlocks.redrock, 1, 0));
+		OreDictionary.registerOre("stone", new ItemStack(MBlocks.deepRedrock, 1, 0));
+		OreDictionary.registerOre("stone", new ItemStack(MBlocks.coldstone, 1, 0));
+		OreDictionary.registerOre("stone", new ItemStack(MBlocks.deepColdstone, 1, 0));
+		OreDictionary.registerOre("stone", new ItemStack(MBlocks.icestone, 1, 0));
+		OreDictionary.registerOre("stone", new ItemStack(MBlocks.glacierrock, 1, 0));
+		OreDictionary.registerOre("stone", new ItemStack(MBlocks.oceanstone, 1, 0));
+		OreDictionary.registerOre("stone", new ItemStack(MBlocks.pressurizedOceanstone, 1, 0));
+		
+		OreDictionary.registerOre("cobblestone", new ItemStack(MBlocks.deepstone, 1, 7));
+		OreDictionary.registerOre("cobblestone", new ItemStack(MBlocks.redrock, 1, 7));
+		OreDictionary.registerOre("cobblestone", new ItemStack(MBlocks.deepRedrock, 1, 7));
+		OreDictionary.registerOre("cobblestone", new ItemStack(MBlocks.coldstone, 1, 7));
+		OreDictionary.registerOre("cobblestone", new ItemStack(MBlocks.deepColdstone, 1, 7));
+		OreDictionary.registerOre("cobblestone", new ItemStack(MBlocks.icestone, 1, 7));
+		OreDictionary.registerOre("cobblestone", new ItemStack(MBlocks.glacierrock, 1, 7));
+		OreDictionary.registerOre("cobblestone", new ItemStack(MBlocks.oceanstone, 1, 7));
+		OreDictionary.registerOre("cobblestone", new ItemStack(MBlocks.pressurizedOceanstone, 1, 7));
+		
+		//Meat
 		OreDictionary.registerOre("meatRaw", Items.beef);
 		OreDictionary.registerOre("meatRaw", Items.porkchop);
 		OreDictionary.registerOre("meatRaw", Items.fish);
@@ -151,6 +174,7 @@ public class MOreDictionary
 		OreDictionary.registerOre("meatRaw", MItems.squidTentacle);
 		OreDictionary.registerOre("meatRaw", MItems.horseHaunchRaw);
 		
+		//Glass
 		OreDictionary.registerOre("blockGlass", MBlocks.refinedGlass);
 		OreDictionary.registerOre("blockGlassColorless", MBlocks.refinedGlass);
 		OreDictionary.registerOre("paneGlass", MBlocks.refinedGlassPane);
@@ -159,11 +183,13 @@ public class MOreDictionary
 		GameRegistry.addRecipe(new ShapedOreRecipe(MBlocks.meatBlock, new Object[] { "MMM", "MMM", "MMM", 'M', "meatRaw" }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(MBlocks.crate, new Object[] { "WWW", "SSS", "WWW", 'S', "stickWood", 'W', "plankWood" }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(MBlocks.barrel, new Object[] { "WTW", "W W", "WTW", 'T', "ingotTin", 'W', "plankWood" }));
-		GameRegistry.addRecipe(new ShapedOreRecipe(MItems.glassDoorItem, new Object[] { "GG", "GI", "GG", 'G', "blockGlassColorless", 'I', Items.iron_ingot }));
+		GameRegistry.addRecipe(new ShapedOreRecipe(MItems.glassDoorItem, new Object[] { "GG", "GI", "GG", 'G', "blockGlassColorless", 'I', "ingotIron" }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(MItems.horseHairBow, new Object[] { " SH", "S H", " SH", 'S', "slabWood", 'H', MItems.horseHairFibre }));
-		GameRegistry.addRecipe(new ShapedOreRecipe(MItems.steelLock, new Object[] { " I ", "SSS", " S ", 'I', Items.iron_ingot, 'S', "ingotSteel" }));
-		GameRegistry.addRecipe(new ShapedOreRecipe(MItems.steelKey, new Object[] { "SSS", "GG ", 'G', Items.gold_ingot, 'S', "ingotSteel" }));
+		GameRegistry.addRecipe(new ShapedOreRecipe(MItems.steelLock, new Object[] { " I ", "SSS", " S ", 'I', "ingotIron", 'S', "ingotSteel" }));
+		GameRegistry.addRecipe(new ShapedOreRecipe(MItems.steelKey, new Object[] { "SSS", "GG ", 'G', "ingotGold", 'S', "ingotSteel" }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MBlocks.sawmill, 1, 1), new Object[] { "II", "WW", "WW", 'W', "plankWood", 'I', "ingotCopper" }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(Blocks.daylight_detector, new Object[] { "GGG", "QQQ", "SSS", 'G', "blockGlassColorless", 'Q', "gemQuartz", 'S', "slabWood" }));
+		GameRegistry.addRecipe(new ShapedOreRecipe(Blocks.brewing_stand, new Object[] { " B ", "CCC", 'B', Items.blaze_rod, 'C', "cobblestone"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(stoneCutter, 1, 1), new Object[] { "II", "CC", "CC", 'C', "cobblestone", 'I', "ingotIron" }));
 	}
 }

@@ -189,6 +189,10 @@ public class MBlockCustom extends Block
 		{
 			return 0;
 		}
+		else if ((this == MBlocks.deepstone || this == MBlocks.redrock || this == MBlocks.deepRedrock || this == MBlocks.coldstone || this == MBlocks.deepColdstone || this == MBlocks.icestone || this == MBlocks.glacierrock || this == MBlocks.oceanstone || this == MBlocks.pressurizedOceanstone) && metadata == 0)
+		{
+			return 7;
+		}
 		return metadata;
 	}
 	
