@@ -1,4 +1,15 @@
-﻿1.7.10-3.3.0
+﻿1.7.10-3.3.1
+
++ Added cobblestone stairs for each new stone type.
++ Added various recipes
++ Added more ore dictionary support
+* Fixed structures (Dungeons, villages, strongholds) generating in right stone
+* Minestrap ores now have variant textures
+* Fixed various recipes
+* Various tweaks
+* Cobblestone variants can now be smelted into respective Stone types
+
+1.7.10-3.3.0
 
 > Update to Clashsoft Lib 1.7.10-2.7.0.
 > Update to Brewing API 1.7.10-3.0.2.

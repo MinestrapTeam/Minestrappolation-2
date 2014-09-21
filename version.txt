@@ -1,27 +1,15 @@
-version=1.7.10-3.3.0
-version_motd=Get your Minestrappolation 3.3 copy while it is hot!
+﻿version=1.7.10-3.3.1
+version_motd=Get your Minestrappolation 3.3.1 copy while it is hot!
 version_motd_color=red
-motd=Welcome the new Minestrappolation Team member: LandKingdom!
+motd=@MinestrapDev, @SoBiohazardous, @Clashsoft
 motd_color=light_blue
-url=https://github.com/MinestrapTeam/Minestrappolation-2/releases/download/1.7.10-3.3.0/Minestrappolation-1.7.10-3.3.0.jar
+url=https://github.com/MinestrapTeam/Minestrappolation-2/releases/download/1.7.10-3.3.1/Minestrappolation-1.7.10-3.3.1.jar
 
-> Update to Clashsoft Lib 1.7.10-2.7.0.
-> Update to Brewing API 1.7.10-3.0.2.
-+ Added Deepstone and it’s Stonecutter blocks.
-+ Added Oceanstone and Pressurized Oceanstone and their Stonecutter blocks.
-+ Added Coldstone and Deep Coldstone and their Stonecutter blocks.
-+ Added Icestone and Glacierrock and their Stonecutter blocks.
-+ Added Redrock and Deep Redrock and their Stonecutter blocks.
-+ Added Edge Bricks and Dark Edge Bricks for most Stone Types.
-+ Added Colored Lamps.
-+ Added Deathmeal and Wither Dust.
-+ Added Wither Blocks and Wither Layers.
-+ Added Moss Cover and Moss Lump.
-+ Added Enchanted Stick drops from Witches.
-+ Added Food Spoiling.
-* Moved all Fried Food Items to NBT data.
-* Improved Redwood Biome spawn weight.
-* Improved the Flint and Steel recipe and texture.
-* Fixed Fried Raw Horse Haunches not being craftable.
-* Fixed Impact Grenades having a Fuse.
-* Fixed various Food Item potion effect durations.
++ Added cobblestone stairs for each new stone type.
++ Added various recipes
++ Added more ore dictionary support
+* Fixed structures (Dungeons, villages, strongholds) generating in right stone
+* Minestrap ores now have variant textures
+* Fixed various recipes
+* Various tweaks
+* Cobblestone variants can now be smelted into respective Stone types
