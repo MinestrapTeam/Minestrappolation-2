@@ -8,6 +8,7 @@ import minestrapteam.minestrappolation.lib.MBlocks;
 import minestrapteam.minestrappolation.world.gen.WorldGenDesertQuartz;
 import minestrapteam.minestrappolation.world.gen.WorldGenRedSandstone;
 import minestrapteam.minestrappolation.world.gen.WorldGenRedWoodTreeSmall;
+import minestrapteam.minestrappolation.world.gen.WorldGenStructureStone;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -41,6 +42,7 @@ public class MOreGenerator implements IWorldGenerator
 	public static WorldGenMinable			sandstoneGen		= new WorldGenMinable(MBlocks.sandstone, 6, 7, Blocks.sandstone);
 	public static WorldGenMinable			sandstoneGen2		= new WorldGenMinable(MBlocks.sandstone, 7, 7, Blocks.sandstone);
 	public static WorldGenRedSandstone		redSandstoneGen		= new WorldGenRedSandstone();
+	public static WorldGenStructureStone	stoneStructureGen	= new WorldGenStructureStone();
 	public static WorldGenDesertQuartz		desertQuartzGen		= new WorldGenDesertQuartz();
 	public static WorldGenMinable			blaziumGen			= new WorldGenMinable(MBlocks.blaziumOre, 8, Blocks.netherrack);
 	public static WorldGenMinable			soulOreGen			= new WorldGenMinable(MBlocks.soulOre, 15, Blocks.soul_sand);
@@ -172,7 +174,7 @@ public class MOreGenerator implements IWorldGenerator
 		}
 		
 		// Sunstone Ore
-		for (int i = 0; i < 10; i++)
+		for (int i = 0; i < 15; i++)
 		{
 			x1 = chunkX + rand.nextInt(16);
 			y1 = rand.nextInt(256);
@@ -203,6 +205,14 @@ public class MOreGenerator implements IWorldGenerator
 				desertQuartzGen.generate(world, rand, x1, y1, z1);
 			}
 		}
+		
+		//Structure Gen
+		
+		x1 = chunkX + rand.nextInt(16);
+		y1 = rand.nextInt(256);
+		z1 = chunkZ + rand.nextInt(16);
+		stoneStructureGen.generate(world, rand, x1, y1, z1);
+		
 		
 		// Red Sandstone
 		if (biome instanceof BiomeGenMesa)

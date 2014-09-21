@@ -17,11 +17,11 @@ import net.minecraft.world.Explosion;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockPlutoniumOre extends BlockRadiation
+public class BlockPlutoniumOre extends BlockRadiationOre
 {
-	public BlockPlutoniumOre(Material material)
+	public BlockPlutoniumOre()
 	{
-		super(material);
+
 	}
 	
 	@Override

@@ -2,6 +2,8 @@ package minestrapteam.minestrappolation.block;
 
 import java.util.Random;
 
+import clashsoft.cslib.minecraft.block.ore.OreBase;
+
 import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.lib.MItems;
 import minestrapteam.minestrappolation.util.MUtil;
@@ -16,11 +18,11 @@ import net.minecraft.world.Explosion;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockUraniumOre extends BlockRadiation
+public class BlockUraniumOre extends BlockRadiationOre
 {
-	public BlockUraniumOre(Material material)
+	public BlockUraniumOre()
 	{
-		super(material);
+
 	}
 	
 	@Override

@@ -56,54 +56,63 @@ public class MBlocks
 	public static Block				deepstoneStairsRaw;
 	public static Block				deepstoneStairsBricks;
 	public static Block				deepstoneStairsTiles;
+	public static Block				deepstoneStairsCracked;
 	public static Block				deepstone2;
 	
 	public static MBlockCustom		redrock;
 	public static Block				redrockStairsRaw;
 	public static Block				redrockStairsBricks;
 	public static Block				redrockStairsTiles;
+	public static Block				redrockStairsCracked;
 	public static Block				redrock2;
 	
 	public static MBlockCustom		deepRedrock;
 	public static Block				deepRedrockStairsRaw;
 	public static Block				deepRedrockStairsBricks;
 	public static Block				deepRedrockStairsTiles;
+	public static Block				deepRedrockStairsCracked;
 	public static Block				deepRedrock2;
 	
 	public static MBlockCustom		coldstone;
 	public static Block				coldstoneStairsRaw;
 	public static Block				coldstoneStairsBricks;
 	public static Block				coldstoneStairsTiles;
+	public static Block				coldstoneStairsCracked;
 	public static Block				coldstone2;
 	
 	public static MBlockCustom		deepColdstone;
 	public static Block				deepColdstoneStairsRaw;
 	public static Block				deepColdstoneStairsBricks;
 	public static Block				deepColdstoneStairsTiles;
+	public static Block				deepColdstoneStairsCracked;
 	public static Block				deepColdstone2;
 	
 	public static MBlockCustom		icestone;
 	public static Block				icestoneStairsRaw;
 	public static Block				icestoneStairsBricks;
 	public static Block				icestoneStairsTiles;
+	public static Block				icestoneStairsCracked;
 	public static Block				icestone2;
 	
 	public static MBlockCustom		glacierrock;
 	public static Block				glacierrockStairsRaw;
 	public static Block				glacierrockStairsBricks;
 	public static Block				glacierrockStairsTiles;
+	public static Block				glacierrockStairsCracked;
 	public static Block				glacierrock2;
 	
 	public static MBlockCustom		oceanstone;
 	public static Block				oceanstoneStairsRaw;
 	public static Block				oceanstoneStairsBricks;
 	public static Block				oceanstoneStairsTiles;
+	public static Block				oceanstoneStairsCracked;
 	public static Block				oceanstone2;
 	
 	public static MBlockCustom		pressurizedOceanstone;
 	public static Block				pressurizedOceanstoneStairsRaw;
 	public static Block				pressurizedOceanstoneStairsBricks;
 	public static Block				pressurizedOceanstoneStairsTiles;
+	public static Block				pressurizedOceanstoneStairsCracked;
 	public static Block				pressurizedOceanstone2;
 	
 	public static MBlockCustom		graniteSlate;
@@ -401,8 +410,8 @@ public class MBlocks
 		copperOre = new MBlockOre().setHardness(3F).setResistance(5F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MAssetManager.getMineralTexture("copper_ore"));
 		tinOre = new MBlockOre().setHardness(3F).setResistance(4F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MAssetManager.getMineralTexture("tin_ore"));
 		titaniumOre = new MBlockOre().setHardness(6F).setResistance(6000000.0F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MAssetManager.getMineralTexture("titanium_ore"));
-		uraniumOre = new BlockUraniumOre(Material.rock).setHardness(3F).setResistance(5F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MAssetManager.getMineralTexture("uranium_ore"));
-		plutoniumOre = new BlockPlutoniumOre(Material.rock).setHardness(3F).setResistance(5F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MAssetManager.getMineralTexture("plutonium_ore"));
+		uraniumOre = new BlockUraniumOre().setHardness(3F).setResistance(5F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MAssetManager.getMineralTexture("uranium_ore"));
+		plutoniumOre = new BlockPlutoniumOre().setHardness(3F).setResistance(5F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MAssetManager.getMineralTexture("plutonium_ore"));
 		meuroditeOre = new MBlockOre().setHardness(3F).setResistance(5F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MAssetManager.getMineralTexture("meurodite_ore"));
 		sunstoneOre = new BlockSunstoneOre().setHardness(3F).setResistance(5F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MAssetManager.getMineralTexture("sunstone_ore"));
 		toriteOre = new MBlockOre().setHardness(3F).setResistance(5F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabBuildingBlocks).setBlockTextureName(MAssetManager.getMineralTexture("torite_ore"));
@@ -680,46 +689,55 @@ public class MBlocks
 		deepstoneStairsRaw = MBlockHelper.createStoneStair(deepstone, 0, tab);
 		deepstoneStairsBricks = MBlockHelper.createStoneStair(deepstone, 1, tab);
 		deepstoneStairsTiles = MBlockHelper.createStoneStair(deepstone, 3, tab);
+		deepstoneStairsCracked = MBlockHelper.createStoneStair(deepstone, 7, tab);
 		redrock = MBlockHelper.createStoneBlock(types_redrock, "redrock", 1.1F, 8.0F, 0, tab).setIsStone().setRoadWalkSpeed(1.25F);
 		redrock2 = MBlockHelper.createStoneBlock2(types_redrock_2, "redrock", 1.1F, 8.0F, 0, tab);
 		redrockStairsRaw = MBlockHelper.createStoneStair(redrock, 0, tab);
 		redrockStairsBricks = MBlockHelper.createStoneStair(redrock, 1, tab);
 		redrockStairsTiles = MBlockHelper.createStoneStair(redrock, 3, tab);
+		redrockStairsCracked = MBlockHelper.createStoneStair(redrock, 7, tab);
 		deepRedrock = MBlockHelper.createStoneBlock(types_redrock, "deepredrock", 2.2F, 11.0F, 2, tab).setIsStone().setRoadWalkSpeed(1.25F);
 		deepRedrock2 = MBlockHelper.createStoneBlock2(types_redrock_2, "deepredrock", 2.2F, 11.0F, 2, tab);
 		deepRedrockStairsRaw = MBlockHelper.createStoneStair(deepRedrock, 0, tab);
 		deepRedrockStairsBricks = MBlockHelper.createStoneStair(deepRedrock, 1, tab);
 		deepRedrockStairsTiles = MBlockHelper.createStoneStair(deepRedrock, 3, tab);
+		deepRedrockStairsCracked = MBlockHelper.createStoneStair(deepRedrock, 7, tab);
 		coldstone = MBlockHelper.createStoneBlock(types_redrock, "coldstone", 1.5F, 10.0F, 0, tab).setIsStone().setRoadWalkSpeed(1.25F);
 		coldstone2 = MBlockHelper.createStoneBlock2(types_redrock_2, "coldstone", 1.5F, 10.0F, 0, tab);
 		coldstoneStairsRaw = MBlockHelper.createStoneStair(coldstone, 0, tab);
 		coldstoneStairsBricks = MBlockHelper.createStoneStair(coldstone, 1, tab);
 		coldstoneStairsTiles = MBlockHelper.createStoneStair(coldstone, 3, tab);
+		coldstoneStairsCracked = MBlockHelper.createStoneStair(coldstone, 7, tab);
 		deepColdstone = MBlockHelper.createStoneBlock(types_redrock, "deepcoldstone", 3F, 13.0F, 2, tab).setIsStone().setRoadWalkSpeed(1.25F);
 		deepColdstone2 = MBlockHelper.createStoneBlock2(types_redrock_2, "deepcoldstone", 3F, 13.0F, 2, tab);
 		deepColdstoneStairsRaw = MBlockHelper.createStoneStair(deepColdstone, 0, tab);
 		deepColdstoneStairsBricks = MBlockHelper.createStoneStair(deepColdstone, 1, tab);
 		deepColdstoneStairsTiles = MBlockHelper.createStoneStair(deepColdstone, 3, tab);
+		deepColdstoneStairsCracked = MBlockHelper.createStoneStair(deepColdstone, 7, tab);
 		icestone = MBlockHelper.createStoneBlock(types_icestone, "icestone", 1.7F, 10.0F, 0, tab).setIsStone().setRoadWalkSpeed(1.25F);
 		icestone2 = MBlockHelper.createStoneBlock2(types_icestone_2, "icestone", 1.7F, 10.0F, 0, tab);
 		icestoneStairsRaw = MBlockHelper.createStoneStair(icestone, 0, tab);
 		icestoneStairsBricks = MBlockHelper.createStoneStair(icestone, 1, tab);
 		icestoneStairsTiles = MBlockHelper.createStoneStair(icestone, 3, tab);
+		icestoneStairsCracked = MBlockHelper.createStoneStair(icestone, 7, tab);
 		glacierrock = MBlockHelper.createStoneBlock(types_icestone, "glacierrock", 3.4F, 13.0F, 2, tab).setIsStone().setRoadWalkSpeed(1.25F);
 		glacierrock2 = MBlockHelper.createStoneBlock2(types_icestone_2, "glacierrock", 3.4F, 13.0F, 2, tab);
 		glacierrockStairsRaw = MBlockHelper.createStoneStair(glacierrock, 0, tab);
 		glacierrockStairsBricks = MBlockHelper.createStoneStair(glacierrock, 1, tab);
 		glacierrockStairsTiles = MBlockHelper.createStoneStair(glacierrock, 3, tab);
+		glacierrockStairsCracked = MBlockHelper.createStoneStair(glacierrock, 7, tab);
 		oceanstone = MBlockHelper.createStoneBlock(types_redrock, "oceanstone", 1.3F, 12.0F, 0, tab).setIsStone().setRoadWalkSpeed(1.25F);
 		oceanstone2 = MBlockHelper.createStoneBlock2(types_redrock_2, "oceanstone", 1.3F, 12.0F, 0, tab);
 		oceanstoneStairsRaw = MBlockHelper.createStoneStair(oceanstone, 0, tab);
 		oceanstoneStairsBricks = MBlockHelper.createStoneStair(oceanstone, 1, tab);
 		oceanstoneStairsTiles = MBlockHelper.createStoneStair(oceanstone, 3, tab);
+		oceanstoneStairsCracked = MBlockHelper.createStoneStair(oceanstone, 7, tab);
 		pressurizedOceanstone = MBlockHelper.createStoneBlock(types_redrock, "pressurizedoceanstone", 2.6F, 15.0F, 2, tab).setIsStone().setRoadWalkSpeed(1.25F);
 		pressurizedOceanstone2 = MBlockHelper.createStoneBlock2(types_redrock_2, "pressurizedoceanstone", 2.6F, 15.0F, 2, tab);
 		pressurizedOceanstoneStairsRaw = MBlockHelper.createStoneStair(pressurizedOceanstone, 0, tab);
 		pressurizedOceanstoneStairsBricks = MBlockHelper.createStoneStair(pressurizedOceanstone, 1, tab);
 		pressurizedOceanstoneStairsTiles = MBlockHelper.createStoneStair(pressurizedOceanstone, 3, tab);
+		pressurizedOceanstoneStairsCracked = MBlockHelper.createStoneStair(pressurizedOceanstone, 7, tab);
 		
 		graniteSlate = MBlockHelper.createStoneBlock(types_granite, "granite", 2F, 15.0F, 0, tab).setRoadWalkSpeed(1.33F);
 		graniteSlate2 = MBlockHelper.createStoneBlock2("granite", 2F, 15.0F, 0, tab);

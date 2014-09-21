@@ -45,6 +45,7 @@ public class Minestrappolation extends BaseMod
 	
 	public static MelterRecipeLoader	melter				= new MelterRecipeLoader("melter");
 	
+	public static OreBase				stone				= new OreBase("stone").setIconName(MAssetManager.getStonecutterTexture("stone")).register(OreBase.TYPE_OVERWORLD, 0);
 	public static OreBase				deepStone			= new OreBase("deepstone").setIconName(MAssetManager.getStonecutterTexture("deepstone")).register(OreBase.TYPE_OVERWORLD, 5);
 	public static OreBase				redrock				= new OreBase("redrock").setIconName(MAssetManager.getStonecutterTexture("redrock")).register(OreBase.TYPE_OVERWORLD, 6);
 	public static OreBase				deepRedrock			= new OreBase("deepredrock").setIconName(MAssetManager.getStonecutterTexture("deepredrock")).register(OreBase.TYPE_OVERWORLD, 7);
