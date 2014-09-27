@@ -641,6 +641,7 @@ public class MItems
 		MBlocks.slimeOoze.setHarvestLevel("shovel", 0);
 		MBlocks.magmaOoze.setHarvestLevel("shovel", 0);
 		
+		MBlocks.obsidianGodstoneLamp.setHarvestLevel("pickaxe", 3);
 		MBlocks.obsidianStairsBricks.setHarvestLevel("pickaxe", 3);
 		MBlocks.obsidianStairsRaw.setHarvestLevel("pickaxe", 3);
 		MBlocks.obsidianStairsTiles.setHarvestLevel("pickaxe", 3);

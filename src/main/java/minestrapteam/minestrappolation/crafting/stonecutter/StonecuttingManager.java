@@ -1308,6 +1308,7 @@ public class StonecuttingManager
 		this.addRecipe(new ItemStack(MBlocks.obsidian2, 6, 9), null, new Object[] { "TTT", 'T', new ItemStack(MBlocks.obsidian, 1, 3) });
 		this.addRecipe(new ItemStack(MBlocks.obsidian2, 2, 0), null, new Object[] { "R", "R", 'R', new ItemStack(MBlocks.obsidian, 1, 5) });
 		this.addRecipe(new ItemStack(MBlocks.obsidian, 1, 6), null, new Object[] { "S", "S", 'S', new ItemStack(MBlocks.obsidian2, 1, 12) });
+		this.addRecipe(new ItemStack(MBlocks.obsidianGodstoneLamp, 2, 0), null, new Object[] { "CCC", "CGC", "CCC", 'C', new ItemStack(MBlocks.obsidian, 1, 6), 'G', MBlocks.godstone });
 		this.addRecipe(new ItemStack(MBlocks.obsidianStairsRaw, 4, 0), null, new Object[] { "M  ", "MM ", "MMM", 'M', new ItemStack(Blocks.obsidian, 1, 0) });
 		this.addRecipe(new ItemStack(MBlocks.obsidianStairsBricks, 4, 0), null, new Object[] { "M  ", "MM ", "MMM", 'M', new ItemStack(MBlocks.obsidian, 1, 1) });
 		this.addRecipe(new ItemStack(MBlocks.obsidianStairsTiles, 4, 0), null, new Object[] { "M  ", "MM ", "MMM", 'M', new ItemStack(MBlocks.obsidian, 1, 3) });

@@ -161,6 +161,7 @@ public class MBlocks
 	public static Block				lapisStairsTiles;
 	public static Block				lapis2;
 	public static MBlockCustom		obsidian;
+	public static Block				obsidianGodstoneLamp;
 	public static Block				obsidianStairsRaw;
 	public static Block				obsidianStairsBricks;
 	public static Block				obsidianStairsTiles;
@@ -443,6 +444,7 @@ public class MBlocks
 		
 		invincium = new BlockInvincium(Material.rock).setBlockUnbreakable().setResistance(12000000.0F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockTextureName(MAssetManager.getMineralTexture("invincium"));
 		godstone = new BlockGodstone(Material.rock).setHardness(6F).setResistance(9F).setCreativeTab(Minestrappolation.tabBuildingBlocks).setStepSound(Block.soundTypeStone).setBlockTextureName(MAssetManager.getMineralTexture("godstone"));
+		obsidianGodstoneLamp = new BlockGodstone(Material.rock).setHardness(50.0F).setResistance(2000.0F).setCreativeTab(Minestrappolation.tabStoneDecor).setStepSound(Block.soundTypeStone).setBlockTextureName(MAssetManager.getStonecutterTexture("obsidian_lamp_godstone"));
 		nuke = new BlockNuke().setHardness(0.0F).setCreativeTab(Minestrappolation.tabTech).setStepSound(Block.soundTypeGrass);
 		melterIdle = new BlockMelter(false).setHardness(6F).setResistance(8.0F).setCreativeTab(Minestrappolation.tabTech).setStepSound(Block.soundTypeStone);
 		melterBurning = new BlockMelter(true).setHardness(6F).setResistance(8.0F).setStepSound(Block.soundTypeStone);
@@ -549,6 +551,7 @@ public class MBlocks
 		
 		CSBlocks.addBlock(invincium, "invincium");
 		CSBlocks.addBlock(godstone, "godstone");
+		CSBlocks.addBlock(obsidianGodstoneLamp, "obsidianGodstoneLamp");
 		CSBlocks.addBlock(nuke, "nuke");
 		CSBlocks.addBlock(melterIdle, "melter");
 		CSBlocks.addBlock(melterBurning, "melter_burning");
@@ -637,7 +640,7 @@ public class MBlocks
 		String[] types_redsandstone_2 = new String[] { "pillar", "raw_slab", "brick_slab", "tile_slab", "refined_slab" };
 		String[] types_flint = new String[] { "raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", null, null, null, null, null, null, null, "lamp_glowstone", "lamp_sunstone" };
 		String[] types_lapis = new String[] { null, "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", "gilded" };
-		String[] types_obsidian = new String[] { null, "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", "lamp_godstone" };
+		String[] types_obsidian = new String[] { null, "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled" };
 		String[] types_endstone = new String[] { "raw", "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled" };
 		String[] types_bedrock = new String[] { null, "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", null, null, null, null, null, null, null, "lamp_glowstone", "lamp_sunstone" };
 		String[] types_netherrack = new String[] { null, null, "pattern_bricks", "tiles", "road", "refined", "chiseled" };
