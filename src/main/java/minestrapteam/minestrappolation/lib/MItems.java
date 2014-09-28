@@ -586,7 +586,7 @@ public class MItems
 		CSItems.replaceItem(Items.cooked_beef, new MItemFood(FoodType.COOKED_MEAT, 8, 0.8F).setUnlocalizedName("beefCooked").setTextureName("beef_cooked"));
 		CSItems.replaceItem(Items.chicken, new MItemFood(FoodType.RAW_MEAT, 2, 0.3F).setPotionEffect(Potion.hunger.id, 30, 0, 0.3F).setUnlocalizedName("chickenRaw").setTextureName("chicken_raw"));
 		CSItems.replaceItem(Items.cooked_chicken, new MItemFood(FoodType.COOKED_MEAT, 6, 0.6F).setUnlocalizedName("chickenCooked").setTextureName("chicken_cooked"));
-		CSItems.replaceItem(Items.rotten_flesh, new MItemFood(FoodType.RAW_MEAT, 4, 0.1F).setPotionEffect(Potion.hunger.id, 30, 0, 0.8F).setUnlocalizedName("rottenFlesh").setTextureName("rotten_flesh"));
+		CSItems.replaceItem(Items.rotten_flesh, new MItemFood(FoodType.MISC, 4, 0.1F).setPotionEffect(Potion.hunger.id, 30, 0, 0.8F).setUnlocalizedName("rottenFlesh").setTextureName("rotten_flesh"));
 		CSItems.replaceItem(Items.spider_eye, new MItemFood(FoodType.MISC, 2, 0.8F).setPotionEffect(Potion.poison.id, 5, 0, 1.0F).setUnlocalizedName("spiderEye").setPotionEffect(PotionHelper.spiderEyeEffect).setTextureName("spider_eye"));
 		CSItems.replaceItem(Items.carrot, new MItemSeedFood(FoodType.VEGETABLE, 4, 0.6F, Blocks.carrots, Blocks.farmland).setUnlocalizedName("carrots").setTextureName("carrot"));
 		CSItems.replaceItem(Items.potato, new MItemSeedFood(FoodType.VEGETABLE, 1, 0.3F, Blocks.potatoes, Blocks.farmland).setUnlocalizedName("potato").setTextureName("potato"));

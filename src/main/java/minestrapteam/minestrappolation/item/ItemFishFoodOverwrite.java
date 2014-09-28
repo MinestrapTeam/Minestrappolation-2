@@ -21,24 +21,24 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemFishFoodOverwrite extends MItemFood
 {
-    private final boolean field_150907_b;
+    private final boolean cooked;
 
     public ItemFishFoodOverwrite(FoodType foodType, boolean p_i45338_1_)
     {
         super(foodType, 0, 0.0F);
-        this.field_150907_b = p_i45338_1_;
+        this.cooked = p_i45338_1_;
     }
 
     public int func_150905_g(ItemStack p_150905_1_)
     {
         ItemFishFoodOverwrite.FishType fishtype = ItemFishFoodOverwrite.FishType.func_150978_a(p_150905_1_);
-        return this.field_150907_b && fishtype.func_150973_i() ? fishtype.func_150970_e() : fishtype.func_150975_c();
+        return this.cooked && fishtype.func_150973_i() ? fishtype.func_150970_e() : fishtype.func_150975_c();
     }
 
     public float func_150906_h(ItemStack p_150906_1_)
     {
         ItemFishFoodOverwrite.FishType fishtype = ItemFishFoodOverwrite.FishType.func_150978_a(p_150906_1_);
-        return this.field_150907_b && fishtype.func_150973_i() ? fishtype.func_150977_f() : fishtype.func_150967_d();
+        return this.cooked && fishtype.func_150973_i() ? fishtype.func_150977_f() : fishtype.func_150967_d();
     }
 
     /**
@@ -58,8 +58,10 @@ public class ItemFishFoodOverwrite extends MItemFood
         for (int j = 0; j < i; ++j)
         {
             ItemFishFoodOverwrite.FishType fishtype = afishtype[j];
-            fishtype.func_150968_a(p_94581_1_);
+            fishtype.func_150968_a(p_94581_1_, this.foodType, this.spoiledIcon, this.friedIcon);
         }
+        
+        super.registerIcons(p_94581_1_);
     }
 
     protected void onFoodEaten(ItemStack p_77849_1_, World p_77849_2_, EntityPlayer p_77849_3_)
@@ -83,7 +85,7 @@ public class ItemFishFoodOverwrite extends MItemFood
     public IIcon getIconFromDamage(int p_77617_1_)
     {
         ItemFishFoodOverwrite.FishType fishtype = ItemFishFoodOverwrite.FishType.func_150974_a(p_77617_1_);
-        return this.field_150907_b && fishtype.func_150973_i() ? fishtype.func_150979_h() : fishtype.func_150971_g();
+        return this.cooked && fishtype.func_150973_i() ? fishtype.func_150979_h() : fishtype.func_150971_g();
     }
 
     /**
@@ -99,7 +101,7 @@ public class ItemFishFoodOverwrite extends MItemFood
         {
             ItemFishFoodOverwrite.FishType fishtype = afishtype[j];
 
-            if (!this.field_150907_b || fishtype.func_150973_i())
+            if (!this.cooked || fishtype.func_150973_i())
             {
                 p_150895_3_.add(new ItemStack(this, 1, fishtype.func_150976_a()));
             }
@@ -113,7 +115,7 @@ public class ItemFishFoodOverwrite extends MItemFood
     public String getUnlocalizedName(ItemStack p_77667_1_)
     {
         ItemFishFoodOverwrite.FishType fishtype = ItemFishFoodOverwrite.FishType.func_150978_a(p_77667_1_);
-        return this.getUnlocalizedName() + "." + fishtype.func_150972_b() + "." + (this.field_150907_b && fishtype.func_150973_i() ? "cooked" : "raw");
+        return this.getUnlocalizedName() + "." + fishtype.func_150972_b() + "." + (this.cooked && fishtype.func_150973_i() ? "cooked" : "raw");
     }
 
     public static enum FishType
@@ -190,14 +192,35 @@ public class ItemFishFoodOverwrite extends MItemFood
         }
 
         @SideOnly(Side.CLIENT)
-        public void func_150968_a(IIconRegister p_150968_1_)
+        public void func_150968_a(IIconRegister iconRegister, FoodType foodType, IIcon spoiledIcon, IIcon friedIcon)
         {
-            this.field_150993_h = p_150968_1_.registerIcon("fish_" + this.field_150981_g + "_raw");
-
+            this.field_150993_h = iconRegister.registerIcon("fish_" + this.field_150981_g + "_raw");
+            if (foodType.isSpoilable())
+    		{
+    			spoiledIcon = iconRegister.registerIcon("fish_" + this.field_150981_g + "_raw_spoiled");
+    		}
+            
+            if (foodType.isFriable())
+    		{
+    			friedIcon = iconRegister.registerIcon("fish_" + this.field_150981_g + "_raw_fried");
+    		}
+            
             if (this.field_150987_n)
             {
-                this.field_150994_i = p_150968_1_.registerIcon("fish_" + this.field_150981_g + "_cooked");
+                this.field_150994_i = iconRegister.registerIcon("fish_" + this.field_150981_g + "_cooked");
+                
+                if (foodType.isSpoilable())
+        		{
+        			spoiledIcon = iconRegister.registerIcon("fish_" + this.field_150981_g + "_cooked_spoiled");
+        		}
+                
+                if (foodType.isFriable())
+        		{
+        			friedIcon = iconRegister.registerIcon("fish_" + this.field_150981_g + "_cooked_fried");
+        		}
             }
+            
+    		
         }
 
         @SideOnly(Side.CLIENT)
