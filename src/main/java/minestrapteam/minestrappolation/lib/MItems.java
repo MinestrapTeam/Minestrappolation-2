@@ -8,7 +8,6 @@ import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.item.*;
 import minestrapteam.minestrappolation.item.MItemFood.FoodType;
 import minestrapteam.minestrappolation.util.MAssetManager;
-
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -579,8 +578,8 @@ public class MItems
 		CSItems.replaceItem(Items.bread, new MItemFood(FoodType.BAKED, 5, 0.6F).setUnlocalizedName("bread").setTextureName("bread"));
 		CSItems.replaceItem(Items.porkchop, new MItemFood(FoodType.RAW_MEAT, 3, 0.3F).setUnlocalizedName("porkchopRaw").setTextureName("porkchop_raw"));
 		CSItems.replaceItem(Items.cooked_porkchop, new MItemFood(FoodType.COOKED_MEAT, 8, 0.8F).setUnlocalizedName("porkchopCooked").setTextureName("porkchop_cooked"));
-		// TODO raw fish
-		// TODO cooked fish
+		CSItems.replaceItem(Items.fish, new ItemFishFoodOverwrite(FoodType.RAW_FISH, false).setUnlocalizedName("fish").setTextureName("fish_raw").setHasSubtypes(true));
+		CSItems.replaceItem(Items.cooked_fished, new ItemFishFoodOverwrite(FoodType.COOKED_FISH, true).setUnlocalizedName("fish").setTextureName("fish_cooked").setHasSubtypes(true));
 		CSItems.replaceItem(Items.cookie, new MItemFood(FoodType.BAKED, 2, 0.1F).setUnlocalizedName("cookie").setTextureName("cookie"));
 		CSItems.replaceItem(Items.melon, new MItemFood(FoodType.FRUIT, 2, 0.3F).setUnlocalizedName("melon").setTextureName("melon"));
 		CSItems.replaceItem(Items.beef, new MItemFood(FoodType.RAW_MEAT, 3, 0.3F).setUnlocalizedName("beefRaw").setTextureName("beef_raw"));
@@ -594,6 +593,7 @@ public class MItems
 		CSItems.replaceItem(Items.baked_potato, new MItemFood(FoodType.COOKED_VEGETABLE, 6, 0.6F).setUnlocalizedName("potatoBaked").setTextureName("potato_baked"));
 		CSItems.replaceItem(Items.poisonous_potato, new MItemFood(FoodType.MISC, 2, 0.3F).setPotionEffect(Potion.poison.id, 5, 0, 0.6F).setUnlocalizedName("potatoPoisonous").setTextureName("potato_poisonous"));
 		CSItems.replaceItem(Items.pumpkin_pie, new MItemFood(FoodType.BAKED, 8, 0.3F).setUnlocalizedName("pumpkinPie").setCreativeTab(CreativeTabs.tabFood).setTextureName("pumpkin_pie"));
+		CSItems.replaceItem(Items.mushroom_stew, new MItemFood(FoodType.BAKED, 6, 0.2F).setUnlocalizedName("mushroomStew").setTextureName("mushroom_stew"));
 		
 		addItemsToChests();
 		setHarvestLevels();

@@ -8,6 +8,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -262,4 +263,15 @@ public class MItemFood extends ItemFood
 			list.add(EnumChatFormatting.BLUE + "Frozen");
 		}
 	}
+	
+	// FOR MUSHY STEW
+	public ItemStack onEaten(ItemStack item, World world, EntityPlayer player)
+    {
+        super.onEaten(item, world, player);
+        if(this == Items.mushroom_stew)
+        {
+        	return new ItemStack(Items.bowl);
+        }
+        return item;
+    }
 }
