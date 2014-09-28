@@ -61,6 +61,9 @@ public class Minestrappolation extends BaseMod
 	public static int					daysUntilTarnish;
 	public static int					daysUntilMossy;
 	public static int					bedrockDamage		= 2000;
+	public static boolean				foodSpoilable		= true;
+	public static boolean				generateBiomeStone	= true;
+	public static boolean				generateOres		= true;
 	
 	public Minestrappolation()
 	{
@@ -90,6 +93,10 @@ public class Minestrappolation extends BaseMod
 		shouldOresEffect = CSConfig.getBool("blocks", "Should Plutonium/Uranium ores affect the player", true);
 		daysUntilMossy = CSConfig.getInt("blocks", "Days Until Planks Get Mossy", 3);
 		bedrockDamage = CSConfig.getInt("blocks", "Bedrock Damage", 2000);
+		foodSpoilable = CSConfig.getBool("items", "Should food spoil", true);
+		generateBiomeStone = CSConfig.getBool("gen", "Should stone in biomes be replaced", true);
+		generateOres = CSConfig.getBool("gen", "Should custom ores generate", true);
+
 	}
 	
 	@Override

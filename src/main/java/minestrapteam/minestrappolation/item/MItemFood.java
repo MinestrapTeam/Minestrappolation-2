@@ -3,7 +3,7 @@ package minestrapteam.minestrappolation.item;
 import java.util.List;
 
 import clashsoft.cslib.minecraft.lang.I18n;
-
+import minestrapteam.minestrappolation.Minestrappolation;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
@@ -154,7 +154,7 @@ public class MItemFood extends ItemFood
 	@Override
 	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean flag)
 	{
-		if (this.foodType.isSpoilable())
+		if (this.foodType.isSpoilable() && Minestrappolation.foodSpoilable)
 		{
 			if (stack.stackTagCompound == null)
 			{

@@ -4,12 +4,12 @@ import java.util.Random;
 
 import clashsoft.cslib.minecraft.block.ore.BlockOre2;
 import cpw.mods.fml.common.IWorldGenerator;
+import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.lib.MBlocks;
 import minestrapteam.minestrappolation.world.gen.WorldGenDesertQuartz;
 import minestrapteam.minestrappolation.world.gen.WorldGenRedSandstone;
 import minestrapteam.minestrappolation.world.gen.WorldGenRedWoodTreeSmall;
 import minestrapteam.minestrappolation.world.gen.WorldGenStructureStone;
-
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -59,7 +59,10 @@ public class MOreGenerator implements IWorldGenerator
 		chunkZ <<= 4;
 		if (chunkGenerator instanceof ChunkProviderGenerate)
 		{
-			this.genBiomeStone(world, chunkX, chunkZ, random);
+			if(Minestrappolation.generateBiomeStone)
+			{
+				this.genBiomeStone(world, chunkX, chunkZ, random);
+			}
 			this.generateSurface(world, random, chunkX, chunkZ);
 		}
 		else if (chunkGenerator instanceof ChunkProviderHell)
