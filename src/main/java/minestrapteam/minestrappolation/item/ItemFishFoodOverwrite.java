@@ -59,9 +59,7 @@ public class ItemFishFoodOverwrite extends MItemFood
         {
             ItemFishFoodOverwrite.FishType fishtype = afishtype[j];
             fishtype.func_150968_a(p_94581_1_, this.foodType, this.spoiledIcon, this.friedIcon);
-        }
-        
-        super.registerIcons(p_94581_1_);
+        }        
     }
 
     protected void onFoodEaten(ItemStack p_77849_1_, World p_77849_2_, EntityPlayer p_77849_3_)
@@ -116,6 +114,20 @@ public class ItemFishFoodOverwrite extends MItemFood
     {
         ItemFishFoodOverwrite.FishType fishtype = ItemFishFoodOverwrite.FishType.func_150978_a(p_77667_1_);
         return this.getUnlocalizedName() + "." + fishtype.func_150972_b() + "." + (this.cooked && fishtype.func_150973_i() ? "cooked" : "raw");
+    }
+    
+    /**
+     * Returns the icon index of the stack given as argument.
+     */
+    @SideOnly(Side.CLIENT)
+    public IIcon getIconIndex(ItemStack p_77650_1_)
+    {
+        return this.getIconFromDamage(p_77650_1_.getItemDamage());
+    }
+
+    public IIcon getIcon(ItemStack stack, int pass)
+    {
+        return getIconFromDamageForRenderPass(stack.getItemDamage(), pass);
     }
 
     public static enum FishType

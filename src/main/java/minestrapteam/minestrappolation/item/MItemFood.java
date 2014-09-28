@@ -26,7 +26,15 @@ public class MItemFood extends ItemFood
 	
 	public static enum FoodType
 	{
-		BAKED(3 * DAYS, false), RAW_MEAT(1 * DAYS, false), COOKED_MEAT(3 * DAYS, true), RAW_FISH(18 * HOURS, false), COOKED_FISH(2 * DAYS, true), VEGETABLE(4 * DAYS, false), COOKED_VEGETABLE(5 * DAYS, false), FRUIT(4 * DAYS, false), MISC(0, false);
+		BAKED(3 * DAYS, false), 
+		RAW_MEAT(1 * DAYS, false), 
+		COOKED_MEAT(3 * DAYS, true), 
+		RAW_FISH(18 * HOURS, false), 
+		COOKED_FISH(2 * DAYS, true), 
+		VEGETABLE(4 * DAYS, false), 
+		COOKED_VEGETABLE(5 * DAYS, false), 
+		FRUIT(4 * DAYS, false), 
+		MISC(0, false);
 		
 		private int		maxSpoiling;
 		private boolean	isCooked;
