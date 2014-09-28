@@ -223,7 +223,7 @@ public class MItemFood extends ItemFood
 		if (isFried(stack))
 		{
 			player.getFoodStats().addStats(3, 0.05F);
-			player.addPotionEffect(new PotionEffect(Potion.hunger.id, 15, 0));
+			player.addPotionEffect(new PotionEffect(Potion.hunger.id, 300, 0));
 		}
 		
 		if (this.isSpoiled(stack, world))
