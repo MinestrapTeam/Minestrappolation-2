@@ -1304,6 +1304,7 @@ item.pullum_amulet.name=Pullum Amulet
 item.oves_amulet.name=Oves Amulet
 item.hangglider.name=Hang Glider
 item.ghastly_soul.name=Ghastly Soul
+item.coolant_bottle.name=Bottle of Coolant
 
 #Descriptions
 tile.edge_bricks.connects_to=Connects to: %s

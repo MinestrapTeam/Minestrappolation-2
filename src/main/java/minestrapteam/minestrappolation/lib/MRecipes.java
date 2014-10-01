@@ -51,7 +51,7 @@ public class MRecipes
 		GameRegistry.addSmelting(radiantQuartzOre, new ItemStack(MItems.radiantQuartz), 1.2F);
 		GameRegistry.addSmelting(blaziumOre, new ItemStack(blazeShard), 0.8F);
 		GameRegistry.addSmelting(soulOre, new ItemStack(soulGem), 1.0F);
-
+		
 		// Alloy Recipes
 		
 		GameRegistry.addShapelessRecipe(new ItemStack(bronzeIngot, 1), new Object[] { Items.iron_ingot, copperIngot, copperIngot, tinIngot, tinIngot });
@@ -66,7 +66,7 @@ public class MRecipes
 		GameRegistry.addRecipe(new ItemStack(plateBronzeItem, 1), new Object[] { "ZZZ", "ZZZ", 'Z', bronzeIngot });
 		GameRegistry.addRecipe(new ItemStack(plateSteelItem, 1), new Object[] { "ZZZ", "ZZZ", 'Z', steelIngot });
 		GameRegistry.addRecipe(new ItemStack(plateMeuroditeItem, 1), new Object[] { "MMM", "MMM", 'M', meuroditeGem });
-
+		
 		// Storage Block Recipes
 		
 		GameRegistry.addRecipe(new ItemStack(ropeItem, 9), new Object[] { "S", 'S', ropeCoil });
@@ -109,7 +109,7 @@ public class MRecipes
 		GameRegistry.addRecipe(new ItemStack(sunstoneBlock), new Object[] { "ZZ", "ZZ", 'Z', sunstoneDust });
 		GameRegistry.addRecipe(new ItemStack(blaziumBlock), new Object[] { "ZZZ", "ZZZ", "ZZZ", 'Z', blaziumIngot });
 		GameRegistry.addRecipe(new ItemStack(soulBlock, 1), new Object[] { "MMM", "MMM", "MMM", 'M', soulGem });
-
+		
 		// Decor Block Recipes
 		
 		GameRegistry.addRecipe(new ItemStack(snowBrick, 4), new Object[] { "SS", "SS", 'S', Blocks.snow });
@@ -130,14 +130,17 @@ public class MRecipes
 		GameRegistry.addSmelting(squidTentacle, new ItemStack(calimari, 1), 0.35F);
 		GameRegistry.addSmelting(horseHaunchRaw, new ItemStack(horseHaunchCooked), 0.4F);
 		
-		// Tech Recipes
-		// (MBlockMachine recipes require the metadata 1 because of the front texture of the item.)	
+		GameRegistry.addRecipe(new ItemStack(coolantBottle), new Object[] { "rSr", "SwS", "rSr", 'r', Items.redstone, 'S', Blocks.snow, 'w', new ItemStack(Items.potionitem, 1, 0) });
 		
-		GameRegistry.addRecipe(new ItemStack(uraniumInsulated, 1), new Object[] { "SPS", "GUG", "SPS", 'S', steelIngot, 'G', MBlocks.refinedGlassPane, 'U', uraniumBlock, 'P', MItems.plateSteelItem });		
+		// Tech Recipes
+		// (MBlockMachine recipes require the metadata 1 because of the front
+		// texture of the item.)
+		
+		GameRegistry.addRecipe(new ItemStack(uraniumInsulated, 1), new Object[] { "SPS", "GUG", "SPS", 'S', steelIngot, 'G', MBlocks.refinedGlassPane, 'U', uraniumBlock, 'P', MItems.plateSteelItem });
 		GameRegistry.addRecipe(new ItemStack(plutoniumInsulated, 1), new Object[] { "SPS", "GUG", "SPS", 'S', steelIngot, 'G', MBlocks.refinedGlassPane, 'U', plutoniumBlock, 'P', MItems.plateSteelItem });
 		GameRegistry.addRecipe(new ItemStack(nuke, 1), new Object[] { "UPU", "PUP", "UPU", 'P', plutoniumBlock, 'U', uraniumBlock });
 		GameRegistry.addRecipe(new ItemStack(melterIdle, 1, 1), new Object[] { "ZZZ", "ZFZ", "IBI", 'Z', plateMeuroditeItem, 'F', Blocks.furnace, 'B', blaziumBlock, 'I', Blocks.iron_bars });
-
+		
 		for (int i = 0; i < 16; i++)
 		{
 			GameRegistry.addShapedRecipe(new ItemStack(MBlocks.coloredLampOff, 1, i), new Object[] { " D ", "DLD", " D ", 'L', Blocks.redstone_lamp, 'D', new ItemStack(Items.dye, 1, i) });
@@ -145,9 +148,9 @@ public class MRecipes
 		
 		// Misc. Block Recipes
 		
-		GameRegistry.addRecipe(new ItemStack(godstone, 1), new Object[] { "SSS", "SES", "SSS", 'S', MItems.sunstoneDust, 'E', new ItemStack(MBlocks.endstone, 1, 0) });		
+		GameRegistry.addRecipe(new ItemStack(godstone, 1), new Object[] { "SSS", "SES", "SSS", 'S', MItems.sunstoneDust, 'E', new ItemStack(MBlocks.endstone, 1, 0) });
 		
-		//Misc. Item Recipes
+		// Misc. Item Recipes
 		
 		GameRegistry.addRecipe(new ItemStack(ropeItem, 1), new Object[] { "S", "S", "S", 'S', Items.string });
 		GameRegistry.addRecipe(new ItemStack(cardboardItem, 3), new Object[] { "SSS", "SSS", 'S', Items.paper });
@@ -263,7 +266,7 @@ public class MRecipes
 		GameRegistry.addRecipe(new ItemStack(bedrockPickaxe, 1), new Object[] { "ZZZ", " S ", " S ", 'Z', Blocks.bedrock, 'S', Items.stick });
 		GameRegistry.addRecipe(new ItemStack(bedrockAxe, 1), new Object[] { "ZZ ", "ZS ", " S ", 'Z', Blocks.bedrock, 'S', Items.stick });
 		GameRegistry.addRecipe(new ItemStack(bedrockHoe, 1), new Object[] { "ZZ ", " S ", " S ", 'Z', Blocks.bedrock, 'S', Items.stick });
-	
+		
 	}
 	
 	public static void removeRecipes()
