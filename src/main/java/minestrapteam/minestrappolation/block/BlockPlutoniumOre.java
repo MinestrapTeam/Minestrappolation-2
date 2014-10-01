@@ -37,7 +37,7 @@ public class BlockPlutoniumOre extends BlockRadiationOre
 	@Override
 	public void addPotionEffect(EntityLivingBase living)
 	{
-		if (Minestrappolation.shouldOresEffect)
+		if (Minestrappolation.oreEffects)
 		{
 			if (living instanceof EntitySkeleton)
 			{

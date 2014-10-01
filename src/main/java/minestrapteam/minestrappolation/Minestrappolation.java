@@ -57,11 +57,11 @@ public class Minestrappolation extends BaseMod
 	public static OreBase				deepOceanstone		= new OreBase("pressurizedoceanstone").setIconName(MAssetManager.getStonecutterTexture("pressurizedoceanstone")).register(OreBase.TYPE_OVERWORLD, 13);
 	
 	public static boolean				showDurability;
-	public static boolean				shouldOresEffect	= true;
+	public static boolean				oreEffects	= true;
 	public static int					daysUntilTarnish;
 	public static int					daysUntilMossy;
 	public static int					bedrockDamage		= 2000;
-	public static boolean				foodSpoilable		= true;
+	public static boolean				foodSpoiling		= true;
 	public static boolean				generateBiomeStone	= true;
 	public static boolean				generateOres		= true;
 	
@@ -89,14 +89,13 @@ public class Minestrappolation extends BaseMod
 	public void readConfig()
 	{
 		showDurability = CSConfig.getBool("tools", "Show Durability", true);
-		daysUntilTarnish = CSConfig.getInt("blocks", "Days until copper tarnish", 3);
-		shouldOresEffect = CSConfig.getBool("blocks", "Should Plutonium/Uranium ores affect the player", true);
-		daysUntilMossy = CSConfig.getInt("blocks", "Days Until Planks Get Mossy", 3);
+		daysUntilTarnish = CSConfig.getInt("blocks", "Copper Tarnish Days", "Days until Copper Blocks tarnish", 3);
+		oreEffects = CSConfig.getBool("blocks", "Ore Effects", "Should Uranium and Plutonium Ores affect the player", true);
+		daysUntilMossy = CSConfig.getInt("blocks", "Mossy Planks Days", "Days until Planks get mossy", 3);
 		bedrockDamage = CSConfig.getInt("blocks", "Bedrock Damage", 2000);
-		foodSpoilable = CSConfig.getBool("items", "Should food spoil", true);
-		generateBiomeStone = CSConfig.getBool("gen", "Should stone in biomes be replaced", true);
-		generateOres = CSConfig.getBool("gen", "Should custom ores generate", true);
-
+		foodSpoiling = CSConfig.getBool("items", "Food Spoiling", true);
+		generateBiomeStone = CSConfig.getBool("gen", "Replace Biome Stone", true);
+		generateOres = CSConfig.getBool("gen", "Generate Custom Ores", true);
 	}
 	
 	@Override

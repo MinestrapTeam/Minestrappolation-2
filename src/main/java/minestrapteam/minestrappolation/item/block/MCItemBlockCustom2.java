@@ -34,7 +34,68 @@ public class MCItemBlockCustom2 extends MCItemBlockMulti
 	@Override
 	public boolean func_150936_a(World world, int x, int y, int z, int side, EntityPlayer player, ItemStack stack)
 	{
-		return this.onItemUse(stack, player, world, x, y, z, side, 0F, 0F, 0F);
+		Block block1 = world.getBlock(x, y, z);
+		int i = world.getBlockMetadata(x, y, z);
+		String s = this.theBlock.getType(stack.getItemDamage());
+		
+		int model = i % 3;
+		int type = i - model;
+		
+		if (!"pillar".equals(s))
+		{
+			// Handles double slabs
+			if (block1 == this.theBlock && type == stack.getItemDamage() && (side == 1 && model == 0 || side == 0 && model == 1))
+			{
+				return true;
+			}
+			else
+			{
+				int x1 = x;
+				int y1 = y;
+				int z1 = z;
+				
+				if (side == 0)
+				{
+					--y;
+				}
+				
+				if (side == 1)
+				{
+					++y;
+				}
+				
+				if (side == 2)
+				{
+					--z;
+				}
+				
+				if (side == 3)
+				{
+					++z;
+				}
+				
+				if (side == 4)
+				{
+					--x;
+				}
+				
+				if (side == 5)
+				{
+					++x;
+				}
+				
+				block1 = world.getBlock(x, y, z);
+				i = world.getBlockMetadata(x, y, z);
+				model = i % 3;
+				type = i - model;
+				
+				if (block1 == this.theBlock && type == stack.getItemDamage())
+				{
+					return true;
+				}
+			}
+		}
+		return super.func_150936_a(world, x, y, z, side, player, stack);
 	}
 	
 	@Override

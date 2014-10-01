@@ -143,6 +143,11 @@ public class MItemArmor extends ItemArmor implements IPlatable
 		case DIAMOND:
 			return 4;
 		default:
+			ToolMaterial toolMaterial = ToolMaterial.valueOf(material.name());
+			if (toolMaterial != null)
+			{
+				return toolMaterial.getHarvestLevel() + 1;
+			}
 			return 1;
 		}
 	}

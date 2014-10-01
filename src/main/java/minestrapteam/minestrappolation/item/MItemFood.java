@@ -156,7 +156,7 @@ public class MItemFood extends ItemFood
 	@Override
 	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean flag)
 	{
-		if (this.foodType.isSpoilable() && Minestrappolation.foodSpoilable)
+		if (this.foodType.isSpoilable() && Minestrappolation.foodSpoiling)
 		{
 			if (stack.stackTagCompound == null)
 			{
