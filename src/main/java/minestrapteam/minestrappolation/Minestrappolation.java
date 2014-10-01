@@ -57,11 +57,12 @@ public class Minestrappolation extends BaseMod
 	public static OreBase				deepOceanstone		= new OreBase("pressurizedoceanstone").setIconName(MAssetManager.getStonecutterTexture("pressurizedoceanstone")).register(OreBase.TYPE_OVERWORLD, 13);
 	
 	public static boolean				showDurability;
-	public static boolean				oreEffects	= true;
+	public static boolean				oreEffects			= true;
 	public static int					daysUntilTarnish;
 	public static int					daysUntilMossy;
 	public static int					bedrockDamage		= 2000;
 	public static boolean				foodSpoiling		= true;
+	public static int					spoilTimeRounding	= 500;
 	public static boolean				generateBiomeStone	= true;
 	public static boolean				generateOres		= true;
 	
@@ -94,6 +95,7 @@ public class Minestrappolation extends BaseMod
 		daysUntilMossy = CSConfig.getInt("blocks", "Mossy Planks Days", "Days until Planks get mossy", 3);
 		bedrockDamage = CSConfig.getInt("blocks", "Bedrock Damage", 2000);
 		foodSpoiling = CSConfig.getBool("items", "Food Spoiling", true);
+		spoilTimeRounding = CSConfig.getInt("items", "Spoil Time Rounding", "The amount of seconds in which Spoilable Food Items are stackable.", 500);
 		generateBiomeStone = CSConfig.getBool("gen", "Replace Biome Stone", true);
 		generateOres = CSConfig.getBool("gen", "Generate Custom Ores", true);
 	}

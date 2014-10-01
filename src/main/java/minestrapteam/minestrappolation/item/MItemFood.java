@@ -167,7 +167,9 @@ public class MItemFood extends ItemFood
 				return;
 			}
 			
-			stack.stackTagCompound.setLong("SpoilTime", world.getTotalWorldTime());
+			long l = Minestrappolation.spoilTimeRounding * 20;
+			long t = (world.getTotalWorldTime() / l) * l;
+			stack.stackTagCompound.setLong("SpoilTime", t);
 		}
 	}
 	
