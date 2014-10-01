@@ -6,5 +6,7 @@ public interface IPlatable
 {
 	public String getType();
 	
+	public String getMaterialName();
+	
 	public int getPlatingCount(ItemStack stack);
 }

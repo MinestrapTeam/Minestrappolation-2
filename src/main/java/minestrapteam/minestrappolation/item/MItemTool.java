@@ -63,6 +63,12 @@ public class MItemTool extends ItemTool implements IPlatable
 	}
 	
 	@Override
+	public String getMaterialName()
+	{
+		return this.toolMaterial.name();
+	}
+	
+	@Override
 	public int getPlatingCount(ItemStack stack)
 	{
 		return this.toolMaterial.getHarvestLevel() + 1;

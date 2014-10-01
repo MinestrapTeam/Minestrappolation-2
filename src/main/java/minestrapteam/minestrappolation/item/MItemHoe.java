@@ -35,6 +35,12 @@ public class MItemHoe extends ItemHoe implements IPlatable
 	}
 	
 	@Override
+	public String getMaterialName()
+	{
+		return this.theToolMaterial.name();
+	}
+	
+	@Override
 	public int getPlatingCount(ItemStack stack)
 	{
 		return this.theToolMaterial.getHarvestLevel() + 1;

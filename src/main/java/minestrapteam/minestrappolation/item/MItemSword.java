@@ -49,6 +49,12 @@ public class MItemSword extends ItemSword implements IPlatable
 	}
 	
 	@Override
+	public String getMaterialName()
+	{
+		return this.material.name();
+	}
+	
+	@Override
 	public int getPlatingCount(ItemStack stack)
 	{
 		return this.material.getHarvestLevel() + 1;

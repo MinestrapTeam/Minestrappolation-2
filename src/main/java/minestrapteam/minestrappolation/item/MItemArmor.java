@@ -127,6 +127,12 @@ public class MItemArmor extends ItemArmor implements IPlatable
 	}
 	
 	@Override
+	public String getMaterialName()
+	{
+		return this.getArmorMaterial().name();
+	}
+	
+	@Override
 	public int getPlatingCount(ItemStack stack)
 	{
 		ArmorMaterial material = this.getArmorMaterial();
@@ -143,10 +149,14 @@ public class MItemArmor extends ItemArmor implements IPlatable
 		case DIAMOND:
 			return 4;
 		default:
-			ToolMaterial toolMaterial = ToolMaterial.valueOf(material.name());
-			if (toolMaterial != null)
+			String name = material.name();
+			// TODO Move to CSLib
+			for (ToolMaterial toolMaterial : ToolMaterial.values())
 			{
-				return toolMaterial.getHarvestLevel() + 1;
+				if (toolMaterial.name().equalsIgnoreCase(name))
+				{
+					return toolMaterial.getHarvestLevel() + 1;
+				}
 			}
 			return 1;
 		}
