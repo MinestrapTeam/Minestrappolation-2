@@ -64,7 +64,7 @@ public class Minestrappolation extends BaseMod
 	public static boolean				foodSpoiling		= true;
 	public static int					spoilTimeRounding	= 500;
 	public static boolean				generateBiomeStone	= true;
-	public static boolean				generateOres		= true;
+	public static boolean				generateInvincium	= true;
 	
 	public Minestrappolation()
 	{
@@ -97,7 +97,7 @@ public class Minestrappolation extends BaseMod
 		foodSpoiling = CSConfig.getBool("items", "Food Spoiling", true);
 		spoilTimeRounding = CSConfig.getInt("items", "Spoil Time Rounding", "The amount of seconds in which Spoilable Food Items are stackable.", 500);
 		generateBiomeStone = CSConfig.getBool("gen", "Replace Biome Stone", true);
-		generateOres = CSConfig.getBool("gen", "Generate Custom Ores", true);
+		generateInvincium = CSConfig.getBool("gen", "Generate Invincium", true);
 	}
 	
 	@Override

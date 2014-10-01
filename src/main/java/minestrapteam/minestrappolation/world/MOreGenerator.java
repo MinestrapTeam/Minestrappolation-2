@@ -59,7 +59,7 @@ public class MOreGenerator implements IWorldGenerator
 		chunkZ <<= 4;
 		if (chunkGenerator instanceof ChunkProviderGenerate)
 		{
-			if(Minestrappolation.generateBiomeStone)
+			if (Minestrappolation.generateBiomeStone)
 			{
 				this.genBiomeStone(world, chunkX, chunkZ, random);
 			}
@@ -209,13 +209,12 @@ public class MOreGenerator implements IWorldGenerator
 			}
 		}
 		
-		//Structure Gen
+		// Structure Gen
 		
 		x1 = chunkX + rand.nextInt(16);
 		y1 = rand.nextInt(256);
 		z1 = chunkZ + rand.nextInt(16);
 		stoneStructureGen.generate(world, rand, x1, y1, z1);
-		
 		
 		// Red Sandstone
 		if (biome instanceof BiomeGenMesa)
@@ -256,11 +255,14 @@ public class MOreGenerator implements IWorldGenerator
 			radiantQuartzGen.generate(world, rand, x1, y1, z1);
 		}
 		
-		for (x1 = 0; x1 < 16; x1++)
+		if (Minestrappolation.generateInvincium)
 		{
-			for (z1 = 0; z1 < 16; z1++)
+			for (x1 = 0; x1 < 16; x1++)
 			{
-				world.setBlock(chunkX + x1, 0, chunkZ + z1, MBlocks.invincium, 0, 0);
+				for (z1 = 0; z1 < 16; z1++)
+				{
+					world.setBlock(chunkX + x1, 0, chunkZ + z1, MBlocks.invincium, 0, 0);
+				}
 			}
 		}
 	}
