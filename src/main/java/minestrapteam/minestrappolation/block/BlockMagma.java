@@ -1,7 +1,7 @@
 package minestrapteam.minestrappolation.block;
 
 import minestrapteam.minestrappolation.lib.MBlocks;
-import minestrapteam.minestrappolation.lib.MLiquids;
+import minestrapteam.minestrappolation.lib.MFluids;
 import minestrapteam.minestrappolation.util.MAssetManager;
 import minestrapteam.minestrappolation.util.MUtil;
 
@@ -20,15 +20,15 @@ public class BlockMagma extends BlockFluidClassic
 	
 	public BlockMagma()
 	{
-		super(MLiquids.magmaFluid, Material.lava);
-		MLiquids.magmaFluid.setBlock(this);
+		super(MFluids.MAGMA, Material.lava);
+		MFluids.MAGMA.setBlock(this);
 		this.setQuantaPerBlock(4);
 	}
 	
 	@Override
 	public Fluid getFluid()
 	{
-		return MLiquids.magmaFluid;
+		return MFluids.MAGMA;
 	}
 	
 	@Override

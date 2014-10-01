@@ -106,8 +106,7 @@ public class Minestrappolation extends BaseMod
 	{
 		super.preInit(event);
 		
-		MLiquids.init();
-		MLiquids.load();
+		MFluids.init();
 		
 		MBlocks.init();
 		MItems.init();
@@ -120,8 +119,7 @@ public class Minestrappolation extends BaseMod
 		MRecipes.load();
 		MOreDictionary.load();
 		MEntities.load();
-		
-		MLiquids.registerFluidContainers();
+		MFluids.load();
 	}
 	
 	@Override
