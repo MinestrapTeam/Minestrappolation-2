@@ -578,8 +578,8 @@ public class MItems
 		CSItems.replaceItem(Items.bread, new MItemFood(FoodType.BAKED, 5, 0.6F).setUnlocalizedName("bread").setTextureName("bread"));
 		CSItems.replaceItem(Items.porkchop, new MItemFood(FoodType.RAW_MEAT, 3, 0.3F).setUnlocalizedName("porkchopRaw").setTextureName("porkchop_raw"));
 		CSItems.replaceItem(Items.cooked_porkchop, new MItemFood(FoodType.COOKED_MEAT, 8, 0.8F).setUnlocalizedName("porkchopCooked").setTextureName("porkchop_cooked"));
-		CSItems.replaceItem(Items.fish, new ItemFishFoodOverwrite(FoodType.RAW_FISH, false).setUnlocalizedName("fish").setTextureName("fish_raw").setHasSubtypes(true));
-		CSItems.replaceItem(Items.cooked_fished, new ItemFishFoodOverwrite(FoodType.COOKED_FISH, true).setUnlocalizedName("fish").setTextureName("fish_cooked").setHasSubtypes(true));
+		CSItems.replaceItem(Items.fish, new ItemFishFood2(FoodType.RAW_FISH, false).setUnlocalizedName("fish").setTextureName("fish_raw").setHasSubtypes(true));
+		CSItems.replaceItem(Items.cooked_fished, new ItemFishFood2(FoodType.COOKED_FISH, true).setUnlocalizedName("fish").setTextureName("fish_cooked").setHasSubtypes(true));
 		CSItems.replaceItem(Items.cookie, new MItemFood(FoodType.BAKED, 2, 0.1F).setUnlocalizedName("cookie").setTextureName("cookie"));
 		CSItems.replaceItem(Items.melon, new MItemFood(FoodType.FRUIT, 2, 0.3F).setUnlocalizedName("melon").setTextureName("melon"));
 		CSItems.replaceItem(Items.beef, new MItemFood(FoodType.RAW_MEAT, 3, 0.3F).setUnlocalizedName("beefRaw").setTextureName("beef_raw"));

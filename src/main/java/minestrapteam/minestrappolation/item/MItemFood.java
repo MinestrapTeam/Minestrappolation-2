@@ -4,6 +4,7 @@ import java.util.List;
 
 import clashsoft.cslib.minecraft.lang.I18n;
 import minestrapteam.minestrappolation.Minestrappolation;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
@@ -26,15 +27,7 @@ public class MItemFood extends ItemFood
 	
 	public static enum FoodType
 	{
-		BAKED(3 * DAYS, false), 
-		RAW_MEAT(1 * DAYS, false), 
-		COOKED_MEAT(3 * DAYS, true), 
-		RAW_FISH(18 * HOURS, false), 
-		COOKED_FISH(2 * DAYS, true), 
-		VEGETABLE(4 * DAYS, false), 
-		COOKED_VEGETABLE(5 * DAYS, false), 
-		FRUIT(4 * DAYS, false), 
-		MISC(0, false);
+		BAKED(3 * DAYS, false), RAW_MEAT(1 * DAYS, false), COOKED_MEAT(3 * DAYS, true), RAW_FISH(18 * HOURS, false), COOKED_FISH(2 * DAYS, true), VEGETABLE(4 * DAYS, false), COOKED_VEGETABLE(5 * DAYS, false), FRUIT(4 * DAYS, false), MISC(0, false);
 		
 		private int		maxSpoiling;
 		private boolean	isCooked;
@@ -199,13 +192,28 @@ public class MItemFood extends ItemFood
 	{
 		if (isFried(stack))
 		{
-			return this.friedIcon;
+			return this.getFriedIcon(stack);
 		}
 		if (this.isSpoiled(stack, Minecraft.getMinecraft().theWorld))
 		{
-			return this.spoiledIcon;
+			return this.getSpoiledIcon(stack);
 		}
+		return this.getFoodIcon(stack);
+	}
+	
+	public IIcon getFoodIcon(ItemStack stack)
+	{
 		return this.itemIcon;
+	}
+	
+	public IIcon getFriedIcon(ItemStack stack)
+	{
+		return this.friedIcon;
+	}
+	
+	public IIcon getSpoiledIcon(ItemStack stack)
+	{
+		return this.spoiledIcon;
 	}
 	
 	@Override
@@ -272,14 +280,14 @@ public class MItemFood extends ItemFood
 		}
 	}
 	
-	// FOR MUSHY STEW
+	@Override
 	public ItemStack onEaten(ItemStack item, World world, EntityPlayer player)
-    {
-        super.onEaten(item, world, player);
-        if(this == Items.mushroom_stew)
-        {
-        	return new ItemStack(Items.bowl);
-        }
-        return item;
-    }
+	{
+		super.onEaten(item, world, player);
+		if (this == Items.mushroom_stew)
+		{
+			return new ItemStack(Items.bowl);
+		}
+		return item;
+	}
 }

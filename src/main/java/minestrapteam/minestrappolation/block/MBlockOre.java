@@ -4,16 +4,12 @@ import java.util.Random;
 
 import clashsoft.cslib.minecraft.block.ore.BlockOre2;
 import clashsoft.cslib.minecraft.block.ore.OreBase;
-
 import minestrapteam.minestrappolation.lib.MBlocks;
 import minestrapteam.minestrappolation.lib.MItems;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.world.IBlockAccess;
 
-// FIXME extends BlockOre2
 public class MBlockOre extends BlockOre2
 {
 	public MBlockOre()

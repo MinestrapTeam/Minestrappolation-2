@@ -2,13 +2,10 @@ package minestrapteam.minestrappolation.block;
 
 import java.util.Random;
 
-import clashsoft.cslib.minecraft.block.ore.OreBase;
-
 import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.lib.MItems;
 import minestrapteam.minestrappolation.util.MUtil;
 
-import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.item.Item;
@@ -22,7 +19,6 @@ public class BlockUraniumOre extends BlockRadiationOre
 {
 	public BlockUraniumOre()
 	{
-
 	}
 	
 	@Override

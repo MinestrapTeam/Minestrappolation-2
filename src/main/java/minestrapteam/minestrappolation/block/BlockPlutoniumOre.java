@@ -6,7 +6,6 @@ import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.lib.MItems;
 import minestrapteam.minestrappolation.util.MUtil;
 
-import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.player.EntityPlayer;
@@ -21,7 +20,6 @@ public class BlockPlutoniumOre extends BlockRadiationOre
 {
 	public BlockPlutoniumOre()
 	{
-
 	}
 	
 	@Override
