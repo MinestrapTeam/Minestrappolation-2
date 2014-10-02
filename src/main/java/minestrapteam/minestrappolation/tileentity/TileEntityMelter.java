@@ -15,6 +15,13 @@ import net.minecraft.tileentity.TileEntityFurnace;
 
 public class TileEntityMelter extends TileEntityInventory implements ISidedInventory
 {
+	/*
+	 * 0 = Input
+	 * 1 = Fuel
+	 * 2 = Output
+	 * 3 = Bucket
+	 */
+	
 	public int					burnTime;
 	public int					maxBurnTime;
 	public int					meltTime;

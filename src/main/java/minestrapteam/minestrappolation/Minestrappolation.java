@@ -15,6 +15,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.VillagerRegistry;
 import minestrapteam.minestrappolation.common.*;
+import minestrapteam.minestrappolation.crafting.FreezerRecipeLoader;
 import minestrapteam.minestrappolation.crafting.MelterRecipeLoader;
 import minestrapteam.minestrappolation.creativetab.*;
 import minestrapteam.minestrappolation.lib.*;
@@ -43,7 +44,8 @@ public class Minestrappolation extends BaseMod
 	public static CreativeTabs			tabBrewing			= new MTabBrewing("minestrap_brewing");
 	public static CreativeTabs			tabMaterials		= new MTabMaterials("minestrap_materials");
 	
-	public static MelterRecipeLoader	melter				= new MelterRecipeLoader("melter");
+	public static MelterRecipeLoader	melterRecipeLoader	= new MelterRecipeLoader("melter");
+	public static FreezerRecipeLoader	freezerRecipeLoader	= new FreezerRecipeLoader("freezer");
 	
 	public static OreBase				stone				= new OreBase("stone").setIconName(MAssetManager.getStonecutterTexture("stone")).register(OreBase.TYPE_OVERWORLD, 0);
 	public static OreBase				deepStone			= new OreBase("deepstone").setIconName(MAssetManager.getStonecutterTexture("deepstone")).register(OreBase.TYPE_OVERWORLD, 5);
@@ -120,6 +122,9 @@ public class Minestrappolation extends BaseMod
 		MOreDictionary.load();
 		MEntities.load();
 		MFluids.load();
+		
+		melterRecipeLoader.load();
+		freezerRecipeLoader.load();
 	}
 	
 	@Override
