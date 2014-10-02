@@ -18,7 +18,6 @@ public class TileEntityMelter extends TileEntityInventory implements ISidedInven
 	public int					burnTime;
 	public int					maxBurnTime;
 	public int					meltTime;
-	public int					front;
 	
 	public boolean				hasPower;
 	
@@ -29,16 +28,6 @@ public class TileEntityMelter extends TileEntityInventory implements ISidedInven
 	public TileEntityMelter()
 	{
 		super(4);
-	}
-	
-	public void setFrontDirection(int f)
-	{
-		this.front = f;
-	}
-	
-	public int getFrontDirection()
-	{
-		return this.front;
 	}
 	
 	public final int getMaxMeltTime()
@@ -57,7 +46,6 @@ public class TileEntityMelter extends TileEntityInventory implements ISidedInven
 	{
 		super.readFromNBT(nbt);
 		
-		this.front = nbt.getInteger("FrontDirection");
 		this.burnTime = nbt.getShort("BurnTime");
 		this.meltTime = nbt.getShort("CookTime");
 		this.maxBurnTime = getItemBurnTime(this.itemStacks[1]);
@@ -73,17 +61,12 @@ public class TileEntityMelter extends TileEntityInventory implements ISidedInven
 	{
 		super.writeToNBT(nbt);
 		
-		nbt.setInteger("FrontDirection", this.front);
 		nbt.setShort("BurnTime", (short) this.burnTime);
 		nbt.setShort("CookTime", (short) this.meltTime);
 	}
 	
 	public int getProgressScaled(int scalar)
 	{
-		if (!this.hasPower)
-		{
-			return this.meltTime * scalar / this.getMaxMeltTime();
-		}
 		return this.meltTime * scalar / this.getMaxMeltTime();
 	}
 	
@@ -129,16 +112,17 @@ public class TileEntityMelter extends TileEntityInventory implements ISidedInven
 		{
 			if (this.burnTime == 0)
 			{
-				this.maxBurnTime = this.burnTime = getItemBurnTime(this.itemStacks[1]);
+				ItemStack fuel = this.itemStacks[1];
+				this.maxBurnTime = this.burnTime = getItemBurnTime(fuel);
 				if (this.burnTime > 0)
 				{
 					this.markDirty();
-					if (this.itemStacks[1] != null)
+					if (fuel != null)
 					{
-						--this.itemStacks[1].stackSize;
-						if (this.itemStacks[1].stackSize == 0)
+						--fuel.stackSize;
+						if (fuel.stackSize == 0)
 						{
-							this.itemStacks[1] = this.itemStacks[1].getItem().getContainerItem(this.itemStacks[1]);
+							this.itemStacks[1] = fuel.getItem().getContainerItem(fuel);
 						}
 					}
 				}
@@ -173,14 +157,15 @@ public class TileEntityMelter extends TileEntityInventory implements ISidedInven
 	
 	private boolean canSmelt()
 	{
-		if (this.itemStacks[0] != null)
+		ItemStack input = this.itemStacks[0];
+		if (input != null)
 		{
-			ItemStack itemstack = MelterRecipes.instance.getResult(this.itemStacks[0]);
-			if (itemstack == null)
+			ItemStack output = MelterRecipes.instance.getResult(input);
+			if (output == null)
 			{
 				return false;
 			}
-			ItemStack container = itemstack.getItem().getContainerItem(itemstack);
+			ItemStack container = output.getItem().getContainerItem(output);
 			if (container != null)
 			{
 				if (!CSStacks.itemEquals(container, this.itemStacks[3]))
@@ -188,16 +173,17 @@ public class TileEntityMelter extends TileEntityInventory implements ISidedInven
 					return false;
 				}
 			}
-			if (this.itemStacks[2] == null)
+			ItemStack outputSlot = this.itemStacks[2];
+			if (outputSlot == null)
 			{
 				return true;
 			}
-			if (!this.itemStacks[2].isItemEqual(itemstack))
+			if (!outputSlot.isItemEqual(output))
 			{
 				return false;
 			}
-			int result = this.itemStacks[2].stackSize + itemstack.stackSize;
-			return result <= itemstack.getMaxStackSize();
+			int result = outputSlot.stackSize + output.stackSize;
+			return result <= output.getMaxStackSize();
 		}
 		return false;
 	}
@@ -206,26 +192,29 @@ public class TileEntityMelter extends TileEntityInventory implements ISidedInven
 	{
 		if (this.canSmelt())
 		{
-			ItemStack itemstack = MelterRecipes.instance.getResult(this.itemStacks[0]);
-			if (this.itemStacks[2] == null)
+			ItemStack input = this.itemStacks[0];
+			ItemStack output = MelterRecipes.instance.getResult(input);
+			ItemStack outputSlot = this.itemStacks[2];
+			if (outputSlot == null)
 			{
-				this.itemStacks[2] = itemstack.copy();
+				this.itemStacks[2] = output.copy();
 			}
-			else if (this.itemStacks[2].isItemEqual(itemstack))
+			else if (outputSlot.isItemEqual(output))
 			{
-				this.itemStacks[2].stackSize += itemstack.stackSize;
+				outputSlot.stackSize += output.stackSize;
 			}
 			
-			--this.itemStacks[0].stackSize;
-			if (this.itemStacks[0].stackSize <= 0)
+			--input.stackSize;
+			if (input.stackSize <= 0)
 			{
 				this.itemStacks[0] = null;
 			}
 			
-			if (this.itemStacks[3] != null && CSStacks.equals(this.itemStacks[3], itemstack.getItem().getContainerItem(itemstack)))
+			ItemStack bucket = this.itemStacks[3];
+			if (bucket != null && CSStacks.equals(bucket, output.getItem().getContainerItem(output)))
 			{
-				--this.itemStacks[3].stackSize;
-				if (this.itemStacks[3].stackSize <= 0)
+				--bucket.stackSize;
+				if (bucket.stackSize <= 0)
 				{
 					this.itemStacks[3] = null;
 				}
@@ -233,7 +222,7 @@ public class TileEntityMelter extends TileEntityInventory implements ISidedInven
 		}
 	}
 	
-	public boolean isItemFuel(ItemStack stack)
+	public static boolean isItemFuel(ItemStack stack)
 	{
 		return getItemBurnTime(stack) > 0;
 	}

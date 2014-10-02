@@ -112,7 +112,7 @@ public class ContainerMelter extends ContainerInventory
 					return null;
 				}
 			}
-			else if (this.melter.isItemFuel(itemstack1))
+			else if (TileEntityMelter.isItemFuel(itemstack1))
 			{
 				if (!this.mergeItemStack(itemstack1, 0, 1, false))
 				{
