@@ -402,6 +402,10 @@ public class MBlocks
 	public static Block				witherBlock;
 	public static Block				mossCover;
 	
+	/* / {----- EF Blocks -----} / */
+	
+	public static Block freezer;
+	
 	public static void init()
 	{
 		addStoneBlocks();
@@ -509,6 +513,10 @@ public class MBlocks
 		witherLayer = new BlockWitherLayer().setHardness(0.1F).setStepSound(Block.soundTypeSnow).setBlockTextureName(MAssetManager.getMineralTexture("wither_ash_block"));
 		witherBlock = new BlockWitherAsh().setHardness(0.2F).setStepSound(Block.soundTypeSnow).setBlockTextureName(MAssetManager.getMineralTexture("wither_ash_block"));
 		mossCover = new BlockMossCover().setHardness(0.2F).setStepSound(Block.soundTypeSnow).setBlockTextureName(MAssetManager.getPlantTexture("moss_cover"));
+	
+		// EF Blocks
+		
+		freezer = new BlockFreezer().setHardness(2F).setStepSound(Block.soundTypeMetal).setCreativeTab(Minestrappolation.tabTech);
 	}
 	
 	public static void load()
@@ -610,6 +618,10 @@ public class MBlocks
 		CSBlocks.addBlock(witherBlock, "wither_block");
 		CSBlocks.addBlock(witherLayer, "wither_layer");
 		CSBlocks.addBlock(mossCover, "moss_cover");
+		
+		// EF Blocks
+		
+		CSBlocks.addBlock(freezer, "freezer");
 		
 		setFlammability();
 	}

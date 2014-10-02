@@ -91,6 +91,10 @@ public class MClientProxy extends MCommonProxy
 		{
 			return new GuiSawmill(player.inventory, (TileEntitySawmill) world.getTileEntity(x, y, z));
 		}
+		else if (id == 5)
+		{
+			return new GuiFreezer(player.inventory, (TileEntityFreezer) world.getTileEntity(x, y, z));
+		}
 		return null;
 	}
 	

@@ -261,8 +261,6 @@ public class MItemFood extends ItemFood
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean flag)
 	{
-		boolean frozen = isFrozen(stack);
-		
 		if (this.foodType.isSpoilable())
 		{
 			int ticks = (int) (this.foodType.maxSpoiling - getSpoilTime(stack, player.worldObj));
@@ -276,7 +274,7 @@ public class MItemFood extends ItemFood
 			}
 		}
 		
-		if (frozen)
+		if (isFrozen(stack))
 		{
 			list.add(EnumChatFormatting.BLUE + "Frozen");
 		}

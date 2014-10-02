@@ -2,13 +2,15 @@ package minestrapteam.minestrappolation.tileentity;
 
 import clashsoft.cslib.minecraft.tileentity.TileEntityInventory;
 import minestrapteam.minestrappolation.crafting.FreezerRecipes;
+import minestrapteam.minestrappolation.lib.MItems;
 
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.tileentity.TileEntityFurnace;
 
 public class TileEntityFreezer extends TileEntityInventory implements ISidedInventory
 {
@@ -59,7 +61,7 @@ public class TileEntityFreezer extends TileEntityInventory implements ISidedInve
 		return this.freezeTime * scalar / 200;
 	}
 	
-	public int getBurnTimeRemainingScaled(int scalar)
+	public int getEnergyTimeScaled(int scalar)
 	{
 		if (this.maxEnergyTime == 0)
 		{
@@ -199,14 +201,37 @@ public class TileEntityFreezer extends TileEntityInventory implements ISidedInve
 			return 0;
 		}
 		
-		int i = TileEntityFurnace.getItemBurnTime(stack);
-		if (i == 0)
+		Item item = stack.getItem();
+		if (item == Items.snowball)
 		{
-			Item item = stack.getItem();
-			// TODO
+			return 200;
+		}
+		else if (item == Items.redstone)
+		{
+			return 2400;
+		}
+		else if (item == MItems.coolantBottle)
+		{
+			return 12800;
+		}
+		else
+		{
+			Block block = Block.getBlockFromItem(item);
+			if (block == Blocks.snow_layer)
+			{
+				return 400;
+			}
+			else if (block == Blocks.snow)
+			{
+				return 800;
+			}
+			else if (block == Blocks.ice)
+			{
+				return 1600;
+			}
 		}
 		
-		return i;
+		return 0;
 	}
 	
 	@Override

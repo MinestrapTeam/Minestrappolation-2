@@ -14,7 +14,6 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
@@ -125,44 +124,39 @@ public class BlockMelter extends MBlockMachine
 	@Override
 	public void breakBlock(World world, int x, int y, int z, Block block, int metadata)
 	{
-		if (!keepInventory)
+		if (keepInventory)
 		{
-			TileEntityMelter tileentityfurnace = (TileEntityMelter) world.getTileEntity(x, y, z);
+			TileEntityMelter melter = (TileEntityMelter) world.getTileEntity(x, y, z);
 			
-			if (tileentityfurnace != null)
+			if (melter != null)
 			{
-				for (int j1 = 0; j1 < tileentityfurnace.getSizeInventory(); ++j1)
+				for (int j1 = 0; j1 < melter.getSizeInventory(); ++j1)
 				{
-					ItemStack itemstack = tileentityfurnace.getStackInSlot(j1);
+					ItemStack stack = melter.getStackInSlot(j1);
 					
-					if (itemstack != null)
+					if (stack != null)
 					{
 						float f = world.rand.nextFloat() * 0.8F + 0.1F;
 						float f1 = world.rand.nextFloat() * 0.8F + 0.1F;
 						float f2 = world.rand.nextFloat() * 0.8F + 0.1F;
 						
-						while (itemstack.stackSize > 0)
+						while (stack.stackSize > 0)
 						{
 							int k1 = world.rand.nextInt(21) + 10;
 							
-							if (k1 > itemstack.stackSize)
+							if (k1 > stack.stackSize)
 							{
-								k1 = itemstack.stackSize;
+								k1 = stack.stackSize;
 							}
 							
-							itemstack.stackSize -= k1;
-							EntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(itemstack.getItem(), k1, itemstack.getItemDamage()));
-							
-							if (itemstack.hasTagCompound())
-							{
-								entityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());
-							}
+							ItemStack stack1 = stack.splitStack(k1);
+							EntityItem entity = new EntityItem(world, x + f, y + f1, z + f2, stack1);
 							
 							float f3 = 0.05F;
-							entityitem.motionX = (float) world.rand.nextGaussian() * f3;
-							entityitem.motionY = (float) world.rand.nextGaussian() * f3 + 0.2F;
-							entityitem.motionZ = (float) world.rand.nextGaussian() * f3;
-							world.spawnEntityInWorld(entityitem);
+							entity.motionX = (float) world.rand.nextGaussian() * f3;
+							entity.motionY = (float) world.rand.nextGaussian() * f3 + 0.2F;
+							entity.motionZ = (float) world.rand.nextGaussian() * f3;
+							world.spawnEntityInWorld(entity);
 						}
 					}
 				}

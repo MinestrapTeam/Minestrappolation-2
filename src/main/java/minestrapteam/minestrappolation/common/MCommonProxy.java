@@ -49,6 +49,10 @@ public class MCommonProxy extends BaseProxy
 		{
 			return new ContainerSawmill(player.inventory, (TileEntitySawmill) world.getTileEntity(x, y, z));
 		}
+		else if (id == 5)
+		{
+			return new ContainerFreezer(player.inventory, (TileEntityFreezer) world.getTileEntity(x, y, z));
+		}
 		return null;
 	}
 }

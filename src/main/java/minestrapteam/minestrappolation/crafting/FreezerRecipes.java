@@ -29,6 +29,8 @@ public class FreezerRecipes extends SimpleRecipeManager
 			}
 			
 			MItemFood.setFrozen(stack, true);
+			
+			return stack;
 		}
 		
 		return super.getResult(input);

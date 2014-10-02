@@ -31,5 +31,6 @@ public class MEntities
 		GameRegistry.registerTileEntity(TileEntitySawmill.class, "Sawmill");
 		GameRegistry.registerTileEntity(TileEntityLocked.class, "Locked");
 		GameRegistry.registerTileEntity(TileEntityWorkbench2.class, "Workbench2");
+		GameRegistry.registerTileEntity(TileEntityFreezer.class, "Freezer");
 	}
 }
