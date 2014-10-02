@@ -1,4 +1,4 @@
-package minestrapteam.minestrappolation.item;
+package minestrapteam.minestrappolation.item.tool;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

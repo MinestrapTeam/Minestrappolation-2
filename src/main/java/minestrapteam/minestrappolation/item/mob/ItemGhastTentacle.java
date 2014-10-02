@@ -1,6 +1,7 @@
-package minestrapteam.minestrappolation.item;
+package minestrapteam.minestrappolation.item.mob;
 
 import clashsoft.cslib.random.CSRandom;
+import minestrapteam.minestrappolation.item.MItemFood;
 import minestrapteam.minestrappolation.lib.MPotions;
 
 import net.minecraft.entity.player.EntityPlayer;

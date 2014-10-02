@@ -1,8 +1,9 @@
-package minestrapteam.minestrappolation.item;
+package minestrapteam.minestrappolation.item.mob;
 
 import java.util.List;
 
 import clashsoft.cslib.minecraft.lang.I18n;
+import minestrapteam.minestrappolation.item.MItem;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;

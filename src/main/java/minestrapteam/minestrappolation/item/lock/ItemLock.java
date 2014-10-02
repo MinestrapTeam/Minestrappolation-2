@@ -1,17 +1,49 @@
-package minestrapteam.minestrappolation.item;
+package minestrapteam.minestrappolation.item.lock;
+
+import java.util.List;
 
 import minestrapteam.minestrappolation.lib.MBlocks;
 
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ChatComponentTranslation;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 public class ItemLock extends ItemKey
 {
+	public IIcon brokenIcon;
+	
 	public ItemLock()
 	{
 		super();
+	}
+	
+	@Override
+	public String getUnlocalizedName(ItemStack stack)
+	{
+		String s = super.getUnlocalizedName();
+		if (stack.getItemDamage() == 1)
+		{
+			return s + ".broken";
+		}
+		return s;
+	}
+	
+	@Override
+	public void registerIcons(IIconRegister iconRegister)
+	{
+		this.itemIcon = iconRegister.registerIcon(this.iconString);
+		this.brokenIcon = iconRegister.registerIcon(this.iconString + "_broken");
+	}
+	
+	@Override
+	public IIcon getIconFromDamage(int metadata)
+	{
+		return metadata == 1 ? this.brokenIcon : this.itemIcon;
 	}
 	
 	@Override
@@ -52,5 +84,12 @@ public class ItemLock extends ItemKey
 		}
 		
 		return false;
+	}
+	
+	@Override
+	public void getSubItems(Item item, CreativeTabs tab, List list)
+	{
+		list.add(new ItemStack(this, 1, 0));
+		list.add(new ItemStack(this, 1, 1));
 	}
 }

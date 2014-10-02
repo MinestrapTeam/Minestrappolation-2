@@ -1,7 +1,8 @@
-package minestrapteam.minestrappolation.item;
+package minestrapteam.minestrappolation.item.lock;
 
 import java.util.List;
 
+import minestrapteam.minestrappolation.item.MItem;
 import minestrapteam.minestrappolation.lib.MBlocks;
 
 import net.minecraft.entity.player.EntityPlayer;

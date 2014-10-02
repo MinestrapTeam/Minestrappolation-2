@@ -1,4 +1,4 @@
-package minestrapteam.minestrappolation.item;
+package minestrapteam.minestrappolation.item.tool;
 
 import java.util.*;
 import java.util.Map.Entry;
@@ -8,6 +8,8 @@ import clashsoft.cslib.minecraft.lang.I18n;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
 
+import minestrapteam.minestrappolation.item.IPlatable;
+import minestrapteam.minestrappolation.item.IPlating;
 import minestrapteam.minestrappolation.lib.MTools;
 import minestrapteam.minestrappolation.util.MAssetManager;
 

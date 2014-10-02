@@ -1,4 +1,4 @@
-package minestrapteam.minestrappolation.item;
+package minestrapteam.minestrappolation.item.grenade;
 
 import minestrapteam.minestrappolation.entity.EntityGrenade;
 

@@ -185,8 +185,12 @@ public class MOreDictionary
 		GameRegistry.addRecipe(new ShapedOreRecipe(MBlocks.barrel, new Object[] { "WTW", "W W", "WTW", 'T', "ingotTin", 'W', "plankWood" }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(MItems.glassDoorItem, new Object[] { "GG", "GI", "GG", 'G', "blockGlassColorless", 'I', "ingotIron" }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(MItems.horseHairBow, new Object[] { " SH", "S H", " SH", 'S', "slabWood", 'H', MItems.horseHairFibre }));
+		
 		GameRegistry.addRecipe(new ShapedOreRecipe(MItems.steelLock, new Object[] { " I ", "SSS", " S ", 'I', "ingotIron", 'S', "ingotSteel" }));
+		GameRegistry.addRecipe(new ShapedOreRecipe(MItems.steelLock, new Object[] { "I", "L", 'I', "ingotIron", 'L', new ItemStack(MItems.steelLock, 1, 1) }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(MItems.steelKey, new Object[] { "SSS", "GG ", 'G', "ingotGold", 'S', "ingotSteel" }));
+		GameRegistry.addRecipe(new ShapedOreRecipe(MItems.lockCutter, new Object[] { "C ", " C", 'C', "ingotCopper" }));
+		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MBlocks.sawmill, 1, 1), new Object[] { "II", "WW", "WW", 'W', "plankWood", 'I', "ingotCopper" }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(Blocks.daylight_detector, new Object[] { "GGG", "QQQ", "SSS", 'G', "blockGlassColorless", 'Q', "gemQuartz", 'S', "slabWood" }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(Blocks.brewing_stand, new Object[] { " B ", "CCC", 'B', Items.blaze_rod, 'C', "cobblestone"}));

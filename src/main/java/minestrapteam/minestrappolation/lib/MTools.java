@@ -5,6 +5,7 @@ import clashsoft.cslib.minecraft.item.CSItems;
 import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.common.MCommonProxy;
 import minestrapteam.minestrappolation.item.*;
+import minestrapteam.minestrappolation.item.tool.*;
 import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.init.Blocks;

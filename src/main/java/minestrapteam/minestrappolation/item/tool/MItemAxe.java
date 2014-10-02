@@ -1,4 +1,4 @@
-package minestrapteam.minestrappolation.item;
+package minestrapteam.minestrappolation.item.tool;
 
 import clashsoft.cslib.minecraft.item.datatools.ItemDataAxe;
 

@@ -1073,6 +1073,7 @@ tile.stonecutter.name=Stonecutter
 tile.sawmill.name=Carpenter's Bench
 tile.nuke.name=Nuke
 tile.melter.name=Melter
+tile.freezer.name=Freezer
 
 #Foodstuffs
 item.snout.name=Snout
@@ -1288,8 +1289,12 @@ item.marrow.name=Marrow
 
 #Misc
 item.magma_bucket.name=Magma Bucket
-item.steel_key.name=Key
-item.steel_lock.name=Lock
+
+item.steel_key.name=Steel Key
+item.steel_lock.name=Steel Lock
+item.steel_lock.broken.name=Broken Steel Lock
+item.lock_cutter.name=Lock Cutter
+
 item.tin_plate.name=Tin Plating
 item.bronze_plate.name=Bronze Plating
 item.steel_plate.name=Steel Plating

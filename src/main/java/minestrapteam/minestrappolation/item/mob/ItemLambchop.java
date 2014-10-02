@@ -1,5 +1,6 @@
-package minestrapteam.minestrappolation.item;
+package minestrapteam.minestrappolation.item.mob;
 
+import minestrapteam.minestrappolation.item.MItemFood;
 import minestrapteam.minestrappolation.lib.MItems;
 
 import net.minecraft.entity.player.EntityPlayer;

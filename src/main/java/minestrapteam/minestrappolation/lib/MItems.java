@@ -7,11 +7,25 @@ import clashsoft.cslib.minecraft.item.ItemCustomDoor;
 import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.item.*;
 import minestrapteam.minestrappolation.item.MItemFood.FoodType;
+import minestrapteam.minestrappolation.item.grenade.ItemGrenade;
+import minestrapteam.minestrappolation.item.grenade.ItemGrenadeImpact;
+import minestrapteam.minestrappolation.item.grenade.ItemGrenadeNuke;
+import minestrapteam.minestrappolation.item.grenade.ItemGrenadeSticky;
+import minestrapteam.minestrappolation.item.lock.ItemKey;
+import minestrapteam.minestrappolation.item.lock.ItemLock;
+import minestrapteam.minestrappolation.item.lock.ItemLockCutter;
+import minestrapteam.minestrappolation.item.mob.*;
+import minestrapteam.minestrappolation.item.tool.ItemHangGlider;
+import minestrapteam.minestrappolation.item.tool.ItemHorseHairBow;
 import minestrapteam.minestrappolation.util.MAssetManager;
+
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemFood;
+import net.minecraft.item.ItemReed;
+import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionHelper;
 import net.minecraft.util.WeightedRandomChestContent;
@@ -80,6 +94,8 @@ public class MItems
 	
 	public static Item	steelKey;
 	public static Item	steelLock;
+	public static Item lockCutter;
+	
 	public static Item	soulBottle;
 	public static Item	grenade;
 	public static Item	grenadeImpact;
@@ -225,6 +241,8 @@ public class MItems
 		
 		steelKey = new ItemKey().setCreativeTab(tabMisc).setTextureName(MAssetManager.getTexture("steel_key"));
 		steelLock = new ItemLock().setCreativeTab(tabMisc).setTextureName(MAssetManager.getTexture("steel_lock"));
+		lockCutter = new ItemLockCutter().setCreativeTab(tabMisc).setTextureName(MAssetManager.getTexture("lock_cutter"));
+		
 		soulBottle = new ItemSoulBottle().setCreativeTab(tabTools).setTextureName(MAssetManager.getTexture("soul_bottle"));
 		grenade = new ItemGrenade().setCreativeTab(tabCombat).setTextureName(MAssetManager.getTexture("grenade"));
 		grenadeImpact = new ItemGrenadeImpact().setCreativeTab(tabCombat).setTextureName(MAssetManager.getTexture("grenade_impact"));
@@ -371,6 +389,8 @@ public class MItems
 		
 		CSItems.addItem(steelKey, "steel_key");
 		CSItems.addItem(steelLock, "steel_lock");
+		CSItems.addItem(lockCutter, "lock_cutter");
+		
 		CSItems.addItem(soulBottle, "soul_bottle");
 		CSItems.addItem(grenade, "grenade");
 		CSItems.addItem(grenadeImpact, "impact_grenade");

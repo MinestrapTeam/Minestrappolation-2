@@ -1,4 +1,4 @@
-package minestrapteam.minestrappolation.item;
+package minestrapteam.minestrappolation.item.tool;
 
 import java.util.HashMap;
 import java.util.List;
@@ -7,6 +7,8 @@ import java.util.Map.Entry;
 
 import com.google.common.collect.Multimap;
 
+import minestrapteam.minestrappolation.item.IPlatable;
+import minestrapteam.minestrappolation.item.IPlating;
 import minestrapteam.minestrappolation.lib.MTools;
 import minestrapteam.minestrappolation.util.MAssetManager;
 

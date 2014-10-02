@@ -1,6 +1,7 @@
-package minestrapteam.minestrappolation.item;
+package minestrapteam.minestrappolation.item.tool;
 
 import minestrapteam.minestrappolation.entity.EntityHangGlider;
+import minestrapteam.minestrappolation.item.MItem;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;

@@ -1,4 +1,8 @@
-package minestrapteam.minestrappolation.item;
+package minestrapteam.minestrappolation.item.mob;
+
+import minestrapteam.minestrappolation.item.IItemAddon;
+import minestrapteam.minestrappolation.item.tool.MItemSword;
+import minestrapteam.minestrappolation.item.tool.MItemTool;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

@@ -1,4 +1,4 @@
-package minestrapteam.minestrappolation.item;
+package minestrapteam.minestrappolation.item.tool;
 
 import java.util.HashMap;
 import java.util.List;
@@ -6,6 +6,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import cpw.mods.fml.common.eventhandler.Event;
+import minestrapteam.minestrappolation.item.IPlatable;
+import minestrapteam.minestrappolation.item.IPlating;
 import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.block.Block;

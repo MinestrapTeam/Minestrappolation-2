@@ -94,7 +94,7 @@ public class BlockLocked extends BlockContainer
 	public boolean unlock(String owner, World world, int x, int y, int z)
 	{
 		TileEntityLocked locked = (TileEntityLocked) world.getTileEntity(x, y, z);
-		if (!locked.isOwner(owner))
+		if (owner != null && !locked.isOwner(owner))
 		{
 			return false;
 		}
