@@ -2,6 +2,8 @@ package minestrapteam.minestrappolation.crafting;
 
 import minestrapteam.minestrappolation.item.MItemFood;
 
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
@@ -13,7 +15,9 @@ public class FreezerRecipes extends SimpleRecipeManager
 	
 	private FreezerRecipes()
 	{
-		// TODO Add Recipes
+		this.addRecipe(Items.water_bucket, new ItemStack(Blocks.snow));
+		this.addRecipe(Blocks.snow, new ItemStack(Blocks.ice));
+		this.addRecipe(Items.potionitem, new ItemStack(Items.snowball));
 	}
 	
 	@Override
