@@ -1340,6 +1340,8 @@ recipe.sawmill.shaped=Shaped Sawing
 recipe.sawmill.shapeless=Shapeless Sawing
 recipe.melting=Melting
 recipe.melter_fuel=Melter Fuel
+recipe.freezing=Freezing
+recipe.freezer_fuel=Freezer Fuel
 
 #Potion Effects
 potion.ghastTentacle=Nether Neutrality
