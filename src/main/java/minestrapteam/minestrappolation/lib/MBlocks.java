@@ -404,7 +404,7 @@ public class MBlocks
 	
 	/* / {----- EF Blocks -----} / */
 	
-	public static Block freezer;
+	public static Block				freezer;
 	
 	public static void init()
 	{
@@ -513,7 +513,7 @@ public class MBlocks
 		witherLayer = new BlockWitherLayer().setHardness(0.1F).setStepSound(Block.soundTypeSnow).setBlockTextureName(MAssetManager.getMineralTexture("wither_ash_block"));
 		witherBlock = new BlockWitherAsh().setHardness(0.2F).setStepSound(Block.soundTypeSnow).setBlockTextureName(MAssetManager.getMineralTexture("wither_ash_block"));
 		mossCover = new BlockMossCover().setHardness(0.2F).setStepSound(Block.soundTypeSnow).setBlockTextureName(MAssetManager.getPlantTexture("moss_cover"));
-	
+		
 		// EF Blocks
 		
 		freezer = new BlockFreezer().setHardness(2F).setStepSound(Block.soundTypeMetal).setCreativeTab(Minestrappolation.tabTech);
@@ -729,6 +729,7 @@ public class MBlocks
 		deepColdstoneStairsBricks = MBlockHelper.createStoneStair(deepColdstone, 1, tab);
 		deepColdstoneStairsTiles = MBlockHelper.createStoneStair(deepColdstone, 3, tab);
 		deepColdstoneStairsCracked = MBlockHelper.createStoneStair(deepColdstone, 7, tab);
+		
 		icestone = MBlockHelper.createStoneBlock(types_icestone, "icestone", 1.7F, 10.0F, 0, tab).setIsStone().setRoadWalkSpeed(1.25F);
 		icestone2 = MBlockHelper.createStoneBlock2(types_icestone_2, "icestone", 1.7F, 10.0F, 0, tab);
 		icestoneStairsRaw = MBlockHelper.createStoneStair(icestone, 0, tab);
@@ -741,6 +742,20 @@ public class MBlocks
 		glacierrockStairsBricks = MBlockHelper.createStoneStair(glacierrock, 1, tab);
 		glacierrockStairsTiles = MBlockHelper.createStoneStair(glacierrock, 3, tab);
 		glacierrockStairsCracked = MBlockHelper.createStoneStair(glacierrock, 7, tab);
+		
+		icestone.slipperiness = 0.98F;
+		icestone2.slipperiness = 0.98F;
+		icestoneStairsRaw.slipperiness = 0.98F;
+		icestoneStairsBricks.slipperiness = 0.98F;
+		icestoneStairsTiles.slipperiness = 0.98F;
+		icestoneStairsCracked.slipperiness = 0.98F;
+		glacierrock.slipperiness = 0.98F;
+		glacierrock2.slipperiness = 0.98F;
+		glacierrockStairsRaw.slipperiness = 0.98F;
+		glacierrockStairsBricks.slipperiness = 0.98F;
+		glacierrockStairsTiles.slipperiness = 0.98F;
+		glacierrockStairsCracked.slipperiness = 0.98F;
+		
 		oceanstone = MBlockHelper.createStoneBlock(types_redrock, "oceanstone", 1.3F, 12.0F, 0, tab).setIsStone().setRoadWalkSpeed(1.25F);
 		oceanstone2 = MBlockHelper.createStoneBlock2(types_redrock_2, "oceanstone", 1.3F, 12.0F, 0, tab);
 		oceanstoneStairsRaw = MBlockHelper.createStoneStair(oceanstone, 0, tab);
