@@ -2,6 +2,9 @@ package minestrapteam.minestrappolation.lib;
 
 import java.io.File;
 
+import net.minecraft.client.Minecraft;
+
+import cpw.mods.fml.common.FMLCommonHandler;
 import clashsoft.cslib.config.CSConfig;
 import clashsoft.cslib.io.CSWeb;
 import clashsoft.cslib.logging.CSLog;
@@ -43,17 +46,24 @@ public class MConfig
 	
 	protected static void updateVanillaTextures(final boolean use)
 	{
+		if (!FMLCommonHandler.instance().getEffectiveSide().isClient())
+		{
+			return;
+		}
+		
 		new Thread()
 		{
 			@Override
 			public void run()
 			{
-				File file = new File("resourcepacks/Minestrappolation Vanilla Textures.zip");
+				File file = new File("resourcepacks/Minestrappolation AVT.zip");
 				if (file.exists())
 				{
 					if (!use)
 					{
 						file.delete();
+						
+						Minecraft.getMinecraft().gameSettings.resourcePacks.remove("Minestrappolation AVT.zip");
 					}
 				}
 				else if (use)
@@ -68,6 +78,8 @@ public class MConfig
 					{
 						CSLog.error("Failed to download Minestrappolation AVT: " + ex.getMessage());
 					}
+					
+					Minecraft.getMinecraft().gameSettings.resourcePacks.add("Minestrappolation AVT.zip");
 				}
 			}
 		}.start();
