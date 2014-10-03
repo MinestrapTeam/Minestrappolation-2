@@ -2,16 +2,17 @@ package minestrapteam.minestrappolation.lib;
 
 import java.io.File;
 
-import net.minecraft.client.Minecraft;
-
-import cpw.mods.fml.common.FMLCommonHandler;
 import clashsoft.cslib.config.CSConfig;
 import clashsoft.cslib.io.CSWeb;
 import clashsoft.cslib.logging.CSLog;
+import cpw.mods.fml.common.FMLCommonHandler;
+import minestrapteam.minestrappolation.world.MOreGenerator;
+
+import net.minecraft.client.Minecraft;
 
 public class MConfig
 {
-	public static File		configFile	= new File("config/Minestrappolation/mod.cfg");
+	public static File		configFile		= new File("config/Minestrappolation/mod.cfg");
 	public static File		genConfigFile	= new File("config/Minestrappolation/worldgen.cfg");
 	public static File		dropsConfigFile	= new File("config/Minestrappolation/mobdrops.cfg");
 	
@@ -27,9 +28,6 @@ public class MConfig
 	public static boolean	showDurability;
 	public static boolean	foodSpoiling;
 	public static int		spoilTimeRounding;
-	
-	public static boolean	generateBiomeStone;
-	public static boolean	generateInvincium;
 	
 	public static void load()
 	{
@@ -57,18 +55,13 @@ public class MConfig
 		// World Gen Config
 		
 		CSConfig.loadConfig(genConfigFile, "Minestrappolation World Gen");
-		
-		generateBiomeStone = CSConfig.getBool("gen", "Replace Biome Stone", true);
-		generateInvincium = CSConfig.getBool("gen", "Generate Invincium", true);
-		
+		MOreGenerator.loadConfig();
 		CSConfig.saveConfig();
 		
 		// Mob Drop Config
 		
 		CSConfig.loadConfig(dropsConfigFile, "Minestrappolation Mob Drops");
-		
 		MDrops.loadConfig();
-		
 		CSConfig.saveConfig();
 	}
 	

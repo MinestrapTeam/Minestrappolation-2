@@ -26,7 +26,7 @@ public class MDrops
 	private static float	pigBonesP	= 0.3F;
 	private static float	pigGreaseP	= 0.5F;
 	
-	public static void loadConfig()
+	protected static void loadConfig()
 	{
 		pigSnoutC = CSConfig.getInt("pig", "Snout Count", null, 1);
 		pigHoofC = CSConfig.getInt("pig", "Hoof Count", null, 1);

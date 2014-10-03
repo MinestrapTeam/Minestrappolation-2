@@ -2,10 +2,11 @@ package minestrapteam.minestrappolation.world;
 
 import java.util.Random;
 
+import clashsoft.cslib.config.CSConfig;
 import clashsoft.cslib.minecraft.block.ore.BlockOre2;
+import clashsoft.cslib.minecraft.world.gen.OreGen;
 import cpw.mods.fml.common.IWorldGenerator;
 import minestrapteam.minestrappolation.lib.MBlocks;
-import minestrapteam.minestrappolation.lib.MConfig;
 import minestrapteam.minestrappolation.world.gen.WorldGenDesertQuartz;
 import minestrapteam.minestrappolation.world.gen.WorldGenRedSandstone;
 import minestrapteam.minestrappolation.world.gen.WorldGenRedWoodTreeSmall;
@@ -21,7 +22,7 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.ChunkProviderEnd;
 import net.minecraft.world.gen.ChunkProviderGenerate;
 import net.minecraft.world.gen.ChunkProviderHell;
-import net.minecraft.world.gen.feature.WorldGenMinable;
+import net.minecraftforge.event.terraingen.ChunkProviderEvent.ReplaceBiomeBlocks;
 
 /**
  * @author SoBiohazardous
@@ -29,28 +30,74 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
  */
 public class MOreGenerator implements IWorldGenerator
 {
-	public static WorldGenMinable			slateGen			= new WorldGenMinable(MBlocks.graniteSlate, 50);
-	public static WorldGenMinable			copperGen			= new WorldGenMinable(MBlocks.copperOre, 10);
-	public static WorldGenMinable			tinGen				= new WorldGenMinable(MBlocks.tinOre, 11);
-	public static WorldGenMinable			radiantQuartzGen	= new WorldGenMinable(MBlocks.radiantQuartzOre, 3);
-	public static WorldGenMinable			mossyPlankGen		= new WorldGenMinable(MBlocks.oak, 3, 15, Blocks.planks);
-	public static WorldGenMinable			meuroditeGen		= new WorldGenMinable(MBlocks.meuroditeOre, 5);
-	public static WorldGenMinable			uraniumGen			= new WorldGenMinable(MBlocks.uraniumOre, 3);
-	public static WorldGenMinable			plutoniumGen		= new WorldGenMinable(MBlocks.plutoniumOre, 3);
-	public static WorldGenMinable			titaniumGen			= new WorldGenMinable(MBlocks.titaniumOre, 3);
-	public static WorldGenMinable			toriteGen			= new WorldGenMinable(MBlocks.toriteOre, 3);
-	public static WorldGenMinable			sunstoneGen			= new WorldGenMinable(MBlocks.sunstoneOre, 3);
-	public static WorldGenMinable			sandstoneGen		= new WorldGenMinable(MBlocks.sandstone, 6, 7, Blocks.sandstone);
-	public static WorldGenMinable			sandstoneGen2		= new WorldGenMinable(MBlocks.sandstone, 7, 7, Blocks.sandstone);
+	public static boolean					generateBiomeStone;
+	public static boolean					generateInvincium;
+	
+	public static OreGen					copperGen;
+	public static OreGen					tinGen;
+	public static OreGen					radiantQuartzGen;
+	public static OreGen					meuroditeGen;
+	public static OreGen					uraniumGen;
+	public static OreGen					plutoniumGen;
+	public static OreGen					titaniumGen;
+	public static OreGen					toriteGen;
+	public static OreGen					sunstoneGen;
+	public static OreGen					blaziumGen;
+	public static OreGen					soulOreGen;
+	
+	public static OreGen					slateGen;
+	public static OreGen					sandstoneGen;
+	public static OreGen					sandstoneGen2;
+	public static OreGen					mossyPlankGen;
+	
 	public static WorldGenRedSandstone		redSandstoneGen		= new WorldGenRedSandstone();
 	public static WorldGenStructureStone	stoneStructureGen	= new WorldGenStructureStone();
 	public static WorldGenDesertQuartz		desertQuartzGen		= new WorldGenDesertQuartz();
-	public static WorldGenMinable			blaziumGen			= new WorldGenMinable(MBlocks.blaziumOre, 8, Blocks.netherrack);
-	public static WorldGenMinable			soulOreGen			= new WorldGenMinable(MBlocks.soulOre, 15, Blocks.soul_sand);
+	
 	public static WorldGenRedWoodTreeSmall	redwoodTreeGen		= new WorldGenRedWoodTreeSmall();
 	
-	public MOreGenerator()
+	public static void loadConfig()
 	{
+		generateBiomeStone = CSConfig.getBool("gen", "Replace Biome Stone", true);
+		generateInvincium = CSConfig.getBool("gen", "Generate Invincium", true);
+		
+		copperGen = CSConfig.getOreGen("copper", new OreGen(10, 14, 80));
+		tinGen = CSConfig.getOreGen("tin", new OreGen(11, 14, 80));
+		radiantQuartzGen = CSConfig.getOreGen("radiant_quartz", new OreGen(3, 9, 128));
+		meuroditeGen = CSConfig.getOreGen("meurodite", new OreGen(5, 8, 40));
+		uraniumGen = CSConfig.getOreGen("uranium", new OreGen(3, 6, 32));
+		plutoniumGen = CSConfig.getOreGen("plutonium", new OreGen(3, 6, 32));
+		titaniumGen = CSConfig.getOreGen("titanium", new OreGen(3, 4, 10));
+		toriteGen = CSConfig.getOreGen("torite", new OreGen(3, 7, 30).inBiome(BiomeGenBase.jungle).inBiome(BiomeGenBase.forest));
+		sunstoneGen = CSConfig.getOreGen("sunstone", new OreGen(3, 15, 256));
+		blaziumGen = CSConfig.getOreGen("blazium", new OreGen(8, 8, 128));
+		soulOreGen = CSConfig.getOreGen("soul_ore", new OreGen(15, 20, 128));
+		
+		slateGen = CSConfig.getOreGen("slate", new OreGen(50, 12, 256));
+		sandstoneGen = CSConfig.getOreGen("sandstone", new OreGen(7, 40, 256));
+		sandstoneGen2 = CSConfig.getOreGen("sandstone_2", new OreGen(7, 40, 256));
+		mossyPlankGen = CSConfig.getOreGen("mossy_planks", new OreGen(15, 50, 128));
+	}
+	
+	public static void loadBlocks()
+	{
+		copperGen.block = MBlocks.copperOre;
+		tinGen.block = MBlocks.tinOre;
+		radiantQuartzGen.block = MBlocks.radiantQuartzOre;
+		meuroditeGen.block = MBlocks.meuroditeOre;
+		uraniumGen.block = MBlocks.uraniumOre;
+		plutoniumGen.block = MBlocks.plutoniumOre;
+		titaniumGen.block = MBlocks.titaniumOre;
+		toriteGen.block = MBlocks.toriteOre;
+		sunstoneGen.block = MBlocks.sunstoneOre;
+		blaziumGen.generate(MBlocks.blaziumOre).replace(Blocks.netherrack);
+		soulOreGen.generate(MBlocks.soulOre).replace(Blocks.soul_sand);
+		
+		mossyPlankGen.generate(MBlocks.oak, 3).replace(Blocks.planks, 0);
+		sandstoneGen.generate(MBlocks.sandstone, 6).replace(Blocks.sandstone);
+		sandstoneGen2.generate(MBlocks.sandstone, 7).replace(Blocks.sandstone);
+		
+		slateGen.block = MBlocks.copperOre;
 	}
 	
 	@Override
@@ -60,7 +107,7 @@ public class MOreGenerator implements IWorldGenerator
 		chunkZ <<= 4;
 		if (chunkGenerator instanceof ChunkProviderGenerate)
 		{
-			if (MConfig.generateBiomeStone)
+			if (generateBiomeStone)
 			{
 				this.genBiomeStone(world, chunkX, chunkZ, random);
 			}
@@ -78,13 +125,30 @@ public class MOreGenerator implements IWorldGenerator
 	
 	public void generateSurface(World world, Random rand, int chunkX, int chunkZ)
 	{
-		int x1;
-		int y1;
-		int z1;
+		int x1 = chunkX;
+		int y1 = 0;
+		int z1 = chunkZ;
 		
 		BiomeGenBase biome = world.getBiomeGenForCoords(chunkX, chunkZ);
 		
-		// Red Sandstone
+		copperGen.generate(world, rand, x1, y1, z1);
+		tinGen.generate(world, rand, x1, y1, z1);
+		radiantQuartzGen.generate(world, rand, x1, y1, z1);
+		meuroditeGen.generate(world, rand, x1, y1, z1);
+		uraniumGen.generate(world, rand, x1, y1, z1);
+		plutoniumGen.generate(world, rand, x1, y1, z1);
+		titaniumGen.generate(world, rand, x1, y1, z1);
+		toriteGen.generate(world, rand, x1, y1, z1);
+		sunstoneGen.generate(world, rand, x1, y1, z1);
+		blaziumGen.generate(world, rand, x1, y1, z1);
+		soulOreGen.generate(world, rand, x1, y1, z1);
+		
+		slateGen.generate(world, rand, x1, y1, z1);
+		sandstoneGen.generate(world, rand, x1, y1, z1);
+		sandstoneGen2.generate(world, rand, x1, y1, z1);
+		mossyPlankGen.generate(world, rand, x1, y1, z1);
+		
+		// Sandstone
 		if (biome instanceof BiomeGenDesert)
 		{
 			for (int i = 0; i < 40; i++)
@@ -94,17 +158,20 @@ public class MOreGenerator implements IWorldGenerator
 				z1 = chunkZ + rand.nextInt(16);
 				
 				sandstoneGen.generate(world, rand, x1, y1, z1);
-			}
-			for (int i = 0; i < 40; i++)
-			{
-				x1 = chunkX + rand.nextInt(16);
-				y1 = rand.nextInt(256);
-				z1 = chunkZ + rand.nextInt(16);
-				
 				sandstoneGen2.generate(world, rand, x1, y1, z1);
 			}
 		}
 		
+		// Red Sandstone
+		if (biome instanceof BiomeGenMesa)
+		{
+			x1 = chunkX + rand.nextInt(16);
+			y1 = rand.nextInt(256);
+			z1 = chunkZ + rand.nextInt(16);
+			redSandstoneGen.generate(world, rand, x1, y1, z1);
+		}
+		
+		// Redwood Trees
 		if (biome instanceof BiomeGenHills || biome instanceof BiomeGenTaiga)
 		{
 			x1 = chunkX + rand.nextInt(16);
@@ -112,89 +179,6 @@ public class MOreGenerator implements IWorldGenerator
 			z1 = chunkZ + rand.nextInt(16);
 			
 			redwoodTreeGen.generate(world, rand, x1, y1, z1);
-		}
-		
-		// Mossy Planks
-		for (int i = 0; i < 50; i++)
-		{
-			x1 = chunkX + rand.nextInt(16);
-			y1 = 16 + rand.nextInt(128);
-			z1 = chunkZ + rand.nextInt(16);
-			
-			mossyPlankGen.generate(world, rand, x1, y1, z1);
-		}
-		
-		// Meurodite Ore
-		for (int i = 0; i < 8; i++)
-		{
-			x1 = chunkX + rand.nextInt(16);
-			y1 = rand.nextInt(40);
-			z1 = chunkZ + rand.nextInt(16);
-			
-			meuroditeGen.generate(world, rand, x1, y1, z1);
-		}
-		
-		// Uranium Ore
-		for (int i = 0; i < 6; i++)
-		{
-			x1 = chunkX + rand.nextInt(16);
-			y1 = rand.nextInt(32);
-			z1 = chunkZ + rand.nextInt(16);
-			
-			uraniumGen.generate(world, rand, x1, y1, z1);
-		}
-		
-		// Plutonium Ore
-		for (int i = 0; i < 6; i++)
-		{
-			x1 = chunkX + rand.nextInt(16);
-			y1 = rand.nextInt(32);
-			z1 = chunkZ + rand.nextInt(16);
-			
-			plutoniumGen.generate(world, rand, x1, y1, z1);
-		}
-		
-		// Titanium Ore
-		for (int i = 0; i < 4; i++)
-		{
-			x1 = chunkX + rand.nextInt(16);
-			y1 = rand.nextInt(10);
-			z1 = chunkZ + rand.nextInt(16);
-			
-			titaniumGen.generate(world, rand, x1, y1, z1);
-		}
-		
-		// Torite Ore
-		if (biome instanceof BiomeGenJungle || biome instanceof BiomeGenForest)
-		{
-			for (int i = 0; i < 7; i++)
-			{
-				x1 = chunkX + rand.nextInt(16);
-				y1 = rand.nextInt(30);
-				z1 = chunkZ + rand.nextInt(16);
-				
-				toriteGen.generate(world, rand, x1, y1, z1);
-			}
-		}
-		
-		// Sunstone Ore
-		for (int i = 0; i < 15; i++)
-		{
-			x1 = chunkX + rand.nextInt(16);
-			y1 = rand.nextInt(256);
-			z1 = chunkZ + rand.nextInt(16);
-			
-			sunstoneGen.generate(world, rand, x1, y1, z1);
-		}
-		
-		// Granite
-		for (int i = 0; i < 12; i++)
-		{
-			x1 = chunkX + rand.nextInt(16);
-			y1 = rand.nextInt(256);
-			z1 = chunkZ + rand.nextInt(16);
-			
-			slateGen.generate(world, rand, x1, y1, z1);
 		}
 		
 		// Desert Quartz
@@ -211,52 +195,9 @@ public class MOreGenerator implements IWorldGenerator
 		}
 		
 		// Structure Gen
-		
-		x1 = chunkX + rand.nextInt(16);
-		y1 = rand.nextInt(256);
-		z1 = chunkZ + rand.nextInt(16);
 		stoneStructureGen.generate(world, rand, x1, y1, z1);
 		
-		// Red Sandstone
-		if (biome instanceof BiomeGenMesa)
-		{
-			x1 = chunkX + rand.nextInt(16);
-			y1 = rand.nextInt(256);
-			z1 = chunkZ + rand.nextInt(16);
-			redSandstoneGen.generate(world, rand, x1, y1, z1);
-		}
-		
-		// Copper Ore
-		for (int i = 0; i < 14; i++)
-		{
-			x1 = chunkX + rand.nextInt(16);
-			y1 = rand.nextInt(80);
-			z1 = chunkZ + rand.nextInt(16);
-			
-			copperGen.generate(world, rand, x1, y1, z1);
-		}
-		
-		// Tin Ore
-		for (int i = 0; i < 14; i++)
-		{
-			x1 = chunkX + rand.nextInt(16);
-			y1 = rand.nextInt(80);
-			z1 = chunkZ + rand.nextInt(16);
-			
-			tinGen.generate(world, rand, x1, y1, z1);
-		}
-		
-		// Radiant Quartz
-		for (int i = 0; i < 9; i++)
-		{
-			x1 = chunkX + rand.nextInt(16);
-			y1 = rand.nextInt(128);
-			z1 = chunkZ + rand.nextInt(16);
-			
-			radiantQuartzGen.generate(world, rand, x1, y1, z1);
-		}
-		
-		if (MConfig.generateInvincium)
+		if (generateInvincium)
 		{
 			for (x1 = 0; x1 < 16; x1++)
 			{
@@ -270,24 +211,13 @@ public class MOreGenerator implements IWorldGenerator
 	
 	public void generateNether(World world, Random rand, int chunkX, int chunkZ)
 	{
-		// blazium ore
-		for (int h = 0; h < 8; h++)
-		{
-			int i5 = chunkX + rand.nextInt(16);
-			int j5 = rand.nextInt(128);
-			int k5 = chunkZ + rand.nextInt(16);
-			
-			blaziumGen.generate(world, rand, i5, j5, k5);
-		}
-		// soul ore
-		for (int h = 0; h < 20; h++)
-		{
-			int i5 = chunkX + rand.nextInt(16);
-			int j5 = rand.nextInt(128);
-			int k5 = chunkZ + rand.nextInt(16);
-			
-			soulOreGen.generate(world, rand, i5, j5, k5);
-		}
+		int x1 = chunkX;
+		int y1 = 0;
+		int z1 = chunkZ;
+		
+		blaziumGen.generate(world, rand, x1, y1, z1);
+		soulOreGen.generate(world, rand, x1, y1, z1);
+		
 		// Invincium
 		for (int i = 0; i < 16; i++)
 		{
@@ -299,11 +229,6 @@ public class MOreGenerator implements IWorldGenerator
 	}
 	
 	public void generateEnd(World world, Random random, int chunkX, int chunkZ)
-	{
-		this.generateObsidianSpikes(world, random, chunkX, chunkZ);
-	}
-	
-	public void generateObsidianSpikes(World world, Random random, int chunkX, int chunkZ)
 	{
 		for (int x = 0; x < 16; x++)
 		{
@@ -409,6 +334,10 @@ public class MOreGenerator implements IWorldGenerator
 		}
 	}
 	
+	/**
+	 * Old, faster way to replace the stone blocks. We will switch to this as
+	 * soon as someone merges my PR for {@link ReplaceBiomeBlocks}.Post events,
+	 */
 	private static void genBiomeStone(BiomeGenBase biome, World world, Random random, Block[] blocks, byte[] metadata, int chunkX, int chunkZ)
 	{
 		Block stoneBlock = Blocks.stone;

@@ -19,28 +19,9 @@ public class WorldGenRedSandstone extends WorldGenerator
 			for (int z0 = 0; z0 < 16; z0++)
 			{
 				int z2 = chunkZ + z0;
-				for (int y2 = 0; y2 < 256; y2++)
+				for (int y2 = 0; y2 < 128; y2++)
 				{
 					if (world.getBlock(x2, y2, z2) == Blocks.sand && world.getBlockMetadata(x2, y2, z2) == 1)
-					{
-						if (rand.nextInt(1) == 0)
-						{
-							world.setBlock(x2, y2 - 1, z2, MBlocks.redSandstone);
-						}
-					}
-				}
-			}
-		}
-		
-		for (int x0 = 0; x0 < 16; x0++)
-		{
-			int x2 = chunkX + x0;
-			for (int z0 = 0; z0 < 16; z0++)
-			{
-				int z2 = chunkZ + z0;
-				for (int y2 = 0; y2 < 256; y2++)
-				{
-					if (world.getBlock(x2, y2, z2) == MBlocks.redSandstone && world.getBlockMetadata(x2, y2, z2) == 0)
 					{
 						if (rand.nextInt(1) == 0)
 						{
