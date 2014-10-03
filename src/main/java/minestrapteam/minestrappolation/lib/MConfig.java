@@ -12,6 +12,7 @@ import clashsoft.cslib.logging.CSLog;
 public class MConfig
 {
 	public static boolean	vanillaTextures;
+	public static boolean vanillaRecipes;
 	
 	public static boolean	oreEffects;
 	public static int		daysUntilTarnish;
@@ -27,7 +28,8 @@ public class MConfig
 	
 	public static void load()
 	{
-		vanillaTextures = CSConfig.getBool("textures", "Use Altered Vanilla Textures", true);
+		vanillaTextures = CSConfig.getBool("vanilla", "Use Altered Vanilla Textures", true);
+		vanillaRecipes = CSConfig.getBool("vanilla", "Use Altered Vanilla Recipes", true);
 		
 		daysUntilTarnish = CSConfig.getInt("blocks", "Copper Tarnish Days", "Days until Copper Blocks tarnish", 3);
 		oreEffects = CSConfig.getBool("blocks", "Ore Effects", "Should Uranium and Plutonium Ores affect the player", true);

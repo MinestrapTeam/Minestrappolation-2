@@ -271,6 +271,10 @@ public class MRecipes
 	
 	public static void removeRecipes()
 	{
+		if (!MConfig.vanillaRecipes)
+		{
+			return;
+		}
 		// Misc Recipes
 		MUtil.removeRecipe(new ItemStack(Blocks.anvil, 1, 0));
 		
