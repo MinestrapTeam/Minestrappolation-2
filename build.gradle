@@ -47,7 +47,7 @@ textureZip
 	
 	from ('src/extra/resources')
     {
-        include('assets/minecraft/**')
+        include('**')
     }
 }
 
