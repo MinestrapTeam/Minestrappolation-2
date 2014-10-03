@@ -1,5 +1,6 @@
 package minestrapteam.minestrappolation.inventory;
 
+import clashsoft.cslib.minecraft.inventory.ContainerInventory;
 import clashsoft.cslib.minecraft.inventory.SlotOutput;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -8,12 +9,11 @@ import minestrapteam.minestrappolation.tileentity.TileEntityFreezer;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.Container;
 import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
-public class ContainerFreezer extends Container
+public class ContainerFreezer extends ContainerInventory
 {
 	public TileEntityFreezer	freezer;
 	private int					lastFreezeTime;
@@ -22,24 +22,18 @@ public class ContainerFreezer extends Container
 	
 	public ContainerFreezer(InventoryPlayer inventory, TileEntityFreezer freezer)
 	{
+		super(inventory.player, freezer);
 		this.freezer = freezer;
 		this.addSlotToContainer(new Slot(freezer, 0, 56, 17));
 		this.addSlotToContainer(new Slot(freezer, 1, 56, 53));
 		this.addSlotToContainer(new SlotOutput(freezer, 2, 116, 35));
-		int i;
 		
-		for (i = 0; i < 3; ++i)
+		for (int i = 0; i < 6; i++)
 		{
-			for (int j = 0; j < 9; ++j)
-			{
-				this.addSlotToContainer(new Slot(inventory, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
-			}
+			this.addSlotToContainer(new Slot(freezer, 3 + i, 8 + i / 3 * 18, 17 + i % 3 * 18));
 		}
 		
-		for (i = 0; i < 9; ++i)
-		{
-			this.addSlotToContainer(new Slot(inventory, i, 8 + i * 18, 142));
-		}
+		this.addInventorySlots();
 	}
 	
 	@Override
@@ -120,20 +114,23 @@ public class ContainerFreezer extends Container
 			
 			if (slotID == 2)
 			{
-				if (!this.mergeItemStack(itemstack1, 3, 39, true))
+				if (!this.mergeItemStack(itemstack1, 9, 45, true))
 				{
 					return null;
 				}
 				
 				slot.onSlotChange(itemstack1, itemstack);
 			}
-			else if (slotID != 1 && slotID != 0)
+			else if (slotID == 2 || slotID >= 9)
 			{
 				if (FreezerRecipes.instance.getResult(itemstack1) != null)
 				{
 					if (!this.mergeItemStack(itemstack1, 0, 1, false))
 					{
-						return null;
+						if (!this.mergeItemStack(itemstack1, 3, 9, false))
+						{
+							return null;
+						}
 					}
 				}
 				else if (TileEntityFreezer.isItemFuel(itemstack1))
@@ -143,19 +140,19 @@ public class ContainerFreezer extends Container
 						return null;
 					}
 				}
-				else if (slotID >= 3 && slotID < 30)
+				else if (slotID >= 9 && slotID < 36)
 				{
-					if (!this.mergeItemStack(itemstack1, 30, 39, false))
+					if (!this.mergeItemStack(itemstack1, 36, 45, false))
 					{
 						return null;
 					}
 				}
-				else if (slotID >= 30 && slotID < 39 && !this.mergeItemStack(itemstack1, 3, 30, false))
+				else if (slotID >= 36 && slotID < 45 && !this.mergeItemStack(itemstack1, 9, 36, false))
 				{
 					return null;
 				}
 			}
-			else if (!this.mergeItemStack(itemstack1, 3, 39, false))
+			else if (!this.mergeItemStack(itemstack1, 9, 45, false))
 			{
 				return null;
 			}

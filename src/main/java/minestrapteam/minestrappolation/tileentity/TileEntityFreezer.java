@@ -2,6 +2,7 @@ package minestrapteam.minestrappolation.tileentity;
 
 import clashsoft.cslib.minecraft.tileentity.TileEntityInventory;
 import minestrapteam.minestrappolation.crafting.FreezerRecipes;
+import minestrapteam.minestrappolation.item.MItemFood;
 import minestrapteam.minestrappolation.lib.MItems;
 
 import net.minecraft.block.Block;
@@ -15,7 +16,7 @@ import net.minecraft.nbt.NBTTagCompound;
 public class TileEntityFreezer extends TileEntityInventory implements ISidedInventory
 {
 	/*
-	 * 0 = Input 1 = Fuel 2 = Output
+	 * 0 = Input 1 = Fuel 2 = Output 3, 4, 5, 6, 7, 8 = Mini Fridge
 	 */
 	
 	public int					energyTime;
@@ -28,13 +29,13 @@ public class TileEntityFreezer extends TileEntityInventory implements ISidedInve
 	
 	public TileEntityFreezer()
 	{
-		super(4);
+		super(9);
 	}
 	
 	@Override
 	public int getSizeInventory()
 	{
-		return 4;
+		return 9;
 	}
 	
 	@Override
@@ -91,7 +92,17 @@ public class TileEntityFreezer extends TileEntityInventory implements ISidedInve
 			return;
 		}
 		
-		// TODO Mini-Fridge Slots
+		for (int i = 3; i < 9; i++)
+		{
+			ItemStack stack = this.itemStacks[i];
+			if (stack != null && stack.getItem() instanceof MItemFood && stack.stackTagCompound != null)
+			{
+				// "Freezes" the items by incresing their "creation time", effectively stopping their spoiling timer.
+				long time = stack.stackTagCompound.getLong("SpoilTime");
+				time++;
+				stack.stackTagCompound.setLong("SpoilTime", time);
+			}
+		}
 		
 		if (this.canFreeze())
 		{
