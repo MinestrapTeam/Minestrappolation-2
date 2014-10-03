@@ -63,7 +63,6 @@ public class Minestrappolation extends BaseMod
 		this.authors = MReference.AUTHORS;
 		this.eventHandler = new MEventHandler();
 		this.netHandlerClass = MNetHandler.class;
-		this.hasConfig = true;
 		
 		this.description = "Making Vanilla more vanilla.";
 		this.logoFile = "/assets/minestrappolation/logo.png";
@@ -78,16 +77,12 @@ public class Minestrappolation extends BaseMod
 	}
 	
 	@Override
-	public void readConfig()
-	{
-		MConfig.load();
-	}
-	
-	@Override
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
 		super.preInit(event);
+		
+		MConfig.load();
 		
 		MFluids.init();
 		

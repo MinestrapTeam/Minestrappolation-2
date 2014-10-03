@@ -2,6 +2,8 @@ package minestrapteam.minestrappolation.lib;
 
 import java.util.Random;
 
+import clashsoft.cslib.config.CSConfig;
+
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.boss.EntityWither;
@@ -14,6 +16,31 @@ import net.minecraftforge.event.entity.living.LivingDropsEvent;
 
 public class MDrops
 {
+	private static int		pigSnoutC;
+	private static int		pigHoofC	= 4;
+	private static int		pigBonesC	= 4;
+	private static int		pigGreaseC	= 5;
+	
+	private static float	pigSnoutP	= 0.15F;
+	private static float	pigHoofP	= 0.15F;
+	private static float	pigBonesP	= 0.3F;
+	private static float	pigGreaseP	= 0.5F;
+	
+	public static void loadConfig()
+	{
+		pigSnoutC = CSConfig.getInt("pig", "Snout Count", null, 1);
+		pigHoofC = CSConfig.getInt("pig", "Hoof Count", null, 1);
+		pigBonesC = CSConfig.getInt("pig", "Bones Count", null, 1);
+		pigGreaseC = CSConfig.getInt("pig", "Grease Count", null, 1);
+		
+		pigSnoutP = CSConfig.getInt("pig", "Snout Probability", null, 1);
+		pigHoofP = CSConfig.getInt("pig", "Hoof Probability", null, 1);
+		pigBonesP = CSConfig.getInt("pig", "Bones Probability", null, 1);
+		pigGreaseP = CSConfig.getInt("pig", "Grease Probability", null, 1);
+		
+		// TODO Complete the pattern...
+	}
+	
 	public static void onMobDrops(LivingDropsEvent event)
 	{
 		EntityLivingBase living = event.entityLiving;
@@ -21,29 +48,29 @@ public class MDrops
 		boolean onFire = living.isBurning();
 		int looting = event.lootingLevel;
 		int looting1 = looting + 1;
-		double rand1 = random.nextDouble() / looting1;
-		double rand2 = random.nextDouble() / looting1;
-		double rand3 = random.nextDouble() / looting1;
-		double rand4 = random.nextDouble() / looting1;
-		double rand5 = random.nextDouble() / looting1;
+		float rand1 = random.nextFloat() / looting1;
+		float rand2 = random.nextFloat() / looting1;
+		float rand3 = random.nextFloat() / looting1;
+		float rand4 = random.nextFloat() / looting1;
+		float rand5 = random.nextFloat() / looting1;
 		
 		if (living instanceof EntityPig)
 		{
-			if (rand1 < 0.15D)
+			if (rand1 < pigSnoutP)
 			{
-				living.dropItem(MItems.snout, random.nextInt(1 + looting));
+				living.dropItem(MItems.snout, random.nextInt(pigSnoutC + looting));
 			}
-			if (rand2 < 0.15D)
+			if (rand2 < pigHoofP)
 			{
-				living.dropItem(MItems.pigHoof, random.nextInt(4 + looting));
+				living.dropItem(MItems.pigHoof, random.nextInt(pigHoofC + looting));
 			}
-			if (rand3 < 0.3D)
+			if (rand3 < pigBonesP)
 			{
-				living.dropItem(MItems.animalBones, random.nextInt(4 + looting));
+				living.dropItem(MItems.animalBones, random.nextInt(pigBonesC + looting));
 			}
-			if (rand4 < 0.5D)
+			if (rand4 < pigGreaseP)
 			{
-				living.dropItem(onFire ? MItems.grease : MItems.fat, random.nextInt(5 + looting));
+				living.dropItem(onFire ? MItems.grease : MItems.fat, random.nextInt(pigGreaseC + looting));
 			}
 		}
 		else if (living instanceof EntityCow)

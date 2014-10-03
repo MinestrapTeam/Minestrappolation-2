@@ -11,6 +11,10 @@ import clashsoft.cslib.logging.CSLog;
 
 public class MConfig
 {
+	public static File		configFile	= new File("config/Minestrappolation/mod.cfg");
+	public static File		genConfigFile	= new File("config/Minestrappolation/worldgen.cfg");
+	public static File		dropsConfigFile	= new File("config/Minestrappolation/mobdrops.cfg");
+	
 	public static boolean	vanillaTextures;
 	public static boolean	vanillaRecipes;
 	
@@ -29,6 +33,10 @@ public class MConfig
 	
 	public static void load()
 	{
+		// Mod Config
+		
+		CSConfig.loadConfig(configFile, "Minestrappolation");
+		
 		vanillaTextures = CSConfig.getBool("vanilla", "Use Altered Vanilla Textures", true);
 		vanillaRecipes = CSConfig.getBool("vanilla", "Use Altered Vanilla Recipes", true);
 		
@@ -42,10 +50,26 @@ public class MConfig
 		foodSpoiling = CSConfig.getBool("items", "Food Spoiling", true);
 		spoilTimeRounding = CSConfig.getInt("items", "Spoil Time Rounding", "The amount of seconds in which Spoilable Food Items are stackable.", 500);
 		
+		updateVanillaTextures(vanillaTextures);
+		
+		CSConfig.saveConfig();
+		
+		// World Gen Config
+		
+		CSConfig.loadConfig(genConfigFile, "Minestrappolation World Gen");
+		
 		generateBiomeStone = CSConfig.getBool("gen", "Replace Biome Stone", true);
 		generateInvincium = CSConfig.getBool("gen", "Generate Invincium", true);
 		
-		updateVanillaTextures(vanillaTextures);
+		CSConfig.saveConfig();
+		
+		// Mob Drop Config
+		
+		CSConfig.loadConfig(dropsConfigFile, "Minestrappolation Mob Drops");
+		
+		MDrops.loadConfig();
+		
+		CSConfig.saveConfig();
 	}
 	
 	protected static void updateVanillaTextures(final boolean use)
