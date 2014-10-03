@@ -39,37 +39,51 @@ minecraft
 	}
 }
 
+task textureZip(type:Zip)
+textureZip
+{
+	classifier = 'textures'
+	archiveName = "${archivesBaseName} ${version} Vanilla Textures.zip";
+	
+	from ('src/extra/resources')
+    {
+        include('assets/minecraft/**')
+    }
+}
+
 task devJar(type:Jar, dependsOn:'classes')
 devJar
 {
-    classifier = 'deobf'
+    classifier = 'dev'
     archiveName = "${archivesBaseName}-${version}-dev.jar"
+    
     from ('build/classes/main')
     {
         include('minestrapteam/minestrappolation/**')
     }
     from ('build/resources/main')
     {
-        include('assets/minestrappolation**')
+        include('assets/**')
     }
 }
 
-task srcJar(type:Jar, dependsOn:'classes')
+task srcJar(type:Jar)
 srcJar
 {
-    classifier = 'sources'
+    classifier = 'src'
     archiveName = "${archivesBaseName}-${version}-src.jar"
-    from ('build/sources/java')
+    
+    from ('src/main/java')
     {
         include('minestrapteam/minestrappolation/**')
     }
-    from ('build/resources/main')
+    from ('src/main/resources')
     {
-        include('assets/minestrappolation/**')
+        include('assets/**')
     }
 }
 
-task buildApi(dependsOn:['build', 'srcJar', 'devJar'])
+task buildApi(dependsOn:['build', 'srcJar', 'devJar', 'textureJar'])
 
 processResources
 {
