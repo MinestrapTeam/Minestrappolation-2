@@ -1,6 +1,5 @@
 package minestrapteam.minestrappolation;
 
-import clashsoft.cslib.config.CSConfig;
 import clashsoft.cslib.minecraft.block.ore.OreBase;
 import clashsoft.cslib.minecraft.init.BaseMod;
 import clashsoft.cslib.minecraft.update.CSUpdate;
@@ -58,16 +57,6 @@ public class Minestrappolation extends BaseMod
 	public static OreBase				oceanstone			= new OreBase("oceanstone").setIconName(MAssetManager.getStonecutterTexture("oceanstone")).register(OreBase.TYPE_OVERWORLD, 12);
 	public static OreBase				deepOceanstone		= new OreBase("pressurizedoceanstone").setIconName(MAssetManager.getStonecutterTexture("pressurizedoceanstone")).register(OreBase.TYPE_OVERWORLD, 13);
 	
-	public static boolean				showDurability;
-	public static boolean				oreEffects			= true;
-	public static int					daysUntilTarnish;
-	public static int					daysUntilMossy;
-	public static int					bedrockDamage		= 2000;
-	public static boolean				foodSpoiling		= true;
-	public static int					spoilTimeRounding	= 500;
-	public static boolean				generateBiomeStone	= true;
-	public static boolean				generateInvincium	= true;
-	
 	public Minestrappolation()
 	{
 		super(proxy, MReference.MODID, MReference.NAME, MReference.ACRONYM, MReference.VERSION);
@@ -91,15 +80,7 @@ public class Minestrappolation extends BaseMod
 	@Override
 	public void readConfig()
 	{
-		showDurability = CSConfig.getBool("tools", "Show Durability", true);
-		daysUntilTarnish = CSConfig.getInt("blocks", "Copper Tarnish Days", "Days until Copper Blocks tarnish", 3);
-		oreEffects = CSConfig.getBool("blocks", "Ore Effects", "Should Uranium and Plutonium Ores affect the player", true);
-		daysUntilMossy = CSConfig.getInt("blocks", "Mossy Planks Days", "Days until Planks get mossy", 3);
-		bedrockDamage = CSConfig.getInt("blocks", "Bedrock Damage", 2000);
-		foodSpoiling = CSConfig.getBool("items", "Food Spoiling", true);
-		spoilTimeRounding = CSConfig.getInt("items", "Spoil Time Rounding", "The amount of seconds in which Spoilable Food Items are stackable.", 500);
-		generateBiomeStone = CSConfig.getBool("gen", "Replace Biome Stone", true);
-		generateInvincium = CSConfig.getBool("gen", "Generate Invincium", true);
+		MConfig.load();
 	}
 	
 	@Override

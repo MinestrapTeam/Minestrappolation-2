@@ -42,8 +42,8 @@ minecraft
 task textureZip(type:Zip)
 textureZip
 {
-	classifier = 'textures'
-	archiveName = "${archivesBaseName} ${version} Vanilla Textures.zip";
+	classifier = 'avt'
+	archiveName = "${archivesBaseName}-${version}-avt.zip";
 	
 	from ('src/extra/resources')
     {

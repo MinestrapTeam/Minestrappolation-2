@@ -3,7 +3,7 @@ package minestrapteam.minestrappolation.item;
 import java.util.List;
 
 import clashsoft.cslib.minecraft.lang.I18n;
-import minestrapteam.minestrappolation.Minestrappolation;
+import minestrapteam.minestrappolation.lib.MConfig;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -156,7 +156,7 @@ public class MItemFood extends ItemFood
 	@Override
 	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean flag)
 	{
-		if (this.foodType.isSpoilable() && Minestrappolation.foodSpoiling)
+		if (this.foodType.isSpoilable() && MConfig.foodSpoiling)
 		{
 			if (stack.stackTagCompound == null)
 			{
@@ -167,7 +167,7 @@ public class MItemFood extends ItemFood
 				return;
 			}
 			
-			long l = Minestrappolation.spoilTimeRounding * 20;
+			long l = MConfig.spoilTimeRounding * 20;
 			long t = (world.getTotalWorldTime() / l) * l;
 			stack.stackTagCompound.setLong("SpoilTime", t);
 		}

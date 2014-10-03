@@ -1,7 +1,7 @@
 package minestrapteam.minestrappolation.item.tool;
 
 import clashsoft.cslib.minecraft.item.datatools.ItemDataPickaxe;
-import minestrapteam.minestrappolation.Minestrappolation;
+import minestrapteam.minestrappolation.lib.MConfig;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -78,7 +78,7 @@ public class MItemPickaxe extends MItemTool
 	{
 		if (blockDestroyed == Blocks.bedrock)
 		{
-			itemstack.damageItem(Minestrappolation.bedrockDamage - 1, living);
+			itemstack.damageItem(MConfig.bedrockDamage - 1, living);
 		}
 		
 		return super.onBlockDestroyed(itemstack, world, blockDestroyed, x, y, z, living);

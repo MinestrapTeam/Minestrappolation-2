@@ -2,7 +2,7 @@ package minestrapteam.minestrappolation.block;
 
 import java.util.Random;
 
-import minestrapteam.minestrappolation.Minestrappolation;
+import minestrapteam.minestrappolation.lib.MConfig;
 import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.block.Block;
@@ -55,7 +55,7 @@ public class BlockCopper extends Block
 	@Override
 	public int tickRate(World world)
 	{
-		return Minestrappolation.daysUntilTarnish;
+		return MConfig.daysUntilTarnish;
 	}
 	
 	@Override
