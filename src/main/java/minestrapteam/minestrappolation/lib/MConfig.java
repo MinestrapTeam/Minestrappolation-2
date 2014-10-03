@@ -12,11 +12,12 @@ import clashsoft.cslib.logging.CSLog;
 public class MConfig
 {
 	public static boolean	vanillaTextures;
-	public static boolean vanillaRecipes;
+	public static boolean	vanillaRecipes;
 	
 	public static boolean	oreEffects;
 	public static int		daysUntilTarnish;
 	public static int		daysUntilMossy;
+	public static boolean	isBedrockBreakable;
 	public static int		bedrockDamage;
 	
 	public static boolean	showDurability;
@@ -34,6 +35,7 @@ public class MConfig
 		daysUntilTarnish = CSConfig.getInt("blocks", "Copper Tarnish Days", "Days until Copper Blocks tarnish", 3);
 		oreEffects = CSConfig.getBool("blocks", "Ore Effects", "Should Uranium and Plutonium Ores affect the player", true);
 		daysUntilMossy = CSConfig.getInt("blocks", "Mossy Planks Days", "Days until Planks get mossy", 3);
+		isBedrockBreakable = CSConfig.getBool("blocks", "Is Bedrock Breakable", true);
 		bedrockDamage = CSConfig.getInt("blocks", "Bedrock Damage", 2000);
 		
 		showDurability = CSConfig.getBool("items", "Show Tool Durability", true);

@@ -94,7 +94,7 @@ public class MItems
 	
 	public static Item	steelKey;
 	public static Item	steelLock;
-	public static Item lockCutter;
+	public static Item	lockCutter;
 	
 	public static Item	soulBottle;
 	public static Item	grenade;
@@ -121,7 +121,7 @@ public class MItems
 	
 	/* / {----- EF Items -----} / */
 	
-	public static Item coolantBottle;
+	public static Item	coolantBottle;
 	
 	/* / {----- EMD Items -----} / */
 	
@@ -509,7 +509,11 @@ public class MItems
 		Items.diamond_pickaxe.setHarvestLevel("pickaxe", 4);
 		Items.diamond_axe.setHarvestLevel("axe", 4);
 		
-		Blocks.bedrock.setHardness(80F).setHarvestLevel("pickaxe", 5);
+		if (MConfig.isBedrockBreakable)
+		{
+			Blocks.bedrock.setHardness(80F).setHarvestLevel("pickaxe", 5);
+		}
+		
 		MBlocks.copperOre.setHarvestLevel("pickaxe", 0);
 		MBlocks.copperBlock.setHarvestLevel("pickaxe", 0);
 		MBlocks.tinOre.setHarvestLevel("pickaxe", 1);
