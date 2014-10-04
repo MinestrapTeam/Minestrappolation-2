@@ -7,10 +7,7 @@ import clashsoft.cslib.minecraft.block.ore.BlockOre2;
 import clashsoft.cslib.minecraft.world.gen.OreGen;
 import cpw.mods.fml.common.IWorldGenerator;
 import minestrapteam.minestrappolation.lib.MBlocks;
-import minestrapteam.minestrappolation.world.gen.WorldGenDesertQuartz;
-import minestrapteam.minestrappolation.world.gen.WorldGenRedSandstone;
-import minestrapteam.minestrappolation.world.gen.WorldGenRedWoodTreeSmall;
-import minestrapteam.minestrappolation.world.gen.WorldGenStructureStone;
+import minestrapteam.minestrappolation.world.gen.*;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -28,7 +25,7 @@ import net.minecraftforge.event.terraingen.ChunkProviderEvent.ReplaceBiomeBlocks
  * @author SoBiohazardous
  * @author Clashsoft
  */
-public class MOreGenerator implements IWorldGenerator
+public class MWorldGenerator implements IWorldGenerator
 {
 	public static boolean					generateBiomeStone;
 	public static boolean					generateBiomeStoneStructures;
@@ -62,6 +59,7 @@ public class MOreGenerator implements IWorldGenerator
 	public static WorldGenRedSandstone		redSandstoneGen		= new WorldGenRedSandstone();
 	public static WorldGenRedWoodTreeSmall	redwoodTreeGen		= new WorldGenRedWoodTreeSmall();
 	public static WorldGenDesertQuartz		desertQuartzGen		= new WorldGenDesertQuartz();
+	public static WorldGenObsidianSpikes obsidianSpikeGen = new WorldGenObsidianSpikes();
 	
 	public static WorldGenStructureStone	stoneStructureGen	= new WorldGenStructureStone();
 	
@@ -253,23 +251,7 @@ public class MOreGenerator implements IWorldGenerator
 	{
 		if (generateObsidianSpikes)
 		{
-			for (int x = 0; x < 16; x++)
-			{
-				int x1 = chunkX + x;
-				for (int z = 0; z < 16; z++)
-				{
-					int z1 = chunkZ + z;
-					yLoop:
-					for (int y = 0; y < 128; y++)
-					{
-						if (world.getBlock(x1, y, z1) == Blocks.obsidian && world.getBlock(x1, y + 1, z1) == Blocks.air)
-						{
-							world.setBlock(x1, y, z1, MBlocks.endstone, 4, 3);
-							break yLoop;
-						}
-					}
-				}
-			}
+			obsidianSpikeGen.generate(world, random, chunkX, 0, chunkZ);
 		}
 	}
 	

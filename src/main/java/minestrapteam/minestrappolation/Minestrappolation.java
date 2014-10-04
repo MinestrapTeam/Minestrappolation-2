@@ -20,7 +20,7 @@ import minestrapteam.minestrappolation.creativetab.*;
 import minestrapteam.minestrappolation.lib.*;
 import minestrapteam.minestrappolation.network.MNetHandler;
 import minestrapteam.minestrappolation.util.MAssetManager;
-import minestrapteam.minestrappolation.world.MOreGenerator;
+import minestrapteam.minestrappolation.world.MWorldGenerator;
 
 import net.minecraft.creativetab.CreativeTabs;
 
@@ -109,7 +109,7 @@ public class Minestrappolation extends BaseMod
 	{
 		super.init(event);
 		
-		GameRegistry.registerWorldGenerator(new MOreGenerator(), 0);
+		GameRegistry.registerWorldGenerator(new MWorldGenerator(), 0);
 		
 		MBiomes.load();
 		MPotions.load();

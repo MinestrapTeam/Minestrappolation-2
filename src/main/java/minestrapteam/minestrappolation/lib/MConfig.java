@@ -6,7 +6,7 @@ import clashsoft.cslib.config.CSConfig;
 import clashsoft.cslib.io.CSWeb;
 import clashsoft.cslib.logging.CSLog;
 import cpw.mods.fml.common.FMLCommonHandler;
-import minestrapteam.minestrappolation.world.MOreGenerator;
+import minestrapteam.minestrappolation.world.MWorldGenerator;
 
 import net.minecraft.client.Minecraft;
 
@@ -55,7 +55,7 @@ public class MConfig
 		// World Gen Config
 		
 		CSConfig.loadConfig(genConfigFile, "Minestrappolation World Gen");
-		MOreGenerator.loadConfig();
+		MWorldGenerator.loadConfig();
 		CSConfig.saveConfig();
 		
 		// Mob Drop Config
