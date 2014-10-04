@@ -31,7 +31,16 @@ import net.minecraftforge.event.terraingen.ChunkProviderEvent.ReplaceBiomeBlocks
 public class MOreGenerator implements IWorldGenerator
 {
 	public static boolean					generateBiomeStone;
-	public static boolean					generateInvincium;
+	public static boolean					generateBiomeStoneStructures;
+	public static boolean					generateRedSandstone;
+	public static boolean					generateRedwoodTrees;
+	public static boolean					generateObsidianSpikes;
+	
+	public static int						desertQuartzCount;
+	
+	public static boolean					invinciumOverworld;
+	public static boolean					invinciumNetherTop;
+	public static boolean					invinciumNetherBottom;
 	
 	public static OreGen					copperGen;
 	public static OreGen					tinGen;
@@ -51,15 +60,24 @@ public class MOreGenerator implements IWorldGenerator
 	public static OreGen					mossyPlankGen;
 	
 	public static WorldGenRedSandstone		redSandstoneGen		= new WorldGenRedSandstone();
-	public static WorldGenStructureStone	stoneStructureGen	= new WorldGenStructureStone();
+	public static WorldGenRedWoodTreeSmall	redwoodTreeGen		= new WorldGenRedWoodTreeSmall();
 	public static WorldGenDesertQuartz		desertQuartzGen		= new WorldGenDesertQuartz();
 	
-	public static WorldGenRedWoodTreeSmall	redwoodTreeGen		= new WorldGenRedWoodTreeSmall();
+	public static WorldGenStructureStone	stoneStructureGen	= new WorldGenStructureStone();
 	
 	public static void loadConfig()
 	{
-		generateBiomeStone = CSConfig.getBool("gen", "Replace Biome Stone", true);
-		generateInvincium = CSConfig.getBool("gen", "Generate Invincium", true);
+		generateBiomeStone = CSConfig.getBool("biomes", "Replace Biome Stone", null, true);
+		generateBiomeStoneStructures = CSConfig.getBool("biomes", "Replace Biome Stone Structures", null, true);
+		generateRedSandstone = CSConfig.getBool("misc", "Generate Red Sandstone", null, true);
+		generateRedwoodTrees = CSConfig.getBool("misc", "Generate Redwood Trees", null, true);
+		generateObsidianSpikes = CSConfig.getBool("misc", "Replace Obsidian Spikes", null, true);
+		
+		desertQuartzCount = CSConfig.getInt("desert_quartz", "Spires per Chunk", null, 100);
+		
+		invinciumOverworld = CSConfig.getBool("invincium", "Overworld", null, true);
+		invinciumNetherTop = CSConfig.getBool("invincium", "Nether Top", null, false);
+		invinciumNetherBottom = CSConfig.getBool("invincium", "Nether Bottom", null, true);
 		
 		copperGen = CSConfig.getOreGen("copper", new OreGen(10, 14, 80));
 		tinGen = CSConfig.getOreGen("tin", new OreGen(11, 14, 80));
@@ -107,11 +125,15 @@ public class MOreGenerator implements IWorldGenerator
 		chunkZ <<= 4;
 		if (chunkGenerator instanceof ChunkProviderGenerate)
 		{
+			this.generateSurface(world, random, chunkX, chunkZ);
 			if (generateBiomeStone)
 			{
 				this.genBiomeStone(world, chunkX, chunkZ, random);
 			}
-			this.generateSurface(world, random, chunkX, chunkZ);
+			if (generateBiomeStoneStructures)
+			{
+				stoneStructureGen.generate(world, random, chunkX, 0, chunkZ);
+			}
 		}
 		else if (chunkGenerator instanceof ChunkProviderHell)
 		{
@@ -151,19 +173,12 @@ public class MOreGenerator implements IWorldGenerator
 		// Sandstone
 		if (biome instanceof BiomeGenDesert)
 		{
-			for (int i = 0; i < 40; i++)
-			{
-				x1 = chunkX + rand.nextInt(16);
-				y1 = rand.nextInt(256);
-				z1 = chunkZ + rand.nextInt(16);
-				
-				sandstoneGen.generate(world, rand, x1, y1, z1);
-				sandstoneGen2.generate(world, rand, x1, y1, z1);
-			}
+			sandstoneGen.generate(world, rand, x1, y1, z1);
+			sandstoneGen2.generate(world, rand, x1, y1, z1);
 		}
 		
 		// Red Sandstone
-		if (biome instanceof BiomeGenMesa)
+		if (generateRedSandstone && biome instanceof BiomeGenMesa)
 		{
 			x1 = chunkX + rand.nextInt(16);
 			y1 = rand.nextInt(256);
@@ -172,19 +187,18 @@ public class MOreGenerator implements IWorldGenerator
 		}
 		
 		// Redwood Trees
-		if (biome instanceof BiomeGenHills || biome instanceof BiomeGenTaiga)
+		if (generateRedwoodTrees && (biome instanceof BiomeGenHills || biome instanceof BiomeGenTaiga))
 		{
 			x1 = chunkX + rand.nextInt(16);
 			y1 = 64 + rand.nextInt(64);
 			z1 = chunkZ + rand.nextInt(16);
-			
 			redwoodTreeGen.generate(world, rand, x1, y1, z1);
 		}
 		
 		// Desert Quartz
-		if (biome instanceof BiomeGenDesert)
+		if (desertQuartzCount > 0 && biome instanceof BiomeGenDesert)
 		{
-			for (int i = 0; i < 12; i++)
+			for (int i = 0; i < desertQuartzCount; i++)
 			{
 				x1 = chunkX + rand.nextInt(16);
 				y1 = rand.nextInt(100);
@@ -194,10 +208,7 @@ public class MOreGenerator implements IWorldGenerator
 			}
 		}
 		
-		// Structure Gen
-		stoneStructureGen.generate(world, rand, x1, y1, z1);
-		
-		if (generateInvincium)
+		if (invinciumOverworld)
 		{
 			for (x1 = 0; x1 < 16; x1++)
 			{
@@ -219,30 +230,43 @@ public class MOreGenerator implements IWorldGenerator
 		soulOreGen.generate(world, rand, x1, y1, z1);
 		
 		// Invincium
-		for (int i = 0; i < 16; i++)
+		if (invinciumNetherTop || invinciumNetherBottom)
 		{
-			for (int j = 0; j < 16; j++)
+			for (int i = 0; i < 16; i++)
 			{
-				world.setBlock(chunkX + i, 0, chunkZ + j, MBlocks.invincium, 0, 0);
+				for (int j = 0; j < 16; j++)
+				{
+					if (invinciumNetherTop)
+					{
+						world.setBlock(chunkX + i, 128, chunkZ + j, MBlocks.invincium, 0, 0);
+					}
+					if (invinciumNetherBottom)
+					{
+						world.setBlock(chunkX + i, 0, chunkZ + j, MBlocks.invincium, 0, 0);
+					}
+				}
 			}
 		}
 	}
 	
 	public void generateEnd(World world, Random random, int chunkX, int chunkZ)
 	{
-		for (int x = 0; x < 16; x++)
+		if (generateObsidianSpikes)
 		{
-			int x1 = chunkX + x;
-			for (int z = 0; z < 16; z++)
+			for (int x = 0; x < 16; x++)
 			{
-				int z1 = chunkZ + z;
-				yLoop:
-				for (int y = 0; y < 128; y++)
+				int x1 = chunkX + x;
+				for (int z = 0; z < 16; z++)
 				{
-					if (world.getBlock(x1, y, z1) == Blocks.obsidian && world.getBlock(x1, y + 1, z1) == Blocks.air)
+					int z1 = chunkZ + z;
+					yLoop:
+					for (int y = 0; y < 128; y++)
 					{
-						world.setBlock(x1, y, z1, MBlocks.endstone, 4, 3);
-						break yLoop;
+						if (world.getBlock(x1, y, z1) == Blocks.obsidian && world.getBlock(x1, y + 1, z1) == Blocks.air)
+						{
+							world.setBlock(x1, y, z1, MBlocks.endstone, 4, 3);
+							break yLoop;
+						}
 					}
 				}
 			}
