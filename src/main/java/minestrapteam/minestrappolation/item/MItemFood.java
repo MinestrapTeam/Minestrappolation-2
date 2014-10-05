@@ -15,7 +15,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.StringUtils;
 import net.minecraft.world.World;
@@ -46,7 +45,7 @@ public class MItemFood extends ItemFood
 		
 		public int getMaxSpoiling()
 		{
-			return 200; //this.maxSpoiling;
+			return this.maxSpoiling;
 		}
 		
 		public boolean isSpoilable()
@@ -266,17 +265,17 @@ public class MItemFood extends ItemFood
 			int ticks = (int) (this.foodType.getMaxSpoiling() - getSpoilTime(stack, player.worldObj));
 			if (ticks > 0)
 			{
-				list.add(EnumChatFormatting.GREEN + "Spoils in: " + StringUtils.ticksToElapsedTime(ticks));
+				list.add(I18n.getString("item.food.spoiling", StringUtils.ticksToElapsedTime(ticks)));
 			}
 			else
 			{
-				list.add(EnumChatFormatting.DARK_GREEN + "Spoiled");
+				list.add(I18n.getString("item.food.spoiled"));
 			}
 		}
 		
 		if (isFrozen(stack))
 		{
-			list.add(EnumChatFormatting.BLUE + "Frozen");
+			list.add(I18n.getString("item.food.frozen"));
 		}
 	}
 	
