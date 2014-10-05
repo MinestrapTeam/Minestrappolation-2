@@ -2,6 +2,7 @@ package minestrapteam.minestrappolation.lib;
 
 import clashsoft.brewingapi.BrewingAPI;
 import clashsoft.brewingapi.potion.IPotionEffectHandler;
+import clashsoft.brewingapi.potion.PotionList;
 import clashsoft.brewingapi.potion.recipe.PotionRecipes;
 import clashsoft.brewingapi.potion.type.PotionType;
 import clashsoft.cslib.minecraft.world.TeleporterNoPortal;
@@ -50,6 +51,7 @@ public class MPotions implements IPotionEffectHandler
 		PotionRecipes.addRecipe(new ItemStack(MItems.ghastTentacle), ghastTentacle);
 		PotionRecipes.addRecipe(new ItemStack(MItems.airSack), new PotionEffect(Potion.waterBreathing.id, 120 * 20, 0));
 		PotionRecipes.addRecipe(new ItemStack(MItems.marrow), new PotionEffect(Potion.resistance.id, 180 * 20));
+		PotionRecipes.addRecipe(new ItemStack(MItems.witherAsh), PotionList.thick, new PotionEffect(Potion.wither.id, 30 * 20, 0));
 	}
 	
 	@Override

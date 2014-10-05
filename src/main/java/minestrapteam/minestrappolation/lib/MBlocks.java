@@ -510,8 +510,8 @@ public class MBlocks
 		
 		// EE Blocks
 		
-		witherLayer = new BlockWitherLayer().setHardness(0.1F).setStepSound(Block.soundTypeSnow).setBlockTextureName(MAssetManager.getMineralTexture("wither_ash_block"));
-		witherBlock = new BlockWitherAsh().setHardness(0.2F).setStepSound(Block.soundTypeSnow).setBlockTextureName(MAssetManager.getMineralTexture("wither_ash_block"));
+		witherLayer = new BlockWitherLayer().setHardness(0.1F).setStepSound(Block.soundTypeSnow).setBlockTextureName(MAssetManager.getMineralTexture("wither_ash_block")).setCreativeTab(Minestrappolation.tabMisc);
+		witherBlock = new BlockWitherAsh().setHardness(0.2F).setStepSound(Block.soundTypeSnow).setBlockTextureName(MAssetManager.getMineralTexture("wither_ash_block")).setCreativeTab(Minestrappolation.tabMisc);
 		mossCover = new BlockMossCover().setHardness(0.2F).setStepSound(Block.soundTypeSnow).setBlockTextureName(MAssetManager.getPlantTexture("moss_cover"));
 		
 		// EF Blocks

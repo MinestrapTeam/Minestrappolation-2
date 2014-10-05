@@ -118,10 +118,13 @@ public class MRecipes
 		
 		GameRegistry.addSmelting(Blocks.glass, new ItemStack(refinedGlass), 20);
 		GameRegistry.addRecipe(new ItemStack(refinedGlassPane, 16), new Object[] { "SSS", "SSS", 'S', refinedGlass });
-		GameRegistry.addRecipe(new ItemStack(MBlocks.glowGlassPane, 16), new Object[] { "GGG", "GGG", 'G', glowGlass });
+		GameRegistry.addRecipe(new ItemStack(glowGlassPane, 16), new Object[] { "GGG", "GGG", 'G', glowGlass });
 		
 		GameRegistry.addRecipe(new ItemStack(goblet), new Object[] { "D D", " D ", 'D', Items.gold_ingot });
 		GameRegistry.addRecipe(new ItemStack(plate, 2), new Object[] { "GG", "GG", 'G', Items.gold_ingot });
+		
+		GameRegistry.addRecipe(new ItemStack(witherLayer), new Object[] { "AA", 'A', witherAsh });
+		GameRegistry.addRecipe(new ItemStack(witherBlock), new Object[] { "AA", "AA", 'A', witherAsh });
 		
 		// Food Recipes
 		
@@ -159,6 +162,7 @@ public class MRecipes
 		GameRegistry.addRecipe(new ItemStack(Items.dye, 1, 15), new Object[] { "AA", "AA", 'A', animalBones });
 		GameRegistry.addSmelting(fat, new ItemStack(grease, 1), 0.3F);
 		GameRegistry.addRecipe(new ItemStack(wingSegment, 1, 0), new Object[] { "FSF", "SLS", "FSF", 'F', Items.feather, 'S', wingSinew, 'L', Items.leather });
+		GameRegistry.addRecipe(new ItemStack(deathMeal, 1), new Object[] { "W", 'W', witheredBone });
 		GameRegistry.addRecipe(new ItemStack(blackDiamond, 1), new Object[] { "AAA", "ADA", "AAA", 'A', witherAsh, 'D', Items.diamond });
 		
 		// Specialty Tool Recipes
