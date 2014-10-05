@@ -188,7 +188,7 @@ public class ItemFishFood2 extends MItemFood
 				this.rawSpoiledIcon = iconRegister.registerIcon(string + "_raw_spoiled");
 			}
 			
-			if (foodType.isFriable())
+			if (foodType.isFriable() && this != PUFFERFISH)
 			{
 				this.rawFriedIcon = iconRegister.registerIcon(string + "_raw_fried");
 			}

@@ -51,7 +51,7 @@ public class MAssetManager
 	
 	public static String getStonecutterTexture(String name)
 	{
-		return MReference.MODID + ":stoneCutter/" + name;
+		return MReference.MODID + ":stonecutter/" + name;
 	}
 	
 	/**
