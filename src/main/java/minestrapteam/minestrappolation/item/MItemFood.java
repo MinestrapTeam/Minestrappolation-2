@@ -46,7 +46,7 @@ public class MItemFood extends ItemFood
 		
 		public int getMaxSpoiling()
 		{
-			return this.maxSpoiling;
+			return 200; //this.maxSpoiling;
 		}
 		
 		public boolean isSpoilable()
@@ -128,7 +128,7 @@ public class MItemFood extends ItemFood
 	{
 		if (this.foodType.isSpoilable())
 		{
-			return getSpoilTime(stack, world) >= this.foodType.maxSpoiling;
+			return getSpoilTime(stack, world) >= this.foodType.getMaxSpoiling();
 		}
 		return false;
 	}
@@ -263,7 +263,7 @@ public class MItemFood extends ItemFood
 	{
 		if (this.foodType.isSpoilable())
 		{
-			int ticks = (int) (this.foodType.maxSpoiling - getSpoilTime(stack, player.worldObj));
+			int ticks = (int) (this.foodType.getMaxSpoiling() - getSpoilTime(stack, player.worldObj));
 			if (ticks > 0)
 			{
 				list.add(EnumChatFormatting.GREEN + "Spoils in: " + StringUtils.ticksToElapsedTime(ticks));

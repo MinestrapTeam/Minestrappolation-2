@@ -1121,14 +1121,6 @@ item.horse_haunch_raw.name=Raw Horse Haunch
 item.horse_haunch_cooked.name=Cooked Horse Haunch
 
 #Materials
-item.soul_gem.name=Soul Gem
-item.meurodite_gem.name=Meurodite
-item.uranium.name=Uranium
-item.plutonium.name=Plutonium
-item.radiant_quartz.name=Radiant Quartz
-item.desert_quartz.name=Desert Quartz
-item.blaze_shard.name=Blaze Shard
-item.sunstone_dust.name=Sunstone Shard
 item.copper_ingot.name=Copper Ingot
 item.tin_ingot.name=Tin Ingot
 item.bronze_ingot.name=Bronze Ingot
@@ -1137,6 +1129,17 @@ item.steel_ingot.name=Steel Ingot
 item.titanium_ingot.name=Titanium Ingot
 item.torite_ingot.name=Torite Ingot
 item.blazium_ingot.name=Blazium Ingot
+
+item.soul_gem.name=Soul Gem
+item.meurodite_gem.name=Meurodite
+item.uranium.name=Uranium
+item.plutonium.name=Plutonium
+item.radiant_quartz.name=Radiant Quartz
+item.desert_quartz.name=Desert Quartz
+item.blaze_shard.name=Blaze Shard
+item.sunstone_dust.name=Sunstone Shard
+item.black_diamond.name=Black Diamond
+
 item.stone_chunk.name=Stone Chunk
 
 item.wither_ash.name=Wither Ash

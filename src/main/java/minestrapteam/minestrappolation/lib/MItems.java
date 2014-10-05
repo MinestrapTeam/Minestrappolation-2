@@ -89,6 +89,7 @@ public class MItems
 	public static Item	desertQuartz;
 	public static Item	blazeShard;
 	public static Item	sunstoneDust;
+	public static Item blackDiamond;
 	
 	public static Item	magmaBucket;
 	
@@ -227,6 +228,7 @@ public class MItems
 		desertQuartz = new MItem().setTextureName(MAssetManager.getMineralTexture("desert_quartz"));
 		blazeShard = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("blazium_dust"));
 		sunstoneDust = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("sunstone_dust"));
+		blackDiamond = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("black_diamond"));
 		
 		copperIngot = new MItem().setTextureName(MAssetManager.getMineralTexture("copper_ingot"));
 		tinIngot = new MItem().setTextureName(MAssetManager.getMineralTexture("tin_ingot"));
@@ -367,15 +369,6 @@ public class MItems
 		
 		// EO Items
 		
-		CSItems.addItem(soulGem, "soul_gem");
-		CSItems.addItem(meuroditeGem, "meurodite_gem");
-		CSItems.addItem(uranium, "uranium");
-		CSItems.addItem(plutonium, "plutonium");
-		CSItems.addItem(radiantQuartz, "radiant_quartz");
-		CSItems.addItem(desertQuartz, "desert_quartz");
-		CSItems.addItem(blazeShard, "blaze_shard");
-		CSItems.addItem(sunstoneDust, "sunstone_dust");
-		
 		CSItems.addItem(copperIngot, "copper_ingot");
 		CSItems.addItem(tinIngot, "tin_ingot");
 		CSItems.addItem(bronzeIngot, "bronze_ingot");
@@ -384,6 +377,16 @@ public class MItems
 		CSItems.addItem(titaniumIngot, "titanium_ingot");
 		CSItems.addItem(toriteIngot, "torite_ingot");
 		CSItems.addItem(blaziumIngot, "blazium_ingot");
+		
+		CSItems.addItem(soulGem, "soul_gem");
+		CSItems.addItem(meuroditeGem, "meurodite_gem");
+		CSItems.addItem(uranium, "uranium");
+		CSItems.addItem(plutonium, "plutonium");
+		CSItems.addItem(radiantQuartz, "radiant_quartz");
+		CSItems.addItem(desertQuartz, "desert_quartz");
+		CSItems.addItem(blazeShard, "blaze_shard");
+		CSItems.addItem(sunstoneDust, "sunstone_dust");
+		CSItems.addItem(blackDiamond, "black_diamond");
 		
 		CSItems.addItem(magmaBucket, "magma_bucket");
 		

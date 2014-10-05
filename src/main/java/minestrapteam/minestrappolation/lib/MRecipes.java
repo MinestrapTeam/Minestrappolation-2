@@ -158,6 +158,7 @@ public class MRecipes
 		GameRegistry.addRecipe(new ItemStack(Items.dye, 1, 15), new Object[] { "AA", "AA", 'A', animalBones });
 		GameRegistry.addSmelting(fat, new ItemStack(grease, 1), 0.3F);
 		GameRegistry.addRecipe(new ItemStack(wingSegment, 1, 0), new Object[] { "FSF", "SLS", "FSF", 'F', Items.feather, 'S', wingSinew, 'L', Items.leather });
+		GameRegistry.addRecipe(new ItemStack(blackDiamond, 1), new Object[] { "AAA", "ADA", "AAA", 'A', witherAsh, 'D', Items.diamond });
 		
 		// Specialty Tool Recipes
 		
