@@ -128,10 +128,11 @@ public class MItemSword extends ItemSword implements IPlatable
 	@Override
 	public void registerIcons(IIconRegister iconRegister)
 	{
-		this.itemIcon = iconRegister.registerIcon(this.getIconString());
-		this.hornIcon = iconRegister.registerIcon(MAssetManager.getWeaponTexture("horned_sword_overlay"));
-		
 		ItemStack thisStack = new ItemStack(this, 1, 0);
+		int harvestLevel = this.material.getHarvestLevel();
+		
+		this.itemIcon = iconRegister.registerIcon(this.getIconString());
+		this.hornIcon = iconRegister.registerIcon(MAssetManager.getTexture("platings/horned_sword_" + harvestLevel));
 		
 		for (Entry<String, IPlating> e : IPlating.platings.entrySet())
 		{
@@ -143,9 +144,7 @@ public class MItemSword extends ItemSword implements IPlatable
 				continue;
 			}
 			
-			StringBuilder builder = new StringBuilder(20);
-			builder.append("weapons/").append(type).append("_sword_overlay");
-			String textureName = MAssetManager.getTexture(builder.toString());
+			String textureName = MItemTool.getPlatingTexture(plating, "sword", harvestLevel);
 			this.overlayIcons.put(type, iconRegister.registerIcon(textureName));
 		}
 	}

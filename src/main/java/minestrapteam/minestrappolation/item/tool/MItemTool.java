@@ -10,8 +10,8 @@ import com.google.common.collect.Multimap;
 
 import minestrapteam.minestrappolation.item.IPlatable;
 import minestrapteam.minestrappolation.item.IPlating;
+import minestrapteam.minestrappolation.lib.MReference;
 import minestrapteam.minestrappolation.lib.MTools;
-import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -319,18 +319,22 @@ public class MItemTool extends ItemTool implements IPlatable
 			String type = e.getKey();
 			IPlating plating = e.getValue();
 			
-			if (plating.canApply(thisStack))
+			if (!plating.canApply(thisStack))
 			{
-				StringBuilder builder = new StringBuilder(20);
-				builder.append("tools/").append(type).append("_").append(this.toolType).append("_overlay");
-				if (this.toolMaterial.getHarvestLevel() >= 5)
-				{
-					builder.append("_2");
-				}
-				String textureName = MAssetManager.getTexture(builder.toString());
-				this.overlayIcons.put(type, iconRegister.registerIcon(textureName));
+				continue;
 			}
+			
+			String textureName = getPlatingTexture(plating, this.toolType, this.toolMaterial.getHarvestLevel());
+			this.overlayIcons.put(type, iconRegister.registerIcon(textureName));
 		}
+	}
+	
+	public static String getPlatingTexture(IPlating plating, String toolType, int harvestLevel)
+	{
+		StringBuilder builder = new StringBuilder(20);
+		builder.append(MReference.MODID).append(":platings/").append(plating.getType()).append('_');
+		builder.append(toolType).append('_').append(harvestLevel > 4 ? 4 : harvestLevel);
+		return builder.toString();
 	}
 	
 	@Override

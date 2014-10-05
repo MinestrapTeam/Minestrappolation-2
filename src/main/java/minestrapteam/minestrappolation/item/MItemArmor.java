@@ -72,9 +72,7 @@ public class MItemArmor extends ItemArmor implements IPlatable
 				continue;
 			}
 			
-			StringBuilder builder = new StringBuilder(20);
-			builder.append("armor/").append(type).append("_").append(this.part).append("_overlay");
-			String textureName = MAssetManager.getTexture(builder.toString());
+			String textureName = MItemTool.getPlatingTexture(plating, this.part, 0);
 			this.overlayIcons.put(type, iconRegister.registerIcon(textureName));
 		}
 	}

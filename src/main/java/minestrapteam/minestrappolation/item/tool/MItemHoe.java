@@ -8,7 +8,6 @@ import java.util.Map.Entry;
 import cpw.mods.fml.common.eventhandler.Event;
 import minestrapteam.minestrappolation.item.IPlatable;
 import minestrapteam.minestrappolation.item.IPlating;
-import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -116,13 +115,7 @@ public class MItemHoe extends ItemHoe implements IPlatable
 				continue;
 			}
 			
-			StringBuilder builder = new StringBuilder(20);
-			builder.append("tools/").append(type).append("_hoe_overlay");
-			if (this.theToolMaterial.getHarvestLevel() >= 5)
-			{
-				builder.append("_2");
-			}
-			String textureName = MAssetManager.getTexture(builder.toString());
+			String textureName = MItemTool.getPlatingTexture(plating, "hoe", this.theToolMaterial.getHarvestLevel());
 			this.overlayIcons.put(type, iconRegister.registerIcon(textureName));
 		}
 	}
