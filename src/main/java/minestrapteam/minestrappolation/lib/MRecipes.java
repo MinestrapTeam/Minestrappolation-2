@@ -140,6 +140,7 @@ public class MRecipes
 		GameRegistry.addRecipe(new ItemStack(plutoniumInsulated, 1), new Object[] { "SPS", "GUG", "SPS", 'S', steelIngot, 'G', MBlocks.refinedGlassPane, 'U', plutoniumBlock, 'P', MItems.plateSteelItem });
 		GameRegistry.addRecipe(new ItemStack(nuke, 1), new Object[] { "UPU", "PUP", "UPU", 'P', plutoniumBlock, 'U', uraniumBlock });
 		GameRegistry.addRecipe(new ItemStack(melterIdle, 1, 1), new Object[] { "ZZZ", "ZFZ", "IBI", 'Z', plateMeuroditeItem, 'F', Blocks.furnace, 'B', blaziumBlock, 'I', Blocks.iron_bars });
+		GameRegistry.addRecipe(new ItemStack(freezer, 1, 1), new Object[] {"ici", "iCi", "iri", 'i', Items.iron_ingot, 'c', coolantBottle, 'C', Blocks.chest, 'r', Items.redstone});
 		
 		for (int i = 0; i < 16; i++)
 		{
@@ -268,6 +269,11 @@ public class MRecipes
 		GameRegistry.addRecipe(new ItemStack(bedrockAxe, 1), new Object[] { "ZZ ", "ZS ", " S ", 'Z', Blocks.bedrock, 'S', Items.stick });
 		GameRegistry.addRecipe(new ItemStack(bedrockHoe, 1), new Object[] { "ZZ ", " S ", " S ", 'Z', Blocks.bedrock, 'S', Items.stick });
 		
+		GameRegistry.addRecipe(new ItemStack(unholySword, 1), new Object[] { " Z ", " Z ", " S ", 'Z', blackDiamond, 'S', witheredBone });
+		GameRegistry.addRecipe(new ItemStack(unholyShovel, 1), new Object[] { " Z ", " S ", " S ", 'Z', blackDiamond, 'S', witheredBone });
+		GameRegistry.addRecipe(new ItemStack(unholyPickaxe, 1), new Object[] { "ZZZ", " S ", " S ", 'Z', blackDiamond, 'S', witheredBone });
+		GameRegistry.addRecipe(new ItemStack(unholyAxe, 1), new Object[] { "ZZ ", "ZS ", " S ", 'Z', blackDiamond, 'S', witheredBone });
+		GameRegistry.addRecipe(new ItemStack(unholyHoe, 1), new Object[] { "ZZ ", " S ", " S ", 'Z', blackDiamond, 'S', witheredBone });
 	}
 	
 	public static void removeRecipes()

@@ -389,6 +389,6 @@ public class MTools
 		toolBedrock.customCraftingMaterial = Item.getItemFromBlock(Blocks.bedrock);
 		toolGranite.customCraftingMaterial = Item.getItemFromBlock(MBlocks.graniteSlate);
 		toolSoulsteel.customCraftingMaterial = soulGem;
-		// TODO Unholy tool material
+		toolUnholy.customCraftingMaterial = blackDiamond;
 	}
 }
