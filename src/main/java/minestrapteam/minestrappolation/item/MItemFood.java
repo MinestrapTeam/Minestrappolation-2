@@ -80,7 +80,7 @@ public class MItemFood extends ItemFood
 		this.foodType = type;
 	}
 	
-	public FoodType getType(ItemStack stack)
+	public FoodType getFoodType(ItemStack stack)
 	{
 		return this.foodType;
 	}
@@ -125,9 +125,9 @@ public class MItemFood extends ItemFood
 	
 	public boolean isSpoiled(ItemStack stack, World world)
 	{
-		if (this.foodType.isSpoilable())
+		if (this.getFoodType(stack).isSpoilable())
 		{
-			return getSpoilTime(stack, world) >= this.foodType.getMaxSpoiling();
+			return getSpoilTime(stack, world) >= this.getFoodType(stack).getMaxSpoiling();
 		}
 		return false;
 	}
@@ -155,7 +155,7 @@ public class MItemFood extends ItemFood
 	@Override
 	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean flag)
 	{
-		if (this.foodType.isSpoilable() && MConfig.foodSpoiling)
+		if (this.getFoodType(stack).isSpoilable() && MConfig.foodSpoiling)
 		{
 			if (stack.stackTagCompound == null)
 			{
@@ -237,7 +237,7 @@ public class MItemFood extends ItemFood
 		
 		if (this.isSpoiled(stack, world))
 		{
-			player.addPotionEffect(new PotionEffect(Potion.poison.id, this.foodType.poisonDuration, 0));
+			player.addPotionEffect(new PotionEffect(Potion.poison.id, this.getFoodType(stack).poisonDuration, 0));
 		}
 	}
 	
@@ -262,7 +262,7 @@ public class MItemFood extends ItemFood
 	{
 		if (this.foodType.isSpoilable())
 		{
-			int ticks = (int) (this.foodType.getMaxSpoiling() - getSpoilTime(stack, player.worldObj));
+			int ticks = (int) (this.getFoodType(stack).getMaxSpoiling() - getSpoilTime(stack, player.worldObj));
 			if (ticks > 0)
 			{
 				list.add(I18n.getString("item.food.spoiling", StringUtils.ticksToElapsedTime(ticks)));

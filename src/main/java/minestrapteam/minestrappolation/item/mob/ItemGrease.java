@@ -17,7 +17,7 @@ public class ItemGrease extends Item implements IItemAddon
 	public boolean canApply(ItemStack platable)
 	{
 		Item item = platable.getItem();
-		return item instanceof MItemFood && ((MItemFood) item).getType(platable).isFriable() && !this.isApplied(platable);
+		return item instanceof MItemFood && ((MItemFood) item).getFoodType(platable).isFriable() && !this.isApplied(platable);
 	}
 	
 	@Override

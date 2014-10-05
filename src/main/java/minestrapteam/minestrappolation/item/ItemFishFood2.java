@@ -41,6 +41,12 @@ public class ItemFishFood2 extends MItemFood
 	}
 	
 	@Override
+	public FoodType getFoodType(ItemStack stack)
+	{
+		return FishType.getFishType(stack) == FishType.PUFFERFISH ? FoodType.MISC : this.foodType;
+	}
+	
+	@Override
 	public String getPotionEffect(ItemStack stack)
 	{
 		return FishType.getFishType(stack) == FishType.PUFFERFISH ? PotionHelper.field_151423_m : null;
