@@ -56,6 +56,96 @@ public class MDrops
 	private static float	horseHaunchP;
 	private static float	horseHairP;
 	
+	private static int		sheepBonesC;
+	private static int		sheepLambchopC;
+	private static int		sheepHoofC;
+	private static float	sheepBonesP;
+	private static float	sheepLambchopP;
+	private static float	sheepHoofP;
+	
+	private static int		chickenBonesC;
+	private static int		chickenBeakC;
+	private static int		chickenFootC;
+	private static int		chickenWingC;
+	private static float	chickenBonesP;
+	private static float	chickenBeakP;
+	private static float	chickenFootP;
+	private static float	chickenWingP;
+	
+	private static int		squidTentacleC;
+	private static int		squidAirSackC;
+	private static float	squidTentacleP;
+	private static float	squidAirSackP;
+	
+	private static int		ocelotChickenFootC;
+	private static int		ocelotWhiskerC;
+	private static int		ocelotEyeC;
+	private static float	ocelotChickenFootP;
+	private static float	ocelotWhiskerP;
+	private static float	ocelotEyeP;
+	
+	private static int		batWingC;
+	private static int		batGuanoC;
+	private static float	batWingP;
+	private static float	batGuanoP;
+	
+	private static int		wolfSnoutC;
+	private static int		wolfHideC;
+	private static float	wolfSnoutP;
+	private static float	wolfHideP;
+	
+	private static int		villagerFleshC;
+	private static float	villagerFleshP;
+	
+	private static int		slimeCoreC;
+	private static float	slimeCoreP;
+	
+	private static int		silverfishCarcassC;
+	private static float	silverfishCarcassP;
+	
+	private static int		spiderBonesC;
+	private static int		spiderLegC;
+	private static float	spiderBonesP;
+	private static float	spiderLegP;
+	
+	private static int		caveSpiderBonesC;
+	private static int		caveSpiderPoisonSackC;
+	private static int		caveSpiderLegC;
+	private static float	caveSpiderBonesP;
+	private static float	caveSpiderPoisonSackP;
+	private static float	caveSpiderLegP;
+	
+	private static int		skeletonMarrowC;
+	private static float	skeletonMarrowP;
+	
+	private static int		witherSkeletonBonesC;
+	private static float	witherSkeletonBonesP;
+	
+	private static int		creeperHideC;
+	private static float	creeperHideP;
+	
+	private static int		pigZombieSnoutC;
+	private static int		pigZombieHoofC;
+	private static int		pigZombieFatC;
+	private static int		pigZombieBonesC;
+	private static int		pigZombieMarrowC;
+	private static float	pigZombieSnoutP;
+	private static float	pigZombieHoofP;
+	private static float	pigZombieFatP;
+	private static float	pigZombieBonesP;
+	private static float	pigZombieMarrowP;
+	
+	private static int		ghastTentacleC;
+	private static float	ghastTentacleP;
+	
+	private static int		endermanCoreC;
+	private static int		endermanAuraC;
+	private static float	endermanCoreP;
+	private static float	endermanAuraP;
+	
+	private static int		witherBoneC;
+	private static float	witherBoneP;
+	
 	protected static void loadConfig()
 	{
 		pigSnoutC = CSConfig.getInt("pig", "Snout Count", null, 1);
@@ -97,6 +187,96 @@ public class MDrops
 		horseBonesP = CSConfig.getFloat("horse", "Bones Probability", null, 0.2F);
 		horseHaunchP = CSConfig.getFloat("horse", "Haunch Probability", null, 0.5F);
 		horseHairP = CSConfig.getFloat("horse", "Hair Probability", null, 0.3F);
+		
+		sheepBonesC = CSConfig.getInt("sheep", "Bones Count", null, 4);
+		sheepLambchopC = CSConfig.getInt("sheep", "Lambchop Count", null, 3);
+		sheepHoofC = CSConfig.getInt("sheep", "Hoof Count", null, 3);
+		sheepBonesP = CSConfig.getFloat("sheep", "Bones Probability", null, 0.3F);
+		sheepLambchopP = CSConfig.getFloat("sheep", "Lambchop Probability", null, 0.7F);
+		sheepHoofP = CSConfig.getFloat("sheep", "Hoof Probability", null, 0.15F);
+		
+		chickenBonesC = CSConfig.getInt("chicken", "Bones Count", null, 2);
+		chickenBeakC = CSConfig.getInt("chicken", "Beak Count", null, 1);
+		chickenFootC = CSConfig.getInt("chicken", "Foot Count", null, 2);
+		chickenWingC = CSConfig.getInt("chicken", "Wing Count", null, 2);
+		chickenBonesP = CSConfig.getFloat("chicken", "Bones Probability", null, 0.2F);
+		chickenBeakP = CSConfig.getFloat("chicken", "Beak Probability", null, 0.15F);
+		chickenFootP = CSConfig.getFloat("chicken", "Foot Probability", null, 0.15F);
+		chickenWingP = CSConfig.getFloat("chicken", "Wing Probability", null, 0.5F);
+		
+		squidTentacleC = CSConfig.getInt("squid", "Tentacle Count", null, 4);
+		squidAirSackC = CSConfig.getInt("squid", "Air Sack Count", null, 1);
+		squidTentacleP = CSConfig.getFloat("squid", "Tentacle Probability", null, 0.4F);
+		squidAirSackP = CSConfig.getFloat("squid", "Air Sack Probability", null, 0.2F);
+		
+		ocelotChickenFootC = CSConfig.getInt("ocelot", "Chicken Foot Count", null, 1);
+		ocelotWhiskerC = CSConfig.getInt("ocelot", "Whisker Count", null, 4);
+		ocelotEyeC = CSConfig.getInt("ocelot", "Eye Count", null, 2);
+		ocelotChickenFootP = CSConfig.getFloat("ocelot", "Chicken Foot Probability", null, 0.05F);
+		ocelotWhiskerP = CSConfig.getFloat("ocelot", "Whisker Probability", null, 0.25F);
+		ocelotEyeP = CSConfig.getFloat("ocelot", "Eye Probability", null, 0.15F);
+		
+		batWingC = CSConfig.getInt("bat", "Wing Count", null, 2);
+		batGuanoC = CSConfig.getInt("bat", "Guano Count", null, 2);
+		batWingP = CSConfig.getFloat("bat", "Wing Probability", null, 0.5F);
+		batGuanoP = CSConfig.getFloat("bat", "Guano Probability", null, 0.5F);
+		
+		wolfSnoutC = CSConfig.getInt("wolf", "Snout Count", null, 1);
+		wolfHideC = CSConfig.getInt("wolf", "Hide Count", null, 3);
+		wolfSnoutP = CSConfig.getFloat("wolf", "Snout Probability", null, 0.1F);
+		wolfHideP = CSConfig.getFloat("wolf", "Hide Probability", null, 0.4F);
+		
+		villagerFleshC = CSConfig.getInt("villager", "Flesh Count", null, 3);
+		villagerFleshP = CSConfig.getFloat("villager", "Flesh Probability", null, 0.2F);
+		
+		slimeCoreC = CSConfig.getInt("slime", "Core Count", null, 1);
+		slimeCoreP = CSConfig.getFloat("slime", "Core Probability", null, 0.1F);
+		
+		silverfishCarcassC = CSConfig.getInt("silverfish", "Carcass Count", null, 1);
+		silverfishCarcassP = CSConfig.getFloat("silverfish", "Carcass Probability", null, 0.5F);
+		
+		spiderBonesC = CSConfig.getInt("spider", "Bones Count", null, 1);
+		spiderLegC = CSConfig.getInt("spider", "Leg Count", null, 4);
+		spiderBonesP = CSConfig.getFloat("spider", "Bones Probability", null, 0.05F);
+		spiderLegP = CSConfig.getFloat("spider", "Leg Probability", null, 0.15F);
+		
+		caveSpiderBonesC = CSConfig.getInt("cave_spider", "Bones Count", null, 1);
+		caveSpiderPoisonSackC = CSConfig.getInt("cave_spider", "Poison Sack Count", null, 2);
+		caveSpiderLegC = CSConfig.getInt("cave_spider", "Leg Count", null, 4);
+		caveSpiderBonesP = CSConfig.getFloat("cave_spider", "Bones Probability", null, 0.05F);
+		caveSpiderPoisonSackP = CSConfig.getFloat("cave_spider", "Poison Sack Probability", null, 0.3F);
+		caveSpiderLegP = CSConfig.getFloat("cave_spider", "Leg Probability", null, 0.15F);
+		
+		skeletonMarrowC = CSConfig.getInt("skeleton", "Marrow Count", null, 3);
+		skeletonMarrowP = CSConfig.getFloat("skeleton", "Marrow Probability", null, 0.15F);
+		
+		witherSkeletonBonesC = CSConfig.getInt("wither_skeleton", "Bones Count", null, 3);
+		witherSkeletonBonesP = CSConfig.getFloat("wither_skeleton", "Bones Probability", null, 0.2F);
+		
+		creeperHideC = CSConfig.getInt("creeper", "Hide Count", null, 2);
+		creeperHideP = CSConfig.getFloat("creeper", "Hide Probability", null, 0.1F);
+		
+		pigZombieSnoutC = CSConfig.getInt("pig_zombie", "Snout Count", null, 1);
+		pigZombieHoofC = CSConfig.getInt("pig_zombie", "Hoof Count", null, 2);
+		pigZombieFatC = CSConfig.getInt("pig_zombie", "Fat Count", null, 2);
+		pigZombieBonesC = CSConfig.getInt("pig_zombie", "Bones Count", null, 2);
+		pigZombieMarrowC = CSConfig.getInt("pig_zombie", "Marrow Count", null, 3);
+		pigZombieSnoutP = CSConfig.getFloat("pig_zombie", "Snout Probability", null, 0.1F);
+		pigZombieHoofP = CSConfig.getFloat("pig_zombie", "Hoof Probability", null, 0.1F);
+		pigZombieFatP = CSConfig.getFloat("pig_zombie", "Fat Probability", null, 0.15F);
+		pigZombieBonesP = CSConfig.getFloat("pig_zombie", "Bones Probability", null, 0.1F);
+		pigZombieMarrowP = CSConfig.getFloat("pig_zombie", "Marrow Probability", null, 0.1F);
+		
+		ghastTentacleC = CSConfig.getInt("ghast", "Tentacle Count", null, 4);
+		ghastTentacleP = CSConfig.getFloat("ghast", "Tentacle Probability", null, 0.15F);
+		
+		endermanCoreC = CSConfig.getInt("enderman", "Core Count", null, 1);
+		endermanAuraC = CSConfig.getInt("enderman", "Aura Count", null, 2);
+		endermanCoreP = CSConfig.getFloat("enderman", "Core Probability", null, 0.25F);
+		endermanAuraP = CSConfig.getFloat("enderman", "Aura Probability", null, 0.20F);
+		
+		witherBoneC = CSConfig.getInt("wither", "Bones Count", null, 15);
+		witherBoneP = CSConfig.getFloat("wither", "Bones Probability", null, 1F);
 	}
 	
 	public static void onMobDrops(LivingDropsEvent event)
@@ -286,141 +466,141 @@ public class MDrops
 	
 	private static void dropSheepItems(EntityLivingBase living, Random random, boolean onFire, int looting)
 	{
-		if (random.nextFloat() / looting < 0.3D)
+		if (random.nextFloat() / looting < sheepBonesP)
 		{
-			living.dropItem(MItems.animalBones, random.nextInt(4 + looting));
+			living.dropItem(MItems.animalBones, random.nextInt(sheepBonesC + looting));
 		}
-		if (random.nextFloat() / looting < 0.7D)
+		if (random.nextFloat() / looting < sheepLambchopP)
 		{
-			living.dropItem(onFire ? MItems.lambchopCooked : MItems.lambchopRaw, random.nextInt(3 + looting));
+			living.dropItem(onFire ? MItems.lambchopCooked : MItems.lambchopRaw, random.nextInt(sheepLambchopC + looting));
 		}
-		if (random.nextFloat() / looting < 0.15D)
+		if (random.nextFloat() / looting < sheepHoofP)
 		{
-			living.dropItem(MItems.sheepHoof, random.nextInt(3 + looting));
+			living.dropItem(MItems.sheepHoof, random.nextInt(sheepHoofC + looting));
 		}
 	}
 	
 	private static void dropChickenItems(EntityLivingBase living, Random random, boolean onFire, int looting)
 	{
-		if (random.nextFloat() / looting < 0.2D)
+		if (random.nextFloat() / looting < chickenBonesP)
 		{
-			living.dropItem(MItems.animalBones, random.nextInt(2 + looting));
+			living.dropItem(MItems.animalBones, random.nextInt(chickenBonesC + looting));
 		}
-		if (random.nextFloat() / looting < 0.15D)
+		if (random.nextFloat() / looting < chickenBeakP)
 		{
-			living.dropItem(MItems.beakChicken, random.nextInt(1 + looting));
+			living.dropItem(MItems.beakChicken, random.nextInt(chickenBeakC + looting));
 		}
-		if (random.nextFloat() / looting < 0.15D)
+		if (random.nextFloat() / looting < chickenFootP)
 		{
-			living.dropItem(MItems.footChicken, random.nextInt(2 + looting));
+			living.dropItem(MItems.footChicken, random.nextInt(chickenFootC + looting));
 		}
-		if (random.nextFloat() / looting < 0.5D)
+		if (random.nextFloat() / looting < chickenWingP)
 		{
-			living.dropItem(onFire ? MItems.chickenWingCooked : MItems.chickenWingRaw, random.nextInt(2 + looting));
+			living.dropItem(onFire ? MItems.chickenWingCooked : MItems.chickenWingRaw, random.nextInt(chickenWingC + looting));
 		}
 	}
 	
 	private static void dropSquidItems(EntityLivingBase living, Random random, int looting)
 	{
-		if (random.nextFloat() / looting < 0.4D)
+		if (random.nextFloat() / looting < squidTentacleP)
 		{
-			living.dropItem(MItems.squidTentacle, random.nextInt(4 + looting));
+			living.dropItem(MItems.squidTentacle, random.nextInt(squidTentacleC + looting));
 		}
-		if (random.nextFloat() / looting < 0.2D)
+		if (random.nextFloat() / looting < squidAirSackP)
 		{
-			living.dropItem(MItems.airSack, random.nextInt(1 + looting));
+			living.dropItem(MItems.airSack, random.nextInt(squidAirSackC + looting));
 		}
 	}
 	
 	private static void dropOcelotItems(EntityLivingBase living, Random random, int looting)
 	{
-		if (random.nextFloat() / looting < 0.05D)
+		if (random.nextFloat() / looting < ocelotChickenFootP)
 		{
-			living.dropItem(MItems.footChicken, random.nextInt(1 + looting));
+			living.dropItem(MItems.footChicken, random.nextInt(ocelotChickenFootC + looting));
 		}
-		if (random.nextFloat() / looting < 0.25D)
+		if (random.nextFloat() / looting < ocelotWhiskerP)
 		{
-			living.dropItem(MItems.whisker, random.nextInt(4 + looting));
+			living.dropItem(MItems.whisker, random.nextInt(ocelotWhiskerC + looting));
 		}
-		if (random.nextFloat() / looting < 0.15D)
+		if (random.nextFloat() / looting < ocelotEyeP)
 		{
-			living.dropItem(MItems.catEye, random.nextInt(2 + looting));
+			living.dropItem(MItems.catEye, random.nextInt(ocelotEyeC + looting));
 		}
 	}
 	
 	private static void dropBatItems(EntityLivingBase living, Random random, int looting)
 	{
-		if (random.nextFloat() / looting < 0.5)
+		if (random.nextFloat() / looting < batGuanoP)
 		{
-			living.dropItem(MItems.guano, random.nextInt(2 + looting));
+			living.dropItem(MItems.guano, random.nextInt(batGuanoC + looting));
 		}
-		if (random.nextFloat() / looting < 0.5)
+		if (random.nextFloat() / looting < batWingP)
 		{
-			living.dropItem(MItems.wingSinew, random.nextInt(2 + looting));
+			living.dropItem(MItems.wingSinew, random.nextInt(batWingC + looting));
 		}
 	}
 	
 	private static void dropWolfItems(EntityLivingBase living, Random random, int looting)
 	{
-		if (random.nextFloat() / looting < 0.1D)
+		if (random.nextFloat() / looting < wolfSnoutP)
 		{
-			living.dropItem(MItems.snout, random.nextInt(1 + looting));
+			living.dropItem(MItems.snout, random.nextInt(wolfSnoutC + looting));
 		}
-		if (random.nextFloat() / looting < 0.4D)
+		if (random.nextFloat() / looting < wolfHideP)
 		{
-			living.dropItem(MItems.wolfHide, random.nextInt(3 + looting));
+			living.dropItem(MItems.wolfHide, random.nextInt(wolfHideC + looting));
 		}
 	}
 	
 	private static void dropVillagerItems(EntityLivingBase living, Random random, int looting)
 	{
-		if (random.nextFloat() / looting < 0.2D)
+		if (random.nextFloat() / looting < villagerFleshP)
 		{
-			living.dropItem(MItems.flesh, random.nextInt(3 + looting));
+			living.dropItem(MItems.flesh, random.nextInt(villagerFleshC + looting));
 		}
 	}
 	
 	private static void dropSlimeItems(EntityLivingBase living, Random random, int looting)
 	{
-		if (random.nextFloat() / looting < 0.1)
+		if (random.nextFloat() / looting < slimeCoreP)
 		{
-			living.dropItem(MItems.slimeCore, 1);
+			living.dropItem(MItems.slimeCore, slimeCoreC);
 		}
 	}
 	
 	private static void dropSilverfishItems(EntityLivingBase living, Random random, int looting)
 	{
-		if (random.nextFloat() / looting < 0.5)
+		if (random.nextFloat() / looting < silverfishCarcassP)
 		{
-			living.dropItem(MItems.carcassSilverfish, 1);
+			living.dropItem(MItems.carcassSilverfish, silverfishCarcassC);
 		}
 	}
 	
 	private static void dropSpiderItems(EntityLivingBase living, Random random, int looting)
 	{
-		if (random.nextFloat() / looting < 0.05D)
+		if (random.nextFloat() / looting < spiderBonesP)
 		{
-			living.dropItem(MItems.animalBones, random.nextInt(1 + looting));
+			living.dropItem(MItems.animalBones, random.nextInt(spiderBonesC + looting));
 		}
-		if (random.nextFloat() / looting < 0.15D)
+		if (random.nextFloat() / looting < spiderLegP)
 		{
-			living.dropItem(MItems.legSpider, random.nextInt(4 + looting));
+			living.dropItem(MItems.legSpider, random.nextInt(spiderLegC + looting));
 		}
 	}
 	
 	private static void dropCaveSpiderItems(EntityLivingBase living, Random random, int looting)
 	{
-		if (random.nextFloat() / looting < 0.05D)
+		if (random.nextFloat() / looting < caveSpiderBonesP)
 		{
-			living.dropItem(MItems.animalBones, random.nextInt(1 + looting));
+			living.dropItem(MItems.animalBones, random.nextInt(caveSpiderBonesC + looting));
 		}
-		if (random.nextFloat() / looting < 0.3D)
+		if (random.nextFloat() / looting < caveSpiderPoisonSackP)
 		{
-			living.dropItem(MItems.poisonSack, random.nextInt(2 + looting));
+			living.dropItem(MItems.poisonSack, random.nextInt(caveSpiderPoisonSackC + looting));
 		}
-		if (random.nextFloat() / looting < 0.15D)
+		if (random.nextFloat() / looting < caveSpiderLegP)
 		{
-			living.dropItem(MItems.legSpider, random.nextInt(4 + looting));
+			living.dropItem(MItems.legSpider, random.nextInt(caveSpiderLegC + looting));
 		}
 	}
 	
@@ -429,66 +609,66 @@ public class MDrops
 		EntitySkeleton skeleton = (EntitySkeleton) living;
 		if (skeleton.getSkeletonType() == 1)
 		{
-			if (random.nextFloat() / looting < 0.2D)
+			if (random.nextFloat() / looting < witherSkeletonBonesP)
 			{
-				living.dropItem(MItems.witheredBone, random.nextInt(3 + looting));
+				living.dropItem(MItems.witheredBone, random.nextInt(witherSkeletonBonesC + looting));
 			}
 		}
-		else if (random.nextFloat() / looting < 0.15D)
+		else if (random.nextFloat() / looting < skeletonMarrowP)
 		{
-			living.dropItem(MItems.marrow, random.nextInt(3 + looting));
+			living.dropItem(MItems.marrow, random.nextInt(skeletonMarrowC + looting));
 		}
 	}
 	
 	private static void dropCreeperItems(EntityLivingBase living, Random random, int looting)
 	{
-		if (random.nextFloat() / looting < 0.1)
+		if (random.nextFloat() / looting < creeperHideP)
 		{
-			living.dropItem(MItems.hideCreeper, random.nextInt(2 + looting));
+			living.dropItem(MItems.hideCreeper, random.nextInt(creeperHideC + looting));
 		}
 	}
 	
 	private static void dropPigZombieItems(EntityLivingBase living, Random random, boolean onFire, int looting)
 	{
-		if (random.nextFloat() / looting < 0.1D)
+		if (random.nextFloat() / looting < pigZombieSnoutP)
 		{
-			living.dropItem(MItems.snout, random.nextInt(1 + looting));
+			living.dropItem(MItems.snout, random.nextInt(pigZombieSnoutC + looting));
 		}
-		if (random.nextFloat() / looting < 0.1D)
+		if (random.nextFloat() / looting < pigZombieHoofP)
 		{
-			living.dropItem(MItems.pigHoof, random.nextInt(2 + looting));
+			living.dropItem(MItems.pigHoof, random.nextInt(pigZombieHoofC + looting));
 		}
-		if (random.nextFloat() / looting < 0.15D)
+		if (random.nextFloat() / looting < pigZombieFatP)
 		{
-			living.dropItem(onFire ? MItems.grease : MItems.fat, random.nextInt(2 + looting));
+			living.dropItem(onFire ? MItems.grease : MItems.fat, random.nextInt(pigZombieFatC + looting));
 		}
-		if (random.nextFloat() / looting < 0.1D)
+		if (random.nextFloat() / looting < pigZombieBonesP)
 		{
-			living.dropItem(MItems.animalBones, random.nextInt(2 + looting));
+			living.dropItem(MItems.animalBones, random.nextInt(pigZombieBonesC + looting));
 		}
-		if (random.nextFloat() / looting < 0.1D)
+		if (random.nextFloat() / looting < pigZombieMarrowP)
 		{
-			living.dropItem(MItems.marrow, random.nextInt(3 + looting));
+			living.dropItem(MItems.marrow, random.nextInt(pigZombieMarrowC + looting));
 		}
 	}
 	
 	private static void dropGhastItems(EntityLivingBase living, Random random, int looting)
 	{
-		if (random.nextFloat() / looting < 0.15)
+		if (random.nextFloat() / looting < ghastTentacleP)
 		{
-			living.dropItem(MItems.ghastTentacle, random.nextInt(4 + looting));
+			living.dropItem(MItems.ghastTentacle, random.nextInt(ghastTentacleC + looting));
 		}
 	}
 	
 	private static void dropEndermanItems(EntityLivingBase living, Random random, int looting)
 	{
-		if (random.nextFloat() / looting < 0.25)
+		if (random.nextFloat() / looting < endermanCoreP)
 		{
-			living.dropItem(MItems.enderCore, 1);
+			living.dropItem(MItems.enderCore, endermanCoreC);
 		}
-		if (random.nextFloat() / looting < 0.20)
+		if (random.nextFloat() / looting < endermanAuraP)
 		{
-			living.dropItem(MItems.enderAura, random.nextInt(2 + looting));
+			living.dropItem(MItems.enderAura, random.nextInt(endermanAuraC + looting));
 		}
 	}
 	
@@ -507,7 +687,10 @@ public class MDrops
 	
 	private static void dropWitherItems(EntityLivingBase living, Random random, int looting)
 	{
-		living.dropItem(MItems.witheredBone, random.nextInt(15 + looting));
+		if (random.nextFloat() / looting < witherBoneP)
+		{
+			living.dropItem(MItems.witheredBone, random.nextInt(witherBoneC + looting));
+		}
 	}
 	
 	public static void enchantStick(ItemStack stack, Random random, int looting)
