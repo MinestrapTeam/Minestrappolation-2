@@ -5,6 +5,7 @@ import minestrapteam.minestrappolation.item.MItem;
 import minestrapteam.minestrappolation.item.tool.MItemSword;
 import minestrapteam.minestrappolation.item.tool.MItemTool;
 
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 public class ItemHorn extends MItem implements IItemAddon
@@ -15,31 +16,32 @@ public class ItemHorn extends MItem implements IItemAddon
 	}
 	
 	@Override
-	public boolean canApply(ItemStack platable)
+	public boolean canApply(ItemStack stack)
 	{
-		return platable.getItem() instanceof MItemSword;
+		Item item = stack.getItem();
+		return item instanceof MItemSword && ((MItemSword) item).isPlatable(stack);
 	}
 	
 	@Override
-	public void apply(ItemStack platable)
+	public void apply(ItemStack stack)
 	{
-		MItemTool.setHorned(platable, true);
+		MItemTool.setHorned(stack, true);
 	}
 	
 	@Override
-	public void unapply(ItemStack platable)
+	public void unapply(ItemStack stack)
 	{
-		MItemTool.setHorned(platable, false);
+		MItemTool.setHorned(stack, false);
 	}
 	
 	@Override
-	public boolean isApplied(ItemStack platable)
+	public boolean isApplied(ItemStack stack)
 	{
-		return MItemTool.isHorned(platable);
+		return MItemTool.isHorned(stack);
 	}
 	
 	@Override
-	public int getCount(ItemStack platable)
+	public int getCount(ItemStack stack)
 	{
 		return 2;
 	}

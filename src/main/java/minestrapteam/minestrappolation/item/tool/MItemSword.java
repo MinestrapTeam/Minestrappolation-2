@@ -27,6 +27,7 @@ public class MItemSword extends ItemSword implements IPlatable
 {
 	private ToolMaterial		material;
 	private boolean				ignites;
+	protected boolean			platable		= true;
 	
 	private IIcon				hornIcon;
 	private Map<String, IIcon>	overlayIcons	= new HashMap();
@@ -42,6 +43,12 @@ public class MItemSword extends ItemSword implements IPlatable
 		super(material);
 		this.material = material;
 		this.ignites = ignites;
+	}
+	
+	public MItemSword setPlatable(boolean platable)
+	{
+		this.platable = platable;
+		return this;
 	}
 	
 	@Override
@@ -60,6 +67,12 @@ public class MItemSword extends ItemSword implements IPlatable
 	public int getPlatingCount(ItemStack stack)
 	{
 		return this.material.getHarvestLevel() + 1;
+	}
+	
+	@Override
+	public boolean isPlatable(ItemStack stack)
+	{
+		return this.platable;
 	}
 	
 	@Override
@@ -128,10 +141,15 @@ public class MItemSword extends ItemSword implements IPlatable
 	@Override
 	public void registerIcons(IIconRegister iconRegister)
 	{
-		ItemStack thisStack = new ItemStack(this, 1, 0);
-		int harvestLevel = this.material.getHarvestLevel();
-		
 		this.itemIcon = iconRegister.registerIcon(this.getIconString());
+		
+		if (!this.platable)
+		{
+			return;
+		}
+		
+		int harvestLevel = this.material.getHarvestLevel();
+		ItemStack thisStack = new ItemStack(this, 1, 0);
 		this.hornIcon = iconRegister.registerIcon(MAssetManager.getTexture("platings/horned_sword_" + harvestLevel));
 		
 		for (Entry<String, IPlating> e : IPlating.platings.entrySet())

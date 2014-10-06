@@ -160,4 +160,10 @@ public class MItemArmor extends ItemArmor implements IPlatable
 			return 1;
 		}
 	}
+	
+	@Override
+	public boolean isPlatable(ItemStack stack)
+	{
+		return true;
+	}
 }

@@ -9,13 +9,13 @@ public interface IItemAddon
 {
 	public static final List<IItemAddon>	addons	= new ArrayList();
 	
-	public boolean canApply(ItemStack platable);
+	public boolean canApply(ItemStack stack);
 	
-	public void apply(ItemStack platable);
+	public void apply(ItemStack stack);
 	
-	public void unapply(ItemStack platable);
+	public void unapply(ItemStack stack);
 	
-	public boolean isApplied(ItemStack platable);
+	public boolean isApplied(ItemStack stack);
 	
-	public int getCount(ItemStack platable);
+	public int getCount(ItemStack stack);
 }

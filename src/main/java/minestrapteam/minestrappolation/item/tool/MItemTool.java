@@ -36,6 +36,7 @@ public class MItemTool extends ItemTool implements IPlatable
 	
 	protected boolean			ignites;
 	protected boolean			weapon;
+	protected boolean			platable		= true;
 	
 	private String				toolType;
 	private Map<String, IIcon>	overlayIcons	= new HashMap();
@@ -58,6 +59,12 @@ public class MItemTool extends ItemTool implements IPlatable
 		return this;
 	}
 	
+	public MItemTool setPlatable(boolean platable)
+	{
+		this.platable = platable;
+		return this;
+	}
+	
 	@Override
 	public String getType()
 	{
@@ -74,6 +81,12 @@ public class MItemTool extends ItemTool implements IPlatable
 	public int getPlatingCount(ItemStack stack)
 	{
 		return this.toolMaterial.getHarvestLevel() + 1;
+	}
+	
+	@Override
+	public boolean isPlatable(ItemStack stack)
+	{
+		return this.platable;
 	}
 	
 	public static boolean isPlated(ItemStack stack)
@@ -312,6 +325,12 @@ public class MItemTool extends ItemTool implements IPlatable
 	public void registerIcons(IIconRegister iconRegister)
 	{
 		this.itemIcon = iconRegister.registerIcon(this.getIconString());
+		
+		if (!this.platable)
+		{
+			return;
+		}
+		
 		ItemStack thisStack = new ItemStack(this, 1, 0);
 		
 		for (Entry<String, IPlating> e : IPlating.platings.entrySet())

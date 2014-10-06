@@ -8,5 +8,7 @@ public interface IPlatable
 	
 	public String getMaterialName();
 	
+	public boolean isPlatable(ItemStack stack);
+	
 	public int getPlatingCount(ItemStack stack);
 }

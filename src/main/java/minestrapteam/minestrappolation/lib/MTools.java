@@ -262,11 +262,11 @@ public class MTools
 		soulsteelAxe = new MItemAxe(toolSoulsteel).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("soulsteel_axe"));
 		soulsteelHoe = new MItemHoe(toolSoulsteel).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("soulsteel_hoe"));
 		
-		unholySword = new MItemSword(toolUnholy).setCreativeTab(Minestrappolation.tabCombat).setTextureName(MAssetManager.getWeaponTexture("unholy_sword"));
-		unholyShovel = new MItemShovel(toolUnholy).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("unholy_shovel"));
-		unholyPickaxe = new MItemPickaxe(toolUnholy).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("unholy_pickaxe"));
-		unholyAxe = new MItemAxe(toolUnholy).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("unholy_axe"));
-		unholyHoe = new MItemHoe(toolUnholy).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("unholy_hoe"));
+		unholySword = new MItemSword(toolUnholy).setPlatable(false).setCreativeTab(Minestrappolation.tabCombat).setTextureName(MAssetManager.getWeaponTexture("unholy_sword"));
+		unholyShovel = new MItemShovel(toolUnholy).setPlatable(false).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("unholy_shovel"));
+		unholyPickaxe = new MItemPickaxe(toolUnholy).setPlatable(false).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("unholy_pickaxe"));
+		unholyAxe = new MItemAxe(toolUnholy).setPlatable(false).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("unholy_axe"));
+		unholyHoe = new MItemHoe(toolUnholy).setPlatable(false).setCreativeTab(Minestrappolation.tabTools).setTextureName(MAssetManager.getToolTexture("unholy_hoe"));
 		
 	}
 	
