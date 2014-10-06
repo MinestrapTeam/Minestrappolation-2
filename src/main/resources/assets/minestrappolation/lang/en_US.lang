@@ -1140,6 +1140,8 @@ item.blaze_shard.name=Blaze Shard
 item.sunstone_dust.name=Sunstone Shard
 item.black_diamond.name=Black Diamond
 
+item.reinforced_stick.name=Reinforced Stick
+
 item.stone_chunk.name=Stone Chunk
 
 item.wither_ash.name=Wither Ash

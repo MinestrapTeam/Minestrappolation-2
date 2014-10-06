@@ -51,6 +51,7 @@ public class SawingManager
 		this.addRecipe(new ItemStack(Blocks.wooden_pressure_plate, 1), new Object[] { "##", '#', "plankWood" });
 		this.addRecipe(new ItemStack(MBlocks.crate, 1), new Object[] { "###", "XXX", "###", '#', "plankWood", 'X', "stickWood" });
 		this.addRecipe(new ItemStack(MBlocks.barrel, 1), new Object[] { "#X#", "# #", "#X#", '#', "plankWood", 'X', "ingotTin" });
+		this.addShapelessRecipe(new ItemStack(MItems.reinforcedStick, 6), "stickWood", "stickWood", "stickWood", "stickWood", "stickWood", "stickWood", MItems.plateTinItem);
 		
 		// Planks
 		this.addRecipe(new ItemStack(Blocks.planks, 6, 0), new Object[] { "#", '#', new ItemStack(Blocks.log, 1, 0) });

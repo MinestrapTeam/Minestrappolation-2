@@ -91,6 +91,8 @@ public class MItems
 	public static Item	sunstoneDust;
 	public static Item blackDiamond;
 	
+	public static Item reinforcedStick;
+	
 	public static Item	magmaBucket;
 	
 	public static Item	steelKey;
@@ -220,6 +222,15 @@ public class MItems
 		
 		// EO Items
 		
+		copperIngot = new MItem().setTextureName(MAssetManager.getMineralTexture("copper_ingot"));
+		tinIngot = new MItem().setTextureName(MAssetManager.getMineralTexture("tin_ingot"));
+		bronzeIngot = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("bronze_ingot"));
+		coalIronIngot = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("coaliron_ingot"));
+		steelIngot = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("steel_ingot"));
+		titaniumIngot = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("titanium_ingot"));
+		toriteIngot = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("torite_ingot"));
+		blaziumIngot = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("blazium_ingot"));
+		
 		soulGem = new ItemSoulGem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("soul_gem"));
 		meuroditeGem = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("meurodite_gem"));
 		uranium = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("uranium"));
@@ -230,14 +241,7 @@ public class MItems
 		sunstoneDust = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("sunstone_dust"));
 		blackDiamond = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("black_diamond"));
 		
-		copperIngot = new MItem().setTextureName(MAssetManager.getMineralTexture("copper_ingot"));
-		tinIngot = new MItem().setTextureName(MAssetManager.getMineralTexture("tin_ingot"));
-		bronzeIngot = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("bronze_ingot"));
-		coalIronIngot = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("coaliron_ingot"));
-		steelIngot = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("steel_ingot"));
-		titaniumIngot = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("titanium_ingot"));
-		toriteIngot = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("torite_ingot"));
-		blaziumIngot = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("blazium_ingot"));
+		reinforcedStick = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getTexture("reinforced_stick"));
 		
 		magmaBucket = new ItemCustomBucket(MBlocks.magma).setCreativeTab(tabMisc).setTextureName(MAssetManager.getTexture("magma_bucket"));
 		
@@ -387,6 +391,8 @@ public class MItems
 		CSItems.addItem(blazeShard, "blaze_shard");
 		CSItems.addItem(sunstoneDust, "sunstone_dust");
 		CSItems.addItem(blackDiamond, "black_diamond");
+		
+		CSItems.addItem(reinforcedStick, "reinforced_stick");
 		
 		CSItems.addItem(magmaBucket, "magma_bucket");
 		
