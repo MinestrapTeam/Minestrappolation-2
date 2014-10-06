@@ -83,7 +83,7 @@ srcJar
     }
 }
 
-task buildApi(dependsOn:['build', 'srcJar', 'devJar', 'textureJar'])
+task buildApi(dependsOn:['build', 'srcJar', 'devJar', 'textureZip'])
 
 processResources
 {
