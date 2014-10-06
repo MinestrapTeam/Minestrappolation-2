@@ -1,9 +1,29 @@
-﻿version=1.7.10-3.3.1.1
-version_motd=Get your Minestrappolation 3.3.1.1 copy while it is hot!
-version_motd_color=red
-motd=Our Twitters: @MinestrapDev, @SoBiohazardous, @Clashsoft
-motd_color=light_blue
-url=https://github.com/MinestrapTeam/Minestrappolation-2/releases/download/1.7.10-3.3.1.1/Minestrappolation-1.7.10-3.3.1.1.jar
-+ Added easter egg
-+ Added new title logo
-* Fixed missing textures
+﻿version=1.7.10-3.3.2
+version_motd=Minestrappolation 3.3.2 out now!
+version_motd_color=green
+motd=Our Twitters: @MinestrappDev, @SoBiohazardous, @Clashsoft
+motd_color=aqua
+url=https://github.com/MinestrapTeam/Minestrappolation-2/releases/download/1.7.10-3.3.2/Minestrappolation-1.7.10-3.3.2.jar
+
+> Update to Forge 10.13.1.1217.
+> Update to Clashsoft Lib 1.7.10-2.7.1.
++ Added the Minestrappolation AVT resource pack.
++ Added Reinforced Sticks.
++ Added Freezers.
++ Added Bottles of Coolant.
++ Added Black Diamonds.
++ Added Edge Slate Bricks.
++ Added Lock Cutters and Broken Locks.
++ Added some more Spoilable Foods.
++ Added all Spoiled Food textures.
++ Added Icestone and Glacierrock Slipperiness.
++ Added Config Options for Ore Generation.
++ Added Config Options for Mob Drops.
++ Added several misc. Config Options.
++ Added several missing recipes.
+* Improved several Tool textures.
+* Improved the Wither Ash system.
+* Fixed Spoiled Food stacking.
+* Fixed some Plating issues.
+* Fixed a Magma issue.
+* Fixed a few minor bugs.
