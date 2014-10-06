@@ -150,7 +150,7 @@ public class MItemSword extends ItemSword implements IPlatable
 		
 		int harvestLevel = this.material.getHarvestLevel();
 		ItemStack thisStack = new ItemStack(this, 1, 0);
-		this.hornIcon = iconRegister.registerIcon(MAssetManager.getTexture("platings/horned_sword_" + harvestLevel));
+		this.hornIcon = iconRegister.registerIcon(MAssetManager.getTexture("platings/horned_sword_" + (harvestLevel > 4 ? 4 : harvestLevel)));
 		
 		for (Entry<String, IPlating> e : IPlating.platings.entrySet())
 		{

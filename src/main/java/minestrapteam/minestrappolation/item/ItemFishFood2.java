@@ -183,12 +183,12 @@ public class ItemFishFood2 extends MItemFood
 		{
 			String string = "fish_" + this.name;
 			this.rawIcon = iconRegister.registerIcon(string + "_raw");
-			if (foodType.isSpoilable())
+			if (foodType.isSpoilable() && this != PUFFERFISH)
 			{
 				this.rawSpoiledIcon = iconRegister.registerIcon(string + "_raw_spoiled");
 			}
 			
-			if (foodType.isFriable() && this != PUFFERFISH)
+			if (foodType.isFriable())
 			{
 				this.rawFriedIcon = iconRegister.registerIcon(string + "_raw_fried");
 			}
