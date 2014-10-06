@@ -1,10 +1,17 @@
 package minestrapteam.minestrappolation.lib;
 
+import clashsoft.cslib.minecraft.entity.CSEntities;
+import clashsoft.cslib.minecraft.entity.CSEntities.EntityProperties;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.entity.*;
+import minestrapteam.minestrappolation.spell.PlayerSpells;
 import minestrapteam.minestrappolation.tileentity.*;
+
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraftforge.common.IExtendedEntityProperties;
 
 public class MEntities
 {
@@ -18,6 +25,21 @@ public class MEntities
 		EntityRegistry.registerModEntity(EntityGrenadeImpact.class, "GrenadeImpact", 4, Minestrappolation.instance, 40, 3, true);
 		EntityRegistry.registerModEntity(EntityGrenadeSticky.class, "GrenadeSticky", 5, Minestrappolation.instance, 40, 3, true);
 		EntityRegistry.registerModEntity(EntityGrenadeNuke.class, "GrenadeNuke", 6, Minestrappolation.instance, 40, 3, true);
+		
+		CSEntities.registerProperties(new EntityProperties("MPlayerSpells", PlayerSpells.class)
+		{
+			@Override
+			public boolean canApply(Entity entity)
+			{
+				return entity instanceof EntityPlayer;
+			}
+			
+			@Override
+			public IExtendedEntityProperties createProperties(Entity entity)
+			{
+				return new PlayerSpells(entity);
+			}
+		});
 		
 		// Tile Entities
 		
