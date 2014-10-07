@@ -31,7 +31,8 @@ import net.minecraftforge.common.MinecraftForge;
 
 public class MClientProxy extends MCommonProxy
 {
-	public static KeyBinding	keySpellbarSwitch	= new KeyBinding("key.spellbar.switch", Keyboard.KEY_Z, "key.categories.minestrappolation");
+	public static KeyBinding	keySpellbarSwitch	= new KeyBinding("key.spell.switch", Keyboard.KEY_Z, "key.categories.minestrappolation");
+	public static KeyBinding	keySpellInventory	= new KeyBinding("key.spell.inventory", Keyboard.KEY_R, "key.categories.minestrappolation");
 	
 	@Override
 	public void preInit(FMLPreInitializationEvent event)
@@ -46,6 +47,7 @@ public class MClientProxy extends MCommonProxy
 		RenderingRegistry.registerBlockHandler(lockedRenderID, new RenderBlockLocked());
 		
 		ClientRegistry.registerKeyBinding(keySpellbarSwitch);
+		ClientRegistry.registerKeyBinding(keySpellInventory);
 		
 		MinecraftForge.EVENT_BUS.register(GuiSpellOverlay.instance);
 		FMLCommonHandler.instance().bus().register(GuiSpellOverlay.instance);

@@ -1,8 +1,12 @@
 package minestrapteam.minestrappolation.spell;
 
-import net.minecraft.util.EnumChatFormatting;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 import clashsoft.cslib.minecraft.lang.I18n;
+
+import net.minecraft.util.EnumChatFormatting;
 
 public class SpellType
 {
@@ -40,6 +44,31 @@ public class SpellType
 	public String getDisplayName()
 	{
 		return I18n.getString(this.getUnlocalizedName() + ".name");
+	}
+	
+	public List<Spell> getSpells(PlayerSpells spells)
+	{
+		List<Spell> list = new ArrayList();
+		
+		Iterator<Spell> iterator;
+		if (spells.player.capabilities.isCreativeMode)
+		{
+			iterator = Spell.spellRegistry.iterator();
+		}
+		else
+		{
+			iterator = spells.spells.iterator();
+		}
+		while (iterator.hasNext())
+		{
+			Spell spell = iterator.next();
+			if (spell.type == this)
+			{
+				list.add(spell);
+			}
+		}
+		
+		return list;
 	}
 	
 	public static SpellType get(int id)

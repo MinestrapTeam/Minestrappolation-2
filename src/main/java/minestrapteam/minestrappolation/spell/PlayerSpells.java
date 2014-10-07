@@ -3,6 +3,8 @@ package minestrapteam.minestrappolation.spell;
 import java.util.ArrayList;
 import java.util.List;
 
+import clashsoft.cslib.minecraft.entity.CSEntities;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
@@ -31,6 +33,11 @@ public class PlayerSpells implements IExtendedEntityProperties
 			this.manaLevels[i] = 16;
 			this.maxManaLevels[i] = 16;
 		}
+	}
+	
+	public static PlayerSpells get(EntityPlayer player)
+	{
+		return (PlayerSpells) CSEntities.getProperties("MPlayerSpells", player);
 	}
 	
 	public int getManaLevel(int type)

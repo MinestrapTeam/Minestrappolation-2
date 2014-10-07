@@ -4,7 +4,6 @@ import java.util.Iterator;
 
 import org.lwjgl.opengl.GL11;
 
-import clashsoft.cslib.minecraft.entity.CSEntities;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent.ClientTickEvent;
 import cpw.mods.fml.common.gameevent.TickEvent.Phase;
@@ -52,7 +51,7 @@ public class GuiSpellOverlay extends Gui
 		
 		if (!pre && event.type == ElementType.EXPERIENCE)
 		{
-			this.spells = (PlayerSpells) CSEntities.getProperties("MPlayerSpells", this.mc.thePlayer);
+			this.spells = PlayerSpells.get(this.mc.thePlayer);
 			this.renderManaBar(width, height);
 			this.renderSpellHotbar(width, height);
 		}
@@ -105,6 +104,11 @@ public class GuiSpellOverlay extends Gui
 		if (MClientProxy.keySpellbarSwitch.isPressed())
 		{
 			this.spellBarSelected = !this.spellBarSelected;
+		}
+		
+		if (MClientProxy.keySpellInventory.isPressed())
+		{
+			this.mc.displayGuiScreen(new GuiSpellInventory(this.mc.thePlayer));
 		}
 		
 		if (this.spellHighlightTicks > 0)
