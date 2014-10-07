@@ -1,5 +1,7 @@
 package minestrapteam.minestrappolation.client.gui;
 
+import java.util.Iterator;
+
 import org.lwjgl.opengl.GL11;
 
 import clashsoft.cslib.minecraft.entity.CSEntities;
@@ -14,10 +16,13 @@ import minestrapteam.minestrappolation.spell.SpellType;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.renderer.OpenGlHelper;
+import net.minecraft.client.renderer.texture.TextureMap;
+import net.minecraft.util.IIcon;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.MouseEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
+import net.minecraftforge.client.event.TextureStitchEvent;
 
 public class GuiSpellOverlay extends Gui
 {
@@ -50,6 +55,20 @@ public class GuiSpellOverlay extends Gui
 			this.spells = (PlayerSpells) CSEntities.getProperties("MPlayerSpells", this.mc.thePlayer);
 			this.renderManaBar(width, height);
 			this.renderSpellHotbar(width, height);
+		}
+	}
+	
+	@SubscribeEvent
+	public void preTextureStick(TextureStitchEvent.Pre event)
+	{
+		if (event.map.getTextureType() != 0)
+		{
+			Iterator<Spell> iterator = Spell.spellRegistry.iterator();
+			while (iterator.hasNext())
+			{
+				Spell spell = iterator.next();
+				spell.registerIcons(event.map);
+			}
 		}
 	}
 	
@@ -140,8 +159,24 @@ public class GuiSpellOverlay extends Gui
 		this.drawTexturedModalRect(left, top, 0, 0, 22, 182);
 		this.drawTexturedModalRect(left - 1, top1 - 1, 22, 0, 24, 24);
 		
-		// TODO Draw Spell Icons
+		// Spell Icons
+		this.mc.renderEngine.bindTexture(TextureMap.locationItemsTexture);
+		for (int i = 0; i < 9; i++)
+		{
+			Spell spell = this.spells.getSpell(i);
+			if (spell == null)
+			{
+				continue;
+			}
+			
+			IIcon icon = spell.getIcon();
+			if (icon != null)
+			{
+				this.drawTexturedModelRectFromIcon(left + 2, top + 2 + i * 20, icon, 16, 16);
+			}
+		}
 		
+		// Spell Tooltip
 		if (this.spellHighlightTicks > 0)
 		{
 			Spell spell = this.spells.getCurrentSpell();

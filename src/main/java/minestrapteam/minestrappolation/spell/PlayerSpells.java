@@ -89,6 +89,11 @@ public class PlayerSpells implements IExtendedEntityProperties
 		return this.selectedSpells[this.currentSpell];
 	}
 	
+	public Spell getSpell(int slot)
+	{
+		return this.selectedSpells[slot];
+	}
+	
 	@Override
 	public void saveNBTData(NBTTagCompound nbt)
 	{
