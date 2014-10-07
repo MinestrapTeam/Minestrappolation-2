@@ -16,7 +16,7 @@ public class Spell
 {
 	public static CSRegistry	spellRegistry	= new CSRegistry();
 	
-	public static final Spell	test			= new Spell(SpellType.ARCANE, "test").setIconName("minecraft:diamond");
+	public static final Spell	test			= new Spell(SpellType.ARCANE, SpellAction.SPECIAL, "test").setIconName("minecraft:diamond");
 	
 	static
 	{
@@ -24,15 +24,18 @@ public class Spell
 	}
 	
 	public SpellType			type;
+	public SpellAction			action;
+	public EnumRarity			rarity			= EnumRarity.common;
 	
 	public String				name;
 	public String				iconName;
 	
 	protected IIcon				icon;
 	
-	public Spell(SpellType type, String name)
+	public Spell(SpellType type, SpellAction action, String name)
 	{
 		this.type = type;
+		this.action = action;
 		this.name = name;
 	}
 	
@@ -58,6 +61,12 @@ public class Spell
 		return this;
 	}
 	
+	public Spell setRarity(EnumRarity rarity)
+	{
+		this.rarity = rarity;
+		return this;
+	}
+	
 	public String getUnlocalizedName()
 	{
 		return "spell." + this.name;
@@ -75,7 +84,7 @@ public class Spell
 	
 	public EnumRarity getRarity()
 	{
-		return EnumRarity.common;
+		return this.rarity;
 	}
 	
 	public List<String> getTooltip(int level)
@@ -92,8 +101,10 @@ public class Spell
 		list.add(buf.toString());
 		buf.delete(0, buf.length());
 		
-		buf.append(this.type.chatColor).append(EnumChatFormatting.ITALIC).append(this.type.getDisplayName());
-		buf.append(' ').append(I18n.getString("spell.spell"));
+		buf.append(this.type.chatColor).append(EnumChatFormatting.ITALIC);
+		buf.append(this.action.getDisplayName()).append(' ');
+		buf.append(this.type.getDisplayName()).append(' ');
+		buf.append(I18n.getString("spell.spell"));
 		
 		list.add(buf.toString());
 		this.addInformation(list, level);
