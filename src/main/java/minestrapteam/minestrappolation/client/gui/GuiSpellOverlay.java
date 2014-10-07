@@ -28,7 +28,7 @@ public class GuiSpellOverlay extends Gui
 		int width = event.resolution.getScaledWidth();
 		int height = event.resolution.getScaledHeight();
 		
-		if (event.type != ElementType.HOTBAR)
+		if (event.type == ElementType.ARMOR || event.type == ElementType.EXPERIENCE || event.type == ElementType.FOOD || event.type == ElementType.HEALTH || event.type == ElementType.HEALTHMOUNT || event.type == ElementType.JUMPBAR || event.type == ElementType.TEXT)
 		{
 			GL11.glTranslatef(0F, pre ? -6F : 6F, 0F);
 		}
@@ -52,6 +52,7 @@ public class GuiSpellOverlay extends Gui
 				// Overlay the bar
 				int x = 1 + i * 24;
 				this.mc.renderEngine.bindTexture(SPELL_OVERLAY);
+				GL11.glColor4f(1F, 1F, 1F, 1F);
 				this.drawTexturedModalRect(left + x, top, 46 + x, 5, (int) (f * 24), 5);
 				
 				// Draw the textual representation
