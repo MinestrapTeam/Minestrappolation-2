@@ -1,5 +1,7 @@
 package minestrapteam.minestrappolation.client;
 
+import org.lwjgl.input.Keyboard;
+
 import clashsoft.cslib.minecraft.cape.Capes;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -19,6 +21,7 @@ import minestrapteam.minestrappolation.lib.MItems;
 import minestrapteam.minestrappolation.tileentity.*;
 
 import net.minecraft.client.renderer.entity.RenderSnowball;
+import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
@@ -27,6 +30,8 @@ import net.minecraftforge.common.MinecraftForge;
 
 public class MClientProxy extends MCommonProxy
 {
+	public static KeyBinding	keySpellbarSwitch	= new KeyBinding("key.spellbar.switch", Keyboard.KEY_Z, "key.categories.minestrappolation");
+	
 	@Override
 	public void preInit(FMLPreInitializationEvent event)
 	{
@@ -38,6 +43,8 @@ public class MClientProxy extends MCommonProxy
 		RenderingRegistry.registerBlockHandler(custom2RenderID, new RenderBlockCustom2());
 		RenderingRegistry.registerBlockHandler(platingRenderID, new RenderBlockPlating());
 		RenderingRegistry.registerBlockHandler(lockedRenderID, new RenderBlockLocked());
+		
+		ClientRegistry.registerKeyBinding(keySpellbarSwitch);
 		
 		MinecraftForge.EVENT_BUS.register(new GuiSpellOverlay());
 	}
