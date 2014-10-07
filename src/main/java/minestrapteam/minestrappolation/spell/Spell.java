@@ -16,11 +16,9 @@ public class Spell
 {
 	public static CSRegistry	spellRegistry	= new CSRegistry();
 	
-	public static final Spell	test			= new Spell(SpellType.ARCANE, SpellAction.SPECIAL, "test").setIconName("minecraft:diamond");
-	
 	static
 	{
-		registerSpell(test, "test");
+		SpellList.init();
 	}
 	
 	public SpellType			type;
@@ -39,12 +37,6 @@ public class Spell
 		this.name = name;
 	}
 	
-	public static void registerSpell(Spell spell, String name)
-	{
-		int id = spellRegistry.getFreeID();
-		spellRegistry.addObject(id, name, spell);
-	}
-	
 	public static Spell getSpellByName(String name)
 	{
 		return (Spell) spellRegistry.getObject(name);
@@ -53,6 +45,12 @@ public class Spell
 	public static Spell getSpellByID(int id)
 	{
 		return (Spell) spellRegistry.getObjectById(id);
+	}
+	
+	protected Spell register()
+	{
+		SpellList.registerSpell(this, this.name);
+		return this;
 	}
 	
 	public Spell setIconName(String name)
@@ -118,7 +116,10 @@ public class Spell
 	
 	public void registerIcons(IIconRegister register)
 	{
-		this.icon = register.registerIcon(this.iconName);
+		if (this.iconName != null)
+		{
+			this.icon = register.registerIcon(this.iconName);
+		}
 	}
 	
 	public IIcon getIcon()

@@ -26,8 +26,6 @@ public class PlayerSpells implements IExtendedEntityProperties
 	{
 		this.player = (EntityPlayer) entity;
 		
-		this.selectedSpells[4] = Spell.test;
-		
 		for (int i = 0; i < SpellType.SPELL_TYPES.length; i++)
 		{
 			this.manaLevels[i] = 16;
