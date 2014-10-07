@@ -29,6 +29,9 @@ public class GuiSpellInventory extends GuiScreen
 	public SpellType						currentType;
 	public List<Spell>						spells;
 	
+	public Spell							hoveringSpell;
+	public Spell							grabbedSpell;
+	
 	public GuiSpellInventory(EntityPlayer player)
 	{
 		this.player = player;
@@ -63,6 +66,8 @@ public class GuiSpellInventory extends GuiScreen
 		
 		this.fontRendererObj.drawString(this.currentType.getDisplayName() + " " + I18n.getString("spell.spells"), this.left + 7, this.top + 6, 4210752);
 		
+		this.hoveringSpell = null;
+		
 		for (int i = 0; i < 9; i++)
 		{
 			Spell spell = null;
@@ -88,7 +93,24 @@ public class GuiSpellInventory extends GuiScreen
 			
 			y = this.top + 112;
 			spell = this.playerSpells.getSpell(i);
+			
 			this.drawSpellSlot(spell, x, y, mouseX, mouseY);
+		}
+		
+		if (this.grabbedSpell != null)
+		{
+			IIcon icon = this.grabbedSpell.getIcon();
+			if (icon != null)
+			{
+				GL11.glColor4f(1F, 1F, 1F, 1F);
+				this.mc.renderEngine.bindTexture(TextureMap.locationItemsTexture);
+				this.drawTexturedModelRectFromIcon(mouseX - 8, mouseY - 8, icon, 16, 16);
+			}
+		}
+		
+		if (this.hoveringSpell != null)
+		{
+			this.drawHoveringText(this.hoveringSpell.getTooltip(0), mouseX, mouseY, this.fontRendererObj);
 		}
 		
 		for (int i = 0; i < 8; i++)
@@ -101,10 +123,11 @@ public class GuiSpellInventory extends GuiScreen
 		}
 	}
 	
-	public void drawSpellSlot(Spell spell, int x, int y, int mouseX, int mouseY)
+	public boolean drawSpellSlot(Spell spell, int x, int y, int mouseX, int mouseY)
 	{
 		GL11.glColor4f(1F, 1F, 1F, 1F);
-		GL11.glDisable(GL11.GL_LIGHTING);
+		
+		boolean flag = false;
 		
 		if (spell != null)
 		{
@@ -124,13 +147,11 @@ public class GuiSpellInventory extends GuiScreen
 			GL11.glColorMask(true, true, true, true);
 			GL11.glEnable(GL11.GL_DEPTH_TEST);
 			
-			if (spell != null)
-			{
-				this.drawHoveringText(spell.getTooltip(0), mouseX, mouseY, this.fontRendererObj);
-			}
+			this.hoveringSpell = spell;
+			flag = true;
 		}
 		
-		GL11.glEnable(GL11.GL_LIGHTING);
+		return flag;
 	}
 	
 	protected void renderTab(SpellType type, int mouseX, int mouseY, boolean selected)
@@ -168,8 +189,42 @@ public class GuiSpellInventory extends GuiScreen
 			if (this.isMouseOverTab(i, x, y))
 			{
 				this.setSpellType(SpellType.get(i));
+				return;
 			}
 		}
+		
+		for (int i = 0; i < 9; i++)
+		{
+			int x1 = this.left + 8 + i * 18;
+			int y1;
+			
+			if (this.grabbedSpell == null)
+			{
+				for (int j = 0; j < 5; j++)
+				{
+					int index = i + j * 9;
+					y1 = this.top + 18 + j * 18;
+					
+					if (x >= x1 && x < x1 + 16 && y >= y1 && y < y1 + 16)
+					{
+						this.grabbedSpell = this.spells.get(index);
+						return;
+					}
+				}
+			}
+			
+			y1 = this.top + 112;
+			
+			if (x >= x1 && x < x1 + 16 && y >= y1 && y < y1 + 16)
+			{
+				Spell spell = this.playerSpells.getSpell(i);
+				this.playerSpells.setSpell(i, this.grabbedSpell);
+				this.grabbedSpell = spell;
+				return;
+			}
+		}
+		
+		this.grabbedSpell = null;
 	}
 	
 	public boolean isMouseOverTab(int type, int mouseX, int mouseY)

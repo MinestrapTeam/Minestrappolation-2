@@ -99,6 +99,11 @@ public class PlayerSpells implements IExtendedEntityProperties
 		return this.selectedSpells[slot];
 	}
 	
+	public void setSpell(int slot, Spell spell)
+	{
+		this.selectedSpells[slot] = spell;
+	}
+	
 	@Override
 	public void saveNBTData(NBTTagCompound nbt)
 	{

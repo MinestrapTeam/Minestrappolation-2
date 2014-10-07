@@ -114,11 +114,11 @@ public class Spell
 	{
 	}
 	
-	public void registerIcons(IIconRegister register)
+	public void registerIcons(IIconRegister iconRegister)
 	{
 		if (this.iconName != null)
 		{
-			this.icon = register.registerIcon(this.iconName);
+			this.icon = iconRegister.registerIcon(this.iconName);
 		}
 	}
 	
