@@ -26,7 +26,7 @@ public class Spell
 	}
 	
 	public SpellType			type;
-	public SpellAction			action;
+	public SpellCategory		category;
 	public EnumRarity			rarity			= EnumRarity.common;
 	
 	public String				name;
@@ -34,10 +34,10 @@ public class Spell
 	
 	protected IIcon				icon;
 	
-	public Spell(SpellType type, SpellAction action, String name)
+	public Spell(SpellType type, SpellCategory category, String name)
 	{
 		this.type = type;
-		this.action = action;
+		this.category = category;
 		this.name = name;
 	}
 	
@@ -104,7 +104,7 @@ public class Spell
 		buf.delete(0, buf.length());
 		
 		buf.append(this.type.chatColor).append(EnumChatFormatting.ITALIC);
-		buf.append(this.action.getDisplayName()).append(' ');
+		buf.append(this.category.getDisplayName()).append(' ');
 		buf.append(this.type.getDisplayName()).append(' ');
 		buf.append(I18n.getString("spell.spell"));
 		

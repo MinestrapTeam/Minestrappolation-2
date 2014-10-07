@@ -1,6 +1,6 @@
 package minestrapteam.minestrappolation.spell;
 
-import static minestrapteam.minestrappolation.spell.SpellAction.*;
+import static minestrapteam.minestrappolation.spell.SpellCategory.*;
 import static minestrapteam.minestrappolation.spell.SpellType.*;
 import minestrapteam.minestrappolation.util.MAssetManager;
 
@@ -41,10 +41,10 @@ public class SpellList
 		iceBall = new Spell(FROST, DEFENSE, "ice_ball").setIconName("snowball").register();
 		thunderstorm = new Spell(ELECTRICITY, ATTACK, "thunderstorm").setIconName("book_normal").register();
 		electroShock = new Spell(ELECTRICITY, ATTACK, "electroshock").setIconName("paper").register();
-		heal = new Spell(LIFE, SPECIAL, "heal").setIconName("nether_wart").register();
-		antiHunger = new Spell(LIFE, SPECIAL, "anti_hunger").setIconName("bread").register();
-		teleport = new Spell(ARCANE, SPECIAL, "teleport").setIconName("ender_pearl").register();
-		deathBlast = new Spell(ARCANE, SPECIAL, "death_blast").setIconName("skull_skeleton").register();
+		heal = new Spell(LIFE, ALTERATION, "heal").setIconName("nether_wart").register();
+		antiHunger = new Spell(LIFE, ALTERATION, "anti_hunger").setIconName("bread").register();
+		teleport = new Spell(ARCANE, ALTERATION, "teleport").setIconName("ender_pearl").register();
+		deathBlast = new Spell(ARCANE, ALTERATION, "death_blast").setIconName("skull_skeleton").register();
 	}
 	
 	public static void registerSpell(Spell spell, String name)

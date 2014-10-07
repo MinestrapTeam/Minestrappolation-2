@@ -1326,9 +1326,10 @@ spelltype.electricity.name=Electricity
 spelltype.life.name=Life
 spelltype.arcane.name=Arcane
 
-spellaction.attack=Offensive
-spellaction.defense=Defensive
-spellaction.special=Special
+spellcategory.attack=Offensive
+spellcategory.defense=Defensive
+spellcategory.alteration=Altering
+spellcategory.summoning=Summoning
 
 spell.spell=Spell
 spell.spells=Spells

@@ -2,15 +2,16 @@ package minestrapteam.minestrappolation.spell;
 
 import clashsoft.cslib.minecraft.lang.I18n;
 
-public enum SpellAction
+public enum SpellCategory
 {
-	ATTACK("spellaction.attack"),
-	DEFENSE("spellaction.defense"),
-	SPECIAL("spellaction.special");
+	ATTACK("spellcategory.attack"),
+	DEFENSE("spellcategory.defense"),
+	ALTERATION("spellcategory.alteration"),
+	SUMMONING("spellcategory.summoning");
 	
 	protected String name;
 	
-	private SpellAction(String name)
+	private SpellCategory(String name)
 	{
 		this.name = name;
 	}
