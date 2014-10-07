@@ -29,15 +29,13 @@ public class MEntities
 		CSEntities.registerProperties(new EntityProperties("MPlayerSpells", PlayerSpells.class)
 		{
 			@Override
-			public boolean canApply(Entity entity)
-			{
-				return entity instanceof EntityPlayer;
-			}
-			
-			@Override
 			public IExtendedEntityProperties createProperties(Entity entity)
 			{
-				return new PlayerSpells(entity);
+				if (entity instanceof EntityPlayer)
+				{
+					return new PlayerSpells(entity);
+				}
+				return null;
 			}
 		});
 		

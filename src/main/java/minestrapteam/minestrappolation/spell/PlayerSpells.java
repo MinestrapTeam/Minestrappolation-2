@@ -19,8 +19,8 @@ public class PlayerSpells implements IExtendedEntityProperties
 	
 	public EntityPlayer		player;
 	
-	public int[]			manaLevels		= new int[] { 16, 16, 16, 16, 16, 16, 16, 16 };
-	public int[]			maxManaLevels	= new int[] { 16, 16, 16, 16, 16, 16, 16, 16 };
+	protected int[]			manaLevels		= new int[] { 16, 16, 16, 16, 16, 16, 16, 16 };
+	protected int[]			maxManaLevels	= new int[] { 16, 16, 16, 16, 16, 16, 16, 16 };
 	
 	public PlayerSpells(Entity entity)
 	{

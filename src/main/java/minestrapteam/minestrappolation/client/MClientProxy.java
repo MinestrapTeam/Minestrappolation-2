@@ -23,6 +23,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.client.MinecraftForgeClient;
+import net.minecraftforge.common.MinecraftForge;
 
 public class MClientProxy extends MCommonProxy
 {
@@ -37,6 +38,8 @@ public class MClientProxy extends MCommonProxy
 		RenderingRegistry.registerBlockHandler(custom2RenderID, new RenderBlockCustom2());
 		RenderingRegistry.registerBlockHandler(platingRenderID, new RenderBlockPlating());
 		RenderingRegistry.registerBlockHandler(lockedRenderID, new RenderBlockLocked());
+		
+		MinecraftForge.EVENT_BUS.register(new GuiSpellOverlay());
 	}
 	
 	@Override
