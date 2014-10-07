@@ -1316,6 +1316,19 @@ item.hangglider.name=Hang Glider
 item.ghastly_soul.name=Ghastly Soul
 item.coolant_bottle.name=Bottle of Coolant
 
+# Spells
+spelltype.water.name=Water
+spelltype.fire.name=Fire
+spelltype.earth.name=Earth
+spelltype.wind.name=Wind
+spelltype.frost.name=Frost
+spelltype.electricity.name=Electricity
+spelltype.life.name=Life
+spelltype.arcane.name=Arcane
+
+spell.spell=Spell
+spell.spells=Spells
+
 #Descriptions
 tile.edge_bricks.connects_to=Connects to: %s
 

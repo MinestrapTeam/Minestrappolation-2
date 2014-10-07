@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.lwjgl.opengl.GL11;
 
+import clashsoft.cslib.minecraft.lang.I18n;
 import minestrapteam.minestrappolation.spell.PlayerSpells;
 import minestrapteam.minestrappolation.spell.Spell;
 import minestrapteam.minestrappolation.spell.SpellType;
@@ -60,16 +61,7 @@ public class GuiSpellInventory extends GuiScreen
 		
 		this.renderTab(this.currentType, mouseX, mouseY, true);
 		
-		this.fontRendererObj.drawString(this.currentType.getDisplayName(), this.left + 7, this.top + 6, 4210752);
-		
-		for (int i = 0; i < 8; i++)
-		{
-			if (this.isMouseOverTab(i, mouseX, mouseY))
-			{
-				SpellType type = SpellType.get(i);
-				this.drawCreativeTabHoveringText(type.chatColor + type.getDisplayName(), mouseX, mouseY);
-			}
-		}
+		this.fontRendererObj.drawString(this.currentType.getDisplayName() + " " + I18n.getString("spell.spells"), this.left + 7, this.top + 6, 4210752);
 		
 		for (int i = 0; i < 9; i++)
 		{
@@ -97,6 +89,15 @@ public class GuiSpellInventory extends GuiScreen
 			y = this.top + 112;
 			spell = this.playerSpells.getSpell(i);
 			this.drawSpellSlot(spell, x, y, mouseX, mouseY);
+		}
+		
+		for (int i = 0; i < 8; i++)
+		{
+			if (this.isMouseOverTab(i, mouseX, mouseY))
+			{
+				SpellType type = SpellType.get(i);
+				this.drawCreativeTabHoveringText(type.chatColor + type.getDisplayName(), mouseX, mouseY);
+			}
 		}
 	}
 	

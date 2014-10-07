@@ -92,7 +92,7 @@ public class Spell
 		list.add(buf.toString());
 		buf.delete(0, buf.length());
 		
-		buf.append(EnumChatFormatting.ITALIC).append(this.type.chatColor).append(this.type.getDisplayName());
+		buf.append(this.type.chatColor).append(EnumChatFormatting.ITALIC).append(this.type.getDisplayName());
 		buf.append(' ').append(I18n.getString("spell.spell"));
 		
 		list.add(buf.toString());
@@ -103,7 +103,6 @@ public class Spell
 	
 	public void addInformation(List<String> list, int level)
 	{
-		
 	}
 	
 	public void registerIcons(IIconRegister register)
