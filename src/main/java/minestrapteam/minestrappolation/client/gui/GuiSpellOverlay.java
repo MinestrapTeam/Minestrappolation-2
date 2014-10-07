@@ -5,6 +5,7 @@ import org.lwjgl.opengl.GL11;
 import clashsoft.cslib.minecraft.entity.CSEntities;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import minestrapteam.minestrappolation.spell.PlayerSpells;
+import minestrapteam.minestrappolation.spell.SpellType;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
@@ -43,6 +44,7 @@ public class GuiSpellOverlay extends Gui
 			
 			for (int i = 0; i < 8; i++)
 			{
+				SpellType type = SpellType.get(i);
 				int manaLevel = spells.getManaLevel(i);
 				int maxManaLevel = spells.getMaxManaLevel(i);
 				float f = (float) manaLevel / (float) maxManaLevel;
@@ -59,7 +61,7 @@ public class GuiSpellOverlay extends Gui
 				
 				GL11.glTranslatef(x1, top, 0F);
 				GL11.glScalef(SCALING, SCALING, 1F);
-				this.mc.fontRenderer.drawStringWithShadow(s, 0, 0, 0xFFFFFF);
+				this.mc.fontRenderer.drawStringWithShadow(s, 0, 0, type.color);
 				GL11.glScalef(1F / SCALING, 1F / SCALING, 1F);
 				GL11.glTranslatef(-x1, -top, 0F);
 			}

@@ -8,23 +8,20 @@ import net.minecraftforge.common.IExtendedEntityProperties;
 
 public class PlayerSpells implements IExtendedEntityProperties
 {
-	public static final int	WATER			= 0;
-	public static final int	FIRE			= 1;
-	public static final int	EARTH			= 2;
-	public static final int	WIND			= 3;
-	public static final int	FROST			= 4;
-	public static final int	ELECTRICITY		= 5;
-	public static final int	LIFE			= 6;
-	public static final int	ARCANE			= 7;
+	public EntityPlayer	player;
 	
-	public EntityPlayer		player;
-	
-	protected int[]			manaLevels		= new int[] { 16, 16, 16, 16, 16, 16, 16, 16 };
-	protected int[]			maxManaLevels	= new int[] { 16, 16, 16, 16, 16, 16, 16, 16 };
+	protected int[]		manaLevels		= new int[SpellType.SPELL_TYPES.length];
+	protected int[]		maxManaLevels	= new int[SpellType.SPELL_TYPES.length];
 	
 	public PlayerSpells(Entity entity)
 	{
 		this.player = (EntityPlayer) entity;
+		
+		for (int i = 0; i < SpellType.SPELL_TYPES.length; i++)
+		{
+			this.manaLevels[i] = 16;
+			this.maxManaLevels[i] = 16;
+		}
 	}
 	
 	public int getManaLevel(int type)
