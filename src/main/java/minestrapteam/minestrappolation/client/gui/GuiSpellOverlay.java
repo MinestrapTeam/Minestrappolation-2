@@ -172,7 +172,7 @@ public class GuiSpellOverlay extends Gui
 			IIcon icon = spell.getIcon();
 			if (icon != null)
 			{
-				this.drawTexturedModelRectFromIcon(left + 2, top + 2 + i * 20, icon, 16, 16);
+				this.drawTexturedModelRectFromIcon(left + 3, top + 3 + i * 20, icon, 16, 16);
 			}
 		}
 		
@@ -196,7 +196,7 @@ public class GuiSpellOverlay extends Gui
 					GL11.glPushMatrix();
 					GL11.glEnable(GL11.GL_BLEND);
 					OpenGlHelper.glBlendFunc(770, 771, 1, 0);
-					this.mc.fontRenderer.drawStringWithShadow(name, left1, top1 + 7, 16777215 + (i << 24));
+					this.mc.fontRenderer.drawStringWithShadow(name, left1, top1 + 7, spell.getDisplayColor() | (i << 24));
 					GL11.glDisable(GL11.GL_BLEND);
 					GL11.glPopMatrix();
 				}
