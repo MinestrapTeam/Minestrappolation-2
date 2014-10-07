@@ -5,6 +5,8 @@ import java.util.List;
 import org.lwjgl.opengl.GL11;
 
 import clashsoft.cslib.minecraft.lang.I18n;
+import minestrapteam.minestrappolation.Minestrappolation;
+import minestrapteam.minestrappolation.network.SpellBarPacket;
 import minestrapteam.minestrappolation.spell.PlayerSpells;
 import minestrapteam.minestrappolation.spell.Spell;
 import minestrapteam.minestrappolation.spell.SpellType;
@@ -205,7 +207,7 @@ public class GuiSpellInventory extends GuiScreen
 					int index = i + j * 9;
 					y1 = this.top + 18 + j * 18;
 					
-					if (x >= x1 && x < x1 + 16 && y >= y1 && y < y1 + 16)
+					if (index < this.spells.size() && x >= x1 && x < x1 + 16 && y >= y1 && y < y1 + 16)
 					{
 						this.grabbedSpell = this.spells.get(index);
 						return;
@@ -217,6 +219,8 @@ public class GuiSpellInventory extends GuiScreen
 			
 			if (x >= x1 && x < x1 + 16 && y >= y1 && y < y1 + 16)
 			{
+				Minestrappolation.instance.netHandler.sendToServer(new SpellBarPacket(i, this.grabbedSpell));
+				
 				Spell spell = this.playerSpells.getSpell(i);
 				this.playerSpells.setSpell(i, this.grabbedSpell);
 				this.grabbedSpell = spell;

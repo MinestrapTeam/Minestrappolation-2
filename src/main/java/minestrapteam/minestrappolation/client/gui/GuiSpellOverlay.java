@@ -7,7 +7,9 @@ import org.lwjgl.opengl.GL11;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent.ClientTickEvent;
 import cpw.mods.fml.common.gameevent.TickEvent.Phase;
+import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.client.MClientProxy;
+import minestrapteam.minestrappolation.network.SpellUsePacket;
 import minestrapteam.minestrappolation.spell.PlayerSpells;
 import minestrapteam.minestrappolation.spell.Spell;
 import minestrapteam.minestrappolation.spell.SpellType;
@@ -91,10 +93,10 @@ public class GuiSpellOverlay extends Gui
 				this.spells.updateCurrentSpell(event.dwheel);
 				this.spellHighlightTicks = 40;
 			}
-			else if (event.button == 1)
+			else if (event.buttonstate && event.button == 1)
 			{
 				event.setCanceled(true);
-				// TODO Use spell
+				Minestrappolation.instance.netHandler.sendToServer(new SpellUsePacket(this.spells));
 			}
 		}
 	}
@@ -128,8 +130,8 @@ public class GuiSpellOverlay extends Gui
 		for (int i = 0; i < 8; i++)
 		{
 			SpellType type = SpellType.get(i);
-			int manaLevel = this.spells.getManaLevel(i);
-			int maxManaLevel = this.spells.getMaxManaLevel(i);
+			int manaLevel = this.spells.manaLevels[i];
+			int maxManaLevel = this.spells.maxManaLevels[i];
 			float f = (float) manaLevel / (float) maxManaLevel;
 			
 			// Overlay the bar

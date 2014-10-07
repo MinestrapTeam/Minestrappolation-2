@@ -6,8 +6,12 @@ import java.util.List;
 import clashsoft.cslib.minecraft.lang.I18n;
 import clashsoft.cslib.minecraft.util.CSRegistry;
 import clashsoft.cslib.util.CSString;
+import minestrapteam.minestrappolation.Minestrappolation;
+import minestrapteam.minestrappolation.network.ManaLevelPacket;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
@@ -125,5 +129,26 @@ public class Spell
 	public IIcon getIcon()
 	{
 		return this.icon;
+	}
+	
+	public void onSpellRightClick(PlayerSpells spells, EntityPlayerMP player)
+	{
+		int i = this.type.id;
+		if (spells.manaLevels[i] > 0)
+		{
+			spells.manaLevels[i]--;
+			if (this.castSpell(player))
+			{
+				spells.maxManaLevels[i]++;
+			}
+			
+			Minestrappolation.instance.netHandler.sendTo(new ManaLevelPacket(i, spells), player);
+		}
+	}
+	
+	public boolean castSpell(EntityPlayer player)
+	{
+		System.out.println(this.name);
+		return true;
 	}
 }

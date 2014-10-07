@@ -11,5 +11,9 @@ public class MNetHandler extends CSNetHandler
 		this.registerPacket(GobletPacket.class);
 		this.registerPacket(PlatePacket.class);
 		this.registerPacket(LockedPacket.class);
+		
+		this.registerPacket(SpellBarPacket.class);
+		this.registerPacket(SpellUsePacket.class);
+		this.registerPacket(ManaLevelPacket.class);
 	}
 }

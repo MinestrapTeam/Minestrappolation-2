@@ -19,8 +19,8 @@ public class PlayerSpells implements IExtendedEntityProperties
 	public Spell[]			selectedSpells	= new Spell[9];
 	protected List<Spell>	spells			= new ArrayList();
 	
-	protected int[]			manaLevels		= new int[SpellType.SPELL_TYPES.length];
-	protected int[]			maxManaLevels	= new int[SpellType.SPELL_TYPES.length];
+	public int[]			manaLevels		= new int[SpellType.SPELL_TYPES.length];
+	public int[]			maxManaLevels	= new int[SpellType.SPELL_TYPES.length];
 	
 	public PlayerSpells(Entity entity)
 	{
@@ -36,36 +36,6 @@ public class PlayerSpells implements IExtendedEntityProperties
 	public static PlayerSpells get(EntityPlayer player)
 	{
 		return (PlayerSpells) CSEntities.getProperties("MPlayerSpells", player);
-	}
-	
-	public int getManaLevel(int type)
-	{
-		return this.manaLevels[type];
-	}
-	
-	public int getMaxManaLevel(int type)
-	{
-		return this.maxManaLevels[type];
-	}
-	
-	public void setManaLevel(int type, int value)
-	{
-		this.manaLevels[type] = value;
-	}
-	
-	public void setMaxManaLevel(int type, int value)
-	{
-		this.maxManaLevels[type] = value;
-	}
-	
-	public void addManaLevel(int type, int value)
-	{
-		this.maxManaLevels[type] += value;
-	}
-	
-	public void addMaxManaLevel(int type, int value)
-	{
-		this.maxManaLevels[type] += value;
 	}
 	
 	public void updateCurrentSpell(int dwheel)
