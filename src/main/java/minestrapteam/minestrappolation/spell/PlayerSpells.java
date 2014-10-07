@@ -1,5 +1,8 @@
 package minestrapteam.minestrappolation.spell;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
@@ -8,14 +11,20 @@ import net.minecraftforge.common.IExtendedEntityProperties;
 
 public class PlayerSpells implements IExtendedEntityProperties
 {
-	public EntityPlayer	player;
+	public EntityPlayer		player;
 	
-	protected int[]		manaLevels		= new int[SpellType.SPELL_TYPES.length];
-	protected int[]		maxManaLevels	= new int[SpellType.SPELL_TYPES.length];
+	public int				currentSpell	= 0;
+	public Spell[]			selectedSpells	= new Spell[9];
+	protected List<Spell>	spells			= new ArrayList();
+	
+	protected int[]			manaLevels		= new int[SpellType.SPELL_TYPES.length];
+	protected int[]			maxManaLevels	= new int[SpellType.SPELL_TYPES.length];
 	
 	public PlayerSpells(Entity entity)
 	{
 		this.player = (EntityPlayer) entity;
+		
+		this.selectedSpells[4] = Spell.test;
 		
 		for (int i = 0; i < SpellType.SPELL_TYPES.length; i++)
 		{
@@ -52,6 +61,32 @@ public class PlayerSpells implements IExtendedEntityProperties
 	public void addMaxManaLevel(int type, int value)
 	{
 		this.maxManaLevels[type] += value;
+	}
+	
+	public void updateCurrentSpell(int dwheel)
+	{
+		if (dwheel > 0)
+		{
+			this.currentSpell--;
+		}
+		else
+		{
+			this.currentSpell++;
+		}
+		
+		if (this.currentSpell >= 9)
+		{
+			this.currentSpell -= 9;
+		}
+		if (this.currentSpell < 0)
+		{
+			this.currentSpell += 9;
+		}
+	}
+	
+	public Spell getCurrentSpell()
+	{
+		return this.selectedSpells[this.currentSpell];
 	}
 	
 	@Override

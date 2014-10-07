@@ -5,6 +5,7 @@ import org.lwjgl.input.Keyboard;
 import clashsoft.cslib.minecraft.cape.Capes;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import minestrapteam.minestrappolation.client.gui.*;
@@ -46,7 +47,8 @@ public class MClientProxy extends MCommonProxy
 		
 		ClientRegistry.registerKeyBinding(keySpellbarSwitch);
 		
-		MinecraftForge.EVENT_BUS.register(new GuiSpellOverlay());
+		MinecraftForge.EVENT_BUS.register(GuiSpellOverlay.instance);
+		FMLCommonHandler.instance().bus().register(GuiSpellOverlay.instance);
 	}
 	
 	@Override

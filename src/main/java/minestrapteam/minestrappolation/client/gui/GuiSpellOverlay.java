@@ -4,12 +4,16 @@ import org.lwjgl.opengl.GL11;
 
 import clashsoft.cslib.minecraft.entity.CSEntities;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.gameevent.TickEvent.ClientTickEvent;
+import cpw.mods.fml.common.gameevent.TickEvent.Phase;
 import minestrapteam.minestrappolation.client.MClientProxy;
 import minestrapteam.minestrappolation.spell.PlayerSpells;
+import minestrapteam.minestrappolation.spell.Spell;
 import minestrapteam.minestrappolation.spell.SpellType;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
+import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.MouseEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
@@ -18,13 +22,16 @@ import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
 public class GuiSpellOverlay extends Gui
 {
 	public static final ResourceLocation	SPELL_OVERLAY	= new ResourceLocation("minestrappolation", "textures/gui/spell/spell_overlay.png");
+	public static final float				SCALING			= 0.75F;
+	
+	public static GuiSpellOverlay			instance		= new GuiSpellOverlay();
 	
 	private Minecraft						mc				= Minecraft.getMinecraft();
 	
-	public static final float				SCALING			= 0.75F;
+	public PlayerSpells						spells;
 	
 	public boolean							spellBarSelected;
-	public int								selectedSpell;
+	public int								spellHighlightTicks;
 	
 	@SubscribeEvent
 	public void onOverlay(RenderGameOverlayEvent event)
@@ -40,8 +47,18 @@ public class GuiSpellOverlay extends Gui
 		
 		if (!pre && event.type == ElementType.EXPERIENCE)
 		{
+			this.spells = (PlayerSpells) CSEntities.getProperties("MPlayerSpells", this.mc.thePlayer);
 			this.renderManaBar(width, height);
 			this.renderSpellHotbar(width, height);
+		}
+	}
+	
+	@SubscribeEvent
+	public void onTick(ClientTickEvent event)
+	{
+		if (event.phase == Phase.START)
+		{
+			this.onUpdate();
 		}
 	}
 	
@@ -53,23 +70,8 @@ public class GuiSpellOverlay extends Gui
 			if (event.dwheel != 0)
 			{
 				event.setCanceled(true);
-				if (event.dwheel > 0)
-				{
-					this.selectedSpell--;
-				}
-				else
-				{
-					this.selectedSpell++;
-				}
-				
-				if (this.selectedSpell >= 9)
-				{
-					this.selectedSpell -= 9;
-				}
-				if (this.selectedSpell < 0)
-				{
-					this.selectedSpell += 9;
-				}
+				this.spells.updateCurrentSpell(event.dwheel);
+				this.spellHighlightTicks = 40;
 			}
 			else if (event.button == 1)
 			{
@@ -79,9 +81,21 @@ public class GuiSpellOverlay extends Gui
 		}
 	}
 	
+	public void onUpdate()
+	{
+		if (MClientProxy.keySpellbarSwitch.isPressed())
+		{
+			this.spellBarSelected = !this.spellBarSelected;
+		}
+		
+		if (this.spellHighlightTicks > 0)
+		{
+			this.spellHighlightTicks--;
+		}
+	}
+	
 	public void renderManaBar(int width, int height)
 	{
-		PlayerSpells spells = (PlayerSpells) CSEntities.getProperties("MPlayerSpells", this.mc.thePlayer);
 		int left = width / 2 - 97;
 		int top = height - 29;
 		
@@ -91,8 +105,8 @@ public class GuiSpellOverlay extends Gui
 		for (int i = 0; i < 8; i++)
 		{
 			SpellType type = SpellType.get(i);
-			int manaLevel = spells.getManaLevel(i);
-			int maxManaLevel = spells.getMaxManaLevel(i);
+			int manaLevel = this.spells.getManaLevel(i);
+			int maxManaLevel = this.spells.getMaxManaLevel(i);
 			float f = (float) manaLevel / (float) maxManaLevel;
 			
 			// Overlay the bar
@@ -116,20 +130,42 @@ public class GuiSpellOverlay extends Gui
 	
 	public void renderSpellHotbar(int width, int height)
 	{
-		if (MClientProxy.keySpellbarSwitch.isPressed())
-		{
-			this.spellBarSelected = !this.spellBarSelected;
-		}
-		
 		float f = this.spellBarSelected ? 1F : 0.5F;
 		GL11.glColor4f(f, f, f, 1F);
 		this.mc.renderEngine.bindTexture(SPELL_OVERLAY);
 		int left = width - 22;
 		int top = (height - 182) / 2;
+		int top1 = top + (this.spells.currentSpell * 20);
 		
 		this.drawTexturedModalRect(left, top, 0, 0, 22, 182);
-		this.drawTexturedModalRect(left - 1, top - 1 + (this.selectedSpell * 20), 22, 0, 24, 24);
+		this.drawTexturedModalRect(left - 1, top1 - 1, 22, 0, 24, 24);
 		
 		// TODO Draw Spell Icons
+		
+		if (this.spellHighlightTicks > 0)
+		{
+			Spell spell = this.spells.getCurrentSpell();
+			if (spell != null)
+			{
+				String name = spell.getDisplayName();
+				int left1 = left - this.mc.fontRenderer.getStringWidth(name) - 5;
+				int i = (int) (this.spellHighlightTicks * 256F / 10F);
+				
+				if (i > 255)
+				{
+					i = 255;
+				}
+				
+				if (i > 0)
+				{
+					GL11.glPushMatrix();
+					GL11.glEnable(GL11.GL_BLEND);
+					OpenGlHelper.glBlendFunc(770, 771, 1, 0);
+					this.mc.fontRenderer.drawStringWithShadow(name, left1, top1 + 7, 16777215 + (i << 24));
+					GL11.glDisable(GL11.GL_BLEND);
+					GL11.glPopMatrix();
+				}
+			}
+		}
 	}
 }
