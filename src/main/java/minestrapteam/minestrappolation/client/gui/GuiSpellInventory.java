@@ -2,6 +2,7 @@ package minestrapteam.minestrappolation.client.gui;
 
 import java.util.List;
 
+import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
 import clashsoft.cslib.minecraft.lang.I18n;
@@ -132,7 +133,7 @@ public class GuiSpellInventory extends GuiScreen
 			renderSpellIcon(spell, x, y);
 		}
 		
-		if (mouseX >= x && mouseX < x + 18 && mouseY >= y && mouseY < y + 18)
+		if (mouseX >= x && mouseX < x + 16 && mouseY >= y && mouseY < y + 16)
 		{
 			GL11.glDisable(GL11.GL_DEPTH_TEST);
 			GL11.glColorMask(true, true, true, false);
@@ -169,6 +170,7 @@ public class GuiSpellInventory extends GuiScreen
 		if (type.icon != null)
 		{
 			GL11.glColor4f(0F, 0F, 0F, 1F);
+			this.mc.renderEngine.bindTexture(TextureMap.locationItemsTexture);
 			this.drawTexturedModelRectFromIcon(x + 6, y + 6, type.icon, 16, 16);
 		}
 	}
@@ -218,12 +220,23 @@ public class GuiSpellInventory extends GuiScreen
 				
 				ISpell spell = this.playerSpells.getSpell(i);
 				this.playerSpells.setSpell(i, this.grabbedSpell);
-				this.grabbedSpell = spell;
+				
+				if (!Keyboard.isKeyDown(Keyboard.KEY_LSHIFT))
+				{
+					this.grabbedSpell = spell;
+				}
+				
 				return;
 			}
 		}
 		
 		this.grabbedSpell = null;
+	}
+	
+	@Override
+	public boolean doesGuiPauseGame()
+	{
+		return false;
 	}
 	
 	public boolean isMouseOverTab(int type, int mouseX, int mouseY)

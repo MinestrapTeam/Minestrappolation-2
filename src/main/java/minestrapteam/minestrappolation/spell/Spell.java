@@ -29,6 +29,7 @@ public class Spell implements ISpell
 	
 	private int					totalPotency;
 	private int					displayColor;
+	private EnumRarity			rarity;
 	
 	public Spell(SpellCategory category, SpellVariety variety, int[] potencies)
 	{
@@ -87,6 +88,26 @@ public class Spell implements ISpell
 		g /= f;
 		b /= f;
 		
+		if (this.rarity == null)
+		{
+			if (totalPotency >= 1023)
+			{
+				this.rarity = EnumRarity.epic;
+			}
+			else if (totalPotency >= 511)
+			{
+				this.rarity = EnumRarity.rare;
+			}
+			else if (totalPotency >= 255)
+			{
+				this.rarity = EnumRarity.uncommon;
+			}
+			else
+			{
+				this.rarity = EnumRarity.common;
+			}
+		}
+		
 		this.displayColor = (((int) r & 0xFF) << 16) | (((int) g & 0xFF) << 8) | (((int) b & 0xFF) << 0);
 		this.totalPotency = totalPotency;
 		
@@ -108,7 +129,7 @@ public class Spell implements ISpell
 	@Override
 	public EnumRarity getRarity()
 	{
-		return EnumRarity.common;
+		return this.rarity;
 	}
 	
 	@Override
@@ -121,7 +142,7 @@ public class Spell implements ISpell
 	public List<String> getTooltip(int level)
 	{
 		List<String> list = new ArrayList();
-		list.add(this.getRarity().rarityColor + this.getDisplayName());
+		list.add(this.getRarity().rarityColor.toString() + EnumChatFormatting.UNDERLINE + this.getDisplayName());
 		list.add(EnumChatFormatting.ITALIC + this.category.getDisplayName() + " " + this.variety.getDisplayName() + " " + I18n.getString("spell.spell"));
 		
 		if (this.totalPotency > 0)
@@ -138,8 +159,10 @@ public class Spell implements ISpell
 				list.add(type.chatColor + I18n.getString(type.getUnlocalizedName() + ".potency", potency));
 			}
 			
-			list.add(EnumChatFormatting.GOLD + I18n.getString("spell.total_potency", this.totalPotency));
+			list.add(EnumChatFormatting.AQUA + I18n.getString("spell.total_potency", this.totalPotency));
 		}
+		
+		this.addInformation(list, level);
 		
 		return list;
 	}
