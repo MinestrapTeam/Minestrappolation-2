@@ -1351,6 +1351,7 @@ spellvariety.area_shield=Area Shield
 
 spell.spell=Spell
 spell.spells=Spells
+spell.total_potency=Total Potency: %d
 
 #Descriptions
 tile.edge_bricks.connects_to=Connects to: %s

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import clashsoft.cslib.minecraft.lang.I18n;
 import clashsoft.cslib.random.CSRandom;
 import minestrapteam.minestrappolation.spell.data.SpellCategory;
 import minestrapteam.minestrappolation.spell.data.SpellType;
@@ -13,6 +14,7 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.EnumRarity;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
 
 public class Spell implements ISpell
@@ -120,6 +122,25 @@ public class Spell implements ISpell
 	{
 		List<String> list = new ArrayList();
 		list.add(this.getRarity().rarityColor + this.getDisplayName());
+		list.add(EnumChatFormatting.ITALIC + this.category.getDisplayName() + " " + this.variety.getDisplayName() + " " + I18n.getString("spell.spell"));
+		
+		if (this.totalPotency > 0)
+		{
+			for (int i = 0; i < this.potencies.length; i++)
+			{
+				int potency = this.potencies[i];
+				if (potency <= 0)
+				{
+					continue;
+				}
+				
+				SpellType type = SpellType.get(i);
+				list.add(type.chatColor + I18n.getString(type.getUnlocalizedName() + ".potency", potency));
+			}
+			
+			list.add(EnumChatFormatting.GOLD + I18n.getString("spell.total_potency", this.totalPotency));
+		}
+		
 		return list;
 	}
 	
