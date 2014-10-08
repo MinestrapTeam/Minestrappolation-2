@@ -15,6 +15,7 @@ public class EntityNukePrimed extends Entity
 		super(world);
 		this.preventEntitySpawning = true;
 		this.yOffset = this.height / 2.0F;
+		this.fuse = 120;
 		this.setSize(0.98F, 0.98F);
 	}
 	
