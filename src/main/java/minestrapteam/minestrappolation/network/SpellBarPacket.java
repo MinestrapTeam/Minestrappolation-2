@@ -4,7 +4,8 @@ import java.io.IOException;
 
 import clashsoft.cslib.minecraft.network.CSPacket;
 import minestrapteam.minestrappolation.spell.PlayerSpells;
-import minestrapteam.minestrappolation.spell.Spell;
+import minestrapteam.minestrappolation.spell.ISpell;
+import minestrapteam.minestrappolation.spell.SpellHandler;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -13,13 +14,13 @@ import net.minecraft.network.PacketBuffer;
 public class SpellBarPacket extends CSPacket
 {
 	public int		slot;
-	public Spell	spell;
+	public ISpell	spell;
 	
 	public SpellBarPacket()
 	{
 	}
 	
-	public SpellBarPacket(int slot, Spell spell)
+	public SpellBarPacket(int slot, ISpell spell)
 	{
 		this.slot = slot;
 		this.spell = spell;
@@ -29,14 +30,14 @@ public class SpellBarPacket extends CSPacket
 	public void read(PacketBuffer buf) throws IOException
 	{
 		this.slot = buf.readInt();
-		this.spell = Spell.getSpellByName(buf.readStringFromBuffer(0xFF));
+		this.spell = SpellHandler.readFromBuffer(buf);
 	}
 	
 	@Override
 	public void write(PacketBuffer buf) throws IOException
 	{
 		buf.writeInt(this.slot);
-		buf.writeStringToBuffer(Spell.spellRegistry.getNameForObject(this.spell));
+		SpellHandler.writeToBuffer(this.spell, buf);
 	}
 	
 	@Override

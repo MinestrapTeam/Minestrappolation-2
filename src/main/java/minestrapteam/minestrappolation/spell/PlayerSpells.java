@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import clashsoft.cslib.minecraft.entity.CSEntities;
+import minestrapteam.minestrappolation.spell.data.SpellType;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,14 +14,14 @@ import net.minecraftforge.common.IExtendedEntityProperties;
 
 public class PlayerSpells implements IExtendedEntityProperties
 {
-	public EntityPlayer		player;
+	public EntityPlayer	player;
 	
-	public int				currentSpell	= 0;
-	public Spell[]			selectedSpells	= new Spell[9];
-	protected List<Spell>	spells			= new ArrayList();
+	public int			currentSpell	= 0;
+	public ISpell[]		selectedSpells	= new ISpell[9];
+	public List<ISpell>	spells			= new ArrayList();
 	
-	public int[]			manaLevels		= new int[SpellType.SPELL_TYPES.length];
-	public int[]			maxManaLevels	= new int[SpellType.SPELL_TYPES.length];
+	public int[]		manaLevels		= new int[SpellType.SPELL_TYPES.length];
+	public int[]		maxManaLevels	= new int[SpellType.SPELL_TYPES.length];
 	
 	public PlayerSpells(Entity entity)
 	{
@@ -59,17 +60,17 @@ public class PlayerSpells implements IExtendedEntityProperties
 		}
 	}
 	
-	public Spell getCurrentSpell()
+	public ISpell getCurrentSpell()
 	{
 		return this.selectedSpells[this.currentSpell];
 	}
 	
-	public Spell getSpell(int slot)
+	public ISpell getSpell(int slot)
 	{
 		return this.selectedSpells[slot];
 	}
 	
-	public void setSpell(int slot, Spell spell)
+	public void setSpell(int slot, ISpell spell)
 	{
 		this.selectedSpells[slot] = spell;
 	}

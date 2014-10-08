@@ -1,7 +1,5 @@
 package minestrapteam.minestrappolation.client.gui;
 
-import java.util.Iterator;
-
 import org.lwjgl.opengl.GL11;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -10,9 +8,10 @@ import cpw.mods.fml.common.gameevent.TickEvent.Phase;
 import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.client.MClientProxy;
 import minestrapteam.minestrappolation.network.SpellUsePacket;
+import minestrapteam.minestrappolation.spell.ISpell;
 import minestrapteam.minestrappolation.spell.PlayerSpells;
-import minestrapteam.minestrappolation.spell.Spell;
-import minestrapteam.minestrappolation.spell.SpellType;
+import minestrapteam.minestrappolation.spell.SpellHandler;
+import minestrapteam.minestrappolation.spell.data.SpellType;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
@@ -59,17 +58,9 @@ public class GuiSpellOverlay extends Gui
 	}
 	
 	@SubscribeEvent
-	public void preTextureStick(TextureStitchEvent.Pre event)
+	public void preTextureStitch(TextureStitchEvent.Pre event)
 	{
-		if (event.map.getTextureType() != 0)
-		{
-			Iterator<Spell> iterator = Spell.spellRegistry.iterator();
-			while (iterator.hasNext())
-			{
-				Spell spell = iterator.next();
-				spell.registerIcons(event.map);
-			}
-		}
+		SpellHandler.registerIcons(event.map);
 	}
 	
 	@SubscribeEvent
@@ -168,7 +159,7 @@ public class GuiSpellOverlay extends Gui
 		this.mc.renderEngine.bindTexture(TextureMap.locationItemsTexture);
 		for (int i = 0; i < 9; i++)
 		{
-			Spell spell = this.spells.getSpell(i);
+			ISpell spell = this.spells.getSpell(i);
 			if (spell == null)
 			{
 				continue;
@@ -180,7 +171,7 @@ public class GuiSpellOverlay extends Gui
 		// Spell Tooltip
 		if (this.spellHighlightTicks > 0)
 		{
-			Spell spell = this.spells.getCurrentSpell();
+			ISpell spell = this.spells.getCurrentSpell();
 			if (spell != null)
 			{
 				String name = spell.getDisplayName();

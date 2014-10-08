@@ -7,9 +7,10 @@ import org.lwjgl.opengl.GL11;
 import clashsoft.cslib.minecraft.lang.I18n;
 import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.network.SpellBarPacket;
+import minestrapteam.minestrappolation.spell.ISpell;
 import minestrapteam.minestrappolation.spell.PlayerSpells;
-import minestrapteam.minestrappolation.spell.Spell;
-import minestrapteam.minestrappolation.spell.SpellType;
+import minestrapteam.minestrappolation.spell.data.SpellType;
+import minestrapteam.minestrappolation.spell.data.SpellVariety;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
@@ -30,17 +31,17 @@ public class GuiSpellInventory extends GuiScreen
 	public EntityPlayer						player;
 	public PlayerSpells						playerSpells;
 	
-	public SpellType						currentType;
-	public List<Spell>						spells;
+	public SpellVariety						currentTab;
+	public List<ISpell>						spells;
 	
-	public Spell							hoveringSpell;
-	public Spell							grabbedSpell;
+	public ISpell							hoveringSpell;
+	public ISpell							grabbedSpell;
 	
 	public GuiSpellInventory(EntityPlayer player)
 	{
 		this.player = player;
 		this.playerSpells = PlayerSpells.get(player);
-		this.setSpellType(SpellType.WATER);
+		this.setCurrentTab(SpellVariety.PROJECTILE);
 	}
 	
 	@Override
@@ -53,10 +54,10 @@ public class GuiSpellInventory extends GuiScreen
 	@Override
 	public void drawScreen(int mouseX, int mouseY, float partialTickTime)
 	{
-		for (int i = 0; i < 8; i++)
+		for (int i = 0; i < SpellVariety.SPELL_VARIETIES.length; i++)
 		{
-			SpellType type = SpellType.get(i);
-			if (type != this.currentType)
+			SpellVariety type = SpellVariety.get(i);
+			if (type != this.currentTab)
 			{
 				this.renderTab(type, mouseX, mouseY, false);
 			}
@@ -66,15 +67,15 @@ public class GuiSpellInventory extends GuiScreen
 		this.mc.renderEngine.bindTexture(SPELL_INVENTORY);
 		this.drawTexturedModalRect(this.left, this.top, 0, 0, 176, 136);
 		
-		this.renderTab(this.currentType, mouseX, mouseY, true);
+		this.renderTab(this.currentTab, mouseX, mouseY, true);
 		
-		this.fontRendererObj.drawString(this.currentType.getDisplayName() + " " + I18n.getString("spell.spells"), this.left + 7, this.top + 6, 4210752);
+		this.fontRendererObj.drawString(this.currentTab.getDisplayName() + " " + I18n.getString("spell.spells"), this.left + 7, this.top + 6, 4210752);
 		
 		this.hoveringSpell = null;
 		
 		for (int i = 0; i < 9; i++)
 		{
-			Spell spell = null;
+			ISpell spell = null;
 			int x = this.left + 8 + i * 18;
 			int y;
 			
@@ -121,7 +122,7 @@ public class GuiSpellInventory extends GuiScreen
 		}
 	}
 	
-	public boolean drawSpellSlot(Spell spell, int x, int y, int mouseX, int mouseY)
+	public boolean drawSpellSlot(ISpell spell, int x, int y, int mouseX, int mouseY)
 	{
 		GL11.glColor4f(1F, 1F, 1F, 1F);
 		
@@ -147,7 +148,7 @@ public class GuiSpellInventory extends GuiScreen
 		return flag;
 	}
 	
-	protected void renderTab(SpellType type, int mouseX, int mouseY, boolean selected)
+	protected void renderTab(SpellVariety type, int mouseX, int mouseY, boolean selected)
 	{
 		int id = type.id;
 		int i1 = id % 4;
@@ -177,11 +178,11 @@ public class GuiSpellInventory extends GuiScreen
 			return;
 		}
 		
-		for (int i = 0; i < 8; i++)
+		for (int i = 0; i < SpellVariety.SPELL_VARIETIES.length; i++)
 		{
 			if (this.isMouseOverTab(i, x, y))
 			{
-				this.setSpellType(SpellType.get(i));
+				this.setCurrentTab(SpellVariety.get(i));
 				return;
 			}
 		}
@@ -212,7 +213,7 @@ public class GuiSpellInventory extends GuiScreen
 			{
 				Minestrappolation.instance.netHandler.sendToServer(new SpellBarPacket(i, this.grabbedSpell));
 				
-				Spell spell = this.playerSpells.getSpell(i);
+				ISpell spell = this.playerSpells.getSpell(i);
 				this.playerSpells.setSpell(i, this.grabbedSpell);
 				this.grabbedSpell = spell;
 				return;
@@ -236,13 +237,13 @@ public class GuiSpellInventory extends GuiScreen
 		return mouseX >= x1 && mouseX <= x1 + 28 && mouseY >= y1 && mouseY <= y1 + 28;
 	}
 	
-	public void setSpellType(SpellType spellType)
+	public void setCurrentTab(SpellVariety tab)
 	{
-		this.currentType = spellType;
-		this.spells = spellType.getSpells(this.playerSpells);
+		this.currentTab = tab;
+		this.spells = tab.getSpells(this.playerSpells);
 	}
 	
-	public static void renderSpellIcon(Spell spell, int x, int y)
+	public static void renderSpellIcon(ISpell spell, int x, int y)
 	{
 		for (int i = 0; i < spell.getRenderPasses(); i++)
 		{

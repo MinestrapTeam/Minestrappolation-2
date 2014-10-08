@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import clashsoft.cslib.minecraft.network.CSPacket;
 import minestrapteam.minestrappolation.spell.PlayerSpells;
-import minestrapteam.minestrappolation.spell.Spell;
+import minestrapteam.minestrappolation.spell.ISpell;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -45,7 +45,7 @@ public class SpellUsePacket extends CSPacket
 	{
 		PlayerSpells spells = PlayerSpells.get(player);
 		spells.currentSpell = this.spell;
-		Spell spell = spells.getCurrentSpell();
+		ISpell spell = spells.getCurrentSpell();
 		if (spell != null)
 		{
 			spell.onSpellRightClick(spells, player);
