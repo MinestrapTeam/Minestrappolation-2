@@ -28,6 +28,8 @@ public interface ISpell
 	
 	public IIcon getIcon(int pass);
 	
+	public int getRenderColor(int pass);
+	
 	public int getRenderPasses();
 	
 	public void onSpellRightClick(PlayerSpells spells, EntityPlayerMP player);

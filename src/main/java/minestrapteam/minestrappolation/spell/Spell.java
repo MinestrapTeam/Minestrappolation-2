@@ -16,18 +16,16 @@ import net.minecraft.util.IIcon;
 
 public class Spell implements ISpell
 {
-	public static final Random	random	= new Random();
-	
-	static
-	{
-		SpellList.init();
-	}
+	public static final Random	random			= new Random();
 	
 	public String				name;
 	public SpellCategory		category;
 	public SpellVariety			variety;
 	
-	public int[]				potencies;
+	protected int[]				potencies;
+	
+	private int					totalPotency;
+	private int					displayColor	= -1;
 	
 	public Spell(SpellCategory category, SpellVariety variety, int[] potencies)
 	{
@@ -42,6 +40,14 @@ public class Spell implements ISpell
 		this.potencies = potencies;
 	}
 	
+	public Spell setPotencies(int[] potencies)
+	{
+		this.potencies = potencies;
+		// FIXME
+		this.displayColor = 0x0000FF;
+		return this;
+	}
+	
 	@Override
 	public String getDisplayName()
 	{
@@ -51,7 +57,7 @@ public class Spell implements ISpell
 	@Override
 	public int getDisplayColor()
 	{
-		return 0xFFFFFF;
+		return this.displayColor;
 	}
 	
 	@Override
@@ -87,13 +93,30 @@ public class Spell implements ISpell
 	@Override
 	public IIcon getIcon(int pass)
 	{
-		return null;
+		if (pass == 1)
+		{
+			return this.category.icon;
+		}
+		else if (pass == 2)
+		{
+			return this.variety.icon;
+		}
+		return SpellHandler.SPELL_BACKGROUND;
+	}
+	
+	@Override
+	public int getRenderColor(int pass)
+	{
+		if (pass != 0) {
+			return this.displayColor;
+		}
+		return 0xFFFFFF;
 	}
 	
 	@Override
 	public int getRenderPasses()
 	{
-		return 1;
+		return 3;
 	}
 	
 	@Override

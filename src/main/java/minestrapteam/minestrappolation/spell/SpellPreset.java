@@ -22,28 +22,30 @@ import net.minecraft.util.IIcon;
 
 public class SpellPreset implements ISpell
 {
-	public static Map<String, SpellPreset> presets = new HashMap();
+	public static Map<String, ISpell>	presets	= new HashMap();
 	
-	public SpellType			type;
-	public SpellCategory category;
-	public SpellVariety variety;
-	public EnumRarity			rarity			= EnumRarity.common;
+	public SpellType					type;
+	public SpellCategory				category;
+	public SpellVariety					variety;
+	public EnumRarity					rarity	= EnumRarity.common;
 	
-	public String name;
+	public String						name;
 	
-	public String				iconName;
-	protected IIcon				icon;
+	public String						iconName;
+	protected IIcon						icon;
 	
-	public SpellPreset(SpellType type, SpellCategory category, String name)
+	public SpellPreset(SpellType type, SpellCategory category, SpellVariety variety, String name)
 	{
 		this.type = type;
 		this.category = category;
+		this.variety = variety;
 		this.name = name;
 	}
 	
 	public SpellPreset register()
 	{
 		presets.put(this.name, this);
+		SpellList.spells.add(this);
 		return this;
 	}
 	
@@ -132,6 +134,12 @@ public class SpellPreset implements ISpell
 	public IIcon getIcon(int pass)
 	{
 		return this.icon;
+	}
+	
+	@Override
+	public int getRenderColor(int pass)
+	{
+		return 0xFFFFFF;
 	}
 	
 	@Override

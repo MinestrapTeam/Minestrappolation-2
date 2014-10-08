@@ -133,6 +133,14 @@ public class MAssetManager
 	/**
 	 * Only for items.
 	 */
+	public static String getSpellTexture(String name)
+	{
+		return MReference.MODID + ":spells/" + name;
+	}
+	
+	/**
+	 * Only for items.
+	 */
 	public static String getToolTexture(String name)
 	{
 		return MReference.MODID + ":tools/" + name;

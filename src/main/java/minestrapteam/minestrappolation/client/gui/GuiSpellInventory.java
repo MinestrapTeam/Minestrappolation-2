@@ -9,7 +9,6 @@ import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.network.SpellBarPacket;
 import minestrapteam.minestrappolation.spell.ISpell;
 import minestrapteam.minestrappolation.spell.PlayerSpells;
-import minestrapteam.minestrappolation.spell.data.SpellType;
 import minestrapteam.minestrappolation.spell.data.SpellVariety;
 
 import net.minecraft.client.Minecraft;
@@ -116,8 +115,8 @@ public class GuiSpellInventory extends GuiScreen
 		{
 			if (this.isMouseOverTab(i, mouseX, mouseY))
 			{
-				SpellType type = SpellType.get(i);
-				this.drawCreativeTabHoveringText(type.chatColor + type.getDisplayName(), mouseX, mouseY);
+				SpellVariety variety = SpellVariety.get(i);
+				this.drawCreativeTabHoveringText(variety.getDisplayName(), mouseX, mouseY);
 			}
 		}
 	}
@@ -167,7 +166,11 @@ public class GuiSpellInventory extends GuiScreen
 		this.mc.renderEngine.bindTexture(CREATIVE_TABS);
 		this.drawTexturedModalRect(x, y, u, v, 28, 32);
 		
-		// TODO Spell Type Icon
+		if (type.icon != null)
+		{
+			GL11.glColor4f(0F, 0F, 0F, 1F);
+			this.drawTexturedModelRectFromIcon(x + 6, y + 6, type.icon, 16, 16);
+		}
 	}
 	
 	@Override
@@ -250,7 +253,12 @@ public class GuiSpellInventory extends GuiScreen
 			IIcon icon = spell.getIcon(i);
 			if (icon != null)
 			{
-				GL11.glColor4f(1F, 1F, 1F, 1F);
+				int color = spell.getRenderColor(i);
+				float r = ((color >> 16) & 0xFF) / 255F;
+				float g = ((color >> 8) & 0xFF) / 255F;
+				float b = ((color >> 0) & 0xFF) / 255F;
+				
+				GL11.glColor4f(r, g, b, 1F);
 				Minecraft.getMinecraft().renderEngine.bindTexture(TextureMap.locationItemsTexture);
 				Tessellator tessellator = Tessellator.instance;
 				tessellator.startDrawingQuads();

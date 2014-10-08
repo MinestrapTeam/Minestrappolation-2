@@ -19,6 +19,7 @@ import minestrapteam.minestrappolation.crafting.MelterRecipeLoader;
 import minestrapteam.minestrappolation.creativetab.*;
 import minestrapteam.minestrappolation.lib.*;
 import minestrapteam.minestrappolation.network.MNetHandler;
+import minestrapteam.minestrappolation.spell.SpellList;
 import minestrapteam.minestrappolation.util.MAssetManager;
 import minestrapteam.minestrappolation.world.MWorldGenerator;
 
@@ -81,6 +82,8 @@ public class Minestrappolation extends BaseMod
 	public void preInit(FMLPreInitializationEvent event)
 	{
 		super.preInit(event);
+		
+		SpellList.init();
 		
 		MConfig.load();
 		
