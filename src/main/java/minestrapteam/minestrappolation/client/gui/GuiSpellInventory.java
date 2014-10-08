@@ -11,7 +11,9 @@ import minestrapteam.minestrappolation.spell.PlayerSpells;
 import minestrapteam.minestrappolation.spell.Spell;
 import minestrapteam.minestrappolation.spell.SpellType;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.IIcon;
@@ -101,13 +103,7 @@ public class GuiSpellInventory extends GuiScreen
 		
 		if (this.grabbedSpell != null)
 		{
-			IIcon icon = this.grabbedSpell.getIcon();
-			if (icon != null)
-			{
-				GL11.glColor4f(1F, 1F, 1F, 1F);
-				this.mc.renderEngine.bindTexture(TextureMap.locationItemsTexture);
-				this.drawTexturedModelRectFromIcon(mouseX - 8, mouseY - 8, icon, 16, 16);
-			}
+			renderSpellIcon(this.grabbedSpell, mouseX - 8, mouseY - 8);
 		}
 		
 		if (this.hoveringSpell != null)
@@ -133,12 +129,7 @@ public class GuiSpellInventory extends GuiScreen
 		
 		if (spell != null)
 		{
-			IIcon icon = spell.getIcon();
-			if (icon != null)
-			{
-				this.mc.renderEngine.bindTexture(TextureMap.locationItemsTexture);
-				this.drawTexturedModelRectFromIcon(x, y, icon, 16, 16);
-			}
+			renderSpellIcon(spell, x, y);
 		}
 		
 		if (mouseX >= x && mouseX < x + 18 && mouseY >= y && mouseY < y + 18)
@@ -159,7 +150,7 @@ public class GuiSpellInventory extends GuiScreen
 	protected void renderTab(SpellType type, int mouseX, int mouseY, boolean selected)
 	{
 		int id = type.id;
-		int i1 = (id % 4);
+		int i1 = id % 4;
 		int x = this.left + i1 * 48;
 		int y = this.top - 28;
 		int u = i1 * 28;
@@ -249,5 +240,25 @@ public class GuiSpellInventory extends GuiScreen
 	{
 		this.currentType = spellType;
 		this.spells = spellType.getSpells(this.playerSpells);
+	}
+	
+	public static void renderSpellIcon(Spell spell, int x, int y)
+	{
+		for (int i = 0; i < spell.getRenderPasses(); i++)
+		{
+			IIcon icon = spell.getIcon(i);
+			if (icon != null)
+			{
+				GL11.glColor4f(1F, 1F, 1F, 1F);
+				Minecraft.getMinecraft().renderEngine.bindTexture(TextureMap.locationItemsTexture);
+				Tessellator tessellator = Tessellator.instance;
+				tessellator.startDrawingQuads();
+				tessellator.addVertexWithUV(x, y + 16D, 0D, icon.getMinU(), icon.getMaxV());
+				tessellator.addVertexWithUV(x + 16D, y + 16D, 0D, icon.getMaxU(), icon.getMaxV());
+				tessellator.addVertexWithUV(x + 16D, y, 0D, icon.getMaxU(), icon.getMinV());
+				tessellator.addVertexWithUV(x, y, 0D, icon.getMinU(), icon.getMinV());
+				tessellator.draw();
+			}
+		}
 	}
 }

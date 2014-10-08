@@ -126,9 +126,14 @@ public class Spell
 		}
 	}
 	
-	public IIcon getIcon()
+	public IIcon getIcon(int pass)
 	{
 		return this.icon;
+	}
+	
+	public int getRenderPasses()
+	{
+		return 1;
 	}
 	
 	public void onSpellRightClick(PlayerSpells spells, EntityPlayerMP player)

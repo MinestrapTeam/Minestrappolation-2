@@ -18,7 +18,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.texture.TextureMap;
-import net.minecraft.util.IIcon;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.MouseEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
@@ -175,11 +174,7 @@ public class GuiSpellOverlay extends Gui
 				continue;
 			}
 			
-			IIcon icon = spell.getIcon();
-			if (icon != null)
-			{
-				this.drawTexturedModelRectFromIcon(left + 3, top + 3 + i * 20, icon, 16, 16);
-			}
+			GuiSpellInventory.renderSpellIcon(spell, left + 3, top + 3 + i * 20);
 		}
 		
 		// Spell Tooltip
