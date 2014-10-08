@@ -1326,10 +1326,28 @@ spelltype.electricity.name=Electricity
 spelltype.life.name=Life
 spelltype.arcane.name=Arcane
 
-spellcategory.attack=Offensive
+spelltype.water.potency=Water Potency: %d
+spelltype.fire.potency=Fire Potency: %d
+spelltype.earth.potency=Earth Potency: %d
+spelltype.wind.potency=Wind Potency: %d
+spelltype.frost.potency=Frost Potency: %d
+spelltype.electricity.potency=Electricity Potency: %d
+spelltype.life.potency=Life Potency: %d
+spelltype.arcane.potency=Arcane Potency: %d
+
+spellcategory.offense=Offensive
 spellcategory.defense=Defensive
 spellcategory.alteration=Altering
 spellcategory.summoning=Summoning
+
+spellvariety.projectile=Projectile
+spellvariety.beam=Beam
+spellvariety.spray=Spray
+spellvariety.vortex=Vortex
+spellvariety.body_armor=Body Armor
+spellvariety.abrasive_armor=Abrasive Armor
+spellvariety.mirror_shield=Mirror Shield
+spellvariety.area_shield=Area Shield
 
 spell.spell=Spell
 spell.spells=Spells

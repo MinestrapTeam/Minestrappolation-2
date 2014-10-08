@@ -6,6 +6,7 @@ import java.util.Random;
 
 import clashsoft.cslib.random.CSRandom;
 import minestrapteam.minestrappolation.spell.data.SpellCategory;
+import minestrapteam.minestrappolation.spell.data.SpellType;
 import minestrapteam.minestrappolation.spell.data.SpellVariety;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -16,7 +17,7 @@ import net.minecraft.util.IIcon;
 
 public class Spell implements ISpell
 {
-	public static final Random	random			= new Random();
+	public static final Random	random	= new Random();
 	
 	public String				name;
 	public SpellCategory		category;
@@ -25,7 +26,7 @@ public class Spell implements ISpell
 	protected int[]				potencies;
 	
 	private int					totalPotency;
-	private int					displayColor	= -1;
+	private int					displayColor;
 	
 	public Spell(SpellCategory category, SpellVariety variety, int[] potencies)
 	{
@@ -37,14 +38,56 @@ public class Spell implements ISpell
 		this.name = name;
 		this.category = category;
 		this.variety = variety;
-		this.potencies = potencies;
+		this.setPotencies(potencies);
 	}
 	
 	public Spell setPotencies(int[] potencies)
 	{
 		this.potencies = potencies;
-		// FIXME
-		this.displayColor = 0x0000FF;
+		
+		float r = 0F;
+		float g = 0F;
+		float b = 0F;
+		float f = 0F;
+		int len = this.potencies.length;
+		int totalPotency = 0;
+		
+		if (len == 0)
+		{
+			this.displayColor = 0;
+			this.totalPotency = 0;
+			
+			return this;
+		}
+		
+		for (int i = 0; i < len; i++)
+		{
+			int potency = this.potencies[i];
+			if (potency > 0)
+			{
+				int color = SpellType.get(i).color;
+				float f1 = potency / 255F;
+				
+				if (f1 > 1F)
+				{
+					f1 = 1F;
+				}
+				
+				r += ((color >> 16) & 0xFF) * f1;
+				g += ((color >> 8) & 0xFF) * f1;
+				b += ((color >> 0) & 0xFF) * f1;
+				totalPotency += potency;
+				f += f1;
+			}
+		}
+		
+		r /= f;
+		g /= f;
+		b /= f;
+		
+		this.displayColor = (((int) r & 0xFF) << 16) | (((int) g & 0xFF) << 8) | (((int) b & 0xFF) << 0);
+		this.totalPotency = totalPotency;
+		
 		return this;
 	}
 	
@@ -107,7 +150,8 @@ public class Spell implements ISpell
 	@Override
 	public int getRenderColor(int pass)
 	{
-		if (pass != 0) {
+		if (pass != 0)
+		{
 			return this.displayColor;
 		}
 		return 0xFFFFFF;

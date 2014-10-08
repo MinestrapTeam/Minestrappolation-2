@@ -8,7 +8,7 @@ import java.util.Random;
 import clashsoft.cslib.minecraft.lang.I18n;
 import minestrapteam.minestrappolation.spell.ISpell;
 import minestrapteam.minestrappolation.spell.PlayerSpells;
-import minestrapteam.minestrappolation.spell.SpellPreset;
+import minestrapteam.minestrappolation.spell.SpellList;
 import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -62,7 +62,7 @@ public class SpellVariety
 		Iterator<? extends ISpell> iterator;
 		if (spells.player.capabilities.isCreativeMode)
 		{
-			iterator = SpellPreset.presets.values().iterator();
+			iterator = SpellList.spells.iterator();
 		}
 		else
 		{

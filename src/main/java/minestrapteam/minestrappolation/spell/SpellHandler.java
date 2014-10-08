@@ -80,6 +80,11 @@ public class SpellHandler
 	public static ISpell readFromBuffer(PacketBuffer buffer) throws IOException
 	{
 		byte b = buffer.readByte();
+		if (b == 2)
+		{
+			return null;
+		}
+		
 		String s = buffer.readStringFromBuffer(0xFF);
 		if (b == 1)
 		{
