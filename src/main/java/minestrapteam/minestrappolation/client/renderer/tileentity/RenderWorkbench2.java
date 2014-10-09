@@ -11,8 +11,8 @@ import net.minecraft.util.ResourceLocation;
 
 public class RenderWorkbench2 extends TileEntitySpecialRenderer
 {
+	public static ResourceLocation	texture	= MAssetManager.getModelResource("crafting_table");
 	private final ModelWorkbench	model;
-	public static ResourceLocation	texture	= MAssetManager.getModelResource("CraftingTable");
 	
 	public RenderWorkbench2()
 	{
