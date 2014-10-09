@@ -413,6 +413,8 @@ public class MBlocks
 	
 	public static Block				freezer;
 	
+	public static Block arcaneForge;
+	
 	public static void init()
 	{
 		addStoneBlocks();
@@ -524,6 +526,7 @@ public class MBlocks
 		// EF Blocks
 		
 		freezer = new BlockFreezer().setHardness(2F).setStepSound(Block.soundTypeMetal).setCreativeTab(Minestrappolation.tabTech);
+		arcaneForge = new BlockArcaneForge().setHardness(5.0F).setResistance(2000.0F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabDecorationBlocks);
 	}
 	
 	public static void load()
@@ -629,6 +632,8 @@ public class MBlocks
 		// EF Blocks
 		
 		CSBlocks.addBlock(freezer, "freezer");
+		
+		CSBlocks.addBlock(arcaneForge, "arcane_forge");
 		
 		setFlammability();
 	}

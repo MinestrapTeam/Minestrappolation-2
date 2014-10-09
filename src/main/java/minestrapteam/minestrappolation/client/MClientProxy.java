@@ -9,17 +9,21 @@ import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import minestrapteam.minestrappolation.client.gui.*;
+import minestrapteam.minestrappolation.client.model.ModelArcaneForge;
+import minestrapteam.minestrappolation.client.model.ModelSawmill;
+import minestrapteam.minestrappolation.client.model.ModelStonecutter;
+import minestrapteam.minestrappolation.client.model.ModelWorkbench;
 import minestrapteam.minestrappolation.client.renderer.RenderHangGlider;
 import minestrapteam.minestrappolation.client.renderer.RenderNukePrimed;
 import minestrapteam.minestrappolation.client.renderer.block.*;
+import minestrapteam.minestrappolation.client.renderer.tileentity.RenderFacedTileEntity;
 import minestrapteam.minestrappolation.client.renderer.tileentity.RenderLocked;
-import minestrapteam.minestrappolation.client.renderer.tileentity.RenderSawmill;
-import minestrapteam.minestrappolation.client.renderer.tileentity.RenderStonecutter;
-import minestrapteam.minestrappolation.client.renderer.tileentity.RenderWorkbench2;
+import minestrapteam.minestrappolation.client.renderer.tileentity.RenderTileEntity;
 import minestrapteam.minestrappolation.common.MCommonProxy;
 import minestrapteam.minestrappolation.entity.*;
 import minestrapteam.minestrappolation.lib.MItems;
 import minestrapteam.minestrappolation.tileentity.*;
+import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.client.settings.KeyBinding;
@@ -57,12 +61,13 @@ public class MClientProxy extends MCommonProxy
 	public void init(FMLInitializationEvent event)
 	{
 		// Tile Entity Renderers
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityStonecutter.class, new RenderStonecutter());
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEntitySawmill.class, new RenderSawmill());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityStonecutter.class, new RenderFacedTileEntity(new ModelStonecutter(), MAssetManager.getModelResource("stonecutter")));
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntitySawmill.class, new RenderFacedTileEntity(new ModelSawmill(), MAssetManager.getModelResource("sawmill")));
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGoblet.class, new RenderGoblet());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPlate.class, new RenderPlate());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityLocked.class, new RenderLocked());
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityWorkbench2.class, new RenderWorkbench2());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityWorkbench2.class, new RenderTileEntity(new ModelWorkbench(), MAssetManager.getModelResource("crafting_table")));
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityArcaneForge.class, new RenderTileEntity(new ModelArcaneForge(), MAssetManager.getModelResource("arcane_forge")));
 		
 		// Item Renderers
 		MinecraftForgeClient.registerItemRenderer(MItems.hangGlider, new RenderHangGlider());
