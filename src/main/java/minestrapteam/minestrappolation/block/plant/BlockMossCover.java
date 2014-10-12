@@ -1,4 +1,4 @@
-package minestrapteam.minestrappolation.block;
+package minestrapteam.minestrappolation.block.plant;
 
 import java.util.Random;
 

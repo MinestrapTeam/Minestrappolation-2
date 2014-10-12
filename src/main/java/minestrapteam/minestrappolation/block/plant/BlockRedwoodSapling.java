@@ -1,5 +1,6 @@
-package minestrapteam.minestrappolation.block;
+package minestrapteam.minestrappolation.block.plant;
 
+import minestrapteam.minestrappolation.block.MBlockSapling;
 import minestrapteam.minestrappolation.world.gen.WorldGenBaseTree;
 import minestrapteam.minestrappolation.world.gen.WorldGenRedWoodTree;
 import minestrapteam.minestrappolation.world.gen.WorldGenRedWoodTreeSmall;

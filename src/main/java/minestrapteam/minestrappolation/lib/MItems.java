@@ -181,6 +181,10 @@ public class MItems
 	public static Item	deathMeal;
 	public static Item	witherAsh;
 	
+	/*/ {----- Magic Items -----} /*/
+	
+	public static Item manaLeaf;
+	
 	public static void init()
 	{
 		// Brick Items
@@ -331,6 +335,10 @@ public class MItems
 		
 		deathMeal = new ItemDeathmeal().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("deathmeal"));
 		witherAsh = new ItemWitherAsh().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMobTexture("wither_ash"));
+		
+		// Magic Items
+		
+		manaLeaf = new MItem().setCreativeTab(tabMisc).setTextureName(MAssetManager.getTexture("mana_leaf"));
 	}
 	
 	public static void load()

@@ -11,6 +11,9 @@ import minestrapteam.minestrappolation.block.glass.BlockGlowGlass;
 import minestrapteam.minestrappolation.block.glass.BlockSlowGlass;
 import minestrapteam.minestrappolation.block.machine.*;
 import minestrapteam.minestrappolation.block.ore.*;
+import minestrapteam.minestrappolation.block.plant.BlockManaBush;
+import minestrapteam.minestrappolation.block.plant.BlockMossCover;
+import minestrapteam.minestrappolation.block.plant.BlockRedwoodSapling;
 import minestrapteam.minestrappolation.block.storage.*;
 import minestrapteam.minestrappolation.item.block.MCItemBlockMulti;
 import minestrapteam.minestrappolation.material.MaterialOoze;
@@ -413,7 +416,11 @@ public class MBlocks
 	
 	public static Block				freezer;
 	
-	public static Block arcaneForge;
+	/* / {----- Magic Blocks -----} / */
+	
+	public static Block				manaBush;
+	public static Block				bronzeCauldron;
+	public static Block				arcaneForge;
 	
 	public static void init()
 	{
@@ -509,8 +516,8 @@ public class MBlocks
 		
 		glassDoor = new BlockGlassDoor(Material.glass).setHardness(1F).setBlockTextureName(MAssetManager.getGlassTexture("glass_door"));
 		
-		String[] icons1 = CSString.concatAll(ItemDye.field_150921_b, MAssetManager.getLampTexture(""), "_lamp_off");
-		String[] icons2 = CSString.concatAll(ItemDye.field_150921_b, MAssetManager.getLampTexture(""), "_lamp_on");
+		String[] icons1 = CSString.concatAll(ItemDye.field_150921_b, "minestrappolation:lamps/", "_lamp_off");
+		String[] icons2 = CSString.concatAll(ItemDye.field_150921_b, "minestrappolation:lamps/", "_lamp_on");
 		coloredLampOff = (BlockCustomLamp) new BlockCustomLamp(ItemDye.field_150921_b, icons1, false).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(Minestrappolation.tabTech);
 		coloredLampOn = (BlockCustomLamp) new BlockCustomLamp(ItemDye.field_150921_b, icons2, true).setHardness(0.3F).setStepSound(Block.soundTypeGlass);
 		BlockCustomLamp.bind(coloredLampOff, coloredLampOn);
@@ -526,6 +533,10 @@ public class MBlocks
 		// EF Blocks
 		
 		freezer = new BlockFreezer().setHardness(2F).setStepSound(Block.soundTypeMetal).setCreativeTab(Minestrappolation.tabTech);
+		
+		// Magic Blocks
+		
+		manaBush = new BlockManaBush().setHardness(0.7F).setStepSound(Block.soundTypeGrass).setCreativeTab(Minestrappolation.tabDecorationBlocks);
 		arcaneForge = new BlockArcaneForge().setHardness(5.0F).setResistance(2000.0F).setStepSound(Block.soundTypeStone).setCreativeTab(Minestrappolation.tabDecorationBlocks);
 	}
 	
@@ -633,6 +644,9 @@ public class MBlocks
 		
 		CSBlocks.addBlock(freezer, "freezer");
 		
+		// Magic Blocks
+		
+		CSBlocks.addBlock(manaBush, "mana_bush");
 		CSBlocks.addBlock(arcaneForge, "arcane_forge");
 		
 		setFlammability();

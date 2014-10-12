@@ -1068,6 +1068,10 @@ tile.gunpowder_block.name=Block of Gunpowder
 tile.goblet.name=Goblet
 tile.plate.name=Plate
 
+tile.mana_bush.name=Mana Bush
+tile.bronze_cauldron.name=Bronze Cauldron
+tile.arcane_forge.name=Arcane Forge
+
 #Technology
 tile.stonecutter.name=Stonecutter
 tile.sawmill.name=Carpenter's Bench

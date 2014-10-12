@@ -89,7 +89,7 @@ public abstract class MBlockMachine extends BlockContainer
 			TileEntity te = world.getTileEntity(x, y, z);
 			if (te instanceof TileEntityInventory)
 			{
-				((TileEntityInventory) te).setInvName(stack.getDisplayName());
+				((TileEntityInventory) te).setInventoryName(stack.getDisplayName());
 			}
 		}
 	}
