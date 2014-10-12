@@ -17,17 +17,17 @@ public class PlayerSpells implements IExtendedEntityProperties
 	public EntityPlayer	player;
 	
 	public int			currentSpell	= 0;
-	public ISpell[]		selectedSpells	= new ISpell[9];
-	public List<ISpell>	spells			= new ArrayList();
+	public Spell[]		selectedSpells	= new Spell[9];
+	public List<Spell>	spells			= new ArrayList();
 	
-	public int[]		manaLevels		= new int[SpellType.SPELL_TYPES.length];
-	public int[]		maxManaLevels	= new int[SpellType.SPELL_TYPES.length];
+	public int[]		manaLevels		= new int[SpellType.spellTypes.length];
+	public int[]		maxManaLevels	= new int[SpellType.spellTypes.length];
 	
 	public PlayerSpells(Entity entity)
 	{
 		this.player = (EntityPlayer) entity;
 		
-		for (int i = 0; i < SpellType.SPELL_TYPES.length; i++)
+		for (int i = 0; i < SpellType.spellTypes.length; i++)
 		{
 			this.manaLevels[i] = 16;
 			this.maxManaLevels[i] = 16;
@@ -60,17 +60,17 @@ public class PlayerSpells implements IExtendedEntityProperties
 		}
 	}
 	
-	public ISpell getCurrentSpell()
+	public Spell getCurrentSpell()
 	{
 		return this.selectedSpells[this.currentSpell];
 	}
 	
-	public ISpell getSpell(int slot)
+	public Spell getSpell(int slot)
 	{
 		return this.selectedSpells[slot];
 	}
 	
-	public void setSpell(int slot, ISpell spell)
+	public void setSpell(int slot, Spell spell)
 	{
 		this.selectedSpells[slot] = spell;
 	}

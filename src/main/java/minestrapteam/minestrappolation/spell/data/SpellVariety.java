@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Random;
 
 import clashsoft.cslib.minecraft.lang.I18n;
-import minestrapteam.minestrappolation.spell.ISpell;
+import minestrapteam.minestrappolation.spell.Spell;
 import minestrapteam.minestrappolation.spell.PlayerSpells;
 import minestrapteam.minestrappolation.spell.SpellList;
 import minestrapteam.minestrappolation.util.MAssetManager;
@@ -18,7 +18,7 @@ import static minestrapteam.minestrappolation.spell.data.SpellCategory.*;
 
 public class SpellVariety
 {
-	public static SpellVariety[]		SPELL_VARIETIES				= new SpellVariety[16];
+	public static SpellVariety[]		spellVarieties				= new SpellVariety[16];
 	
 	public static final SpellVariety	PROJECTILE					= new SpellVariety(0, OFFENSE, "projectile");
 	public static final SpellVariety	BEAM						= new SpellVariety(1, OFFENSE, "beam");
@@ -51,7 +51,7 @@ public class SpellVariety
 		this.bit = 1 << id;
 		this.name = name;
 		
-		SPELL_VARIETIES[id] = this;
+		spellVarieties[id] = this;
 	}
 	
 	public String getUnlocalizedName()
@@ -69,11 +69,11 @@ public class SpellVariety
 		this.icon = iconRegister.registerIcon(MAssetManager.getSpellTexture("variety_" + this.name));
 	}
 	
-	public List<ISpell> getSpells(PlayerSpells spells)
+	public List<Spell> getSpells(PlayerSpells spells)
 	{
-		List<ISpell> list = new ArrayList();
+		List<Spell> list = new ArrayList();
 		
-		Iterator<? extends ISpell> iterator;
+		Iterator<? extends Spell> iterator;
 		if (spells.player.capabilities.isCreativeMode)
 		{
 			iterator = SpellList.spells.iterator();
@@ -84,7 +84,7 @@ public class SpellVariety
 		}
 		while (iterator.hasNext())
 		{
-			ISpell spell = iterator.next();
+			Spell spell = iterator.next();
 			if (spell.hasVariety(this))
 			{
 				list.add(spell);
@@ -96,11 +96,11 @@ public class SpellVariety
 	
 	public static SpellVariety get(int id)
 	{
-		return SPELL_VARIETIES[id];
+		return spellVarieties[id];
 	}
 	
 	public static SpellVariety random(Random random)
 	{
-		return get(random.nextInt(SPELL_VARIETIES.length));
+		return get(random.nextInt(spellVarieties.length));
 	}
 }

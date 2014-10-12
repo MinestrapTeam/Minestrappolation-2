@@ -12,7 +12,7 @@ import static minestrapteam.minestrappolation.spell.data.SpellVariety.*;
 
 public class SpellEnhancement
 {
-	public static SpellEnhancement[]		SPELL_ENHANCEMENTS		= new SpellEnhancement[16];
+	public static SpellEnhancement[]		spellEnhancements		= new SpellEnhancement[16];
 	
 	public static final SpellEnhancement	DAMAGE_OVER_TIME		= new SpellEnhancement(0, "damage_over_time", PROJECTILE.bit | BEAM.bit | SPRAY.bit | VORTEX.bit);
 	public static final SpellEnhancement	DAMAGE_BOOST			= new SpellEnhancement(1, "damage_boost", PROJECTILE.bit | BEAM.bit | SPRAY.bit | VORTEX.bit | ABRASIVE_ARMOR.bit);
@@ -43,7 +43,7 @@ public class SpellEnhancement
 		this.name = name;
 		this.varieties = varieties;
 		
-		SPELL_ENHANCEMENTS[id] = this;
+		spellEnhancements[id] = this;
 	}
 	
 	public String getUnlocalizedName()
@@ -68,11 +68,11 @@ public class SpellEnhancement
 	
 	public static SpellEnhancement get(int id)
 	{
-		return SPELL_ENHANCEMENTS[id];
+		return spellEnhancements[id];
 	}
 	
 	public static SpellEnhancement random(Random random)
 	{
-		return get(random.nextInt(SPELL_ENHANCEMENTS.length));
+		return get(random.nextInt(spellEnhancements.length));
 	}
 }

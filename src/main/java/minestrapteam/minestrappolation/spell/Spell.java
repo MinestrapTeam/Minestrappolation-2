@@ -18,7 +18,7 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
 
-public class Spell implements ISpell
+public class Spell
 {
 	public static final Random	random	= new Random();
 	
@@ -117,31 +117,26 @@ public class Spell implements ISpell
 		return this;
 	}
 	
-	@Override
 	public String getDisplayName()
 	{
 		return this.name;
 	}
 	
-	@Override
 	public int getDisplayColor()
 	{
 		return this.displayColor;
 	}
 	
-	@Override
 	public EnumRarity getRarity()
 	{
 		return this.rarity;
 	}
 	
-	@Override
 	public boolean hasVariety(SpellVariety variety)
 	{
 		return this.variety == variety;
 	}
 	
-	@Override
 	public List<String> getTooltip(int level)
 	{
 		List<String> list = new ArrayList();
@@ -175,17 +170,14 @@ public class Spell implements ISpell
 		return list;
 	}
 	
-	@Override
 	public void addInformation(List<String> list, int level)
 	{
 	}
 	
-	@Override
 	public void registerIcons(IIconRegister iconRegister)
 	{
 	}
 	
-	@Override
 	public IIcon getIcon(int pass)
 	{
 		if (pass == 1)
@@ -196,10 +188,13 @@ public class Spell implements ISpell
 		{
 			return this.variety.icon;
 		}
-		return SpellHandler.SPELL_BACKGROUND;
+		else if (pass == 3)
+		{
+			return this.enhancement.icon;
+		}
+		return SpellHandler.spellBackground;
 	}
 	
-	@Override
 	public int getRenderColor(int pass)
 	{
 		if (pass != 0)
@@ -209,22 +204,19 @@ public class Spell implements ISpell
 		return 0xFFFFFF;
 	}
 	
-	@Override
 	public int getRenderPasses()
 	{
-		return 3;
+		return 4;
 	}
 	
-	@Override
 	public void onSpellRightClick(PlayerSpells spells, EntityPlayerMP player)
 	{
-		
+		// TODO Subtract Mana, cast spell
 	}
 	
-	@Override
 	public boolean castSpell(EntityPlayer player)
 	{
-		System.out.println(this.name);
+		// TODO Implementation
 		return true;
 	}
 }

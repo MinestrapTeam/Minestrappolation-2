@@ -10,7 +10,7 @@ import net.minecraft.util.IIcon;
 
 public class SpellCategory
 {
-	public static SpellCategory[]		SPELL_CATEGORIES	= new SpellCategory[4];
+	public static SpellCategory[]		spellCategories	= new SpellCategory[4];
 	
 	public static final SpellCategory	OFFENSE				= new SpellCategory(0, "offense");
 	public static final SpellCategory	DEFENSE				= new SpellCategory(1, "defense");
@@ -27,7 +27,7 @@ public class SpellCategory
 		this.id = id;
 		this.name = name;
 		
-		SPELL_CATEGORIES[id] = this;
+		spellCategories[id] = this;
 	}
 	
 	public String getUnlocalizedName()
@@ -47,11 +47,11 @@ public class SpellCategory
 	
 	public static SpellCategory get(int id)
 	{
-		return SPELL_CATEGORIES[id];
+		return spellCategories[id];
 	}
 	
 	public static SpellCategory random(Random random)
 	{
-		return get(random.nextInt(SPELL_CATEGORIES.length));
+		return get(random.nextInt(spellCategories.length));
 	}
 }

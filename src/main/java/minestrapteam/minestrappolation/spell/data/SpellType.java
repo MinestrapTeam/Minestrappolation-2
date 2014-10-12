@@ -6,7 +6,7 @@ import net.minecraft.util.EnumChatFormatting;
 
 public class SpellType
 {
-	public static SpellType[]		SPELL_TYPES	= new SpellType[8];
+	public static SpellType[]		spellTypes	= new SpellType[8];
 	
 	public static final SpellType	WATER		= new SpellType(0, "water", 0x347A9D, EnumChatFormatting.DARK_AQUA);
 	public static final SpellType	FIRE		= new SpellType(1, "fire", 0x9D6834, EnumChatFormatting.GOLD);
@@ -29,7 +29,7 @@ public class SpellType
 		this.color = color;
 		this.chatColor = chatColor;
 		
-		SPELL_TYPES[id] = this;
+		spellTypes[id] = this;
 	}
 	
 	public String getUnlocalizedName()
@@ -44,6 +44,6 @@ public class SpellType
 	
 	public static SpellType get(int id)
 	{
-		return SPELL_TYPES[id];
+		return spellTypes[id];
 	}
 }
