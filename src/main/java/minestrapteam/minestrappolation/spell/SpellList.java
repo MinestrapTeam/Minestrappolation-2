@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import minestrapteam.minestrappolation.spell.data.SpellCategory;
+import minestrapteam.minestrappolation.spell.data.SpellEnhancement;
 import minestrapteam.minestrappolation.spell.data.SpellType;
 import minestrapteam.minestrappolation.spell.data.SpellVariety;
 import minestrapteam.minestrappolation.util.MAssetManager;
@@ -43,19 +43,23 @@ public class SpellList
 	public static void init()
 	{
 		int varieties = SpellVariety.SPELL_VARIETIES.length;
-		int categories = SpellCategory.SPELL_CATEGORIES.length;
+		int enhancements = SpellEnhancement.SPELL_ENHANCEMENTS.length;
 		int types = SpellType.SPELL_TYPES.length;
 		for (int v = 0; v < varieties; v++)
 		{
 			for (int t = 0; t < types; t++)
 			{
-				for (int c = 0; c < categories; c++)
+				for (int c = 0; c < enhancements; c++)
 				{
-					SpellCategory category = SpellCategory.get(c);
 					SpellVariety variety = SpellVariety.get(v);
-					int[] potencies = new int[types];
-					potencies[t] = 255;
-					spells.add(new Spell(category, variety, potencies));
+					SpellEnhancement enhancement = SpellEnhancement.get(c);
+					
+					if (enhancement.canApply(variety))
+					{
+						int[] potencies = new int[types];
+						potencies[t] = 255;
+						spells.add(new Spell(variety, enhancement, potencies));
+					}
 				}
 			}
 		}
@@ -83,12 +87,12 @@ public class SpellList
 	
 	public static Spell getRandomSpell(String name, Random random)
 	{
-		SpellCategory category = SpellCategory.random(random);
 		SpellVariety variety = SpellVariety.random(random);
+		SpellEnhancement enhancement = SpellEnhancement.random(random);
 		int type = random.nextInt(SpellType.SPELL_TYPES.length);
 		int[] potencies = new int[8];
 		potencies[type] = 255;
 		
-		return new Spell(category, variety, potencies, name);
+		return new Spell(variety, enhancement, potencies, name);
 	}
 }

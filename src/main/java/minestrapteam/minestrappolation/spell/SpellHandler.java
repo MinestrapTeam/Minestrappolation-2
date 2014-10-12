@@ -6,6 +6,7 @@ import java.util.Iterator;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import minestrapteam.minestrappolation.spell.data.SpellCategory;
+import minestrapteam.minestrappolation.spell.data.SpellEnhancement;
 import minestrapteam.minestrappolation.spell.data.SpellVariety;
 import minestrapteam.minestrappolation.util.MAssetManager;
 
@@ -63,8 +64,8 @@ public class SpellHandler
 			Spell spell1 = (Spell) spell;
 			buffer.writeByte(0);
 			buffer.writeStringToBuffer(spell1.name);
-			buffer.writeByte(spell1.category.id);
 			buffer.writeByte(spell1.variety.id);
+			buffer.writeByte(spell1.enhancement.id);
 			
 			for (int i = 0; i < 8; i++)
 			{
@@ -91,14 +92,14 @@ public class SpellHandler
 			return SpellPreset.presets.get(s);
 		}
 		
-		SpellCategory category = SpellCategory.get(buffer.readByte());
 		SpellVariety variety = SpellVariety.get(buffer.readByte());
+		SpellEnhancement enhancement = SpellEnhancement.get(buffer.readByte());
 		int[] potencies = new int[8];
 		for (int i = 0; i < 8; i++)
 		{
 			potencies[i] = buffer.readInt();
 		}
 		
-		return new Spell(category, variety, potencies, s);
+		return new Spell(variety, enhancement, potencies, s);
 	}
 }

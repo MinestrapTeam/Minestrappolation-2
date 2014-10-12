@@ -14,27 +14,41 @@ import minestrapteam.minestrappolation.util.MAssetManager;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
 
+import static minestrapteam.minestrappolation.spell.data.SpellCategory.*;
+
 public class SpellVariety
 {
-	public static SpellVariety[]		SPELL_VARIETIES	= new SpellVariety[8];
+	public static SpellVariety[]		SPELL_VARIETIES				= new SpellVariety[16];
 	
-	public static final SpellVariety	PROJECTILE		= new SpellVariety(0, "projectile");
-	public static final SpellVariety	BEAM			= new SpellVariety(1, "beam");
-	public static final SpellVariety	SPRAY			= new SpellVariety(2, "spray");
-	public static final SpellVariety	VORTEX			= new SpellVariety(3, "vortex");
-	public static final SpellVariety	BODY_ARMOR		= new SpellVariety(4, "body_armor");
-	public static final SpellVariety	ABRASIVE_ARMOR	= new SpellVariety(5, "abrasive_armor");
-	public static final SpellVariety	MIRROR_SHIELD	= new SpellVariety(6, "mirror_shield");
-	public static final SpellVariety	AREA_SHIELD		= new SpellVariety(7, "area_shield");
+	public static final SpellVariety	PROJECTILE					= new SpellVariety(0, OFFENSE, "projectile");
+	public static final SpellVariety	BEAM						= new SpellVariety(1, OFFENSE, "beam");
+	public static final SpellVariety	SPRAY						= new SpellVariety(2, OFFENSE, "spray");
+	public static final SpellVariety	VORTEX						= new SpellVariety(3, OFFENSE, "vortex");
+	public static final SpellVariety	BODY_ARMOR					= new SpellVariety(4, DEFENSE, "body_armor");
+	public static final SpellVariety	ABRASIVE_ARMOR				= new SpellVariety(5, DEFENSE, "abrasive_armor");
+	public static final SpellVariety	MIRROR_SHIELD				= new SpellVariety(6, DEFENSE, "mirror_shield");
+	public static final SpellVariety	AREA_SHIELD					= new SpellVariety(7, DEFENSE, "area_shield");
+	public static final SpellVariety	POWER_BOOST					= new SpellVariety(8, ALTERATION, "power_boost");
+	public static final SpellVariety	DEBUFF						= new SpellVariety(9, ALTERATION, "debuff");
+	public static final SpellVariety	BLOCK_TRANSFORMATION		= new SpellVariety(10, ALTERATION, "block_transformation");
+	public static final SpellVariety	ENVIRONMENT_TRANSFORMATION	= new SpellVariety(11, ALTERATION, "environment_transformation");
+	public static final SpellVariety	SUMMON_TOOL					= new SpellVariety(12, SUMMONING, "summon_tool");
+	public static final SpellVariety	SUMMON_WEAPON				= new SpellVariety(13, SUMMONING, "summon_weapon");
+	public static final SpellVariety	SUMMON_BLOCK				= new SpellVariety(14, SUMMONING, "summon_block");
+	public static final SpellVariety	SUMMON_MOB					= new SpellVariety(15, SUMMONING, "summon_mob");
 	
 	public final int					id;
+	public final int					bit;
+	
+	public SpellCategory				category;
 	public String						name;
 	
 	public IIcon						icon;
 	
-	public SpellVariety(int id, String name)
+	public SpellVariety(int id, SpellCategory category, String name)
 	{
 		this.id = id;
+		this.bit = 1 << id;
 		this.name = name;
 		
 		SPELL_VARIETIES[id] = this;
@@ -90,4 +104,3 @@ public class SpellVariety
 		return get(random.nextInt(SPELL_VARIETIES.length));
 	}
 }
-

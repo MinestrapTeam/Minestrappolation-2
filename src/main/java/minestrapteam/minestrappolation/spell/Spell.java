@@ -7,6 +7,7 @@ import java.util.Random;
 import clashsoft.cslib.minecraft.lang.I18n;
 import clashsoft.cslib.random.CSRandom;
 import minestrapteam.minestrappolation.spell.data.SpellCategory;
+import minestrapteam.minestrappolation.spell.data.SpellEnhancement;
 import minestrapteam.minestrappolation.spell.data.SpellType;
 import minestrapteam.minestrappolation.spell.data.SpellVariety;
 
@@ -24,6 +25,7 @@ public class Spell implements ISpell
 	public String				name;
 	public SpellCategory		category;
 	public SpellVariety			variety;
+	public SpellEnhancement		enhancement;
 	
 	protected int[]				potencies;
 	
@@ -31,16 +33,17 @@ public class Spell implements ISpell
 	private int					displayColor;
 	private EnumRarity			rarity;
 	
-	public Spell(SpellCategory category, SpellVariety variety, int[] potencies)
+	public Spell(SpellVariety variety, SpellEnhancement enhancement, int[] potencies)
 	{
-		this(category, variety, potencies, CSRandom.getNextRandomName(random, 5, 8));
+		this(variety, enhancement, potencies, CSRandom.getNextRandomName(random, 5, 8));
 	}
 	
-	public Spell(SpellCategory category, SpellVariety variety, int[] potencies, String name)
+	public Spell(SpellVariety variety, SpellEnhancement enhancement, int[] potencies, String name)
 	{
 		this.name = name;
-		this.category = category;
+		this.category = variety.category;
 		this.variety = variety;
+		this.enhancement = enhancement;
 		this.setPotencies(potencies);
 	}
 	
@@ -144,6 +147,11 @@ public class Spell implements ISpell
 		List<String> list = new ArrayList();
 		list.add(this.getRarity().rarityColor.toString() + EnumChatFormatting.UNDERLINE + this.getDisplayName());
 		list.add(EnumChatFormatting.ITALIC + this.category.getDisplayName() + " " + this.variety.getDisplayName() + " " + I18n.getString("spell.spell"));
+		
+		if (this.enhancement != null)
+		{
+			list.add("+ " + this.enhancement.getDisplayName());
+		}
 		
 		if (this.totalPotency > 0)
 		{
