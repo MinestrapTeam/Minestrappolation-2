@@ -31,7 +31,7 @@ public class SpellEnhancement
 	public static final SpellEnhancement	INCREASED_LIFESPAN		= new SpellEnhancement(14, "increased_lifespan", SUMMON_BLOCK.bit);
 	public static final SpellEnhancement	DOUBLE_SPAWN			= new SpellEnhancement(15, "double_spawn", SUMMON_MOB.bit);
 	
-	public final int						id;
+	public final byte						id;
 	public String							name;
 	public int								varieties;
 	
@@ -39,7 +39,7 @@ public class SpellEnhancement
 	
 	private SpellEnhancement(int id, String name, int varieties)
 	{
-		this.id = id;
+		this.id = (byte) id;
 		this.name = name;
 		this.varieties = varieties;
 		

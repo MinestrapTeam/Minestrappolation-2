@@ -11,6 +11,7 @@ import minestrapteam.minestrappolation.spell.data.SpellVariety;
 import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.client.renderer.texture.TextureMap;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.IIcon;
 
@@ -51,6 +52,23 @@ public class SpellHandler
 				enhancement.registerIcons(textureMap);
 			}
 		}
+	}
+	
+	public static void writeToNBT(Spell spell, NBTTagCompound nbt)
+	{
+		nbt.setString("Name", spell.name);
+		nbt.setByte("Variety", spell.variety.id);
+		nbt.setByte("Enhancement", spell.enhancement.id);
+		nbt.setIntArray("Potencies", spell.potencies);
+	}
+	
+	public static Spell readFromNBT(NBTTagCompound nbt)
+	{
+		String name = nbt.getString("Name");
+		SpellVariety variety = SpellVariety.get(nbt.getByte("Variety"));
+		SpellEnhancement enhancement = SpellEnhancement.get(nbt.getByte("Enhancement"));
+		int[] potencies = nbt.getIntArray("Potencies");
+		return new Spell(variety, enhancement, potencies, name);
 	}
 	
 	public static void writeToBuffer(Spell spell, PacketBuffer buffer) throws IOException

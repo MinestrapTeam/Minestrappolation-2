@@ -9,6 +9,7 @@ import minestrapteam.minestrappolation.spell.data.SpellType;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IExtendedEntityProperties;
 
@@ -80,6 +81,23 @@ public class PlayerSpells implements IExtendedEntityProperties
 	{
 		nbt.setIntArray("ManaLevels", this.manaLevels);
 		nbt.setIntArray("MaxManaLevels", this.maxManaLevels);
+		
+		NBTTagList list = new NBTTagList();
+		for (Spell spell : this.spells)
+		{
+			NBTTagCompound nbt1 = new NBTTagCompound();
+			SpellHandler.writeToNBT(spell, nbt1);
+			list.appendTag(nbt1);
+		}
+		nbt.setTag("Spells", list);
+		
+		int[] selectedSpells = new int[9];
+		for (int i = 0; i < 9; i++)
+		{
+			Spell spell = this.selectedSpells[i];
+			selectedSpells[i] = this.spells.indexOf(spell);
+		}
+		nbt.setIntArray("SelectedSpells", selectedSpells);
 	}
 	
 	@Override
@@ -87,6 +105,28 @@ public class PlayerSpells implements IExtendedEntityProperties
 	{
 		this.manaLevels = nbt.getIntArray("ManaLevels");
 		this.maxManaLevels = nbt.getIntArray("MaxManaLevels");
+		
+		NBTTagList list = (NBTTagList) nbt.getTag("Spells");
+		int len = list.tagCount();
+		this.spells = new ArrayList(len);
+		for (int i = 0; i < len; i++)
+		{
+			NBTTagCompound nbt1 = list.getCompoundTagAt(i);
+			Spell spell = SpellHandler.readFromNBT(nbt1);
+			this.spells.add(spell);
+		}
+		
+		int[] selectedSpells = nbt.getIntArray("SelectedSpells");
+		this.selectedSpells = new Spell[9];
+		for (int i = 0; i < 9; i++)
+		{
+			int index = selectedSpells[i];
+			if (index >= 0 && index < len)
+			{
+				Spell spell = this.spells.get(index);
+				this.selectedSpells[i] = spell;
+			}
+		}
 	}
 	
 	@Override

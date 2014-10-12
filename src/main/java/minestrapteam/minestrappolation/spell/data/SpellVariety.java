@@ -37,7 +37,7 @@ public class SpellVariety
 	public static final SpellVariety	SUMMON_BLOCK				= new SpellVariety(14, SUMMONING, "summon_block");
 	public static final SpellVariety	SUMMON_MOB					= new SpellVariety(15, SUMMONING, "summon_mob");
 	
-	public final int					id;
+	public final byte					id;
 	public final int					bit;
 	
 	public SpellCategory				category;
@@ -47,7 +47,7 @@ public class SpellVariety
 	
 	public SpellVariety(int id, SpellCategory category, String name)
 	{
-		this.id = id;
+		this.id = (byte) id;
 		this.bit = 1 << id;
 		this.name = name;
 		
