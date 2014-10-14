@@ -20,28 +20,35 @@ import net.minecraft.util.IIcon;
 
 public class Spell
 {
-	public static final Random	random	= new Random();
+	public static final Random		random	= new Random();
 	
-	public String				name;
-	public SpellCategory		category;
-	public SpellVariety			variety;
-	public SpellEnhancement		enhancement;
+	public String					name;
+	public SpellCategory			category;
+	public SpellVariety				variety;
+	public SpellEnhancement			enhancement;
 	
-	protected int[]				potencies;
+	private int[]					potencies;
 	
-	private int					totalPotency;
-	private int					displayColor;
-	private EnumRarity			rarity;
+	private transient int			totalPotency;
+	private transient int			displayColor;
+	private transient EnumRarity	rarity;
 	
-	public Spell(SpellVariety variety, SpellEnhancement enhancement, int[] potencies)
+	private transient List<String>	tooltip;
+	
+	public Spell(SpellCategory category, SpellVariety variety, SpellEnhancement enhancement, int[] potencies)
 	{
-		this(variety, enhancement, potencies, CSRandom.getNextRandomName(random, 5, 8));
+		this(null, category, variety, enhancement, potencies);
 	}
 	
-	public Spell(SpellVariety variety, SpellEnhancement enhancement, int[] potencies, String name)
+	public Spell(String name, SpellCategory category, SpellVariety variety, SpellEnhancement enhancement, int[] potencies)
 	{
+		if (name == null)
+		{
+			name = CSRandom.getNextRandomName(random, 5, 7) + " " + CSRandom.getNextRandomName(random, 5, 7);
+		}
+		
 		this.name = name;
-		this.category = variety.category;
+		this.category = category;
 		this.variety = variety;
 		this.enhancement = enhancement;
 		this.setPotencies(potencies);
@@ -117,6 +124,11 @@ public class Spell
 		return this;
 	}
 	
+	public int[] getPotencies()
+	{
+		return this.potencies;
+	}
+	
 	public String getDisplayName()
 	{
 		return this.name;
@@ -137,8 +149,13 @@ public class Spell
 		return this.variety == variety;
 	}
 	
-	public List<String> getTooltip(int level)
+	public List<String> getTooltip()
 	{
+		if (this.tooltip != null)
+		{
+			return this.tooltip;
+		}
+		
 		List<String> list = new ArrayList();
 		list.add(this.getRarity().rarityColor.toString() + EnumChatFormatting.UNDERLINE + this.getDisplayName());
 		list.add(EnumChatFormatting.ITALIC + this.category.getDisplayName() + " " + this.variety.getDisplayName() + " " + I18n.getString("spell.spell"));
@@ -165,12 +182,13 @@ public class Spell
 			list.add(EnumChatFormatting.AQUA + I18n.getString("spell.total_potency", this.totalPotency));
 		}
 		
-		this.addInformation(list, level);
+		this.addInformation(list);
+		this.tooltip = list;
 		
 		return list;
 	}
 	
-	public void addInformation(List<String> list, int level)
+	public void addInformation(List<String> list)
 	{
 	}
 	
@@ -206,7 +224,7 @@ public class Spell
 	
 	public int getRenderPasses()
 	{
-		return 4;
+		return this.enhancement == null ? 3 : 4;
 	}
 	
 	public void onSpellRightClick(PlayerSpells spells, EntityPlayerMP player)

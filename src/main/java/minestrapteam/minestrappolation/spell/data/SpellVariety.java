@@ -49,6 +49,7 @@ public class SpellVariety
 	{
 		this.id = (byte) id;
 		this.bit = 1 << id;
+		this.category = category;
 		this.name = name;
 		
 		spellVarieties[id] = this;

@@ -107,24 +107,30 @@ public class PlayerSpells implements IExtendedEntityProperties
 		this.maxManaLevels = nbt.getIntArray("MaxManaLevels");
 		
 		NBTTagList list = (NBTTagList) nbt.getTag("Spells");
-		int len = list.tagCount();
-		this.spells = new ArrayList(len);
-		for (int i = 0; i < len; i++)
+		if (list != null)
 		{
-			NBTTagCompound nbt1 = list.getCompoundTagAt(i);
-			Spell spell = SpellHandler.readFromNBT(nbt1);
-			this.spells.add(spell);
+			int len = list.tagCount();
+			this.spells = new ArrayList(len);
+			for (int i = 0; i < len; i++)
+			{
+				NBTTagCompound nbt1 = list.getCompoundTagAt(i);
+				Spell spell = SpellHandler.readFromNBT(nbt1);
+				this.spells.add(spell);
+			}
 		}
 		
 		int[] selectedSpells = nbt.getIntArray("SelectedSpells");
 		this.selectedSpells = new Spell[9];
-		for (int i = 0; i < 9; i++)
+		if (selectedSpells != null)
 		{
-			int index = selectedSpells[i];
-			if (index >= 0 && index < len)
+			for (int i = 0; i < 9; i++)
 			{
-				Spell spell = this.spells.get(index);
-				this.selectedSpells[i] = spell;
+				int index = selectedSpells[i];
+				if (index >= 0 && index < this.spells.size())
+				{
+					Spell spell = this.spells.get(index);
+					this.selectedSpells[i] = spell;
+				}
 			}
 		}
 	}

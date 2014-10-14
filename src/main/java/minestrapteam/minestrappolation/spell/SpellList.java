@@ -34,7 +34,7 @@ public class SpellList
 					{
 						int[] potencies = new int[types];
 						potencies[t] = 255;
-						spells.add(new Spell(variety, enhancement, potencies));
+						spells.add(new Spell(variety.category, variety, enhancement, potencies));
 					}
 				}
 			}
@@ -49,6 +49,6 @@ public class SpellList
 		int[] potencies = new int[8];
 		potencies[type] = 255;
 		
-		return new Spell(variety, enhancement, potencies, name);
+		return new Spell(name, variety.category, variety, enhancement, potencies);
 	}
 }

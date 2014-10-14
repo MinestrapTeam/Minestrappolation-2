@@ -59,7 +59,7 @@ public class SpellHandler
 		nbt.setString("Name", spell.name);
 		nbt.setByte("Variety", spell.variety.id);
 		nbt.setByte("Enhancement", spell.enhancement.id);
-		nbt.setIntArray("Potencies", spell.potencies);
+		nbt.setIntArray("Potencies", spell.getPotencies());
 	}
 	
 	public static Spell readFromNBT(NBTTagCompound nbt)
@@ -68,7 +68,7 @@ public class SpellHandler
 		SpellVariety variety = SpellVariety.get(nbt.getByte("Variety"));
 		SpellEnhancement enhancement = SpellEnhancement.get(nbt.getByte("Enhancement"));
 		int[] potencies = nbt.getIntArray("Potencies");
-		return new Spell(variety, enhancement, potencies, name);
+		return new Spell(name, variety.category, variety, enhancement, potencies);
 	}
 	
 	public static void writeToBuffer(Spell spell, PacketBuffer buffer) throws IOException
@@ -77,9 +77,10 @@ public class SpellHandler
 		buffer.writeByte(spell.variety.id);
 		buffer.writeByte(spell.enhancement.id);
 		
-		for (int i = 0; i < spell.potencies.length; i++)
+		int[] potencies = spell.getPotencies();
+		for (int i = 0; i < SpellType.spellTypes.length; i++)
 		{
-			buffer.writeInt(spell.potencies[i]);
+			buffer.writeInt(potencies[i]);
 		}
 	}
 	
@@ -96,6 +97,6 @@ public class SpellHandler
 			potencies[i] = buffer.readInt();
 		}
 		
-		return new Spell(variety, enhancement, potencies, name);
+		return new Spell(name, variety.category, variety, enhancement, potencies);
 	}
 }

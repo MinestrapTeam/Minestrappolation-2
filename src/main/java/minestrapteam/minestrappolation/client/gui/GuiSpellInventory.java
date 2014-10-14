@@ -109,7 +109,7 @@ public class GuiSpellInventory extends GuiScreen
 		
 		if (this.hoveringSpell != null)
 		{
-			this.drawHoveringText(this.hoveringSpell.getTooltip(0), mouseX, mouseY, this.fontRendererObj);
+			this.drawHoveringText(this.hoveringSpell.getTooltip(), mouseX, mouseY, this.fontRendererObj);
 		}
 		
 		for (int i = 0; i < 8; i++)

@@ -114,6 +114,10 @@ public class MClientProxy extends MCommonProxy
 		{
 			return new GuiFreezer(player.inventory, (TileEntityFreezer) world.getTileEntity(x, y, z));
 		}
+		else if (id == 7)
+		{
+			return new GuiArcaneForge(player, (TileEntityArcaneForge) world.getTileEntity(x, y, z));
+		}
 		return null;
 	}
 	

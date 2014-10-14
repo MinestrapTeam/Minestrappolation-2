@@ -1,15 +1,29 @@
 package minestrapteam.minestrappolation.tileentity;
 
 import clashsoft.cslib.minecraft.tileentity.TileEntityInventory;
+import minestrapteam.minestrappolation.spell.Spell;
+import minestrapteam.minestrappolation.spell.SpellRecipes;
+import minestrapteam.minestrappolation.spell.data.SpellCategory;
+import minestrapteam.minestrappolation.spell.data.SpellEnhancement;
+import minestrapteam.minestrappolation.spell.data.SpellType;
+import minestrapteam.minestrappolation.spell.data.SpellVariety;
+
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
 
 public class TileEntityArcaneForge extends TileEntityInventory
 {
-	/* 0 - 7: Elemental Potency
-	 * 8: Category
-	 * 9: Variety
-	 * 10: Enhancement
-	 * 11: Name 
+	/*
+	 * 0 - 7: Elemental Potency 8: Category 9: Variety 10: Enhancement 11: Name
 	 */
+	
+	public Spell			spell;
+	
+	public int[]			potencies	= new int[SpellType.spellTypes.length];
+	public SpellCategory	category;
+	public SpellVariety		variety;
+	public SpellEnhancement	enhancement;
+	public String			name;
 	
 	public TileEntityArcaneForge()
 	{
@@ -20,5 +34,43 @@ public class TileEntityArcaneForge extends TileEntityInventory
 	public int getSizeInventory()
 	{
 		return 12;
+	}
+	
+	@Override
+	public void onSlotChanged(int slotID)
+	{
+		ItemStack stack = this.itemStacks[slotID];
+		if (slotID < 8)
+		{
+			this.potencies[slotID] = SpellRecipes.getPotency(SpellType.get(slotID), stack);
+		}
+		else if (slotID == 8)
+		{
+			this.category = SpellRecipes.getCategory(stack);
+		}
+		else if (slotID == 9)
+		{
+			this.variety = SpellRecipes.getVariety(stack, this.category);
+		}
+		else if (slotID == 10)
+		{
+			this.enhancement = SpellRecipes.getEnhancement(stack, this.variety);
+		}
+		else if (slotID == 11)
+		{
+			if (stack != null && stack.getItem() == Items.name_tag && stack.hasDisplayName())
+			{
+				this.name = stack.getDisplayName();
+			}
+		}
+		
+		if (this.category != null && this.variety != null && this.potencies != null)
+		{
+			this.spell = new Spell(this.name, this.category, this.variety, this.enhancement, this.potencies);
+		}
+		else
+		{
+			this.spell = null;
+		}
 	}
 }
