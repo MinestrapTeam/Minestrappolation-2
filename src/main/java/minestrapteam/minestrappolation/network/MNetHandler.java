@@ -14,6 +14,7 @@ public class MNetHandler extends CSNetHandler
 		
 		this.registerPacket(SpellBarPacket.class);
 		this.registerPacket(SpellUsePacket.class);
+		this.registerPacket(SpellAddPacket.class);
 		this.registerPacket(ManaLevelPacket.class);
 	}
 }

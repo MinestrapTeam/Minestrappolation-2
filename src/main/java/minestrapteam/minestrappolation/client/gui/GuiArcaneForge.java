@@ -7,7 +7,10 @@ import org.lwjgl.opengl.GL11;
 import clashsoft.cslib.minecraft.lang.I18n;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.inventory.ContainerArcaneForge;
+import minestrapteam.minestrappolation.network.SpellAddPacket;
+import minestrapteam.minestrappolation.spell.PlayerSpells;
 import minestrapteam.minestrappolation.spell.Spell;
 import minestrapteam.minestrappolation.tileentity.TileEntityArcaneForge;
 
@@ -71,5 +74,24 @@ public class GuiArcaneForge extends GuiContainer
 		int k = (this.width - this.xSize) / 2;
 		int l = (this.height - this.ySize) / 2;
 		this.drawTexturedModalRect(k, l, 0, 0, this.xSize, this.ySize);
+	}
+	
+	@Override
+	protected void mouseClicked(int mouseX, int mouseY, int button)
+	{
+		Spell spell = this.arcaneForge.spell;
+		if (button == 0 && spell != null && this.func_146978_c(80, 67, 16, 16, mouseX, mouseY))
+		{
+			PlayerSpells spells = PlayerSpells.get(this.mc.thePlayer);
+			if (spells.spells.add(spell))
+			{
+				Minestrappolation.instance.netHandler.sendToServer(new SpellAddPacket(spell));
+				this.arcaneForge.onSpellCrafted();
+			}
+		}
+		else
+		{
+			super.mouseClicked(mouseX, mouseY, button);
+		}
 	}
 }

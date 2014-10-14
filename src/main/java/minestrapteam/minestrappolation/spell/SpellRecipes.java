@@ -16,7 +16,7 @@ public class SpellRecipes
 			return 0;
 		}
 		// FIXME
-		return 128;
+		return 255;
 	}
 	
 	public static SpellCategory getCategory(ItemStack stack)
@@ -31,7 +31,7 @@ public class SpellRecipes
 	
 	public static SpellVariety getVariety(ItemStack stack, SpellCategory category)
 	{
-		if (stack == null || category == null)
+		if (stack == null)
 		{
 			return null;
 		}
@@ -41,7 +41,7 @@ public class SpellRecipes
 	
 	public static SpellEnhancement getEnhancement(ItemStack stack, SpellVariety variety)
 	{
-		if (stack == null || variety == null)
+		if (stack == null)
 		{
 			return null;
 		}

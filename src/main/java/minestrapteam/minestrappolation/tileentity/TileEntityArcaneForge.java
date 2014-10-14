@@ -10,6 +10,7 @@ import minestrapteam.minestrappolation.spell.data.SpellVariety;
 
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 
 public class TileEntityArcaneForge extends TileEntityInventory
 {
@@ -71,6 +72,30 @@ public class TileEntityArcaneForge extends TileEntityInventory
 		else
 		{
 			this.spell = null;
+		}
+	}
+	
+	public void onSpellCrafted()
+	{
+		for (int i = 0; i < 8; i++)
+		{
+			this.itemStacks[i] = null;
+		}
+		
+		this.decrStackSize(8, 1);
+		this.decrStackSize(9, 1);
+		this.decrStackSize(10, 1);
+		this.decrStackSize(11, 1);
+	}
+	
+	@Override
+	public void readFromNBT(NBTTagCompound nbt)
+	{
+		super.readFromNBT(nbt);
+		
+		for (int i = 0; i < 12; i++)
+		{
+			this.onSlotChanged(i);
 		}
 	}
 }
