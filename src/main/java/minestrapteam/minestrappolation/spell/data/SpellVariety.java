@@ -95,6 +95,24 @@ public class SpellVariety
 		return list;
 	}
 	
+	@Override
+	public boolean equals(Object obj)
+	{
+		return this == obj;
+	}
+	
+	@Override
+	public int hashCode()
+	{
+		return this.id;
+	}
+	
+	@Override
+	public String toString()
+	{
+		return this.name;
+	}
+	
 	public static SpellVariety get(int id)
 	{
 		return spellVarieties[id];

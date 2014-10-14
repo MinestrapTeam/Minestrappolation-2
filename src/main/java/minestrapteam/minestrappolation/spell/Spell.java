@@ -1,11 +1,11 @@
 package minestrapteam.minestrappolation.spell;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
 import clashsoft.cslib.minecraft.lang.I18n;
-import clashsoft.cslib.random.CSRandom;
 import clashsoft.cslib.util.CSString;
 import minestrapteam.minestrappolation.spell.data.SpellCategory;
 import minestrapteam.minestrappolation.spell.data.SpellEnhancement;
@@ -42,16 +42,20 @@ public class Spell
 	
 	public Spell(String name, SpellCategory category, SpellVariety variety, SpellEnhancement enhancement, int[] potencies)
 	{
-		if (name == null)
-		{
-			name = CSRandom.getNextRandomName(random, 5, 7) + " " + CSRandom.getNextRandomName(random, 5, 7);
-		}
-		
-		this.name = name;
 		this.category = category;
 		this.variety = variety;
 		this.enhancement = enhancement;
 		this.setPotencies(potencies);
+		
+		if (name == null)
+		{
+			random.setSeed(this.hashCode());
+			this.name = SpellHandler.getRandomName(random);
+		}
+		else
+		{
+			this.name = name;
+		}
 	}
 	
 	public Spell setPotencies(int[] potencies)
@@ -86,9 +90,9 @@ public class Spell
 					f1 = 1F;
 				}
 				
-				r += ((color >> 16) & 0xFF) * f1;
-				g += ((color >> 8) & 0xFF) * f1;
-				b += ((color >> 0) & 0xFF) * f1;
+				r += (color >> 16 & 0xFF) * f1;
+				g += (color >> 8 & 0xFF) * f1;
+				b += (color >> 0 & 0xFF) * f1;
 				totalPotency += potency;
 				f += f1;
 			}
@@ -100,7 +104,7 @@ public class Spell
 		
 		this.rarity = totalPotency / 100;
 		
-		this.displayColor = (((int) r & 0xFF) << 16) | (((int) g & 0xFF) << 8) | (((int) b & 0xFF) << 0);
+		this.displayColor = ((int) r & 0xFF) << 16 | ((int) g & 0xFF) << 8 | ((int) b & 0xFF) << 0;
 		this.totalPotency = totalPotency;
 		
 		return this;
@@ -128,10 +132,10 @@ public class Spell
 	
 	public List<String> getTooltip()
 	{
-		 if (this.tooltip != null)
-		 {
-		 return this.tooltip;
-		 }
+		if (this.tooltip != null)
+		{
+			return this.tooltip;
+		}
 		
 		List<String> list = new ArrayList();
 		
@@ -226,5 +230,64 @@ public class Spell
 	{
 		// TODO Implementation
 		return true;
+	}
+	
+	@Override
+	public int hashCode()
+	{
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (this.category == null ? 0 : this.category.hashCode());
+		result = prime * result + (this.variety == null ? 0 : this.variety.hashCode());
+		result = prime * result + (this.enhancement == null ? 0 : this.enhancement.hashCode());
+		result = prime * result + Arrays.hashCode(this.potencies);
+		return result;
+	}
+	
+	@Override
+	public boolean equals(Object obj)
+	{
+		if (this == obj)
+		{
+			return true;
+		}
+		if (obj == null)
+		{
+			return false;
+		}
+		if (this.getClass() != obj.getClass())
+		{
+			return false;
+		}
+		Spell other = (Spell) obj;
+		if (this.category != other.category)
+		{
+			return false;
+		}
+		if (this.enhancement != other.enhancement)
+		{
+			return false;
+		}
+		if (this.variety != other.variety)
+		{
+			return false;
+		}
+		if (!Arrays.equals(this.potencies, other.potencies))
+		{
+			return false;
+		}
+		return true;
+	}
+	
+	@Override
+	public String toString()
+	{
+		StringBuilder builder = new StringBuilder();
+		builder.append("Spell [name=").append(this.name);
+		builder.append(", category=").append(this.category);
+		builder.append(", variety=").append(this.variety);
+		builder.append(", enhancement=").append(this.enhancement);
+		builder.append(", potencies=").append(Arrays.toString(this.potencies)).append("]");
+		return builder.toString();
 	}
 }

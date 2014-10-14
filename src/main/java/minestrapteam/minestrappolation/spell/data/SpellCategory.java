@@ -45,6 +45,24 @@ public class SpellCategory
 		this.icon = iconRegister.registerIcon(MAssetManager.getSpellTexture("category_" + this.name));
 	}
 	
+	@Override
+	public boolean equals(Object obj)
+	{
+		return this == obj;
+	}
+	
+	@Override
+	public int hashCode()
+	{
+		return this.id;
+	}
+	
+	@Override
+	public String toString()
+	{
+		return this.name;
+	}
+	
 	public static SpellCategory get(int id)
 	{
 		return spellCategories[id];

@@ -1,7 +1,9 @@
 package minestrapteam.minestrappolation.spell;
 
 import java.io.IOException;
+import java.util.Random;
 
+import clashsoft.cslib.random.CSRandom;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import minestrapteam.minestrappolation.spell.data.SpellCategory;
@@ -56,6 +58,11 @@ public class SpellHandler
 				enhancement.registerIcons(textureMap);
 			}
 		}
+	}
+	
+	public static String getRandomName(Random random)
+	{
+		return CSRandom.getNextRandomName(random, 5, 7) + " " + CSRandom.getNextRandomName(random, 5, 7);
 	}
 	
 	public static void writeToNBT(Spell spell, NBTTagCompound nbt)

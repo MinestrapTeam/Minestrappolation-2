@@ -66,6 +66,24 @@ public class SpellEnhancement
 		return (this.varieties & variety.bit) != 0;
 	}
 	
+	@Override
+	public boolean equals(Object obj)
+	{
+		return this == obj;
+	}
+	
+	@Override
+	public int hashCode()
+	{
+		return this.id;
+	}
+	
+	@Override
+	public String toString()
+	{
+		return this.name;
+	}
+	
 	public static SpellEnhancement get(int id)
 	{
 		return spellEnhancements[id];
