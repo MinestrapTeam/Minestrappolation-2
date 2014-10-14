@@ -18,7 +18,7 @@ import net.minecraft.util.IIcon;
 public class SpellHandler
 {
 	@SideOnly(Side.CLIENT)
-	public static IIcon	spellBackground;
+	public static IIcon[]	spellBackgrounds;
 	
 	public static void registerIcons(TextureMap textureMap)
 	{
@@ -27,7 +27,11 @@ public class SpellHandler
 			return;
 		}
 		
-		spellBackground = textureMap.registerIcon(MAssetManager.getSpellTexture("background"));
+		spellBackgrounds = new IIcon[6];
+		for (int i = 0; i < 6; i++)
+		{
+			spellBackgrounds[i] = textureMap.registerIcon(MAssetManager.getSpellTexture("background_" + i));
+		}
 		
 		for (SpellCategory category : SpellCategory.spellCategories)
 		{

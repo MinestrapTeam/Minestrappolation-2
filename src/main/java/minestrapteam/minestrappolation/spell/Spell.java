@@ -6,6 +6,7 @@ import java.util.Random;
 
 import clashsoft.cslib.minecraft.lang.I18n;
 import clashsoft.cslib.random.CSRandom;
+import clashsoft.cslib.util.CSString;
 import minestrapteam.minestrappolation.spell.data.SpellCategory;
 import minestrapteam.minestrappolation.spell.data.SpellEnhancement;
 import minestrapteam.minestrappolation.spell.data.SpellType;
@@ -14,7 +15,6 @@ import minestrapteam.minestrappolation.spell.data.SpellVariety;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.item.EnumRarity;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
 
@@ -31,7 +31,7 @@ public class Spell
 	
 	private transient int			totalPotency;
 	private transient int			displayColor;
-	private transient EnumRarity	rarity;
+	private transient int			rarity;
 	
 	private transient List<String>	tooltip;
 	
@@ -79,7 +79,7 @@ public class Spell
 			if (potency > 0)
 			{
 				int color = SpellType.get(i).color;
-				float f1 = potency / 255F;
+				float f1 = potency / 100F;
 				
 				if (f1 > 1F)
 				{
@@ -98,25 +98,7 @@ public class Spell
 		g /= f;
 		b /= f;
 		
-		if (this.rarity == null)
-		{
-			if (totalPotency >= 1023)
-			{
-				this.rarity = EnumRarity.epic;
-			}
-			else if (totalPotency >= 511)
-			{
-				this.rarity = EnumRarity.rare;
-			}
-			else if (totalPotency >= 255)
-			{
-				this.rarity = EnumRarity.uncommon;
-			}
-			else
-			{
-				this.rarity = EnumRarity.common;
-			}
-		}
+		this.rarity = totalPotency / 100;
 		
 		this.displayColor = (((int) r & 0xFF) << 16) | (((int) g & 0xFF) << 8) | (((int) b & 0xFF) << 0);
 		this.totalPotency = totalPotency;
@@ -139,11 +121,6 @@ public class Spell
 		return this.displayColor;
 	}
 	
-	public EnumRarity getRarity()
-	{
-		return this.rarity;
-	}
-	
 	public boolean hasVariety(SpellVariety variety)
 	{
 		return this.variety == variety;
@@ -151,22 +128,27 @@ public class Spell
 	
 	public List<String> getTooltip()
 	{
-		if (this.tooltip != null)
-		{
-			return this.tooltip;
-		}
+		// if (this.tooltip != null)
+		// {
+		// return this.tooltip;
+		// }
 		
 		List<String> list = new ArrayList();
-		list.add(this.getRarity().rarityColor.toString() + EnumChatFormatting.UNDERLINE + this.getDisplayName());
-		list.add(EnumChatFormatting.ITALIC + this.category.getDisplayName() + " " + this.variety.getDisplayName() + " " + I18n.getString("spell.spell"));
+		
+		list.add(this.getDisplayName());
+		list.add("\u00a77\u00a7o" + I18n.getString("spell.info", CSString.convertToRoman(this.rarity + 1), this.variety.getDisplayName()));
 		
 		if (this.enhancement != null)
 		{
-			list.add("+ " + this.enhancement.getDisplayName());
+			list.add("\u00a77" + I18n.getString("spell.enhancement", this.enhancement.getDisplayName()));
 		}
 		
 		if (this.totalPotency > 0)
 		{
+			list.add("");
+			
+			int count = 0;
+			
 			for (int i = 0; i < this.potencies.length; i++)
 			{
 				int potency = this.potencies[i];
@@ -177,9 +159,17 @@ public class Spell
 				
 				SpellType type = SpellType.get(i);
 				list.add(type.chatColor + I18n.getString(type.getUnlocalizedName() + ".potency", potency));
+				count++;
 			}
 			
-			list.add(EnumChatFormatting.AQUA + I18n.getString("spell.total_potency", this.totalPotency));
+			if (count > 1)
+			{
+				list.add(EnumChatFormatting.AQUA + I18n.getString("spell.total_potency", this.totalPotency));
+			}
+		}
+		else
+		{
+			list.add(EnumChatFormatting.RED + I18n.getString("spell.no_potency"));
 		}
 		
 		this.addInformation(list);
@@ -210,7 +200,7 @@ public class Spell
 		{
 			return this.enhancement.icon;
 		}
-		return SpellHandler.spellBackground;
+		return SpellHandler.spellBackgrounds[this.rarity > 5 ? 5 : this.rarity];
 	}
 	
 	public int getRenderColor(int pass)

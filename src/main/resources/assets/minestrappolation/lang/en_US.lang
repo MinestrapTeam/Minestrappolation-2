@@ -1352,9 +1352,36 @@ spellvariety.body_armor=Body Armor
 spellvariety.abrasive_armor=Abrasive Armor
 spellvariety.mirror_shield=Mirror Shield
 spellvariety.area_shield=Area Shield
+spellvariety.power_boost=Power Boost
+spellvariety.debuff=Debuff
+spellvariety.block_transformation=Block Transformation
+spellvariety.environment_transformation=Environment Transformation
+spellvariety.summon_tool=Summon Tool
+spellvariety.summon_weapon=Summon Weapon
+spellvariety.summon_block=Summon Block
+spellvariety.summon_mob=Summon Mob
 
-spell.spell=Spell
+spellenhancement.damage_over_time=Damage Over Time
+spellenhancement.damage_boost=Damage Boost
+spellenhancement.explosive_impact=Explosive Impact
+spellenhancement.knockback=Knockback
+spellenhancement.vacuum=Vacuum
+spellenhancement.protection_boost=Protection Boost
+spellenhancement.increased_radius=Radius
+spellenhancement.polished_mirror=Mirror
+spellenhancement.projectile_range_boost=Projectile Range Boost
+spellenhancement.area_range_boost=Area Range Boost
+spellenhancement.potency_boost=Potency Boost
+spellenhancement.weapon_boost=Weapong Boost
+spellenhancement.increased_mining_speed=Increased Mining Speed
+spellenhancement.summon_slab=Summon Slab
+spellenhancement.increased_lifespan=Increased Lifespan
+spellenhancement.double_spawn=Double Spawn
+
 spell.spells=Spells
+spell.info=Level %1$s %2$s Spell
+spell.enhancement=+ %s
+spell.no_potency=No Potency
 spell.total_potency=Total Potency: %d
 
 #Descriptions

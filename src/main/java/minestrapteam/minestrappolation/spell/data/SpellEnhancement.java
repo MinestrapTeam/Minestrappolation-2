@@ -48,7 +48,7 @@ public class SpellEnhancement
 	
 	public String getUnlocalizedName()
 	{
-		return "spellcategory." + this.name;
+		return "spellenhancement." + this.name;
 	}
 	
 	public String getDisplayName()

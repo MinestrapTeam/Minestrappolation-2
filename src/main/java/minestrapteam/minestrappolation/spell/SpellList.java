@@ -21,20 +21,25 @@ public class SpellList
 		int varieties = SpellVariety.spellVarieties.length;
 		int enhancements = SpellEnhancement.spellEnhancements.length;
 		int types = SpellType.spellTypes.length;
-		for (int v = 0; v < varieties; v++)
+		
+		for (int t = 0; t < types; t++)
 		{
-			for (int t = 0; t < types; t++)
+			SpellType type = SpellType.get(t);
+			for (int v = 0; v < varieties; v++)
 			{
+				SpellVariety variety = SpellVariety.get(v);
+				
+				// Default, no Enhancement
+				spells.add(new SpellPreset(variety.category, variety, null, type));
+				
 				for (int c = 0; c < enhancements; c++)
 				{
-					SpellVariety variety = SpellVariety.get(v);
 					SpellEnhancement enhancement = SpellEnhancement.get(c);
 					
-					if (enhancement.canApply(variety))
+					// Apply all Enhancements that work with the current variety
+					if (enhancement != null && enhancement.canApply(variety))
 					{
-						int[] potencies = new int[types];
-						potencies[t] = 255;
-						spells.add(new Spell(variety.category, variety, enhancement, potencies));
+						spells.add(new SpellPreset(variety.category, variety, enhancement, type));
 					}
 				}
 			}
@@ -45,10 +50,8 @@ public class SpellList
 	{
 		SpellVariety variety = SpellVariety.random(random);
 		SpellEnhancement enhancement = SpellEnhancement.random(random);
-		int type = random.nextInt(SpellType.spellTypes.length);
-		int[] potencies = new int[8];
-		potencies[type] = 255;
+		SpellType type = SpellType.random(random);
 		
-		return new Spell(name, variety.category, variety, enhancement, potencies);
+		return new SpellPreset(name, variety.category, variety, enhancement, type);
 	}
 }

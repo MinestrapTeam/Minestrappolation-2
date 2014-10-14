@@ -16,7 +16,7 @@ public class SpellRecipes
 			return 0;
 		}
 		// FIXME
-		return 255;
+		return 100;
 	}
 	
 	public static SpellCategory getCategory(ItemStack stack)

@@ -9,12 +9,12 @@ public class SpellPreset extends Spell
 {
 	public SpellPreset(SpellCategory category, SpellVariety variety, SpellEnhancement enhancement, SpellType type)
 	{
-		super(category, variety, enhancement, getPotencies(type, 255));
+		super(category, variety, enhancement, getPotencies(type, 100));
 	}
 	
 	public SpellPreset(String name, SpellCategory category, SpellVariety variety, SpellEnhancement enhancement, SpellType type)
 	{
-		super(name, category, variety, enhancement, getPotencies(type, 255));
+		super(name, category, variety, enhancement, getPotencies(type, 100));
 	}
 	
 	private static int[] getPotencies(SpellType type, int potency)

@@ -1,5 +1,7 @@
 package minestrapteam.minestrappolation.spell.data;
 
+import java.util.Random;
+
 import clashsoft.cslib.minecraft.lang.I18n;
 
 import net.minecraft.util.EnumChatFormatting;
@@ -45,5 +47,10 @@ public class SpellType
 	public static SpellType get(int id)
 	{
 		return spellTypes[id];
+	}
+	
+	public static SpellType random(Random random)
+	{
+		return get(random.nextInt(spellTypes.length));
 	}
 }
