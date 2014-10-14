@@ -56,7 +56,7 @@ public class Spell
 	
 	public Spell setPotencies(int[] potencies)
 	{
-		this.potencies = potencies;
+		this.potencies = SpellRecipes.combinePotencies(potencies);
 		
 		float r = 0F;
 		float g = 0F;
@@ -128,10 +128,10 @@ public class Spell
 	
 	public List<String> getTooltip()
 	{
-		// if (this.tooltip != null)
-		// {
-		// return this.tooltip;
-		// }
+		 if (this.tooltip != null)
+		 {
+		 return this.tooltip;
+		 }
 		
 		List<String> list = new ArrayList();
 		
