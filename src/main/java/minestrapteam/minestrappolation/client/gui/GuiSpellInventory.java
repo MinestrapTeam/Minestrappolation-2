@@ -220,11 +220,7 @@ public class GuiSpellInventory extends GuiScreen
 				
 				Spell spell = this.playerSpells.getSpell(i);
 				this.playerSpells.setSpell(i, this.grabbedSpell);
-				
-				if (!Keyboard.isKeyDown(Keyboard.KEY_LSHIFT))
-				{
-					this.grabbedSpell = spell;
-				}
+				this.grabbedSpell = Keyboard.isKeyDown(Keyboard.KEY_LSHIFT) ? null : spell;
 				
 				return;
 			}

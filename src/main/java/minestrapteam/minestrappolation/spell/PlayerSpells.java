@@ -4,10 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import clashsoft.cslib.minecraft.entity.CSEntities;
+import minestrapteam.minestrappolation.Minestrappolation;
+import minestrapteam.minestrappolation.network.PlayerSpellsPacket;
 import minestrapteam.minestrappolation.spell.data.SpellType;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.world.World;
@@ -76,11 +79,21 @@ public class PlayerSpells implements IExtendedEntityProperties
 		this.selectedSpells[slot] = spell;
 	}
 	
+	public boolean addSpell(Spell spell)
+	{
+		if (!this.spells.contains(spell))
+		{
+			return this.spells.add(spell);
+		}
+		return false;
+	}
+	
 	@Override
 	public void saveNBTData(NBTTagCompound nbt)
 	{
-		nbt.setIntArray("ManaLevels", this.manaLevels);
-		nbt.setIntArray("MaxManaLevels", this.maxManaLevels);
+		NBTTagCompound compound = new NBTTagCompound();
+		nbt.setTag("Spells", compound);
+		nbt = compound;
 		
 		NBTTagList list = new NBTTagList();
 		for (Spell spell : this.spells)
@@ -91,20 +104,26 @@ public class PlayerSpells implements IExtendedEntityProperties
 		}
 		nbt.setTag("Spells", list);
 		
-		int[] selectedSpells = new int[9];
-		for (int i = 0; i < 9; i++)
+		list = new NBTTagList();
+		for (Spell spell : this.selectedSpells)
 		{
-			Spell spell = this.selectedSpells[i];
-			selectedSpells[i] = this.spells.indexOf(spell);
+			NBTTagCompound nbt1 = new NBTTagCompound();
+			if (spell != null)
+			{
+				SpellHandler.writeToNBT(spell, nbt1);
+			}
+			list.appendTag(nbt1);
 		}
-		nbt.setIntArray("SelectedSpells", selectedSpells);
+		nbt.setTag("HotbarSpells", list);
+		
+		nbt.setIntArray("ManaLevels", this.manaLevels);
+		nbt.setIntArray("MaxManaLevels", this.maxManaLevels);
 	}
 	
 	@Override
 	public void loadNBTData(NBTTagCompound nbt)
 	{
-		this.manaLevels = nbt.getIntArray("ManaLevels");
-		this.maxManaLevels = nbt.getIntArray("MaxManaLevels");
+		nbt = nbt.getCompoundTag("Spells");
 		
 		NBTTagList list = (NBTTagList) nbt.getTag("Spells");
 		if (list != null)
@@ -119,19 +138,24 @@ public class PlayerSpells implements IExtendedEntityProperties
 			}
 		}
 		
-		int[] selectedSpells = nbt.getIntArray("SelectedSpells");
+		list = (NBTTagList) nbt.getTag("HotbarSpells");
 		this.selectedSpells = new Spell[9];
-		if (selectedSpells != null)
+		if (list != null)
 		{
 			for (int i = 0; i < 9; i++)
 			{
-				int index = selectedSpells[i];
-				if (index >= 0 && index < this.spells.size())
-				{
-					Spell spell = this.spells.get(index);
-					this.selectedSpells[i] = spell;
-				}
+				NBTTagCompound nbt1 = list.getCompoundTagAt(i);
+				Spell spell = SpellHandler.readFromNBT(nbt1);
+				this.selectedSpells[i] = spell;
 			}
+		}
+		
+		this.manaLevels = nbt.getIntArray("ManaLevels");
+		this.maxManaLevels = nbt.getIntArray("MaxManaLevels");
+		
+		if (this.player instanceof EntityPlayerMP)
+		{
+			Minestrappolation.instance.netHandler.sendTo(new PlayerSpellsPacket(this), (EntityPlayerMP) this.player);
 		}
 	}
 	

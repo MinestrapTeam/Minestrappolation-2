@@ -29,14 +29,14 @@ public class SpellBarPacket extends CSPacket
 	@Override
 	public void read(PacketBuffer buf) throws IOException
 	{
-		this.slot = buf.readInt();
+		this.slot = buf.readByte();
 		this.spell = SpellHandler.readFromBuffer(buf);
 	}
 	
 	@Override
 	public void write(PacketBuffer buf) throws IOException
 	{
-		buf.writeInt(this.slot);
+		buf.writeByte(this.slot);
 		SpellHandler.writeToBuffer(this.spell, buf);
 	}
 	

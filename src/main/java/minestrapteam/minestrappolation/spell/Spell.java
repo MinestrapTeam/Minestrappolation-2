@@ -223,7 +223,36 @@ public class Spell
 	
 	public void onSpellRightClick(PlayerSpells spells, EntityPlayerMP player)
 	{
-		// TODO Subtract Mana, cast spell
+		int[] manaLevels = spells.manaLevels;
+		int[] maxManaLevels = spells.maxManaLevels;
+		
+		// Consume Mana
+		for (int i = 0; i < SpellType.spellTypes.length; i++)
+		{
+			int potency = this.potencies[i];
+			if (potency > 0 && !SpellHandler.consumeMana(manaLevels, i, potency))
+			{
+				// Spell cannot be cast
+				return;
+			}
+		}
+		
+		// Cast Spell
+		if (!this.castSpell(player))
+		{
+			// Do not increase max mana levels
+			return;
+		}
+		
+		// Increase Max Mana Levels
+		for (int i = 0; i < SpellType.spellTypes.length; i++)
+		{
+			int potency = this.potencies[i];
+			if (potency > 0 && random.nextInt(10) == 0)
+			{
+				maxManaLevels[i]++;
+			}
+		}
 	}
 	
 	public boolean castSpell(EntityPlayer player)
