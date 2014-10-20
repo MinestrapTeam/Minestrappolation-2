@@ -253,6 +253,8 @@ public class Spell
 				maxManaLevels[i]++;
 			}
 		}
+		
+		spells.sync();
 	}
 	
 	public boolean castSpell(EntityPlayer player)

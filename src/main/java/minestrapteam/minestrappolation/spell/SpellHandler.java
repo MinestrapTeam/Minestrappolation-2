@@ -77,7 +77,6 @@ public class SpellHandler
 		
 		if ((amount = tryConsumeMana(manaLevels, type, amount)) != 0)
 		{
-			amount *= 2;
 			if (type == SpellType.WATER.id)
 			{
 				return tryConsumeMana(manaLevels, SpellType.FROST.id, amount) == 0 & tryConsumeMana(manaLevels, SpellType.FIRE.id, amount) == 0;
