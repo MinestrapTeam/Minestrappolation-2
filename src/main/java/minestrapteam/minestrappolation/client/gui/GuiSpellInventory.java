@@ -216,12 +216,13 @@ public class GuiSpellInventory extends GuiScreen
 			
 			if (x >= x1 && x < x1 + 16 && y >= y1 && y < y1 + 16)
 			{
-				Minestrappolation.instance.netHandler.sendToServer(new SpellBarPacket(i, this.grabbedSpell));
-				
 				Spell spell = this.playerSpells.getSpell(i);
-				this.playerSpells.setSpell(i, this.grabbedSpell);
-				this.grabbedSpell = Keyboard.isKeyDown(Keyboard.KEY_LSHIFT) ? null : spell;
-				
+				if (spell != this.grabbedSpell)
+				{
+					Minestrappolation.instance.netHandler.sendToServer(new SpellBarPacket(i, this.grabbedSpell));
+					this.playerSpells.setSpell(i, this.grabbedSpell);
+					this.grabbedSpell = Keyboard.isKeyDown(Keyboard.KEY_LSHIFT) ? null : spell;
+				}
 				return;
 			}
 		}

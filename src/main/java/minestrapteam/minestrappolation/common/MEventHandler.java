@@ -4,16 +4,20 @@ import java.util.Random;
 
 import cpw.mods.fml.common.eventhandler.Event.Result;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
+import cpw.mods.fml.common.gameevent.PlayerEvent.PlayerRespawnEvent;
 import cpw.mods.fml.common.gameevent.TickEvent.Phase;
 import cpw.mods.fml.common.gameevent.TickEvent.PlayerTickEvent;
 import minestrapteam.minestrappolation.lib.MBlocks;
 import minestrapteam.minestrappolation.lib.MDrops;
 import minestrapteam.minestrappolation.lib.MItems;
 import minestrapteam.minestrappolation.lib.MTools;
+import minestrapteam.minestrappolation.spell.PlayerSpells;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.monster.EntityGhast;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
@@ -108,6 +112,23 @@ public class MEventHandler
 		{
 			MDrops.onMobDrops(event);
 		}
+	}
+	
+	@SubscribeEvent
+	public void onPlayerLoggedIn(PlayerLoggedInEvent event)
+	{
+		if (event.player instanceof EntityPlayerMP)
+		{
+			PlayerSpells spells = PlayerSpells.get(event.player);
+			spells.sync();
+		}
+	}
+	
+	@SubscribeEvent
+	public void onPlayerRespawn(PlayerRespawnEvent event)
+	{
+		PlayerSpells spells = PlayerSpells.get(event.player);
+		spells.onRespawn();
 	}
 	
 	@SubscribeEvent

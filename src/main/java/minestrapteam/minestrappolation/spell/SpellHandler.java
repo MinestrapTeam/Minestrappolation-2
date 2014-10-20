@@ -124,7 +124,10 @@ public class SpellHandler
 		
 		nbt.setString("Name", spell.name);
 		nbt.setByte("Variety", spell.variety.id);
-		nbt.setByte("Enhancement", spell.enhancement.id);
+		if (spell.enhancement != null)
+		{
+			nbt.setByte("Enhancement", spell.enhancement.id);
+		}
 		nbt.setIntArray("Potencies", spell.getPotencies());
 	}
 	
@@ -137,7 +140,7 @@ public class SpellHandler
 		}
 		
 		SpellVariety variety = SpellVariety.get(nbt.getByte("Variety"));
-		SpellEnhancement enhancement = SpellEnhancement.get(nbt.getByte("Enhancement"));
+		SpellEnhancement enhancement = nbt.hasKey("Enhancement") ? SpellEnhancement.get(nbt.getByte("Enhancement")) : null;
 		int[] potencies = nbt.getIntArray("Potencies");
 		return new Spell(name, variety.category, variety, enhancement, potencies);
 	}
@@ -148,13 +151,13 @@ public class SpellHandler
 		{
 			if (spell == null)
 			{
-				buffer.writeStringToBuffer("");
+				buffer.writeByte(127);
 				return;
 			}
 			
-			buffer.writeStringToBuffer(spell.name);
 			buffer.writeByte(spell.variety.id);
-			buffer.writeByte(spell.enhancement.id);
+			buffer.writeByte(spell.enhancement == null ? 127 : spell.enhancement.id);
+			buffer.writeStringToBuffer(spell.name);
 			
 			int[] potencies = spell.getPotencies();
 			for (int i = 0; i < SpellType.spellTypes.length; i++)
@@ -170,15 +173,17 @@ public class SpellHandler
 	
 	public static Spell readFromBuffer(PacketBuffer buffer) throws IOException
 	{
-		String name = buffer.readStringFromBuffer(0xFF);
-		
-		if (name.isEmpty())
+		byte v = buffer.readByte();
+		if (v == 127)
 		{
 			return null;
 		}
 		
-		SpellVariety variety = SpellVariety.get(buffer.readByte());
-		SpellEnhancement enhancement = SpellEnhancement.get(buffer.readByte());
+		byte e = buffer.readByte();
+		
+		SpellVariety variety = SpellVariety.get(v);
+		SpellEnhancement enhancement = e == 127 ? null : SpellEnhancement.get(e);
+		String name = buffer.readStringFromBuffer(0xFF);
 		
 		int len = SpellType.spellTypes.length;
 		int[] potencies = new int[len];

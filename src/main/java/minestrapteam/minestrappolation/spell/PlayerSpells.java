@@ -5,7 +5,7 @@ import java.util.List;
 
 import clashsoft.cslib.minecraft.entity.CSEntities;
 import minestrapteam.minestrappolation.Minestrappolation;
-import minestrapteam.minestrappolation.network.PlayerSpellsPacket;
+import minestrapteam.minestrappolation.network.SpellDataPacket;
 import minestrapteam.minestrappolation.spell.data.SpellType;
 
 import net.minecraft.entity.Entity;
@@ -88,6 +88,21 @@ public class PlayerSpells implements IExtendedEntityProperties
 		return false;
 	}
 	
+	public void onRespawn()
+	{
+		for (int i = 0; i < SpellType.spellTypes.length; i++)
+		{
+			this.manaLevels[i] = Math.max(16, this.maxManaLevels[i] / 2);
+		}
+		
+		this.sync();
+	}
+	
+	public void sync()
+	{
+		Minestrappolation.instance.netHandler.sendTo(new SpellDataPacket(this), (EntityPlayerMP) this.player);
+	}
+	
 	@Override
 	public void saveNBTData(NBTTagCompound nbt)
 	{
@@ -152,11 +167,6 @@ public class PlayerSpells implements IExtendedEntityProperties
 		
 		this.manaLevels = nbt.getIntArray("ManaLevels");
 		this.maxManaLevels = nbt.getIntArray("MaxManaLevels");
-		
-		if (this.player instanceof EntityPlayerMP)
-		{
-			Minestrappolation.instance.netHandler.sendTo(new PlayerSpellsPacket(this), (EntityPlayerMP) this.player);
-		}
 	}
 	
 	@Override

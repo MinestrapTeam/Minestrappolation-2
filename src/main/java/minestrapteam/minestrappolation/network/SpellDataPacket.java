@@ -11,10 +11,9 @@ import minestrapteam.minestrappolation.spell.SpellHandler;
 import minestrapteam.minestrappolation.spell.data.SpellType;
 
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.network.PacketBuffer;
 
-public class PlayerSpellsPacket extends CSPacket
+public class SpellDataPacket extends CSPacket
 {
 	public int			currentSpell;
 	public Spell[]		selectedSpells;
@@ -22,11 +21,11 @@ public class PlayerSpellsPacket extends CSPacket
 	public int[]		manaLevels;
 	public int[]		maxManaLevels;
 	
-	public PlayerSpellsPacket()
+	public SpellDataPacket()
 	{
 	}
 	
-	public PlayerSpellsPacket(PlayerSpells spells)
+	public SpellDataPacket(PlayerSpells spells)
 	{
 		this.currentSpell = spells.currentSpell;
 		this.selectedSpells = spells.selectedSpells;
@@ -56,7 +55,10 @@ public class PlayerSpellsPacket extends CSPacket
 		}
 		
 		// Mana Levels
-		for (int i = 0; i < SpellType.spellTypes.length; i++)
+		len = SpellType.spellTypes.length;
+		this.manaLevels = new int[len];
+		this.maxManaLevels = new int[len];
+		for (int i = 0; i < len; i++)
 		{
 			this.manaLevels[i] = buf.readInt();
 			this.maxManaLevels[i] = buf.readInt();
@@ -83,7 +85,8 @@ public class PlayerSpellsPacket extends CSPacket
 		}
 		
 		// Mana Levels
-		for (int i = 0; i < SpellType.spellTypes.length; i++)
+		len = SpellType.spellTypes.length;
+		for (int i = 0; i < len; i++)
 		{
 			buf.writeInt(this.manaLevels[i]);
 			buf.writeInt(this.maxManaLevels[i]);
@@ -91,7 +94,7 @@ public class PlayerSpellsPacket extends CSPacket
 	}
 	
 	@Override
-	public void handleClient(EntityPlayer player)
+	public void handle(EntityPlayer player)
 	{
 		PlayerSpells spells = PlayerSpells.get(player);
 		spells.currentSpell = this.currentSpell;
@@ -99,11 +102,5 @@ public class PlayerSpellsPacket extends CSPacket
 		spells.spells = this.spells;
 		spells.manaLevels = this.manaLevels;
 		spells.maxManaLevels = this.maxManaLevels;
-	}
-	
-	@Override
-	public void handleServer(EntityPlayerMP player)
-	{
-		this.handleClient(player);
 	}
 }

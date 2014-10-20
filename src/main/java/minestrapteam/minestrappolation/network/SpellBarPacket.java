@@ -8,7 +8,6 @@ import minestrapteam.minestrappolation.spell.Spell;
 import minestrapteam.minestrappolation.spell.SpellHandler;
 
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.network.PacketBuffer;
 
 public class SpellBarPacket extends CSPacket
@@ -41,15 +40,9 @@ public class SpellBarPacket extends CSPacket
 	}
 	
 	@Override
-	public void handleClient(EntityPlayer player)
+	public void handle(EntityPlayer player)
 	{
 		PlayerSpells spells = PlayerSpells.get(player);
 		spells.setSpell(this.slot, this.spell);
-	}
-	
-	@Override
-	public void handleServer(EntityPlayerMP player)
-	{
-		this.handleClient(player);
 	}
 }

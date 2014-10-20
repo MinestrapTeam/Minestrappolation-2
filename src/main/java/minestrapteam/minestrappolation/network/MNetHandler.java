@@ -12,7 +12,7 @@ public class MNetHandler extends CSNetHandler
 		this.registerPacket(PlatePacket.class);
 		this.registerPacket(LockedPacket.class);
 		
-		this.registerPacket(PlayerSpellsPacket.class);
+		this.registerPacket(SpellDataPacket.class);
 		this.registerPacket(SpellBarPacket.class);
 		this.registerPacket(SpellUsePacket.class);
 		this.registerPacket(SpellAddPacket.class);
