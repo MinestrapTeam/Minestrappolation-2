@@ -82,23 +82,28 @@ public class Minestrappolation extends BaseMod
 	{
 		super.preInit(event);
 		
+		// Load Config
 		MConfig.load();
 		
+		// Init mod parts
 		MFluids.init();
 		
 		MBlocks.init();
 		MItems.init();
 		MTools.init();
 		
+		// Load mod parts
 		MBlocks.load();
 		MItems.load();
 		MTools.load();
 		
+		// Load additional parts
 		MRecipes.load();
 		MOreDictionary.load();
 		MEntities.load();
 		MFluids.load();
 		
+		// Load recipe loaders
 		melterRecipeLoader.load();
 		freezerRecipeLoader.load();
 	}
@@ -109,8 +114,7 @@ public class Minestrappolation extends BaseMod
 	{
 		super.init(event);
 		
-		GameRegistry.registerWorldGenerator(new MWorldGenerator(), 0);
-		
+		MWorldGenerator.load();
 		MBiomes.load();
 		MPotions.load();
 		

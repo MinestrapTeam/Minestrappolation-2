@@ -6,6 +6,7 @@ import clashsoft.cslib.config.CSConfig;
 import clashsoft.cslib.minecraft.block.ore.BlockOre2;
 import clashsoft.cslib.minecraft.world.gen.OreGen;
 import cpw.mods.fml.common.IWorldGenerator;
+import cpw.mods.fml.common.registry.GameRegistry;
 import minestrapteam.minestrappolation.lib.MBlocks;
 import minestrapteam.minestrappolation.world.gen.*;
 
@@ -59,7 +60,7 @@ public class MWorldGenerator implements IWorldGenerator
 	public static WorldGenRedSandstone		redSandstoneGen		= new WorldGenRedSandstone();
 	public static WorldGenRedWoodTreeSmall	redwoodTreeGen		= new WorldGenRedWoodTreeSmall();
 	public static WorldGenDesertQuartz		desertQuartzGen		= new WorldGenDesertQuartz();
-	public static WorldGenObsidianSpikes obsidianSpikeGen = new WorldGenObsidianSpikes();
+	public static WorldGenObsidianSpikes	obsidianSpikeGen	= new WorldGenObsidianSpikes();
 	
 	public static WorldGenStructureStone	stoneStructureGen	= new WorldGenStructureStone();
 	
@@ -95,8 +96,11 @@ public class MWorldGenerator implements IWorldGenerator
 		mossyPlankGen = CSConfig.getOreGen("mossy_planks", new OreGen(15, 50, 128));
 	}
 	
-	public static void loadBlocks()
+	public static void load()
 	{
+		GameRegistry.registerWorldGenerator(new MWorldGenerator(), 0);
+		
+		// Assign the blocks to the generators
 		copperGen.block = MBlocks.copperOre;
 		tinGen.block = MBlocks.tinOre;
 		radiantQuartzGen.block = MBlocks.radiantQuartzOre;

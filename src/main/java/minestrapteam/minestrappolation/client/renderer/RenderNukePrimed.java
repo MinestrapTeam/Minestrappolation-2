@@ -77,7 +77,6 @@ public class RenderNukePrimed extends Render
 	@Override
 	public void doRender(Entity entity, double x, double y, double z, float yaw, float partialTickTime)
 	{
-		System.out.println("nuke render");
 		this.renderPrimedTNT((EntityNukePrimed) entity, x, y, z, yaw, partialTickTime);
 	}
 }
