@@ -1,12 +1,20 @@
 package minestrapteam.minestrappolation.spell;
 
 import scala.actors.threadpool.Arrays;
+import clashsoft.brewingapi.item.ItemPotion2;
+import minestrapteam.minestrappolation.lib.MBlocks;
+import minestrapteam.minestrappolation.lib.MItems;
 import minestrapteam.minestrappolation.spell.data.SpellCategory;
 import minestrapteam.minestrappolation.spell.data.SpellEnhancement;
 import minestrapteam.minestrappolation.spell.data.SpellType;
 import minestrapteam.minestrappolation.spell.data.SpellVariety;
 
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnumEnchantmentType;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagList;
 
 public class SpellRecipes
 {
@@ -26,8 +34,57 @@ public class SpellRecipes
 		{
 			return null;
 		}
-		// FIXME
-		return SpellCategory.OFFENSE;
+		
+		NBTTagList enchantments = stack.getEnchantmentTagList();
+		if (enchantments == null || enchantments.tagCount() == 0)
+		{
+			return null;
+		}
+		
+		for (int i = 0; i < enchantments.tagCount(); i++)
+		{
+			short id = enchantments.getCompoundTagAt(i).getShort("id");
+			Enchantment ench = Enchantment.enchantmentsList[id];
+			SpellCategory category = getCategory(ench);
+			if (category != null)
+			{
+				return category;
+			}
+		}
+		
+		return null;
+	}
+	
+	public static SpellCategory getCategory(Enchantment ench)
+	{
+		if (ench == null)
+		{
+			return null;
+		}
+		else if (ench == Enchantment.looting || ench == Enchantment.fortune)
+		{
+			return SpellCategory.SUMMONING;
+		}
+		
+		EnumEnchantmentType type = ench.type;
+		if (type == EnumEnchantmentType.weapon)
+		{
+			return SpellCategory.OFFENSE;
+		}
+		else if (type == EnumEnchantmentType.armor || type == EnumEnchantmentType.armor_head || type == EnumEnchantmentType.armor_torso || type == EnumEnchantmentType.armor_legs || type == EnumEnchantmentType.armor_feet)
+		{
+			return SpellCategory.DEFENSE;
+		}
+		else if (type == EnumEnchantmentType.digger)
+		{
+			return SpellCategory.ALTERATION;
+		}
+		else if (type == EnumEnchantmentType.fishing_rod)
+		{
+			return SpellCategory.SUMMONING;
+		}
+		
+		return null;
 	}
 	
 	public static SpellVariety getVariety(ItemStack stack, SpellCategory category)
@@ -36,8 +93,50 @@ public class SpellRecipes
 		{
 			return null;
 		}
-		// FIXME
-		return SpellVariety.PROJECTILE;
+		
+		Item item = stack.getItem();
+		if (category == SpellCategory.OFFENSE)
+		{
+			if (item == Items.fire_charge)
+			{
+				return SpellVariety.PROJECTILE;
+			}
+			else if (item == MItems.radiantQuartz)
+			{
+				return SpellVariety.BEAM;
+			}
+			else if (item instanceof ItemPotion2)
+			{
+				if (((ItemPotion2) item).isSplash(stack))
+				{
+					return SpellVariety.SPRAY;
+				}
+			}
+			else if (item == Items.ender_eye)
+			{
+				return SpellVariety.VORTEX;
+			}
+		}
+		else if (category == SpellCategory.DEFENSE)
+		{
+			if (item == MItems.plateSteelItem)
+			{
+				return SpellVariety.BODY_ARMOR;
+			}
+			else if (item == Item.getItemFromBlock(MBlocks.sunstoneBlock))
+			{
+				return SpellVariety.AREA_SHIELD;
+			}
+			else if (item == Item.getItemFromBlock(MBlocks.enderBlock))
+			{
+				return SpellVariety.MIRROR_SHIELD;
+			}
+			else if (item == MItems.blazeShard)
+			{
+				return SpellVariety.ABRASIVE_ARMOR;
+			}
+		}
+		return null;
 	}
 	
 	public static SpellEnhancement getEnhancement(ItemStack stack, SpellVariety variety)
@@ -46,7 +145,6 @@ public class SpellRecipes
 		{
 			return null;
 		}
-		// FIXME
 		return null;
 	}
 	
