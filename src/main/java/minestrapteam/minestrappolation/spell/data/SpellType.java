@@ -10,14 +10,14 @@ public class SpellType
 {
 	public static SpellType[]		spellTypes	= new SpellType[8];
 	
-	public static final SpellType	WATER		= new SpellType(0, "water", 0x608FEE, EnumChatFormatting.DARK_AQUA);
-	public static final SpellType	FIRE		= new SpellType(1, "fire", 0xFEAF11, EnumChatFormatting.GOLD);
-	public static final SpellType	EARTH		= new SpellType(2, "earth", 0x72A73C, EnumChatFormatting.GREEN);
-	public static final SpellType	WIND		= new SpellType(3, "wind", 0x828F8F, EnumChatFormatting.GRAY);
-	public static final SpellType	FROST		= new SpellType(4, "frost", 0x4FA4A4, EnumChatFormatting.AQUA);
-	public static final SpellType	ELECTRICITY	= new SpellType(5, "electricity", 0xE1E134, EnumChatFormatting.YELLOW);
-	public static final SpellType	LIFE		= new SpellType(6, "life", 0xEF6060, EnumChatFormatting.RED);
-	public static final SpellType	ARCANE		= new SpellType(7, "arcane", 0xB765E1, EnumChatFormatting.DARK_PURPLE);
+	public static final SpellType	WATER		= new SpellType(0, "water", 0x0047C9, EnumChatFormatting.BLUE);
+	public static final SpellType	FIRE		= new SpellType(1, "fire", 0xD60000, EnumChatFormatting.RED);
+	public static final SpellType	EARTH		= new SpellType(2, "earth", 0xA85700, EnumChatFormatting.GOLD);
+	public static final SpellType	WIND		= new SpellType(3, "wind", 0x99A3A3, EnumChatFormatting.GRAY);
+	public static final SpellType	FROST		= new SpellType(4, "frost", 0x45CFDE, EnumChatFormatting.AQUA);
+	public static final SpellType	ELECTRICITY	= new SpellType(5, "electricity", 0xFFE100, EnumChatFormatting.YELLOW);
+	public static final SpellType	LIFE		= new SpellType(6, "life", 0x77E600, EnumChatFormatting.GREEN);
+	public static final SpellType	ARCANE		= new SpellType(7, "arcane", 0xCF00C1, EnumChatFormatting.DARK_PURPLE);
 	
 	public int						id;
 	public String					name;

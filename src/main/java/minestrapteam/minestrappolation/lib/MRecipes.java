@@ -133,7 +133,7 @@ public class MRecipes
 		GameRegistry.addSmelting(squidTentacle, new ItemStack(calimari, 1), 0.35F);
 		GameRegistry.addSmelting(horseHaunchRaw, new ItemStack(horseHaunchCooked), 0.4F);
 		
-		GameRegistry.addRecipe(new ItemStack(coolantBottle), new Object[] { "rSr", "SwS", "rSr", 'r', Items.redstone, 'S', Blocks.snow, 'w', new ItemStack(Items.potionitem, 1, 0) });
+		GameRegistry.addRecipe(new ItemStack(coolantBottle), new Object[] { "RSR", "SWS", "RSR", 'R', Items.redstone, 'S', Blocks.snow, 'W', new ItemStack(Items.potionitem, 1, 0) });
 		
 		// Tech Recipes
 		// (MBlockMachine recipes require the metadata 1 because of the front
@@ -143,7 +143,6 @@ public class MRecipes
 		GameRegistry.addRecipe(new ItemStack(plutoniumInsulated, 1), new Object[] { "SPS", "GUG", "SPS", 'S', steelIngot, 'G', MBlocks.refinedGlassPane, 'U', plutoniumBlock, 'P', MItems.plateSteelItem });
 		GameRegistry.addRecipe(new ItemStack(nuke, 1), new Object[] { "UPU", "PUP", "UPU", 'P', plutoniumBlock, 'U', uraniumBlock });
 		GameRegistry.addRecipe(new ItemStack(melterIdle, 1, 1), new Object[] { "ZZZ", "ZFZ", "IBI", 'Z', plateMeuroditeItem, 'F', Blocks.furnace, 'B', blaziumBlock, 'I', Blocks.iron_bars });
-		GameRegistry.addRecipe(new ItemStack(freezer, 1, 1), new Object[] {"ici", "iCi", "iri", 'i', Items.iron_ingot, 'c', coolantBottle, 'C', Blocks.chest, 'r', Items.redstone});
 		
 		for (int i = 0; i < 16; i++)
 		{
