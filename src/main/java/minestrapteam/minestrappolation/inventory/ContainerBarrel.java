@@ -20,7 +20,7 @@ public class ContainerBarrel extends ContainerInventory
 				this.addSlotToContainer(new Slot(barrel, k + j * 9, 8 + k * 18, 19 + j * 18));
 			}
 		}
-		this.addInventorySlot(0, 21);
+		this.addInventorySlots(0, 21);
 	}
 	
 	@Override

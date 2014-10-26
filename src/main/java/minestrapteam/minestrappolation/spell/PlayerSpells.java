@@ -30,12 +30,6 @@ public class PlayerSpells implements IExtendedEntityProperties
 	public PlayerSpells(Entity entity)
 	{
 		this.player = (EntityPlayer) entity;
-		
-		for (int i = 0; i < SpellType.spellTypes.length; i++)
-		{
-			this.manaLevels[i] = 16;
-			this.maxManaLevels[i] = 16;
-		}
 	}
 	
 	public static PlayerSpells get(EntityPlayer player)
@@ -167,6 +161,19 @@ public class PlayerSpells implements IExtendedEntityProperties
 		
 		this.manaLevels = nbt.getIntArray("ManaLevels");
 		this.maxManaLevels = nbt.getIntArray("MaxManaLevels");
+		
+		int len = SpellType.spellTypes.length;
+		if (this.manaLevels.length < len)
+		{
+			this.manaLevels = new int[len];
+			this.maxManaLevels = new int[len];
+			
+			for (int i = 0; i < len; i++)
+			{
+				this.manaLevels[i] = 16;
+				this.maxManaLevels[i] = 16;
+			}
+		}
 	}
 	
 	@Override

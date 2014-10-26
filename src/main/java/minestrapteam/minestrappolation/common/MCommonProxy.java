@@ -2,6 +2,7 @@ package minestrapteam.minestrappolation.common;
 
 import clashsoft.cslib.minecraft.common.BaseProxy;
 import minestrapteam.minestrappolation.inventory.*;
+import minestrapteam.minestrappolation.spell.Spell;
 import minestrapteam.minestrappolation.tileentity.*;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -58,5 +59,10 @@ public class MCommonProxy extends BaseProxy
 			return new ContainerArcaneForge(player, (TileEntityArcaneForge) world.getTileEntity(x, y, z));
 		}
 		return null;
+	}
+	
+	public void spawnSpellParticle(Spell spell, double x, double y, double z)
+	{
+		
 	}
 }

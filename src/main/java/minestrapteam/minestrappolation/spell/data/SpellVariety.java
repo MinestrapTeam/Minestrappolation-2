@@ -1,26 +1,31 @@
 package minestrapteam.minestrappolation.spell.data;
 
+import static minestrapteam.minestrappolation.spell.data.SpellCategory.ALTERATION;
+import static minestrapteam.minestrappolation.spell.data.SpellCategory.DEFENSE;
+import static minestrapteam.minestrappolation.spell.data.SpellCategory.OFFENSE;
+import static minestrapteam.minestrappolation.spell.data.SpellCategory.SUMMONING;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
 import clashsoft.cslib.minecraft.lang.I18n;
-import minestrapteam.minestrappolation.spell.Spell;
 import minestrapteam.minestrappolation.spell.PlayerSpells;
+import minestrapteam.minestrappolation.spell.Spell;
 import minestrapteam.minestrappolation.spell.SpellList;
+import minestrapteam.minestrappolation.spell.SpellVarietyProjectile;
 import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.IIcon;
-
-import static minestrapteam.minestrappolation.spell.data.SpellCategory.*;
 
 public class SpellVariety
 {
 	public static SpellVariety[]		spellVarieties				= new SpellVariety[16];
 	
-	public static final SpellVariety	PROJECTILE					= new SpellVariety(0, OFFENSE, "projectile");
+	public static final SpellVariety	PROJECTILE					= new SpellVarietyProjectile(0, "projectile");
 	public static final SpellVariety	BEAM						= new SpellVariety(1, OFFENSE, "beam");
 	public static final SpellVariety	SPRAY						= new SpellVariety(2, OFFENSE, "spray");
 	public static final SpellVariety	VORTEX						= new SpellVariety(3, OFFENSE, "vortex");
@@ -68,6 +73,11 @@ public class SpellVariety
 	public void registerIcons(IIconRegister iconRegister)
 	{
 		this.icon = iconRegister.registerIcon(MAssetManager.getSpellTexture("variety_" + this.name));
+	}
+	
+	public void cast(EntityPlayer player, Spell spell)
+	{
+		
 	}
 	
 	public List<Spell> getSpells(PlayerSpells spells)

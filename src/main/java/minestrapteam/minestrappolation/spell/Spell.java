@@ -14,7 +14,6 @@ import minestrapteam.minestrappolation.spell.data.SpellVariety;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
 
@@ -120,6 +119,11 @@ public class Spell
 		return this.name;
 	}
 	
+	public int getTotalPotency()
+	{
+		return this.totalPotency;
+	}
+	
 	public int getDisplayColor()
 	{
 		return this.displayColor;
@@ -221,19 +225,22 @@ public class Spell
 		return this.enhancement == null ? 3 : 4;
 	}
 	
-	public void onSpellRightClick(PlayerSpells spells, EntityPlayerMP player)
+	public void onSpellRightClick(PlayerSpells spells, EntityPlayer player)
 	{
 		int[] manaLevels = spells.manaLevels;
 		int[] maxManaLevels = spells.maxManaLevels;
 		
-		// Consume Mana
-		for (int i = 0; i < SpellType.spellTypes.length; i++)
+		if (!player.capabilities.isCreativeMode)
 		{
-			int potency = this.potencies[i];
-			if (potency > 0 && !SpellHandler.consumeMana(manaLevels, i, potency))
+			// Consume Mana
+			for (int i = 0; i < SpellType.spellTypes.length; i++)
 			{
-				// Spell cannot be cast
-				return;
+				int potency = this.potencies[i];
+				if (potency > 0 && !SpellHandler.consumeMana(manaLevels, i, potency))
+				{
+					// Spell cannot be cast
+					return;
+				}
 			}
 		}
 		
@@ -253,13 +260,11 @@ public class Spell
 				maxManaLevels[i]++;
 			}
 		}
-		
-		spells.sync();
 	}
 	
 	public boolean castSpell(EntityPlayer player)
 	{
-		// TODO Implementation
+		this.variety.cast(player, this);
 		return true;
 	}
 	

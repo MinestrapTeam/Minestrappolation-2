@@ -22,9 +22,12 @@ import minestrapteam.minestrappolation.client.renderer.tileentity.RenderTileEnti
 import minestrapteam.minestrappolation.common.MCommonProxy;
 import minestrapteam.minestrappolation.entity.*;
 import minestrapteam.minestrappolation.lib.MItems;
+import minestrapteam.minestrappolation.spell.Spell;
 import minestrapteam.minestrappolation.tileentity.*;
 import minestrapteam.minestrappolation.util.MAssetManager;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.entity.player.EntityPlayer;
@@ -131,5 +134,21 @@ public class MClientProxy extends MCommonProxy
 	public boolean isClient()
 	{
 		return true;
+	}
+	
+	@Override
+	public void spawnSpellParticle(Spell spell, double x, double y, double z)
+	{
+		EntityFX fx = Minecraft.getMinecraft().renderGlobal.doSpawnParticle("mobSpell", x, y, z, 0D, 0D, 0D);
+		if (fx != null)
+		{
+			fx.setVelocity(0D, 0D, 0D);
+			
+			int color = spell.getDisplayColor();
+			float r = ((color >> 16) & 0xFF) / 255F;
+			float g = ((color >> 8) & 0xFF) / 255F;
+			float b = ((color >> 0) & 0xFF) / 255F;
+			fx.setRBGColorF(r, g, b);
+		}
 	}
 }
