@@ -57,12 +57,12 @@ public class MWorldGenerator implements IWorldGenerator
 	public static OreGen					sandstoneGen2;
 	public static OreGen					mossyPlankGen;
 	
-	public static WorldGenRedSandstone		redSandstoneGen		= new WorldGenRedSandstone();
-	public static WorldGenRedWoodTreeSmall	redwoodTreeGen		= new WorldGenRedWoodTreeSmall();
-	public static WorldGenDesertQuartz		desertQuartzGen		= new WorldGenDesertQuartz();
-	public static WorldGenObsidianSpikes	obsidianSpikeGen	= new WorldGenObsidianSpikes();
+	public static WorldGenRedSandstone		redSandstoneGen;
+	public static WorldGenRedWoodTreeSmall	redwoodTreeGen;
+	public static WorldGenDesertQuartz		desertQuartzGen;
+	public static WorldGenObsidianSpikes	obsidianSpikeGen;
 	
-	public static WorldGenStructureStone	stoneStructureGen	= new WorldGenStructureStone();
+	public static WorldGenStructureStone	stoneStructureGen;
 	
 	public static void loadConfig()
 	{
@@ -100,6 +100,13 @@ public class MWorldGenerator implements IWorldGenerator
 	{
 		GameRegistry.registerWorldGenerator(new MWorldGenerator(), 0);
 		
+		redSandstoneGen = new WorldGenRedSandstone();
+		redwoodTreeGen = new WorldGenRedWoodTreeSmall();
+		desertQuartzGen = new WorldGenDesertQuartz();
+		obsidianSpikeGen = new WorldGenObsidianSpikes();
+		
+		stoneStructureGen = new WorldGenStructureStone();
+		
 		// Assign the blocks to the generators
 		copperGen.block = MBlocks.copperOre;
 		tinGen.block = MBlocks.tinOre;
@@ -117,7 +124,7 @@ public class MWorldGenerator implements IWorldGenerator
 		sandstoneGen.generate(MBlocks.sandstone, 6).replace(Blocks.sandstone);
 		sandstoneGen2.generate(MBlocks.sandstone, 7).replace(Blocks.sandstone);
 		
-		slateGen.block = MBlocks.copperOre;
+		slateGen.block = MBlocks.graniteSlate;
 	}
 	
 	@Override
