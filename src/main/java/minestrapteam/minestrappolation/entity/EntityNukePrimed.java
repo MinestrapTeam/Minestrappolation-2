@@ -25,8 +25,8 @@ public class EntityNukePrimed extends Entity
 		this.setPosition(x, y, z);
 		float f = (float) (Math.random() * Math.PI * 2.0D);
 		this.motionX = Math.sin(f) * -0.02D;
-		this.motionY = 0.20000000298023224D;
-		this.motionZ = Math.cos(f) * -0.2D;
+		this.motionY = 0.2D;
+		this.motionZ = Math.cos(f) * -0.02D;
 		this.fuse = 120;
 		this.prevPosX = x;
 		this.prevPosY = y;
@@ -57,16 +57,16 @@ public class EntityNukePrimed extends Entity
 		this.prevPosX = this.posX;
 		this.prevPosY = this.posY;
 		this.prevPosZ = this.posZ;
-		this.motionY -= 0.03999999910593033D;
+		this.motionY -= 0.04D;
 		this.moveEntity(this.motionX, this.motionY, this.motionZ);
-		this.motionX *= 0.9800000190734863D;
-		this.motionY *= 0.9800000190734863D;
-		this.motionZ *= 0.9800000190734863D;
+		this.motionX *= 0.98D;
+		this.motionY *= 0.98D;
+		this.motionZ *= 0.98D;
 		
 		if (this.onGround)
 		{
-			this.motionX *= 0.699999988079071D;
-			this.motionZ *= 0.699999988079071D;
+			this.motionX *= 0.7D;
+			this.motionZ *= 0.7D;
 			this.motionY *= -0.5D;
 		}
 		

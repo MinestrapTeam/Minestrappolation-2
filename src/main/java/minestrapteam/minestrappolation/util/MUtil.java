@@ -6,8 +6,12 @@ import clashsoft.cslib.minecraft.crafting.CSCrafting;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.monster.*;
+import net.minecraft.entity.passive.*;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
 /**
@@ -168,6 +172,78 @@ public class MUtil
 			{
 				world.spawnParticle(name, x1, y1, z1, 0.0D, 0.0D, 0.0D);
 			}
+		}
+	}
+	
+	public static boolean transformMob(Entity entity)
+	{
+		Class c = entity.getClass();
+		if (transform(entity, c, EntityHorse.class, EntitySpider.class))
+		{
+			return true;
+		}
+		if (transform(entity, c, EntityPig.class, EntityPigZombie.class))
+		{
+			return true;
+		}
+		if (transform(entity, c, EntityBat.class, EntitySilverfish.class))
+		{
+			return true;
+		}
+		if (transform(entity, c, EntitySquid.class, EntityGhast.class))
+		{
+			return true;
+		}
+		if (transform(entity, c, EntityVillager.class, EntityWitch.class))
+		{
+			return true;
+		}
+		if (transform(entity, c, EntitySnowman.class, EntityBlaze.class))
+		{
+			return true;
+		}
+		if (transform(entity, c, EntitySlime.class, EntityMagmaCube.class))
+		{
+			return true;
+		}
+		return false;
+	}
+	
+	protected static boolean transform(Entity entity, Class<? extends Entity> class1, Class<? extends Entity> animal, Class<? extends Entity> mob)
+	{
+		if (class1 == animal)
+		{
+			return transform(entity, mob);
+		}
+		else if (class1 == mob)
+		{
+			return transform(entity, animal);
+		}
+		return false;
+	}
+	
+	public static <T extends Entity> boolean transform(Entity entity, Class<T> newType)
+	{
+		try
+		{
+			World world = entity.worldObj;
+			T newEntity = newType.getConstructor(World.class).newInstance(world);
+			NBTTagCompound nbt = new NBTTagCompound();
+			
+			entity.writeToNBT(nbt);
+			newEntity.readFromNBT(nbt);
+			
+			entity.setDead();
+			if (!world.isRemote)
+			{
+				world.spawnEntityInWorld(newEntity);
+			}
+			
+			return true;
+		}
+		catch (Exception ex)
+		{
+			return false;
 		}
 	}
 	

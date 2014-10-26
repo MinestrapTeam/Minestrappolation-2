@@ -89,9 +89,9 @@ public class MItems
 	public static Item	desertQuartz;
 	public static Item	blazeShard;
 	public static Item	sunstoneDust;
-	public static Item blackDiamond;
+	public static Item	blackDiamond;
 	
-	public static Item reinforcedStick;
+	public static Item	reinforcedStick;
 	
 	public static Item	magmaBucket;
 	
@@ -243,7 +243,7 @@ public class MItems
 		desertQuartz = new MItem().setTextureName(MAssetManager.getMineralTexture("desert_quartz"));
 		blazeShard = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("blazium_dust"));
 		sunstoneDust = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("sunstone_dust"));
-		blackDiamond = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("black_diamond"));
+		blackDiamond = new ItemBlackDiamond().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getMineralTexture("black_diamond"));
 		
 		reinforcedStick = new MItem().setCreativeTab(tabMaterials).setTextureName(MAssetManager.getTexture("reinforced_stick"));
 		
