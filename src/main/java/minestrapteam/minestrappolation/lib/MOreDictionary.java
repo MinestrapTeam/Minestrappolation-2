@@ -2,7 +2,6 @@ package minestrapteam.minestrappolation.lib;
 
 import static minestrapteam.minestrappolation.lib.MBlocks.freezer;
 import static minestrapteam.minestrappolation.lib.MBlocks.stoneCutter;
-import static minestrapteam.minestrappolation.lib.MItems.coolantBottle;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 import net.minecraft.init.Blocks;

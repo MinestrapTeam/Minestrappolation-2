@@ -27,7 +27,7 @@ public class SpellEnhancement
 	public static final SpellEnhancement	POTENCY_BOOST			= new SpellEnhancement(10, "potency_boost", POWER_BOOST.bit | DEBUFF.bit | BLOCK_TRANSFORMATION.bit);
 	public static final SpellEnhancement	WEAPON_BOOST			= new SpellEnhancement(11, "weapon_boost", SUMMON_TOOL.bit | SUMMON_WEAPON.bit);
 	public static final SpellEnhancement	INCREASED_MINING_SPEED	= new SpellEnhancement(12, "increased_mining_speed", SUMMON_TOOL.bit | SUMMON_WEAPON.bit);
-	public static final SpellEnhancement	SUMMON_SLAB				= new SpellEnhancement(13, "summon_slab", SUMMON_BLOCK.bit);
+	public static final SpellEnhancement	SUMMON_ALTERNATE		= new SpellEnhancement(13, "summon_alternate", SUMMON_BLOCK.bit);
 	public static final SpellEnhancement	INCREASED_LIFESPAN		= new SpellEnhancement(14, "increased_lifespan", SUMMON_BLOCK.bit);
 	public static final SpellEnhancement	DOUBLE_SPAWN			= new SpellEnhancement(15, "double_spawn", SUMMON_MOB.bit);
 	
