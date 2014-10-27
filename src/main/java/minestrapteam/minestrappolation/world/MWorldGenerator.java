@@ -78,17 +78,17 @@ public class MWorldGenerator implements IWorldGenerator
 		invinciumNetherTop = CSConfig.getBool("invincium", "Nether Top", null, false);
 		invinciumNetherBottom = CSConfig.getBool("invincium", "Nether Bottom", null, true);
 		
-		copperGen = CSConfig.getOreGen("copper", new OreGen(10, 14, 80));
-		tinGen = CSConfig.getOreGen("tin", new OreGen(11, 14, 80));
-		radiantQuartzGen = CSConfig.getOreGen("radiant_quartz", new OreGen(3, 9, 128));
-		meuroditeGen = CSConfig.getOreGen("meurodite", new OreGen(5, 8, 40));
-		uraniumGen = CSConfig.getOreGen("uranium", new OreGen(3, 6, 32));
-		plutoniumGen = CSConfig.getOreGen("plutonium", new OreGen(3, 6, 32));
-		titaniumGen = CSConfig.getOreGen("titanium", new OreGen(3, 4, 10));
-		toriteGen = CSConfig.getOreGen("torite", new OreGen(3, 7, 30).inBiome(BiomeGenBase.jungle).inBiome(BiomeGenBase.forest));
-		sunstoneGen = CSConfig.getOreGen("sunstone", new OreGen(3, 15, 256));
-		blaziumGen = CSConfig.getOreGen("blazium", new OreGen(8, 8, 128));
-		soulOreGen = CSConfig.getOreGen("soul_ore", new OreGen(15, 20, 128));
+		copperGen = CSConfig.getOreGen("copper", new OreGen(8, 14, 80));
+		tinGen = CSConfig.getOreGen("tin", new OreGen(9, 14, 80));
+		radiantQuartzGen = CSConfig.getOreGen("radiant_quartz", new OreGen(2, 9, 128));
+		meuroditeGen = CSConfig.getOreGen("meurodite", new OreGen(3, 8, 40));
+		uraniumGen = CSConfig.getOreGen("uranium", new OreGen(2, 6, 32));
+		plutoniumGen = CSConfig.getOreGen("plutonium", new OreGen(2, 6, 32));
+		titaniumGen = CSConfig.getOreGen("titanium", new OreGen(2, 4, 10));
+		toriteGen = CSConfig.getOreGen("torite", new OreGen(2, 7, 30).inBiome(BiomeGenBase.jungle).inBiome(BiomeGenBase.forest));
+		sunstoneGen = CSConfig.getOreGen("sunstone", new OreGen(2, 15, 256));
+		blaziumGen = CSConfig.getOreGen("blazium", new OreGen(6, 8, 128));
+		soulOreGen = CSConfig.getOreGen("soul_ore", new OreGen(13, 20, 128));
 		
 		slateGen = CSConfig.getOreGen("slate", new OreGen(50, 12, 256));
 		sandstoneGen = CSConfig.getOreGen("sandstone", new OreGen(7, 40, 256));
