@@ -2,6 +2,7 @@ package minestrapteam.minestrappolation.spell;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import clashsoft.cslib.minecraft.entity.CSEntities;
 import minestrapteam.minestrappolation.Minestrappolation;
@@ -90,6 +91,19 @@ public class PlayerSpells implements IExtendedEntityProperties
 		}
 		
 		this.sync();
+	}
+	
+	public void onUpdate()
+	{
+		Random random = this.player.getRNG();
+		for (int i = 0; i < SpellType.spellTypes.length; i++)
+		{
+			int level = this.manaLevels[i];
+			if (level < this.maxManaLevels[i] && random.nextInt(32) == 0)
+			{
+				this.manaLevels[i] = level + 1;
+			}
+		}
 	}
 	
 	public void sync()
