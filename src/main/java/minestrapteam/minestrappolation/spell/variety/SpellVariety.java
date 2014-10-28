@@ -29,10 +29,10 @@ public class SpellVariety
 	public static final SpellVariety	BEAM						= new SpellVariety(1, OFFENSE, "beam");
 	public static final SpellVariety	SPRAY						= new SpellVariety(2, OFFENSE, "spray");
 	public static final SpellVariety	VORTEX						= new SpellVariety(3, OFFENSE, "vortex");
-	public static final SpellVariety	BODY_ARMOR					= new SpellVarietyBodyArmor(4, "body_armor");
+	public static final SpellVariety	BODY_ARMOR					= new SpellVariety(4, DEFENSE, "body_armor");
 	public static final SpellVariety	ABRASIVE_ARMOR				= new SpellVariety(5, DEFENSE, "abrasive_armor");
 	public static final SpellVariety	MIRROR_SHIELD				= new SpellVariety(6, DEFENSE, "mirror_shield");
-	public static final SpellVariety	AREA_SHIELD					= new SpellVariety(7, DEFENSE, "area_shield");
+	public static final SpellVariety	AREA_SHIELD					= new SpellVarietyAreaShield(7, "area_shield");
 	public static final SpellVariety	POWER_BOOST					= new SpellVariety(8, ALTERATION, "power_boost");
 	public static final SpellVariety	DEBUFF						= new SpellVariety(9, ALTERATION, "debuff");
 	public static final SpellVariety	BLOCK_TRANSFORMATION		= new SpellVariety(10, ALTERATION, "block_transformation");

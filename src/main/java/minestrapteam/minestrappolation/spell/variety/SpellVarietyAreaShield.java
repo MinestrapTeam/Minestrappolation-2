@@ -11,9 +11,9 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class SpellVarietyBodyArmor extends SpellVariety
+public class SpellVarietyAreaShield extends SpellVariety
 {
-	public SpellVarietyBodyArmor(int id, String name)
+	public SpellVarietyAreaShield(int id, String name)
 	{
 		super(id, SpellCategory.DEFENSE, name);
 	}
@@ -22,22 +22,22 @@ public class SpellVarietyBodyArmor extends SpellVariety
 	public void cast(EntityPlayer player, Spell spell)
 	{
 		World world = player.worldObj;
-		SpellBodyArmor armor = new SpellBodyArmor(world, player);
+		SpellAreaShield armor = new SpellAreaShield(world, player);
 		armor.spell = spell;
 		armor.timer = spell.getTotalPotency();
 		world.spawnEntityInWorld(armor);
 	}
 	
-	public static class SpellBodyArmor extends EntitySpell
+	public static class SpellAreaShield extends EntitySpell
 	{
 		public int	timer;
 		
-		public SpellBodyArmor(World world)
+		public SpellAreaShield(World world)
 		{
 			super(world);
 		}
 		
-		public SpellBodyArmor(World world, EntityLivingBase living)
+		public SpellAreaShield(World world, EntityLivingBase living)
 		{
 			super(world);
 			this.setSpellCaster(living);
