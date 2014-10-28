@@ -51,6 +51,7 @@ public class GuiSpellOverlay extends Gui
 		
 		if (!pre && event.type == ElementType.EXPERIENCE)
 		{
+			GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
 			this.spells = PlayerSpells.get(this.mc.thePlayer);
 			this.renderManaBar(width, height);
 			this.renderSpellHotbar(width, height);
