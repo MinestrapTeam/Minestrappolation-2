@@ -5,6 +5,7 @@ import java.util.Random;
 
 import clashsoft.cslib.minecraft.block.ore.BlockOre2;
 import clashsoft.cslib.minecraft.block.ore.OreBase;
+import minestrapteam.minestrappolation.lib.MConfig;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.AxisAlignedBB;
@@ -18,17 +19,17 @@ public abstract class BlockRadiationOre extends BlockOre2
 	}
 	
 	@Override
-	public void onBlockAdded(World random, int x, int y, int z)
+	public void onBlockAdded(World world, int x, int y, int z)
 	{
-		random.scheduleBlockUpdate(x, y, z, this, 1);
+		this.updateTick(world, x, y, z, world.rand);
 	}
 	
 	@Override
 	public void updateTick(World world, int x, int y, int z, Random random)
 	{
-		if (!world.isRemote)
+		if (!world.isRemote && MConfig.oreEffects)
 		{
-			world.scheduleBlockUpdate(x, y, z, this, 1);
+			world.scheduleBlockUpdate(x, y, z, this, 60);
 			
 			float range = this.getRange();
 			AxisAlignedBB axisalignedbb = this.getCollisionBoundingBoxFromPool(world, x, y, z).expand(range, range, range);

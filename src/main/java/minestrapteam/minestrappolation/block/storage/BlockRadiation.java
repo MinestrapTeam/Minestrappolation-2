@@ -17,10 +17,9 @@ public abstract class BlockRadiation extends Block
 	}
 	
 	@Override
-	public void onBlockAdded(World random, int x, int y, int z)
+	public void onBlockAdded(World world, int x, int y, int z)
 	{
-		random.setBlockMetadataWithNotify(x, y, z, 0, z);
-		random.scheduleBlockUpdate(x, y, z, this, 1);
+		world.scheduleBlockUpdate(x, y, z, this, 1);
 	}
 	
 	@Override
@@ -28,7 +27,7 @@ public abstract class BlockRadiation extends Block
 	{
 		if (!world.isRemote)
 		{
-			world.scheduleBlockUpdate(x, y, z, this, 1);
+			world.scheduleBlockUpdate(x, y, z, this, 20);
 			
 			float range = this.getRange();
 			AxisAlignedBB axisalignedbb = this.getCollisionBoundingBoxFromPool(world, x, y, z).expand(range, range, range);

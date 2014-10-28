@@ -2,7 +2,6 @@ package minestrapteam.minestrappolation.block.ore;
 
 import java.util.Random;
 
-import minestrapteam.minestrappolation.lib.MConfig;
 import minestrapteam.minestrappolation.lib.MItems;
 import minestrapteam.minestrappolation.util.MUtil;
 
@@ -36,17 +35,14 @@ public class BlockUraniumOre extends BlockRadiationOre
 	@Override
 	public void addPotionEffect(EntityLivingBase living)
 	{
-		if (MConfig.oreEffects)
+		if (living instanceof EntityZombie)
 		{
-			if (living instanceof EntityZombie)
-			{
-				living.addPotionEffect(new PotionEffect(Potion.moveSpeed.getId(), 180, 1, false));
-				living.addPotionEffect(new PotionEffect(Potion.damageBoost.getId(), 180, 0, false));
-			}
-			else
-			{
-				living.addPotionEffect(new PotionEffect(Potion.poison.getId(), 200, 0, false));
-			}
+			living.addPotionEffect(new PotionEffect(Potion.moveSpeed.getId(), 180, 1, false));
+			living.addPotionEffect(new PotionEffect(Potion.damageBoost.getId(), 180, 0, false));
+		}
+		else
+		{
+			living.addPotionEffect(new PotionEffect(Potion.poison.getId(), 200, 0, false));
 		}
 	}
 	
