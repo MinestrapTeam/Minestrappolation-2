@@ -99,4 +99,18 @@ public class TileEntityArcaneForge extends TileEntityInventory
 			this.onSlotChanged(i);
 		}
 	}
+	
+	@Override
+	public boolean isItemValidForSlot(int slotID, ItemStack stack)
+	{
+		if (slotID == 9)
+		{
+			return this.category != null;
+		}
+		else if (slotID == 10 || slotID == 11)
+		{
+			return this.variety != null;
+		}
+		return true;
+	}
 }

@@ -35,7 +35,15 @@ public class SpellRecipes
 			return null;
 		}
 		
-		NBTTagList enchantments = stack.getEnchantmentTagList();
+		NBTTagList enchantments;
+		if (stack.getItem() == Items.enchanted_book)
+		{
+			enchantments = Items.enchanted_book.func_92110_g(stack);
+		}
+		else
+		{
+			enchantments = stack.getEnchantmentTagList();
+		}
 		if (enchantments == null || enchantments.tagCount() == 0)
 		{
 			return null;
