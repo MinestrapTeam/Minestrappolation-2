@@ -14,7 +14,7 @@ public class BlockManaBush extends BlockCustomBush
 	public BlockManaBush()
 	{
 		super(MAssetManager.getPlantTexture("mana_leaves"), MAssetManager.getPlantTexture("mana_stem"));
-		this.drop = new ItemStack(this, 1, 0);
+		this.setBushBounds(0.0625F, 0.0625F, 0.0625F, 0.9375F, 0.9375F, 0.9375F);
 	}
 	
 	@Override
@@ -23,9 +23,13 @@ public class BlockManaBush extends BlockCustomBush
 		ArrayList<ItemStack> list = super.getDrops(world, x, y, z, metadata, fortune);
 		
 		list.add(new ItemStack(MItems.manaLeaf));
-		if (world.rand.nextBoolean())
+		if (metadata >= this.fullGrownMetadata)
 		{
 			list.add(new ItemStack(MItems.manaLeaf));
+			if (world.rand.nextBoolean())
+			{
+				list.add(new ItemStack(MItems.manaLeaf));
+			}
 		}
 		
 		return list;

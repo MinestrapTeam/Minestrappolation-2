@@ -491,6 +491,8 @@ public class MItems
 		CSItems.addItem(deathMeal, "deathmeal");
 		CSItems.addItem(witherAsh, "wither_ash");
 		
+		CSItems.addItem(manaLeaf, "mana_leaf");
+		
 		CSItems.replaceItem(Items.apple, new MItemFood(FoodType.FRUIT, 4, 0.3F).setUnlocalizedName("apple").setTextureName("apple"));
 		CSItems.replaceItem(Items.bread, new MItemFood(FoodType.BAKED, 5, 0.6F).setUnlocalizedName("bread").setTextureName("bread"));
 		CSItems.replaceItem(Items.porkchop, new MItemFood(FoodType.RAW_MEAT, 3, 0.3F).setUnlocalizedName("porkchopRaw").setTextureName("porkchop_raw"));

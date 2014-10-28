@@ -1320,6 +1320,8 @@ item.hangglider.name=Hang Glider
 item.ghastly_soul.name=Ghastly Soul
 item.coolant_bottle.name=Bottle of Coolant
 
+item.mana_leaf.name=Mana Leaf
+
 # Spells
 spelltype.water.name=Water
 spelltype.fire.name=Fire
