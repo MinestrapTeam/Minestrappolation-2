@@ -1,4 +1,12 @@
-﻿1.7.10-3.3.3
+﻿1.7.10-3.3.4
+
+* Decreased Ore Vein sizes.
+* Fixed Copper Ore generating instead of Slate.
+* Fixed Redwood Tree Generation causing crashes.
+* Fixed World Tick Rate issues.
+* Fixed Red Sandstone replacing Red Sand.
+
+1.7.10-3.3.3
 
 > Update to Forge 10.13.2.1232.
 > Update to Clashsoft Lib 1.7.10-2.7.2.

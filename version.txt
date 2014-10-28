@@ -1,10 +1,17 @@
-﻿version=1.7.10-3.3.3
-version_motd=Minestrappolation 3.3.3 out now!
+﻿version=1.7.10-3.3.4
+version_motd=Minestrappolation 3.3.4 is LIVE!
 version_motd_color=green
-motd=Our Twitters: @MinestrappDev, @SoBiohazardous, @Clashsoft
+motd=Sorry for the 3.3.3 mess, here's a new one! Go grab 3.3.4 now!
 motd_color=aqua
-url=https://github.com/MinestrapTeam/Minestrappolation-2/releases/download/1.7.10-3.3.3/Minestrappolation-1.7.10-3.3.3.jar
+url=https://github.com/MinestrapTeam/Minestrappolation-2/releases/download/1.7.10-3.3.4/Minestrappolation-1.7.10-3.3.4.jar
 
+* Decreased Ore Vein sizes.
+* Fixed Copper Ore generating instead of Slate.
+* Fixed Redwood Tree Generation causing crashes.
+* Fixed World Tick Rate issues.
+* Fixed Red Sandstone replacing Red Sand.
+
+Changes in 3.3.3:
 > Update to Forge 10.13.2.1232.
 > Update to Clashsoft Lib 1.7.10-2.7.2.
 + Added missing Black Diamond functionality.
