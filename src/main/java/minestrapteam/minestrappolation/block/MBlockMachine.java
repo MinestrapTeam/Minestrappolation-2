@@ -22,6 +22,7 @@ import net.minecraft.world.World;
 public abstract class MBlockMachine extends BlockContainer
 {
 	protected IIcon	frontIcon;
+	protected IIcon	backIcon;
 	protected IIcon	topIcon;
 	protected IIcon	bottomIcon;
 	
@@ -51,6 +52,7 @@ public abstract class MBlockMachine extends BlockContainer
 	@Override
 	public IIcon getIcon(int side, int metadata)
 	{
+		metadata &= 3;
 		if (side == 0)
 		{
 			return this.bottomIcon;
@@ -59,9 +61,13 @@ public abstract class MBlockMachine extends BlockContainer
 		{
 			return this.topIcon;
 		}
-		else if (metadata == side - 2)
+		else if (side == metadata + 2)
 		{
 			return this.frontIcon;
+		}
+		else if (side == metadata + 3 && this.backIcon != null)
+		{
+			return this.backIcon;
 		}
 		return this.blockIcon;
 	}

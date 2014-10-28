@@ -147,6 +147,7 @@ public class TileEntityFreezer extends TileEntityInventory implements ISidedInve
 		{
 			this.markDirty();
 			this.validate();
+			this.worldObj.setBlockMetadataWithNotify(this.xCoord, this.yCoord, this.zCoord, burning ? this.blockMetadata | 4 : this.blockMetadata & 3, 3);
 		}
 	}
 	

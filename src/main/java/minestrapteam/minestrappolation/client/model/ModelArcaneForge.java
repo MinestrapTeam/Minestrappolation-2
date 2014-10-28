@@ -2,6 +2,7 @@ package minestrapteam.minestrappolation.client.model;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.entity.Entity;
 
 public class ModelArcaneForge extends ModelBase
 {
@@ -125,24 +126,25 @@ public class ModelArcaneForge extends ModelBase
 		this.setRotation(this.gem8, 0.7853982F, 0.7853982F, 0.7853982F);
 	}
 	
-	public void render(float f)
+	@Override
+	public void render(Entity entity, float x, float y, float z, float yaw, float pitch, float partialTickTime)
 	{
-		this.pillar1.render(f);
-		this.pillar2.render(f);
-		this.pillar3.render(f);
-		this.pillar4.render(f);
-		this.pillar5.render(f);
-		this.pillar6.render(f);
-		this.pillar7.render(f);
-		this.pillar8.render(f);
-		this.gem1.render(f);
-		this.gem2.render(f);
-		this.gem3.render(f);
-		this.gem4.render(f);
-		this.gem5.render(f);
-		this.gem6.render(f);
-		this.gem7.render(f);
-		this.gem8.render(f);
+		this.pillar1.render(partialTickTime);
+		this.pillar2.render(partialTickTime);
+		this.pillar3.render(partialTickTime);
+		this.pillar4.render(partialTickTime);
+		this.pillar5.render(partialTickTime);
+		this.pillar6.render(partialTickTime);
+		this.pillar7.render(partialTickTime);
+		this.pillar8.render(partialTickTime);
+		this.gem1.render(partialTickTime);
+		this.gem2.render(partialTickTime);
+		this.gem3.render(partialTickTime);
+		this.gem4.render(partialTickTime);
+		this.gem5.render(partialTickTime);
+		this.gem6.render(partialTickTime);
+		this.gem7.render(partialTickTime);
+		this.gem8.render(partialTickTime);
 	}
 	
 	private void setRotation(ModelRenderer model, float x, float y, float z)

@@ -21,6 +21,7 @@ public class BlockArcaneForge extends BlockContainer
 	public BlockArcaneForge()
 	{
 		super(Material.rock);
+		this.setBlockBounds(0.0625F, 0F, 0.0625F, 0.9375F, 0.625F, 0.9375F);
 	}
 	
 	@Override
@@ -28,11 +29,11 @@ public class BlockArcaneForge extends BlockContainer
 	{
 		if (side == 0)
 		{
-			return this.topIcon;
+			return this.bottomIcon;
 		}
 		else if (side == 1)
 		{
-			return this.bottomIcon;
+			return this.topIcon;
 		}
 		return this.blockIcon;
 	}
@@ -43,6 +44,12 @@ public class BlockArcaneForge extends BlockContainer
 		this.blockIcon = iconRegister.registerIcon(MAssetManager.getMachineTexture("arcane_forge_side"));
 		this.topIcon = iconRegister.registerIcon(MAssetManager.getMachineTexture("arcane_forge_top"));
 		this.bottomIcon = iconRegister.registerIcon(MAssetManager.getMachineTexture("arcane_forge_bottom"));
+	}
+	
+	@Override
+	public boolean isOpaqueCube()
+	{
+		return false;
 	}
 	
 	@Override
