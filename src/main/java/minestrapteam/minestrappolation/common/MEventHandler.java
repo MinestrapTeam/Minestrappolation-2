@@ -101,6 +101,9 @@ public class MEventHandler
 					player.addPotionEffect(new PotionEffect(Potion.resistance.id, 2, 1, true));
 				}
 			}
+			
+			PlayerSpells spells = PlayerSpells.get(player);
+			spells.onUpdate();
 		}
 	}
 	

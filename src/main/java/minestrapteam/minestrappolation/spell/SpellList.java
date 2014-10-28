@@ -6,7 +6,7 @@ import java.util.Random;
 
 import minestrapteam.minestrappolation.spell.data.SpellEnhancement;
 import minestrapteam.minestrappolation.spell.data.SpellType;
-import minestrapteam.minestrappolation.spell.data.SpellVariety;
+import minestrapteam.minestrappolation.spell.variety.SpellVariety;
 
 public class SpellList
 {

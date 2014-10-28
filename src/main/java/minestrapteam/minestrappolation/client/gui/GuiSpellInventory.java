@@ -10,7 +10,7 @@ import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.network.SpellBarPacket;
 import minestrapteam.minestrappolation.spell.Spell;
 import minestrapteam.minestrappolation.spell.PlayerSpells;
-import minestrapteam.minestrappolation.spell.data.SpellVariety;
+import minestrapteam.minestrappolation.spell.variety.SpellVariety;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;

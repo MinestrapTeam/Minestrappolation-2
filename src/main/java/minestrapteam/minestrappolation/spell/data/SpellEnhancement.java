@@ -3,12 +3,13 @@ package minestrapteam.minestrappolation.spell.data;
 import java.util.Random;
 
 import clashsoft.cslib.minecraft.lang.I18n;
+import minestrapteam.minestrappolation.spell.variety.SpellVariety;
 import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
 
-import static minestrapteam.minestrappolation.spell.data.SpellVariety.*;
+import static minestrapteam.minestrappolation.spell.variety.SpellVariety.*;
 
 public class SpellEnhancement
 {

@@ -7,7 +7,7 @@ import minestrapteam.minestrappolation.lib.MItems;
 import minestrapteam.minestrappolation.spell.data.SpellCategory;
 import minestrapteam.minestrappolation.spell.data.SpellEnhancement;
 import minestrapteam.minestrappolation.spell.data.SpellType;
-import minestrapteam.minestrappolation.spell.data.SpellVariety;
+import minestrapteam.minestrappolation.spell.variety.SpellVariety;
 
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnumEnchantmentType;

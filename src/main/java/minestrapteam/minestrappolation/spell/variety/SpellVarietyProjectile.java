@@ -1,9 +1,10 @@
-package minestrapteam.minestrappolation.spell;
+package minestrapteam.minestrappolation.spell.variety;
 
 import clashsoft.cslib.math.CSMath;
 import minestrapteam.minestrappolation.Minestrappolation;
+import minestrapteam.minestrappolation.spell.Spell;
+import minestrapteam.minestrappolation.spell.SpellHandler;
 import minestrapteam.minestrappolation.spell.data.SpellCategory;
-import minestrapteam.minestrappolation.spell.data.SpellVariety;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -77,13 +78,13 @@ public class SpellVarietyProjectile extends SpellVariety
 		}
 		
 		@Override
-		public void readFromNBT(NBTTagCompound nbt)
+		public void readEntityFromNBT(NBTTagCompound nbt)
 		{
 			this.spell = SpellHandler.readFromNBT(nbt);
 		}
 		
 		@Override
-		public void writeToNBT(NBTTagCompound nbt)
+		public void writeEntityToNBT(NBTTagCompound nbt)
 		{
 			SpellHandler.writeToNBT(this.spell, nbt);
 		}

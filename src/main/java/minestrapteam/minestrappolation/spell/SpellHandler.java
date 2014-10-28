@@ -9,7 +9,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import minestrapteam.minestrappolation.spell.data.SpellCategory;
 import minestrapteam.minestrappolation.spell.data.SpellEnhancement;
 import minestrapteam.minestrappolation.spell.data.SpellType;
-import minestrapteam.minestrappolation.spell.data.SpellVariety;
+import minestrapteam.minestrappolation.spell.variety.SpellVariety;
 import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.client.renderer.texture.TextureMap;
