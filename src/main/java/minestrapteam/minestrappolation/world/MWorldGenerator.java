@@ -13,13 +13,13 @@ import minestrapteam.minestrappolation.world.gen.*;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldProviderHell;
+import net.minecraft.world.WorldProviderSurface;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.biome.BiomeGenBase.TempCategory;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.ChunkProviderEnd;
-import net.minecraft.world.gen.ChunkProviderGenerate;
-import net.minecraft.world.gen.ChunkProviderHell;
 import net.minecraftforge.event.terraingen.ChunkProviderEvent.ReplaceBiomeBlocks;
 
 /**
@@ -132,7 +132,9 @@ public class MWorldGenerator implements IWorldGenerator
 	{
 		chunkX <<= 4;
 		chunkZ <<= 4;
-		if (chunkGenerator instanceof ChunkProviderGenerate)
+		int id = world.provider.dimensionId;
+		
+		if (id == 0)
 		{
 			this.generateSurface(world, random, chunkX, chunkZ);
 			if (generateBiomeStone)
@@ -144,11 +146,11 @@ public class MWorldGenerator implements IWorldGenerator
 				stoneStructureGen.generate(world, random, chunkX, 0, chunkZ);
 			}
 		}
-		else if (chunkGenerator instanceof ChunkProviderHell)
+		else if (id == -1)
 		{
 			this.generateNether(world, random, chunkX, chunkZ);
 		}
-		else if (chunkGenerator instanceof ChunkProviderEnd)
+		else if (id == 1)
 		{
 			this.generateEnd(world, random, chunkX, chunkZ);
 		}
