@@ -7,6 +7,8 @@ import java.util.Random;
 
 import clashsoft.cslib.minecraft.lang.I18n;
 import clashsoft.cslib.util.CSString;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import minestrapteam.minestrappolation.spell.data.SpellCategory;
 import minestrapteam.minestrappolation.spell.data.SpellEnhancement;
 import minestrapteam.minestrappolation.spell.data.SpellType;
@@ -190,10 +192,12 @@ public class Spell
 	{
 	}
 	
+	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister iconRegister)
 	{
 	}
 	
+	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int pass)
 	{
 		if (pass == 1)
@@ -264,7 +268,7 @@ public class Spell
 	
 	public boolean castSpell(EntityPlayer player)
 	{
-		this.variety.cast(player, this);
+		this.variety.cast(this, player, player.worldObj);
 		return true;
 	}
 	

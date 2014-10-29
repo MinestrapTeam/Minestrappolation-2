@@ -7,6 +7,8 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.entity.*;
 import minestrapteam.minestrappolation.spell.PlayerSpells;
+import minestrapteam.minestrappolation.spell.variety.SpellVarietyAreaShield.SpellAreaShield;
+import minestrapteam.minestrappolation.spell.variety.SpellVarietyProjectile.SpellProjectile;
 import minestrapteam.minestrappolation.tileentity.*;
 
 import net.minecraft.entity.Entity;
@@ -25,6 +27,9 @@ public class MEntities
 		EntityRegistry.registerModEntity(EntityGrenadeImpact.class, "GrenadeImpact", 4, Minestrappolation.instance, 40, 3, true);
 		EntityRegistry.registerModEntity(EntityGrenadeSticky.class, "GrenadeSticky", 5, Minestrappolation.instance, 40, 3, true);
 		EntityRegistry.registerModEntity(EntityGrenadeNuke.class, "GrenadeNuke", 6, Minestrappolation.instance, 40, 3, true);
+		
+		EntityRegistry.registerModEntity(SpellProjectile.class, "Spell_Projectile", 20, Minestrappolation.instance, 50, 1, false);
+		EntityRegistry.registerModEntity(SpellAreaShield.class, "Spell_AreaShield", 27, Minestrappolation.instance, 30, 3, false);
 		
 		CSEntities.registerProperties(new EntityProperties("MPlayerSpells", PlayerSpells.class)
 		{

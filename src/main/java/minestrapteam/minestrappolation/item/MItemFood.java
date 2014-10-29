@@ -2,10 +2,12 @@ package minestrapteam.minestrappolation.item;
 
 import java.util.List;
 
+import clashsoft.cslib.minecraft.CSLib;
 import clashsoft.cslib.minecraft.lang.I18n;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import minestrapteam.minestrappolation.lib.MConfig;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -175,6 +177,7 @@ public class MItemFood extends ItemFood
 	// ICONS
 	
 	@Override
+	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister iconRegister)
 	{
 		this.itemIcon = iconRegister.registerIcon(this.iconString);
@@ -189,13 +192,14 @@ public class MItemFood extends ItemFood
 	}
 	
 	@Override
+	@SideOnly(Side.CLIENT)
 	public IIcon getIconIndex(ItemStack stack)
 	{
 		if (isFried(stack))
 		{
 			return this.getFriedIcon(stack);
 		}
-		if (this.isSpoiled(stack, Minecraft.getMinecraft().theWorld))
+		if (this.isSpoiled(stack, CSLib.proxy.getClientWorld()))
 		{
 			return this.getSpoiledIcon(stack);
 		}

@@ -519,7 +519,7 @@ public class MBlocks
 		String[] icons1 = CSString.concatAll(ItemDye.field_150921_b, "minestrappolation:lamps/", "_lamp_off");
 		String[] icons2 = CSString.concatAll(ItemDye.field_150921_b, "minestrappolation:lamps/", "_lamp_on");
 		coloredLampOff = (BlockCustomLamp) new BlockCustomLamp(ItemDye.field_150921_b, icons1, false).setHardness(0.3F).setStepSound(Block.soundTypeGlass).setCreativeTab(Minestrappolation.tabTech);
-		coloredLampOn = (BlockCustomLamp) new BlockCustomLamp(ItemDye.field_150921_b, icons2, true).setHardness(0.3F).setStepSound(Block.soundTypeGlass);
+		coloredLampOn = (BlockCustomLamp) new BlockColoredLamp(ItemDye.field_150921_b, icons2).setHardness(0.3F).setStepSound(Block.soundTypeGlass);
 		BlockCustomLamp.bind(coloredLampOff, coloredLampOn);
 		
 		craftingTable2 = new BlockWorkbench2().setHardness(2.5F).setStepSound(Block.soundTypeWood).setBlockName("workbench");

@@ -20,6 +20,7 @@ import minestrapteam.minestrappolation.util.MAssetManager;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.World;
 
 public class SpellVariety
 {
@@ -75,9 +76,8 @@ public class SpellVariety
 		this.icon = iconRegister.registerIcon(MAssetManager.getSpellTexture("variety_" + this.name));
 	}
 	
-	public void cast(EntityPlayer player, Spell spell)
+	public void cast(Spell spell, EntityPlayer player, World world)
 	{
-		
 	}
 	
 	public List<Spell> getSpells(PlayerSpells spells)

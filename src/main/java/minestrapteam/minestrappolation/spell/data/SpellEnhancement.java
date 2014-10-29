@@ -87,6 +87,10 @@ public class SpellEnhancement
 	
 	public static SpellEnhancement get(int id)
 	{
+		if (id < 0 || id >= spellEnhancements.length)
+		{
+			return null;
+		}
 		return spellEnhancements[id];
 	}
 	

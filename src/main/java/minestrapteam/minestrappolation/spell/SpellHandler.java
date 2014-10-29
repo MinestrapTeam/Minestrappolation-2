@@ -24,6 +24,7 @@ public class SpellHandler
 	@SideOnly(Side.CLIENT)
 	public static IIcon[]	spellBackgrounds;
 	
+	@SideOnly(Side.CLIENT)
 	public static void registerIcons(TextureMap textureMap)
 	{
 		if (textureMap.getTextureType() == 0)

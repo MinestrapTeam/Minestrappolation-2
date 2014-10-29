@@ -2,6 +2,7 @@ package minestrapteam.minestrappolation.spell.variety;
 
 import clashsoft.cslib.math.CSMath;
 import minestrapteam.minestrappolation.Minestrappolation;
+import minestrapteam.minestrappolation.entity.EntitySpell;
 import minestrapteam.minestrappolation.spell.Spell;
 import minestrapteam.minestrappolation.spell.SpellHandler;
 import minestrapteam.minestrappolation.spell.data.SpellCategory;
@@ -22,12 +23,14 @@ public class SpellVarietyProjectile extends SpellVariety
 	}
 	
 	@Override
-	public void cast(EntityPlayer player, Spell spell)
+	public void cast(Spell spell, EntityPlayer player, World world)
 	{
-		World world = player.worldObj;
-		SpellProjectile projectile = new SpellProjectile(world, player);
-		projectile.spell = spell;
-		world.spawnEntityInWorld(projectile);
+		if (!world.isRemote)
+		{
+			SpellProjectile projectile = new SpellProjectile(world, player);
+			projectile.setSpell(spell);
+			world.spawnEntityInWorld(projectile);
+		}
 	}
 	
 	public static class SpellProjectile extends EntityThrowable
@@ -50,9 +53,31 @@ public class SpellVarietyProjectile extends SpellVariety
 		}
 		
 		@Override
+		protected void entityInit()
+		{
+			EntitySpell.initSpell(this.dataWatcher);
+		}
+		
+		public void setSpell(Spell spell)
+		{
+			this.spell = spell;
+			EntitySpell.updateSpell(this.dataWatcher, spell);
+		}
+		
+		public Spell getSpell()
+		{
+			if (this.spell == null || this.dataWatcher.hasChanges())
+			{
+				this.spell = EntitySpell.getSpell(this.dataWatcher);
+			}
+			return this.spell;
+		}
+		
+		@Override
 		public void onEntityUpdate()
 		{
-			if (this.worldObj.isRemote && this.spell != null)
+			Spell spell = this.getSpell();
+			if (this.worldObj.isRemote && spell != null)
 			{
 				float f = 0.25F;
 				for (int i = 0; i < 4; i++)
@@ -62,7 +87,7 @@ public class SpellVarietyProjectile extends SpellVariety
 					double y = CSMath.interpolate(this.posY, this.prevPosY, d);
 					double z = CSMath.interpolate(this.posZ, this.prevPosZ, d);
 					
-					Minestrappolation.proxy.spawnSpellParticle(this.spell, x, y, z);
+					Minestrappolation.proxy.spawnSpellParticle(spell, x, y, z);
 				}
 			}
 		}
