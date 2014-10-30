@@ -16,5 +16,4 @@ public class MBiomes
 		
 		MBiomeManager.addWarmBiome(redwood, 10, Type.FOREST);
 	}
-	
 }

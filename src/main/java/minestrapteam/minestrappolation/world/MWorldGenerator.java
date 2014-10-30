@@ -6,6 +6,7 @@ import clashsoft.cslib.config.CSConfig;
 import clashsoft.cslib.minecraft.block.ore.BlockOre2;
 import clashsoft.cslib.minecraft.world.gen.OreGen;
 import cpw.mods.fml.common.IWorldGenerator;
+import cpw.mods.fml.common.registry.GameRegistry;
 import minestrapteam.minestrappolation.lib.MBlocks;
 import minestrapteam.minestrappolation.world.gen.*;
 
@@ -56,12 +57,12 @@ public class MWorldGenerator implements IWorldGenerator
 	public static OreGen					sandstoneGen2;
 	public static OreGen					mossyPlankGen;
 	
-	public static WorldGenRedSandstone		redSandstoneGen		= new WorldGenRedSandstone();
-	public static WorldGenRedWoodTreeSmall	redwoodTreeGen		= new WorldGenRedWoodTreeSmall();
-	public static WorldGenDesertQuartz		desertQuartzGen		= new WorldGenDesertQuartz();
-	public static WorldGenObsidianSpikes obsidianSpikeGen = new WorldGenObsidianSpikes();
+	public static WorldGenRedSandstone		redSandstoneGen;
+	public static WorldGenRedWoodTreeSmall	redwoodTreeGen;
+	public static WorldGenDesertQuartz		desertQuartzGen;
+	public static WorldGenObsidianSpikes	obsidianSpikeGen;
 	
-	public static WorldGenStructureStone	stoneStructureGen	= new WorldGenStructureStone();
+	public static WorldGenStructureStone	stoneStructureGen;
 	
 	public static void loadConfig()
 	{
@@ -77,17 +78,17 @@ public class MWorldGenerator implements IWorldGenerator
 		invinciumNetherTop = CSConfig.getBool("invincium", "Nether Top", null, false);
 		invinciumNetherBottom = CSConfig.getBool("invincium", "Nether Bottom", null, true);
 		
-		copperGen = CSConfig.getOreGen("copper", new OreGen(10, 14, 80));
-		tinGen = CSConfig.getOreGen("tin", new OreGen(11, 14, 80));
-		radiantQuartzGen = CSConfig.getOreGen("radiant_quartz", new OreGen(3, 9, 128));
-		meuroditeGen = CSConfig.getOreGen("meurodite", new OreGen(5, 8, 40));
-		uraniumGen = CSConfig.getOreGen("uranium", new OreGen(3, 6, 32));
-		plutoniumGen = CSConfig.getOreGen("plutonium", new OreGen(3, 6, 32));
-		titaniumGen = CSConfig.getOreGen("titanium", new OreGen(3, 4, 10));
-		toriteGen = CSConfig.getOreGen("torite", new OreGen(3, 7, 30).inBiome(BiomeGenBase.jungle).inBiome(BiomeGenBase.forest));
-		sunstoneGen = CSConfig.getOreGen("sunstone", new OreGen(3, 15, 256));
-		blaziumGen = CSConfig.getOreGen("blazium", new OreGen(8, 8, 128));
-		soulOreGen = CSConfig.getOreGen("soul_ore", new OreGen(15, 20, 128));
+		copperGen = CSConfig.getOreGen("copper", new OreGen(8, 14, 80));
+		tinGen = CSConfig.getOreGen("tin", new OreGen(9, 14, 80));
+		radiantQuartzGen = CSConfig.getOreGen("radiant_quartz", new OreGen(2, 9, 128));
+		meuroditeGen = CSConfig.getOreGen("meurodite", new OreGen(3, 8, 40));
+		uraniumGen = CSConfig.getOreGen("uranium", new OreGen(2, 6, 32));
+		plutoniumGen = CSConfig.getOreGen("plutonium", new OreGen(2, 6, 32));
+		titaniumGen = CSConfig.getOreGen("titanium", new OreGen(2, 4, 10));
+		toriteGen = CSConfig.getOreGen("torite", new OreGen(2, 7, 30).inBiome(BiomeGenBase.jungle).inBiome(BiomeGenBase.forest));
+		sunstoneGen = CSConfig.getOreGen("sunstone", new OreGen(2, 15, 256));
+		blaziumGen = CSConfig.getOreGen("blazium", new OreGen(6, 8, 128));
+		soulOreGen = CSConfig.getOreGen("soul_ore", new OreGen(13, 20, 128));
 		
 		slateGen = CSConfig.getOreGen("slate", new OreGen(50, 12, 256));
 		sandstoneGen = CSConfig.getOreGen("sandstone", new OreGen(7, 40, 256));
@@ -95,8 +96,18 @@ public class MWorldGenerator implements IWorldGenerator
 		mossyPlankGen = CSConfig.getOreGen("mossy_planks", new OreGen(15, 50, 128));
 	}
 	
-	public static void loadBlocks()
+	public static void load()
 	{
+		GameRegistry.registerWorldGenerator(new MWorldGenerator(), 0);
+		
+		redSandstoneGen = new WorldGenRedSandstone();
+		redwoodTreeGen = new WorldGenRedWoodTreeSmall();
+		desertQuartzGen = new WorldGenDesertQuartz();
+		obsidianSpikeGen = new WorldGenObsidianSpikes();
+		
+		stoneStructureGen = new WorldGenStructureStone();
+		
+		// Assign the blocks to the generators
 		copperGen.block = MBlocks.copperOre;
 		tinGen.block = MBlocks.tinOre;
 		radiantQuartzGen.block = MBlocks.radiantQuartzOre;
@@ -113,7 +124,7 @@ public class MWorldGenerator implements IWorldGenerator
 		sandstoneGen.generate(MBlocks.sandstone, 6).replace(Blocks.sandstone);
 		sandstoneGen2.generate(MBlocks.sandstone, 7).replace(Blocks.sandstone);
 		
-		slateGen.block = MBlocks.copperOre;
+		slateGen.block = MBlocks.graniteSlate;
 	}
 	
 	@Override

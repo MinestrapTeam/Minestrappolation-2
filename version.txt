@@ -1,29 +1,20 @@
-﻿version=1.7.10-3.3.2
-version_motd=Minestrappolation 3.3.2 out now!
+﻿version=1.7.10-3.3.4
+version_motd=Minestrappolation 3.3.4 is LIVE!
 version_motd_color=green
-motd=Our Twitters: @MinestrappDev, @SoBiohazardous, @Clashsoft
+motd=Sorry for the 3.3.3 mess, here's a new one! Go grab 3.3.4 now!
 motd_color=aqua
-url=https://github.com/MinestrapTeam/Minestrappolation-2/releases/download/1.7.10-3.3.2/Minestrappolation-1.7.10-3.3.2.jar
+url=https://github.com/MinestrapTeam/Minestrappolation-2/releases/download/1.7.10-3.3.4/Minestrappolation-1.7.10-3.3.4.jar
 
-> Update to Forge 10.13.1.1217.
-> Update to Clashsoft Lib 1.7.10-2.7.1.
-+ Added the Minestrappolation AVT resource pack.
-+ Added Reinforced Sticks.
-+ Added Freezers.
-+ Added Bottles of Coolant.
-+ Added Black Diamonds.
-+ Added Edge Slate Bricks.
-+ Added Lock Cutters and Broken Locks.
-+ Added some more Spoilable Foods.
-+ Added all Spoiled Food textures.
-+ Added Icestone and Glacierrock Slipperiness.
-+ Added Config Options for Ore Generation.
-+ Added Config Options for Mob Drops.
-+ Added several misc. Config Options.
-+ Added several missing recipes.
-* Improved several Tool textures.
-* Improved the Wither Ash system.
-* Fixed Spoiled Food stacking.
-* Fixed some Plating issues.
-* Fixed a Magma issue.
-* Fixed a few minor bugs.
+* Decreased Ore Vein sizes.
+* Fixed Copper Ore generating instead of Slate.
+* Fixed Redwood Tree Generation causing crashes.
+* Fixed World Tick Rate issues.
+* Fixed Red Sandstone replacing Red Sand.
+
+Changes in 3.3.3:
+> Update to Forge 10.13.2.1232.
+> Update to Clashsoft Lib 1.7.10-2.7.2.
++ Added missing Black Diamond functionality.
+* Fixed Minestrappolation Ores not generating.
+* Fixed Primed Nuke not rendering.
+* Fixed FishType crash.
