@@ -17,6 +17,16 @@ public class BlockColoredLamp extends BlockCustomLamp
 	public int getLightValue(IBlockAccess world, int x, int y, int z)
 	{
 		int metadata = world.getBlockMetadata(x, y, z);
-		return CSBlocks.getLightValue(ItemDye.field_150922_c[metadata], 1F);
+		int color = ItemDye.field_150922_c[metadata];
+		float r = ((color >> 16) & 0xFF) / 255F;
+		float g = ((color >> 8) & 0xFF) / 255F;
+		float b = ((color >> 0) & 0xFF) / 255F;
+		
+		float f = 1F / Math.max(Math.max(r, g), b);
+		r *= f;
+		g *= f;
+		b *= f;
+		
+		return CSBlocks.getLightValue(r, g, b, 1F);
 	}
 }
