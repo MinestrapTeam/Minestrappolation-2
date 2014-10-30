@@ -88,8 +88,11 @@ public class GuiSpellOverlay extends Gui
 			{
 				event.setCanceled(true);
 				Spell spell = this.spells.getCurrentSpell();
-				spell.onSpellRightClick(this.spells, this.mc.thePlayer);
-				Minestrappolation.instance.netHandler.sendToServer(new SpellUsePacket(this.spells));
+				if (spell != null)
+				{
+					spell.onSpellRightClick(this.spells, this.mc.thePlayer);
+					Minestrappolation.instance.netHandler.sendToServer(new SpellUsePacket(this.spells));
+				}
 			}
 		}
 	}

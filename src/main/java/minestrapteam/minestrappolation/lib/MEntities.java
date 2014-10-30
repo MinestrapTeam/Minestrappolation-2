@@ -8,6 +8,7 @@ import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.entity.*;
 import minestrapteam.minestrappolation.spell.PlayerSpells;
 import minestrapteam.minestrappolation.spell.variety.SpellVarietyAreaShield.SpellAreaShield;
+import minestrapteam.minestrappolation.spell.variety.SpellVarietyBlockBreak.SpellBlockBreak;
 import minestrapteam.minestrappolation.spell.variety.SpellVarietyProjectile.SpellProjectile;
 import minestrapteam.minestrappolation.tileentity.*;
 
@@ -30,6 +31,7 @@ public class MEntities
 		
 		EntityRegistry.registerModEntity(SpellProjectile.class, "Spell_Projectile", 20, Minestrappolation.instance, 50, 1, false);
 		EntityRegistry.registerModEntity(SpellAreaShield.class, "Spell_AreaShield", 27, Minestrappolation.instance, 30, 3, false);
+		EntityRegistry.registerModEntity(SpellBlockBreak.class, "Spell_BlockBreak", 30, Minestrappolation.instance, 50, 2, false);
 		
 		CSEntities.registerProperties(new EntityProperties("MPlayerSpells", PlayerSpells.class)
 		{

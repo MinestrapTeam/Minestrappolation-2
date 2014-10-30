@@ -36,7 +36,7 @@ public class SpellVariety
 	public static final SpellVariety	AREA_SHIELD					= new SpellVarietyAreaShield(7, "area_shield");
 	public static final SpellVariety	POWER_BOOST					= new SpellVariety(8, ALTERATION, "power_boost");
 	public static final SpellVariety	DEBUFF						= new SpellVariety(9, ALTERATION, "debuff");
-	public static final SpellVariety	BLOCK_TRANSFORMATION		= new SpellVariety(10, ALTERATION, "block_transformation");
+	public static final SpellVariety	BLOCK_TRANSFORMATION		= new SpellVarietyBlockBreak(10, "block_transformation");
 	public static final SpellVariety	ENVIRONMENT_TRANSFORMATION	= new SpellVariety(11, ALTERATION, "environment_transformation");
 	public static final SpellVariety	SUMMON_TOOL					= new SpellVariety(12, SUMMONING, "summon_tool");
 	public static final SpellVariety	SUMMON_WEAPON				= new SpellVariety(13, SUMMONING, "summon_weapon");
