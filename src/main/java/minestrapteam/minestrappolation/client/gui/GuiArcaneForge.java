@@ -69,6 +69,8 @@ public class GuiArcaneForge extends GuiContainer
 	@Override
 	protected void drawGuiContainerBackgroundLayer(float partialTickTime, int mouseX, int mouseY)
 	{
+		ContainerArcaneForge container = (ContainerArcaneForge)this.inventorySlots;
+		
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 		this.mc.getTextureManager().bindTexture(texture);
 		int k = (this.width - this.xSize) / 2;
@@ -79,6 +81,7 @@ public class GuiArcaneForge extends GuiContainer
 		{
 			this.drawTexturedModalRect(k + 107, l + 66, 176, 0, 18, 18);
 		}
+		
 		if (this.arcaneForge.variety == null)
 		{
 			this.drawTexturedModalRect(k + 79, l + 94, 176, 0, 18, 18);

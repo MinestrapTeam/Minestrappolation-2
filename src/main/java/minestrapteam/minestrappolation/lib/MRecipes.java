@@ -277,6 +277,8 @@ public class MRecipes
 		GameRegistry.addRecipe(new ItemStack(unholyPickaxe, 1), new Object[] { "ZZZ", " S ", " S ", 'Z', blackDiamond, 'S', witheredBone });
 		GameRegistry.addRecipe(new ItemStack(unholyAxe, 1), new Object[] { "ZZ ", "ZS ", " S ", 'Z', blackDiamond, 'S', witheredBone });
 		GameRegistry.addRecipe(new ItemStack(unholyHoe, 1), new Object[] { "ZZ ", " S ", " S ", 'Z', blackDiamond, 'S', witheredBone });
+		
+		GameRegistry.addRecipe(new ItemStack(arcaneForge, 1), new Object[]{"SES", "PRP", "SPS", 'S', soulGem, 'P', plateSteelItem, 'E', enderAura, 'R', new ItemStack(MBlocks.radiantQuartz, 1, 5)});
 	}
 	
 	public static void removeRecipes()

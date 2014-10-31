@@ -8,26 +8,87 @@ import minestrapteam.minestrappolation.spell.data.SpellCategory;
 import minestrapteam.minestrappolation.spell.data.SpellEnhancement;
 import minestrapteam.minestrappolation.spell.data.SpellType;
 import minestrapteam.minestrappolation.spell.variety.SpellVariety;
-
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnumEnchantmentType;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagList;
 
 public class SpellRecipes
-{
+{	
+	/**
+	 * Returns potency of specified spell type of item.
+	 * @param type of spell
+	 * @param stack
+	 * @return
+	 */
 	public static int getPotency(SpellType type, ItemStack stack)
 	{
-		if (stack == null)
+		int blockPotency = 0;
+		if (stack == null || type == null)
 		{
 			return 0;
 		}
-		// FIXME
-		return 100 * stack.stackSize;
+		
+		else if (type == type.WATER)
+		{
+			if(stack.getItem() == Item.getItemFromBlock(Blocks.mycelium))
+			{
+				blockPotency = 1;
+			}
+		}
+		else if (type == type.EARTH)
+		{
+			if(stack.getItem() == Item.getItemFromBlock(Blocks.grass))
+			{
+				blockPotency = 1;
+			}
+			if(stack.getItem() == Item.getItemFromBlock(Blocks.mycelium))
+			{
+				blockPotency = 1;
+			}
+		}
+		else if (type == type.LIFE)
+		{
+			if(stack.getItem() == Item.getItemFromBlock(Blocks.grass))
+			{
+				blockPotency = 1;
+			}
+			if(stack.getItem() == Item.getItemFromBlock(Blocks.mycelium))
+			{
+				blockPotency = 1;
+			}
+		}
+		else if (type == type.WIND)
+		{
+			
+		}
+		else if (type == type.FROST)
+		{
+			
+		}
+		else if (type == type.ELECTRICITY)
+		{
+			
+		}
+		else if (type == type.FIRE)
+		{
+			
+		}
+		else if (type == type.ARCANE)
+		{
+			if(stack.getItem() == Item.getItemFromBlock(Blocks.mycelium))
+			{
+				blockPotency = 1;
+			}
+		}
+		
+		//TODO Add rest of block potency
+		return blockPotency * stack.stackSize;
 	}
-	
+
 	public static SpellCategory getCategory(ItemStack stack)
 	{
 		if (stack == null)
