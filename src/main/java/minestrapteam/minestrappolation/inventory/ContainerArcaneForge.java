@@ -37,6 +37,6 @@ public class ContainerArcaneForge extends ContainerInventory
 		// Naming Slot
 		this.addSlotToContainer(new Slot(arcaneForge, 11, 52, 67));
 		
-		this.addInventorySlots(-8, -31);
+		this.addInventorySlots(8, 137, 195);
 	}
 }

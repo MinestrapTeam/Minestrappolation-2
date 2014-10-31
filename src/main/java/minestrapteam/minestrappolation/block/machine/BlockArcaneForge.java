@@ -1,12 +1,16 @@
 package minestrapteam.minestrappolation.block.machine;
 
+import java.util.Random;
+
 import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
 import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.tileentity.TileEntityArcaneForge;
 import minestrapteam.minestrappolation.util.MAssetManager;
-
+import minestrapteam.minestrappolation.util.MUtil;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
@@ -66,5 +70,14 @@ public class BlockArcaneForge extends BlockContainer
 			FMLNetworkHandler.openGui(player, Minestrappolation.instance, 7, world, x, y, z);
 		}
 		return true;
+	}
+	
+	@Override
+	public void randomDisplayTick(World world, int x, int y, int z, Random random)
+	{
+		for (int i = 0; i < 3; ++i)
+		{
+			MUtil.spawnParticle(world, x, y, z, random, "portal");
+		}
 	}
 }
