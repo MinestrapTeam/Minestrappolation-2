@@ -8,6 +8,8 @@ import minestrapteam.minestrappolation.spell.data.SpellCategory;
 import minestrapteam.minestrappolation.spell.data.SpellEnhancement;
 import minestrapteam.minestrappolation.spell.data.SpellType;
 import minestrapteam.minestrappolation.spell.variety.SpellVariety;
+
+import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.init.Blocks;
@@ -17,78 +19,83 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagList;
 
 public class SpellRecipes
-{	
+{
 	/**
 	 * Returns potency of specified spell type of item.
-	 * @param type of spell
+	 * 
+	 * @param type
+	 *            of spell
 	 * @param stack
 	 * @return
 	 */
 	public static int getPotency(SpellType type, ItemStack stack)
 	{
-		int blockPotency = 0;
 		if (stack == null || type == null)
 		{
 			return 0;
 		}
 		
-		else if (type == type.WATER)
+		int blockPotency = 0;
+		Item item = stack.getItem();
+		Block block = Block.getBlockFromItem(item);
+		
+		if (type == SpellType.WATER)
 		{
-			if(stack.getItem() == Item.getItemFromBlock(Blocks.mycelium))
+			if (block == Blocks.mycelium)
 			{
 				blockPotency = 1;
 			}
 		}
-		else if (type == type.EARTH)
+		else if (type == SpellType.EARTH)
 		{
-			if(stack.getItem() == Item.getItemFromBlock(Blocks.grass))
+			if (block == Blocks.grass)
 			{
 				blockPotency = 1;
 			}
-			if(stack.getItem() == Item.getItemFromBlock(Blocks.mycelium))
+			else if (block == Blocks.mycelium)
 			{
 				blockPotency = 1;
 			}
 		}
-		else if (type == type.LIFE)
+		else if (type == SpellType.LIFE)
 		{
-			if(stack.getItem() == Item.getItemFromBlock(Blocks.grass))
+			if (block == Blocks.grass)
 			{
 				blockPotency = 1;
 			}
-			if(stack.getItem() == Item.getItemFromBlock(Blocks.mycelium))
+			else if (block == Blocks.mycelium)
 			{
 				blockPotency = 1;
 			}
 		}
-		else if (type == type.WIND)
+		else if (type == SpellType.WIND)
 		{
 			
 		}
-		else if (type == type.FROST)
+		else if (type == SpellType.FROST)
 		{
 			
 		}
-		else if (type == type.ELECTRICITY)
+		else if (type == SpellType.ELECTRICITY)
 		{
 			
 		}
-		else if (type == type.FIRE)
+		else if (type == SpellType.FIRE)
 		{
 			
 		}
-		else if (type == type.ARCANE)
+		else if (type == SpellType.ARCANE)
 		{
-			if(stack.getItem() == Item.getItemFromBlock(Blocks.mycelium))
+			if (block == Blocks.mycelium)
 			{
 				blockPotency = 1;
 			}
 		}
 		
-		//TODO Add rest of block potency
+		// TODO Add rest of block potency
 		return blockPotency * stack.stackSize;
 	}
-
+	
 	public static SpellCategory getCategory(ItemStack stack)
 	{
 		if (stack == null)

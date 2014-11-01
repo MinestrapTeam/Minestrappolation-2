@@ -107,9 +107,13 @@ public class TileEntityArcaneForge extends TileEntityInventory
 		{
 			return this.category != null;
 		}
-		else if (slotID == 10 || slotID == 11)
+		else if (slotID == 10)
 		{
 			return this.variety != null;
+		}
+		else if (slotID == 11)
+		{
+			return this.variety != null && (stack == null || stack.getItem() == Items.name_tag);
 		}
 		return true;
 	}

@@ -8,14 +8,8 @@ import net.minecraft.inventory.Slot;
 
 public class ContainerArcaneForge extends ContainerInventory
 {
-	public TileEntityArcaneForge arcaneForge;
+	public TileEntityArcaneForge	arcaneForge;
 	
-	//TODO Make the slot invalid and valid depending if unlocked or not.
-	
-	public SlotArcaneForge variety = new SlotArcaneForge(arcaneForge, 9, 108, 67);
-	public SlotArcaneForge enhancement = new SlotArcaneForge(arcaneForge, 10, 80, 95);
-	public SlotArcaneForge name = new SlotArcaneForge(arcaneForge, 11, 52, 67);
-
 	public ContainerArcaneForge(EntityPlayer player, TileEntityArcaneForge arcaneForge)
 	{
 		super(player, arcaneForge);
@@ -35,14 +29,13 @@ public class ContainerArcaneForge extends ContainerInventory
 		this.addSlotToContainer(new Slot(arcaneForge, 8, 80, 39));
 		
 		// Variety Slot
-		this.addSlotToContainer(variety);
+		this.addSlotToContainer(new Slot(arcaneForge, 9, 108, 67));
 		
 		// Enhancement Slot
-		this.addSlotToContainer(enhancement);
+		this.addSlotToContainer(new Slot(arcaneForge, 10, 80, 95));
 		
 		// Naming Slot
-		name.isName = true;
-		this.addSlotToContainer(name);
+		this.addSlotToContainer(new Slot(arcaneForge, 11, 52, 67));
 		
 		this.addInventorySlots(8, 137, 195);
 	}
