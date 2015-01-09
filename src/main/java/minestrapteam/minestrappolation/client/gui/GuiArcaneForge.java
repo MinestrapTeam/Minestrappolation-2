@@ -82,11 +82,12 @@ public class GuiArcaneForge extends GuiContainer
 		Spell spell = this.arcaneForge.spell;
 		if (button == 0 && spell != null && this.func_146978_c(80, 67, 16, 16, mouseX, mouseY))
 		{
-			PlayerSpells spells = PlayerSpells.get(this.mc.thePlayer);
-			if (spells.spells.add(spell))
+			EntityPlayer player = this.mc.thePlayer;
+			PlayerSpells spells = PlayerSpells.get(player);
+			if (spells.addSpell(spell))
 			{
+				this.arcaneForge.onSpellCrafted(player);
 				Minestrappolation.instance.netHandler.sendToServer(new SpellAddPacket(spell));
-				this.arcaneForge.onSpellCrafted();
 			}
 		}
 		else

@@ -8,6 +8,7 @@ import minestrapteam.minestrappolation.spell.data.SpellEnhancement;
 import minestrapteam.minestrappolation.spell.data.SpellType;
 import minestrapteam.minestrappolation.spell.data.SpellVariety;
 
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -75,7 +76,7 @@ public class TileEntityArcaneForge extends TileEntityInventory
 		}
 	}
 	
-	public void onSpellCrafted()
+	public void onSpellCrafted(EntityPlayer player)
 	{
 		for (int i = 0; i < 8; i++)
 		{

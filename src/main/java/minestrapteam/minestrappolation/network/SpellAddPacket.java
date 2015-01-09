@@ -46,12 +46,10 @@ public class SpellAddPacket extends CSPacket
 	public void handleServer(EntityPlayerMP player)
 	{
 		PlayerSpells spells = PlayerSpells.get(player);
-		spells.spells.add(this.spell);
-		
-		// Makes sure to consume the items on the server
-		if (player.openContainer instanceof ContainerArcaneForge)
+		if (spells.addSpell(this.spell) && player.openContainer instanceof ContainerArcaneForge)
 		{
-			((ContainerArcaneForge) player.openContainer).arcaneForge.onSpellCrafted();
+			// Makes sure to consume the items on the server
+			((ContainerArcaneForge) player.openContainer).arcaneForge.onSpellCrafted(player);
 		}
 	}
 }

@@ -76,6 +76,15 @@ public class PlayerSpells implements IExtendedEntityProperties
 		this.selectedSpells[slot] = spell;
 	}
 	
+	public boolean addSpell(Spell spell)
+	{
+		if (!this.spells.contains(spell))
+		{
+			return this.spells.add(spell);
+		}
+		return false;
+	}
+	
 	@Override
 	public void saveNBTData(NBTTagCompound nbt)
 	{
@@ -91,13 +100,17 @@ public class PlayerSpells implements IExtendedEntityProperties
 		}
 		nbt.setTag("Spells", list);
 		
-		int[] selectedSpells = new int[9];
-		for (int i = 0; i < 9; i++)
+		list = new NBTTagList();
+		for (Spell spell : this.selectedSpells)
 		{
-			Spell spell = this.selectedSpells[i];
-			selectedSpells[i] = this.spells.indexOf(spell);
+			NBTTagCompound nbt1 = new NBTTagCompound();
+			if (spell != null)
+			{
+				SpellHandler.writeToNBT(spell, nbt1);
+			}
+			list.appendTag(nbt1);
 		}
-		nbt.setIntArray("SelectedSpells", selectedSpells);
+		nbt.setTag("HotbarSpells", list);
 	}
 	
 	@Override
@@ -119,18 +132,15 @@ public class PlayerSpells implements IExtendedEntityProperties
 			}
 		}
 		
-		int[] selectedSpells = nbt.getIntArray("SelectedSpells");
+		list = (NBTTagList) nbt.getTag("HotbarSpells");
 		this.selectedSpells = new Spell[9];
-		if (selectedSpells != null)
+		if (list != null)
 		{
 			for (int i = 0; i < 9; i++)
 			{
-				int index = selectedSpells[i];
-				if (index >= 0 && index < this.spells.size())
-				{
-					Spell spell = this.spells.get(index);
-					this.selectedSpells[i] = spell;
-				}
+				NBTTagCompound nbt1 = list.getCompoundTagAt(i);
+				Spell spell = SpellHandler.readFromNBT(nbt1);
+				this.selectedSpells[i] = spell;
 			}
 		}
 	}
