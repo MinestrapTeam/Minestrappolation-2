@@ -212,8 +212,11 @@ public class ItemFishFood2 extends MItemFood
 		public static FishType getFishType(int id)
 		{
 			FishType[] values = values();
-			FishType fishtype = id >= 0 && id < values.length ? values[id] : COD;
-			return fishtype == null ? COD : fishtype;
+
+			FishType fishtype = id >= 0 && id < values.length ? 
+
+
+			return id >= 0 && id < values.length ? values[id] : COD;
 		}
 		
 		public static FishType getFishType(ItemStack stack)
