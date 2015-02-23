@@ -20,7 +20,7 @@ public class ContainerCrate extends ContainerInventory
 				this.addSlotToContainer(new Slot(crate, k + j * 9, 8 + k * 18, 18 + j * 18 - 1));
 			}
 		}
-		this.addInventorySlots(0, -18);
+		this.addInventorySlot(0, -18);
 	}
 	
 	@Override

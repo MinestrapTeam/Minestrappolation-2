@@ -1,52 +1,66 @@
 package minestrapteam.minestrappolation.spell;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
 import clashsoft.cslib.minecraft.lang.I18n;
-import clashsoft.cslib.random.CSRandom;
+import clashsoft.cslib.util.CSString;
 import minestrapteam.minestrappolation.spell.data.SpellCategory;
+import minestrapteam.minestrappolation.spell.data.SpellEnhancement;
 import minestrapteam.minestrappolation.spell.data.SpellType;
 import minestrapteam.minestrappolation.spell.data.SpellVariety;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.item.EnumRarity;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
 
-public class Spell implements ISpell
+public class Spell
 {
-	public static final Random	random	= new Random();
+	public static final Random		random	= new Random();
 	
-	public String				name;
-	public SpellCategory		category;
-	public SpellVariety			variety;
+	public String					name;
+	public SpellCategory			category;
+	public SpellVariety				variety;
+	public SpellEnhancement			enhancement;
 	
-	protected int[]				potencies;
+	private int[]					potencies;
 	
-	private int					totalPotency;
-	private int					displayColor;
-	private EnumRarity			rarity;
+	private transient int			totalPotency;
+	private transient int			displayColor;
+	private transient int			rarity;
 	
-	public Spell(SpellCategory category, SpellVariety variety, int[] potencies)
+	private transient List<String>	tooltip;
+	
+	public Spell(SpellCategory category, SpellVariety variety, SpellEnhancement enhancement, int[] potencies)
 	{
-		this(category, variety, potencies, CSRandom.getNextRandomName(random, 5, 8));
+		this(null, category, variety, enhancement, potencies);
 	}
 	
-	public Spell(SpellCategory category, SpellVariety variety, int[] potencies, String name)
+	public Spell(String name, SpellCategory category, SpellVariety variety, SpellEnhancement enhancement, int[] potencies)
 	{
-		this.name = name;
 		this.category = category;
 		this.variety = variety;
+		this.enhancement = enhancement;
 		this.setPotencies(potencies);
+		
+		if (name == null)
+		{
+			random.setSeed(this.hashCode());
+			this.name = SpellHandler.getRandomName(random);
+		}
+		else
+		{
+			this.name = name;
+		}
 	}
 	
 	public Spell setPotencies(int[] potencies)
 	{
-		this.potencies = potencies;
+		this.potencies = SpellRecipes.combinePotencies(potencies);
 		
 		float r = 0F;
 		float g = 0F;
@@ -69,16 +83,16 @@ public class Spell implements ISpell
 			if (potency > 0)
 			{
 				int color = SpellType.get(i).color;
-				float f1 = potency / 255F;
+				float f1 = potency / 100F;
 				
 				if (f1 > 1F)
 				{
 					f1 = 1F;
 				}
 				
-				r += ((color >> 16) & 0xFF) * f1;
-				g += ((color >> 8) & 0xFF) * f1;
-				b += ((color >> 0) & 0xFF) * f1;
+				r += (color >> 16 & 0xFF) * f1;
+				g += (color >> 8 & 0xFF) * f1;
+				b += (color >> 0 & 0xFF) * f1;
 				totalPotency += potency;
 				f += f1;
 			}
@@ -88,65 +102,57 @@ public class Spell implements ISpell
 		g /= f;
 		b /= f;
 		
-		if (this.rarity == null)
-		{
-			if (totalPotency >= 1023)
-			{
-				this.rarity = EnumRarity.epic;
-			}
-			else if (totalPotency >= 511)
-			{
-				this.rarity = EnumRarity.rare;
-			}
-			else if (totalPotency >= 255)
-			{
-				this.rarity = EnumRarity.uncommon;
-			}
-			else
-			{
-				this.rarity = EnumRarity.common;
-			}
-		}
+		this.rarity = totalPotency / 100;
 		
-		this.displayColor = (((int) r & 0xFF) << 16) | (((int) g & 0xFF) << 8) | (((int) b & 0xFF) << 0);
+		this.displayColor = ((int) r & 0xFF) << 16 | ((int) g & 0xFF) << 8 | ((int) b & 0xFF) << 0;
 		this.totalPotency = totalPotency;
 		
 		return this;
 	}
 	
-	@Override
+	public int[] getPotencies()
+	{
+		return this.potencies;
+	}
+	
 	public String getDisplayName()
 	{
 		return this.name;
 	}
 	
-	@Override
 	public int getDisplayColor()
 	{
 		return this.displayColor;
 	}
 	
-	@Override
-	public EnumRarity getRarity()
-	{
-		return this.rarity;
-	}
-	
-	@Override
 	public boolean hasVariety(SpellVariety variety)
 	{
 		return this.variety == variety;
 	}
 	
-	@Override
-	public List<String> getTooltip(int level)
+	public List<String> getTooltip()
 	{
+		if (this.tooltip != null)
+		{
+			return this.tooltip;
+		}
+		
 		List<String> list = new ArrayList();
-		list.add(this.getRarity().rarityColor.toString() + EnumChatFormatting.UNDERLINE + this.getDisplayName());
-		list.add(EnumChatFormatting.ITALIC + this.category.getDisplayName() + " " + this.variety.getDisplayName() + " " + I18n.getString("spell.spell"));
+		
+		list.add(this.getDisplayName());
+		list.add("\u00a77\u00a7o" + I18n.getString("spell.info", CSString.convertToRoman(this.rarity + 1), this.variety.getDisplayName()));
+		
+		if (this.enhancement != null)
+		{
+			list.add("\u00a77" + I18n.getString("spell.enhancement", this.enhancement.getDisplayName()));
+		}
 		
 		if (this.totalPotency > 0)
 		{
+			list.add("");
+			
+			int count = 0;
+			
 			for (int i = 0; i < this.potencies.length; i++)
 			{
 				int potency = this.potencies[i];
@@ -157,27 +163,33 @@ public class Spell implements ISpell
 				
 				SpellType type = SpellType.get(i);
 				list.add(type.chatColor + I18n.getString(type.getUnlocalizedName() + ".potency", potency));
+				count++;
 			}
 			
-			list.add(EnumChatFormatting.AQUA + I18n.getString("spell.total_potency", this.totalPotency));
+			if (count > 1)
+			{
+				list.add(EnumChatFormatting.AQUA + I18n.getString("spell.total_potency", this.totalPotency));
+			}
+		}
+		else
+		{
+			list.add(EnumChatFormatting.RED + I18n.getString("spell.no_potency"));
 		}
 		
-		this.addInformation(list, level);
+		this.addInformation(list);
+		this.tooltip = list;
 		
 		return list;
 	}
 	
-	@Override
-	public void addInformation(List<String> list, int level)
+	public void addInformation(List<String> list)
 	{
 	}
 	
-	@Override
 	public void registerIcons(IIconRegister iconRegister)
 	{
 	}
 	
-	@Override
 	public IIcon getIcon(int pass)
 	{
 		if (pass == 1)
@@ -188,10 +200,13 @@ public class Spell implements ISpell
 		{
 			return this.variety.icon;
 		}
-		return SpellHandler.SPELL_BACKGROUND;
+		else if (pass == 3)
+		{
+			return this.enhancement.icon;
+		}
+		return SpellHandler.spellBackgrounds[this.rarity > 5 ? 5 : this.rarity];
 	}
 	
-	@Override
 	public int getRenderColor(int pass)
 	{
 		if (pass != 0)
@@ -201,22 +216,78 @@ public class Spell implements ISpell
 		return 0xFFFFFF;
 	}
 	
-	@Override
 	public int getRenderPasses()
 	{
-		return 3;
+		return this.enhancement == null ? 3 : 4;
 	}
 	
-	@Override
 	public void onSpellRightClick(PlayerSpells spells, EntityPlayerMP player)
 	{
-		
+		// TODO Subtract Mana, cast spell
+	}
+	
+	public boolean castSpell(EntityPlayer player)
+	{
+		// TODO Implementation
+		return true;
 	}
 	
 	@Override
-	public boolean castSpell(EntityPlayer player)
+	public int hashCode()
 	{
-		System.out.println(this.name);
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (this.category == null ? 0 : this.category.hashCode());
+		result = prime * result + (this.variety == null ? 0 : this.variety.hashCode());
+		result = prime * result + (this.enhancement == null ? 0 : this.enhancement.hashCode());
+		result = prime * result + Arrays.hashCode(this.potencies);
+		return result;
+	}
+	
+	@Override
+	public boolean equals(Object obj)
+	{
+		if (this == obj)
+		{
+			return true;
+		}
+		if (obj == null)
+		{
+			return false;
+		}
+		if (this.getClass() != obj.getClass())
+		{
+			return false;
+		}
+		Spell other = (Spell) obj;
+		if (this.category != other.category)
+		{
+			return false;
+		}
+		if (this.enhancement != other.enhancement)
+		{
+			return false;
+		}
+		if (this.variety != other.variety)
+		{
+			return false;
+		}
+		if (!Arrays.equals(this.potencies, other.potencies))
+		{
+			return false;
+		}
 		return true;
+	}
+	
+	@Override
+	public String toString()
+	{
+		StringBuilder builder = new StringBuilder();
+		builder.append("Spell [name=").append(this.name);
+		builder.append(", category=").append(this.category);
+		builder.append(", variety=").append(this.variety);
+		builder.append(", enhancement=").append(this.enhancement);
+		builder.append(", potencies=").append(Arrays.toString(this.potencies)).append("]");
+		return builder.toString();
 	}
 }

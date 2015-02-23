@@ -8,7 +8,7 @@ import org.lwjgl.opengl.GL11;
 import clashsoft.cslib.minecraft.lang.I18n;
 import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.network.SpellBarPacket;
-import minestrapteam.minestrappolation.spell.ISpell;
+import minestrapteam.minestrappolation.spell.Spell;
 import minestrapteam.minestrappolation.spell.PlayerSpells;
 import minestrapteam.minestrappolation.spell.data.SpellVariety;
 
@@ -32,10 +32,10 @@ public class GuiSpellInventory extends GuiScreen
 	public PlayerSpells						playerSpells;
 	
 	public SpellVariety						currentTab;
-	public List<ISpell>						spells;
+	public List<Spell>						spells;
 	
-	public ISpell							hoveringSpell;
-	public ISpell							grabbedSpell;
+	public Spell							hoveringSpell;
+	public Spell							grabbedSpell;
 	
 	public GuiSpellInventory(EntityPlayer player)
 	{
@@ -54,7 +54,7 @@ public class GuiSpellInventory extends GuiScreen
 	@Override
 	public void drawScreen(int mouseX, int mouseY, float partialTickTime)
 	{
-		for (int i = 0; i < SpellVariety.SPELL_VARIETIES.length; i++)
+		for (int i = 0; i < SpellVariety.spellVarieties.length; i++)
 		{
 			SpellVariety type = SpellVariety.get(i);
 			if (type != this.currentTab)
@@ -75,7 +75,7 @@ public class GuiSpellInventory extends GuiScreen
 		
 		for (int i = 0; i < 9; i++)
 		{
-			ISpell spell = null;
+			Spell spell = null;
 			int x = this.left + 8 + i * 18;
 			int y;
 			
@@ -109,10 +109,10 @@ public class GuiSpellInventory extends GuiScreen
 		
 		if (this.hoveringSpell != null)
 		{
-			this.drawHoveringText(this.hoveringSpell.getTooltip(0), mouseX, mouseY, this.fontRendererObj);
+			this.drawHoveringText(this.hoveringSpell.getTooltip(), mouseX, mouseY, this.fontRendererObj);
 		}
 		
-		for (int i = 0; i < 8; i++)
+		for (int i = 0; i < SpellVariety.spellVarieties.length; i++)
 		{
 			if (this.isMouseOverTab(i, mouseX, mouseY))
 			{
@@ -122,7 +122,7 @@ public class GuiSpellInventory extends GuiScreen
 		}
 	}
 	
-	public boolean drawSpellSlot(ISpell spell, int x, int y, int mouseX, int mouseY)
+	public boolean drawSpellSlot(Spell spell, int x, int y, int mouseX, int mouseY)
 	{
 		GL11.glColor4f(1F, 1F, 1F, 1F);
 		
@@ -151,13 +151,13 @@ public class GuiSpellInventory extends GuiScreen
 	protected void renderTab(SpellVariety type, int mouseX, int mouseY, boolean selected)
 	{
 		int id = type.id;
-		int i1 = id % 4;
-		int x = this.left + i1 * 48;
+		int i1 = id % 8;
+		int x = this.left + (int) (i1 * 21.25F);
 		int y = this.top - 28;
-		int u = i1 * 28;
+		int u = i1 == 0 ? 0 : i1 == 7 ? 140 : 28;
 		int v = selected ? 32 : 0;
 		
-		if (id >= 4)
+		if (id >= 8)
 		{
 			y += 160;
 			v += 64;
@@ -183,7 +183,7 @@ public class GuiSpellInventory extends GuiScreen
 			return;
 		}
 		
-		for (int i = 0; i < SpellVariety.SPELL_VARIETIES.length; i++)
+		for (int i = 0; i < SpellVariety.spellVarieties.length; i++)
 		{
 			if (this.isMouseOverTab(i, x, y))
 			{
@@ -218,7 +218,7 @@ public class GuiSpellInventory extends GuiScreen
 			{
 				Minestrappolation.instance.netHandler.sendToServer(new SpellBarPacket(i, this.grabbedSpell));
 				
-				ISpell spell = this.playerSpells.getSpell(i);
+				Spell spell = this.playerSpells.getSpell(i);
 				this.playerSpells.setSpell(i, this.grabbedSpell);
 				
 				if (!Keyboard.isKeyDown(Keyboard.KEY_LSHIFT))
@@ -241,11 +241,11 @@ public class GuiSpellInventory extends GuiScreen
 	
 	public boolean isMouseOverTab(int type, int mouseX, int mouseY)
 	{
-		int i1 = type % 4;
-		int x1 = this.left + i1 * 48;
+		int i1 = type % 8;
+		int x1 = this.left + i1 * 21;
 		int y1 = this.top - 28;
 		
-		if (type >= 4)
+		if (type >= 8)
 		{
 			y1 += 160;
 		}
@@ -259,7 +259,7 @@ public class GuiSpellInventory extends GuiScreen
 		this.spells = tab.getSpells(this.playerSpells);
 	}
 	
-	public static void renderSpellIcon(ISpell spell, int x, int y)
+	public static void renderSpellIcon(Spell spell, int x, int y)
 	{
 		for (int i = 0; i < spell.getRenderPasses(); i++)
 		{

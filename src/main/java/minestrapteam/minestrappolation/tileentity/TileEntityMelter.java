@@ -2,7 +2,7 @@ package minestrapteam.minestrappolation.tileentity;
 
 import clashsoft.cslib.minecraft.stack.CSStacks;
 import clashsoft.cslib.minecraft.tileentity.TileEntityInventory;
-import minestrapteam.minestrappolation.block.BlockMelter;
+import minestrapteam.minestrappolation.block.machine.BlockMelter;
 import minestrapteam.minestrappolation.crafting.MelterRecipes;
 import minestrapteam.minestrappolation.lib.MItems;
 

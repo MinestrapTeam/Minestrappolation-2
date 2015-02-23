@@ -261,4 +261,11 @@ public class MUtil
 	{
 		CSCrafting.removeRecipe(output);
 	}
+	
+	public static double getVolume(Block block)
+	{
+		return block.getBlockBoundsMaxX() - block.getBlockBoundsMinX() * // x
+				block.getBlockBoundsMaxY() - block.getBlockBoundsMinY() * // y
+				block.getBlockBoundsMaxZ() - block.getBlockBoundsMinZ(); // z
+	}
 }

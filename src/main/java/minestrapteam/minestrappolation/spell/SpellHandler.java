@@ -1,22 +1,26 @@
 package minestrapteam.minestrappolation.spell;
 
 import java.io.IOException;
-import java.util.Iterator;
+import java.util.Random;
 
+import clashsoft.cslib.random.CSRandom;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import minestrapteam.minestrappolation.spell.data.SpellCategory;
+import minestrapteam.minestrappolation.spell.data.SpellEnhancement;
+import minestrapteam.minestrappolation.spell.data.SpellType;
 import minestrapteam.minestrappolation.spell.data.SpellVariety;
 import minestrapteam.minestrappolation.util.MAssetManager;
 
 import net.minecraft.client.renderer.texture.TextureMap;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.IIcon;
 
 public class SpellHandler
 {
 	@SideOnly(Side.CLIENT)
-	public static IIcon	SPELL_BACKGROUND;
+	public static IIcon[]	spellBackgrounds;
 	
 	public static void registerIcons(TextureMap textureMap)
 	{
@@ -25,16 +29,13 @@ public class SpellHandler
 			return;
 		}
 		
-		SPELL_BACKGROUND = textureMap.registerIcon(MAssetManager.getSpellTexture("background"));
-		
-		Iterator<ISpell> iterator = SpellPreset.presets.values().iterator();
-		while (iterator.hasNext())
+		spellBackgrounds = new IIcon[6];
+		for (int i = 0; i < 6; i++)
 		{
-			ISpell spell = iterator.next();
-			spell.registerIcons(textureMap);
+			spellBackgrounds[i] = textureMap.registerIcon(MAssetManager.getSpellTexture("background_" + i));
 		}
 		
-		for (SpellCategory category : SpellCategory.SPELL_CATEGORIES)
+		for (SpellCategory category : SpellCategory.spellCategories)
 		{
 			if (category != null)
 			{
@@ -42,63 +43,71 @@ public class SpellHandler
 			}
 		}
 		
-		for (SpellVariety variety : SpellVariety.SPELL_VARIETIES)
+		for (SpellVariety variety : SpellVariety.spellVarieties)
 		{
 			if (variety != null)
 			{
 				variety.registerIcons(textureMap);
 			}
 		}
-	}
-	
-	public static void writeToBuffer(ISpell spell, PacketBuffer buffer) throws IOException
-	{
-		if (spell instanceof SpellPreset)
+		
+		for (SpellEnhancement enhancement : SpellEnhancement.spellEnhancements)
 		{
-			buffer.writeByte(1);
-			buffer.writeStringToBuffer(((SpellPreset) spell).name);
-		}
-		else if (spell instanceof Spell)
-		{
-			Spell spell1 = (Spell) spell;
-			buffer.writeByte(0);
-			buffer.writeStringToBuffer(spell1.name);
-			buffer.writeByte(spell1.category.id);
-			buffer.writeByte(spell1.variety.id);
-			
-			for (int i = 0; i < 8; i++)
+			if (enhancement != null)
 			{
-				buffer.writeInt(spell1.potencies[i]);
+				enhancement.registerIcons(textureMap);
 			}
 		}
-		else
+	}
+	
+	public static String getRandomName(Random random)
+	{
+		return CSRandom.getNextRandomName(random, 5, 7) + " " + CSRandom.getNextRandomName(random, 5, 7);
+	}
+	
+	public static void writeToNBT(Spell spell, NBTTagCompound nbt)
+	{
+		nbt.setString("Name", spell.name);
+		nbt.setByte("Variety", spell.variety.id);
+		nbt.setByte("Enhancement", spell.enhancement.id);
+		nbt.setIntArray("Potencies", spell.getPotencies());
+	}
+	
+	public static Spell readFromNBT(NBTTagCompound nbt)
+	{
+		String name = nbt.getString("Name");
+		SpellVariety variety = SpellVariety.get(nbt.getByte("Variety"));
+		SpellEnhancement enhancement = SpellEnhancement.get(nbt.getByte("Enhancement"));
+		int[] potencies = nbt.getIntArray("Potencies");
+		return new Spell(name, variety.category, variety, enhancement, potencies);
+	}
+	
+	public static void writeToBuffer(Spell spell, PacketBuffer buffer) throws IOException
+	{
+		buffer.writeStringToBuffer(spell.name);
+		buffer.writeByte(spell.variety.id);
+		buffer.writeByte(spell.enhancement.id);
+		
+		int[] potencies = spell.getPotencies();
+		for (int i = 0; i < SpellType.spellTypes.length; i++)
 		{
-			buffer.writeByte(2);
+			buffer.writeInt(potencies[i]);
 		}
 	}
 	
-	public static ISpell readFromBuffer(PacketBuffer buffer) throws IOException
+	public static Spell readFromBuffer(PacketBuffer buffer) throws IOException
 	{
-		byte b = buffer.readByte();
-		if (b == 2)
-		{
-			return null;
-		}
-		
-		String s = buffer.readStringFromBuffer(0xFF);
-		if (b == 1)
-		{
-			return SpellPreset.presets.get(s);
-		}
-		
-		SpellCategory category = SpellCategory.get(buffer.readByte());
+		String name = buffer.readStringFromBuffer(0xFF);
 		SpellVariety variety = SpellVariety.get(buffer.readByte());
-		int[] potencies = new int[8];
-		for (int i = 0; i < 8; i++)
+		SpellEnhancement enhancement = SpellEnhancement.get(buffer.readByte());
+		
+		int len = SpellType.spellTypes.length;
+		int[] potencies = new int[len];
+		for (int i = 0; i < len; i++)
 		{
 			potencies[i] = buffer.readInt();
 		}
 		
-		return new Spell(category, variety, potencies, s);
+		return new Spell(name, variety.category, variety, enhancement, potencies);
 	}
 }

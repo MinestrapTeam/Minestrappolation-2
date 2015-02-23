@@ -8,7 +8,7 @@ import cpw.mods.fml.common.gameevent.TickEvent.Phase;
 import minestrapteam.minestrappolation.Minestrappolation;
 import minestrapteam.minestrappolation.client.MClientProxy;
 import minestrapteam.minestrappolation.network.SpellUsePacket;
-import minestrapteam.minestrappolation.spell.ISpell;
+import minestrapteam.minestrappolation.spell.Spell;
 import minestrapteam.minestrappolation.spell.PlayerSpells;
 import minestrapteam.minestrappolation.spell.SpellHandler;
 import minestrapteam.minestrappolation.spell.data.SpellType;
@@ -159,7 +159,7 @@ public class GuiSpellOverlay extends Gui
 		this.mc.renderEngine.bindTexture(TextureMap.locationItemsTexture);
 		for (int i = 0; i < 9; i++)
 		{
-			ISpell spell = this.spells.getSpell(i);
+			Spell spell = this.spells.getSpell(i);
 			if (spell == null)
 			{
 				continue;
@@ -171,7 +171,7 @@ public class GuiSpellOverlay extends Gui
 		// Spell Tooltip
 		if (this.spellHighlightTicks > 0)
 		{
-			ISpell spell = this.spells.getCurrentSpell();
+			Spell spell = this.spells.getCurrentSpell();
 			if (spell != null)
 			{
 				String name = spell.getDisplayName();

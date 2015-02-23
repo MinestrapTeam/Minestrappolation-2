@@ -53,6 +53,10 @@ public class MCommonProxy extends BaseProxy
 		{
 			return new ContainerFreezer(player.inventory, (TileEntityFreezer) world.getTileEntity(x, y, z));
 		}
+		else if (id == 7)
+		{
+			return new ContainerArcaneForge(player, (TileEntityArcaneForge) world.getTileEntity(x, y, z));
+		}
 		return null;
 	}
 }
